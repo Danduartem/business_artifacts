@@ -1,0 +1,569 @@
+# Stack Advisor Validation Rules
+# Rules for validating technology stack recommendations for SMB projects
+
+version: "1.0.0"
+last_updated: "2025-11-13"
+
+# ============================================================================
+# CURRENCY VALIDATION
+# ============================================================================
+currency_rules:
+  thresholds:
+    bleeding_edge: "2-weeks"    # Latest stable releases
+    current: "1-month"          # Recommended default
+    stable: "3-months"          # Battle-tested in production
+
+  validation:
+    - rule: "check_release_date"
+      check: "Last stable release within threshold"
+      severity: "error"
+      message: "Framework {name} v{version} released {date} exceeds currency threshold of {threshold}"
+
+    - rule: "check_maintenance"
+      check: "Active maintenance (commits within 3 months)"
+      severity: "warning"
+      message: "Framework {name} shows low maintenance activity - last commit {last_commit_date}"
+
+    - rule: "check_security_patches"
+      check: "Security patches released within 30 days of CVE"
+      severity: "error"
+      message: "Framework {name} has unpatched security vulnerabilities: {cve_list}"
+
+# ============================================================================
+# SMB APPROPRIATENESS VALIDATION
+# ============================================================================
+smb_fit_rules:
+  micro:  # 1-5 users, solo/freelancer
+    max_learning_curve: "low"
+    max_complexity: "simple"
+    require_managed_services: true
+    max_monthly_cost: 100
+
+  small:  # 5-50 users, small business
+    max_learning_curve: "medium"
+    max_complexity: "moderate"
+    prefer_managed_services: true
+    max_monthly_cost: 500
+
+  medium:  # 50-500 users, medium business
+    max_learning_curve: "medium-high"
+    max_complexity: "moderate"
+    allow_self_hosted: true
+    max_monthly_cost: 2000
+
+  validation:
+    - rule: "check_over_engineering"
+      check: "Technology complexity matches SMB scale"
+      severity: "warning"
+      examples:
+        avoid:
+          - "Kubernetes for 10 users"
+          - "Microservices for solo dev"
+          - "Kafka for simple message queue"
+          - "Elasticsearch for basic search"
+        prefer:
+          - "Single server for < 100 users"
+          - "Monolith for small team"
+          - "Redis for simple queues"
+          - "PostgreSQL full-text search"
+
+    - rule: "check_hiring_feasibility"
+      check: "Can realistically hire developers with this skill"
+      severity: "warning"
+      message: "Technology {name} has limited hiring pool - consider team growth needs"
+
+    - rule: "check_maintenance_burden"
+      check: "Team can maintain without dedicated DevOps"
+      severity: "error"
+      message: "Technology {name} requires dedicated DevOps resources inappropriate for {smb_scale}"
+
+# ============================================================================
+# COMPATIBILITY VALIDATION
+# ============================================================================
+compatibility_rules:
+  version_compatibility:
+    - rule: "check_major_version_compatibility"
+      check: "Frontend and backend framework versions are compatible"
+      severity: "error"
+      examples:
+        - "React 18 requires Node.js 16+"
+        - "Vue 3 requires Node.js 16+"
+        - "Next.js 14 requires Node.js 18.17+"
+
+    - rule: "check_database_driver"
+      check: "Backend framework has mature database driver"
+      severity: "error"
+      message: "No production-ready {database} driver for {backend_framework}"
+
+    - rule: "check_hosting_compatibility"
+      check: "Selected technologies work on chosen hosting platform"
+      severity: "error"
+      examples:
+        - "Vercel: Serverless functions only, no long-running processes"
+        - "Netlify: Similar to Vercel, JAMstack focus"
+        - "Railway/Render: Support traditional servers"
+
+  integration_compatibility:
+    - rule: "check_auth_integration"
+      check: "Auth service has SDK for chosen frontend/backend"
+      severity: "warning"
+      message: "Limited SDK support for {auth_service} with {framework}"
+
+    - rule: "check_payment_integration"
+      check: "Payment processor has SDK for chosen stack"
+      severity: "warning"
+      message: "No official SDK for {payment_service} with {framework}"
+
+  ecosystem_compatibility:
+    - rule: "check_ecosystem_maturity"
+      check: "Chosen frameworks have complementary ecosystem"
+      severity: "info"
+      message: "Consider ecosystem gaps: {missing_libraries}"
+
+# ============================================================================
+# SECURITY VALIDATION
+# ============================================================================
+security_rules:
+  authentication:
+    - rule: "require_auth_mechanism"
+      check: "Authentication strategy is defined"
+      severity: "error"
+      message: "No authentication mechanism specified for user-facing app"
+
+    - rule: "avoid_roll_your_own_auth"
+      check: "Using established auth service or library"
+      severity: "warning"
+      message: "Custom auth implementation detected - recommend established service"
+      examples:
+        recommended:
+          - "Clerk"
+          - "Supabase Auth"
+          - "Auth0"
+          - "Firebase Auth"
+          - "NextAuth.js"
+          - "Passport.js"
+
+    - rule: "check_password_storage"
+      check: "Password hashing is properly configured"
+      severity: "error"
+      message: "Must use bcrypt, argon2, or equivalent for password hashing"
+
+  data_protection:
+    - rule: "require_https"
+      check: "HTTPS enforced in production"
+      severity: "error"
+      message: "HTTPS must be enforced for all production traffic"
+
+    - rule: "check_sensitive_data_encryption"
+      check: "Encryption at rest for PII/sensitive data"
+      severity: "error"
+      message: "No encryption strategy defined for sensitive data: {data_types}"
+
+    - rule: "check_sql_injection_prevention"
+      check: "Using parameterized queries or ORM"
+      severity: "error"
+      message: "SQL injection risk - must use parameterized queries or ORM"
+
+  dependencies:
+    - rule: "check_known_vulnerabilities"
+      check: "No known high/critical vulnerabilities in dependencies"
+      severity: "error"
+      message: "Known vulnerabilities in dependencies: {vulnerable_packages}"
+      action: "Run npm audit or equivalent"
+
+    - rule: "check_dependency_maintenance"
+      check: "Core dependencies are actively maintained"
+      severity: "warning"
+      message: "Dependency {package} appears unmaintained - last update {last_update}"
+
+  compliance:
+    - rule: "check_gdpr_requirements"
+      condition: "European users"
+      check: "GDPR compliance measures defined"
+      severity: "error"
+      requirements:
+        - "Data deletion capability"
+        - "Data export capability"
+        - "Cookie consent"
+        - "Privacy policy"
+
+    - rule: "check_pci_requirements"
+      condition: "Payment card data"
+      check: "PCI DSS compliance measures defined"
+      severity: "error"
+      message: "Payment card handling requires PCI DSS compliance"
+      recommend: "Use Stripe/PayPal to avoid PCI scope"
+
+# ============================================================================
+# PERFORMANCE VALIDATION
+# ============================================================================
+performance_rules:
+  frontend:
+    - rule: "check_bundle_size"
+      check: "Initial bundle size appropriate for target users"
+      thresholds:
+        excellent: "< 100kb gzipped"
+        good: "< 200kb gzipped"
+        acceptable: "< 500kb gzipped"
+        poor: "> 500kb gzipped"
+      severity: "warning"
+      message: "Bundle size {size} may cause slow initial load"
+
+    - rule: "check_image_optimization"
+      check: "Image optimization strategy defined"
+      severity: "warning"
+      recommend:
+        - "Next.js Image component"
+        - "CloudinaryCloudflare Images"
+        - "Modern formats (WebP, AVIF)"
+        - "CDN delivery"
+
+    - rule: "check_code_splitting"
+      check: "Code splitting strategy for large apps"
+      condition: "App has 10+ routes"
+      severity: "info"
+      message: "Consider route-based code splitting for performance"
+
+  backend:
+    - rule: "check_database_indexing"
+      check: "Database indexing strategy defined"
+      severity: "warning"
+      message: "Define indexing strategy for frequently queried fields"
+
+    - rule: "check_n_plus_one"
+      check: "ORM configured to avoid N+1 queries"
+      severity: "warning"
+      message: "Ensure ORM uses eager loading to prevent N+1 queries"
+
+    - rule: "check_caching_strategy"
+      condition: "Expected traffic > 1000 requests/day"
+      check: "Caching strategy defined"
+      severity: "info"
+      recommend:
+        - "Redis for session/cache"
+        - "CDN for static assets"
+        - "HTTP caching headers"
+
+  database:
+    - rule: "check_connection_pooling"
+      check: "Database connection pooling configured"
+      severity: "warning"
+      message: "Configure connection pooling for {database}"
+
+    - rule: "check_query_optimization"
+      check: "Query performance monitoring planned"
+      severity: "info"
+      message: "Plan for query performance monitoring (explain analyze)"
+
+# ============================================================================
+# SCALABILITY VALIDATION
+# ============================================================================
+scalability_rules:
+  appropriateness:
+    - rule: "check_premature_optimization"
+      check: "Scaling strategy matches actual requirements"
+      severity: "warning"
+      examples:
+        avoid:
+          - "Multi-region deployment for local business"
+          - "Read replicas for < 10k users"
+          - "Horizontal scaling for < 100k users"
+          - "Microservices for < 5 developers"
+
+    - rule: "check_scale_ceiling"
+      check: "Architecture can scale to 10x current target"
+      severity: "info"
+      message: "Document scaling path for growth beyond {target_users} users"
+
+  database:
+    - rule: "check_vertical_scaling_headroom"
+      check: "Database can vertically scale for 10x growth"
+      severity: "info"
+      message: "Plan for database scaling path (vertical → read replicas → sharding)"
+
+    - rule: "check_connection_limits"
+      check: "Database connection limits sufficient for scale"
+      severity: "warning"
+      message: "Verify {database} connection limits support {expected_connections} connections"
+
+  infrastructure:
+    - rule: "check_serverless_appropriateness"
+      check: "Serverless suitable for usage patterns"
+      severity: "warning"
+      cold_start_acceptable:
+        - "Async background jobs"
+        - "Webhooks"
+        - "Low-traffic APIs"
+      cold_start_problematic:
+        - "User-facing requests requiring < 200ms response"
+        - "High-frequency APIs"
+
+    - rule: "check_cdn_usage"
+      condition: "Static assets or global users"
+      check: "CDN configured for static assets"
+      severity: "info"
+      message: "CDN recommended for static assets and global reach"
+
+# ============================================================================
+# COST VALIDATION
+# ============================================================================
+cost_rules:
+  infrastructure:
+    - rule: "check_free_tier_availability"
+      check: "Services have free tier for development"
+      severity: "info"
+      message: "Services with free tiers enable cost-effective development"
+
+    - rule: "check_production_costs"
+      check: "Production costs within SMB budget"
+      thresholds:
+        micro: 100    # USD/month
+        small: 500    # USD/month
+        medium: 2000  # USD/month
+      severity: "warning"
+      message: "Estimated costs ${estimated_cost}/month exceed ${threshold} for {smb_scale}"
+
+    - rule: "check_scaling_costs"
+      check: "Cost scaling is predictable and reasonable"
+      severity: "warning"
+      message: "Estimate costs at 10x usage: ${projected_cost}/month"
+
+  services:
+    - rule: "check_transaction_fees"
+      condition: "Payment processing"
+      check: "Transaction fees appropriate for business model"
+      severity: "warning"
+      examples:
+        - "Stripe: 2.9% + 30¢ - standard for most"
+        - "PayPal: 3.49% + 49¢ - higher fees"
+        - "Paddle: 5% + 50¢ - includes tax handling"
+
+    - rule: "check_vendor_lock_in_cost"
+      check: "Migration cost if vendor pricing changes"
+      severity: "info"
+      high_lock_in:
+        - "Firebase (proprietary database)"
+        - "Vercel (serverless-specific code)"
+        - "Netlify Functions (AWS Lambda, but vendor abstraction)"
+      low_lock_in:
+        - "PostgreSQL (portable)"
+        - "Docker containers (portable)"
+        - "Standard REST APIs (portable)"
+
+  licensing:
+    - rule: "check_license_compliance"
+      check: "All licenses compatible with commercial use"
+      severity: "error"
+      message: "License {license} for {package} incompatible with commercial use"
+      acceptable:
+        - "MIT"
+        - "Apache 2.0"
+        - "BSD"
+        - "ISC"
+      review_required:
+        - "GPL"
+        - "AGPL"
+        - "Custom licenses"
+
+# ============================================================================
+# TEAM VALIDATION
+# ============================================================================
+team_rules:
+  skills:
+    - rule: "check_skill_availability"
+      check: "Team has or can acquire required skills"
+      severity: "error"
+      message: "Skill gap identified: {missing_skills}"
+
+    - rule: "check_learning_curve"
+      check: "Learning curve acceptable for timeline"
+      severity: "warning"
+      estimates:
+        low: "1-2 weeks to productivity"
+        medium: "1-2 months to productivity"
+        high: "3-6 months to productivity"
+      message: "Technology {name} has {learning_curve} learning curve - factor into timeline"
+
+    - rule: "check_technology_diversity"
+      check: "Stack complexity manageable for team size"
+      severity: "warning"
+      guidelines:
+        solo: "1-2 languages max"
+        small_team: "2-3 languages reasonable"
+        medium_team: "3-4 languages manageable"
+      message: "Stack uses {language_count} languages - may be too complex for {team_size}"
+
+  hiring:
+    - rule: "check_hiring_market"
+      check: "Can hire developers for chosen technologies"
+      severity: "warning"
+      strong_markets:
+        - "JavaScript/TypeScript"
+        - "Python"
+        - "React"
+        - "Node.js"
+      weak_markets:
+        - "Ruby"
+        - "Elixir"
+        - "Clojure"
+        - "Elm"
+      message: "Limited hiring pool for {technology} - consider team growth"
+
+  maintenance:
+    - rule: "check_bus_factor"
+      check: "No single point of failure in knowledge"
+      severity: "warning"
+      message: "Ensure multiple team members understand {critical_technology}"
+
+    - rule: "check_documentation_plan"
+      check: "Documentation strategy defined"
+      severity: "info"
+      recommend:
+        - "README with setup instructions"
+        - "Architecture decision records (ADRs)"
+        - "API documentation"
+        - "Deployment runbook"
+
+# ============================================================================
+# PRODUCTION READINESS VALIDATION
+# ============================================================================
+production_rules:
+  monitoring:
+    - rule: "require_error_tracking"
+      check: "Error tracking service configured"
+      severity: "error"
+      message: "Must have error tracking (Sentry, LogRocket, etc.)"
+
+    - rule: "require_logging"
+      check: "Logging strategy defined"
+      severity: "warning"
+      message: "Define logging strategy and retention policy"
+
+    - rule: "require_uptime_monitoring"
+      check: "Uptime monitoring configured"
+      severity: "warning"
+      recommend:
+        - "UptimeRobot"
+        - "Pingdom"
+        - "Better Uptime"
+
+  deployment:
+    - rule: "require_ci_cd"
+      check: "CI/CD pipeline defined"
+      severity: "warning"
+      message: "Define CI/CD pipeline for automated testing and deployment"
+
+    - rule: "require_rollback_plan"
+      check: "Rollback procedure documented"
+      severity: "error"
+      message: "Must have documented rollback procedure"
+
+    - rule: "require_backup_strategy"
+      check: "Database backup strategy defined"
+      severity: "error"
+      message: "Must have automated database backups with tested restore"
+
+  testing:
+    - rule: "require_testing_strategy"
+      check: "Testing approach defined"
+      severity: "warning"
+      minimum:
+        - "Unit tests for critical business logic"
+        - "Integration tests for API endpoints"
+        - "E2E tests for critical user flows"
+
+    - rule: "check_test_coverage"
+      check: "Test coverage goals defined"
+      severity: "info"
+      recommend:
+        critical_paths: "80%+ coverage"
+        overall: "60%+ coverage"
+
+  environments:
+    - rule: "require_staging_environment"
+      check: "Staging environment exists"
+      severity: "warning"
+      message: "Staging environment recommended for production parity testing"
+
+    - rule: "check_environment_parity"
+      check: "Staging mirrors production"
+      severity: "info"
+      message: "Ensure staging environment closely matches production"
+
+# ============================================================================
+# BEST PRACTICES VALIDATION
+# ============================================================================
+best_practices:
+  general:
+    - rule: "prefer_boring_technology"
+      check: "Favor proven over bleeding-edge for SMB"
+      severity: "info"
+      message: "Consider if {technology} is mature enough for production use"
+
+    - rule: "avoid_unnecessary_complexity"
+      check: "Each technology choice has clear justification"
+      severity: "warning"
+      message: "Technology {name} adds complexity - ensure benefit outweighs cost"
+
+    - rule: "prefer_managed_services"
+      check: "Use managed services for non-core competencies"
+      severity: "info"
+      examples:
+        prefer_managed:
+          - "Managed databases over self-hosted"
+          - "Auth services over custom auth"
+          - "Managed hosting over VPS"
+        exceptions:
+          - "Cost at scale makes self-hosting viable"
+          - "Specific features not available in managed"
+          - "Regulatory requirements mandate self-hosting"
+
+  technology_choices:
+    - rule: "prefer_integrated_solutions"
+      check: "Minimize number of separate services"
+      severity: "info"
+      examples:
+        good: "Supabase (database + auth + storage + realtime)"
+        okay: "Separate services with clear integration"
+        avoid: "15 different services for simple app"
+
+    - rule: "check_framework_longevity"
+      check: "Framework has stable long-term future"
+      severity: "warning"
+      green_flags:
+        - "Corporate backing (Google, Meta, Vercel)"
+        - "10+ years of existence"
+        - "Large community"
+        - "Used by major companies"
+      red_flags:
+        - "Single maintainer"
+        - "Declining GitHub activity"
+        - "Community fragmentation"
+        - "Frequent breaking changes"
+
+# ============================================================================
+# VALIDATION SEVERITY LEVELS
+# ============================================================================
+severity_definitions:
+  error:
+    description: "Must be addressed - will likely cause failure"
+    action: "Fix before proceeding"
+
+  warning:
+    description: "Should be addressed - may cause problems"
+    action: "Address or document acceptance of risk"
+
+  info:
+    description: "Consider addressing - improves quality"
+    action: "Consider for optimization"
+
+# ============================================================================
+# VALIDATION EXECUTION NOTES
+# ============================================================================
+notes:
+  - "Run all validations during technology selection"
+  - "Re-validate before final recommendation"
+  - "Document any validation exceptions with rationale"
+  - "Severity levels can be adjusted based on project context"
+  - "Add project-specific rules as needed"
+  - "Validation is a guide, not absolute - use judgment"

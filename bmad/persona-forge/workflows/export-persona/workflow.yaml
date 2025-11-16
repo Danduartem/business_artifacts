@@ -1,0 +1,41 @@
+# Export Persona Workflow Configuration
+name: export-persona
+description: "Export personas to multiple formats (JSON, CSV, PDF-ready, CRM, API)"
+author: "Persona Forge"
+
+# Critical variables load from module config
+config_source: "{project-root}/bmad/persona-forge/config.yaml"
+output_folder: "{config_source}:output_folder"
+persona_output_folder: "{config_source}:persona_output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+
+# System variables
+date: system-generated
+
+# Module path and component files
+installed_path: "{project-root}/bmad/persona-forge/workflows/export-persona"
+template: false # Interactive workflow with export processing
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Output configuration
+export_output_folder: "{persona_output_folder}/exports"
+
+# Workflow state
+persona_to_export: null
+export_formats: []
+export_options: {}
+exports_generated: []
+
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  name: "export-persona"
+  description: "Export personas to multiple formats"
+  author: "Persona Forge"
+  instructions: "bmad/persona-forge/workflows/export-persona/instructions.md"
+  web_bundle_files:
+    - bmad/persona-forge/workflows/export-persona/instructions.md
+    - bmad/persona-forge/workflows/export-persona/checklist.md

@@ -1,0 +1,193 @@
+<task id="bmad/lp-architect/tasks/validation-framework.xml" name="Validation Framework" standalone="false">
+  <objective>Run two-layer validation on architecture blueprints (internal agent review + user confirmation)</objective>
+
+  <llm critical="true">
+    <mandate>Execute both validation layers systematically - strategic quality AND contextual accuracy</mandate>
+    <mandate>Flag issues clearly and provide specific recommendations</mandate>
+  </llm>
+
+  <inputs>
+    <input name="architecture_blueprint" required="true">The complete architecture with all sections</input>
+    <input name="business_context" required="true">Original business context from intake</input>
+    <input name="matrix_analysis" required="true">3D matrix position and requirements</input>
+    <input name="persona_psychology" required="true">Persona insights from The Whisperer</input>
+    <input name="competitive_research" required="true">Research findings from Agent Cipher</input>
+  </inputs>
+
+  <layer-1 title="Internal Agent Validation - Strategic Quality">
+    <description>Simulate each agent reviewing the blueprint against their expertise area</description>
+
+    <agent name="The Whisperer" role="Persona Psychology Validator">
+      <check priority="critical">Does architecture resonate with persona psychology?</check>
+      <check priority="critical">Are unspoken fears addressed at appropriate moments?</check>
+      <check priority="critical">Do messaging angles align with desires/motivations?</check>
+      <check priority="high">Will target persona "see themselves" in this journey?</check>
+      <check priority="high">Are emotional triggers placed strategically?</check>
+      <check priority="medium">Does tone/approach match persona preferences?</check>
+
+      <validation-criteria>
+        <pass>All critical persona insights reflected in architecture</pass>
+        <pass>Fears addressed proactively, not reactively</pass>
+        <pass>Desires emphasized in high-impact sections</pass>
+        <flag>Any persona misalignment between psychology and architecture</flag>
+        <flag>Missing objection handling for known concerns</flag>
+      </validation-criteria>
+    </agent>
+
+    <agent name="Conversion Strategist" role="Strategic Principles Validator">
+      <check priority="critical">Are all 7 conversion principles respected?</check>
+      <check priority="critical">Is the 5-step sequence properly implemented?</check>
+      <check priority="critical">Does section count match matrix requirements?</check>
+      <check priority="high">Is progressive revelation principle followed?</check>
+      <check priority="high">Are proof layers appropriate for price tier?</check>
+      <check priority="medium">Is friction minimized throughout journey?</check>
+
+      <validation-criteria>
+        <pass>Emotional→Logical flow evident</pass>
+        <pass>Trust built before high commitment asks</pass>
+        <pass>Attention scarcity respected (value first)</pass>
+        <pass>Social validation placed strategically</pass>
+        <pass>Clarity prioritized over cleverness</pass>
+        <pass>Persona match principle validated</pass>
+        <flag>Any principle violations</flag>
+        <flag>Section count mismatch with matrix</flag>
+        <flag>Proof insufficient for price tier</flag>
+      </validation-criteria>
+    </agent>
+
+    <agent name="Agent Cipher" role="Competitive Positioning Validator">
+      <check priority="critical">Does architecture differentiate from competitors?</check>
+      <check priority="high">Are niche best practices incorporated?</check>
+      <check priority="high">Is competitive positioning clear and distinct?</check>
+      <check priority="medium">Do sections leverage identified gaps?</check>
+
+      <validation-criteria>
+        <pass>Differentiation strategy evident</pass>
+        <pass>Competitive gaps addressed</pass>
+        <pass>Niche-specific patterns incorporated</pass>
+        <flag>Architecture too similar to competitors</flag>
+        <flag>Missing opportunities to stand out</flag>
+      </validation-criteria>
+    </agent>
+
+    <agent name="Director Arc" role="Narrative Flow Validator">
+      <check priority="critical">Does narrative flow cohesively from section to section?</check>
+      <check priority="critical">Does each section build on previous sections?</check>
+      <check priority="high">Is momentum building appropriately?</check>
+      <check priority="high">Is the 3-act structure clear?</check>
+      <check priority="medium">Are transitions between sections smooth?</check>
+
+      <validation-criteria>
+        <pass>Clear beginning, middle, end</pass>
+        <pass>Progressive revelation maintains engagement</pass>
+        <pass>Emotional arc intentional and effective</pass>
+        <pass>Logical connections between sections</pass>
+        <flag>Narrative gaps or disconnects</flag>
+        <flag>Momentum loss at any point</flag>
+        <flag>Sections feel disjointed or random</flag>
+      </validation-criteria>
+    </agent>
+
+    <synthesis>
+      <action>Compile all agent feedback</action>
+      <action>Identify critical issues requiring immediate fix</action>
+      <action>Identify high-priority recommendations</action>
+      <action>If critical issues exist, refine blueprint before Layer 2</action>
+      <action>If all clear, proceed to user validation</action>
+    </synthesis>
+  </layer-1>
+
+  <layer-2 title="User Confirmation Checkpoints - Contextual Accuracy">
+    <description>Present architecture to user with strategic validation questions</description>
+
+    <checkpoint n="1" focus="Strategic Approach Alignment">
+      <question>Present the overall strategic approach and lead section:
+
+"This architecture leads with [APPROACH] because [STRATEGIC REASON based on matrix/persona/research].
+
+Does this feel right for your audience and business positioning?"
+      </question>
+
+      <listen-for>
+        <signal type="green">Enthusiastic agreement or "that's exactly right"</signal>
+        <signal type="yellow">Hesitation or "maybe" responses</signal>
+        <signal type="red">Strong disagreement or "that won't work because..."</signal>
+      </listen-for>
+
+      <action>If yellow or red signal, probe deeper:
+- "What feels off about this approach?"
+- "What do you know about your audience that we might be missing?"
+- "How would you prefer to lead?"
+      </action>
+    </checkpoint>
+
+    <checkpoint n="2" focus="Persona Resonance">
+      <question>Validate persona-specific decisions:
+
+"We've placed [SECTION/EMPHASIS] in position X because [PERSONA INSIGHT from The Whisperer].
+
+Does this match what you know about your customers' actual concerns and desires?"
+      </question>
+
+      <listen-for>
+        <signal type="green">"Yes, that's exactly what they worry about"</signal>
+        <signal type="yellow">"Sort of, but there's also..."</signal>
+        <signal type="red">"No, my customers actually care more about..."</signal>
+      </listen-for>
+
+      <action>If misalignment detected:
+- Capture the real persona insight they're sharing
+- Adjust architecture to reflect true customer psychology
+- Re-validate with The Whisperer logic
+      </action>
+    </checkpoint>
+
+    <checkpoint n="3" focus="Competitive Differentiation">
+      <question>Confirm positioning strategy:
+
+"The differentiation strategy focuses on [GAP from Agent Cipher's research] to stand out from competitors who typically [COMMON PATTERN].
+
+Does this align with your competitive positioning goals?"
+      </question>
+
+      <listen-for>
+        <signal type="green">"Perfect, that's our unique advantage"</signal>
+        <signal type="yellow">"Maybe, but I'm not sure about..."</signal>
+        <signal type="red">"Actually, we compete differently by..."</signal>
+      </listen-for>
+
+      <action>If concerns raised:
+- Understand their competitive strategy better
+- Adjust differentiation approach accordingly
+- Re-validate with Agent Cipher logic
+      </action>
+    </checkpoint>
+
+    <iteration>
+      <rule>If user identifies misalignments in any checkpoint:</rule>
+      <action>Discuss the concern to understand context</action>
+      <action>Capture insights they have that agents didn't</action>
+      <action>Refine blueprint to incorporate new understanding</action>
+      <action>Re-run Layer 1 validation on changes</action>
+      <action>Present refined version to user</action>
+      <action>Iterate until user confirms alignment</action>
+    </iteration>
+  </layer-2>
+
+  <outputs>
+    <output name="validation_results">Complete validation report from both layers</output>
+    <output name="layer_1_feedback">Individual agent feedback and checks</output>
+    <output name="layer_2_confirmations">User checkpoint responses</output>
+    <output name="flagged_issues">Any critical or high-priority issues found</output>
+    <output name="recommendations">Specific improvements suggested</output>
+    <output name="final_status">Pass | Pass with recommendations | Needs revision</output>
+  </outputs>
+
+  <validation>
+    <check>Both layers executed completely</check>
+    <check>All agent validations documented</check>
+    <check>All user checkpoints addressed</check>
+    <check>Any issues either resolved or documented</check>
+    <check>Final architecture approved by user</check>
+  </validation>
+</task>

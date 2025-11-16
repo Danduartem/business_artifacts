@@ -1,0 +1,42 @@
+# Personal Customization for Offer Forge Agent
+# Experiment freely - changes merge with core agent at build time
+# Created: 2025-11-04
+
+agent:
+  metadata:
+    # Try different names or nicknames
+    name: ''
+    title: ''
+    icon: ''
+
+  persona:
+    # Experiment with role variations
+    role: ''
+
+    # Add to or modify identity
+    identity: ''
+
+    # Switch communication styles anytime
+    # Options: Direct Consultant, Supportive Mentor, Analytical Expert, etc.
+    communication_style: ''
+
+    # Add or modify principles
+    principles: []
+
+  # Add personal commands that only you use
+  menu: []
+    # Example:
+    # - trigger: my-custom-command
+    #   workflow: '{project-root}/my-workflows/custom.yaml'
+    #   description: 'My personal workflow'
+
+  # Add custom critical actions for your workflow
+  critical_actions: []
+    # Example:
+    # - 'Load my personal preferences from {project-root}/my-config.yaml'
+
+# NOTES:
+# - Empty strings ('') mean "use default from core agent"
+# - Empty arrays ([]) mean "use defaults, don't add anything"
+# - Non-empty values OVERRIDE the core agent settings
+# - This file is optional - delete it to use pure core agent

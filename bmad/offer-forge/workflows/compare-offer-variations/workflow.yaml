@@ -1,0 +1,148 @@
+# Compare Offer Variations Workflow Configuration
+# Module: offer-forge
+# Version: 1.0.0 (V3)
+# Date: 2025-11-04
+
+workflow:
+  name: compare-offer-variations
+  description: Create and manage A/B test variations of offers to scientifically test pricing, messaging, or structural changes
+  author: Daniel
+  version: 1.0.0
+  module: offer-forge
+  type: action
+
+  config_source: "{project-root}/bmad/offer-forge/config.yaml"
+
+  # Standard config variables (BMAD v6 required)
+  output_folder: "{config_source}:output_folder"
+  user_name: "{config_source}:user_name"
+  communication_language: "{config_source}:communication_language"
+  date: system-generated
+
+  installed_path: "{project-root}/bmad/offer-forge/workflows/compare-offer-variations"
+
+  # Action workflow - generates test variations and comparison reports
+  template: false
+
+  # Workflow execution instructions
+  instructions: "{installed_path}/instructions.md"
+
+  # This workflow can be invoked directly via hub agent
+  standalone: true
+
+  # Input requirements
+  input:
+    required:
+      - control_offer_stack_path  # Path to current/control offer stack
+      - test_hypothesis  # What are you testing?
+    optional:
+      - variation_type  # pricing, messaging, structure, or combination
+      - num_variations  # How many variations to test (default: 1)
+      - existing_test_results  # Results from previous tests
+
+  # Output configuration
+  output:
+    location: "{output_folder}"
+    naming_pattern: "{business_name}-ab-test-{test_id}.md"
+    generate_test_plan: true
+    generate_analysis_framework: true
+
+  # Documentation: Required agents (invoked by name in instructions, not by path)
+  dependencies:
+    agents:
+      - "{project-root}/bmad/offer-forge/agents/offer-architect.agent.yaml"
+      - "{project-root}/bmad/offer-forge/agents/value-proposition-specialist.agent.yaml"
+      - "{project-root}/bmad/offer-forge/agents/pricing-strategist.agent.yaml"
+      - "{project-root}/bmad/offer-forge/agents/senior-offer-specialist.agent.yaml"
+
+  # Documentation: Test variation types (reference for understanding workflow)
+  variation_types:
+    pricing:
+      description: "Test different price points or payment structures"
+      what_changes: ["price_points", "payment_options", "price_framing"]
+      what_stays_same: ["features", "messaging", "support_levels"]
+
+    messaging:
+      description: "Test different value propositions, headlines, or copy"
+      what_changes: ["headlines", "usps", "transformation_narratives", "ctas"]
+      what_stays_same: ["price", "features", "structure"]
+
+    structural:
+      description: "Test different feature bundles or tier configurations"
+      what_changes: ["features", "support_levels", "deliverables"]
+      what_stays_same: ["core_transformation", "brand_voice"]
+
+    combination:
+      description: "Test multiple elements simultaneously"
+      what_changes: ["custom_selection"]
+      what_stays_same: ["custom_selection"]
+
+  # Documentation: Test methodologies (reference for understanding workflow)
+  test_methodologies:
+    classic_ab:
+      description: "50/50 split between control and one variation"
+      traffic_split: [50, 50]
+      num_variations: 1
+
+    abc_test:
+      description: "Equal split between control and two variations"
+      traffic_split: [33, 33, 34]
+      num_variations: 2
+
+    multi_variant:
+      description: "Test 3+ variations simultaneously"
+      traffic_split: "equal"
+      num_variations: "3+"
+
+    sequential:
+      description: "Test variations one at a time (safer for small traffic)"
+      traffic_split: [100]
+      num_variations: 1
+
+  # Documentation: Workflow phases (not programmatically enforced in instructions)
+  phases:
+    - id: load_control
+      name: "Load Control Offer"
+      description: "Load existing offer stack as control/baseline"
+      interaction_level: low
+
+    - id: define_hypothesis
+      name: "Define Test Hypothesis"
+      description: "Clarify what you're testing and why"
+      interaction_level: high
+
+    - id: create_variation
+      name: "Create Test Variation(s)"
+      description: "Generate variation(s) based on hypothesis"
+      interaction_level: low
+      conditional: true  # Based on variation_type
+
+    - id: validate_test_integrity
+      name: "Validate Test Integrity"
+      description: "Ensure test is fair and scientifically sound"
+      agent: senior-offer-specialist
+      interaction_level: low
+
+    - id: generate_test_plan
+      name: "Generate Test Plan"
+      description: "Create implementation guide and success criteria"
+      interaction_level: low
+
+    - id: analyze_results
+      name: "Analyze Test Results"
+      description: "Analyze results and determine winner (if results provided)"
+      interaction_level: high
+      conditional: true  # Only if test results provided
+
+  # Web bundle configuration for sharing/distribution
+  web_bundle:
+    name: "compare-offer-variations"
+    description: "Create and manage A/B test variations of offers to scientifically test pricing, messaging, or structural changes"
+    files:
+      - "bmad/offer-forge/workflows/compare-offer-variations/workflow.yaml"
+      - "bmad/offer-forge/workflows/compare-offer-variations/instructions.md"
+    agents_required:
+      - "bmad/offer-forge/agents/offer-architect.agent.yaml"
+      - "bmad/offer-forge/agents/value-proposition-specialist.agent.yaml"
+      - "bmad/offer-forge/agents/pricing-strategist.agent.yaml"
+      - "bmad/offer-forge/agents/senior-offer-specialist.agent.yaml"

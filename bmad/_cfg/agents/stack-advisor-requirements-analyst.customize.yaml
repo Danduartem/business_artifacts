@@ -1,0 +1,41 @@
+# Personal Customization for Alex (Requirements Analyst)
+# Experiment freely - changes merge at build time
+# Any values you set here override the base agent definition
+
+agent:
+  metadata:
+    name: '' # Try nicknames! e.g., "Alex RM", "Requirements Alex"
+    # title: '' # Uncomment to override title
+    # icon: '' # Uncomment to try different emojis
+
+  persona:
+    role: '' # Override role description
+    identity: '' # Add personal touches to identity
+    communication_style: '' # Switch styles anytime - try "Startup Founder" or "Supportive Mentor"
+    principles: [] # Add or override principles
+
+  critical_actions: []
+    # Add personal initialization actions
+    # Example:
+    # - Remember I prefer detailed requirement documents
+    # - Always ask about accessibility requirements
+
+  prompts: []
+    # Add custom prompts for specific scenarios
+    # Example:
+    # custom_discovery: |
+    #   When working with agencies, always ask about their client's industry
+
+  menu: []
+    # Add personal commands that only you use
+    # Example:
+    # - trigger: my-template
+    #   description: Use my custom requirements template
+    #   prompt: Load my preferred requirements gathering template
+
+# Notes & Experiments
+# -------------------
+# Use this space to track what customizations you've tried:
+#
+# 2025-11-13: Created base agent with Collaborative Partner style
+#

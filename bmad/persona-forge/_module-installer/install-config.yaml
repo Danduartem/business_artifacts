@@ -1,0 +1,48 @@
+# Persona Forge Module Configuration
+# This file defines installation questions and module configuration values
+
+code: persona-forge
+name: "Persona Forge"
+default_selected: false
+
+# Welcome message shown during installation
+prompt:
+  - "Thank you for choosing Persona Forge!"
+  - "Generate research-validated customer personas based on Eugene Schwartz's 5 Levels of Customer Awareness."
+  - "Create actionable intelligence for your entire go-to-market team."
+
+# Core config values are automatically inherited:
+## user_name
+## communication_language
+## document_output_language
+## output_folder
+
+# ============================================================================
+# CONFIGURATION FIELDS
+# ============================================================================
+
+# INTERACTIVE: Ask user where to save persona documents
+persona_output_folder:
+  prompt: "Where should Persona Forge save generated persona documents?"
+  default: "{output_folder}/personas"
+  result: "{project-root}/{value}"
+
+# STATIC: Default research depth for MVP
+default_research_depth:
+  result: "standard"
+
+# STATIC: Maximum persona count (V2 supports 2-3)
+max_persona_count:
+  result: "3"
+
+# STATIC: Module data path
+module_data_path:
+  result: "{project-root}/bmad/persona-forge/data"
+
+# STATIC: Templates path
+templates_path:
+  result: "{project-root}/bmad/persona-forge/templates"
+
+# STATIC: Module version
+module_version:
+  result: "3.0.0"

@@ -1,0 +1,336 @@
+# Design Principles
+
+**Project:** [Your Project Name]
+**Last Updated:** [Date]
+
+This file defines the design quality standards and principles that Design Forge should follow when generating prototypes for your project.
+
+---
+
+## Core Design Principles
+
+### 1. Accessibility First
+
+**Standard:** WCAG 2.1 AA minimum
+
+**Requirements:**
+- Color contrast ratios: 4.5:1 for normal text, 3:1 for large text
+- All interactive elements keyboard accessible
+- Semantic HTML structure (proper headings, landmarks, alt text)
+- Focus indicators visible and clear
+- Text resizable up to 200% without loss of functionality
+
+**Why:** Accessible design is inclusive design. It benefits all users.
+
+---
+
+### 2. Mobile-First Responsive
+
+**Standard:** Fully functional on all viewport sizes
+
+**Breakpoints:**
+- Mobile: 375px (iPhone SE)
+- Tablet: 768px (iPad Portrait)
+- Desktop: 1440px (Standard Monitor)
+
+**Requirements:**
+- Touch-friendly tap targets (min 44×44px)
+- Readable text without zooming (min 16px)
+- No horizontal scrolling on mobile
+- Optimized images for each breakpoint
+
+**Why:** Mobile traffic exceeds desktop. Mobile experience must be excellent.
+
+---
+
+### 3. Performance
+
+**Standard:** Fast load times, smooth interactions
+
+**Requirements:**
+- 60fps animations (use transform and opacity for animations)
+- Self-contained HTML (no external dependencies when possible)
+- Optimized assets (compressed images, minimal CSS/JS)
+- Progressive enhancement (works without JavaScript)
+
+**Why:** Users abandon slow sites. Performance is a feature.
+
+---
+
+### 4. Visual Hierarchy
+
+**Standard:** Clear information architecture
+
+**Requirements:**
+- One primary action per screen/section
+- F-pattern or Z-pattern reading flow
+- Clear distinction between primary, secondary, tertiary elements
+- Adequate whitespace (breathing room)
+- Scannable content (headings, lists, short paragraphs)
+
+**Why:** Users scan, they don't read. Hierarchy guides attention.
+
+---
+
+### 5. Consistency
+
+**Standard:** Coherent design language throughout
+
+**Requirements:**
+- Consistent spacing system (8px grid recommended)
+- Consistent typography scale (modular scale)
+- Consistent color usage (primary, secondary, accent)
+- Consistent component styling (buttons, cards, forms)
+- Consistent interaction patterns
+
+**Why:** Consistency reduces cognitive load. Familiar patterns feel intuitive.
+
+---
+
+## Typography Standards
+
+### Font Families
+
+**Primary (Headings):**
+- Recommended: System fonts (-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto)
+- Or: [Your brand font]
+
+**Secondary (Body):**
+- Recommended: System fonts for readability
+- Or: [Your brand font]
+
+### Type Scale
+
+**Recommended modular scale (1.25 ratio):**
+- h1: 48px / 3rem
+- h2: 39px / 2.441rem
+- h3: 31px / 1.953rem
+- h4: 25px / 1.563rem
+- h5: 20px / 1.25rem
+- body: 16px / 1rem
+- small: 13px / 0.8rem
+
+### Line Height
+
+- Headings: 1.2 - 1.3
+- Body text: 1.5 - 1.7
+- Large text (>24px): 1.4
+
+### Font Weights
+
+- Light: 300 (optional, use sparingly)
+- Regular: 400 (body text)
+- Medium: 500 (emphasis)
+- Bold: 700 (headings, strong emphasis)
+
+---
+
+## Color Standards
+
+### Palette Structure
+
+**Primary Color:**
+- Main brand color
+- Used for: Primary buttons, links, key UI elements
+- Example: #2563EB (Blue)
+
+**Secondary Color:**
+- Supporting brand color
+- Used for: Secondary actions, accents
+- Example: #7C3AED (Purple)
+
+**Neutral Colors:**
+- Grays for text, backgrounds, borders
+- Range: #FFFFFF (white) → #000000 (black)
+- Typically 5-7 shades
+
+**Semantic Colors:**
+- Success: Green (#10B981)
+- Warning: Yellow/Orange (#F59E0B)
+- Error: Red (#EF4444)
+- Info: Blue (#3B82F6)
+
+### Contrast Requirements
+
+**Text on backgrounds:**
+- Normal text (16px): 4.5:1 minimum
+- Large text (24px+): 3:1 minimum
+- Interactive elements: 3:1 minimum
+
+**Testing:** Use WebAIM Contrast Checker
+
+---
+
+## Spacing Standards
+
+### Spacing Scale (8px grid)
+
+- 4px (0.25rem) - Tight spacing
+- 8px (0.5rem) - Small spacing
+- 12px (0.75rem) - Default gap
+- 16px (1rem) - Base unit
+- 24px (1.5rem) - Medium spacing
+- 32px (2rem) - Large spacing
+- 48px (3rem) - XL spacing
+- 64px (4rem) - Section spacing
+- 96px (6rem) - Major section spacing
+
+### Component Spacing
+
+**Cards:**
+- Padding: 24px (desktop), 16px (mobile)
+- Gap between cards: 24px
+
+**Buttons:**
+- Padding: 12px 24px (medium)
+- Padding: 8px 16px (small)
+- Padding: 16px 32px (large)
+
+**Sections:**
+- Vertical padding: 64px (desktop), 48px (mobile)
+- Container max-width: 1200px
+- Container padding: 24px (sides)
+
+---
+
+## Component Guidelines
+
+### Buttons
+
+**Primary Button:**
+- Background: Primary color
+- Text: White
+- Hover: Darken 10%
+- Border radius: 6px (or per brand)
+- Font weight: 500-600
+- Minimum width: 120px
+
+**Secondary Button:**
+- Background: Transparent
+- Border: 2px solid primary
+- Text: Primary color
+- Hover: Background primary (10% opacity)
+
+**Ghost Button:**
+- Background: Transparent
+- Text: Primary color
+- Hover: Subtle background
+
+### Form Inputs
+
+- Border: 1px solid neutral
+- Border radius: 6px
+- Padding: 12px 16px
+- Focus: Primary color border + box-shadow
+- Error state: Red border
+- Disabled: Gray background, reduced opacity
+
+### Cards
+
+- Background: White
+- Border: 1px solid light gray or none
+- Border radius: 8px
+- Box shadow: Subtle elevation
+- Padding: 24px
+- Hover: Slight lift (transform + shadow)
+
+---
+
+## Animation Guidelines
+
+### Performance
+
+**Use only transform and opacity for animations:**
+```css
+/* Good - 60fps */
+transition: transform 0.3s, opacity 0.3s;
+
+/* Bad - can cause jank */
+transition: width 0.3s, height 0.3s;
+```
+
+### Duration
+
+- Micro-interactions: 150-200ms
+- Standard transitions: 250-300ms
+- Complex animations: 400-500ms
+- Never exceed 600ms
+
+### Easing
+
+- Default: ease-in-out
+- Entering: ease-out
+- Exiting: ease-in
+- Bouncy (sparingly): cubic-bezier(0.68, -0.55, 0.265, 1.55)
+
+---
+
+## Responsive Behavior
+
+### Breakpoint Strategy
+
+**Mobile First:**
+```css
+/* Mobile default (375px+) */
+.element { ... }
+
+/* Tablet (768px+) */
+@media (min-width: 768px) { ... }
+
+/* Desktop (1440px+) */
+@media (min-width: 1440px) { ... }
+```
+
+### Content Strategy
+
+- Mobile: Single column, stacked
+- Tablet: 2 columns for some content
+- Desktop: Multi-column layouts, sidebars
+
+### Navigation
+
+- Mobile: Hamburger menu
+- Tablet: Collapsed menu or horizontal
+- Desktop: Full horizontal navigation
+
+---
+
+## Brand-Specific Guidelines
+
+### [Add Your Brand Guidelines Here]
+
+**Brand Personality:**
+- [e.g., Professional, Modern, Trustworthy]
+
+**Target Audience:**
+- [e.g., B2B SaaS users, Enterprise decision-makers]
+
+**Tone:**
+- [e.g., Confident but approachable, Expert but friendly]
+
+**Visual Style:**
+- [e.g., Clean and minimal, Bold and energetic]
+
+**Competitive Position:**
+- [e.g., More modern than competitors, Premium but accessible]
+
+---
+
+## Usage Notes
+
+**For Design Forge:**
+1. Copy this template to `design-principles.md` (without .template)
+2. Customize the values to match your brand
+3. Design Forge will reference this when generating prototypes
+4. Update as your design system evolves
+
+**Optional Sections:**
+- Illustration style
+- Photography guidelines
+- Icon style and usage
+- Data visualization principles
+- Content voice and tone
+
+---
+
+**Last Updated:** [Update this when you make changes]

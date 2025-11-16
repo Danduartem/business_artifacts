@@ -1,0 +1,49 @@
+# Materials Lab Workflow Configuration
+name: materials-lab
+description: "Interactive framework and library selection workflow. Guides Scout through researching and selecting specific technologies from viable options, with detailed comparison of alternatives and clear selection rationale."
+author: "Daniel"
+
+# Paths
+installed_path: "{project-root}/bmad/stack-advisor/workflows/materials-lab"
+template: false # Action workflow - no template needed
+instructions: "{installed_path}/instructions.md"
+validation: false # No validation checklist for interactive selection
+
+# Critical variables from config
+config_source: "{project-root}/bmad/stack-advisor/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Stack Advisor specific config
+tech_currency_threshold: "{config_source}:tech_currency_threshold"
+smb_scale_level: "{config_source}:smb_scale_level"
+
+# Optional: Output notes from selection session
+session_notes_file: "{output_folder}/stack-advisor/materials-selection-{{date}}.md"
+selection_summary: "{output_folder}/stack-advisor/tech-selections-{{date}}.md"
+
+# Invocation control
+standalone: true
+
+# Recommended inputs (optional context)
+recommended_inputs:
+  - constraint_filter_results: "{output_folder}/stack-advisor/constraint-filter-*.md"
+  - intake_results: "{output_folder}/stack-advisor/intake-session-*.md"
+  - research_notes: "Results from Scout's research activities"
+
+# Scout's knowledge base
+scout_knowledge_base: "{project-root}/bmad/stack-advisor/agents/tech-research-sidecar/knowledge"
+
+# Web bundle configuration
+web_bundle:
+  name: "materials-lab"
+  description: "Interactive framework and library selection workflow. Guides Scout through researching and selecting specific technologies from viable options, with detailed comparison of alternatives and clear selection rationale."
+  author: "Daniel"
+  instructions: "bmad/stack-advisor/workflows/materials-lab/instructions.md"
+  template: false
+  validation: false
+
+  web_bundle_files:
+    - "bmad/stack-advisor/workflows/materials-lab/instructions.md"

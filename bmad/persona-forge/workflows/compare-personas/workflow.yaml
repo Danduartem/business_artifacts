@@ -1,0 +1,45 @@
+# Compare Personas Workflow Configuration
+name: compare-personas
+description: "Side-by-side comparison of 2-3 personas to identify differences, overlaps, and strategic opportunities"
+author: "Persona Forge"
+
+# Critical variables load from module config
+config_source: "{project-root}/bmad/persona-forge/config.yaml"
+output_folder: "{config_source}:output_folder"
+persona_output_folder: "{config_source}:persona_output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+
+# System variables
+date: system-generated
+
+# Agent references (optional - may use for analysis)
+senior_persona_specialist: "{project-root}/bmad/persona-forge/agents/senior-persona-specialist.md"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/persona-forge/workflows/compare-personas"
+template: false # Interactive workflow with analysis
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Output configuration
+comparison_report_file: "{persona_output_folder}/comparison-report-{{date}}.md"
+
+# Workflow state
+personas_to_compare: []
+comparison_count: 0
+comparison_type: null # quick/detailed/strategic
+insights_generated: false
+
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  name: "compare-personas"
+  description: "Side-by-side comparison of multiple personas"
+  author: "Persona Forge"
+  instructions: "bmad/persona-forge/workflows/compare-personas/instructions.md"
+  web_bundle_files:
+    - bmad/persona-forge/workflows/compare-personas/instructions.md
+    - bmad/persona-forge/workflows/compare-personas/checklist.md
+    - bmad/persona-forge/agents/senior-persona-specialist.md

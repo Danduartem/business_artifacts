@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Sucesso - Método SEJA LIVRE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===================================
+           SEJA LIVRE - DESIGN SYSTEM
+           Navy (#191F3A) + Borgonha (#81171F)
+           =================================== */
+
+        :root {
+            /* Brand Colors */
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F7;
+            --medium-gray: #E8E8EA;
+            --text-gray: #4A4A4A;
+            --success: #2E7D6D;
+            --success-bg: #E6F3F0;
+
+            /* Typography */
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Century Gothic', 'Avenir Next', -apple-system, sans-serif;
+
+            /* Spacing Scale */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+            --space-2xl: 6rem;
+
+            /* Shadows - Refined Depth */
+            --shadow-sm: 0 2px 8px rgba(25, 31, 58, 0.08);
+            --shadow-md: 0 4px 16px rgba(25, 31, 58, 0.12);
+            --shadow-lg: 0 8px 32px rgba(25, 31, 58, 0.16);
+            --shadow-xl: 0 12px 48px rgba(25, 31, 58, 0.20);
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--navy);
+            background: var(--light-gray);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===================================
+           SECTION LAYOUT
+           =================================== */
+
+        .case-studies-section {
+            padding: var(--space-2xl) var(--space-md);
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-eyebrow {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--borgonha);
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--navy);
+            margin-bottom: var(--space-md);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===================================
+           CAROUSEL CONTAINER
+           =================================== */
+
+        .carousel-container {
+            position: relative;
+            background: var(--white);
+            border-radius: 24px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .carousel-viewport {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform var(--transition-base);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity var(--transition-base),
+                        transform var(--transition-base);
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ===================================
+           CASE STUDY CARD LAYOUT
+           =================================== */
+
+        .case-card {
+            display: grid;
+            gap: var(--space-lg);
+            grid-template-columns: 1fr;
+        }
+
+        /* Client Header */
+        .client-header {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--space-md);
+            align-items: start;
+            padding: var(--space-md);
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+            border-radius: 16px;
+            border: 1px solid var(--medium-gray);
+        }
+
+        .client-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--borgonha) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            border: 3px solid var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .client-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .client-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .client-business {
+            font-size: 0.9375rem;
+            color: var(--text-gray);
+            line-height: 1.4;
+        }
+
+        .client-business strong {
+            color: var(--borgonha);
+            font-weight: 600;
+        }
+
+        .client-meta {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-top: var(--space-xs);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .meta-item svg {
+            width: 14px;
+            height: 14px;
+            color: var(--borgonha);
+        }
+
+        /* Case Study Headline */
+        .case-headline {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--navy);
+            padding: var(--space-md) 0;
+            border-left: 4px solid var(--gold);
+            padding-left: var(--space-md);
+            margin: var(--space-md) 0;
+        }
+
+        /* Video Placeholder */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 */
+            background: linear-gradient(135deg, var(--navy) 0%, var(--borgonha) 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            color: var(--white);
+        }
+
+        .play-button {
+            width: 72px;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .play-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .play-icon {
+            color: var(--white);
+            margin-left: 4px;
+        }
+
+        .video-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* Metrics Comparison */
+        .metrics-comparison {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: var(--space-md);
+            padding: var(--space-lg);
+            background: var(--light-gray);
+            border-radius: 16px;
+            align-items: start;
+        }
+
+        .metrics-column {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-xs);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .metrics-before .metric-label {
+            color: var(--text-gray);
+        }
+
+        .metrics-after .metric-label {
+            color: var(--borgonha);
+        }
+
+        .metric-item {
+            display: flex;
+            align-items: start;
+            gap: var(--space-xs);
+            font-size: 0.9375rem;
+            line-height: 1.5;
+        }
+
+        .metric-icon {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .metrics-before .metric-icon {
+            color: var(--text-gray);
+        }
+
+        .metrics-after .metric-icon {
+            color: var(--success);
+        }
+
+        .metrics-divider {
+            width: 2px;
+            min-height: 180px;
+            background: linear-gradient(to bottom,
+                transparent 0%,
+                var(--medium-gray) 20%,
+                var(--medium-gray) 80%,
+                transparent 100%);
+        }
+
+        /* Quote Section */
+        .quote-section {
+            position: relative;
+            padding: var(--space-lg);
+            background: linear-gradient(135deg,
+                rgba(25, 31, 58, 0.04) 0%,
+                rgba(129, 23, 31, 0.04) 100%);
+            border-radius: 16px;
+            border-left: 4px solid var(--borgonha);
+        }
+
+        .quote-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--borgonha);
+            margin-bottom: var(--space-sm);
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            color: var(--gold);
+            opacity: 0.2;
+        }
+
+        .quote-text {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--navy);
+            font-style: italic;
+        }
+
+        .quote-text strong {
+            color: var(--borgonha);
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* ===================================
+           CAROUSEL CONTROLS
+           =================================== */
+
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .carousel-button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--navy);
+            border: none;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .carousel-button:hover:not(:disabled) {
+            background: var(--borgonha);
+            transform: scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .carousel-button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .carousel-button:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: var(--space-xs);
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--medium-gray);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            padding: 0;
+        }
+
+        .carousel-dot:hover {
+            background: var(--text-gray);
+            transform: scale(1.2);
+        }
+
+        .carousel-dot.active {
+            background: var(--borgonha);
+            width: 32px;
+            border-radius: 6px;
+        }
+
+        .carousel-dot:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 3px;
+        }
+
+        /* ===================================
+           PATTERN CALLOUT
+           =================================== */
+
+        .pattern-callout {
+            margin-top: var(--space-2xl);
+            padding: var(--space-xl);
+            background: linear-gradient(135deg,
+                var(--navy) 0%,
+                #0D1426 100%);
+            border-radius: 24px;
+            border-top: 6px solid var(--borgonha);
+            box-shadow: var(--shadow-xl);
+            color: var(--white);
+        }
+
+        .pattern-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            letter-spacing: -0.02em;
+        }
+
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .pattern-column h4 {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--gold);
+        }
+
+        .pattern-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .pattern-list li {
+            display: flex;
+            align-items: start;
+            gap: var(--space-xs);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        .pattern-list svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+            color: var(--gold);
+        }
+
+        .pattern-conclusion {
+            text-align: center;
+            padding: var(--space-lg);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            margin-bottom: var(--space-md);
+        }
+
+        .pattern-conclusion p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pattern-conclusion strong {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .pattern-cta {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            margin-top: var(--space-md);
+        }
+
+        /* ===================================
+           RESPONSIVE DESIGN
+           =================================== */
+
+        @media (max-width: 767px) {
+            .pattern-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-comparison {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+
+            .metrics-divider {
+                width: 100%;
+                height: 2px;
+                min-height: auto;
+                background: linear-gradient(to right,
+                    transparent 0%,
+                    var(--medium-gray) 20%,
+                    var(--medium-gray) 80%,
+                    transparent 100%);
+            }
+
+            .client-meta {
+                flex-direction: column;
+                gap: var(--space-xs);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .case-studies-section {
+                padding: var(--space-2xl) var(--space-lg);
+            }
+
+            .carousel-container {
+                padding: var(--space-xl);
+            }
+
+            .case-card {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--space-xl);
+            }
+
+            .client-header {
+                grid-column: 1 / -1;
+            }
+
+            .case-headline {
+                grid-column: 1 / -1;
+            }
+
+            .video-container {
+                grid-column: 1 / 2;
+                grid-row: 3 / 5;
+            }
+
+            .metrics-comparison {
+                grid-column: 2 / 3;
+                grid-row: 3 / 4;
+            }
+
+            .quote-section {
+                grid-column: 2 / 3;
+                grid-row: 4 / 5;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .client-photo {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+            }
+
+            .carousel-button {
+                width: 56px;
+                height: 56px;
+            }
+        }
+
+        /* ===================================
+           ACCESSIBILITY
+           =================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        *:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <section class="case-studies-section" aria-label="Casos de sucesso">
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="section-eyebrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <span>Casos de Sucesso Reais</span>
+            </div>
+            <h2 class="section-title">Funciona Para Negócios Como o Seu?</h2>
+            <p class="section-subtitle">
+                A pergunta que você está fazendo é: "Mas meu negócio é diferente. Isso vai funcionar para MIM?" Deixa eu te mostrar. O Método SEJA LIVRE foi testado em indústrias completamente diferentes—e funciona porque atacamos a RAIZ do problema: falta de sistemas operacionais. Não importa o que você vende.
+            </p>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <div class="carousel-viewport">
+                <div class="carousel-track">
+
+                    <!-- SLIDE 1: Laura Fátima -->
+                    <div class="carousel-slide active" role="group" aria-label="Caso 1 de 3">
+                        <div class="case-card">
+                            <div class="client-header">
+                                <div class="client-photo">LF</div>
+                                <div class="client-info">
+                                    <h3 class="client-name">Laura Fátima</h3>
+                                    <p class="client-business"><strong>Piscicultura</strong></p>
+                                    <div class="client-meta">
+                                        <span class="meta-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                            8 Funcionários
+                                        </span>
+                                        <span class="meta-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                            Brasil
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 class="case-headline">"Eu Finalmente Sou a CEO, Não a Supervisora"</h4>
+
+                            <div class="video-container">
+                                <div class="video-placeholder">
+                                    <button class="play-button" aria-label="Reproduzir depoimento">
+                                        <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                            <polygon points="5 3 19 12 5 21 5 3"/>
+                                        </svg>
+                                    </button>
+                                    <span class="video-label">Assistir Depoimento</span>
+                                </div>
+                            </div>
+
+                            <div class="metrics-comparison">
+                                <div class="metrics-column metrics-before">
+                                    <div class="metric-label">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                                        Antes
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                        <span>75 horas/semana supervisionando equipe e produção</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                        <span>Dependência total dela para decisões operacionais</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                        <span>Última férias: 4 anos atrás</span>
+                                    </div>
+                                </div>
+
+                                <div class="metrics-divider"></div>
+
+                                <div class="metrics-column metrics-after">
+                                    <div class="metric-label">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                        Depois (90 dias)
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                                        <span>42 horas/semana</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                        <span>Equipe opera os 5 pilares de produção independentemente</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        <span>Tirou 10 dias de férias—zero emergências</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="quote-section">
+                                <svg class="quote-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                                <div class="quote-label">O que mudou:</div>
+                                <p class="quote-text">"Criei protocolos para cada etapa da produção. Minha equipe agora sabe exatamente o que fazer sem me perguntar. Eu finalmente sou <strong>a CEO, não a supervisora.</strong>"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 2: Angélica de Cássia -->
+                    <div class="carousel-slide" role="group" aria-label="Caso 2 de 3">
+                        <div class="case-card">
+                            <div class="client-header">
+                                <div class="client-photo">AC</div>
+                                <div class="client-info">
+                                    <h3 class="client-name">Angélica de Cássia</h3>
+                                    <p class="client-business"><strong>Centro Ayurveda + Yoga</strong></p>
+                                    <div class="client-meta">
+                                        <span class="meta-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                            4 Instrutoras
+                                        </span>
+                                        <span class="meta-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                            Portugal
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 class="case-headline">"Agora Faço Apenas o Que SÓ EU Posso Fazer"</h4>
+
+                            <div class="video-container">
+                                <div class="video-placeholder">
+                                    <button class="play-button" aria-label="Reproduzir depoimento">
+                                        <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                            <polygon points="5 3 19 12 5 21 5 3"/>
+                                        </svg>
+                                    </button>
+                                    <span class="video-label">Assistir Depoimento</span>
+                                </div>
+                            </div>
+
+                            <div class="metrics-comparison">
+                                <div class="metrics-column metrics-before">
+                                    <div class="metric-label">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                                        Antes
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                        <span>Gerenciava todos os agendamentos, pagamentos, marketing</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                        <span>Ensinava aulas E fazia toda administração</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                                        <span>Burnout severo, considerando fechar</span>
+                                    </div>
+                                </div>
+
+                                <div class="metrics-divider"></div>
+
+                                <div class="metrics-column metrics-after">
+                                    <div class="metric-label">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                        Depois (90 dias)
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                        <span>Sistemas de agendamento e cobrança automatizados</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                        <span>Equipe gerencia 80% do administrativo</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                                        <span>Voltou a amar ensinar—e faturamento cresceu 22%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="quote-section">
+                                <svg class="quote-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                                <div class="quote-label">O que mudou:</div>
+                                <p class="quote-text">"Percebi que estava sendo secretária, não fundadora. Juçanã me ensinou a separar CEO atividades de operacional. <strong>Agora faço apenas o que SÓ EU posso fazer.</strong>"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 3: Edineia Lampert -->
+                    <div class="carousel-slide" role="group" aria-label="Caso 3 de 3">
+                        <div class="case-card">
+                            <div class="client-header">
+                                <div class="client-photo">EL</div>
+                                <div class="client-info">
+                                    <h3 class="client-name">Edineia Lampert</h3>
+                                    <p class="client-business"><strong>Clínica de Estética</strong></p>
+                                    <div class="client-meta">
+                                        <span class="meta-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                            6 Terapeutas
+                                        </span>
+                                        <span class="meta-item">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                            Brasil
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 class="case-headline">"Hoje Sou CEO, Não Terapeuta"</h4>
+
+                            <div class="video-container">
+                                <div class="video-placeholder">
+                                    <button class="play-button" aria-label="Reproduzir depoimento">
+                                        <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                            <polygon points="5 3 19 12 5 21 5 3"/>
+                                        </svg>
+                                    </button>
+                                    <span class="video-label">Assistir Depoimento</span>
+                                </div>
+                            </div>
+
+                            <div class="metrics-comparison">
+                                <div class="metrics-column metrics-before">
+                                    <div class="metric-label">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                                        Antes
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                        <span>Atendia clientes E gerenciava toda operação</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                        <span>Equipe não vendia pacotes (só ela vendia)</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                        <span>Trabalhava 6 dias/semana, sem folga</span>
+                                    </div>
+                                </div>
+
+                                <div class="metrics-divider"></div>
+
+                                <div class="metrics-column metrics-after">
+                                    <div class="metric-label">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                        Depois (90 dias)
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                        <span>Criou sistema de vendas que equipe executa</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                                        <span>Terapeutas agora vendem (faturamento +35%)</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <svg class="metric-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                                        <span>Trabalha 4 dias/semana, delegou atendimento clínico</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="quote-section">
+                                <svg class="quote-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                                <div class="quote-label">O que mudou:</div>
+                                <p class="quote-text">"Minha equipe não sabia vender porque EU não tinha processo para ensinar. Quando criamos scripts e treinamento, elas começaram a vender sozinhas. <strong>Hoje sou CEO, não terapeuta.</strong>"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <div class="carousel-controls">
+                <button class="carousel-button" id="prevButton" aria-label="Caso anterior">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"/>
+                    </svg>
+                </button>
+
+                <div class="carousel-dots" role="tablist" aria-label="Navegação de casos">
+                    <button class="carousel-dot active" data-slide="0" role="tab" aria-label="Ir para caso 1" aria-selected="true"></button>
+                    <button class="carousel-dot" data-slide="1" role="tab" aria-label="Ir para caso 2" aria-selected="false"></button>
+                    <button class="carousel-dot" data-slide="2" role="tab" aria-label="Ir para caso 3" aria-selected="false"></button>
+                </div>
+
+                <button class="carousel-button" id="nextButton" aria-label="Próximo caso">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Pattern Callout -->
+        <div class="pattern-callout">
+            <h3 class="pattern-title">O PADRÃO:</h3>
+
+            <div class="pattern-grid">
+                <div class="pattern-column">
+                    <h4>Não Importa Se Você Tem:</h4>
+                    <ul class="pattern-list">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Negócio físico ou digital</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>3 funcionários ou 8</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Clientes B2C ou B2B</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>Produto ou serviço</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pattern-column">
+                    <h4>A Verdade Universal:</h4>
+                    <ul class="pattern-list">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                            <span>O problema é o mesmo: <strong>falta de sistemas</strong></span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>A solução é a mesma: <strong>Método SEJA LIVRE</strong></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pattern-conclusion">
+                <p>Indústrias diferentes. Desafios parecidos.</p>
+                <p><strong>Transformação igual: LIBERDADE.</strong></p>
+            </div>
+
+            <p class="pattern-cta">O próximo caso de sucesso será o seu. 💙❤️</p>
+        </div>
+    </section>
+
+    <script>
+        // ===================================
+        // CAROUSEL FUNCTIONALITY
+        // ===================================
+
+        class CaseStudiesCarousel {
+            constructor() {
+                this.currentSlide = 0;
+                this.slides = document.querySelectorAll('.carousel-slide');
+                this.totalSlides = this.slides.length;
+                this.dots = document.querySelectorAll('.carousel-dot');
+                this.prevButton = document.getElementById('prevButton');
+                this.nextButton = document.getElementById('nextButton');
+                this.autoAdvanceInterval = null;
+                this.autoAdvanceDelay = 8000;
+                this.isHovered = false;
+
+                // Touch support
+                this.touchStartX = 0;
+                this.touchEndX = 0;
+                this.touchThreshold = 50;
+
+                this.init();
+            }
+
+            init() {
+                // Button listeners
+                this.prevButton.addEventListener('click', () => this.goToPrevSlide());
+                this.nextButton.addEventListener('click', () => this.goToNextSlide());
+
+                // Dot navigation
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+
+                // Touch support
+                const carousel = document.querySelector('.carousel-container');
+                carousel.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
+                carousel.addEventListener('touchend', (e) => this.handleTouchEnd(e), { passive: true });
+
+                // Pause on hover
+                carousel.addEventListener('mouseenter', () => {
+                    this.isHovered = true;
+                    this.stopAutoAdvance();
+                });
+
+                carousel.addEventListener('mouseleave', () => {
+                    this.isHovered = false;
+                    this.startAutoAdvance();
+                });
+
+                // Start auto-advance
+                this.startAutoAdvance();
+                this.updateButtons();
+            }
+
+            goToSlide(index) {
+                if (index < 0 || index >= this.totalSlides) return;
+
+                // Remove active
+                this.slides[this.currentSlide].classList.remove('active');
+                this.dots[this.currentSlide].classList.remove('active');
+                this.dots[this.currentSlide].setAttribute('aria-selected', 'false');
+
+                // Update current
+                this.currentSlide = index;
+
+                // Add active
+                this.slides[this.currentSlide].classList.add('active');
+                this.dots[this.currentSlide].classList.add('active');
+                this.dots[this.currentSlide].setAttribute('aria-selected', 'true');
+
+                this.updateButtons();
+                this.resetAutoAdvance();
+            }
+
+            goToNextSlide() {
+                const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+                this.goToSlide(nextIndex);
+            }
+
+            goToPrevSlide() {
+                const prevIndex = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.goToSlide(prevIndex);
+            }
+
+            updateButtons() {
+                this.prevButton.disabled = false;
+                this.nextButton.disabled = false;
+            }
+
+            handleKeyboard(e) {
+                if (e.key === 'ArrowLeft') {
+                    this.goToPrevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    this.goToNextSlide();
+                }
+            }
+
+            handleTouchStart(e) {
+                this.touchStartX = e.changedTouches[0].screenX;
+            }
+
+            handleTouchEnd(e) {
+                this.touchEndX = e.changedTouches[0].screenX;
+                this.handleSwipe();
+            }
+
+            handleSwipe() {
+                const swipeDistance = this.touchStartX - this.touchEndX;
+
+                if (Math.abs(swipeDistance) > this.touchThreshold) {
+                    if (swipeDistance > 0) {
+                        this.goToNextSlide();
+                    } else {
+                        this.goToPrevSlide();
+                    }
+                }
+            }
+
+            startAutoAdvance() {
+                if (!this.autoAdvanceInterval && !this.isHovered) {
+                    this.autoAdvanceInterval = setInterval(() => {
+                        if (!this.isHovered) {
+                            this.goToNextSlide();
+                        }
+                    }, this.autoAdvanceDelay);
+                }
+            }
+
+            stopAutoAdvance() {
+                if (this.autoAdvanceInterval) {
+                    clearInterval(this.autoAdvanceInterval);
+                    this.autoAdvanceInterval = null;
+                }
+            }
+
+            resetAutoAdvance() {
+                this.stopAutoAdvance();
+                this.startAutoAdvance();
+            }
+        }
+
+        // Initialize
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                new CaseStudiesCarousel();
+            });
+        } else {
+            new CaseStudiesCarousel();
+        }
+
+        // Respect reduced motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (prefersReducedMotion.matches) {
+            document.documentElement.style.setProperty('--transition-fast', '0.01ms');
+            document.documentElement.style.setProperty('--transition-base', '0.01ms');
+            document.documentElement.style.setProperty('--transition-slow', '0.01ms');
+        }
+    </script>
+</body>
+</html>

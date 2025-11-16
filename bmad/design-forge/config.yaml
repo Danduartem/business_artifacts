@@ -1,0 +1,25 @@
+# Design Forge Configuration
+# This file controls the behavior of the Design Director agent
+
+# User Settings
+user_name: "Daniel"
+communication_language: "English"
+
+# Output Settings
+prototype_output_folder: "/Users/danielmenezes/Coding/business_artifacts/design-prototypes"
+
+# Design Generation Settings
+diversity_mode: true
+include_design_rationale: false
+
+# Optional: Design Guidelines (uncomment and set paths if you have these)
+design_principles_path: "/Users/danielmenezes/Coding/business_artifacts/docs/context/design-principles.md"
+style_guide_path: "/Users/danielmenezes/Coding/business_artifacts/docs/context/style_guide.md"
+icon_system_path: "/Users/danielmenezes/Coding/business_artifacts/docs/context/icon-system.md"
+
+# Screenshot Capture Settings (v3.0)
+auto_capture_on_generate: false
+viewports_to_capture:
+  - "desktop"
+  - "tablet"
+  - "mobile"

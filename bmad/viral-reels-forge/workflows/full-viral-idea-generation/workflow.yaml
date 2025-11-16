@@ -1,0 +1,45 @@
+# Full Viral Idea Generation Workflow
+# Orchestrates multi-agent research to generate 25 ranked Instagram Reel ideas
+name: full-viral-idea-generation
+description: "Orchestrate multi-agent research to generate 25 ranked Instagram Reel ideas optimized for viral potential in any niche"
+author: "Daniel"
+
+# Paths
+installed_path: "{project-root}/bmad/viral-reels-forge/workflows/full-viral-idea-generation"
+template: "{installed_path}/template.md"
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/viral-reels-forge/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+idea_count: "{config_source}:idea_count"
+date: system-generated
+
+# Data freshness rules
+trend_data_max_age_days: "{config_source}:trend_data_max_age_days"
+competitor_data_max_age_days: "{config_source}:competitor_data_max_age_days"
+niche_data_max_age_days: "{config_source}:niche_data_max_age_days"
+user_data_max_age_days: "{config_source}:user_data_max_age_days"
+
+# Optional inputs
+recommended_inputs:
+  - user_instagram_handle: "User's Instagram handle for personal audit (optional)"
+  - competitor_handles: "3-5 competitor Instagram handles for analysis"
+
+# Output configuration
+default_output_file: "{output_folder}/viral-reel-ideas-{{niche_slug}}-{{date}}.md"
+
+# Invocation control
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  name: "full-viral-idea-generation"
+  version: "1.0.0"
+  web_bundle_files:
+    - "bmad/viral-reels-forge/workflows/full-viral-idea-generation/instructions.md"
+    - "bmad/viral-reels-forge/workflows/full-viral-idea-generation/template.md"
+    - "bmad/viral-reels-forge/workflows/full-viral-idea-generation/checklist.md"

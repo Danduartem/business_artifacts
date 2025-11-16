@@ -1,0 +1,51 @@
+# Comparison Matrix Workflow Configuration
+name: comparison-matrix
+description: "Document workflow that creates detailed comparison matrices for technology alternatives. Provides data-driven analysis of trade-offs, scoring criteria, and recommendation rationale to support informed decision-making."
+author: "Daniel"
+
+# Paths
+installed_path: "{project-root}/bmad/stack-advisor/workflows/comparison-matrix"
+template: "{installed_path}/template.md"
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/stack-advisor/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Stack Advisor specific config
+tech_currency_threshold: "{config_source}:tech_currency_threshold"
+smb_scale_level: "{config_source}:smb_scale_level"
+
+# Output
+default_output_file: "{output_folder}/stack-advisor/comparison-matrix-{{date}}.md"
+
+# Invocation control
+standalone: true
+
+# Recommended inputs (optional context)
+recommended_inputs:
+  - tech_selections: "{output_folder}/stack-advisor/tech-selections-*.md"
+  - intake_results: "{output_folder}/stack-advisor/intake-session-*.md"
+  - constraint_filter: "{output_folder}/stack-advisor/constraint-filter-*.md"
+  - research_notes: "Results from Scout's research"
+
+# Scout's knowledge base (for tech reference)
+scout_knowledge_base: "{project-root}/bmad/stack-advisor/agents/tech-research-sidecar/knowledge"
+
+# Web bundle configuration
+web_bundle:
+  name: "comparison-matrix"
+  description: "Document workflow that creates detailed comparison matrices for technology alternatives. Provides data-driven analysis of trade-offs, scoring criteria, and recommendation rationale to support informed decision-making."
+  author: "Daniel"
+  instructions: "bmad/stack-advisor/workflows/comparison-matrix/instructions.md"
+  validation: "bmad/stack-advisor/workflows/comparison-matrix/checklist.md"
+  template: "bmad/stack-advisor/workflows/comparison-matrix/template.md"
+
+  web_bundle_files:
+    - "bmad/stack-advisor/workflows/comparison-matrix/instructions.md"
+    - "bmad/stack-advisor/workflows/comparison-matrix/checklist.md"
+    - "bmad/stack-advisor/workflows/comparison-matrix/template.md"

@@ -1,0 +1,34 @@
+# View Config Workflow
+# Display module configuration settings
+name: view-config
+description: "View Viral Reels Forge module configuration and data freshness settings"
+author: "Daniel"
+
+# Paths
+installed_path: "{project-root}/bmad/viral-reels-forge/workflows/view-config"
+template: false  # Action workflow - no template needed
+instructions: "{installed_path}/instructions.md"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/viral-reels-forge/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+idea_count: "{config_source}:idea_count"
+instagram_handle: "{config_source}:instagram_handle"
+trend_data_max_age_days: "{config_source}:trend_data_max_age_days"
+competitor_data_max_age_days: "{config_source}:competitor_data_max_age_days"
+niche_data_max_age_days: "{config_source}:niche_data_max_age_days"
+user_data_max_age_days: "{config_source}:user_data_max_age_days"
+module_version: "{config_source}:module_version"
+date: system-generated
+
+# Invocation control
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  name: "view-config"
+  version: "1.0.0"
+  web_bundle_files:
+    - "bmad/viral-reels-forge/workflows/view-config/instructions.md"

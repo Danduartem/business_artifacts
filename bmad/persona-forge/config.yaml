@@ -1,0 +1,280 @@
+# Persona Forge Module Configuration
+# This file contains module-specific settings that can be customized per installation
+# Version: 3.0.0
+# Date: 2025-11-04
+
+# ============================================================================
+# CORE CONFIGURATION
+# These values are inherited from BMAD installer but can be overridden here
+# ============================================================================
+
+# User's name (used in personalization)
+user_name: "Daniel"
+
+# Primary communication language
+communication_language: "English"
+
+# Document output language (can differ from communication language)
+document_output_language: "English"
+
+# Output folder for generated personas and deliverables
+output_folder: "{project-root}/docs"
+
+# ============================================================================
+# MODULE-SPECIFIC CONFIGURATION
+# ============================================================================
+
+# Module metadata
+module:
+  name: "Persona Forge"
+  version: "3.0.0"
+  code: "persona-forge"
+  description: "Research-Validated Customer Intelligence Based on Eugene Schwartz's 5 Levels of Customer Awareness"
+
+# Module paths
+paths:
+  data: "{project-root}/bmad/persona-forge/data"
+  templates: "{project-root}/bmad/persona-forge/templates"
+  agents: "{project-root}/bmad/persona-forge/agents"
+  workflows: "{project-root}/bmad/persona-forge/workflows"
+
+# Agent references
+agents:
+  hub: "{project-root}/bmad/persona-forge/agents/persona-forge.agent.yaml"
+  persona_strategist: "{project-root}/bmad/persona-forge/agents/persona-strategist.agent.yaml"
+  market_intelligence_analyst: "{project-root}/bmad/persona-forge/agents/market-intelligence-analyst.agent.yaml"
+  senior_persona_specialist: "{project-root}/bmad/persona-forge/agents/senior-persona-specialist.agent.yaml"
+
+# Workflow references
+workflows:
+  create: "{project-root}/bmad/persona-forge/workflows/create-personas/workflow.yaml"
+  update: "{project-root}/bmad/persona-forge/workflows/update-persona/workflow.yaml"
+  validate: "{project-root}/bmad/persona-forge/workflows/validate-persona/workflow.yaml"
+  compare: "{project-root}/bmad/persona-forge/workflows/compare-personas/workflow.yaml"
+  export: "{project-root}/bmad/persona-forge/workflows/export-persona/workflow.yaml"
+  evolution: "{project-root}/bmad/persona-forge/workflows/track-evolution/workflow.yaml"
+  health: "{project-root}/bmad/persona-forge/workflows/health-check/workflow.yaml"
+
+# ============================================================================
+# WORKFLOW DEFAULTS
+# ============================================================================
+
+# Persona output folder
+persona_output_folder: "{output_folder}/personas"
+
+# Default research depth for Market Intelligence Analyst
+default_research_depth: "standard"  # Options: "quick", "standard", "deep"
+
+# Maximum persona count per session
+max_persona_count: 3
+
+# Templates path
+templates_path: "{project-root}/bmad/persona-forge/templates"
+
+# Default settings for CREATE workflow
+create_defaults:
+  persona_count: 1  # Default to single persona
+  correction_loop_enabled: true
+  max_correction_cycles: 3
+  require_research_validation: true
+  validation_threshold: 8.0  # Minimum quality score to proceed without corrections
+
+# Default settings for UPDATE workflow
+update_defaults:
+  backup_original: true
+  update_types:
+    - "market_research"      # Update with new market research
+    - "qualification_data"   # Update with real call data
+    - "general_refresh"      # General refresh for aging personas
+  max_correction_cycles:
+    minor: 1
+    moderate: 2
+    major: 3
+
+# Default settings for VALIDATE workflow
+validate_defaults:
+  validation_types:
+    quick: 5      # 5 minutes - Basic quality check
+    standard: 10  # 10 minutes - Comprehensive validation
+    deep: 20      # 20 minutes - Deep validation with research
+  default_type: "standard"
+  route_to_update: true  # Auto-route to update workflow for improvements
+
+# Default settings for COMPARE workflow
+compare_defaults:
+  min_personas: 2
+  max_personas: 3
+  comparison_depths:
+    - "quick"      # Quick overview comparison
+    - "detailed"   # Detailed analysis
+    - "strategic"  # Strategic insights + recommendations
+  default_depth: "detailed"
+
+# Default settings for EXPORT workflow
+export_defaults:
+  formats:
+    - "json"           # Structured data
+    - "csv"            # Spreadsheet format
+    - "pdf_ready"      # PDF-ready Markdown
+    - "crm"            # CRM integration format
+    - "api"            # API-ready format
+    - "presentation"   # Slide-optimized
+    - "print"          # Print-friendly
+  default_formats: ["json", "pdf_ready"]
+
+# Default settings for EVOLUTION workflow
+evolution_defaults:
+  min_versions: 2
+  recommended_versions: 3
+  analysis_depths:
+    - "quick"      # 5 min - Basic change comparison
+    - "standard"   # 10 min - Comprehensive trend analysis
+    - "deep"       # 15 min - Strategic insights + recommendations
+  default_depth: "standard"
+
+# Default settings for HEALTH CHECK workflow
+health_defaults:
+  health_components:
+    - "freshness"         # How recent is the data?
+    - "accuracy"          # How accurate is it?
+    - "usage"             # How actively used?
+    - "market_alignment"  # Still aligned with market?
+  threshold_excellent: 90
+  threshold_good: 80
+  threshold_fair: 70
+  threshold_poor: 60
+  threshold_critical: 50
+
+# ============================================================================
+# QUALITY STANDARDS
+# ============================================================================
+
+# Validation scoring thresholds
+quality_thresholds:
+  excellent: 9.0  # 9.0-10.0: Excellent quality, no corrections needed
+  strong: 8.0     # 8.0-8.9: Strong quality, minor polish only
+  good: 7.0       # 7.0-7.9: Good quality, minor corrections (1 cycle)
+  moderate: 5.0   # 5.0-6.9: Moderate issues, corrections needed (2 cycles)
+  weak: 0.0       # <5.0: Major issues, significant corrections (3 cycles)
+
+# Validation criteria weights (for calculating overall score)
+validation_weights:
+  demographic_specificity: 1.0
+  psychographic_depth: 1.0
+  pain_points_clarity: 1.0
+  awareness_journey_completeness: 1.0
+  research_validation: 1.0
+  practical_tools_quality: 1.0
+  messaging_examples_relevance: 1.0
+  qualification_questions_effectiveness: 1.0
+
+# ============================================================================
+# EUGENE SCHWARTZ FRAMEWORK
+# ============================================================================
+
+# 5 Levels of Customer Awareness
+awareness_levels:
+  1: "unaware"         # Don't know they have a problem
+  2: "problem-aware"   # Know problem, don't know solutions
+  3: "solution-aware"  # Know solutions exist, don't know your solution
+  4: "product-aware"   # Know your solution, evaluating options
+  5: "most-aware"      # Ready to buy, needs final push
+
+# Temperature gradient color coding
+awareness_colors:
+  1: "🔵"  # Blue - Cold (Unaware)
+  2: "🟢"  # Green - Cool (Problem Aware)
+  3: "🟡"  # Yellow - Warm (Solution Aware)
+  4: "🟠"  # Orange - Hot (Product Aware)
+  5: "🔴"  # Red - Very Hot (Most Aware)
+
+# ============================================================================
+# AGENT PERSONALITIES & CULTURE
+# ============================================================================
+
+# Agent culture: "Healthy Tension"
+agent_culture:
+  strategist_role: "Creator - Comprehensive initial drafts through brainstorming"
+  analyst_role: "Challenger - Validates with research and challenges assumptions"
+  specialist_role: "Perfectionist - Ensures quality standards with exacting review"
+  culture_principle: "Healthy tension creates better personas"
+
+# ============================================================================
+# OUTPUT CONFIGURATION
+# ============================================================================
+
+# Naming patterns for generated files
+output_naming:
+  persona_document: "{persona_name_slug}-{date}.md"
+  qualification_questions: "qualification-questions-{date}.md"
+  persona_set_summary: "persona-set-summary-{date}.md"
+  validation_report: "validation-report-{persona_name_slug}-{date}.md"
+  comparison_report: "comparison-report-{date}.md"
+  evolution_report: "evolution-report-{persona_name_slug}-{date}.md"
+  health_report: "health-report-{persona_name_slug}-{date}.md"
+  backup_suffix: "-backup-{date}.md"
+
+# ============================================================================
+# FEATURE FLAGS
+# ============================================================================
+
+# Optional features that can be enabled/disabled
+features:
+  web_search_enabled: true                # For Market Intelligence Analyst research
+  multi_persona_enabled: true             # V2 feature
+  update_workflow_enabled: true           # V2 feature
+  validate_workflow_enabled: true         # V2 feature
+  compare_workflow_enabled: true          # V3 feature
+  export_workflow_enabled: true           # V3 feature
+  evolution_tracking_enabled: true        # V3 feature
+  health_scoring_enabled: true            # V3 feature
+  offer_forge_integration_enabled: false  # Future: Persona-to-Offer pipeline
+
+# ============================================================================
+# ADVANCED SETTINGS
+# ============================================================================
+
+# Correction loop settings
+correction_loops:
+  enabled: true
+  max_cycles: 3
+  auto_escalate: true  # Escalate to user if max cycles reached
+  require_user_confirmation: false  # Auto-proceed unless threshold not met
+
+# Agent timeout settings (milliseconds)
+agent_timeouts:
+  persona_strategist: 300000          # 5 minutes
+  market_intelligence_analyst: 300000 # 5 minutes (needs time for research)
+  senior_persona_specialist: 180000   # 3 minutes
+
+# Performance optimization
+performance:
+  parallel_agent_execution: false  # Future: Run multiple agents in parallel
+  cache_research_results: true     # Cache market research for same queries
+  incremental_updates: true        # Only regenerate changed sections on update
+
+# Research settings
+research:
+  default_sources: ["web_search", "industry_reports", "market_data"]
+  citation_required: true
+  min_sources_per_claim: 2
+  recency_threshold_days: 180  # Research older than 6 months flagged
+
+# ============================================================================
+# VERSION TRACKING
+# ============================================================================
+
+# Version control for personas
+version_control:
+  enabled: true
+  auto_increment: true
+  track_changes: true
+  max_versions_to_keep: 10  # Keep last 10 versions per persona
+
+# ============================================================================
+# NOTES
+# ============================================================================
+# - This config is loaded by all workflows and agents at runtime
+# - Values can be overridden in individual workflow configurations
+# - User-specific customizations should go in {project-root}/bmad/_cfg/
+# - Module updates may add new configuration options

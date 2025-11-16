@@ -1,0 +1,34 @@
+# Analyze Prototypes Workflow Configuration
+name: "analyze-prototypes"
+description: "Generate visual comparisons, design metrics, and comprehensive analysis reports for prototypes"
+author: "Design Forge"
+version: "3.0.0"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/design-forge/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Module-specific config variables
+prototype_output_folder: "{config_source}:prototype_output_folder"
+design_principles_path: "{config_source}:design_principles_path"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/design-forge/workflows/analyze-prototypes"
+template: false
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  workflow: "bmad/design-forge/workflows/analyze-prototypes/workflow.yaml"
+  files:
+    - "bmad/design-forge/workflows/analyze-prototypes/workflow.yaml"
+    - "bmad/design-forge/workflows/analyze-prototypes/instructions.md"
+    - "bmad/design-forge/workflows/analyze-prototypes/checklist.md"
+    - "bmad/design-forge/workflows/analyze-prototypes/README.md"
+    - "bmad/design-forge/workflows/analyze-prototypes/visual-comparison-template.html"
+  existing_workflows: []

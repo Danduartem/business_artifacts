@@ -1,0 +1,38 @@
+# Persona Health Check Workflow Configuration
+name: health-check
+description: "Calculate persona health score based on freshness, accuracy, and usage metrics"
+author: "Persona Forge"
+
+config_source: "{project-root}/bmad/persona-forge/config.yaml"
+output_folder: "{config_source}:output_folder"
+persona_output_folder: "{config_source}:persona_output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+
+date: system-generated
+
+installed_path: "{project-root}/bmad/persona-forge/workflows/health-check"
+template: false
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+health_report_file: "{persona_output_folder}/health-report-{{persona_name_slug}}-{{date}}.md"
+
+# Health score components
+freshness_score: 0
+accuracy_score: 0
+usage_score: 0
+market_alignment_score: 0
+total_health_score: 0
+health_status: null # excellent/good/fair/poor/critical
+
+standalone: true
+
+web_bundle:
+  name: "health-check"
+  description: "Calculate persona health score"
+  author: "Persona Forge"
+  instructions: "bmad/persona-forge/workflows/health-check/instructions.md"
+  web_bundle_files:
+    - bmad/persona-forge/workflows/health-check/instructions.md
+    - bmad/persona-forge/workflows/health-check/checklist.md

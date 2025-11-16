@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Visual Comparison - Design Forge v3.0</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f8f9fa;
+      color: #1a1a1a;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #2563eb;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .notice {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .notice-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1e40af;
+    }
+
+    .notice-text {
+      font-size: 14px;
+      color: #1e40af;
+    }
+
+    .comparison-section {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    .prototype-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .prototype-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .prototype-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .prototype-header {
+      padding: 16px;
+      background: #f9fafb;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .prototype-name {
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .prototype-archetype {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .screenshot-placeholder {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      aspect-ratio: 16 / 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .screenshot-placeholder.minimal {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .screenshot-placeholder.bold {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    }
+
+    .screenshot-placeholder.professional {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .metrics {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .metric {
+      font-size: 13px;
+    }
+
+    .metric-label {
+      color: #666;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .metric-value {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .metric-value.good {
+      color: #16a34a;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .comparison-table th {
+      background: #f9fafb;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .comparison-table td {
+      font-size: 14px;
+    }
+
+    .diff {
+      color: #2563eb;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .prototype-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎨 Sample Visual Comparison Report</h1>
+      <p class="subtitle">Design Forge v3.0 - Example Output</p>
+      <p class="subtitle">Generated: November 10, 2025</p>
+    </header>
+
+    <div class="notice">
+      <div class="notice-title">📘 Example Report</div>
+      <div class="notice-text">
+        This is a sample visual comparison report showing what Design Forge v3.0 produces.
+        Actual reports include real screenshots captured from your prototypes using Playwright browser automation.
+      </div>
+    </div>
+
+    <!-- Prototype Gallery -->
+    <div class="comparison-section">
+      <h2>Prototype Screenshots</h2>
+      <p style="margin-bottom: 20px; color: #666; font-size: 14px;">
+        Three prototypes compared side-by-side with design metrics
+      </p>
+
+      <div class="prototype-grid">
+        <!-- Minimalist Prototype -->
+        <div class="prototype-card">
+          <div class="prototype-header">
+            <div class="prototype-name">minimalist-hero</div>
+            <div class="prototype-archetype">The Minimalist</div>
+          </div>
+          <div class="screenshot-placeholder minimal">
+            📸 Desktop Screenshot (1440px)
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-label">Quality</span>
+              <span class="metric-value good">94/100</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Accessibility</span>
+              <span class="metric-value good">96/100</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Coherence</span>
+              <span class="metric-value good">91/100</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Innovation</span>
+              <span class="metric-value">82/100</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bold Innovator Prototype -->
+        <div class="prototype-card">
+          <div class="prototype-header">
+            <div class="prototype-name">bold-innovator-hero</div>
+            <div class="prototype-archetype">The Bold Innovator</div>
+          </div>
+          <div class="screenshot-placeholder bold">
+            📸 Desktop Screenshot (1440px)
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-label">Quality</span>
+              <span class="metric-value good">87/100</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Accessibility</span>
+              <span class="metric-value good">92/100</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Coherence</span>
+              <span class="metric-value">85/100</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Innovation</span>
+              <span class="metric-value good">91/100</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Prototype -->
+        <div class="prototype-card">
+          <div class="prototype-header">
+            <div class="prototype-name">professional-hero</div>
+            <div class="prototype-archetype">The Professional</div>
+          </div>
+          <div class="screenshot-placeholder professional">
+            📸 Desktop Screenshot (1440px)
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-label">Quality</span>
+              <span class="metric-value good">91/100</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Accessibility</span>
+              <span class="metric-value good">95/100</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Coherence</span>
+              <span class="metric-value good">92/100</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Innovation</span>
+              <span class="metric-value">79/100</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="comparison-section">
+      <h2>Design Parameter Comparison</h2>
+      <p style="margin-bottom: 20px; color: #666; font-size: 14px;">
+        Key differences between prototypes
+      </p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Minimalist</th>
+            <th>Bold Innovator</th>
+            <th>Professional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Color Saturation</td>
+            <td>18%</td>
+            <td class="diff">65% (+47%)</td>
+            <td>35%</td>
+          </tr>
+          <tr>
+            <td>Base Font Size</td>
+            <td>18px</td>
+            <td class="diff">16px (-2px)</td>
+            <td>17px</td>
+          </tr>
+          <tr>
+            <td>Spacing Density</td>
+            <td>Spacious</td>
+            <td class="diff">Compact</td>
+            <td>Balanced</td>
+          </tr>
+          <tr>
+            <td>Animation Duration</td>
+            <td>400ms</td>
+            <td class="diff">200ms (-200ms)</td>
+            <td>300ms</td>
+          </tr>
+          <tr>
+            <td>Visual Hierarchy</td>
+            <td>Subtle</td>
+            <td class="diff">Strong</td>
+            <td>Clear</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="comparison-section">
+      <h2>Recommendations</h2>
+
+      <div style="margin-top: 20px;">
+        <h3 style="font-size: 16px; margin-bottom: 12px; color: #1a1a1a;">Best For:</h3>
+
+        <div style="margin-bottom: 16px;">
+          <div style="font-weight: 600; margin-bottom: 4px;">✅ Minimalist</div>
+          <div style="font-size: 14px; color: #666;">
+            Premium products, professional services, tech platforms. Best accessibility score (96/100).
+          </div>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <div style="font-weight: 600; margin-bottom: 4px;">⚡ Bold Innovator</div>
+          <div style="font-size: 14px; color: #666;">
+            Startups, creative agencies, disruptive brands. Highest innovation score (91/100).
+          </div>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <div style="font-weight: 600; margin-bottom: 4px;">🏢 Professional</div>
+          <div style="font-size: 14px; color: #666;">
+            B2B, financial services, enterprise software. Best coherence score (92/100).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to Generate -->
+    <div class="comparison-section">
+      <h2>How to Generate Your Own Reports</h2>
+
+      <div style="font-size: 14px; line-height: 1.8; color: #666;">
+        <p style="margin-bottom: 12px;">To create visual comparison reports like this:</p>
+
+        <ol style="margin-left: 20px; margin-bottom: 16px;">
+          <li style="margin-bottom: 8px;">Generate prototypes: <code style="background: #f3f4f6; padding: 2px 6px; border-radius: 4px;">*generate</code></li>
+          <li style="margin-bottom: 8px;">Capture screenshots: <code style="background: #f3f4f6; padding: 2px 6px; border-radius: 4px;">*screenshot</code> (batch mode)</li>
+          <li style="margin-bottom: 8px;">Run analysis: <code style="background: #f3f4f6; padding: 2px 6px; border-radius: 4px;">*analyze</code> (compare mode, include visuals: yes)</li>
+          <li style="margin-bottom: 8px;">Select HTML output format</li>
+        </ol>
+
+        <p style="margin-bottom: 12px; font-weight: 500; color: #1a1a1a;">Result:</p>
+        <ul style="margin-left: 20px;">
+          <li style="margin-bottom: 8px;">Interactive HTML dashboard with real screenshots</li>
+          <li style="margin-bottom: 8px;">Viewport switching (mobile/tablet/desktop)</li>
+          <li style="margin-bottom: 8px;">Drag-to-compare image sliders</li>
+          <li style="margin-bottom: 8px;">Complete design metrics</li>
+          <li style="margin-bottom: 8px;">Lightbox viewing for enlarged screenshots</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      <p>Generated by Design Forge v3.0 - Visual Analysis Engine</p>
+      <p style="margin-top: 8px;">This is a sample report. Actual reports include real screenshots from your prototypes.</p>
+      <p style="margin-top: 16px; font-size: 13px;">
+        <a href="../README.md" style="color: #2563eb; text-decoration: none;">Documentation</a> |
+        <a href="../GETTING_STARTED.md" style="color: #2563eb; text-decoration: none;">Getting Started</a> |
+        <a href="../COMMANDS.md" style="color: #2563eb; text-decoration: none;">Commands</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

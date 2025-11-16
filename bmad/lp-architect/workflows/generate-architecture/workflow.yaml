@@ -1,0 +1,37 @@
+# Generate Architecture Workflow Configuration
+name: generate-architecture
+description: "Generate intelligent, research-backed landing page architecture blueprints using 4-agent collaboration, 3D matrix analysis, and persona-driven design"
+author: "Landing Page Architect Team"
+
+# Paths
+installed_path: "{project-root}/bmad/lp-architect/workflows/generate-architecture"
+template: "{installed_path}/template.md"
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/lp-architect/config.yaml"
+output_folder: "{config_source}:output_folder"
+blueprint_output_folder: "{config_source}:blueprint_output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Output configuration
+default_output_file: "{blueprint_output_folder}/lp-architecture-blueprint-{{date}}.md"
+
+# Invocation control
+standalone: true
+
+# Module context
+module: lp-architect
+
+# Web bundle configuration
+web_bundle:
+  web_bundle_files:
+    - "bmad/lp-architect/workflows/generate-architecture/instructions.md"
+    - "bmad/lp-architect/workflows/generate-architecture/template.md"
+    - "bmad/lp-architect/workflows/generate-architecture/checklist.md"
+    - "bmad/lp-architect/tasks/matrix-calculator.xml"
+    - "bmad/lp-architect/tasks/validation-framework.xml"
+    - "bmad/lp-architect/tasks/niche-research-protocol.xml"

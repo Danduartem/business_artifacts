@@ -1,0 +1,647 @@
+# Technology Compatibility Matrix
+# Cross-reference frameworks and flag conflicts
+
+version: "1.0"
+last_updated: "2025-01-14"
+
+# Compatibility levels
+# - excellent: Works perfectly together, recommended combination
+# - good: Works well with minor configuration
+# - fair: Works but requires workarounds or has limitations
+# - poor: Difficult to integrate, not recommended
+# - incompatible: Cannot work together
+
+# Frontend framework compatibility
+frontend_frameworks:
+  nextjs:
+    backend:
+      nodejs_express:
+        compatibility: "excellent"
+        note: "Perfect for separate API or Next.js API routes"
+      nodejs_fastify:
+        compatibility: "excellent"
+        note: "Great for separate API"
+      nodejs_nestjs:
+        compatibility: "excellent"
+        note: "Can share TypeScript types via monorepo"
+      python_fastapi:
+        compatibility: "excellent"
+        note: "Clean separation, tRPC not possible but OpenAPI works"
+      python_django:
+        compatibility: "good"
+        note: "Django as API with Django REST Framework"
+      go_gin:
+        compatibility: "excellent"
+        note: "Go for API, Next.js for frontend"
+      ruby_rails:
+        compatibility: "good"
+        note: "Rails as API backend"
+
+    database:
+      postgresql:
+        compatibility: "excellent"
+        note: "Best with Prisma or Drizzle ORM"
+      mysql:
+        compatibility: "excellent"
+        note: "Works well with Prisma"
+      mongodb:
+        compatibility: "excellent"
+        note: "Use Mongoose or Prisma"
+      sqlite:
+        compatibility: "good"
+        note: "Good for dev, Turso/LibSQL for production edge"
+      supabase:
+        compatibility: "excellent"
+        note: "Supabase client integrates perfectly"
+      firebase:
+        compatibility: "excellent"
+        note: "Firebase SDK works great with Next.js"
+
+    hosting:
+      vercel:
+        compatibility: "excellent"
+        note: "Made by same team, best integration"
+      netlify:
+        compatibility: "good"
+        note: "Works but Vercel is better for Next.js"
+      railway:
+        compatibility: "excellent"
+        note: "Good for Next.js with API routes"
+      cloudflare_pages:
+        compatibility: "good"
+        note: "Works but some features limited"
+
+    auth:
+      clerk:
+        compatibility: "excellent"
+        note: "Best DX for Next.js"
+      nextauth:
+        compatibility: "excellent"
+        note: "Built for Next.js"
+      supabase_auth:
+        compatibility: "excellent"
+        note: "Works perfectly"
+      auth0:
+        compatibility: "excellent"
+        note: "Good SDK support"
+
+  astro:
+    backend:
+      any_api:
+        compatibility: "excellent"
+        note: "Astro fetches from any API at build time or runtime"
+
+    database:
+      postgresql:
+        compatibility: "excellent"
+        note: "Can query directly or via API"
+      supabase:
+        compatibility: "excellent"
+        note: "Great for Astro SSG + client-side features"
+
+    hosting:
+      vercel:
+        compatibility: "excellent"
+        note: "Great SSG deployment"
+      netlify:
+        compatibility: "excellent"
+        note: "Perfect for static sites"
+      cloudflare_pages:
+        compatibility: "excellent"
+        note: "Excellent for static + edge"
+
+  react_spa:
+    backend:
+      any_rest_api:
+        compatibility: "excellent"
+        note: "SPAs work with any backend API"
+
+    hosting:
+      vercel:
+        compatibility: "excellent"
+        note: "Easy static deployment"
+      netlify:
+        compatibility: "excellent"
+        note: "Great for SPAs"
+      cloudflare_pages:
+        compatibility: "excellent"
+        note: "Free unlimited bandwidth"
+
+# Backend framework compatibility
+backend_frameworks:
+  nodejs_express:
+    database:
+      postgresql:
+        compatibility: "excellent"
+        note: "Use pg or Prisma"
+        orms: ["Prisma", "Drizzle", "Sequelize", "TypeORM"]
+      mysql:
+        compatibility: "excellent"
+        note: "Use mysql2 or Prisma"
+        orms: ["Prisma", "Drizzle", "Sequelize", "TypeORM"]
+      mongodb:
+        compatibility: "excellent"
+        note: "Use Mongoose"
+        orms: ["Mongoose", "Prisma"]
+      redis:
+        compatibility: "excellent"
+        note: "Use ioredis or node-redis"
+      sqlite:
+        compatibility: "excellent"
+        note: "Use better-sqlite3"
+
+    hosting:
+      vercel:
+        compatibility: "good"
+        note: "Works but has 10s timeout on hobby"
+      railway:
+        compatibility: "excellent"
+        note: "Perfect for Express apps"
+      render:
+        compatibility: "excellent"
+        note: "Easy deployment"
+      flyio:
+        compatibility: "excellent"
+        note: "Good for global deployment"
+
+  nodejs_fastify:
+    database:
+      postgresql:
+        compatibility: "excellent"
+        note: "Fastify Postgres plugin available"
+        orms: ["Prisma", "Drizzle"]
+      mongodb:
+        compatibility: "excellent"
+        note: "Fastify MongoDB plugin"
+        orms: ["Mongoose"]
+      redis:
+        compatibility: "excellent"
+        note: "Fastify Redis plugin"
+
+  nodejs_nestjs:
+    database:
+      postgresql:
+        compatibility: "excellent"
+        note: "TypeORM or Prisma integration"
+        orms: ["TypeORM", "Prisma", "Mikro-ORM"]
+      mongodb:
+        compatibility: "excellent"
+        note: "Mongoose integration"
+        orms: ["Mongoose", "TypeORM"]
+      mysql:
+        compatibility: "excellent"
+        note: "TypeORM integration"
+        orms: ["TypeORM", "Prisma"]
+
+  python_fastapi:
+    database:
+      postgresql:
+        compatibility: "excellent"
+        note: "SQLAlchemy or asyncpg"
+        orms: ["SQLAlchemy", "SQLModel", "Tortoise ORM"]
+      mysql:
+        compatibility: "excellent"
+        note: "SQLAlchemy support"
+        orms: ["SQLAlchemy", "SQLModel"]
+      mongodb:
+        compatibility: "good"
+        note: "Motor (async) or PyMongo"
+        orms: ["Motor", "Beanie"]
+      redis:
+        compatibility: "excellent"
+        note: "aioredis or redis-py"
+
+  python_django:
+    database:
+      postgresql:
+        compatibility: "excellent"
+        note: "Django ORM has excellent Postgres support"
+      mysql:
+        compatibility: "excellent"
+        note: "Well-supported by Django ORM"
+      sqlite:
+        compatibility: "excellent"
+        note: "Default, great for dev"
+      mongodb:
+        compatibility: "fair"
+        note: "Not recommended, use Djongo but not ideal"
+
+  go_gin:
+    database:
+      postgresql:
+        compatibility: "excellent"
+        note: "Use pgx or GORM"
+        orms: ["GORM", "sqlc", "ent"]
+      mysql:
+        compatibility: "excellent"
+        note: "GORM support"
+        orms: ["GORM", "sqlc"]
+      mongodb:
+        compatibility: "excellent"
+        note: "Official Go driver"
+      redis:
+        compatibility: "excellent"
+        note: "go-redis"
+
+# Database compatibility with each other
+database_compatibility:
+  postgresql_redis:
+    compatibility: "excellent"
+    use_case: "Postgres for data, Redis for cache/sessions"
+    pattern: "Very common, recommended"
+
+  postgresql_mongodb:
+    compatibility: "fair"
+    use_case: "Different data models, but adds complexity"
+    warning: "Usually not needed - Postgres JSONB can replace MongoDB for most cases"
+
+  postgresql_elasticsearch:
+    compatibility: "excellent"
+    use_case: "Postgres for data, Elasticsearch for search"
+    pattern: "Common for search-heavy apps"
+
+  mysql_redis:
+    compatibility: "excellent"
+    use_case: "MySQL for data, Redis for cache"
+
+  mongodb_redis:
+    compatibility: "excellent"
+    use_case: "MongoDB for data, Redis for cache"
+
+  sqlite_redis:
+    compatibility: "poor"
+    note: "SQLite is for simple apps, if you need Redis you should use Postgres/MySQL"
+
+# ORM compatibility with databases
+orm_compatibility:
+  prisma:
+    databases:
+      - name: "PostgreSQL"
+        compatibility: "excellent"
+        features: ["Full support", "Migrations", "Type-safety"]
+      - name: "MySQL"
+        compatibility: "excellent"
+        features: ["Full support", "Migrations"]
+      - name: "MongoDB"
+        compatibility: "good"
+        features: ["Limited features", "No joins"]
+      - name: "SQLite"
+        compatibility: "excellent"
+        features: ["Good for dev"]
+      - name: "CockroachDB"
+        compatibility: "excellent"
+      - name: "PlanetScale"
+        compatibility: "excellent"
+
+  drizzle:
+    databases:
+      - name: "PostgreSQL"
+        compatibility: "excellent"
+        features: ["Lightweight", "Type-safe", "SQL-like"]
+      - name: "MySQL"
+        compatibility: "excellent"
+      - name: "SQLite"
+        compatibility: "excellent"
+
+  typeorm:
+    databases:
+      - name: "PostgreSQL"
+        compatibility: "excellent"
+      - name: "MySQL"
+        compatibility: "excellent"
+      - name: "MongoDB"
+        compatibility: "good"
+        note: "Use Mongoose instead"
+      - name: "SQLite"
+        compatibility: "excellent"
+
+  sequelize:
+    databases:
+      - name: "PostgreSQL"
+        compatibility: "excellent"
+      - name: "MySQL"
+        compatibility: "excellent"
+      - name: "SQLite"
+        compatibility: "excellent"
+      - name: "MariaDB"
+        compatibility: "excellent"
+
+  sqlalchemy:
+    databases:
+      - name: "PostgreSQL"
+        compatibility: "excellent"
+      - name: "MySQL"
+        compatibility: "excellent"
+      - name: "SQLite"
+        compatibility: "excellent"
+      - name: "Oracle"
+        compatibility: "good"
+
+# Hosting platform compatibility
+hosting_compatibility:
+  vercel:
+    frameworks:
+      nextjs:
+        compatibility: "excellent"
+        note: "Best platform for Next.js"
+      astro:
+        compatibility: "excellent"
+      remix:
+        compatibility: "excellent"
+      nuxt:
+        compatibility: "good"
+      react_spa:
+        compatibility: "excellent"
+
+    databases:
+      vercel_postgres:
+        compatibility: "excellent"
+        note: "Native integration"
+      supabase:
+        compatibility: "excellent"
+      planetscale:
+        compatibility: "excellent"
+      neon:
+        compatibility: "excellent"
+      any_external:
+        compatibility: "good"
+        note: "Need to configure connection"
+
+  railway:
+    frameworks:
+      any:
+        compatibility: "excellent"
+        note: "Supports Docker, so any framework works"
+
+    databases:
+      postgresql:
+        compatibility: "excellent"
+        note: "Managed Postgres included"
+      mysql:
+        compatibility: "excellent"
+        note: "Managed MySQL included"
+      mongodb:
+        compatibility: "excellent"
+        note: "Managed MongoDB included"
+      redis:
+        compatibility: "excellent"
+        note: "Managed Redis included"
+
+  netlify:
+    frameworks:
+      nextjs:
+        compatibility: "good"
+        note: "Works but Vercel is better"
+      astro:
+        compatibility: "excellent"
+      react_spa:
+        compatibility: "excellent"
+      nuxt:
+        compatibility: "excellent"
+
+  cloudflare_pages:
+    frameworks:
+      nextjs:
+        compatibility: "fair"
+        note: "Some features not supported"
+      astro:
+        compatibility: "excellent"
+      react_spa:
+        compatibility: "excellent"
+      remix:
+        compatibility: "good"
+
+# Known incompatibilities and conflicts
+known_issues:
+  - technologies: ["Next.js 13+ App Router", "NextAuth.js < 5.0"]
+    issue: "NextAuth.js v4 has issues with App Router"
+    solution: "Use NextAuth.js v5 (beta) or Clerk/Supabase Auth"
+    severity: "medium"
+
+  - technologies: ["Prisma", "Cloudflare Workers"]
+    issue: "Prisma doesn't work on edge runtime"
+    solution: "Use Drizzle ORM or traditional database for edge"
+    severity: "high"
+
+  - technologies: ["Next.js", "Mongoose"]
+    issue: "Mongoose connection pooling can cause issues with serverless"
+    solution: "Use Prisma or configure connection pooling carefully"
+    severity: "medium"
+
+  - technologies: ["Vercel Hobby Plan", "Long-running processes"]
+    issue: "10-second timeout on hobby plan"
+    solution: "Upgrade to Pro or use Railway/Render"
+    severity: "high"
+
+  - technologies: ["Django", "Vercel"]
+    issue: "Django needs traditional server, not serverless"
+    solution: "Use Railway, Render, or DigitalOcean"
+    severity: "high"
+
+  - technologies: ["SQLite", "Multiple servers"]
+    issue: "SQLite is file-based, doesn't work across servers"
+    solution: "Use Turso (distributed SQLite) or Postgres"
+    severity: "high"
+
+  - technologies: ["Nuxt 3", "Netlify"]
+    issue: "Some Nuxt 3 features don't work on Netlify"
+    solution: "Use Vercel or self-host on Railway"
+    severity: "medium"
+
+  - technologies: ["React 18", "Old npm packages"]
+    issue: "Some old packages don't support React 18"
+    solution: "Check package compatibility or find alternatives"
+    severity: "low"
+
+  - technologies: ["Bun", "Some npm packages"]
+    issue: "Bun has compatibility issues with some native modules"
+    solution: "Stick with Node.js for production until Bun matures"
+    severity: "medium"
+
+# Version compatibility requirements
+version_requirements:
+  nextjs_react:
+    - nextjs_version: "13.x"
+      react_version: "18.x"
+      required: true
+    - nextjs_version: "14.x"
+      react_version: "18.2+"
+      required: true
+
+  prisma_nodejs:
+    - prisma_version: "5.x"
+      nodejs_version: "16.13+"
+      required: true
+
+  django_python:
+    - django_version: "4.x"
+      python_version: "3.8+"
+      required: true
+    - django_version: "5.x"
+      python_version: "3.10+"
+      required: true
+
+  fastapi_python:
+    - fastapi_version: "0.100+"
+      python_version: "3.7+"
+      required: true
+
+# Recommended technology stacks (proven combinations)
+recommended_stacks:
+  modern_saas:
+    stack:
+      - "Next.js 14"
+      - "PostgreSQL (Supabase or Neon)"
+      - "Prisma"
+      - "Vercel or Railway"
+      - "Clerk or Supabase Auth"
+    compatibility: "excellent"
+    note: "Battle-tested, scales well, great DX"
+
+  python_api:
+    stack:
+      - "FastAPI"
+      - "PostgreSQL"
+      - "SQLAlchemy"
+      - "Railway or Render"
+    compatibility: "excellent"
+    note: "Modern Python stack, great for APIs"
+
+  rapid_mvp:
+    stack:
+      - "Supabase (database + auth + storage)"
+      - "Next.js"
+      - "Vercel"
+    compatibility: "excellent"
+    note: "Fastest to MVP, all-in-one backend"
+
+  content_site:
+    stack:
+      - "Astro"
+      - "Sanity or Contentful (headless CMS)"
+      - "Netlify or Cloudflare Pages"
+    compatibility: "excellent"
+    note: "Best performance for content"
+
+  node_api:
+    stack:
+      - "Fastify or Express"
+      - "PostgreSQL"
+      - "Prisma or Drizzle"
+      - "Railway"
+      - "Redis (Upstash)"
+    compatibility: "excellent"
+    note: "Solid Node.js API stack"
+
+# Anti-patterns (combinations to avoid)
+anti_patterns:
+  - stack: ["MongoDB", "Complex joins and relations"]
+    reason: "MongoDB is not designed for relational data"
+    solution: "Use PostgreSQL with JSONB for flexible schema"
+
+  - stack: ["Microservices", "Team < 10 people"]
+    reason: "Operational complexity overwhelms small teams"
+    solution: "Use monolith or modular monolith"
+
+  - stack: ["Multiple databases", "No clear reason"]
+    reason: "Adds complexity without benefit"
+    solution: "Start with one database (usually Postgres)"
+
+  - stack: ["Client-side rendering", "SEO-critical content"]
+    reason: "Search engines struggle with CSR"
+    solution: "Use SSG or SSR (Next.js, Astro)"
+
+  - stack: ["Self-hosted everything", "Small team"]
+    reason: "DevOps burden prevents product development"
+    solution: "Use managed services (Vercel, Supabase, etc.)"
+
+  - stack: ["Bleeding-edge frameworks", "Production app"]
+    reason: "Stability and hiring challenges"
+    solution: "Use mature, proven technologies"
+
+# Integration difficulty levels
+integration_difficulty:
+  easy:
+    - combo: ["Next.js", "Vercel"]
+      time: "< 1 hour"
+    - combo: ["Supabase", "Next.js"]
+      time: "< 2 hours"
+    - combo: ["Prisma", "PostgreSQL"]
+      time: "< 2 hours"
+    - combo: ["Clerk", "Next.js"]
+      time: "< 2 hours"
+
+  medium:
+    - combo: ["Django", "React SPA"]
+      time: "1-2 days"
+    - combo: ["FastAPI", "Next.js"]
+      time: "1-2 days"
+    - combo: ["PostgreSQL", "Elasticsearch"]
+      time: "2-3 days"
+
+  hard:
+    - combo: ["Multiple microservices", "Different languages"]
+      time: "1-2 weeks"
+    - combo: ["Complex authentication", "Multiple providers"]
+      time: "1 week"
+    - combo: ["Migration from MongoDB to PostgreSQL"]
+      time: "2-4 weeks"
+
+# Common integration patterns
+integration_patterns:
+  fullstack_monorepo:
+    structure:
+      - "apps/web (Next.js frontend)"
+      - "apps/api (Express/Fastify backend)"
+      - "packages/shared (shared TypeScript types)"
+    tools: ["Turborepo", "pnpm workspaces"]
+    compatibility: "excellent"
+    benefit: "Type safety across frontend and backend"
+
+  separated_frontend_backend:
+    structure:
+      - "frontend repo (Next.js)"
+      - "backend repo (FastAPI, Django, etc.)"
+    communication: "REST API or GraphQL"
+    deployment: "Frontend on Vercel, backend on Railway"
+    benefit: "Clear separation, different teams can work independently"
+
+  jamstack:
+    structure:
+      - "Static frontend (Astro, Next.js SSG)"
+      - "Headless CMS (Sanity, Contentful)"
+      - "Serverless functions for dynamic features"
+    deployment: "Netlify or Vercel"
+    benefit: "Maximum performance, easy scaling"
+
+# Compatibility checker rules
+checker_rules:
+  - rule: "Check Node.js version with framework requirements"
+    check: "Ensure Node.js >= minimum version required by framework"
+
+  - rule: "Check Python version with framework requirements"
+    check: "Ensure Python >= minimum version"
+
+  - rule: "Verify ORM supports chosen database"
+    check: "Cross-reference ORM and database compatibility"
+
+  - rule: "Check hosting platform supports framework"
+    check: "Verify framework can run on chosen platform"
+
+  - rule: "Validate SSR framework with static-only hosting"
+    check: "Warn if SSR framework deployed to static-only host"
+
+  - rule: "Check serverless timeout limits"
+    check: "Warn if long-running processes on serverless platform"
+
+  - rule: "Verify auth provider SDK supports framework"
+    check: "Check auth provider has SDK for chosen framework"
+
+  - rule: "Check for known version conflicts"
+    check: "Reference known_issues list"
+
+  - rule: "Validate monorepo setup"
+    check: "If monorepo, verify tool compatibility"
+
+  - rule: "Check database driver availability"
+    check: "Ensure language has good drivers for database"

@@ -1,0 +1,804 @@
+# Stack Template Library
+# Proven technology stack patterns that work well together
+# Use these as starting points for recommendations
+
+version: "1.0.0"
+last_updated: "2025-11-13"
+
+# ============================================================================
+# SAAS APPLICATION STACKS
+# ============================================================================
+saas_stacks:
+
+  modern_saas_nextjs:
+    name: "Modern SaaS with Next.js"
+    description: "Production-ready SaaS stack with Next.js, PostgreSQL, and modern tooling"
+    smb_fit: "excellent"
+    best_for:
+      - "B2B SaaS products"
+      - "User dashboards"
+      - "Admin panels"
+      - "Data-driven applications"
+
+    stack:
+      frontend:
+        framework: "Next.js 14"
+        styling: "Tailwind CSS"
+        ui_components: "shadcn/ui"
+        state_management: "Zustand"
+        forms: "React Hook Form"
+        validation: "Zod"
+
+      backend:
+        runtime: "Node.js 20 LTS"
+        framework: "Next.js API Routes"
+        orm: "Prisma"
+        validation: "Zod"
+
+      database:
+        primary: "PostgreSQL 16"
+        caching: "Vercel KV (Redis)"
+
+      auth:
+        service: "Clerk"
+        alternative: "NextAuth.js"
+
+      payments:
+        service: "Stripe"
+
+      hosting:
+        platform: "Vercel"
+        database_host: "Vercel Postgres / Supabase / Neon"
+
+      monitoring:
+        errors: "Sentry"
+        analytics: "Vercel Analytics"
+
+      email:
+        service: "Resend"
+        templates: "React Email"
+
+    estimated_monthly_cost:
+      development: "$0 (free tiers)"
+      production_small: "$50-150 (< 10k users)"
+      production_medium: "$150-500 (< 50k users)"
+
+    pros:
+      - "Excellent developer experience"
+      - "Fast time to market"
+      - "Great SEO with SSR"
+      - "Type-safe end-to-end"
+      - "Vercel deployment is zero-config"
+      - "Strong community and ecosystem"
+
+    cons:
+      - "Vercel can get expensive at scale"
+      - "Next.js has learning curve beyond React"
+      - "Vendor lock-in with Vercel-specific features"
+
+    team_requirements:
+      min_team_size: 1
+      ideal_team_size: "2-5"
+      required_skills:
+        - "React/TypeScript"
+        - "Next.js"
+        - "PostgreSQL basics"
+      learning_time: "2-4 weeks for React devs"
+
+  lean_saas_supabase:
+    name: "Lean SaaS with Supabase"
+    description: "Rapid SaaS development with Supabase backend-as-a-service"
+    smb_fit: "excellent"
+    best_for:
+      - "MVP validation"
+      - "Solo founders"
+      - "Bootstrap projects"
+      - "Real-time features"
+
+    stack:
+      frontend:
+        framework: "Next.js 14 / Vite + React"
+        styling: "Tailwind CSS"
+        ui_components: "shadcn/ui / Chakra UI"
+        state_management: "Zustand / React Context"
+
+      backend:
+        service: "Supabase (PostgreSQL + Auth + Storage + Realtime)"
+        edge_functions: "Supabase Edge Functions (Deno)"
+
+      database:
+        primary: "PostgreSQL (Supabase)"
+
+      auth:
+        service: "Supabase Auth"
+
+      payments:
+        service: "Stripe"
+
+      hosting:
+        frontend: "Vercel / Netlify"
+        backend: "Supabase"
+
+      monitoring:
+        errors: "Sentry"
+
+      email:
+        service: "Resend / SendGrid"
+
+    estimated_monthly_cost:
+      development: "$0 (free tier)"
+      production_small: "$25-100 (< 10k users)"
+      production_medium: "$100-300 (< 50k users)"
+
+    pros:
+      - "Extremely fast development"
+      - "No backend code needed initially"
+      - "Built-in auth, storage, realtime"
+      - "Generous free tier"
+      - "Open source, can self-host"
+      - "PostgreSQL (powerful, portable)"
+
+    cons:
+      - "Less control over backend"
+      - "Custom business logic requires Edge Functions"
+      - "Supabase learning curve"
+
+    team_requirements:
+      min_team_size: 1
+      ideal_team_size: "1-3"
+      required_skills:
+        - "React/TypeScript"
+        - "SQL basics"
+        - "Supabase"
+      learning_time: "1-2 weeks for React devs"
+
+  python_saas_fastapi:
+    name: "Python SaaS with FastAPI"
+    description: "Modern Python SaaS stack with FastAPI backend"
+    smb_fit: "excellent"
+    best_for:
+      - "Data-heavy applications"
+      - "ML/AI integration"
+      - "Python teams"
+      - "API-first architecture"
+
+    stack:
+      frontend:
+        framework: "React + Vite / Next.js"
+        styling: "Tailwind CSS"
+        ui_components: "Material-UI / Chakra UI"
+        state_management: "Zustand"
+        api_client: "React Query"
+
+      backend:
+        framework: "FastAPI"
+        orm: "SQLAlchemy"
+        migrations: "Alembic"
+        validation: "Pydantic"
+        async: "asyncio + asyncpg"
+
+      database:
+        primary: "PostgreSQL 16"
+        caching: "Redis"
+
+      auth:
+        library: "FastAPI-Users / Auth0"
+
+      hosting:
+        frontend: "Vercel / Netlify"
+        backend: "Railway / Render / Fly.io"
+        database: "Railway / Render / Supabase"
+
+      monitoring:
+        errors: "Sentry"
+        apm: "Sentry Performance"
+
+      email:
+        service: "SendGrid / Mailgun"
+
+    estimated_monthly_cost:
+      development: "$0-10"
+      production_small: "$50-150"
+      production_medium: "$150-400"
+
+    pros:
+      - "Excellent for data science/ML teams"
+      - "FastAPI is very fast and modern"
+      - "Automatic API documentation"
+      - "Strong typing with Pydantic"
+      - "Large Python ecosystem"
+
+    cons:
+      - "Python hosting more expensive than Node.js"
+      - "Smaller FastAPI ecosystem than Node.js"
+      - "Async Python has learning curve"
+
+    team_requirements:
+      min_team_size: 2
+      ideal_team_size: "3-6"
+      required_skills:
+        - "Python"
+        - "FastAPI"
+        - "React"
+        - "PostgreSQL"
+      learning_time: "2-3 weeks for Python devs"
+
+# ============================================================================
+# E-COMMERCE STACKS
+# ============================================================================
+ecommerce_stacks:
+
+  modern_ecommerce_nextjs:
+    name: "Modern E-commerce with Next.js"
+    description: "High-performance e-commerce stack with Next.js and Stripe"
+    smb_fit: "excellent"
+    best_for:
+      - "Custom online stores"
+      - "Digital products"
+      - "Subscription products"
+      - "B2B e-commerce"
+
+    stack:
+      frontend:
+        framework: "Next.js 14 (App Router)"
+        styling: "Tailwind CSS"
+        ui_components: "shadcn/ui"
+        cart: "Zustand / Redux"
+        images: "Next.js Image + Cloudinary"
+
+      backend:
+        runtime: "Node.js 20"
+        framework: "Next.js API Routes"
+        orm: "Prisma"
+
+      database:
+        primary: "PostgreSQL 16"
+        search: "PostgreSQL Full-Text Search"
+        caching: "Redis"
+
+      payments:
+        service: "Stripe"
+        webhooks: "Stripe Webhooks"
+
+      cms:
+        option_1: "Sanity (headless CMS)"
+        option_2: "Custom admin with Next.js"
+
+      hosting:
+        platform: "Vercel"
+        database: "Supabase / Neon / Railway"
+        images: "Cloudinary"
+
+      email:
+        transactional: "Resend"
+        marketing: "SendGrid / Mailchimp"
+
+      monitoring:
+        errors: "Sentry"
+        analytics: "Google Analytics 4"
+
+    estimated_monthly_cost:
+      development: "$0-20"
+      production_small: "$100-250 (< 1k orders/month)"
+      production_medium: "$250-600 (< 5k orders/month)"
+
+    pros:
+      - "Excellent SEO (critical for e-commerce)"
+      - "Fast page loads"
+      - "Stripe integration is excellent"
+      - "Image optimization built-in"
+      - "Flexible customization"
+
+    cons:
+      - "Build-your-own inventory management"
+      - "More dev work than Shopify"
+      - "Need to handle checkout UX carefully"
+
+    team_requirements:
+      min_team_size: 2
+      ideal_team_size: "3-5"
+      required_skills:
+        - "React/Next.js"
+        - "E-commerce best practices"
+        - "Stripe integration"
+        - "PostgreSQL"
+      learning_time: "4-6 weeks for Next.js devs"
+
+  shopify_headless:
+    name: "Shopify Headless Commerce"
+    description: "Shopify backend with custom Next.js frontend"
+    smb_fit: "good"
+    best_for:
+      - "Custom storefront with Shopify management"
+      - "Existing Shopify merchants wanting custom UX"
+      - "Teams wanting e-commerce features without building them"
+
+    stack:
+      frontend:
+        framework: "Next.js 14"
+        styling: "Tailwind CSS"
+        ui_components: "shadcn/ui"
+        shopify_sdk: "Shopify Storefront API"
+
+      backend:
+        ecommerce: "Shopify"
+        custom_logic: "Next.js API Routes (if needed)"
+
+      payments:
+        service: "Shopify Payments / Stripe"
+
+      hosting:
+        platform: "Vercel"
+
+      cms:
+        service: "Shopify CMS"
+
+      monitoring:
+        errors: "Sentry"
+
+    estimated_monthly_cost:
+      development: "$29/month (Shopify Basic)"
+      production_small: "$79-150/month"
+      production_medium: "$150-400/month"
+
+    pros:
+      - "Shopify handles inventory, payments, admin"
+      - "Custom frontend UX"
+      - "Shopify's e-commerce features"
+      - "PCI compliance handled by Shopify"
+
+    cons:
+      - "Shopify monthly costs"
+      - "Vendor lock-in to Shopify"
+      - "API rate limits"
+      - "Less flexible than custom"
+
+    team_requirements:
+      min_team_size: 2
+      ideal_team_size: "2-4"
+      required_skills:
+        - "React/Next.js"
+        - "Shopify Storefront API"
+        - "GraphQL"
+      learning_time: "2-4 weeks"
+
+# ============================================================================
+# CONTENT SITE STACKS
+# ============================================================================
+content_stacks:
+
+  astro_content_site:
+    name: "Astro Content Site"
+    description: "Ultra-fast static site with Astro"
+    smb_fit: "excellent"
+    best_for:
+      - "Blogs"
+      - "Marketing sites"
+      - "Documentation"
+      - "Portfolio sites"
+
+    stack:
+      framework:
+        name: "Astro 4"
+        islands: "React / Vue / Svelte (as needed)"
+
+      styling:
+        css: "Tailwind CSS"
+
+      cms:
+        option_1: "Markdown files (simple)"
+        option_2: "Sanity (headless CMS)"
+        option_3: "Contentful (enterprise)"
+
+      search:
+        service: "Algolia / Pagefind"
+
+      hosting:
+        platform: "Vercel / Netlify / Cloudflare Pages"
+
+      analytics:
+        service: "Plausible / Google Analytics"
+
+    estimated_monthly_cost:
+      all_scales: "$0-20 (free tier sufficient for most)"
+
+    pros:
+      - "Extremely fast (minimal JS)"
+      - "Perfect lighthouse scores"
+      - "Excellent SEO"
+      - "Framework agnostic (use React, Vue, Svelte together)"
+      - "Very low hosting costs"
+
+    cons:
+      - "Not for interactive apps"
+      - "Build time increases with content volume"
+      - "Less dynamic than traditional CMS"
+
+    team_requirements:
+      min_team_size: 1
+      ideal_team_size: "1-2"
+      required_skills:
+        - "HTML/CSS/JS basics"
+        - "Markdown (for content)"
+        - "React/Vue (optional for islands)"
+      learning_time: "1-2 weeks"
+
+  nextjs_blog:
+    name: "Next.js Blog/Content Site"
+    description: "SEO-optimized content site with Next.js"
+    smb_fit: "excellent"
+    best_for:
+      - "Content + SaaS hybrid"
+      - "Advanced interactive features"
+      - "Dynamic content"
+      - "Company websites with blog"
+
+    stack:
+      frontend:
+        framework: "Next.js 14"
+        styling: "Tailwind CSS"
+        ui_components: "shadcn/ui"
+
+      cms:
+        option_1: "Sanity"
+        option_2: "Contentful"
+        option_3: "MDX files"
+
+      search:
+        service: "Algolia"
+
+      hosting:
+        platform: "Vercel"
+
+      analytics:
+        service: "Vercel Analytics / Google Analytics"
+
+      newsletter:
+        service: "ConvertKit / Mailchimp"
+
+    estimated_monthly_cost:
+      development: "$0"
+      production_small: "$20-50"
+      production_medium: "$50-150"
+
+    pros:
+      - "Can add interactive features easily"
+      - "Excellent SEO with SSG/ISR"
+      - "Easy to expand to SaaS"
+      - "Great developer experience"
+
+    cons:
+      - "More complex than Astro for pure content"
+      - "Higher build times than Astro"
+
+    team_requirements:
+      min_team_size: 1
+      ideal_team_size: "1-3"
+      required_skills:
+        - "React/Next.js"
+        - "CMS integration"
+      learning_time: "2-3 weeks for React devs"
+
+# ============================================================================
+# API / BACKEND STACKS
+# ============================================================================
+api_stacks:
+
+  nodejs_rest_api:
+    name: "Node.js REST API"
+    description: "Production-ready Node.js API with PostgreSQL"
+    smb_fit: "excellent"
+    best_for:
+      - "REST APIs"
+      - "Microservices"
+      - "Mobile app backends"
+      - "Third-party integrations"
+
+    stack:
+      runtime: "Node.js 20 LTS"
+      framework: "Fastify / Express"
+      orm: "Prisma / Drizzle"
+      validation: "Zod"
+      auth: "JWT (jsonwebtoken)"
+
+      database:
+        primary: "PostgreSQL 16"
+        caching: "Redis"
+
+      hosting:
+        platform: "Railway / Render / Fly.io"
+
+      monitoring:
+        errors: "Sentry"
+        apm: "Sentry Performance"
+
+      docs:
+        tool: "Swagger / Scalar"
+
+    estimated_monthly_cost:
+      development: "$0-10"
+      production_small: "$20-60"
+      production_medium: "$60-200"
+
+    pros:
+      - "Fast and lightweight"
+      - "Huge ecosystem"
+      - "Easy to scale horizontally"
+      - "Good for real-time (WebSockets)"
+
+    cons:
+      - "Async/await callback hell if not careful"
+      - "Less structure than opinionated frameworks"
+
+    team_requirements:
+      min_team_size: 1
+      ideal_team_size: "2-4"
+      required_skills:
+        - "Node.js"
+        - "REST API design"
+        - "PostgreSQL"
+      learning_time: "1-2 weeks for JS devs"
+
+  python_api_fastapi:
+    name: "Python API with FastAPI"
+    description: "Modern Python API with automatic docs"
+    smb_fit: "excellent"
+    best_for:
+      - "Data/ML APIs"
+      - "Python teams"
+      - "Complex business logic"
+      - "Integration APIs"
+
+    stack:
+      framework: "FastAPI"
+      orm: "SQLAlchemy (async)"
+      migrations: "Alembic"
+      validation: "Pydantic"
+      auth: "FastAPI-Users / JWT"
+
+      database:
+        primary: "PostgreSQL 16"
+        caching: "Redis"
+
+      hosting:
+        platform: "Railway / Render / Fly.io"
+
+      monitoring:
+        errors: "Sentry"
+
+      docs:
+        tool: "FastAPI (automatic)"
+
+    estimated_monthly_cost:
+      development: "$0-10"
+      production_small: "$30-80"
+      production_medium: "$80-250"
+
+    pros:
+      - "Automatic API documentation"
+      - "Fast (Starlette + Pydantic)"
+      - "Great for data/ML workloads"
+      - "Type safety with Pydantic"
+
+    cons:
+      - "Python hosting costs more"
+      - "Smaller ecosystem than Node.js"
+
+    team_requirements:
+      min_team_size: 1
+      ideal_team_size: "2-4"
+      required_skills:
+        - "Python"
+        - "FastAPI"
+        - "REST API design"
+      learning_time: "1-2 weeks for Python devs"
+
+# ============================================================================
+# REAL-TIME APPLICATION STACKS
+# ============================================================================
+realtime_stacks:
+
+  supabase_realtime:
+    name: "Supabase Real-time App"
+    description: "Real-time application with Supabase"
+    smb_fit: "excellent"
+    best_for:
+      - "Chat applications"
+      - "Collaboration tools"
+      - "Live dashboards"
+      - "Multiplayer features"
+
+    stack:
+      frontend:
+        framework: "Next.js 14 / React + Vite"
+        styling: "Tailwind CSS"
+        ui_components: "shadcn/ui"
+        realtime: "Supabase Realtime (WebSockets)"
+
+      backend:
+        service: "Supabase"
+        realtime: "Supabase Realtime"
+        database: "PostgreSQL (Supabase)"
+
+      auth:
+        service: "Supabase Auth"
+
+      hosting:
+        frontend: "Vercel"
+        backend: "Supabase"
+
+      monitoring:
+        errors: "Sentry"
+
+    estimated_monthly_cost:
+      development: "$0"
+      production_small: "$25-80"
+      production_medium: "$80-250"
+
+    pros:
+      - "Real-time built-in"
+      - "No WebSocket server needed"
+      - "PostgreSQL queries become real-time"
+      - "Fast development"
+
+    cons:
+      - "Supabase-specific real-time API"
+      - "Complex real-time logic can be challenging"
+
+    team_requirements:
+      min_team_size: 1
+      ideal_team_size: "2-3"
+      required_skills:
+        - "React"
+        - "Supabase"
+        - "Real-time concepts"
+      learning_time: "2-3 weeks"
+
+# ============================================================================
+# MOBILE APP BACKEND STACKS
+# ============================================================================
+mobile_stacks:
+
+  firebase_mobile:
+    name: "Firebase Mobile Backend"
+    description: "Complete mobile backend with Firebase"
+    smb_fit: "good"
+    best_for:
+      - "iOS/Android apps"
+      - "Real-time mobile apps"
+      - "Rapid mobile development"
+      - "Consumer mobile apps"
+
+    stack:
+      backend:
+        service: "Firebase"
+        database: "Firestore"
+        auth: "Firebase Auth"
+        storage: "Firebase Storage"
+        functions: "Cloud Functions"
+        messaging: "Firebase Cloud Messaging"
+
+      mobile:
+        ios: "Swift / SwiftUI"
+        android: "Kotlin / Jetpack Compose"
+        cross_platform: "React Native / Flutter"
+
+      hosting:
+        web_dashboard: "Firebase Hosting / Vercel"
+
+      monitoring:
+        crashes: "Firebase Crashlytics"
+        analytics: "Firebase Analytics"
+
+    estimated_monthly_cost:
+      development: "$0"
+      production_small: "$25-80"
+      production_medium: "$100-300"
+
+    pros:
+      - "Complete mobile backend"
+      - "Real-time synchronization"
+      - "Offline support built-in"
+      - "Push notifications included"
+      - "Google-backed"
+
+    cons:
+      - "Vendor lock-in"
+      - "NoSQL database (not relational)"
+      - "Can get expensive at scale"
+      - "Firestore queries limited"
+
+    team_requirements:
+      min_team_size: 2
+      ideal_team_size: "3-5"
+      required_skills:
+        - "iOS/Android or React Native/Flutter"
+        - "Firebase"
+        - "NoSQL concepts"
+      learning_time: "2-3 weeks"
+
+  supabase_mobile:
+    name: "Supabase Mobile Backend"
+    description: "PostgreSQL-based mobile backend with Supabase"
+    smb_fit: "excellent"
+    best_for:
+      - "iOS/Android apps"
+      - "Apps needing relational data"
+      - "Real-time mobile features"
+      - "Cost-conscious projects"
+
+    stack:
+      backend:
+        service: "Supabase"
+        database: "PostgreSQL"
+        auth: "Supabase Auth"
+        storage: "Supabase Storage"
+        functions: "Edge Functions"
+        realtime: "Supabase Realtime"
+
+      mobile:
+        ios: "Swift + Supabase SDK"
+        android: "Kotlin + Supabase SDK"
+        cross_platform: "React Native / Flutter + Supabase SDK"
+
+      push_notifications:
+        service: "OneSignal / Firebase Cloud Messaging"
+
+      monitoring:
+        errors: "Sentry"
+
+    estimated_monthly_cost:
+      development: "$0"
+      production_small: "$25-80"
+      production_medium: "$80-200"
+
+    pros:
+      - "PostgreSQL (relational data)"
+      - "More cost-effective than Firebase"
+      - "Real-time built-in"
+      - "Open source (can self-host)"
+      - "Strong typing"
+
+    cons:
+      - "Smaller ecosystem than Firebase"
+      - "Need separate push notification service"
+      - "Fewer mobile-specific features"
+
+    team_requirements:
+      min_team_size: 2
+      ideal_team_size: "3-5"
+      required_skills:
+        - "iOS/Android or React Native/Flutter"
+        - "Supabase"
+        - "SQL"
+      learning_time: "2-3 weeks"
+
+# ============================================================================
+# USAGE GUIDELINES
+# ============================================================================
+usage_guidelines:
+
+  when_to_use_patterns:
+    - "As starting points for recommendations"
+    - "To show proven combinations"
+    - "To accelerate decision-making"
+    - "To reduce analysis paralysis"
+
+  when_to_deviate:
+    - "Project has unique requirements"
+    - "Team has specific expertise in alternatives"
+    - "Budget constraints require changes"
+    - "Integration requirements dictate alternatives"
+
+  how_to_customize:
+    - "Start with closest pattern"
+    - "Swap individual technologies as needed"
+    - "Document rationale for deviations"
+    - "Validate new combinations for compatibility"
+
+  notes:
+    - "These patterns are proven but not prescriptive"
+    - "Always validate against project-specific requirements"
+    - "Consider team skills and preferences"
+    - "Update cost estimates with current pricing"
+    - "Check framework versions for currency"

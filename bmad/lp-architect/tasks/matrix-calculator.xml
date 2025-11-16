@@ -1,0 +1,156 @@
+<task id="bmad/lp-architect/tasks/matrix-calculator.xml" name="Matrix Calculator" standalone="false">
+  <objective>Calculate architecture requirements based on 3D matrix position (Awareness × Price × Complexity)</objective>
+
+  <llm critical="true">
+    <mandate>Apply the 3D matrix logic systematically to determine optimal architecture structure</mandate>
+    <mandate>Section count and emphasis must match the matrix position exactly</mandate>
+  </llm>
+
+  <inputs>
+    <input name="awareness_level" required="true">Unaware | Problem-aware | Solution-aware | Product-aware</input>
+    <input name="price_tier" required="true">Low ($0-$50) | Medium ($50-$500) | High ($500+)</input>
+    <input name="complexity_level" required="true">Simple | Moderate | Complex</input>
+  </inputs>
+
+  <logic>
+    <step n="1" title="Calculate Base Section Count">
+      <rule>Start with baseline section count based on awareness level:</rule>
+      <mapping>
+        <awareness level="product-aware">Base: 4-5 sections (minimal education needed)</awareness>
+        <awareness level="solution-aware">Base: 6-8 sections (comparison/differentiation focus)</awareness>
+        <awareness level="problem-aware">Base: 8-10 sections (solution education needed)</awareness>
+        <awareness level="unaware">Base: 10-12 sections (problem + solution education)</awareness>
+      </mapping>
+    </step>
+
+    <step n="2" title="Adjust for Price Tier">
+      <rule>Price tier affects proof requirements - add sections for credibility:</rule>
+      <adjustment>
+        <price tier="low">+0 sections (minimal proof needed)</price>
+        <price tier="medium">+1-2 sections (solid proof required)</price>
+        <price tier="high">+2-4 sections (extensive proof, case studies, risk reversal)</price>
+      </adjustment>
+    </step>
+
+    <step n="3" title="Adjust for Complexity">
+      <rule>Complexity affects explanation depth - add sections for clarity:</rule>
+      <adjustment>
+        <complexity level="simple">+0 sections (straightforward value prop)</complexity>
+        <complexity level="moderate">+1-2 sections (some breakdown needed)</complexity>
+        <complexity level="complex">+2-3 sections (detailed explanation required)</complexity>
+      </adjustment>
+    </step>
+
+    <step n="4" title="Determine Required Section Types">
+      <action>Based on matrix position, specify which section types are required:</action>
+
+      <awareness-based-sections>
+        <if condition="unaware">
+          <required>Problem Agitation</required>
+          <required>Problem Education</required>
+          <required>Solution Category Introduction</required>
+        </if>
+        <if condition="problem-aware">
+          <required>Solution Education</required>
+          <required>Approach Differentiation</required>
+        </if>
+        <if condition="solution-aware">
+          <required>Why Us vs Them</required>
+          <required>Feature Comparison</required>
+        </if>
+        <if condition="product-aware">
+          <required>Quick Confirmation</required>
+          <required>Objection Removal</required>
+        </if>
+      </awareness-based-sections>
+
+      <price-based-sections>
+        <if condition="high">
+          <required>Deep Social Proof (case studies)</required>
+          <required>Authority Signals</required>
+          <required>Risk Reversal</required>
+          <required>ROI Justification</required>
+        </if>
+        <if condition="medium">
+          <required>Social Proof (testimonials)</required>
+          <required>Trust Signals</required>
+        </if>
+        <if condition="low">
+          <optional>Light Social Proof</optional>
+        </if>
+      </price-based-sections>
+
+      <complexity-based-sections>
+        <if condition="complex">
+          <required>How It Works (detailed)</required>
+          <required>Component Breakdown</required>
+          <required>Implementation Clarity</required>
+        </if>
+        <if condition="moderate">
+          <required>How It Works (overview)</required>
+        </if>
+        <if condition="simple">
+          <optional>Quick Benefit List</optional>
+        </if>
+      </complexity-based-sections>
+
+      <universal-sections>
+        <required>Hero/Value Proposition</required>
+        <required>Transformation/Outcome</required>
+        <required>Clear CTA</required>
+      </universal-sections>
+    </step>
+
+    <step n="5" title="Define Emphasis Areas">
+      <action>Determine what should be emphasized based on matrix:</action>
+
+      <awareness-emphasis>
+        <if condition="unaware">Emphasize: Problem education before solution</if>
+        <if condition="problem-aware">Emphasize: Solution differentiation</if>
+        <if condition="solution-aware">Emphasize: Competitive advantages</if>
+        <if condition="product-aware">Emphasize: Remove final barriers</if>
+      </awareness-emphasis>
+
+      <price-emphasis>
+        <if condition="high">Emphasize: Trust, credibility, risk reduction</if>
+        <if condition="medium">Emphasize: Value justification, proof</if>
+        <if condition="low">Emphasize: Quick value, minimal friction</if>
+      </price-emphasis>
+
+      <complexity-emphasis>
+        <if condition="complex">Emphasize: Clarity, simplification, education</if>
+        <if condition="moderate">Emphasize: Clear process, benefits</if>
+        <if condition="simple">Emphasize: Speed, ease, immediate value</if>
+      </complexity-emphasis>
+    </step>
+
+    <step n="6" title="Sequence Principles">
+      <action>Define how sections should be ordered based on matrix:</action>
+
+      <sequencing-rules>
+        <rule>Always start with immediate clarity (Hero/Value Prop)</rule>
+        <rule>Education before persuasion (if unaware/problem-aware)</rule>
+        <rule>Emotional hook before logical proof</rule>
+        <rule>Build trust before asking for commitment</rule>
+        <rule>Address objections before final CTA</rule>
+        <rule>Progressive revelation - information depth increases with commitment</rule>
+      </sequencing-rules>
+    </step>
+  </logic>
+
+  <outputs>
+    <output name="section_count_range">Final calculated section count (e.g., "8-10 sections")</output>
+    <output name="required_sections">List of specific section types needed for this matrix position</output>
+    <output name="emphasis_areas">What should be emphasized (education/proof/clarity focus)</output>
+    <output name="sequence_principles">Ordering guidelines specific to this matrix position</output>
+    <output name="matrix_summary">Clear explanation of how this matrix position determines architecture</output>
+  </outputs>
+
+  <validation>
+    <check>Section count is appropriate for matrix position</check>
+    <check>All universal sections included</check>
+    <check>Awareness-specific sections present</check>
+    <check>Price-appropriate proof levels specified</check>
+    <check>Complexity-appropriate explanation depth defined</check>
+  </validation>
+</task>

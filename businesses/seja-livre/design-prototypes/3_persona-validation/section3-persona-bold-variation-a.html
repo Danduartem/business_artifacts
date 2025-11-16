@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja Livre - Persona Identification Section (Variation A)</title>
+    <style>
+        /* ============================================
+           CSS RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ============================================
+           CUSTOM PROPERTIES (Brand Colors & Typography)
+           ============================================ */
+        :root {
+            /* Brand Colors */
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+            --white: #FFFFFF;
+            --near-black: #0A0D1A;
+            --light-gray: #F5F5F7;
+            --medium-gray: #E8E8EA;
+            --text-gray: #4A4A5E;
+
+            /* Typography */
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'CenturyGothic', 'Century Gothic', AppleGothic, sans-serif;
+
+            /* Spacing */
+            --section-padding: clamp(3rem, 8vw, 6rem);
+            --container-max: 1200px;
+
+            /* Animation */
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* ============================================
+           TYPOGRAPHY & FONTS
+           ============================================ */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--navy);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ============================================
+           SECTION LAYOUT
+           ============================================ */
+        .persona-section {
+            position: relative;
+            padding: var(--section-padding) 1.5rem;
+            overflow: hidden;
+            background: linear-gradient(135deg,
+                var(--white) 0%,
+                var(--light-gray) 50%,
+                var(--white) 100%);
+        }
+
+        /* VARIATION A: Diagonal accent element - moved to bottom-left */
+        .persona-section::before {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -5%;
+            width: 40%;
+            height: 120%;
+            background: linear-gradient(135deg,
+                rgba(129, 23, 31, 0.03) 0%,
+                rgba(201, 162, 39, 0.02) 100%);
+            transform: rotate(12deg);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================
+           HEADLINE AREA
+           ============================================ */
+        .headline-area {
+            text-align: center;
+            margin-bottom: clamp(2.5rem, 5vw, 4rem);
+            animation: fadeInUp 0.8s var(--transition-smooth) backwards;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* VARIATION A: Animated underline that draws from left-to-right */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+            transform-origin: left;
+            animation: drawUnderline 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s backwards;
+        }
+
+        .highlight-text {
+            color: var(--borgonha);
+            position: relative;
+            display: inline-block;
+        }
+
+        .intro-copy {
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            line-height: 1.8;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+
+        .intro-copy strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           CHECKLIST GRID
+           ============================================ */
+        .checklist-container {
+            margin: clamp(3rem, 6vw, 5rem) 0;
+            animation: fadeInUp 0.8s var(--transition-smooth) 0.2s backwards;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Individual checklist item */
+        .checklist-item {
+            position: relative;
+            padding: 1.75rem 1.75rem 1.75rem 4.5rem;
+            background: var(--white);
+            border: 2px solid var(--medium-gray);
+            border-radius: 12px;
+            transition: all var(--transition-smooth);
+            cursor: pointer;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* VARIATION A: Hover effect with rotating gradient border */
+        .checklist-item:hover {
+            border-color: transparent;
+            transform: translateX(8px);
+            background: var(--white);
+            position: relative;
+        }
+
+        .checklist-item::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(
+                45deg,
+                var(--borgonha),
+                var(--gold),
+                var(--borgonha)
+            );
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity var(--transition-smooth);
+        }
+
+        .checklist-item:hover::before {
+            opacity: 1;
+            animation: rotateGradient 3s linear infinite;
+        }
+
+        /* Custom checkbox */
+        .checkbox-wrapper {
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+        }
+
+        .checkbox-input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkbox-custom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--borgonha);
+            border-radius: 6px;
+            background: var(--white);
+            transition: all var(--transition-smooth);
+        }
+
+        /* VARIATION A: SVG checkmark draw animation */
+        .checkbox-custom::after {
+            content: '';
+            position: absolute;
+            display: none;
+            left: 9px;
+            top: 4px;
+            width: 8px;
+            height: 14px;
+            border: solid var(--white);
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+
+        .checkbox-input:checked ~ .checkbox-custom {
+            background: var(--borgonha);
+            transform: scale(1.05);
+        }
+
+        .checkbox-input:checked ~ .checkbox-custom::after {
+            display: block;
+            animation: drawCheckmark 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .checkbox-input:focus ~ .checkbox-custom {
+            outline: 3px solid rgba(129, 23, 31, 0.3);
+            outline-offset: 2px;
+        }
+
+        .checklist-text {
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+            line-height: 1.6;
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        /* ============================================
+           VALIDATION SECTION
+           ============================================ */
+        .validation-area {
+            position: relative;
+            background: var(--navy);
+            color: var(--white);
+            padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 4vw, 3.5rem);
+            border-radius: 20px;
+            margin-top: 3rem;
+            overflow: hidden;
+            animation: fadeInUp 0.8s var(--transition-smooth) 0.4s backwards;
+        }
+
+        /* Diagonal accent inside validation box */
+        .validation-area::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 50%;
+            height: 140%;
+            background: linear-gradient(135deg,
+                rgba(129, 23, 31, 0.2) 0%,
+                transparent 100%);
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+
+        .validation-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .validation-headline {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .validation-text {
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        .validation-text strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* ============================================
+           STATISTICS GRID
+           ============================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat-card {
+            position: relative;
+            padding: 2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(201, 162, 39, 0.3);
+            border-radius: 16px;
+            text-align: center;
+            transition: all var(--transition-smooth);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        /* VARIATION A: Pulsing glow effect on gold numbers */
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.75rem;
+            display: block;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        .stat-label {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        /* ============================================
+           CLOSING STATEMENT
+           ============================================ */
+        .closing-statement {
+            margin-top: 2.5rem;
+            padding: 2rem;
+            background: rgba(129, 23, 31, 0.15);
+            border-left: 5px solid var(--borgonha);
+            border-radius: 12px;
+        }
+
+        .closing-statement p {
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            line-height: 1.8;
+            color: var(--white);
+        }
+
+        .closing-statement strong {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* VARIATION A: Draw underline from left to right */
+        @keyframes drawUnderline {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        /* VARIATION A: Checkmark draw animation */
+        @keyframes drawCheckmark {
+            0% {
+                height: 0;
+                width: 0;
+                opacity: 0;
+            }
+            40% {
+                height: 0;
+                width: 8px;
+                opacity: 1;
+            }
+            100% {
+                height: 14px;
+                width: 8px;
+                opacity: 1;
+            }
+        }
+
+        /* VARIATION A: Pulsing glow effect for stat numbers */
+        @keyframes pulseGlow {
+            0%, 100% {
+                opacity: 0.7;
+                text-shadow: 0 0 10px rgba(201, 162, 39, 0.3);
+            }
+            50% {
+                opacity: 1;
+                text-shadow: 0 0 20px rgba(201, 162, 39, 0.6);
+            }
+        }
+
+        /* VARIATION A: Rotating gradient border animation */
+        @keyframes rotateGradient {
+            0% {
+                background: linear-gradient(
+                    45deg,
+                    var(--borgonha),
+                    var(--gold),
+                    var(--borgonha)
+                );
+            }
+            33% {
+                background: linear-gradient(
+                    165deg,
+                    var(--borgonha),
+                    var(--gold),
+                    var(--borgonha)
+                );
+            }
+            66% {
+                background: linear-gradient(
+                    285deg,
+                    var(--borgonha),
+                    var(--gold),
+                    var(--borgonha)
+                );
+            }
+            100% {
+                background: linear-gradient(
+                    405deg,
+                    var(--borgonha),
+                    var(--gold),
+                    var(--borgonha)
+                );
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 768px) {
+            .persona-section::before {
+                width: 60%;
+                left: -15%;
+            }
+
+            .checklist-item {
+                padding: 1.5rem 1.5rem 1.5rem 4rem;
+            }
+
+            .checklist-item:hover {
+                transform: translateX(4px);
+            }
+
+            .stats-grid {
+                gap: 1.5rem;
+            }
+
+            .validation-area {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title::after {
+                height: 2px;
+            }
+
+            .checklist-grid {
+                gap: 1rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        /* ============================================
+           ACCESSIBILITY
+           ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus visible for keyboard navigation */
+        .checklist-item:focus-within {
+            outline: 3px solid var(--borgonha);
+            outline-offset: 3px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .checklist-item {
+                border-width: 3px;
+            }
+
+            .stat-card {
+                border-width: 3px;
+            }
+        }
+
+        /* Screen reader only text */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="persona-section" aria-labelledby="persona-title">
+        <div class="container">
+            <!-- Headline Area -->
+            <header class="headline-area">
+                <h2 id="persona-title" class="section-title">
+                    Você é a <span class="highlight-text">'Malabarista Exausta'</span>?
+                </h2>
+                <p class="intro-copy">
+                    Se você está aqui, provavelmente se reconhece neste perfil. Você não está sozinha—<strong>este é um dos estágios mais comuns (e mais dolorosos) do crescimento empresarial.</strong> Veja se você se identifica:
+                </p>
+            </header>
+
+            <!-- Checklist Container -->
+            <div class="checklist-container">
+                <div class="checklist-grid" role="group" aria-label="Lista de identificação de persona">
+                    <!-- Checklist Item 1 -->
+                    <label class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" class="checkbox-input" id="check1" aria-describedby="check1-text">
+                            <span class="checkbox-custom" aria-hidden="true"></span>
+                        </div>
+                        <span class="checklist-text" id="check1-text">
+                            Você gera €30-50k/mês, mas trabalha 60-70 horas/semana
+                        </span>
+                    </label>
+
+                    <!-- Checklist Item 2 -->
+                    <label class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" class="checkbox-input" id="check2" aria-describedby="check2-text">
+                            <span class="checkbox-custom" aria-hidden="true"></span>
+                        </div>
+                        <span class="checklist-text" id="check2-text">
+                            Não consegue tirar férias sem o negócio sofrer
+                        </span>
+                    </label>
+
+                    <!-- Checklist Item 3 -->
+                    <label class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" class="checkbox-input" id="check3" aria-describedby="check3-text">
+                            <span class="checkbox-custom" aria-hidden="true"></span>
+                        </div>
+                        <span class="checklist-text" id="check3-text">
+                            Sua equipe não executa como você (você apaga incêndios constantemente)
+                        </span>
+                    </label>
+
+                    <!-- Checklist Item 4 -->
+                    <label class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" class="checkbox-input" id="check4" aria-describedby="check4-text">
+                            <span class="checkbox-custom" aria-hidden="true"></span>
+                        </div>
+                        <span class="checklist-text" id="check4-text">
+                            Você microgerencia sem querer
+                        </span>
+                    </label>
+
+                    <!-- Checklist Item 5 -->
+                    <label class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" class="checkbox-input" id="check5" aria-describedby="check5-text">
+                            <span class="checkbox-custom" aria-hidden="true"></span>
+                        </div>
+                        <span class="checklist-text" id="check5-text">
+                            Sua saúde e relacionamentos estão sofrendo
+                        </span>
+                    </label>
+
+                    <!-- Checklist Item 6 -->
+                    <label class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" class="checkbox-input" id="check6" aria-describedby="check6-text">
+                            <span class="checkbox-custom" aria-hidden="true"></span>
+                        </div>
+                        <span class="checklist-text" id="check6-text">
+                            Suas últimas férias foram há 6-12 meses (ou não lembra)
+                        </span>
+                    </label>
+
+                    <!-- Checklist Item 7 -->
+                    <label class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" class="checkbox-input" id="check7" aria-describedby="check7-text">
+                            <span class="checkbox-custom" aria-hidden="true"></span>
+                        </div>
+                        <span class="checklist-text" id="check7-text">
+                            Você se sente presa pelo próprio sucesso
+                        </span>
+                    </label>
+
+                    <!-- Checklist Item 8 -->
+                    <label class="checklist-item">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" class="checkbox-input" id="check8" aria-describedby="check8-text">
+                            <span class="checkbox-custom" aria-hidden="true"></span>
+                        </div>
+                        <span class="checklist-text" id="check8-text">
+                            Você se pergunta: "É realmente isso que sucesso parece?"
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Validation Area -->
+            <div class="validation-area">
+                <div class="validation-content">
+                    <h3 class="validation-headline">
+                        Se você marcou 4+ itens, você não está sozinha.
+                    </h3>
+                    <p class="validation-text">
+                        Isto é a crise da <strong>Malabarista Exausta</strong>. E HÁ uma saída.
+                    </p>
+
+                    <!-- Statistics Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">44%</span>
+                            <p class="stat-label">
+                                das empreendedoras brasileiras enfrentam exaustão
+                                <span class="sr-only">(Deloitte 2022)</span>
+                            </p>
+                            <p class="stat-label" style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">
+                                Deloitte 2022
+                            </p>
+                        </div>
+
+                        <div class="stat-card">
+                            <span class="stat-number">72%</span>
+                            <p class="stat-label">
+                                dos empreendedores enfrentam burnout em algum momento
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Closing Statement -->
+                    <div class="closing-statement">
+                        <p>
+                            <strong>Você não é fraca.</strong> Você não é incapaz. Você simplesmente nunca foi ensinada a construir <strong>SISTEMAS</strong>—foi ensinada a <strong>FAZER</strong> o trabalho.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Accessibility enhancement: Announce checked count to screen readers
+        (function() {
+            const checkboxes = document.querySelectorAll('.checkbox-input');
+            const validationHeadline = document.querySelector('.validation-headline');
+
+            function updateCheckedCount() {
+                const checkedCount = document.querySelectorAll('.checkbox-input:checked').length;
+
+                // Update ARIA live region for screen readers
+                if (checkedCount >= 4) {
+                    const announcement = document.createElement('div');
+                    announcement.setAttribute('role', 'status');
+                    announcement.setAttribute('aria-live', 'polite');
+                    announcement.classList.add('sr-only');
+                    announcement.textContent = `Você marcou ${checkedCount} itens. Isto corresponde ao perfil da Malabarista Exausta.`;
+                    document.body.appendChild(announcement);
+
+                    setTimeout(() => {
+                        document.body.removeChild(announcement);
+                    }, 1000);
+                }
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateCheckedCount);
+            });
+        })();
+
+        // Smooth scroll enhancement (if section is linked to)
+        if (window.location.hash === '#persona') {
+            document.querySelector('.persona-section').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    </script>
+</body>
+</html>

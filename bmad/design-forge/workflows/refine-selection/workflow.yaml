@@ -1,0 +1,38 @@
+# Refine Selection Workflow Configuration
+name: "refine-selection"
+description: "Iteratively polish a single prototype through natural language feedback and guided adjustments"
+author: "Design Forge"
+version: "3.0.0"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/design-forge/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Module-specific config variables
+prototype_output_folder: "{config_source}:prototype_output_folder"
+design_principles_path: "{config_source}:design_principles_path"
+style_guide_path: "{config_source}:style_guide_path"
+include_design_rationale: "{config_source}:include_design_rationale"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/design-forge/workflows/refine-selection"
+template: false
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# State file for tracking iterations (BMAD workflows are stateless, so we persist state to file)
+state_file: "{prototype_output_folder}/.refine-state-{target_prototype_name}.json"
+
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  workflow: "bmad/design-forge/workflows/refine-selection/workflow.yaml"
+  files:
+    - "bmad/design-forge/workflows/refine-selection/workflow.yaml"
+    - "bmad/design-forge/workflows/refine-selection/instructions.md"
+    - "bmad/design-forge/workflows/refine-selection/checklist.md"
+    - "bmad/design-forge/workflows/refine-selection/README.md"
+  existing_workflows: []

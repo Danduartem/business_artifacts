@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Section - Modern Artisan v2 | Mentoria Seja Livre</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===================================
+           CSS CUSTOM PROPERTIES (Design Tokens)
+           Modern Artisan v2: Card-focused with elevated depth
+           =================================== */
+        :root {
+            /* Brand Colors */
+            --navy: #191F3A;
+            --navy-light: #2A3355;
+            --navy-lighter: #3D4A70;
+            --navy-bg: #F2F4F8;
+            --navy-ultra-light: #E8EBF3;
+            --borgonha: #81171F;
+            --borgonha-light: #9A2129;
+            --borgonha-bg: #F9E9EB;
+            --borgonha-lighter: #FEF5F6;
+            --gold: #C9A227;
+
+            /* Neutrals */
+            --white: #FFFFFF;
+            --gray-50: #F8F9FB;
+            --gray-100: #EEF0F4;
+            --gray-200: #DDE1E9;
+            --gray-300: #C4CAD6;
+            --gray-600: #5A6477;
+            --gray-800: #2A2E3B;
+            --gray-900: #1E1E1E;
+
+            /* Typography */
+            --font-serif: 'Lora', serif;
+            --font-sans: 'Inter', 'CenturyGothic', sans-serif;
+
+            /* Spacing (8px base) */
+            --space-xs: 0.5rem;    /* 8px */
+            --space-sm: 1rem;      /* 16px */
+            --space-md: 1.5rem;    /* 24px */
+            --space-lg: 2rem;      /* 32px */
+            --space-xl: 3rem;      /* 48px */
+            --space-2xl: 4rem;     /* 64px */
+            --space-3xl: 6rem;     /* 96px */
+
+            /* Timing */
+            --timing-fast: 150ms;
+            --timing-base: 250ms;
+            --timing-slow: 400ms;
+            --easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Modern Artisan v2: Enhanced depth system */
+            --shadow-elevated: 0 8px 24px rgba(25, 31, 58, 0.12), 0 2px 8px rgba(25, 31, 58, 0.08);
+            --shadow-floating: 0 16px 48px rgba(25, 31, 58, 0.16), 0 4px 16px rgba(25, 31, 58, 0.12);
+            --shadow-strong: 0 24px 64px rgba(25, 31, 58, 0.2), 0 8px 24px rgba(25, 31, 58, 0.16);
+
+            /* Glassmorphism */
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ===================================
+           RESET & BASE STYLES
+           =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===================================
+           SECTION STRUCTURE
+           Color-blocked with gradient transitions
+           =================================== */
+        .problem-section {
+            position: relative;
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(180deg, var(--white) 0%, var(--navy-ultra-light) 100%);
+            overflow: hidden;
+        }
+
+        /* Floating geometric shapes - modern artisan detail */
+        .problem-section::before,
+        .problem-section::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.4;
+            filter: blur(60px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .problem-section::before {
+            width: 600px;
+            height: 600px;
+            top: -200px;
+            right: -100px;
+            background: radial-gradient(circle, var(--borgonha-lighter) 0%, transparent 70%);
+        }
+
+        .problem-section::after {
+            width: 800px;
+            height: 800px;
+            bottom: -300px;
+            left: -200px;
+            background: radial-gradient(circle, var(--navy-bg) 0%, transparent 70%);
+        }
+
+        .problem-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 2;
+        }
+
+        /* ===================================
+           HEADER: Headline + Subhead
+           Modern geometric typography
+           =================================== */
+        .problem-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            animation: fadeInUp 0.8s var(--easing);
+        }
+
+        .problem-headline {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 5vw, 3.75rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--navy);
+            margin-bottom: var(--space-lg);
+            letter-spacing: -0.02em;
+        }
+
+        .problem-subhead {
+            font-family: var(--font-sans);
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--gray-600);
+            max-width: 750px;
+            margin: 0 auto var(--space-md);
+        }
+
+        .problem-subhead:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===================================
+           PAIN SECTION
+           Color-blocked background with elevated cards
+           =================================== */
+        .pain-section {
+            position: relative;
+            background: linear-gradient(135deg, var(--borgonha-bg) 0%, var(--borgonha-lighter) 100%);
+            border-radius: 24px;
+            padding: var(--space-2xl) var(--space-lg);
+            margin: var(--space-2xl) 0;
+            animation: fadeInUp 0.8s var(--easing) 0.2s both;
+        }
+
+        /* Glassmorphism overlay */
+        .pain-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 24px;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        .pain-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===================================
+           TIMELINE GRID
+           Masonry-style layout with staggered heights
+           =================================== */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        @media (min-width: 768px) {
+            .timeline-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-2xl);
+            }
+        }
+
+        /* Floating elevated cards with strong shadows */
+        .timeline-card {
+            position: relative;
+            background: var(--white);
+            border-radius: 20px;
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid rgba(25, 31, 58, 0.08);
+            transition: all var(--timing-base) var(--easing);
+            overflow: visible;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-floating);
+        }
+
+        /* Gradient accent on card top */
+        .timeline-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--borgonha) 0%, var(--navy) 100%);
+            border-radius: 20px 20px 0 0;
+            opacity: 0;
+            transition: opacity var(--timing-base) var(--easing);
+        }
+
+        .timeline-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Icon-first design with gradient backgrounds */
+        .timeline-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            gap: var(--space-md);
+        }
+
+        .timeline-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--borgonha) 0%, var(--borgonha-light) 100%);
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(129, 23, 31, 0.3);
+            transition: all var(--timing-base) var(--easing);
+        }
+
+        .timeline-card:hover .timeline-icon-wrapper {
+            transform: scale(1.05) rotate(-5deg);
+            box-shadow: 0 12px 32px rgba(129, 23, 31, 0.4);
+        }
+
+        .timeline-icon-wrapper svg {
+            width: 40px;
+            height: 40px;
+            stroke-width: 2;
+            color: var(--white);
+        }
+
+        .timeline-period {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 3vw, 1.875rem);
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.01em;
+        }
+
+        /* Consequence list with enhanced icons */
+        .consequence-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .consequence-item {
+            display: flex;
+            gap: var(--space-md);
+            align-items: flex-start;
+            padding: var(--space-md);
+            background: var(--gray-50);
+            border-radius: 12px;
+            border-left: 3px solid var(--borgonha);
+            transition: all var(--timing-fast) var(--easing);
+            opacity: 0;
+            animation: fadeInLeft 0.5s var(--easing) forwards;
+        }
+
+        .consequence-item:hover {
+            background: var(--white);
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(25, 31, 58, 0.08);
+        }
+
+        /* Stagger animation for list items */
+        .consequence-item:nth-child(1) { animation-delay: 0.1s; }
+        .consequence-item:nth-child(2) { animation-delay: 0.2s; }
+        .consequence-item:nth-child(3) { animation-delay: 0.3s; }
+        .consequence-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .consequence-icon-wrapper {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--borgonha-bg) 0%, var(--borgonha-lighter) 100%);
+            border-radius: 8px;
+            color: var(--borgonha);
+        }
+
+        .consequence-icon-wrapper svg {
+            width: 18px;
+            height: 18px;
+            stroke-width: 2.5;
+        }
+
+        .consequence-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--gray-800);
+            font-weight: 500;
+        }
+
+        /* ===================================
+           QUOTE SECTION
+           Floating card with glassmorphism
+           =================================== */
+        .quote-wrapper {
+            animation: fadeInUp 0.8s var(--easing) 0.4s both;
+        }
+
+        .quote-section {
+            position: relative;
+            padding: var(--space-2xl);
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid var(--gray-200);
+            margin: var(--space-2xl) 0;
+            overflow: hidden;
+        }
+
+        /* Decorative quote mark */
+        .quote-section::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-family: var(--font-serif);
+            font-size: 120px;
+            font-weight: 700;
+            color: var(--navy-bg);
+            line-height: 1;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        .quote-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-text {
+            font-family: var(--font-serif);
+            font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--navy);
+            margin-bottom: var(--space-md);
+            font-weight: 600;
+        }
+
+        .quote-author {
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--gray-600);
+            text-align: right;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===================================
+           CRISIS STATEMENT
+           Strong emphasis card
+           =================================== */
+        .crisis-card {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            padding: var(--space-xl);
+            border-radius: 20px;
+            box-shadow: var(--shadow-floating);
+            text-align: center;
+            margin: var(--space-2xl) 0;
+            animation: fadeInUp 0.8s var(--easing) 0.6s both;
+        }
+
+        .crisis-text {
+            font-family: var(--font-sans);
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+            line-height: 1.6;
+            color: var(--white);
+        }
+
+        .crisis-emphasis {
+            color: var(--borgonha-lighter);
+            font-weight: 800;
+            display: block;
+            margin-bottom: var(--space-xs);
+        }
+
+        /* ===================================
+           HOPE SECTION
+           Color-blocked with elevated cards
+           =================================== */
+        .hope-section {
+            position: relative;
+            background: linear-gradient(135deg, var(--navy-bg) 0%, var(--navy-ultra-light) 100%);
+            border-radius: 24px;
+            padding: var(--space-2xl) var(--space-lg);
+            margin: var(--space-3xl) 0 var(--space-2xl);
+            animation: fadeInUp 0.8s var(--easing) 0.8s both;
+        }
+
+        /* Glassmorphism overlay */
+        .hope-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 24px;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .hope-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hope-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .hope-trigger {
+            font-family: var(--font-serif);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 600;
+            font-style: italic;
+            color: var(--navy);
+            margin-bottom: var(--space-md);
+        }
+
+        /* Hope questions grid with floating cards */
+        .hope-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        @media (min-width: 768px) {
+            .hope-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-xl);
+            }
+        }
+
+        .hope-card {
+            background: var(--white);
+            padding: var(--space-xl);
+            border-radius: 20px;
+            box-shadow: var(--shadow-elevated);
+            border: 2px solid transparent;
+            transition: all var(--timing-base) var(--easing);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 280px;
+        }
+
+        .hope-card:hover {
+            border-color: var(--navy);
+            box-shadow: var(--shadow-floating);
+            transform: translateY(-8px);
+        }
+
+        /* Icon with gradient background - larger for v2 */
+        .hope-icon-wrapper {
+            width: 88px;
+            height: 88px;
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lighter) 100%);
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(25, 31, 58, 0.3);
+            transition: all var(--timing-base) var(--easing);
+        }
+
+        .hope-card:hover .hope-icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 32px rgba(25, 31, 58, 0.4);
+        }
+
+        .hope-icon-wrapper svg {
+            width: 44px;
+            height: 44px;
+            stroke-width: 2;
+            color: var(--white);
+        }
+
+        .hope-question {
+            font-family: var(--font-serif);
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--navy);
+        }
+
+        /* ===================================
+           CHOICE STATEMENT
+           Final emphasis
+           =================================== */
+        .choice-card {
+            background: var(--white);
+            padding: var(--space-2xl);
+            border-radius: 20px;
+            box-shadow: var(--shadow-elevated);
+            text-align: center;
+        }
+
+        .choice-intro {
+            font-family: var(--font-sans);
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            margin-bottom: var(--space-lg);
+        }
+
+        .choice-paths {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .choice-option {
+            font-family: var(--font-sans);
+            font-size: 1.125rem;
+            color: var(--gray-800);
+            font-weight: 500;
+        }
+
+        .choice-vs {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            color: var(--borgonha);
+            font-style: italic;
+            font-size: 1.25rem;
+        }
+
+        .choice-final {
+            font-family: var(--font-serif);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--borgonha);
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+        }
+
+        /* ===================================
+           CTA BUTTON
+           Elevated floating action
+           =================================== */
+        .cta-wrapper {
+            text-align: center;
+            margin-top: var(--space-3xl);
+            animation: fadeInUp 0.8s var(--easing) 1s both;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-lg) var(--space-2xl);
+            background: linear-gradient(135deg, var(--borgonha) 0%, var(--borgonha-light) 100%);
+            color: var(--white);
+            font-family: var(--font-sans);
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 16px;
+            border: none;
+            box-shadow: var(--shadow-elevated);
+            transition: all var(--timing-base) var(--easing);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            box-shadow: var(--shadow-strong);
+            transform: translateY(-4px);
+        }
+
+        .cta-button:focus {
+            outline: 3px solid var(--borgonha-bg);
+            outline-offset: 4px;
+        }
+
+        .cta-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform var(--timing-base) var(--easing);
+        }
+
+        .cta-button:hover .cta-icon {
+            transform: translateX(6px);
+        }
+
+        /* ===================================
+           ANIMATIONS
+           =================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ===================================
+           ACCESSIBILITY
+           =================================== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles for keyboard navigation */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--borgonha);
+            outline-offset: 3px;
+        }
+
+        /* ===================================
+           RESPONSIVE ADJUSTMENTS
+           =================================== */
+        @media (max-width: 767px) {
+            .problem-section {
+                padding: var(--space-2xl) var(--space-md);
+            }
+
+            .pain-section,
+            .hope-section {
+                padding: var(--space-xl) var(--space-md);
+            }
+
+            .timeline-card {
+                padding: var(--space-xl);
+            }
+
+            .hope-card {
+                min-height: auto;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .problem-section {
+                padding: var(--space-3xl) var(--space-2xl);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===================================
+         PROBLEM SECTION
+         Modern Artisan v2: Elevated cards with strong depth
+         =================================== -->
+    <section class="problem-section" aria-labelledby="problem-headline">
+        <div class="problem-container">
+
+            <!-- Header -->
+            <header class="problem-header">
+                <h1 id="problem-headline" class="problem-headline">
+                    O Que Acontece Se Você Continuar Assim?
+                </h1>
+                <p class="problem-subhead">
+                    Deixa eu ser honesta com você, do meu coração para o seu.
+                </p>
+                <p class="problem-subhead">
+                    Se você continuar trabalhando 70 horas por semana, apagando incêndios, sendo CLT do seu CNPJ...
+                </p>
+            </header>
+
+            <!-- Pain Section: Color-blocked with elevated cards -->
+            <div class="pain-section">
+                <div class="pain-content">
+                    <div class="timeline-grid">
+
+                        <!-- 6 Months Timeline Card -->
+                        <article class="timeline-card">
+                            <div class="timeline-header">
+                                <div class="timeline-icon-wrapper" aria-hidden="true">
+                                    <!-- Calendar icon from Lucide -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                        <line x1="16" y1="2" x2="16" y2="6"/>
+                                        <line x1="8" y1="2" x2="8" y2="6"/>
+                                        <line x1="3" y1="10" x2="21" y2="10"/>
+                                    </svg>
+                                </div>
+                                <h2 class="timeline-period">Daqui a 6 meses:</h2>
+                            </div>
+                            <ul class="consequence-list">
+                                <li class="consequence-item">
+                                    <div class="consequence-icon-wrapper" aria-hidden="true">
+                                        <!-- X Circle icon from Lucide -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="15" y1="9" x2="9" y2="15"/>
+                                            <line x1="9" y1="9" x2="15" y2="15"/>
+                                        </svg>
+                                    </div>
+                                    <span class="consequence-text">Você terá perdido mais 180 dias com sua família que nunca vão voltar</span>
+                                </li>
+                                <li class="consequence-item">
+                                    <div class="consequence-icon-wrapper" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="15" y1="9" x2="9" y2="15"/>
+                                            <line x1="9" y1="9" x2="15" y2="15"/>
+                                        </svg>
+                                    </div>
+                                    <span class="consequence-text">Seu corpo vai dar sinais ainda mais graves (ou você já vai ter tido um colapso)</span>
+                                </li>
+                                <li class="consequence-item">
+                                    <div class="consequence-icon-wrapper" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="15" y1="9" x2="9" y2="15"/>
+                                            <line x1="9" y1="9" x2="15" y2="15"/>
+                                        </svg>
+                                    </div>
+                                    <span class="consequence-text">Sua equipe vai continuar dependente—porque você não construiu sistemas para mudá-los</span>
+                                </li>
+                                <li class="consequence-item">
+                                    <div class="consequence-icon-wrapper" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="15" y1="9" x2="9" y2="15"/>
+                                            <line x1="9" y1="9" x2="15" y2="15"/>
+                                        </svg>
+                                    </div>
+                                    <span class="consequence-text">Você vai estar exausta demais para aproveitar o dinheiro que ganha</span>
+                                </li>
+                            </ul>
+                        </article>
+
+                        <!-- 12 Months Timeline Card -->
+                        <article class="timeline-card">
+                            <div class="timeline-header">
+                                <div class="timeline-icon-wrapper" aria-hidden="true">
+                                    <!-- Calendar icon from Lucide -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                        <line x1="16" y1="2" x2="16" y2="6"/>
+                                        <line x1="8" y1="2" x2="8" y2="6"/>
+                                        <line x1="3" y1="10" x2="21" y2="10"/>
+                                    </svg>
+                                </div>
+                                <h2 class="timeline-period">Daqui a 12 meses:</h2>
+                            </div>
+                            <ul class="consequence-list">
+                                <li class="consequence-item">
+                                    <div class="consequence-icon-wrapper" aria-hidden="true">
+                                        <!-- Alert Triangle icon from Lucide -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                            <line x1="12" y1="9" x2="12" y2="13"/>
+                                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                        </svg>
+                                    </div>
+                                    <span class="consequence-text">Seu relacionamento vai estar em crise séria (ou já acabou)</span>
+                                </li>
+                                <li class="consequence-item">
+                                    <div class="consequence-icon-wrapper" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                            <line x1="12" y1="9" x2="12" y2="13"/>
+                                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                        </svg>
+                                    </div>
+                                    <span class="consequence-text">Você vai olhar para trás e perceber que trabalhou um ano inteiro... sem crescer estrategicamente</span>
+                                </li>
+                                <li class="consequence-item">
+                                    <div class="consequence-icon-wrapper" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                            <line x1="12" y1="9" x2="12" y2="13"/>
+                                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                        </svg>
+                                    </div>
+                                    <span class="consequence-text">A frustração com sua equipe vai ter virado ressentimento</span>
+                                </li>
+                                <li class="consequence-item">
+                                    <div class="consequence-icon-wrapper" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                            <line x1="12" y1="9" x2="12" y2="13"/>
+                                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                        </svg>
+                                    </div>
+                                    <span class="consequence-text">Você vai estar considerando fechar a empresa que construiu com tanto sacrifício</span>
+                                </li>
+                            </ul>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote Section -->
+            <div class="quote-wrapper">
+                <blockquote class="quote-section">
+                    <div class="quote-content">
+                        <p class="quote-text">
+                            Insanidade é continuar fazendo a mesma coisa e esperar resultados diferentes.
+                        </p>
+                        <cite class="quote-author">— Albert Einstein</cite>
+                    </div>
+                </blockquote>
+            </div>
+
+            <!-- Crisis Statement -->
+            <div class="crisis-card">
+                <p class="crisis-text">
+                    <span class="crisis-emphasis">Você não pode esperar que as coisas melhorem sozinhas.</span>
+                    Elas não vão.
+                </p>
+            </div>
+
+            <!-- Hope Section: Color-blocked with elevated cards -->
+            <div class="hope-section">
+                <div class="hope-content">
+                    <div class="hope-header">
+                        <p class="hope-trigger">Mas e se...</p>
+                    </div>
+
+                    <div class="hope-grid">
+                        <!-- Hope Card 1 -->
+                        <article class="hope-card">
+                            <div class="hope-icon-wrapper" aria-hidden="true">
+                                <!-- Clock icon from Lucide -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <p class="hope-question">
+                                E se daqui a 90 dias você estivesse trabalhando 40 horas por semana?
+                            </p>
+                        </article>
+
+                        <!-- Hope Card 2 -->
+                        <article class="hope-card">
+                            <div class="hope-icon-wrapper" aria-hidden="true">
+                                <!-- Users icon from Lucide -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <p class="hope-question">
+                                E se sua equipe executasse independentemente?
+                            </p>
+                        </article>
+
+                        <!-- Hope Card 3 -->
+                        <article class="hope-card">
+                            <div class="hope-icon-wrapper" aria-hidden="true">
+                                <!-- Plane icon from Lucide -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                                </svg>
+                            </div>
+                            <p class="hope-question">
+                                E se você pudesse viajar 2 semanas sem a empresa desmoronar?
+                            </p>
+                        </article>
+                    </div>
+
+                    <!-- Choice Statement -->
+                    <div class="choice-card">
+                        <p class="choice-intro">
+                            Essa é a escolha na sua frente.
+                        </p>
+                        <div class="choice-paths">
+                            <span class="choice-option">Continuar repetindo o mesmo ciclo.</span>
+                            <span class="choice-vs">Ou</span>
+                        </div>
+                        <p class="choice-final">Escolher Ser Livre.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="cta-wrapper">
+                <a href="#solution" class="cta-button" aria-label="Descobrir a solução">
+                    <span>Descobrir a Solução</span>
+                    <svg class="cta-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                        <polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        /* ===================================
+           INTERSECTION OBSERVER
+           Progressive animation on scroll
+           =================================== */
+
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!prefersReducedMotion) {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            const elementsToObserve = document.querySelectorAll('.timeline-card, .quote-section, .hope-card');
+            elementsToObserve.forEach(el => observer.observe(el));
+        }
+
+        /* ===================================
+           SMOOTH SCROLL FOR CTA
+           =================================== */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        /* ===================================
+           ACCESSIBILITY: Focus Management
+           =================================== */
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-nav');
+        });
+
+        /* ===================================
+           ANALYTICS INTEGRATION
+           =================================== */
+        const ctaButton = document.querySelector('.cta-button');
+        if (ctaButton) {
+            ctaButton.addEventListener('click', () => {
+                console.log('CTA clicked - ready to track');
+            });
+        }
+
+        const timelineCards = document.querySelectorAll('.timeline-card');
+        timelineCards.forEach((card, index) => {
+            card.addEventListener('mouseenter', () => {
+                console.log(`Timeline card ${index} hovered`);
+            });
+        });
+
+        const hopeCards = document.querySelectorAll('.hope-card');
+        hopeCards.forEach((card, index) => {
+            card.addEventListener('mouseenter', () => {
+                console.log(`Hope card ${index} hovered`);
+            });
+        });
+    </script>
+
+</body>
+</html>

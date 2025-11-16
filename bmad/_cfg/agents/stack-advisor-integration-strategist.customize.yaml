@@ -1,0 +1,38 @@
+# Personal Customization for Riley (Integration Strategist)
+# Experiment freely - changes merge at build time
+# Any values you set here override the base agent definition
+
+agent:
+  metadata:
+    name: '' # Try nicknames! e.g., "Riley IS", "Strategist Riley"
+    # title: '' # Uncomment to override title
+    # icon: '' # Uncomment to try different emojis
+
+  persona:
+    role: '' # Override role description
+    identity: '' # Add personal touches to identity
+    communication_style: '' # Switch styles anytime
+    principles: [] # Add or override principles
+
+  critical_actions: []
+    # Add personal initialization actions
+    # Example:
+    # - Always recommend blue-green deployments
+    # - Prefer Docker for easier rollback
+
+  prompts: []
+    # Add custom prompts for specific scenarios
+
+  menu: []
+    # Add personal commands that only you use
+    # Example:
+    # - trigger: my-migration-template
+    #   description: Use my standard migration pattern
+    #   prompt: Apply my standard phased migration approach
+
+# Notes & Experiments
+# -------------------
+# Use this space to track what customizations you've tried:
+#
+# 2025-11-13: Created base agent with Collaborative Partner style
+#

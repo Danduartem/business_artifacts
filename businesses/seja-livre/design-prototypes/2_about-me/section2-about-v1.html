@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim - Seja Livre Core Mentoria</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Brand Colors */
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --text-gray: #4A5568;
+
+            /* Typography */
+            --font-serif: 'Lora', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Spacing */
+            --section-padding: 80px;
+            --container-max: 1200px;
+
+            /* Transitions */
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--navy);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: var(--white);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: var(--section-padding) 20px;
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        /* Section Label */
+        .section-label {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--borgonha);
+            margin-bottom: 16px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        /* Headline */
+        .about-headline {
+            font-family: var(--font-serif);
+            font-size: 42px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--navy);
+            margin-bottom: 48px;
+            max-width: 800px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        /* Two-Column Layout */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        /* Portrait Column */
+        .portrait-column {
+            opacity: 0;
+            animation: fadeInLeft 0.8s ease-out 0.6s forwards;
+        }
+
+        .portrait-wrapper {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(25, 31, 58, 0.12);
+        }
+
+        .portrait-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--borgonha) 100%);
+            border-radius: 8px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .portrait-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Text Column */
+        .text-column {
+            opacity: 0;
+            animation: fadeInRight 0.8s ease-out 0.8s forwards;
+        }
+
+        .about-text {
+            font-family: var(--font-sans);
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--navy);
+        }
+
+        .about-text p {
+            margin-bottom: 24px;
+        }
+
+        .about-text p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Emphasis for transformation */
+        .transformation {
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 2px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .transformation strong {
+            color: var(--borgonha);
+            font-weight: 600;
+        }
+
+        /* Proof Badge */
+        .proof-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 32px;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.05) 0%, rgba(129, 23, 31, 0.05) 100%);
+            border-left: 3px solid var(--gold);
+            border-radius: 4px;
+        }
+
+        .proof-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .proof-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.4;
+        }
+
+        /* Micro-CTA */
+        .micro-cta {
+            margin-top: 40px;
+        }
+
+        .cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--borgonha);
+            text-decoration: none;
+            padding: 14px 28px;
+            border: 2px solid var(--borgonha);
+            border-radius: 4px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--borgonha);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .cta-link:hover::before {
+            left: 0;
+        }
+
+        .cta-link:hover {
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(129, 23, 31, 0.2);
+        }
+
+        .cta-arrow {
+            transition: var(--transition);
+        }
+
+        .cta-link:hover .cta-arrow {
+            transform: translateX(4px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Tablet Responsive */
+        @media (max-width: 1024px) {
+            :root {
+                --section-padding: 60px;
+            }
+
+            .about-headline {
+                font-size: 36px;
+                margin-bottom: 40px;
+            }
+
+            .about-content {
+                gap: 60px;
+            }
+
+            .about-text {
+                font-size: 17px;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 50px;
+            }
+
+            .about-headline {
+                font-size: 32px;
+                margin-bottom: 32px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .portrait-column {
+                animation: fadeInUp 0.8s ease-out 0.6s forwards;
+            }
+
+            .text-column {
+                animation: fadeInUp 0.8s ease-out 0.8s forwards;
+            }
+
+            .about-text {
+                font-size: 16px;
+            }
+
+            .portrait-wrapper {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .about-section {
+                padding: 40px 16px;
+            }
+
+            .about-headline {
+                font-size: 28px;
+            }
+
+            .about-content {
+                gap: 32px;
+            }
+
+            .about-text p {
+                margin-bottom: 20px;
+            }
+
+            .proof-badge {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .cta-link {
+                width: 100%;
+                justify-content: center;
+                font-size: 15px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus States */
+        .cta-link:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            .about-text {
+                color: #000000;
+            }
+
+            .section-label {
+                color: var(--borgonha);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="about-section" aria-labelledby="about-heading">
+        <div class="about-container">
+            <!-- Section Label -->
+            <div class="section-label" role="presentation">Sobre Mim</div>
+
+            <!-- Headline -->
+            <h2 id="about-heading" class="about-headline">
+                Eu Sei Exatamente Como Você Se Sente — Porque Eu Estive Aí
+            </h2>
+
+            <!-- Two-Column Content -->
+            <div class="about-content">
+                <!-- Portrait Column -->
+                <div class="portrait-column">
+                    <div class="portrait-wrapper">
+                        <img
+                            src="https://res.cloudinary.com/ds4dhbneq/image/upload/v1756764510/35DE548D-876B-4D23-96D5-C32046F0F1BA_1_rpxvmb.jpg"
+                            alt="Juçanã Maximiliano - Fundadora da Seja Livre Core Mentoria"
+                            class="portrait-image"
+                            loading="lazy"
+                            width="500"
+                            height="667"
+                        >
+                    </div>
+                </div>
+
+                <!-- Text Column -->
+                <div class="text-column">
+                    <div class="about-text">
+                        <p>
+                            <strong>Meu nome é Juçanã Maximiliano.</strong> Por anos, trabalhei 16 horas por dia na minha empresa. Construí do zero até dominar meu nicho — mas estava me matando no processo.
+                        </p>
+
+                        <p>
+                            Em 2022, tive um burnout completo. Foi quando entendi: Eu TINHA uma empresa. Eu não ERA a empresa. Essa distinção salvou minha vida.
+                        </p>
+
+                        <div class="transformation">
+                            <p>
+                                Criei a <strong>Metodologia SEJA LIVRE</strong> — 5 pilares que transformam caos operacional em liberdade. De 16 horas/dia para 4 horas/semana. Viajei 2 meses enquanto a empresa lucrava sem mim. Depois vendi a empresa porque ela não dependia mais de mim.
+                            </p>
+                        </div>
+
+                        <!-- Proof Badge -->
+                        <div class="proof-badge">
+                            <svg class="proof-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="proof-text">
+                                14 anos vendendo. 10 anos empreendendo.<br>
+                                Agora dedico meu tempo a libertar outras empreendedoras dessa prisão que eu conhecia tão bem.
+                            </div>
+                        </div>
+
+                        <!-- Micro-CTA -->
+                        <div class="micro-cta">
+                            <a href="#application" class="cta-link" aria-label="Saiba como trabalhar 40 horas por semana em vez de 70">
+                                Trabalhe 40 Horas, Não 70
+                                <span class="cta-arrow" aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

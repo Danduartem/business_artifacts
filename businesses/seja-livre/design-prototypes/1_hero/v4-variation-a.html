@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Sucesso Não Deveria Parecer uma Prisão | Seja Livre</title>
+    <meta name="description" content="90 Dias para Libertação: Trabalhe 40 Horas, Não 70. Mentoria premium para empreendedoras de €30-50k/mês.">
+
+    <style>
+        /* CSS Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
+        @font-face {
+            font-family: 'CenturyGothic';
+            src: local('Century Gothic'), local('CenturyGothic'), local('AppleGothic');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* CSS Variables */
+        :root {
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+            --background: #FAFAF8;
+            --white: #FFFFFF;
+
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'CenturyGothic', 'Trebuchet MS', sans-serif;
+
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Base Styles */
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--navy);
+            background-color: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+        }
+
+        /* Left Column - Text Content (Vertically Centered) */
+        .hero__content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 6rem;
+            background-color: var(--background);
+        }
+
+        .hero__content-wrapper {
+            max-width: 560px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+        }
+
+        /* Typography */
+        .hero__headline {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 4vw, 4.375rem);
+            font-weight: 600;
+            line-height: 1.15;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero__subheadline {
+            font-family: var(--font-heading);
+            font-size: clamp(1.375rem, 2vw, 1.75rem);
+            font-weight: 400;
+            line-height: 1.4;
+            color: var(--borgonha);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        /* Accent Line - VARIATION A: Positioned below headline, 100px length */
+        .hero__accent-line {
+            width: 100px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 2rem 0;
+            opacity: 0.6;
+        }
+
+        .hero__body {
+            font-size: clamp(1.0625rem, 1.2vw, 1.25rem);
+            line-height: 1.75;
+            color: var(--navy);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero__body p {
+            margin-bottom: 1.25rem;
+        }
+
+        .hero__body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .hero__differentiation {
+            font-family: var(--font-heading);
+            font-size: clamp(1.125rem, 1.3vw, 1.375rem);
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--navy);
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--gold);
+        }
+
+        /* CTA Button */
+        .hero__cta {
+            display: inline-block;
+            margin-top: 2rem;
+        }
+
+        .hero__button {
+            display: inline-block;
+            padding: 1.125rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--white);
+            background-color: var(--borgonha);
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(129, 23, 31, 0.2);
+            letter-spacing: 0.01em;
+        }
+
+        .hero__button:hover {
+            background-color: #6B1419;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(129, 23, 31, 0.3);
+        }
+
+        .hero__button:active {
+            transform: translateY(0);
+        }
+
+        /* Right Column - Photo */
+        .hero__photo {
+            position: relative;
+            overflow: hidden;
+            background-color: var(--navy);
+        }
+
+        .hero__photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out 0.5s forwards;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .hero__content-wrapper,
+            .hero__photo img {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* Tablet Landscape */
+        @media (max-width: 1024px) {
+            .hero__content {
+                padding: 3rem 4rem;
+            }
+
+            .hero__headline {
+                font-size: clamp(2.25rem, 5vw, 3.5rem);
+            }
+
+            .hero__subheadline {
+                font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            }
+
+            .hero__body {
+                font-size: clamp(1rem, 1.5vw, 1.125rem);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+                min-height: 100vh;
+            }
+
+            .hero__photo {
+                order: 1;
+                height: 50vh;
+                min-height: 400px;
+            }
+
+            .hero__content {
+                order: 2;
+                padding: 3rem 2rem;
+                align-items: flex-start;
+            }
+
+            .hero__content-wrapper {
+                max-width: 100%;
+            }
+
+            .hero__headline {
+                font-size: clamp(2rem, 7vw, 2.75rem);
+                margin-bottom: 1.25rem;
+            }
+
+            .hero__subheadline {
+                font-size: clamp(1.125rem, 4vw, 1.5rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .hero__accent-line {
+                width: 80px;
+                margin: 1.5rem 0;
+            }
+
+            .hero__body {
+                font-size: 1.0625rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero__differentiation {
+                font-size: 1.125rem;
+                margin: 1.5rem 0;
+                padding-left: 1rem;
+                border-left-width: 2px;
+            }
+
+            .hero__cta {
+                margin-top: 1.5rem;
+            }
+
+            .hero__button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 375px) {
+            .hero__content {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .hero__photo {
+                min-height: 350px;
+            }
+
+            .hero__headline {
+                font-size: 2rem;
+            }
+
+            .hero__subheadline {
+                font-size: 1.125rem;
+            }
+
+            .hero__body {
+                font-size: 1rem;
+            }
+
+            .hero__button {
+                padding: 0.875rem 1.75rem;
+            }
+        }
+
+        /* Large Screens */
+        @media (min-width: 1440px) {
+            .hero__content {
+                padding: 5rem 8rem;
+            }
+
+            .hero__content-wrapper {
+                max-width: 620px;
+            }
+        }
+
+        /* Accessibility */
+        .hero__button:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 3px;
+        }
+
+        .hero__button:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            .hero__headline,
+            .hero__body {
+                color: #000000;
+            }
+
+            .hero__button {
+                border: 2px solid var(--white);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero" role="banner">
+        <!-- Left Column - Text Content (Vertically Centered) -->
+        <div class="hero__content">
+            <div class="hero__content-wrapper">
+                <h1 class="hero__headline">
+                    Seu Sucesso Não Deveria Parecer uma Prisão
+                </h1>
+
+                <!-- VARIATION A: Accent line moved to below headline, 100px length -->
+                <div class="hero__accent-line" aria-hidden="true"></div>
+
+                <p class="hero__subheadline">
+                    90 Dias para Libertação: Trabalhe 40 Horas, Não 70
+                </p>
+
+                <div class="hero__body">
+                    <p>
+                        Você construiu um negócio de €30-50k/mês, mas está presa trabalhando 60-70 horas por semana. Sua equipe não executa sem você. Não consegue tirar férias. E se pergunta: "É realmente isso que sucesso parece?"
+                    </p>
+                    <p>
+                        Eu sou Juçanã Maximiliano—vivi exatamente onde você está. Transformei de 16 horas/dia para 4 horas/semana. E em 90 dias, você também pode se libertar.
+                    </p>
+                </div>
+
+                <p class="hero__differentiation">
+                    Não é mentalidade. Não é marketing. São SISTEMAS que te libertam.
+                </p>
+
+                <div class="hero__cta">
+                    <a href="#aplicar" class="hero__button" role="button">
+                        Aplicar para Conversa de Descoberta
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column - Photo -->
+        <div class="hero__photo">
+            <img
+                src="https://res.cloudinary.com/ds4dhbneq/image/upload/v1756764510/35DE548D-876B-4D23-96D5-C32046F0F1BA_1_rpxvmb.jpg"
+                alt="Juçanã Maximiliano - Mentora de Libertação para Empreendedoras"
+                loading="eager"
+            />
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garantia Sem Risco - Método SEJA LIVRE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===================================
+           SEJA LIVRE - DESIGN SYSTEM
+           Navy (#191F3A) + Borgonha (#81171F)
+           =================================== */
+
+        :root {
+            /* Brand Colors */
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F7;
+            --medium-gray: #E8E8EA;
+            --text-gray: #4A4A4A;
+            --success: #2E7D6D;
+            --success-bg: #E6F3F0;
+
+            /* Typography */
+            --font-heading: 'Lora', Georgia, serif;
+            --font-body: 'Century Gothic', 'Avenir Next', -apple-system, sans-serif;
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+            --space-2xl: 6rem;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(25, 31, 58, 0.08);
+            --shadow-md: 0 4px 16px rgba(25, 31, 58, 0.12);
+            --shadow-lg: 0 8px 32px rgba(25, 31, 58, 0.16);
+            --shadow-xl: 0 12px 48px rgba(25, 31, 58, 0.20);
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--navy);
+            background: var(--light-gray);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===================================
+           GUARANTEE SECTION
+           =================================== */
+
+        .guarantee-section {
+            padding: var(--space-2xl) var(--space-md);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--success);
+            margin-bottom: var(--space-sm);
+            padding: var(--space-xs) var(--space-md);
+            background: var(--success-bg);
+            border-radius: 100px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--navy);
+            margin-bottom: var(--space-md);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Shield Badge */
+        .shield-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .shield-badge {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--success) 0%, var(--borgonha) 100%);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: var(--shadow-lg);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: var(--shadow-xl);
+            }
+        }
+
+        .shield-inner {
+            width: 110px;
+            height: 110px;
+            background: var(--white);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .shield-days {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--borgonha);
+            line-height: 1;
+        }
+
+        .shield-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--navy);
+        }
+
+        /* Main Content */
+        .guarantee-content {
+            background: var(--white);
+            border-radius: 24px;
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .intro-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-gray);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+
+        .intro-text strong {
+            color: var(--borgonha);
+            font-weight: 700;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            margin-bottom: var(--space-xl);
+        }
+
+        .how-it-works-title {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .timeline {
+            display: grid;
+            gap: var(--space-lg);
+        }
+
+        .timeline-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: var(--space-md);
+            align-items: start;
+        }
+
+        .timeline-marker {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--borgonha) 0%, var(--navy) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-sm);
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            padding-top: 8px;
+        }
+
+        .timeline-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--borgonha);
+            margin-bottom: var(--space-xs);
+        }
+
+        .timeline-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: var(--space-sm);
+        }
+
+        .timeline-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+
+        .timeline-description strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* Key Points */
+        .key-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+            padding: var(--space-lg);
+            background: var(--light-gray);
+            border-radius: 16px;
+            border-left: 4px solid var(--success);
+        }
+
+        .key-point {
+            display: flex;
+            align-items: start;
+            gap: var(--space-sm);
+        }
+
+        .key-point-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            color: var(--success);
+        }
+
+        .key-point-text {
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: var(--navy);
+        }
+
+        .key-point-text strong {
+            font-weight: 700;
+            color: var(--borgonha);
+        }
+
+        /* Trust Statement */
+        .trust-statement {
+            text-align: center;
+            padding: var(--space-xl);
+            background: linear-gradient(135deg,
+                rgba(25, 31, 58, 0.04) 0%,
+                rgba(129, 23, 31, 0.04) 100%);
+            border-radius: 16px;
+            border: 2px solid var(--medium-gray);
+            margin-top: var(--space-xl);
+        }
+
+        .trust-quote {
+            font-family: var(--font-heading);
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--navy);
+            margin-bottom: var(--space-md);
+            font-style: italic;
+        }
+
+        .trust-quote strong {
+            color: var(--borgonha);
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .trust-author {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: var(--space-sm);
+        }
+
+        .trust-hearts {
+            font-size: 1.5rem;
+        }
+
+        /* Why Statement */
+        .why-statement {
+            background: var(--white);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            margin-top: var(--space-lg);
+        }
+
+        .why-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--borgonha);
+            margin-bottom: var(--space-sm);
+            text-align: center;
+        }
+
+        .why-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-gray);
+            text-align: center;
+        }
+
+        .why-text strong {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 767px) {
+            .key-points {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: var(--space-sm);
+            }
+
+            .timeline-marker {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+
+            .guarantee-content {
+                padding: var(--space-lg);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .guarantee-section {
+                padding: var(--space-2xl) var(--space-lg);
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        *:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <section class="guarantee-section">
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="section-eyebrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span>Garantia Sem Risco</span>
+            </div>
+            <h2 class="section-title">Você Não Fica Presa. O Risco É Todo Nosso.</h2>
+            <p class="section-subtitle">
+                Do meu coração para o seu: eu sei que investir em mentoria pode parecer assustador. Especialmente se você já investiu em programas que não entregaram. Por isso, vou te dar algo raro no mercado.
+            </p>
+        </div>
+
+        <!-- Shield Badge -->
+        <div class="shield-container">
+            <div class="shield-badge">
+                <div class="shield-inner">
+                    <div class="shield-days">30</div>
+                    <div class="shield-label">Dias</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="guarantee-content">
+            <p class="intro-text">
+                <strong>30 dias para decidir se esta mentoria é para você.</strong> Sem compromisso de longo prazo. Sem burocracia. Sem você ficar presa em algo que não está funcionando.
+            </p>
+
+            <!-- How It Works -->
+            <div class="how-it-works">
+                <h3 class="how-it-works-title">Como Funciona:</h3>
+
+                <div class="timeline">
+                    <!-- Days 1-30 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-content">
+                            <div class="timeline-label">Dias 1-30 • Período de Teste</div>
+                            <h4 class="timeline-title">Você Experimenta, Sem Compromisso</h4>
+                            <p class="timeline-description">
+                                Você começa a Mentoria SEJA LIVRE. Participa das primeiras sessões 1-on-1 comigo. Implementa os primeiros sistemas. Vê os resultados começando a aparecer.
+                                <br><br>
+                                <strong>Se por qualquer razão você não gostar:</strong> Cancela a qualquer momento nos primeiros 30 dias. Paga apenas pelo mês que utilizou. Sem perguntas. Sem burocracia. Acabou.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- After 30 Days -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-content">
+                            <div class="timeline-label">Após 30 Dias • Decisão</div>
+                            <h4 class="timeline-title">Você Decide Continuar (E Aí Sim, Comprometimento Total)</h4>
+                            <p class="timeline-description">
+                                Se você viu valor, sentiu conexão comigo, e quer a transformação completa—você se compromete com os 90 dias completos. Porque libertação real não acontece em 30 dias. Mas você só se compromete <strong>depois de experimentar.</strong>
+                                <br><br>
+                                <strong>Você escolhe com clareza.</strong> Não na esperança. Na certeza.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Points Grid -->
+                <div class="key-points">
+                    <div class="key-point">
+                        <svg class="key-point-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <span class="key-point-text"><strong>Sem contratos longos</strong> que te prendem antes de saber se funciona</span>
+                    </div>
+
+                    <div class="key-point">
+                        <svg class="key-point-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <span class="key-point-text"><strong>Sem pressão</strong> para continuar se não for fit</span>
+                    </div>
+
+                    <div class="key-point">
+                        <svg class="key-point-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <span class="key-point-text"><strong>Você experimenta antes</strong> de comprometer 90 dias</span>
+                    </div>
+
+                    <div class="key-point">
+                        <svg class="key-point-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <span class="key-point-text"><strong>Transparência total</strong>—você sabe exatamente onde está se metendo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Statement -->
+        <div class="trust-statement">
+            <p class="trust-quote">
+                "Você não pode perder. Ou você se apaixona pela mentoria nos primeiros 30 dias e continua para a <strong>transformação completa</strong>. Ou você sai, sem drama, sem perder dinheiro com algo que não era para você."
+            </p>
+            <p class="trust-author">— Do meu coração para o seu</p>
+            <div class="trust-hearts">💙❤️</div>
+        </div>
+
+        <!-- Why Statement -->
+        <div class="why-statement">
+            <div class="why-label">Por Que Essa Garantia?</div>
+            <p class="why-text">
+                Porque <strong>eu sei que o método funciona.</strong> Já libertei dezenas de empreendedoras. E quando você faz a sua parte, os resultados VÊM. Mas você precisa sentir isso na pele antes de se comprometer. Você merece essa segurança. 🦅
+            </p>
+        </div>
+    </section>
+</body>
+</html>

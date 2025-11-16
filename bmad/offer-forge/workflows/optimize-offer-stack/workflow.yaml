@@ -1,0 +1,151 @@
+# Optimize Offer Stack Workflow Configuration
+# Module: offer-forge
+# Version: 1.0.0 (V3)
+# Date: 2025-11-04
+
+workflow:
+  name: optimize-offer-stack
+  description: Data-driven targeted optimization of specific conversion bottlenecks and performance issues
+  author: Daniel
+  version: 1.0.0
+  module: offer-forge
+  type: action
+
+  config_source: "{project-root}/bmad/offer-forge/config.yaml"
+
+  # Standard config variables (BMAD v6 required)
+  output_folder: "{config_source}:output_folder"
+  user_name: "{config_source}:user_name"
+  communication_language: "{config_source}:communication_language"
+  date: system-generated
+
+  installed_path: "{project-root}/bmad/offer-forge/workflows/optimize-offer-stack"
+
+  # Action workflow - no template, generates optimization report and updated stack
+  template: false
+
+  # Workflow execution instructions
+  instructions: "{installed_path}/instructions.md"
+
+  # This workflow can be invoked directly via hub agent
+  standalone: true
+
+  # Input requirements
+  input:
+    required:
+      - existing_offer_stack_path  # Path to existing offer stack document
+      - optimization_focus  # Specific area to optimize
+    optional:
+      - performance_data  # Conversion rates, metrics, analytics
+      - customer_feedback  # Quotes, objections, questions
+      - a_b_test_results  # Results from previous tests
+
+  # Output configuration
+  output:
+    location: "{output_folder}"
+    naming_pattern: "{business_name}-optimization-report-{date}.md"
+    backup_original: true
+    generate_implementation_plan: true
+
+  # Documentation: Required agents (invoked by name in instructions, not by path)
+  dependencies:
+    agents:
+      - "{project-root}/bmad/offer-forge/agents/offer-architect.agent.yaml"
+      - "{project-root}/bmad/offer-forge/agents/value-proposition-specialist.agent.yaml"
+      - "{project-root}/bmad/offer-forge/agents/pricing-strategist.agent.yaml"
+      - "{project-root}/bmad/offer-forge/agents/senior-offer-specialist.agent.yaml"
+
+  # Documentation: Optimization focus areas (reference for understanding workflow logic)
+  optimization_areas:
+    conversion_rate:
+      description: "Improve overall conversion rate across all tiers"
+      primary_agents: ["value-proposition-specialist", "pricing-strategist"]
+      metrics_required: ["conversion_rates_by_tier"]
+
+    tier_distribution:
+      description: "Rebalance tier selection to optimize revenue (shift to Core/Premium)"
+      primary_agents: ["offer-architect", "pricing-strategist"]
+      metrics_required: ["current_tier_distribution", "target_tier_distribution"]
+
+    cart_abandonment:
+      description: "Reduce cart abandonment and checkout friction"
+      primary_agents: ["pricing-strategist", "value-proposition-specialist"]
+      metrics_required: ["abandonment_rate", "abandonment_stage"]
+
+    objection_rate:
+      description: "Address specific objections causing hesitation"
+      primary_agents: ["value-proposition-specialist"]
+      metrics_required: ["common_objections", "objection_frequency"]
+
+    pricing_sensitivity:
+      description: "Optimize pricing based on elasticity data"
+      primary_agents: ["pricing-strategist"]
+      metrics_required: ["price_test_results", "conversion_by_price_point"]
+
+    messaging_resonance:
+      description: "Improve messaging clarity and emotional resonance"
+      primary_agents: ["value-proposition-specialist"]
+      metrics_required: ["customer_feedback", "time_on_page", "scroll_depth"]
+
+    value_perception:
+      description: "Increase perceived value and justify pricing"
+      primary_agents: ["offer-architect", "value-proposition-specialist"]
+      metrics_required: ["value_perception_survey", "price_objection_rate"]
+
+    competitive_pressure:
+      description: "Strengthen positioning against specific competitors"
+      primary_agents: ["offer-architect", "value-proposition-specialist"]
+      metrics_required: ["competitor_data", "win_loss_analysis"]
+
+  # Documentation: Workflow phases (not programmatically enforced in instructions)
+  phases:
+    - id: load_and_analyze
+      name: "Load Stack & Analyze Performance"
+      description: "Load existing stack and analyze performance data"
+      interaction_level: low
+
+    - id: identify_bottleneck
+      name: "Identify Primary Bottleneck"
+      description: "Determine highest-impact optimization opportunity"
+      interaction_level: high
+
+    - id: gather_optimization_data
+      name: "Gather Optimization Data"
+      description: "Collect specific data for targeted optimization"
+      interaction_level: high
+
+    - id: expert_analysis
+      name: "Expert Agent Analysis"
+      description: "Route to specialist for deep analysis"
+      interaction_level: low
+      conditional: true  # Based on optimization_focus
+
+    - id: generate_recommendations
+      name: "Generate Actionable Recommendations"
+      description: "Create prioritized optimization recommendations"
+      agent: senior-offer-specialist
+      interaction_level: low
+
+    - id: implement_changes
+      name: "Implement Top Recommendations"
+      description: "Apply highest-impact optimizations"
+      interaction_level: high
+      conditional: true  # User chooses which to implement
+
+    - id: project_impact
+      name: "Project Impact & Create Report"
+      description: "Estimate impact and generate optimization report"
+      interaction_level: low
+
+  # Web bundle configuration for sharing/distribution
+  web_bundle:
+    name: "optimize-offer-stack"
+    description: "Data-driven targeted optimization of specific conversion bottlenecks and performance issues"
+    files:
+      - "bmad/offer-forge/workflows/optimize-offer-stack/workflow.yaml"
+      - "bmad/offer-forge/workflows/optimize-offer-stack/instructions.md"
+    agents_required:
+      - "bmad/offer-forge/agents/offer-architect.agent.yaml"
+      - "bmad/offer-forge/agents/value-proposition-specialist.agent.yaml"
+      - "bmad/offer-forge/agents/pricing-strategist.agent.yaml"
+      - "bmad/offer-forge/agents/senior-offer-specialist.agent.yaml"

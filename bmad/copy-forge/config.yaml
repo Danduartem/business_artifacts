@@ -1,0 +1,113 @@
+# Copy Forge Module Configuration
+# Where brand authenticity meets conversion science
+
+# Core Configuration (BMAD Standard)
+user_name: Daniel
+communication_language: English
+document_output_language: English
+output_folder: '{project-root}/docs'
+
+module:
+  code: copy-forge
+  name: "Copy Forge"
+  version: "1.0.0-alpha"
+  description: "Professional creative studio module that forges landing page copy validated for both authentic brand-audience alignment and conversion effectiveness"
+  author: "Daniel"
+  created: "2025-11-10"
+
+# Output Configuration
+copy_output_folder: "output/copy-forge"  # Where generated landing page copy is saved
+validation_reports_folder: "output/copy-forge/validation-reports"  # Where validation scorecards are saved
+
+# Validation Settings
+validation_detail_level: "standard"  # Options: summary | standard | comprehensive
+  # summary: Pass/fail with brief feedback
+  # standard: Scores per criterion with actionable feedback (recommended)
+  # comprehensive: Deep analysis with examples and educational explanations
+
+# Brand Intelligence Assets
+brand_voice_folder: "bmad/copy-forge/data/brand-voice"  # Where brand voice documents are stored
+avatars_folder: "bmad/copy-forge/data/avatars"  # Where avatar profiles are stored
+default_avatar_profile: ""  # Default avatar to use if not specified (leave empty to always ask)
+
+# Agent Configuration
+agents:
+  blueprint_coordinator:
+    enabled: true
+    personality_level: "professional"  # How formal/casual the orchestrator is
+
+  hero_writer:
+    enabled: true
+    default_headline_framework: "auto"  # Options: auto | benefit | transformation | problem-agitation | curiosity | direct
+    headline_variations_count: 5  # How many variations to test before selecting (3-10)
+
+  cta_specialist:
+    enabled: true
+    default_urgency_level: "authentic"  # Options: none | authentic | high (only use what's genuine)
+    button_text_variations_count: 5  # How many button text variations to test
+
+  brand_voice_guardian:
+    enabled: true
+    strictness: "standard"  # Options: lenient | standard | strict (how strict validation is)
+    auto_approve_threshold: 100  # Auto-approve if score >= this % (100 = require manual review always)
+
+  avatar_advocate:
+    enabled: true
+    strictness: "standard"  # Options: lenient | standard | strict
+    auto_approve_threshold: 100  # Auto-approve if score >= this % (100 = require manual review always)
+
+# Workflow Configuration
+workflows:
+  forge_complete_lp:
+    enabled: true
+    auto_validation: true  # Automatically run validators vs manual trigger
+    cohesion_review: true  # Review complete LP for flow and transitions
+
+  forge_hero_section:
+    enabled: true
+    auto_validation: true
+
+  forge_cta:
+    enabled: true
+    auto_validation: true
+
+# Quality Standards
+quality_standards:
+  brand_voice_pass_threshold: 7  # Must pass 7/7 criteria (all)
+  audience_resonance_pass_threshold: 8  # Must pass 8/8 criteria (all)
+  min_validation_score: 85  # Minimum overall score percentage to consider "good" (for reporting)
+
+# LP Architect Integration
+lp_architect:
+  blueprint_folder: "output/lp-architect/blueprints"  # Where LP Architect blueprints are saved
+  auto_detect_blueprint: true  # Automatically find latest blueprint in folder
+
+# Templates
+templates:
+  copy_output_template: "bmad/copy-forge/templates/copy-output.md"  # Template for saving generated copy
+  validation_report_template: "bmad/copy-forge/templates/validation-report.md"  # Template for validation scorecards
+
+# Advanced Settings
+advanced:
+  word_count_tolerance: 10  # Percentage tolerance for word count targets (±10%)
+  enable_copy_versioning: true  # Save multiple versions for comparison
+  max_refinement_iterations: 5  # Maximum refinement loops before requiring user decision
+  enable_a_b_variants: false  # Generate A/B test variants automatically (Phase 2 feature)
+
+# Forge Philosophy Reminders (for agents to reference)
+philosophy:
+  core_belief: "Results + Connection = Sustainable Conversion"
+  validation_approach: "Sequential quality compounding - Brand Voice → Audience Resonance → Conversion (Phase 2)"
+  non_negotiables:
+    - "Authenticity over generic tactics"
+    - "All criteria must pass (no partial validation)"
+    - "Collaboration over dictation"
+    - "Transparency builds trust"
+    - "Quality over speed"
+
+# Module Status
+status:
+  phase: "1-MVP-COMPLETE"  # Phase 1: MVP COMPLETE (5 agents + 3 workflows)
+  agents_complete: 5  # 5 of 5 MVP agents ✅
+  workflows_complete: 3  # 3 of 3 MVP workflows ✅
+  ready_for_use: true  # Module is fully functional! 🎉

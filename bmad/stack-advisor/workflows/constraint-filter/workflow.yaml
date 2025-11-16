@@ -1,0 +1,43 @@
+# Constraint Filter Workflow Configuration
+name: constraint-filter
+description: "Interactive filtering workflow that eliminates incompatible technology options based on project constraints. Helps Scout narrow down framework choices early in the advisory process."
+author: "Daniel"
+
+# Paths
+installed_path: "{project-root}/bmad/stack-advisor/workflows/constraint-filter"
+template: false # Action workflow - no template needed
+instructions: "{installed_path}/instructions.md"
+validation: false # No validation checklist for interactive filtering
+
+# Critical variables from config
+config_source: "{project-root}/bmad/stack-advisor/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Stack Advisor specific config
+smb_scale_level: "{config_source}:smb_scale_level"
+
+# Optional: Output notes from filtering session
+session_notes_file: "{output_folder}/stack-advisor/constraint-filter-{{date}}.md"
+
+# Invocation control
+standalone: true
+
+# Recommended inputs (optional context)
+recommended_inputs:
+  - intake_results: "{output_folder}/stack-advisor/intake-session-*.md"
+  - requirements_context: "Results from smart-intake workflow"
+
+# Web bundle configuration
+web_bundle:
+  name: "constraint-filter"
+  description: "Interactive filtering workflow that eliminates incompatible technology options based on project constraints. Helps Scout narrow down framework choices early in the advisory process."
+  author: "Daniel"
+  instructions: "bmad/stack-advisor/workflows/constraint-filter/instructions.md"
+  template: false
+  validation: false
+
+  web_bundle_files:
+    - "bmad/stack-advisor/workflows/constraint-filter/instructions.md"

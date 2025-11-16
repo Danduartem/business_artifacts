@@ -1,0 +1,36 @@
+# Trend Report Workflow
+# Scan current viral Instagram Reels trends
+name: trend-report
+description: "Scan current viral Instagram Reels and trending content in any niche - trends from last 7 days only"
+author: "Daniel"
+
+# Paths
+installed_path: "{project-root}/bmad/viral-reels-forge/workflows/trend-report"
+template: "{installed_path}/template.md"
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/viral-reels-forge/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Data freshness rules - MOST CRITICAL
+trend_data_max_age_days: "{config_source}:trend_data_max_age_days"
+
+# Output configuration
+default_output_file: "{output_folder}/trend-report-{{niche_slug}}-{{date}}.md"
+
+# Invocation control
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  name: "trend-report"
+  version: "1.0.0"
+  web_bundle_files:
+    - "bmad/viral-reels-forge/workflows/trend-report/instructions.md"
+    - "bmad/viral-reels-forge/workflows/trend-report/template.md"
+    - "bmad/viral-reels-forge/workflows/trend-report/checklist.md"

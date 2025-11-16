@@ -1,0 +1,504 @@
+# Rendering Strategy Playbook
+# Flowchart-style decision tree for choosing rendering approach
+
+playbook:
+  name: "Rendering Strategy Selection"
+  description: "Step-by-step guide to choosing between SSR, SSG, CSR, ISR, and hybrid approaches"
+  version: "1.0"
+  last_updated: "2025-01-14"
+
+decision_tree:
+  start:
+    question: "What type of content are you serving?"
+    context: "Different content types benefit from different rendering strategies"
+    options:
+      - label: "Static content (blog, docs, marketing)"
+        next: "static_content"
+      - label: "Dynamic, personalized content (dashboard, SaaS)"
+        next: "dynamic_content"
+      - label: "Mix of both (e-commerce, news site)"
+        next: "mixed_content"
+      - label: "Highly interactive app (tool, editor)"
+        next: "interactive_app"
+
+  static_content:
+    question: "How often does content change?"
+    context: "Static content is perfect for SSG"
+    options:
+      - label: "Rarely (hours/days between updates)"
+        recommendation: "SSG (Static Site Generation)"
+        rationale: "Pre-render at build time, serve from CDN, maximum performance"
+        example: "Astro, Next.js SSG, Nuxt SSG"
+        next: null
+      - label: "Frequently (minutes between updates)"
+        recommendation: "ISR (Incremental Static Regeneration)"
+        rationale: "Static performance with automatic updates"
+        example: "Next.js ISR, Nuxt hybrid"
+        next: null
+      - label: "Continuously (real-time updates)"
+        next: "realtime_static"
+
+  realtime_static:
+    question: "What's updating in real-time?"
+    options:
+      - label: "Small parts of page (comments, likes)"
+        recommendation: "SSG + Client-side data fetching"
+        rationale: "Static shell, dynamic data loaded client-side"
+        example: "Astro Islands or Next.js SSG + SWR"
+        next: null
+      - label: "Entire content"
+        recommendation: "SSR (Server-Side Rendering)"
+        rationale: "Need fresh data on every request"
+        next: null
+
+  dynamic_content:
+    question: "Is the content personalized per user?"
+    context: "Personalization affects caching and rendering strategy"
+    options:
+      - label: "Yes, unique for each user"
+        next: "personalized_content"
+      - label: "No, same for all users (but dynamic)"
+        recommendation: "SSR with caching"
+        rationale: "Server render once, cache, serve to all users"
+        example: "Next.js SSR + Redis cache"
+        next: null
+
+  personalized_content:
+    question: "Does the personalized content need SEO?"
+    options:
+      - label: "Yes, must be crawlable"
+        recommendation: "SSR (Server-Side Rendering)"
+        rationale: "Render personalized HTML on server, SEO-friendly"
+        example: "Next.js SSR, Remix"
+        next: null
+      - label: "No, behind auth/login"
+        recommendation: "CSR (Client-Side Rendering)"
+        rationale: "No SEO needed, render in browser, simpler"
+        example: "React SPA with Vite"
+        next: null
+      - label: "Shell needs SEO, content doesn't"
+        recommendation: "SSG/SSR shell + CSR content"
+        rationale: "Static or SSR for public pages, CSR for logged-in experience"
+        example: "Next.js hybrid rendering"
+        next: null
+
+  mixed_content:
+    question: "What's your primary use case?"
+    context: "Hybrid approaches work best for mixed content"
+    options:
+      - label: "E-commerce (product pages + dynamic cart)"
+        recommendation: "ISR for products + CSR for cart"
+        rationale: "Product pages are static-ish (ISR), cart is dynamic (CSR)"
+        example: "Next.js ISR + client state"
+        next: null
+      - label: "News/blog with comments"
+        recommendation: "SSG for content + CSR for comments"
+        rationale: "Articles are static, comments load client-side"
+        example: "Astro + React islands"
+        next: null
+      - label: "Marketing + dashboard"
+        recommendation: "SSG for marketing + CSR for dashboard"
+        rationale: "Public pages are static, app is dynamic"
+        example: "Separate apps or Next.js hybrid"
+        next: null
+
+  interactive_app:
+    question: "Does it need SEO or initial load speed?"
+    context: "Highly interactive apps often work well as SPAs"
+    options:
+      - label: "No, behind login"
+        recommendation: "CSR (SPA)"
+        rationale: "Maximum interactivity, simple architecture"
+        example: "Vite + React/Vue"
+        next: null
+      - label: "Yes, landing page needs SEO"
+        recommendation: "SSG landing + CSR app"
+        rationale: "Static marketing, SPA for app"
+        example: "Separate Next.js landing + React SPA"
+        next: null
+      - label: "Entire app needs SEO"
+        recommendation: "SSR or Streaming SSR"
+        rationale: "SEO-friendly but still interactive"
+        example: "Next.js App Router with Streaming"
+        next: null
+
+# Quick reference matrix
+quick_reference:
+  by_content_type:
+    blog: "SSG"
+    documentation: "SSG"
+    marketing_site: "SSG or ISR"
+    e_commerce: "ISR + CSR hybrid"
+    news_site: "ISR or SSR"
+    saas_dashboard: "CSR or SSR (if SEO needed)"
+    admin_panel: "CSR"
+    portfolio: "SSG"
+
+  by_priority:
+    seo: "SSG or SSR"
+    performance: "SSG"
+    real_time_data: "CSR or SSR"
+    simplicity: "SSG or CSR"
+    flexibility: "Hybrid (ISR + CSR)"
+
+  by_update_frequency:
+    static: "SSG"
+    hourly: "ISR"
+    minutes: "SSR with cache"
+    real_time: "CSR or SSR"
+
+  by_personalization:
+    not_personalized: "SSG or ISR"
+    slightly_personalized: "SSG/ISR + CSR"
+    highly_personalized: "SSR or CSR"
+
+# Rendering strategy details
+strategies:
+  ssg:
+    name: "Static Site Generation"
+    description: "Pre-render pages at build time"
+    how_it_works: "Build HTML at compile time, serve static files from CDN"
+    best_for:
+      - "Blogs and content sites"
+      - "Documentation"
+      - "Marketing sites"
+      - "Portfolios"
+      - "Any content that doesn't change often"
+    pros:
+      - "Best performance (static files from CDN)"
+      - "Best SEO (fully rendered HTML)"
+      - "Cheap hosting"
+      - "No server needed"
+      - "Can't go down (static files)"
+    cons:
+      - "Must rebuild for content changes"
+      - "Build time increases with pages"
+      - "Can't personalize content"
+      - "Not suitable for dynamic data"
+    example_tools: "Astro, Next.js (export), Nuxt (generate), Gatsby"
+    cost: "Very low (CDN + build time)"
+
+  isr:
+    name: "Incremental Static Regeneration"
+    description: "Static pages that update automatically in background"
+    how_it_works: "Serve static page, regenerate in background after time/on-demand"
+    best_for:
+      - "E-commerce product pages"
+      - "News sites"
+      - "Content that updates frequently but not real-time"
+      - "Large sites (thousands of pages)"
+    pros:
+      - "Static performance"
+      - "Automatic updates"
+      - "Scales to millions of pages"
+      - "No manual rebuilds"
+    cons:
+      - "Users might see stale content briefly"
+      - "More complex than pure SSG"
+      - "Needs server/serverless functions"
+      - "Platform-specific (mainly Next.js)"
+    example_tools: "Next.js ISR, Nuxt (experimental)"
+    cost: "Low (CDN + serverless functions)"
+
+  ssr:
+    name: "Server-Side Rendering"
+    description: "Render HTML on server for each request"
+    how_it_works: "Server fetches data and renders HTML on every request"
+    best_for:
+      - "Personalized content"
+      - "Real-time data"
+      - "SEO for dynamic content"
+      - "When you need fresh data every time"
+    pros:
+      - "Always fresh data"
+      - "SEO-friendly"
+      - "Can personalize per user"
+      - "Single codebase for client and server"
+    cons:
+      - "Slower than static (server processing)"
+      - "Needs server/serverless"
+      - "More expensive than static"
+      - "Can have scaling challenges"
+    example_tools: "Next.js, Remix, Nuxt, SvelteKit"
+    cost: "Medium (server/serverless costs)"
+
+  csr:
+    name: "Client-Side Rendering"
+    description: "Render in browser with JavaScript"
+    how_it_works: "Send empty HTML + JS, render everything in browser"
+    best_for:
+      - "Apps behind login"
+      - "Highly interactive apps"
+      - "When SEO doesn't matter"
+      - "Admin dashboards"
+      - "Tools and editors"
+    pros:
+      - "Maximum interactivity"
+      - "Simple server (just static files or API)"
+      - "Great for apps"
+      - "Cheap hosting (static files)"
+    cons:
+      - "Slow initial load"
+      - "No SEO (empty HTML)"
+      - "Requires JavaScript"
+      - "Flash of empty content"
+    example_tools: "Vite + React, Vue CLI, Create React App"
+    cost: "Low (static hosting)"
+
+  streaming_ssr:
+    name: "Streaming SSR"
+    description: "Stream HTML to browser as it's generated"
+    how_it_works: "Send HTML in chunks, show content progressively"
+    best_for:
+      - "Large pages with slow data fetching"
+      - "Want fast Time to First Byte"
+      - "Progressive loading UX"
+    pros:
+      - "Fast initial response"
+      - "Progressive rendering"
+      - "Good for slow APIs"
+      - "Better perceived performance"
+    cons:
+      - "Complex to implement"
+      - "Not all frameworks support it"
+      - "Debugging is harder"
+    example_tools: "Next.js 13+ App Router, React 18 Suspense"
+    cost: "Medium (server costs)"
+
+# Hybrid approaches
+hybrid_patterns:
+  ssg_with_csr:
+    description: "Static shell, dynamic data client-side"
+    example: "Astro with React islands"
+    use_case: "Blog with comments, marketing with interactive widgets"
+    implementation: "Static build + client-side fetch for dynamic parts"
+
+  ssr_with_static_caching:
+    description: "Server render, cache aggressively"
+    example: "Next.js SSR + CDN cache"
+    use_case: "Dynamic content that's same for all users"
+    implementation: "SSR + cache headers + CDN"
+
+  islands_architecture:
+    description: "Static HTML with interactive islands"
+    example: "Astro islands"
+    use_case: "Mostly static with selective interactivity"
+    implementation: "Ship HTML + hydrate only interactive components"
+
+  progressive_enhancement:
+    description: "Works without JS, enhanced with JS"
+    example: "Remix or SvelteKit"
+    use_case: "Accessible apps, slow networks"
+    implementation: "Server render forms, enhance with client JS"
+
+# Framework recommendations
+framework_capabilities:
+  nextjs:
+    supports: ["SSG", "ISR", "SSR", "CSR", "Streaming SSR"]
+    best_for: "Flexibility - can choose per page"
+    note: "Most versatile, can mix strategies"
+
+  remix:
+    supports: ["SSR", "Progressive Enhancement"]
+    best_for: "SSR with great UX, forms"
+    note: "SSR-first, progressive enhancement built-in"
+
+  astro:
+    supports: ["SSG", "SSR (adapter)", "Islands"]
+    best_for: "Content sites with selective interactivity"
+    note: "Zero JS by default, islands for interactivity"
+
+  nuxt:
+    supports: ["SSG", "SSR", "ISR (experimental)", "CSR"]
+    best_for: "Vue apps with rendering flexibility"
+    note: "Vue's answer to Next.js"
+
+  sveltekit:
+    supports: ["SSG", "SSR", "CSR", "Hybrid"]
+    best_for: "Svelte apps with any rendering strategy"
+    note: "Flexible, good DX"
+
+  vite:
+    supports: ["CSR", "SSG (with plugins)"]
+    best_for: "SPAs, fast development"
+    note: "Primarily for CSR, fast builds"
+
+# Decision factors
+decision_factors:
+  seo_critical:
+    choose: "SSG or SSR"
+    avoid: "CSR"
+    why: "Search engines need rendered HTML"
+
+  content_changes_rarely:
+    choose: "SSG"
+    avoid: "SSR, CSR"
+    why: "No need to re-render, static is fastest"
+
+  content_changes_frequently:
+    choose: "ISR or SSR"
+    avoid: "Pure SSG"
+    why: "Don't want to rebuild constantly"
+
+  personalized_content:
+    choose: "SSR or CSR"
+    avoid: "SSG"
+    why: "Can't personalize static pages"
+
+  behind_authentication:
+    choose: "CSR"
+    avoid: "SSG, SSR (unless needed)"
+    why: "No SEO needed, CSR is simpler"
+
+  performance_critical:
+    choose: "SSG or ISR"
+    avoid: "SSR, CSR"
+    why: "Static is always fastest"
+
+  real_time_data:
+    choose: "CSR or SSR"
+    avoid: "SSG, ISR"
+    why: "Need fresh data every time"
+
+# Performance comparison
+performance_metrics:
+  ttfb: # Time to First Byte
+    ssg: "Excellent (< 50ms from CDN)"
+    isr: "Excellent (< 50ms from CDN on cache hit)"
+    ssr: "Good (100-500ms depending on data fetching)"
+    csr: "Excellent (< 50ms for empty HTML)"
+
+  fcp: # First Contentful Paint
+    ssg: "Excellent (immediate)"
+    isr: "Excellent (immediate)"
+    ssr: "Good (after HTML arrives)"
+    csr: "Poor (after JS executes)"
+
+  lcp: # Largest Contentful Paint
+    ssg: "Excellent"
+    isr: "Excellent"
+    ssr: "Good"
+    csr: "Poor"
+
+  tti: # Time to Interactive
+    ssg: "Good (after hydration)"
+    isr: "Good (after hydration)"
+    ssr: "Good (after hydration)"
+    csr: "Medium (all JS must execute)"
+
+# Cost comparison
+cost_comparison:
+  ssg:
+    hosting: "Very Low (CDN only)"
+    build: "Low (build once)"
+    scaling: "Automatic (CDN)"
+
+  isr:
+    hosting: "Low (CDN + serverless)"
+    build: "Low (incremental)"
+    scaling: "Automatic"
+
+  ssr:
+    hosting: "Medium (server or serverless)"
+    build: "Low"
+    scaling: "Manual or auto-scaling"
+
+  csr:
+    hosting: "Very Low (static files)"
+    build: "Low"
+    scaling: "Automatic (CDN)"
+
+# SEO considerations
+seo_comparison:
+  ssg:
+    crawlability: "Perfect"
+    indexing: "Perfect"
+    social_sharing: "Perfect"
+
+  isr:
+    crawlability: "Perfect"
+    indexing: "Perfect"
+    social_sharing: "Perfect"
+
+  ssr:
+    crawlability: "Perfect"
+    indexing: "Perfect"
+    social_sharing: "Perfect"
+
+  csr:
+    crawlability: "Poor (requires JS execution)"
+    indexing: "Unreliable"
+    social_sharing: "Broken (no meta tags)"
+
+# Red flags
+red_flags:
+  ssg:
+    - "Content updates every minute"
+    - "Thousands of pages (long build times)"
+    - "Need user-specific content"
+
+  ssr:
+    - "Content never changes (waste of server)"
+    - "No SEO requirements and behind auth (use CSR)"
+    - "Very tight budget (hosting costs)"
+
+  csr:
+    - "SEO is critical"
+    - "Content needs social sharing"
+    - "Users on slow networks/devices"
+
+  isr:
+    - "Absolutely can't show stale content"
+    - "Not using Next.js (limited support elsewhere)"
+
+# SMB-specific guidance
+smb_guidance:
+  micro_business:
+    recommendation: "SSG for marketing, CSR for app"
+    rationale: "Simplest, cheapest, good enough"
+
+  small_business:
+    recommendation: "ISR or hybrid approach"
+    rationale: "Flexibility without complexity"
+
+  avoid_for_smb:
+    - "Complex hybrid setups (too much to manage)"
+    - "Streaming SSR (complexity not worth it for most SMBs)"
+    - "Multiple rendering strategies across pages (keep it simple)"
+
+# Common use cases
+use_case_recommendations:
+  blog:
+    strategy: "SSG"
+    framework: "Astro or Next.js"
+    rationale: "Content changes infrequently, SEO critical"
+
+  saas_marketing_site:
+    strategy: "SSG or ISR"
+    framework: "Next.js or Astro"
+    rationale: "Fast performance, good SEO"
+
+  saas_app_dashboard:
+    strategy: "CSR or SSR (if SEO needed)"
+    framework: "React SPA or Next.js"
+    rationale: "Behind auth, highly interactive"
+
+  e_commerce:
+    strategy: "ISR for products, CSR for cart/checkout"
+    framework: "Next.js"
+    rationale: "Product pages mostly static, cart is dynamic"
+
+  documentation:
+    strategy: "SSG"
+    framework: "Astro, Docusaurus, or VitePress"
+    rationale: "Static content, fast search, SEO"
+
+  news_site:
+    strategy: "ISR or SSR"
+    framework: "Next.js or Remix"
+    rationale: "Frequent updates, SEO critical"
+
+  admin_dashboard:
+    strategy: "CSR"
+    framework: "Vite + React/Vue"
+    rationale: "Behind auth, no SEO needed, highly interactive"

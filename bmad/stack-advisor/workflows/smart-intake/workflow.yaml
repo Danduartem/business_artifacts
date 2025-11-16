@@ -1,0 +1,40 @@
+# Smart Intake Session Workflow Configuration
+name: smart-intake
+description: "Comprehensive requirements gathering session for tech stack recommendations. Collects business requirements, current tech stack, scale expectations, and constraints."
+author: "Daniel"
+
+# Paths
+installed_path: "{project-root}/bmad/stack-advisor/workflows/smart-intake"
+template: false # Interactive session - no template needed
+instructions: "{installed_path}/instructions.md"
+validation: false # No validation checklist for interactive session
+
+# Critical variables from config
+config_source: "{project-root}/bmad/stack-advisor/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Optional: Output notes from session
+session_notes_file: "{output_folder}/stack-advisor/intake-session-{{date}}.md"
+
+# Invocation control
+standalone: true
+
+# Recommended inputs (optional context)
+recommended_inputs:
+  - brainstorming_results: "{output_folder}/brainstorming-*.md"
+  - existing_documentation: "Any existing project docs"
+
+# Web bundle configuration
+web_bundle:
+  name: "smart-intake"
+  description: "Comprehensive requirements gathering session for tech stack recommendations. Collects business requirements, current tech stack, scale expectations, and constraints."
+  author: "Daniel"
+  instructions: "bmad/stack-advisor/workflows/smart-intake/instructions.md"
+  template: false
+  validation: false
+
+  web_bundle_files:
+    - "bmad/stack-advisor/workflows/smart-intake/instructions.md"

@@ -1,0 +1,154 @@
+# Stack Advisor Module Configuration
+# Version: 2.0.0
+# Last Updated: 2025-01-14
+
+# User Settings
+user_name: Daniel
+communication_language: English
+document_output_language: English
+
+# Output Configuration
+output_folder: '{project-root}/docs/stack-advisor'
+
+# Technology Currency Threshold
+# How recent should framework releases be?
+# Options: 2-weeks, 1-month, 3-months, 6-months
+tech_currency_threshold: 1-month
+
+# SMB Scale Level
+# Target business scale for recommendations
+# Options: micro (1-2 people), small (3-10 people), medium (10-50 people)
+smb_scale_level: small
+
+# Validation Strictness
+# How strict should validation checks be?
+# Options: strict, balanced, lenient
+validation_strictness: balanced
+
+# Cost Currency
+# Primary currency for cost analysis
+# Options: USD, EUR, GBP, CAD, AUD, etc.
+cost_currency: USD
+
+# Default Tech Stack Preferences (Optional)
+# Leave empty for no defaults, or specify preferences
+preferences:
+  # Frontend preference (optional)
+  # Options: react, vue, svelte, solid, none
+  frontend_preference: none
+
+  # Backend preference (optional)
+  # Options: nodejs, python, go, ruby, none
+  backend_preference: none
+
+  # Database preference (optional)
+  # Options: postgresql, mysql, mongodb, sqlite, none
+  database_preference: none
+
+  # Hosting preference (optional)
+  # Options: vercel, netlify, railway, render, aws, none
+  hosting_preference: none
+
+# Advisory Session Defaults
+advisory_defaults:
+  # Include cost analysis by default in end-to-end advisory?
+  include_cost_analysis: true
+
+  # Include executive summary by default?
+  include_executive_summary: true
+
+  # Default comparison criteria for technology comparisons
+  comparison_criteria:
+    - performance
+    - developer_experience
+    - cost
+    - learning_curve
+    - community_support
+    - smb_fit
+
+# Agent Behavior Settings
+agent_settings:
+  # Scout: How often to check for new framework versions (not automated, just reminder)
+  scout_update_frequency: weekly
+
+  # Jordan: Default diagram types to include in architecture blueprint
+  jordan_diagram_types:
+    - system_architecture
+    - data_flow
+    - deployment_architecture
+    - component_diagram
+
+  # Dana: Default scoring weights for comparisons
+  dana_scoring_weights:
+    critical: 3
+    high: 2
+    medium: 1
+    low: 0.5
+
+  # Morgan: Default budget buffer percentage
+  morgan_budget_buffer: 20
+
+  # Riley: Migration risk tolerance
+  riley_risk_tolerance: conservative  # Options: aggressive, balanced, conservative
+
+# Framework Database Settings
+framework_db:
+  # Auto-update framework database (requires manual trigger)
+  enable_updates: true
+
+  # Minimum community size to recommend
+  min_community_size: 1000
+
+  # Minimum GitHub stars to recommend
+  min_github_stars: 500
+
+# Workflow Preferences
+workflow_settings:
+  # Smart Intake: Default session duration hint
+  intake_duration: 60  # minutes
+
+  # Blueprint Architect: Level of detail
+  architecture_detail_level: comprehensive  # Options: minimal, standard, comprehensive
+
+  # Cost Analysis: Default analysis period
+  cost_analysis_period: 3  # years
+
+  # Executive Summary: Default length target
+  executive_summary_pages: 6  # target pages
+
+# Integration Settings
+integrations:
+  # npm Registry API (for package version checking)
+  npm_api:
+    enabled: true
+    base_url: https://registry.npmjs.org
+
+  # PyPI API (for Python package version checking)
+  pypi_api:
+    enabled: true
+    base_url: https://pypi.org/pypi
+
+  # GitHub API (for repository stats - requires token)
+  github_api:
+    enabled: false
+    token: null  # Add your GitHub token here for enhanced features
+
+# Advanced Settings
+advanced:
+  # Enable experimental features
+  experimental_features: false
+
+  # Verbose logging for debugging
+  verbose_logging: false
+
+  # Custom validation rules file (optional)
+  custom_validation_rules: null
+
+  # Custom stack patterns file (optional)
+  custom_stack_patterns: null
+
+# Notes:
+# - This file is loaded after installation and can be customized per user
+# - Changes to this file affect all Stack Advisor workflows
+# - See README.md for detailed configuration options
+# - Backup this file before making major changes

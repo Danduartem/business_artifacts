@@ -1,0 +1,141 @@
+# Audit Competitor Workflow Configuration
+# Module: offer-forge
+# Version: 1.0.0 (V3)
+# Date: 2025-11-04
+
+workflow:
+  name: audit-competitor
+  description: Comprehensive competitive intelligence analysis of competitor offers, pricing, and positioning strategies
+  author: Daniel
+  version: 1.0.0
+  module: offer-forge
+  type: action
+
+  config_source: "{project-root}/bmad/offer-forge/config.yaml"
+
+  # Standard config variables (BMAD v6 required)
+  output_folder: "{config_source}:output_folder"
+  user_name: "{config_source}:user_name"
+  communication_language: "{config_source}:communication_language"
+  date: system-generated
+
+  installed_path: "{project-root}/bmad/offer-forge/workflows/audit-competitor"
+
+  # Action workflow - generates competitive intelligence report
+  template: false
+
+  # Workflow execution instructions
+  instructions: "{installed_path}/instructions.md"
+
+  # This workflow can be invoked directly via hub agent
+  standalone: true
+
+  # Input requirements
+  input:
+    required:
+      - competitors  # List of 2-5 competitors to analyze
+    optional:
+      - your_offer_stack_path  # For comparison (recommended)
+      - analysis_depth  # quick, standard, comprehensive
+
+  # Output configuration
+  output:
+    location: "{output_folder}"
+    naming_pattern: "competitive-intelligence-report-{date}.md"
+    generate_positioning_recommendations: true
+    generate_differentiation_strategy: true
+
+  # Documentation: Required agents (invoked by name in instructions, not by path)
+  dependencies:
+    agents:
+      - "{project-root}/bmad/offer-forge/agents/offer-architect.agent.yaml"
+      - "{project-root}/bmad/offer-forge/agents/value-proposition-specialist.agent.yaml"
+      - "{project-root}/bmad/offer-forge/agents/pricing-strategist.agent.yaml"
+    tools:
+      - web_search  # Required for competitive research
+
+  # Documentation: Analysis dimensions (reference for understanding workflow)
+  analysis_dimensions:
+    pricing:
+      - price_points
+      - payment_options
+      - pricing_psychology
+      - value_perception
+
+    positioning:
+      - target_audience
+      - unique_value_propositions
+      - brand_messaging
+      - awareness_level_targeting
+
+    structure:
+      - tier_configuration
+      - feature_bundles
+      - support_levels
+      - access_intimacy
+
+    marketing:
+      - sales_page_quality
+      - conversion_elements
+      - social_proof
+      - urgency_tactics
+
+    strengths_weaknesses:
+      - what_they_do_well
+      - what_they_do_poorly
+      - market_gaps
+      - opportunities
+
+  # Documentation: Workflow phases (not programmatically enforced in instructions)
+  phases:
+    - id: identify_competitors
+      name: "Identify & Prioritize Competitors"
+      description: "Confirm competitors and prioritize analysis"
+      interaction_level: high
+
+    - id: research_competitors
+      name: "Research Competitor Offers"
+      description: "Gather competitive intelligence via web search"
+      interaction_level: low
+      uses_web_search: true
+
+    - id: analyze_pricing
+      name: "Analyze Competitive Pricing"
+      description: "Deep dive on pricing strategies"
+      agent: pricing-strategist
+      interaction_level: low
+
+    - id: analyze_positioning
+      name: "Analyze Positioning & Messaging"
+      description: "Evaluate value propositions and differentiation"
+      agent: value-proposition-specialist
+      interaction_level: low
+
+    - id: analyze_structure
+      name: "Analyze Offer Structure"
+      description: "Examine tier architecture and features"
+      agent: offer-architect
+      interaction_level: low
+
+    - id: comparative_analysis
+      name: "Comparative Analysis"
+      description: "Compare your offer vs competitors (if provided)"
+      interaction_level: low
+      conditional: true  # Only if your_offer_stack_path provided
+
+    - id: generate_recommendations
+      name: "Generate Strategic Recommendations"
+      description: "Create differentiation and positioning strategy"
+      interaction_level: low
+
+  # Web bundle configuration for sharing/distribution
+  web_bundle:
+    name: "audit-competitor"
+    description: "Comprehensive competitive intelligence analysis of competitor offers, pricing, and positioning strategies"
+    files:
+      - "bmad/offer-forge/workflows/audit-competitor/workflow.yaml"
+      - "bmad/offer-forge/workflows/audit-competitor/instructions.md"
+    agents_required:
+      - "bmad/offer-forge/agents/offer-architect.agent.yaml"
+      - "bmad/offer-forge/agents/value-proposition-specialist.agent.yaml"
+      - "bmad/offer-forge/agents/pricing-strategist.agent.yaml"

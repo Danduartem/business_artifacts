@@ -1,0 +1,127 @@
+# Update Offer Stack Workflow Configuration
+# Module: offer-forge
+# Version: 1.0.0 (V2)
+# Date: 2025-11-04
+
+workflow:
+  name: update-offer-stack
+  description: Refine existing offer stacks based on market feedback, pricing tests, or messaging optimization
+  author: Daniel
+  version: 1.0.0
+  module: offer-forge
+  type: action
+
+  config_source: "{project-root}/bmad/offer-forge/config.yaml"
+
+  # Standard config variables (BMAD v6 required)
+  output_folder: "{config_source}:output_folder"
+  user_name: "{config_source}:user_name"
+  communication_language: "{config_source}:communication_language"
+  date: system-generated
+
+  installed_path: "{project-root}/bmad/offer-forge/workflows/update-offer-stack"
+
+  # Action workflow - no template, modifies existing documents
+  template: false
+
+  # Workflow execution instructions
+  instructions: "{installed_path}/instructions.md"
+
+  # This workflow can be invoked directly via hub agent
+  standalone: true
+
+  # Input requirements
+  input:
+    required:
+      - existing_offer_stack_path  # Path to existing offer stack document
+    optional:
+      - update_type  # pricing, messaging, structure, validation
+      - specific_tier  # entry, core, premium, or all
+
+  # Output configuration
+  output:
+    location: "{output_folder}"
+    naming_pattern: "{business_name}-offer-stack-updated.md"
+    backup_original: true  # Create backup before overwriting
+
+  # Documentation: Required agents (invoked by name in instructions, not by path)
+  dependencies:
+    agents:
+      - "{project-root}/bmad/offer-forge/agents/offer-architect.agent.yaml"
+      - "{project-root}/bmad/offer-forge/agents/value-proposition-specialist.agent.yaml"
+      - "{project-root}/bmad/offer-forge/agents/pricing-strategist.agent.yaml"
+      - "{project-root}/bmad/offer-forge/agents/senior-offer-specialist.agent.yaml"
+
+  # Documentation: Update types and agent routing (reference for understanding workflow logic)
+  update_types:
+    pricing:
+      description: "Optimize pricing based on market data or conversion testing"
+      agents: ["pricing-strategist", "senior-offer-specialist"]
+      affects_deliverables: ["offer-stack", "pricing-strategy", "offer-sheets"]
+
+    messaging:
+      description: "Refine value propositions, USPs, or objection handling"
+      agents: ["value-proposition-specialist", "senior-offer-specialist"]
+      affects_deliverables: ["offer-stack", "offer-sheets", "objection-handling"]
+
+    structure:
+      description: "Modify tier features, support levels, or value ladder"
+      agents: ["offer-architect", "value-proposition-specialist", "pricing-strategist", "senior-offer-specialist"]
+      affects_deliverables: ["all"]
+
+    validation:
+      description: "Re-validate existing stack against current standards"
+      agents: ["senior-offer-specialist"]
+      affects_deliverables: ["offer-stack"]
+
+    competitive:
+      description: "Update competitive positioning and differentiation"
+      agents: ["offer-architect", "value-proposition-specialist", "senior-offer-specialist"]
+      affects_deliverables: ["offer-stack", "offer-sheets"]
+
+  # Documentation: Workflow phases (not programmatically enforced in instructions)
+  phases:
+    - id: load_existing
+      name: "Load Existing Offer Stack"
+      description: "Parse and analyze current offer stack"
+      interaction_level: low
+
+    - id: identify_updates
+      name: "Identify Update Scope"
+      description: "Determine what needs updating and why"
+      interaction_level: high
+
+    - id: gather_update_context
+      name: "Gather Update Context"
+      description: "Collect market data, feedback, test results"
+      interaction_level: high
+
+    - id: execute_updates
+      name: "Execute Specialist Updates"
+      description: "Route to appropriate agents for refinement"
+      interaction_level: low
+      conditional: true  # Based on update_type
+
+    - id: validate_updates
+      name: "Validate Updated Stack"
+      description: "Ensure updates maintain quality standards"
+      agent: senior-offer-specialist
+      interaction_level: low
+
+    - id: regenerate_deliverables
+      name: "Regenerate Affected Deliverables"
+      description: "Update all impacted documents"
+      interaction_level: low
+
+  # Web bundle configuration for sharing/distribution
+  web_bundle:
+    name: "update-offer-stack"
+    description: "Refine existing offer stacks based on market feedback, pricing tests, or messaging optimization"
+    files:
+      - "bmad/offer-forge/workflows/update-offer-stack/workflow.yaml"
+      - "bmad/offer-forge/workflows/update-offer-stack/instructions.md"
+    agents_required:
+      - "bmad/offer-forge/agents/offer-architect.agent.yaml"
+      - "bmad/offer-forge/agents/value-proposition-specialist.agent.yaml"
+      - "bmad/offer-forge/agents/pricing-strategist.agent.yaml"
+      - "bmad/offer-forge/agents/senior-offer-specialist.agent.yaml"

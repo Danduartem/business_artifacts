@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Comparison - Design Forge v3.0</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #f8f9fa;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #2563eb;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 16px;
+    }
+
+    /* Viewport Tabs */
+    .viewport-controls {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .viewport-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .viewport-tab {
+      padding: 12px 24px;
+      border: 2px solid #e5e7eb;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .viewport-tab:hover {
+      border-color: #2563eb;
+      background: #eff6ff;
+    }
+
+    .viewport-tab.active {
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
+    }
+
+    /* Screenshot Gallery */
+    .screenshot-gallery {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .gallery-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    .prototype-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+
+    .prototype-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .prototype-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .prototype-header {
+      padding: 15px;
+      background: #f9fafb;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .prototype-name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .prototype-archetype {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .screenshot-container {
+      position: relative;
+      background: #f0f0f0;
+      overflow: hidden;
+    }
+
+    .screenshot-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity 0.3s;
+    }
+
+    .screenshot-loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #999;
+    }
+
+    .prototype-metrics {
+      padding: 15px;
+      background: #f9fafb;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .metric {
+      font-size: 13px;
+    }
+
+    .metric-label {
+      color: #666;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .metric-value {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .metric-value.good {
+      color: #16a34a;
+    }
+
+    .metric-value.warning {
+      color: #ea580c;
+    }
+
+    /* Comparison Slider */
+    .comparison-section {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .comparison-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .comparison-selector {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .selector-group {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .selector-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #666;
+    }
+
+    .selector-dropdown {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #e5e7eb;
+      border-radius: 6px;
+      font-size: 14px;
+      background: white;
+      cursor: pointer;
+    }
+
+    .comparison-display {
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .comparison-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .comparison-side {
+      text-align: center;
+    }
+
+    .comparison-side h4 {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #666;
+    }
+
+    .comparison-side img {
+      max-width: 100%;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Image Comparison Slider */
+    .img-compare-container {
+      position: relative;
+      width: 100%;
+      margin-top: 30px;
+    }
+
+    .img-compare-slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .img-compare-slider img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .img-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: #2563eb;
+      cursor: ew-resize;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .slider-handle::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      background: #2563eb;
+      border: 3px solid white;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .slider-handle::after {
+      content: '⟷';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 4px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 50px;
+      padding: 30px;
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .prototype-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-split {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+      }
+
+      .viewport-controls,
+      .comparison-selector {
+        display: none;
+      }
+
+      .prototype-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎨 Visual Comparison Report</h1>
+      <p class="subtitle">Design Forge v3.0 - Screenshot-Based Analysis</p>
+      <p class="subtitle">Generated: <span id="timestamp"></span></p>
+    </header>
+
+    <!-- Viewport Controls -->
+    <div class="viewport-controls">
+      <h3 style="margin-bottom: 15px;">Select Viewport</h3>
+      <div class="viewport-tabs">
+        <button class="viewport-tab active" data-viewport="mobile" onclick="switchViewport('mobile')">
+          📱 Mobile (375px)
+        </button>
+        <button class="viewport-tab" data-viewport="tablet" onclick="switchViewport('tablet')">
+          📱 Tablet (768px)
+        </button>
+        <button class="viewport-tab" data-viewport="desktop" onclick="switchViewport('desktop')">
+          🖥️ Desktop (1440px)
+        </button>
+      </div>
+    </div>
+
+    <!-- Screenshot Gallery -->
+    <div class="screenshot-gallery">
+      <h2 class="gallery-title">Prototype Screenshots</h2>
+      <div class="prototype-grid" id="prototypeGrid">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+
+    <!-- Comparison Slider -->
+    <div class="comparison-section">
+      <h2 class="comparison-title">Interactive Comparison</h2>
+
+      <div class="comparison-selector">
+        <div class="selector-group">
+          <label class="selector-label">Compare Prototype A</label>
+          <select class="selector-dropdown" id="compareA" onchange="updateComparison()">
+            <!-- Dynamically populated -->
+          </select>
+        </div>
+        <div class="selector-group">
+          <label class="selector-label">Against Prototype B</label>
+          <select class="selector-dropdown" id="compareB" onchange="updateComparison()">
+            <!-- Dynamically populated -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Side by Side -->
+      <div class="comparison-split" id="sideBySide">
+        <div class="comparison-side">
+          <h4 id="labelA">Prototype A</h4>
+          <img id="imgA" src="" alt="Prototype A">
+        </div>
+        <div class="comparison-side">
+          <h4 id="labelB">Prototype B</h4>
+          <img id="imgB" src="" alt="Prototype B">
+        </div>
+      </div>
+
+      <!-- Interactive Slider -->
+      <div class="img-compare-container">
+        <h3 style="margin-bottom: 15px;">Drag to Compare</h3>
+        <div class="img-compare-slider" id="compareSlider">
+          <img id="sliderImgB" src="" alt="Prototype B">
+          <div class="img-overlay" id="overlay">
+            <img id="sliderImgA" src="" alt="Prototype A">
+          </div>
+          <div class="slider-handle" id="sliderHandle"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Generated by Design Forge v3.0 - Visual Analysis Engine</p>
+      <p>© 2025 | Production Ready</p>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <img id="lightboxImg" class="lightbox-img" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    // Data structure - to be populated by workflow
+    const prototypes = [
+      // Example structure:
+      // {
+      //   name: "minimalist-hero",
+      //   archetype: "The Minimalist",
+      //   screenshots: {
+      //     mobile: "../screenshots/minimalist-hero/mobile-375.png",
+      //     tablet: "../screenshots/minimalist-hero/tablet-768.png",
+      //     desktop: "../screenshots/minimalist-hero/desktop-1440.png"
+      //   },
+      //   metrics: {
+      //     quality: 94,
+      //     accessibility: 96,
+      //     coherence: 91
+      //   }
+      // }
+    ];
+
+    let currentViewport = 'mobile';
+    let comparing = { a: 0, b: 1 };
+
+    // Initialize
+    document.getElementById('timestamp').textContent = new Date().toLocaleString();
+
+    function renderGallery() {
+      const grid = document.getElementById('prototypeGrid');
+      grid.innerHTML = '';
+
+      prototypes.forEach((proto, index) => {
+        const card = document.createElement('div');
+        card.className = 'prototype-card';
+        card.onclick = () => openLightbox(proto.screenshots[currentViewport]);
+
+        card.innerHTML = `
+          <div class="prototype-header">
+            <div class="prototype-name">${proto.name}</div>
+            <div class="prototype-archetype">${proto.archetype}</div>
+          </div>
+          <div class="screenshot-container">
+            <img class="screenshot-img"
+                 src="${proto.screenshots[currentViewport]}"
+                 alt="${proto.name} ${currentViewport} screenshot"
+                 loading="lazy">
+          </div>
+          <div class="prototype-metrics">
+            <div class="metric">
+              <span class="metric-label">Quality</span>
+              <span class="metric-value ${proto.metrics.quality >= 90 ? 'good' : ''}">${proto.metrics.quality}/100</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Accessibility</span>
+              <span class="metric-value ${proto.metrics.accessibility >= 90 ? 'good' : ''}">${proto.metrics.accessibility}/100</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Coherence</span>
+              <span class="metric-value ${proto.metrics.coherence >= 85 ? 'good' : ''}">${proto.metrics.coherence}/100</span>
+            </div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    function renderSelectors() {
+      const selectA = document.getElementById('compareA');
+      const selectB = document.getElementById('compareB');
+
+      [selectA, selectB].forEach(select => {
+        select.innerHTML = '';
+        prototypes.forEach((proto, index) => {
+          const option = document.createElement('option');
+          option.value = index;
+          option.textContent = proto.name;
+          select.appendChild(option);
+        });
+      });
+
+      selectA.value = comparing.a;
+      selectB.value = comparing.b;
+    }
+
+    function switchViewport(viewport) {
+      currentViewport = viewport;
+
+      // Update active tab
+      document.querySelectorAll('.viewport-tab').forEach(tab => {
+        tab.classList.remove('active');
+        if (tab.dataset.viewport === viewport) {
+          tab.classList.add('active');
+        }
+      });
+
+      // Re-render gallery with new viewport
+      renderGallery();
+
+      // Update comparison
+      updateComparison();
+    }
+
+    function updateComparison() {
+      comparing.a = parseInt(document.getElementById('compareA').value);
+      comparing.b = parseInt(document.getElementById('compareB').value);
+
+      const protoA = prototypes[comparing.a];
+      const protoB = prototypes[comparing.b];
+
+      // Update labels
+      document.getElementById('labelA').textContent = protoA.name;
+      document.getElementById('labelB').textContent = protoB.name;
+
+      // Update side-by-side
+      document.getElementById('imgA').src = protoA.screenshots[currentViewport];
+      document.getElementById('imgB').src = protoB.screenshots[currentViewport];
+
+      // Update slider
+      document.getElementById('sliderImgA').src = protoA.screenshots[currentViewport];
+      document.getElementById('sliderImgB').src = protoB.screenshots[currentViewport];
+    }
+
+    // Image comparison slider
+    function initSlider() {
+      const slider = document.getElementById('compareSlider');
+      const handle = document.getElementById('sliderHandle');
+      const overlay = document.getElementById('overlay');
+
+      let isDragging = false;
+
+      handle.addEventListener('mousedown', () => isDragging = true);
+      document.addEventListener('mouseup', () => isDragging = false);
+
+      document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+
+        const rect = slider.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percentage = (x / rect.width) * 100;
+
+        if (percentage >= 0 && percentage <= 100) {
+          handle.style.left = percentage + '%';
+          overlay.style.width = percentage + '%';
+        }
+      });
+
+      // Touch support
+      handle.addEventListener('touchstart', () => isDragging = true);
+      document.addEventListener('touchend', () => isDragging = false);
+
+      document.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+
+        const rect = slider.getBoundingClientRect();
+        const x = e.touches[0].clientX - rect.left;
+        const percentage = (x / rect.width) * 100;
+
+        if (percentage >= 0 && percentage <= 100) {
+          handle.style.left = percentage + '%';
+          overlay.style.width = percentage + '%';
+        }
+      });
+    }
+
+    // Lightbox
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderGallery();
+      renderSelectors();
+      updateComparison();
+      initSlider();
+    });
+  </script>
+</body>
+</html>

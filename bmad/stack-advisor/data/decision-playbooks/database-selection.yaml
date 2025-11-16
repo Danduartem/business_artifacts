@@ -1,0 +1,443 @@
+# Database Selection Playbook
+# Flowchart-style decision tree for choosing the right database
+
+playbook:
+  name: "Database Selection"
+  description: "Step-by-step guide to selecting the optimal database technology"
+  version: "1.0"
+  last_updated: "2025-01-14"
+
+decision_tree:
+  start:
+    question: "What type of data are you storing?"
+    options:
+      - label: "Structured data with relationships (users, orders, products)"
+        next: "structured_data"
+      - label: "Semi-structured or flexible schema (logs, events, documents)"
+        next: "semi_structured"
+      - label: "Time-series data (metrics, IoT sensors)"
+        next: "time_series"
+      - label: "Key-value pairs (sessions, cache)"
+        next: "key_value"
+      - label: "Full-text search"
+        next: "search"
+      - label: "Graph data (social networks, recommendations)"
+        next: "graph_data"
+
+  structured_data:
+    question: "What's your priority?"
+    context: "Relational databases are the default choice for structured data"
+    options:
+      - label: "ACID compliance and data integrity"
+        next: "acid_required"
+      - label: "Simplicity and ease of use"
+        next: "simple_relational"
+      - label: "Need built-in auth and real-time"
+        recommendation: "Supabase (PostgreSQL-based)"
+        rationale: "PostgreSQL + instant API + auth + real-time subscriptions"
+        next: null
+      - label: "Maximum performance"
+        next: "performance_relational"
+
+  acid_required:
+    question: "What's your scale and features needed?"
+    context: "PostgreSQL and MySQL are battle-tested ACID databases"
+    options:
+      - label: "Need advanced features (JSON, full-text, extensions)"
+        recommendation: "PostgreSQL"
+        rationale: "Most feature-rich, excellent JSON support, extensions, ACID compliant"
+        next: null
+      - label: "Simple CRUD, wide hosting support"
+        recommendation: "MySQL or MariaDB"
+        rationale: "Simpler than Postgres, ubiquitous hosting, good performance"
+        next: null
+      - label: "Embedded database (no server)"
+        recommendation: "SQLite"
+        rationale: "Zero-config, file-based, perfect for small apps and mobile"
+        next: null
+
+  simple_relational:
+    question: "What's your deployment scenario?"
+    options:
+      - label: "Cloud/VPS deployment"
+        recommendation: "PostgreSQL (managed)"
+        rationale: "Best balance of features and simplicity, excellent managed offerings"
+        next: null
+      - label: "Edge/serverless deployment"
+        recommendation: "Turso (LibSQL) or Neon (serverless Postgres)"
+        rationale: "Designed for edge, fast globally, pay-per-use"
+        next: null
+      - label: "Embedded in application"
+        recommendation: "SQLite"
+        rationale: "Single file, no server, perfect for desktop/mobile apps"
+        next: null
+
+  performance_relational:
+    question: "What's the performance bottleneck?"
+    options:
+      - label: "Read-heavy workload"
+        recommendation: "PostgreSQL with read replicas"
+        rationale: "Excellent read performance, easy replication"
+        next: null
+      - label: "Write-heavy workload"
+        recommendation: "PostgreSQL (tuned) or CockroachDB"
+        rationale: "PostgreSQL handles writes well; CockroachDB for distributed writes"
+        next: null
+      - label: "Global distribution"
+        recommendation: "CockroachDB or PlanetScale"
+        rationale: "Multi-region, low latency globally"
+        next: null
+
+  semi_structured:
+    question: "What's your use case?"
+    context: "Document databases handle flexible schemas well"
+    options:
+      - label: "General application data (flexible schema)"
+        next: "document_db"
+      - label: "Analytics and aggregations"
+        recommendation: "MongoDB or ClickHouse"
+        rationale: "MongoDB for flexible aggregations; ClickHouse for analytical queries"
+        next: null
+      - label: "Logs and events"
+        recommendation: "Elasticsearch or Loki"
+        rationale: "Built for logs, excellent search, time-based retention"
+        next: null
+
+  document_db:
+    question: "What's your priority?"
+    options:
+      - label: "Maturity and ecosystem"
+        recommendation: "MongoDB"
+        rationale: "Most mature NoSQL, huge ecosystem, flexible schema"
+        next: null
+      - label: "Simplicity and developer experience"
+        recommendation: "Firebase Firestore"
+        rationale: "Zero setup, real-time sync, generous free tier"
+        next: null
+      - label: "Use PostgreSQL for everything"
+        recommendation: "PostgreSQL with JSONB"
+        rationale: "Get document flexibility in relational DB, best of both worlds"
+        next: null
+
+  time_series:
+    question: "What's your scale and retention?"
+    context: "Time-series databases optimize for timestamp-based data"
+    options:
+      - label: "Metrics and monitoring"
+        recommendation: "Prometheus or InfluxDB"
+        rationale: "Prometheus for monitoring; InfluxDB for custom time-series"
+        next: null
+      - label: "IoT sensor data (high volume)"
+        recommendation: "TimescaleDB or InfluxDB"
+        rationale: "TimescaleDB = Postgres extension; InfluxDB = purpose-built"
+        next: null
+      - label: "Financial data / trades"
+        recommendation: "TimescaleDB or QuestDB"
+        rationale: "SQL interface, ACID compliance, excellent performance"
+        next: null
+
+  key_value:
+    question: "What's your primary use case?"
+    context: "Key-value stores are fast and simple"
+    options:
+      - label: "Caching"
+        recommendation: "Redis or Memcached"
+        rationale: "Redis = feature-rich; Memcached = simple and fast"
+        next: null
+      - label: "Session storage"
+        recommendation: "Redis"
+        rationale: "Persistence options, TTL support, atomic operations"
+        next: null
+      - label: "Queues and pub/sub"
+        recommendation: "Redis"
+        rationale: "Built-in queue support, pub/sub, streams"
+        next: null
+      - label: "Simple embedded storage"
+        recommendation: "SQLite or LMDB"
+        rationale: "SQLite for structured; LMDB for pure key-value"
+        next: null
+
+  search:
+    question: "What's your scale and complexity?"
+    context: "Full-text search requires specialized indexing"
+    options:
+      - label: "Simple search in existing data"
+        recommendation: "PostgreSQL full-text search"
+        rationale: "Good enough for most cases, no extra infrastructure"
+        next: null
+      - label: "Advanced search (facets, fuzzy, relevance)"
+        recommendation: "Meilisearch or Typesense"
+        rationale: "Modern, fast, great DX, easier than Elasticsearch"
+        next: null
+      - label: "Large-scale search (millions of docs)"
+        recommendation: "Elasticsearch"
+        rationale: "Battle-tested, scales massively, advanced features"
+        next: null
+      - label: "E-commerce product search"
+        recommendation: "Algolia or Typesense"
+        rationale: "Algolia = managed, fast; Typesense = self-hosted alternative"
+        next: null
+
+  graph_data:
+    question: "What's your use case?"
+    context: "Graph databases optimize for relationship queries"
+    options:
+      - label: "Social network / connections"
+        recommendation: "Neo4j"
+        rationale: "Most mature graph DB, excellent for social graphs"
+        next: null
+      - label: "Knowledge graphs / linked data"
+        recommendation: "Neo4j or DGraph"
+        rationale: "Neo4j for Cypher queries; DGraph for GraphQL interface"
+        next: null
+      - label: "Simple graph queries"
+        recommendation: "PostgreSQL with pg_graph or recursive CTEs"
+        rationale: "PostgreSQL can handle simple graphs without extra DB"
+        next: null
+
+# Quick reference matrix
+quick_reference:
+  by_use_case:
+    web_app_saas: "PostgreSQL or Supabase"
+    mobile_app: "Firebase Firestore or Supabase"
+    analytics_dashboard: "PostgreSQL or ClickHouse"
+    real_time_app: "Supabase or Firebase"
+    e_commerce: "PostgreSQL"
+    blog_cms: "PostgreSQL or MongoDB"
+    iot_platform: "TimescaleDB or InfluxDB"
+    social_network: "PostgreSQL + Redis + Neo4j (optional)"
+
+  by_data_type:
+    structured_relational: "PostgreSQL"
+    flexible_schema: "MongoDB or PostgreSQL JSONB"
+    time_series: "TimescaleDB or InfluxDB"
+    key_value: "Redis"
+    full_text_search: "Meilisearch or Elasticsearch"
+    graph: "Neo4j"
+    geospatial: "PostgreSQL with PostGIS"
+
+  by_team_skill:
+    knows_sql: "PostgreSQL or MySQL"
+    knows_nosql: "MongoDB or Firebase"
+    beginner: "Supabase or Firebase"
+    advanced: "PostgreSQL (self-managed)"
+
+  by_priority:
+    simplicity: "Supabase or Firebase"
+    performance: "PostgreSQL (tuned) or Redis"
+    flexibility: "MongoDB or PostgreSQL JSONB"
+    cost: "SQLite or self-hosted PostgreSQL"
+    managed_service: "Supabase, PlanetScale, or MongoDB Atlas"
+
+# Common patterns
+patterns:
+  modern_saas_stack:
+    primary: "PostgreSQL (Supabase or Neon)"
+    cache: "Redis (Upstash)"
+    search: "Meilisearch (optional)"
+    rationale: "Postgres for data, Redis for cache/sessions, Meilisearch if search needed"
+
+  mobile_app_backend:
+    primary: "Firebase Firestore or Supabase"
+    rationale: "Real-time sync, offline support, built-in auth"
+
+  e_commerce_stack:
+    primary: "PostgreSQL"
+    cache: "Redis"
+    search: "Algolia or Typesense"
+    rationale: "Postgres for orders/products, Redis for cart/sessions, search for products"
+
+  analytics_platform:
+    primary: "ClickHouse or PostgreSQL"
+    time_series: "TimescaleDB"
+    cache: "Redis"
+    rationale: "ClickHouse for analytics, TimescaleDB for metrics, Redis for aggregations"
+
+  content_heavy_site:
+    primary: "PostgreSQL"
+    search: "Meilisearch or Postgres FTS"
+    cache: "Redis (optional)"
+    rationale: "Postgres for content, search for discoverability"
+
+# Multi-database scenarios
+multi_db_patterns:
+  when_to_use_multiple:
+    - "Primary DB + Cache (Postgres + Redis) - COMMON"
+    - "Primary DB + Search (Postgres + Meilisearch) - COMMON"
+    - "Primary DB + Time-series (Postgres + TimescaleDB) - for metrics"
+    - "Primary DB + Graph (Postgres + Neo4j) - for recommendations"
+
+  when_not_to_use_multiple:
+    - "Don't split relational data across multiple DBs"
+    - "Don't use NoSQL just because it's trendy"
+    - "Don't add search DB if Postgres FTS is enough"
+    - "Don't prematurely optimize with specialized DBs"
+
+  smb_recommendation:
+    start_with: "Single PostgreSQL instance"
+    add_second: "Redis for caching (when needed)"
+    add_third: "Search engine (when needed)"
+    avoid: "Complex multi-database setups unless clearly needed"
+
+# Managed vs Self-Hosted
+deployment_options:
+  managed_services:
+    postgresql:
+      - "Supabase (best for SMB, includes auth/storage/real-time)"
+      - "Neon (serverless Postgres, pay-per-use)"
+      - "Railway (simple, affordable)"
+      - "Render (simple, affordable)"
+      - "AWS RDS / Azure / GCP (enterprise)"
+
+    mysql:
+      - "PlanetScale (serverless, branching)"
+      - "Railway or Render"
+      - "AWS RDS / Azure / GCP"
+
+    mongodb:
+      - "MongoDB Atlas (official)"
+
+    redis:
+      - "Upstash (serverless, edge)"
+      - "Redis Cloud"
+      - "Railway or Render"
+
+  self_hosted:
+    when_to_self_host:
+      - "Very price sensitive"
+      - "Need complete control"
+      - "Data sovereignty requirements"
+      - "Existing infrastructure team"
+
+    when_to_use_managed:
+      - "Small team (< 5 people)"
+      - "Focus on product, not infrastructure"
+      - "Need high availability"
+      - "Want automatic backups and updates"
+
+# Red flags
+red_flags:
+  mongodb:
+    - "Data has clear relational structure"
+    - "Need complex joins"
+    - "ACID compliance is critical"
+    - "Team only knows SQL"
+
+  mysql:
+    - "Need advanced features (arrays, JSON, full-text)"
+    - "Want modern ecosystem"
+
+  postgresql:
+    - "Need absolutely maximum write throughput (use specialized DB)"
+    - "Embedded database needed (use SQLite)"
+
+  redis:
+    - "Primary data store (it's for cache/sessions)"
+    - "Need ACID transactions"
+    - "Complex queries needed"
+
+  elasticsearch:
+    - "Small dataset (< 10k documents - use Postgres FTS)"
+    - "Simple search (use Meilisearch)"
+    - "Small team (operational complexity)"
+
+  firebase:
+    - "Complex queries and aggregations"
+    - "Need full SQL capabilities"
+    - "Want to avoid vendor lock-in"
+
+# SMB-specific guidance
+smb_guidance:
+  micro_business_1_2_people:
+    recommendation: "Supabase or SQLite"
+    rationale: "Supabase = zero ops; SQLite = ultra-simple"
+
+  small_business_3_10_people:
+    recommendation: "Managed PostgreSQL (Supabase, Neon, or Railway)"
+    rationale: "Focus on product, not DB operations"
+
+  medium_business_10_50_people:
+    recommendation: "PostgreSQL + Redis (both managed)"
+    rationale: "Standard stack, can scale, team can manage"
+
+  avoid_for_smb:
+    - "Self-hosted databases (unless you have ops team)"
+    - "Complex multi-DB setups (start simple)"
+    - "Exotic databases (hiring and support challenges)"
+    - "Enterprise databases (Oracle, SQL Server - cost)"
+
+# Migration considerations
+migration_paths:
+  from_sqlite:
+    to: "PostgreSQL or MySQL"
+    difficulty: "Easy"
+    rationale: "SQL is similar, schema translates well"
+
+  from_mysql:
+    to: "PostgreSQL"
+    difficulty: "Medium"
+    rationale: "Some syntax differences, but straightforward"
+
+  from_mongodb:
+    to: "PostgreSQL with JSONB"
+    difficulty: "Hard"
+    rationale: "Requires schema design, query rewrite"
+
+  from_firebase:
+    to: "Supabase or PostgreSQL"
+    difficulty: "Hard"
+    rationale: "Different query model, real-time needs rebuilding"
+
+# Performance characteristics
+performance_comparison:
+  read_performance:
+    redis: "Excellent (in-memory)"
+    postgresql: "Very Good (with indexes)"
+    mysql: "Very Good (with indexes)"
+    mongodb: "Good"
+    sqlite: "Good (for small data)"
+
+  write_performance:
+    redis: "Excellent (in-memory)"
+    postgresql: "Very Good"
+    mysql: "Very Good"
+    mongodb: "Very Good"
+    sqlite: "Good (limited concurrency)"
+
+  scalability:
+    cockroachdb: "Excellent (distributed)"
+    postgresql: "Very Good (with replication)"
+    mysql: "Very Good (with replication)"
+    mongodb: "Very Good (sharding)"
+    redis: "Good (limited by memory)"
+    sqlite: "Poor (single file)"
+
+  query_flexibility:
+    postgresql: "Excellent (SQL + JSON + extensions)"
+    mongodb: "Very Good (aggregation pipeline)"
+    mysql: "Good (SQL)"
+    redis: "Limited (key-value)"
+    sqlite: "Good (SQL)"
+
+# Cost comparison (managed services)
+cost_estimates:
+  free_tier_options:
+    - "Supabase: 500 MB database, 2 GB bandwidth"
+    - "Neon: 0.5 GB storage, always-free tier"
+    - "PlanetScale: 5 GB storage, 1 billion reads"
+    - "MongoDB Atlas: 512 MB storage"
+    - "Upstash Redis: 10k commands/day"
+
+  production_small_10k_users:
+    supabase: "$25/month (Pro plan)"
+    neon: "$10-20/month (pay-per-use)"
+    railway: "$5-20/month"
+    mongodb_atlas: "$9-57/month"
+    upstash_redis: "$10/month"
+
+  production_medium_100k_users:
+    supabase: "$25-100/month"
+    neon: "$50-200/month"
+    railway: "$50-200/month"
+    mongodb_atlas: "$57-340/month"
+    aws_rds: "$100-500/month"

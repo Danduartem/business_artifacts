@@ -1,0 +1,363 @@
+workflow:
+  metadata:
+    id: 'bmad/seo-audit-pro/workflows/deep-audit'
+    name: 'Deep SEO Audit'
+    description: 'Comprehensive 7-agent SEO audit generating sales-ready PDF report (30+ minutes)'
+    module: 'seo-audit-pro'
+    version: '1.0.0'
+    estimated_duration: '30-45 minutes'
+
+  configuration:
+    agents_required:
+      - 'bmad/seo-audit-pro/agents/master-orchestrator.md'
+      - 'bmad/seo-audit-pro/agents/technical-seo-specialist.md'
+      - 'bmad/seo-audit-pro/agents/onpage-seo-specialist.md'
+      - 'bmad/seo-audit-pro/agents/backlinks-specialist.md'
+      - 'bmad/seo-audit-pro/agents/competitor-analyst.md'
+      - 'bmad/seo-audit-pro/agents/opportunity-specialist.md'
+      - 'bmad/seo-audit-pro/agents/sales-strategist.md'
+
+    config_required:
+      - 'seo_data_sources'
+      - 'report_output_folder'
+      - 'scoring_weights'
+
+  inputs:
+    client_url:
+      type: 'url'
+      required: true
+      description: 'Client website URL to audit'
+      validation: '^https?://.+'
+
+    competitor_urls:
+      type: 'url_list'
+      required: false
+      description: 'Competitor website URLs (3-5 recommended, optional)'
+      max_items: 5
+
+    client_name:
+      type: 'string'
+      required: true
+      description: 'Client business name for report'
+
+    audit_focus:
+      type: 'choice'
+      required: false
+      description: 'Special focus area (optional - leave blank for comprehensive)'
+      choices:
+        - 'comprehensive'
+        - 'technical'
+        - 'content'
+        - 'competitors'
+      default: 'comprehensive'
+
+  steps:
+    - id: 'step-1'
+      name: 'Information Gathering & Validation'
+      agent: 'master-orchestrator'
+      action: |
+        **Phase 1: Information Gathering & Validation**
+
+        Collect audit parameters:
+        1. Client URL: {client_url}
+        2. Client Name: {client_name}
+        3. Competitor URLs: {competitor_urls} (if provided)
+        4. Audit Focus: {audit_focus}
+
+        **Validation Tasks:**
+        - Verify client URL is accessible
+        - Validate competitor URLs (if provided)
+        - Check SEO data source connectivity (configured in module config)
+        - Confirm all 5 specialist agents are available
+        - Display audit scope summary
+
+        **Pre-flight Checklist:**
+        - [ ] Client URL validated
+        - [ ] SEO data sources accessible
+        - [ ] All specialist agents available
+        - [ ] Report output folder configured
+        - [ ] Scoring weights loaded from config
+
+        If any checklist item fails, STOP and report the issue.
+        If all items pass, proceed with: "✅ Pre-flight complete. Launching specialist analysis..."
+
+      outputs:
+        - 'validated_client_url'
+        - 'validated_competitors'
+        - 'audit_scope'
+        - 'preflight_status'
+
+    - id: 'step-2'
+      name: 'Parallel Specialist Analysis Execution'
+      agent: 'master-orchestrator'
+      action: |
+        **Phase 2: Specialist Analysis Execution**
+
+        Coordinate 5 specialist agents to execute parallel analyses.
+        Estimated time: 20-30 minutes for complete analysis.
+
+        **Execute in parallel (when possible):**
+
+        **1. Technical SEO Analysis (Engineer)**
+        - Invoke: technical-seo-specialist → analyze-technical
+        - Input: {validated_client_url}
+        - Expected output: Technical SEO score (0-100) + prioritized technical issues
+        - Store findings: technical_findings
+
+        **2. On-Page SEO Analysis (Analyst)**
+        - Invoke: onpage-seo-specialist → analyze-onpage
+        - Input: {validated_client_url}
+        - Expected output: On-Page SEO score (0-100) + optimization recommendations
+        - Store findings: onpage_findings
+
+        **3. Backlinks Analysis (Authority)**
+        - Invoke: backlinks-specialist → analyze-backlinks
+        - Input: {validated_client_url}
+        - Expected output: Backlinks score (0-100) + link profile assessment
+        - Store findings: backlinks_findings
+
+        **4. Competitive Intelligence (Intel)**
+        - Invoke: competitor-analyst → analyze-competitors
+        - Input: {validated_client_url}, {validated_competitors}
+        - Expected output: Competitors score (0-100) + competitive positioning map
+        - Store findings: competitor_findings
+
+        **5. Opportunity Identification (Vision)**
+        - Invoke: opportunity-specialist → identify-opportunities
+        - Input: {validated_client_url} + all specialist findings
+        - Expected output: Opportunities score (0-100) + prioritized action roadmap
+        - Store findings: opportunity_findings
+
+        **Progress Tracking:**
+        Display real-time progress as each specialist completes:
+        - "✅ Technical SEO Analysis complete (1/5)"
+        - "✅ On-Page SEO Analysis complete (2/5)"
+        - etc.
+
+        **Aggregation:**
+        Calculate overall SEO score using configured scoring weights:
+        - Overall Score = (Technical × weight) + (On-Page × weight) + (Backlinks × weight) + (Competitors × weight) + (Opportunities × weight)
+
+        Store all findings for Phase 3 quality review.
+
+      depends_on: ['step-1']
+      outputs:
+        - 'technical_findings'
+        - 'onpage_findings'
+        - 'backlinks_findings'
+        - 'competitor_findings'
+        - 'opportunity_findings'
+        - 'overall_seo_score'
+
+    - id: 'step-3'
+      name: 'Quality Review & Consistency Validation'
+      agent: 'master-orchestrator'
+      action: |
+        **Phase 3: Quality Review & Consistency Validation**
+
+        Execute 3-phase quality loop (as defined in Master Orchestrator review command):
+
+        **Phase 3.1 - Consistency Review:**
+        - Verify all specialist findings align logically
+        - Check for contradictions across categories
+        - Validate scoring calculations using configured weights
+        - Identify any missing or incomplete data
+
+        **Phase 3.2 - Cross-Agent Validation:**
+        - Ensure technical issues align with opportunity recommendations
+        - Verify competitive findings match specialist assessments
+        - Check that opportunity priorities reflect actual findings
+
+        **Phase 3.3 - Completeness Check:**
+        - Confirm all required data points present
+        - Validate all 5 specialist scores generated
+        - Ensure sufficient detail for sales narrative transformation
+
+        **Decision Point:**
+        - If validation passes → Proceed to Phase 4 (Sales Transformation)
+        - If issues found → Flag for manual review and correction
+
+        Display validation summary:
+        - "✅ Consistency validation passed"
+        - "✅ Cross-agent alignment verified"
+        - "✅ Completeness check passed"
+        - "Ready for sales narrative transformation"
+
+      depends_on: ['step-2']
+      outputs:
+        - 'validation_status'
+        - 'quality_report'
+
+    - id: 'step-4'
+      name: 'Sales Narrative Transformation'
+      agent: 'sales-strategist'
+      action: |
+        **Phase 4: Sales Narrative Transformation**
+
+        Transform technical audit findings into persuasive sales narrative.
+        Invoke: sales-strategist → transform-report
+
+        **Input all specialist findings:**
+        - Technical findings: {technical_findings}
+        - On-Page findings: {onpage_findings}
+        - Backlinks findings: {backlinks_findings}
+        - Competitor findings: {competitor_findings}
+        - Opportunity findings: {opportunity_findings}
+        - Overall score: {overall_seo_score}
+        - Client name: {client_name}
+
+        **Expected Output:**
+        4-part sales-ready report structure:
+
+        **Part 1: Executive Summary**
+        - Overall SEO score with competitive context
+        - Top 3-5 critical findings (business impact framed)
+        - Investment recommendation tier
+
+        **Part 2: Competitive Analysis**
+        - Competitive positioning map
+        - "Why they're winning" analysis
+        - Biggest threats and gaps
+
+        **Part 3: Detailed Findings (Problem Cascade)**
+        - All 5 category findings transformed using Pain → Cause → Hope
+        - Technical jargon converted to business language
+        - Competitive urgency framing throughout
+
+        **Part 4: Action Roadmap**
+        - Tier 1 Quick Wins (immediate, high-ROI)
+        - Tier 2 Strategic Priorities (30-90 days)
+        - Tier 3 Long-term Investments (strategic)
+        - ROI estimates and impact timeline
+
+        Store sales narrative for PDF generation.
+
+      depends_on: ['step-3']
+      outputs:
+        - 'sales_narrative'
+        - 'executive_summary'
+        - 'competitive_analysis'
+        - 'detailed_findings'
+        - 'action_roadmap'
+
+    - id: 'step-5'
+      name: 'Sales Narrative Quality Validation'
+      agent: 'sales-strategist'
+      action: |
+        **Phase 5: Sales Narrative Quality Validation**
+
+        Invoke: sales-strategist → validate-narrative
+
+        **Validation Checks:**
+        - Problem Cascade compliance (all major findings follow Pain → Cause → Hope)
+        - Business language audit (flag remaining technical jargon)
+        - Competitive urgency assessment
+        - Quantification verification (specific numbers vs. vague adjectives)
+        - Professional credibility tone check
+
+        **Decision Point:**
+        - If validation passes → Proceed to PDF generation
+        - If issues found → Flag specific sections needing revision
+
+        Display validation results.
+
+      depends_on: ['step-4']
+      outputs:
+        - 'narrative_validation_status'
+        - 'revision_recommendations'
+
+    - id: 'step-6'
+      name: 'PDF Report Generation'
+      agent: 'master-orchestrator'
+      action: |
+        **Phase 6: PDF Report Generation**
+
+        Assemble final PDF report from sales narrative.
+
+        **Report Structure:**
+        - Cover page (client name, date, overall score)
+        - Table of contents
+        - Part 1: Executive Summary
+        - Part 2: Competitive Analysis
+        - Part 3: Detailed Findings (by category)
+        - Part 4: Action Roadmap
+        - Appendix: Methodology notes
+
+        **Formatting:**
+        - Professional business template
+        - Charts and visualizations for scores
+        - Competitive positioning maps
+        - Color-coded priority indicators
+
+        **Output Location:**
+        - Save to: {report_output_folder}/{client_name}-SEO-Audit-{date}.pdf
+        - Generate filename slug from client name
+
+        Display PDF generation progress and final file path.
+
+      depends_on: ['step-5']
+      outputs:
+        - 'pdf_file_path'
+        - 'report_metadata'
+
+    - id: 'step-7'
+      name: 'Delivery & Summary'
+      agent: 'master-orchestrator'
+      action: |
+        **Phase 7: Audit Complete - Delivery Summary**
+
+        **Final Report Generated:**
+        - File: {pdf_file_path}
+        - Client: {client_name}
+        - Overall SEO Score: {overall_seo_score}/100
+        - Date: {current_date}
+
+        **Score Breakdown:**
+        - Technical SEO: {technical_score}/100
+        - On-Page SEO: {onpage_score}/100
+        - Backlinks: {backlinks_score}/100
+        - Competitive Position: {competitor_score}/100
+        - Opportunities: {opportunity_score}/100
+
+        **Quick Preview:**
+        {executive_summary}
+
+        **Next Steps:**
+        1. Review complete PDF report
+        2. Customize any sections for client presentation (if needed)
+        3. Schedule client meeting to present findings
+        4. Use Problem Cascade structure to build urgency
+        5. Focus on Tier 1 Quick Wins to demonstrate immediate value
+
+        **Report Quality:**
+        - Sales narrative: {narrative_validation_status}
+        - Problem Cascade compliance: Verified
+        - Competitive urgency: Integrated throughout
+        - Business impact language: Optimized
+
+        ✅ **Deep SEO Audit Complete!**
+
+        The report is ready for client presentation and designed to close deals.
+
+      depends_on: ['step-6']
+      outputs:
+        - 'delivery_summary'
+
+  error_handling:
+    - condition: 'agent_unavailable'
+      action: 'Display error: Required specialist agent not found. Verify module installation.'
+
+    - condition: 'url_inaccessible'
+      action: 'Display error: Cannot access client URL. Verify URL is correct and site is online.'
+
+    - condition: 'data_source_error'
+      action: 'Display error: SEO data source connectivity issue. Check module configuration.'
+
+    - condition: 'validation_failure'
+      action: 'Pause workflow and display validation issues for manual review.'
+
+  output:
+    format: 'pdf'
+    template: 'templates/audit-report-template.md'
+    destination: '{report_output_folder}'
+    filename_pattern: '{client_name}-SEO-Audit-{date}.pdf'

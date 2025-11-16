@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 4: Problem Deep-Dive - The Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --medium-gray: #E9ECEF;
+            --text-gray: #495057;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--navy);
+            background-color: var(--white);
+        }
+
+        .section-problem {
+            background: linear-gradient(180deg, var(--white) 0%, var(--light-gray) 100%);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-problem::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--navy) 50%, transparent 100%);
+            opacity: 0.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--borgonha);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Lora', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-bottom: 32px;
+        }
+
+        /* Permission Message Box */
+        .permission-box {
+            background: white;
+            border-left: 4px solid var(--borgonha);
+            padding: 40px 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 4px 12px rgba(25, 31, 58, 0.08);
+            border-radius: 4px;
+        }
+
+        .permission-box p {
+            font-size: 20px;
+            line-height: 1.7;
+            color: var(--text-gray);
+            margin-bottom: 16px;
+        }
+
+        .permission-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .permission-box strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* Cost Grid */
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .cost-card {
+            background: white;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(25, 31, 58, 0.06);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cost-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--borgonha);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .cost-card:hover {
+            border-color: var(--borgonha);
+            box-shadow: 0 8px 24px rgba(129, 23, 31, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .cost-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .cost-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--navy);
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .cost-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .cost-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-gray);
+        }
+
+        /* Urgency Section */
+        .urgency-section {
+            background: var(--navy);
+            color: white;
+            padding: 60px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 8px 24px rgba(25, 31, 58, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .urgency-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(129, 23, 31, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        .urgency-section-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .urgency-question {
+            font-family: 'Lora', serif;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .urgency-subtext {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Hope Pivot */
+        .hope-pivot {
+            background: linear-gradient(135deg, var(--borgonha) 0%, #6B1318 100%);
+            color: white;
+            padding: 60px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hope-pivot::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hope-pivot-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hope-title {
+            font-family: 'Lora', serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: white;
+            text-align: center;
+        }
+
+        .permission-statements {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .permission-statement {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 24px;
+            border-radius: 6px;
+            border-left: 3px solid var(--gold);
+            backdrop-filter: blur(10px);
+        }
+
+        .permission-statement p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: white;
+            margin-bottom: 0;
+        }
+
+        .permission-statement strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .hope-conclusion {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hope-conclusion p {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+
+        .hope-conclusion .highlight {
+            color: var(--gold);
+            font-size: 28px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .section-problem {
+                padding: 80px 0;
+            }
+
+            .section-title {
+                font-size: 40px;
+            }
+
+            .cost-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .permission-statements {
+                grid-template-columns: 1fr;
+            }
+
+            .urgency-section {
+                padding: 40px 30px;
+            }
+
+            .urgency-question {
+                font-size: 28px;
+            }
+
+            .hope-pivot {
+                padding: 40px 30px;
+            }
+
+            .hope-title {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .section-problem {
+                padding: 60px 0;
+            }
+
+            .section-header {
+                margin-bottom: 50px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .permission-box {
+                padding: 30px 25px;
+            }
+
+            .permission-box p {
+                font-size: 18px;
+            }
+
+            .cost-card {
+                padding: 30px 25px;
+            }
+
+            .cost-card h3 {
+                font-size: 20px;
+            }
+
+            .cost-card p {
+                font-size: 15px;
+            }
+
+            .urgency-question {
+                font-size: 24px;
+            }
+
+            .urgency-subtext {
+                font-size: 16px;
+            }
+
+            .hope-title {
+                font-size: 24px;
+            }
+
+            .hope-conclusion p {
+                font-size: 20px;
+            }
+
+            .hope-conclusion .highlight {
+                font-size: 24px;
+            }
+        }
+
+        /* Divider Line */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--navy) 50%, transparent 100%);
+            opacity: 0.2;
+            margin: 80px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="section-problem">
+        <div class="container">
+
+            <!-- Section Header -->
+            <div class="section-header">
+                <span class="section-label">O Custo Real da Alta Performance</span>
+                <h2 class="section-title">A Verdade Que Ninguém Te Contou</h2>
+            </div>
+
+            <!-- Core Permission Message -->
+            <div class="permission-box">
+                <p>Você não está falhando. <strong>O modelo está quebrado.</strong></p>
+                <p>Te venderam a ideia de que sucesso exige sacrifício total — que para construir um negócio próspero, você precisa abandonar sua saúde, seus relacionamentos, e sua paz de espírito.</p>
+                <p><strong>Isso é uma mentira.</strong> E está custando tudo que realmente importa.</p>
+            </div>
+
+            <!-- Cost Cards Grid -->
+            <div class="cost-grid">
+
+                <div class="cost-card">
+                    <div class="cost-number">1</div>
+                    <h3>Sua Saúde Está Declinando</h3>
+                    <p>Ganho de peso. Exaustão crônica. Ansiedade constante. Você sente no corpo que algo precisa mudar, mas não consegue parar tempo suficiente para respirar.</p>
+                </div>
+
+                <div class="cost-card">
+                    <div class="cost-number">2</div>
+                    <h3>Seus Relacionamentos Estão Sofrendo</h3>
+                    <p>Você está fisicamente presente, mas mentalmente ausente. Seus filhos merecem mais. Seu parceiro merece mais. E no fundo, você sabe disso.</p>
+                </div>
+
+                <div class="cost-card">
+                    <div class="cost-number">3</div>
+                    <h3>Seu Negócio é uma Bomba-Relógio</h3>
+                    <p>Construído nas suas costas. Se você parar, tudo para. Isso não é um negócio — é uma prisão que você mesmo criou.</p>
+                </div>
+
+                <div class="cost-card">
+                    <div class="cost-number">4</div>
+                    <h3>Você Perdeu o Amor Pelo Trabalho</h3>
+                    <p>O que começou como paixão virou sobrevivência. Você está operando no modo automático, esquecendo porque começou tudo isso.</p>
+                </div>
+
+            </div>
+
+            <!-- Urgency Section -->
+            <div class="urgency-section">
+                <div class="urgency-section-content">
+                    <h3 class="urgency-question">Por quanto tempo mais você consegue sustentar isso?</h3>
+                    <p class="urgency-subtext">Mais 6 meses? Um ano? Cinco anos? O relógio está correndo — e o custo só aumenta.</p>
+                </div>
+            </div>
+
+            <!-- Hope Pivot -->
+            <div class="hope-pivot">
+                <div class="hope-pivot-content">
+                    <h3 class="hope-title">Mas Aqui Está a Verdade Libertadora:</h3>
+
+                    <div class="permission-statements">
+                        <div class="permission-statement">
+                            <p><strong>Você tem permissão</strong> para trabalhar menos e ganhar mais.</p>
+                        </div>
+                        <div class="permission-statement">
+                            <p><strong>Você tem permissão</strong> para priorizar sua saúde sem sacrificar seu negócio.</p>
+                        </div>
+                        <div class="permission-statement">
+                            <p><strong>Você tem permissão</strong> para estar presente com sua família e ainda crescer sua empresa.</p>
+                        </div>
+                        <div class="permission-statement">
+                            <p><strong>Você tem permissão</strong> para construir riqueza sem destruir sua vida.</p>
+                        </div>
+                    </div>
+
+                    <div class="hope-conclusion">
+                        <p>O segredo? <span class="highlight">Sistemas, não sacrifício.</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

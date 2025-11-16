@@ -1,0 +1,439 @@
+{
+  "brand": "@jucanamaximiliano",
+  "version": "1.0",
+  "extraction_date": "2025-10-27",
+  "corpus_size": "496 Instagram captions, 429KB",
+  "primary_language": "pt-BR",
+  "voice_characterization": "Warm-assertive coach, conversational-expert hybrid, direct truth-teller with empathy, vulnerability-driven authority",
+
+  "voice_sliders": {
+    "warmth_distance": {
+      "score": 8,
+      "anchor": "Do meu coração para o seu, não espere o momento perfeito, todas as minhas conquistas vieram de decisões.",
+      "rationale": "Heart-to-heart framing appears 12+ times, 85%+ second-person density, empathy markers frequent, signature emoji hearts 💙❤️"
+    },
+    "formality_casualness": {
+      "score": 3,
+      "anchor": "Você ainda vai esperar o quê? O próximo feriado para se sentir livre?",
+      "rationale": "Omits pronouns colloquially, uses slang, elongated vowels, memes integrated, contractions standard"
+    },
+    "enthusiasm_restraint": {
+      "score": 9,
+      "anchor": "VAAAAAAAMOOOOS?! 💙❤️🔥",
+      "rationale": "All-caps 40%+ posts, multiple exclamation marks, elongated words, fire/eagle emojis, 3-5 exclamations per paragraph"
+    },
+    "directness_subtlety": {
+      "score": 9,
+      "anchor": "Relaxa, continua aí trabalhando igual uma doida achando que mais esforço vai te dar mais resultado.",
+      "rationale": "Imperatives lead 60%+ posts, confrontational truth-telling, no hedging, binary framing"
+    },
+    "confidence_humility": {
+      "score": 7,
+      "anchor": "Eu criei um plano prático que já está validado que me fez trabalhar 10x menos e alcançar 10x mais resultados.",
+      "rationale": "Strong declaratives, proof-by-results, no false modesty BUT tempered with vulnerability and admitted mistakes"
+    },
+    "complexity_simplicity": {
+      "score": 4,
+      "anchor": "Vendas é o oxigênio do seu negócio e da sua liberdade. Não existe nenhum problema no mundo que não seja resolvido com VENDAS!",
+      "rationale": "Complex ideas (philosophy) but simple delivery: short sentences, numbered lists, metaphors, avoids jargon"
+    },
+    "brevity_elaboration": {
+      "score": 5,
+      "anchor": "Viemos de uma geração Mulher-Maravilha... [6-paragraph burnout story]",
+      "rationale": "Bimodal: reels = 2-3 sentences, narratives = 5-8 paragraphs, sales = 3-4 paragraphs, avg 150-250 words"
+    },
+    "playfulness_seriousness": {
+      "score": 6,
+      "anchor": "Cansei de ser guerreira, agora tô na skin princesa 😘. P.S: é claro que a série de memes viria 😎.",
+      "rationale": "Meme culture fluent, self-aware humor, clown emoji for irony, BUT serious on money/freedom/burnout"
+    },
+    "relatability_aspiration": {
+      "score": 7,
+      "anchor": "Eu já me senti assim por anos, e em 2022 eu fui para Portugal por um mês, para conseguir relaxar e tudo desmoronou na minha empresa.",
+      "rationale": "High relatability through shared struggle BUT aspiration in lifestyle, balance tilts relatable with 'you can too' framing"
+    },
+    "assertiveness_openness": {
+      "score": 8,
+      "anchor": "Se a turma de fundadores já foi assim, imagine como será a 2ª edição!",
+      "rationale": "Strong POV, challenges conventional wisdom, prescriptive, minimal qualifiers, 75% assertive / 25% open"
+    },
+    "tempo_urgency": {
+      "score": 7,
+      "anchor": "Hoje é o último dia para garantir sua vaga... Se você estava esperando um sinal, é esse!",
+      "rationale": "Scarcity framing, deadline markers, action imperatives BUT patience in teaching, spacious storytelling"
+    },
+    "risk_tolerance": {
+      "score": 8,
+      "anchor": "Você não é uma vítima indefesa das influências nefastas do espaço sideral. Eu sei que pode ser difícil ouvir isso, e talvez você até fique com raiva de mim, mas preciso dizer a verdade: você está onde se coloca.",
+      "rationale": "Provocative stances, contrarian positioning, confronts audience, shares failures openly, uses controversial framing"
+    }
+  },
+
+  "diction": {
+    "signature_phrases": [
+      "Do meu coração para o seu",
+      "VAAAAAAAMOOOOS?!",
+      "Existe um jeito mais fácil",
+      "10x mais resultados com 10x menos esforço",
+      "Você merece",
+      "Não se machucar/se matar em trabalhar",
+      "Tornar mais fácil o que é mais importante",
+      "Liberdade geográfica",
+      "CLT do seu CNPJ",
+      "Roda de ratos",
+      "Carregar a empresa nas costas",
+      "Apagar incêndios",
+      "Sair do operacional",
+      "Seja obcecado por resultados e não por esforço",
+      "Se você entender isso, você entendeu TUDO"
+    ],
+
+    "approved_verbs": [
+      "transformar",
+      "explodir",
+      "alcançar",
+      "conquistar",
+      "construir",
+      "realizar",
+      "mudar",
+      "sair",
+      "tirar",
+      "parar",
+      "acelerar",
+      "alavancar",
+      "escalar",
+      "potencializar",
+      "agarrar",
+      "pegar",
+      "dar",
+      "trocar",
+      "reduzir",
+      "eliminar",
+      "automatizar",
+      "delegar"
+    ],
+
+    "avoided_verbs": [
+      "tentar",
+      "esperar",
+      "precisar",
+      "dever"
+    ],
+
+    "approved_adjectives": [
+      "leve",
+      "fácil",
+      "simples",
+      "prático",
+      "eficaz",
+      "estratégico",
+      "incrível",
+      "transformador",
+      "poderoso",
+      "surreal",
+      "sensacional",
+      "livre",
+      "independente",
+      "autossustentável",
+      "exausta",
+      "soterrada",
+      "enterrada",
+      "intencional",
+      "raio laser"
+    ],
+
+    "taboo_words": [
+      "VENDER (alone without MELHOR/MAIS)",
+      "fácil (without acknowledging struggle)",
+      "sorte",
+      "sacrifício",
+      "no pain no gain"
+    ],
+
+    "emoji_lexicon": {
+      "💙❤️": "signature heart combo (brand colors, always paired)",
+      "🦅": "freedom/elevation (60%+ educational posts)",
+      "🔥": "momentum/transformation",
+      "☕️": "Café com Vendas branding",
+      "🤡": "self-aware irony",
+      "🥹": "vulnerable joy",
+      "🙌🏻": "celebration/empowerment",
+      "✨🪄": "magic/possibility",
+      "👀": "pay attention",
+      "😅😂": "lighten serious moments"
+    },
+
+    "swap_table": {
+      "business owners": "você (empreendedora)",
+      "customers": "seu cliente / sua audiência",
+      "I'm excited to announce": "Eu não aguento mais guardar esse ouro",
+      "limited spots": "apenas 5 vagas / últimas X vagas",
+      "join us": "vem comigo / você merece estar comigo",
+      "hard work": "trabalho duro (with rejection of concept)",
+      "strategy": "plano prático / método / meus 5 pilares",
+      "burnout": "me machucar / me matar em trabalhar / exaustão",
+      "freedom": "liberdade geográfica / liberdade total",
+      "results": "colher resultados / bater metas"
+    }
+  },
+
+  "rhetorical_devices": {
+    "allowed": [
+      "triads",
+      "anaphora",
+      "direct_address",
+      "imperatives",
+      "rhetorical_questions",
+      "future_pacing",
+      "contrast_structures",
+      "metaphors",
+      "storytelling",
+      "proof_points",
+      "authority_borrowing",
+      "challenge_then_invitation"
+    ],
+
+    "disallowed": [
+      "fear_mongering",
+      "second_person_shame",
+      "all_caps_headlines",
+      "audience_sarcasm",
+      "unsubstantiated_superlatives"
+    ],
+
+    "signature_metaphors": [
+      "carro parado (stuck car needing push = momentum)",
+      "colar de pérolas (pearls on string = strategy connecting tactics)",
+      "rio vs rocha (river vs rock = fluidity vs rigidity)",
+      "gaiola (cage = self-imposed limits)",
+      "roda de ratos (rat wheel = endless hustle)"
+    ]
+  },
+
+  "messaging_pillars": [
+    {
+      "pillar": "Anti-Hustle Productivity",
+      "tone_label": "contrarian + validating",
+      "proof_preference": "personal transformation (16h→4h), philosophy quotes (Naval, Deepak), nature metaphors",
+      "sample": "Trabalho duro MATA VOCÊ. A grama não se esforça para crescer; apenas cresce."
+    },
+    {
+      "pillar": "Strategic Selling",
+      "tone_label": "expert teacher + practical",
+      "proof_preference": "frameworks (Avatar, CRM, Pareto), numbered steps, actionable today",
+      "sample": "Vendas é o oxigênio do seu negócio. Não existe problema que vendas não resolva."
+    },
+    {
+      "pillar": "Entrepreneurial Freedom",
+      "tone_label": "aspirational + relatable",
+      "proof_preference": "lifestyle visuals (travel), liberdade geográfica as north star",
+      "sample": "Você abriu uma empresa para ser livre, não para ser CLT do seu CNPJ."
+    },
+    {
+      "pillar": "Vulnerability as Authority",
+      "tone_label": "confessional + courageous",
+      "proof_preference": "burnout story, mistakes shared openly, eu também errei",
+      "sample": "Em janeiro tive mais um burnout. Eu estava em pedaços. E foi aí que criei o plano que mudou tudo."
+    },
+    {
+      "pillar": "Mentorship/Community",
+      "tone_label": "nurturing coach + selective",
+      "proof_preference": "testimonials, 5 vagas exclusivity, peer elevation",
+      "sample": "Quero pegar na sua mão e deixar sua jornada mais leve. Você merece estar comigo."
+    }
+  ],
+
+  "persona": {
+    "identity": "Ex-workaholic entrepreneur who escaped 16h/day trap through strategic laziness. Now mentors women business owners to 10x results with 1/10th effort via anti-hustle frameworks.",
+    "authority_source": "Empirical proof (14 anos vendas, 10 anos empreendendo), philosophical study (Naval, Tim Ferriss, Greg McKeown), CrossFit Caixa Mágica case study (zero→market leader→sold)",
+    "relationship": "Older sister who figured it out, empathetic challenger, pragmatic mystic",
+    "challenge_nurture_ratio": "60% challenge / 40% nurture"
+  },
+
+  "pov_distribution": {
+    "first_person_plural": 0.15,
+    "second_person": 0.75,
+    "first_person_singular": 0.60,
+    "third_person": 0.05
+  },
+
+  "locale_rules": {
+    "pt_BR": {
+      "pronoun_intimacy": "você informal, omit subject pronouns colloquially",
+      "diminutives": ["pedacinho", "precinho", "já já", "pouquinho"],
+      "elongation": "vowel repetition (AAAAAMEEEEEEIIIIII), not consonants",
+      "exclamation_syntax": "Vamos?! (question + exclamation)",
+      "emoji_placement": "after terminal punctuation (Vamos? 💙❤️)",
+      "hashtag_language": "mix PT-BR + EN (#vendermais + SEO: keywords)"
+    },
+
+    "en_US_adaptation": {
+      "do_meu_coracao": "From my heart to yours",
+      "VAAAAAAAMOOOOS": "LET'S GOOOOOO (elongate O not A)",
+      "musa_migas": "friend / gorgeous (equivalent warmth)",
+      "emoji_hearts": "retain or consider 🧡💛 if brand colors shift",
+      "CLT_do_CNPJ": "employee of your own LLC",
+      "maintain": "second-person density",
+      "reduce": "diminutives (less natural in EN)"
+    }
+  },
+
+  "do_dont_examples": [
+    {
+      "scenario": "Announcing Mentorship Opening",
+      "off_voice": "I'm excited to announce that enrollment for my mentorship program is now open. This is a comprehensive 3-month program designed to help you scale your business efficiently. Limited spots available.",
+      "on_voice": "Eu não aguento mais guardar esse ouro só pra mim! Estou abrindo 5 vagas—APENAS 5—para a minha mentoria SEJA LIVRE. Durante 3 meses, vou pegar na sua mão para você ter 10x mais resultados com 10x menos esforço. Você merece estar comigo. O link está na bio, VAAAAAAAMOOOOS?! 💙❤️🔥",
+      "rationale": "Added warmth, enthusiasm (caps, emoji), scarcity (5 vagas), signature phrase (10x/10x), direct invitation, rally cry"
+    },
+    {
+      "scenario": "Teaching Business Strategy",
+      "off_voice": "Business owners often struggle with delegation because they fear their team won't execute tasks correctly. This creates a bottleneck that prevents scaling.",
+      "on_voice": "Você sabe qual é o maior erro que te mantém enterrada pela sua empresa? Não delegar porque você acha que 'só eu sei fazer direito.' Relaxa, você não é a única—eu também já fiz isso. Mas preciso te falar a verdade: com essa mentalidade, você mata sua liberdade e mata o potencial da sua empresa. Passe o bastão, mude isso AGORA. Vamos? 🦅",
+      "rationale": "Second-person frame, conversational, confession (eu também), confrontation, imperative, eagle emoji"
+    },
+    {
+      "scenario": "Sharing Personal Struggle",
+      "off_voice": "In early 2022, I experienced significant burnout. The business was suffering, and I realized I needed to make changes. I took time off and returned with a new perspective.",
+      "on_voice": "Em janeiro de 2022 eu tive mais um burnout. Eu estava em pedaços—tinha perdido peso, crises de choro, não conseguia mais sorrir. Fui para Portugal por um mês e quando voltei, tudo tinha desmoronado na empresa. Mas sabe o que aconteceu? Eu entendi que TINHA uma empresa, eu não ERA a empresa. Esse insight mudou tudo. E é por isso que hoje quero ajudar você a sair dessa gaiola que você mesma criou. Do meu coração para o seu: existe um jeito mais fácil. 💙❤️",
+      "rationale": "Specific details, vulnerability, revelation moment (TINHA vs ERA), connective pivot, heart-to-heart closer, core belief"
+    },
+    {
+      "scenario": "Handling Price Objection",
+      "off_voice": "While the investment may seem significant, consider the value you'll receive over 3 months of mentorship and the long-term impact on your business.",
+      "on_voice": "Eu sei que você pode estar pensando no investimento. Mas deixa eu te perguntar: quanto você PERDE por mês continuando do jeito que está? Quanto vale não ter burnout? Quanto vale viajar 2 meses enquanto sua empresa lucra sem você? O investimento para estar comigo é infinitamente menor do que os resultados que você vai colher. Eu prometo. Agora é com você, vamos? 💙❤️",
+      "rationale": "Validates concern, reframes to cost of inaction, paints outcome, proof assertion, trust language, choice empowerment"
+    },
+    {
+      "scenario": "Urgency Without Hype",
+      "off_voice": "Don't miss out! Only 24 hours left to secure your spot. This opportunity won't come again. Act now before it's too late!",
+      "on_voice": "Hoje é o último dia para garantir sua vaga. Eu não sei se vou repetir esse evento—novos ventos estão chegando. Então se você estava esperando um sinal, é esse. Clica no link da bio e vem comigo. Depois não diz que eu não avisei. Com amor, Juçanã ❤️💙",
+      "rationale": "Factual scarcity, honest uncertainty, empowerment, gentle accountability, signature sign-off, hearts not fire"
+    },
+    {
+      "scenario": "Tough Love Moment",
+      "off_voice": "You're the reason your business isn't growing. Stop making excuses and take responsibility for your results.",
+      "on_voice": "Você não é uma vítima. Eu sei que pode ser difícil ouvir isso—talvez você até fique com raiva de mim. Mas preciso te falar a verdade: você está onde se coloca. A boa notícia? Você também tem o poder de sair daí. As ferramentas estão na sua mão, só depende de você fazer a sua parte. Eu acredito em você. Vamos? 🦅",
+      "rationale": "Removes you're the problem (no shame), acknowledges resistance, states truth firmly, pivots to empowerment, offers belief"
+    }
+  ],
+
+  "stress_test_scenarios": [
+    {
+      "scenario": "Apology (Product/Service Failure)",
+      "on_voice_sample": "Eu preciso te pedir desculpas. [Specific issue] aconteceu e isso não reflete o padrão que eu prometi para você. Aqui está o que vou fazer para resolver: [remedy]. Eu valorizo demais a sua confiança para deixar isso passar. Se você quiser conversar diretamente comigo, [contact]. Do meu coração para o seu, obrigada por me dar a chance de consertar isso. 💙❤️",
+      "guardrails": ["no deflection", "no passive voice", "state remedy immediately", "maintain warmth", "hearts only, no celebration emoji"]
+    },
+    {
+      "scenario": "Feature Launch (New Offering)",
+      "on_voice_sample": "Eu criei algo que vocês vão AAAAAMAAAAAR! Durante esses 2 meses viajando, eu senti no fundo do coração que precisava dividir [new offering] com vocês. É [benefit] sem [pain point]. Eu testei, validei, e agora quero que você tenha acesso. Fique de olho—em breve mais detalhes. Você merece isso. 💙❤️🦅",
+      "guardrails": ["enthusiasm (caps, elongation)", "personal genesis story", "benefit-first", "proof nod (testei/validei)", "teaser not full reveal", "eagle for aspiration"]
+    },
+    {
+      "scenario": "Testimonial Share",
+      "on_voice_sample": "Faço questão de expor esse tipo de mensagem... [testimonial quote]. Gente, isso é exatamente o que eu mais amo: ver vocês tendo mais resultados e trabalhando menos. E o próximo depoimento eu quero que seja o SEU 🫵🏻. Vamos? 💙❤️",
+      "guardrails": ["social proof contextualized", "emotional connector (o que eu mais amo)", "invitation to join", "pointing finger emoji", "hearts"]
+    },
+    {
+      "scenario": "Philosophical Teaching Post",
+      "on_voice_sample": "Você já parou para pensar [provocative question]? Eu gosto de sair do senso comum e pensar no conceito de [topic] de [authority—Naval Ravikant, Jim Rohn]. Para [authority], [philosophy explanation]. Quando você entende isso, você entendeu TUDO. [Application to audience]. Vamos quebrar essas crenças limitadoras? 🦅",
+      "guardrails": ["question opener", "name-drop authority", "translate philosophy (você entendeu TUDO)", "apply to audience pain", "rally cry with eagle"]
+    }
+  ],
+
+  "pre_publication_checklist": [
+    "Heart combo present? (💙❤️ in 90%+ posts)",
+    "Second-person frame? (você not pessoas/empreendedores)",
+    "Enthusiasm markers? (Caps, elongation, or 3+ exclamations)",
+    "Signature phrase? (Vamos?, existe um jeito mais fácil, do meu coração)",
+    "Challenge + nurture balance? (Tough truth + validation/belief)",
+    "Proof point? (Framework/authority or personal result)",
+    "No shame language? (Zero você é preguiçosa/burra/fracassada)",
+    "Imperative or question close? (Never statement-only endings)",
+    "Eagle or fire emoji in educational? (🦅 freedom or 🔥 transformation)",
+    "Elongation convention? (Vowels: SÉÉÉRIOOOOOOO not SSSSERIO)"
+  ],
+
+  "authority_proof_toolkit": {
+    "quantified_transformation": [
+      "16h de trabalho por dia → 4h por semana",
+      "14 anos vendendo, 10 anos empreendendo",
+      "Do total zero a dominar o mercado fitness",
+      "2 meses viajando enquanto empresa lucra",
+      "6 anos Caixa Mágica → vendida"
+    ],
+
+    "borrowed_authority": {
+      "Naval Ravikant": "aposentadoria como estado mental, preguiça intencional",
+      "Tim Ferriss": "D.E.A.L. framework (Define, Eliminate, Automate, Liberate)",
+      "Greg McKeown": "Essencialismo, mentalidade sem esforço",
+      "Jim Rohn": "Invista mais em você do que no negócio",
+      "Grant Cardone": "Seja obcecado por resultados e não por esforço",
+      "Deepak Chopra": "Lei do menor esforço",
+      "James Clear": "Hábitos Atômicos (identity fluidity)"
+    },
+
+    "case_study_structure": [
+      "Problem State: 16h/dia, burnout, empresa dependente",
+      "Turning Point: Portugal trip, tudo desmoronou",
+      "Insight: TINHA empresa, não ERA empresa",
+      "Solution: plano prático 5 pilares (branding, vendas, automação, mentalidade, estratégia)",
+      "Result: 4h/semana, viajo 2 meses, vendi empresa",
+      "Invitation: Quero dividir esse plano com você"
+    ]
+  },
+
+  "instagram_adaptations": {
+    "reels": {
+      "sentence_length": "10-12 words avg",
+      "on_screen_text": "ALL CAPS",
+      "hook": "first 3 seconds (question or bold claim)",
+      "formats": ["POV:", "E aí migas?", "trending audio references"],
+      "emoji_use": "reactions in captions"
+    },
+
+    "carousels": {
+      "structure": "numbered frameworks (1-5 steps)",
+      "slide_density": "one idea per slide",
+      "slide_1": "hook question",
+      "slides_2_9": "teaching content",
+      "slide_10": "CTA + VAMOS"
+    },
+
+    "static_posts": {
+      "length": "5-8 paragraphs",
+      "structure": "narrative arc (setup → struggle → insight → invitation)",
+      "philosophy_integration": "yes",
+      "photo_role": "complements story"
+    },
+
+    "hashtag_strategy": {
+      "branded": ["#SejaLivre", "#vendec"],
+      "locational": ["#jaraguadosul", "#brasileirosemportugal", "#lisboapt"],
+      "topical": ["#empreendertransforma", "#liberdadeempreendedora"],
+      "seo_block": "English keywords appended (20% of posts)",
+      "density": "5-15 hashtags per post, block at end"
+    },
+
+    "cta_patterns": {
+      "link_in_bio": 0.80,
+      "dm_invitation": 0.05,
+      "tag_share": 0.10,
+      "comment_engagement": 0.05
+    }
+  },
+
+  "guardrails": [
+    "No trauma baiting or shame tactics",
+    "No all-caps emphasis (suggest bold or rhythm instead)",
+    "Keep claims verifiable; privilege numbers/examples over adjectives",
+    "Avoid emojis in headlines (body: follow locale policy)",
+    "No second-person shame in tough-love",
+    "All messaging ethically sound and inclusive",
+    "No fear-mongering (scarcity yes, terror no)",
+    "No unsubstantiated superlatives without proof"
+  ],
+
+  "confidence_level": "95%",
+  "recommended_refresh_cycle": "quarterly",
+  "notes": "Voice may evolve with Portugal move, new business phases, or audience maturation. High corpus volume ensures robust pattern extraction. Signature phrases and emoji lexicon are non-negotiable for voice consistency."
+}

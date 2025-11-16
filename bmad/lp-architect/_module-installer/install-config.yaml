@@ -1,0 +1,63 @@
+# Landing Page Architect Module Installation Configuration
+# Version: 1.0.0
+
+# Module metadata
+code: lp-architect
+name: 'Landing Page Architect'
+default_selected: false
+
+# Welcome message during installation
+prompt:
+  - 'Welcome to Landing Page Architect!'
+  - 'This module provides intelligent, research-backed landing page architecture'
+  - 'through 4-agent collaboration and 3D matrix analysis.'
+  - ''
+  - 'The installation will configure output locations and preferences.'
+
+# Core values automatically inherited from installer:
+## user_name
+## communication_language
+## document_output_language
+## output_folder
+
+# INTERACTIVE fields (ask user during install)
+
+blueprint_output_folder:
+  prompt: 'Where should Landing Page Architect save architecture blueprints?'
+  default: '{output_folder}/lp-architect-blueprints'
+  result: '{project-root}/{value}'
+
+detail_level:
+  prompt: 'How detailed should architecture blueprints be?'
+  default: 'standard'
+  result: '{value}'
+  single-select:
+    - value: 'standard'
+      label: 'Standard - Balanced detail with strategic rationale (Recommended)'
+    - value: 'detailed'
+      label: 'Detailed - Comprehensive with extended research and examples'
+    - value: 'concise'
+      label: 'Concise - Core recommendations only'
+
+research_depth:
+  prompt: 'How deep should Agent Cipher''s competitive research go?'
+  default: 'standard'
+  result: '{value}'
+  single-select:
+    - value: 'quick'
+      label: 'Quick - Top 3-5 competitors, key patterns (15-20 min)'
+    - value: 'standard'
+      label: 'Standard - Top 10 competitors, detailed analysis (Recommended)'
+    - value: 'comprehensive'
+      label: 'Comprehensive - Top 20 competitors, extensive benchmarking (60+ min)'
+
+# STATIC fields (no prompt, just hardcoded values)
+
+module_version:
+  result: '1.0.0'
+
+# Module description for manifest
+description: 'Intelligent landing page architecture advisor using 4-agent collaboration, 3D matrix analysis, and conversion science'
+
+# Module author
+author: 'Landing Page Architect Team'

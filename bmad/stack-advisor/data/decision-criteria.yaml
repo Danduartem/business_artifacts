@@ -1,0 +1,787 @@
+# Stack Advisor Decision Criteria
+# Criteria and weights for evaluating technology choices
+
+version: "1.0.0"
+last_updated: "2025-11-13"
+
+# ============================================================================
+# EVALUATION FRAMEWORK
+# ============================================================================
+evaluation_framework:
+  description: "Framework for systematically evaluating technology choices"
+
+  criterion_types:
+    critical:
+      weight: 3
+      description: "Deal-breaker criteria - must meet requirements"
+
+    high:
+      weight: 2
+      description: "Very important - heavily influences decision"
+
+    medium:
+      weight: 1
+      description: "Moderately important - considered in decision"
+
+    low:
+      weight: 0.5
+      description: "Nice to have - minor influence"
+
+  scoring_scale:
+    5: "Excellent - exceeds requirements"
+    4: "Very Good - meets requirements well"
+    3: "Good - acceptable, meets minimum requirements"
+    2: "Fair - concerns, may have issues"
+    1: "Poor - significant problems, likely unsuitable"
+
+# ============================================================================
+# STANDARD CRITERIA BY PROJECT TYPE
+# ============================================================================
+project_type_criteria:
+
+  # SaaS / Web Application
+  saas_web_app:
+    description: "SaaS products or web applications with users and data"
+
+    criteria:
+      maturity_stability:
+        weight: critical
+        importance: "Production-ready, battle-tested technology"
+        considerations:
+          - "Years in production use"
+          - "Major companies using it"
+          - "Stable release cycle"
+          - "Long-term viability"
+
+      developer_experience:
+        weight: high
+        importance: "Team productivity and maintainability"
+        considerations:
+          - "Documentation quality"
+          - "Tooling and IDE support"
+          - "Developer satisfaction"
+          - "Debugging capabilities"
+
+      performance:
+        weight: high
+        importance: "User experience and scalability"
+        considerations:
+          - "Response time"
+          - "Resource efficiency"
+          - "Can handle expected load"
+          - "Optimization possibilities"
+
+      community_ecosystem:
+        weight: high
+        importance: "Library availability and problem-solving"
+        considerations:
+          - "Available libraries/packages"
+          - "Community size"
+          - "Stack Overflow activity"
+          - "Third-party integrations"
+
+      smb_fit:
+        weight: critical
+        importance: "Appropriate for SMB scale and resources"
+        considerations:
+          - "Not over-engineered"
+          - "Manageable complexity"
+          - "Cost-effective"
+          - "Small team can maintain"
+
+      team_fit:
+        weight: critical
+        importance: "Team can learn and use effectively"
+        considerations:
+          - "Existing team skills"
+          - "Learning curve"
+          - "Hiring feasibility"
+          - "Training resources"
+
+      scalability:
+        weight: medium
+        importance: "Can grow with business"
+        considerations:
+          - "Vertical scaling capability"
+          - "Horizontal scaling if needed"
+          - "Performance at 10x scale"
+          - "Cost scaling trajectory"
+
+      security:
+        weight: critical
+        importance: "Protects user data and system"
+        considerations:
+          - "Built-in security features"
+          - "Security track record"
+          - "Vulnerability response time"
+          - "Authentication/authorization support"
+
+      cost:
+        weight: high
+        importance: "Total cost of ownership"
+        considerations:
+          - "Licensing costs"
+          - "Hosting costs"
+          - "Service/API costs"
+          - "Maintenance costs"
+
+      deployment_hosting:
+        weight: medium
+        importance: "Easy to deploy and host"
+        considerations:
+          - "Hosting options"
+          - "Deployment complexity"
+          - "DevOps requirements"
+          - "Platform compatibility"
+
+  # E-commerce
+  ecommerce:
+    description: "Online stores with product catalogs and checkout"
+    inherits: "saas_web_app"
+
+    additional_criteria:
+      payment_integration:
+        weight: critical
+        importance: "Reliable payment processing"
+        considerations:
+          - "Stripe/PayPal integration quality"
+          - "PCI compliance support"
+          - "Checkout flow reliability"
+          - "Transaction handling"
+
+      seo_performance:
+        weight: critical
+        importance: "Product discoverability"
+        considerations:
+          - "SSR/SSG support"
+          - "Meta tag management"
+          - "URL structure"
+          - "Performance metrics"
+
+      inventory_management:
+        weight: high
+        importance: "Product and order management"
+        considerations:
+          - "Database capabilities"
+          - "Real-time updates"
+          - "Admin panel options"
+          - "Reporting capabilities"
+
+  # Content Site / Blog
+  content_site:
+    description: "Content-heavy sites, blogs, news sites, documentation"
+
+    criteria:
+      seo_performance:
+        weight: critical
+        importance: "Content discoverability"
+        considerations:
+          - "SSR/SSG support"
+          - "Performance scores"
+          - "Meta tag management"
+          - "URL structure"
+
+      content_management:
+        weight: critical
+        importance: "Easy content creation and editing"
+        considerations:
+          - "CMS integration quality"
+          - "Editor experience"
+          - "Media management"
+          - "Publishing workflow"
+
+      performance:
+        weight: critical
+        importance: "Fast page loads for SEO and UX"
+        considerations:
+          - "Build time"
+          - "Page load speed"
+          - "Image optimization"
+          - "CDN integration"
+
+      cost:
+        weight: high
+        importance: "Often low/no budget"
+        considerations:
+          - "Free hosting options"
+          - "Low traffic costs"
+          - "Free CMS options"
+          - "Minimal maintenance"
+
+      developer_experience:
+        weight: medium
+        importance: "Maintainability"
+        considerations:
+          - "Simple setup"
+          - "Clear documentation"
+          - "Common patterns"
+          - "Template system"
+
+  # API / Backend Service
+  api_backend:
+    description: "REST APIs, GraphQL APIs, backend services"
+
+    criteria:
+      performance:
+        weight: critical
+        importance: "Response time and throughput"
+        considerations:
+          - "Request/response time"
+          - "Concurrent connections"
+          - "Resource efficiency"
+          - "Database query performance"
+
+      developer_experience:
+        weight: high
+        importance: "API development productivity"
+        considerations:
+          - "Routing simplicity"
+          - "Middleware ecosystem"
+          - "Testing tools"
+          - "Documentation generation"
+
+      scalability:
+        weight: high
+        importance: "Handle load growth"
+        considerations:
+          - "Horizontal scaling"
+          - "Load balancing support"
+          - "Caching strategies"
+          - "Connection pooling"
+
+      database_integration:
+        weight: critical
+        importance: "Data access patterns"
+        considerations:
+          - "ORM quality"
+          - "Query builder"
+          - "Migration tools"
+          - "Multiple DB support"
+
+      api_features:
+        weight: high
+        importance: "API-specific capabilities"
+        considerations:
+          - "Validation"
+          - "Serialization"
+          - "Authentication"
+          - "Rate limiting"
+
+  # Real-time Application
+  realtime_app:
+    description: "Chat, collaboration, live updates, gaming"
+    inherits: "saas_web_app"
+
+    additional_criteria:
+      realtime_capabilities:
+        weight: critical
+        importance: "Low-latency bi-directional communication"
+        considerations:
+          - "WebSocket support"
+          - "Event system"
+          - "Latency"
+          - "Connection stability"
+
+      state_synchronization:
+        weight: critical
+        importance: "Consistent state across clients"
+        considerations:
+          - "Conflict resolution"
+          - "Offline support"
+          - "State persistence"
+          - "Optimistic updates"
+
+  # Mobile App Backend
+  mobile_backend:
+    description: "Backend for iOS/Android apps"
+    inherits: "api_backend"
+
+    additional_criteria:
+      offline_support:
+        weight: high
+        importance: "Work without connectivity"
+        considerations:
+          - "Local storage"
+          - "Sync capabilities"
+          - "Conflict resolution"
+          - "Queue management"
+
+      push_notifications:
+        weight: high
+        importance: "User engagement"
+        considerations:
+          - "FCM/APNS integration"
+          - "Notification management"
+          - "Targeting capabilities"
+          - "Analytics"
+
+      mobile_sdk_quality:
+        weight: high
+        importance: "Native platform integration"
+        considerations:
+          - "iOS SDK quality"
+          - "Android SDK quality"
+          - "React Native support"
+          - "Flutter support"
+
+# ============================================================================
+# TECHNOLOGY LAYER CRITERIA
+# ============================================================================
+technology_layer_criteria:
+
+  # Frontend Framework
+  frontend_framework:
+    base_criteria:
+      - "maturity_stability"
+      - "developer_experience"
+      - "performance"
+      - "community_ecosystem"
+      - "smb_fit"
+      - "team_fit"
+      - "learning_curve"
+
+    specific_considerations:
+      bundle_size:
+        importance: "Affects initial load time"
+        excellent: "< 50kb gzipped"
+        good: "< 100kb gzipped"
+        acceptable: "< 200kb gzipped"
+
+      rendering_strategy:
+        options:
+          - "Client-side (CSR)"
+          - "Server-side (SSR)"
+          - "Static generation (SSG)"
+          - "Hybrid"
+        considerations: "Match strategy to use case (SEO, performance)"
+
+      component_ecosystem:
+        importance: "Available UI components and libraries"
+        evaluate:
+          - "Component library availability"
+          - "Third-party integrations"
+          - "Design system support"
+
+  # Backend Framework
+  backend_framework:
+    base_criteria:
+      - "maturity_stability"
+      - "performance"
+      - "developer_experience"
+      - "community_ecosystem"
+      - "smb_fit"
+      - "team_fit"
+
+    specific_considerations:
+      async_support:
+        importance: "Non-blocking I/O for performance"
+        preferred: "Native async/await support"
+
+      database_support:
+        importance: "ORM and database driver quality"
+        evaluate:
+          - "Multiple database support"
+          - "Migration tools"
+          - "Query builder"
+          - "Connection pooling"
+
+      api_patterns:
+        options:
+          - "REST"
+          - "GraphQL"
+          - "gRPC"
+          - "WebSocket"
+        considerations: "Framework support for chosen pattern"
+
+  # Database
+  database:
+    base_criteria:
+      - "maturity_stability"
+      - "performance"
+      - "scalability"
+      - "smb_fit"
+      - "cost"
+
+    specific_considerations:
+      data_model:
+        options:
+          - "Relational (SQL)"
+          - "Document (NoSQL)"
+          - "Key-value"
+          - "Graph"
+        considerations: "Match model to data structure"
+
+      query_capability:
+        importance: "Complex query support"
+        evaluate:
+          - "Join performance"
+          - "Full-text search"
+          - "Aggregations"
+          - "JSON support"
+
+      reliability:
+        importance: "Data durability and consistency"
+        evaluate:
+          - "ACID compliance"
+          - "Replication"
+          - "Backup tools"
+          - "Point-in-time recovery"
+
+  # Hosting Platform
+  hosting_platform:
+    base_criteria:
+      - "cost"
+      - "deployment_ease"
+      - "smb_fit"
+      - "scalability"
+      - "reliability"
+
+    specific_considerations:
+      deployment_model:
+        options:
+          - "Serverless"
+          - "Traditional server"
+          - "Container"
+          - "Static hosting"
+        considerations: "Match to application needs"
+
+      devops_requirements:
+        importance: "Team can manage"
+        minimal: "Vercel, Netlify (zero config)"
+        moderate: "Railway, Render (some config)"
+        high: "AWS, GCP (full management)"
+
+      database_hosting:
+        importance: "Where database is hosted"
+        options:
+          - "Managed (built-in)"
+          - "Managed (separate service)"
+          - "Self-hosted"
+
+# ============================================================================
+# TRADE-OFF DECISION FRAMEWORKS
+# ============================================================================
+trade_off_frameworks:
+
+  performance_vs_developer_experience:
+    description: "Balance between raw speed and development productivity"
+
+    favor_performance_when:
+      - "User-facing latency critical (< 100ms response time)"
+      - "High traffic volume (> 100k daily users)"
+      - "Real-time requirements (gaming, trading, collaboration)"
+      - "Mobile apps on slow networks"
+      - "Performance is competitive differentiator"
+
+    favor_developer_experience_when:
+      - "Small team (1-3 developers)"
+      - "Time to market critical (MVP in weeks)"
+      - "Frequent feature changes expected"
+      - "Limited developer resources"
+      - "Performance acceptable (< 1s response time)"
+
+    balanced_approach:
+      - "Use performant language with good DX (Node.js, Go)"
+      - "Optimize critical paths only"
+      - "Use CDN and caching for assets"
+      - "Profile before optimizing"
+
+  stability_vs_innovation:
+    description: "Mature proven technology vs cutting-edge features"
+
+    favor_stability_when:
+      - "Production-critical application"
+      - "Risk-averse organization"
+      - "Limited technical team"
+      - "Long-term maintenance expected"
+      - "Compliance requirements"
+
+    favor_innovation_when:
+      - "Greenfield project with flexibility"
+      - "Technical team enjoys bleeding edge"
+      - "Specific features only in new tech"
+      - "Competitive advantage from latest features"
+      - "Can tolerate some instability"
+
+    balanced_approach:
+      - "Stable core, innovative periphery"
+      - "Wait for 1.0 release before adopting"
+      - "Use new tech for non-critical features"
+      - "Have fallback options ready"
+
+  cost_vs_features:
+    description: "Budget constraints vs capability requirements"
+
+    favor_cost_savings_when:
+      - "Bootstrap/self-funded project"
+      - "Uncertain product-market fit"
+      - "MVP phase"
+      - "Low margins business"
+      - "Can trade time for money"
+
+    favor_features_when:
+      - "Well-funded project"
+      - "Specific features enable business model"
+      - "Time to market critical"
+      - "Premium service positioning"
+      - "Cost of not having feature high"
+
+    balanced_approach:
+      - "Use free tiers extensively"
+      - "Pay for managed services to save dev time"
+      - "Self-host only when scale justifies"
+      - "Open source where possible"
+
+  learning_curve_vs_power:
+    description: "Easy to learn vs powerful capabilities"
+
+    favor_easy_learning_when:
+      - "Junior team or limited experience"
+      - "Tight timeline"
+      - "High turnover expected"
+      - "Consultant/contractor heavy"
+      - "Simple requirements"
+
+    favor_powerful_tools_when:
+      - "Experienced team"
+      - "Complex requirements"
+      - "Long-term project"
+      - "Team enjoys challenges"
+      - "Need specific advanced features"
+
+    balanced_approach:
+      - "Simple foundations, add complexity as needed"
+      - "Gradual feature adoption"
+      - "Good documentation reduces curve"
+      - "Community support helps learning"
+
+# ============================================================================
+# DECISION PATTERNS BY SCENARIO
+# ============================================================================
+decision_patterns:
+
+  greenfield_project:
+    description: "New project, no legacy constraints"
+    recommendations:
+      - "Favor modern, well-supported technologies"
+      - "Choose based on team skills and hiring market"
+      - "Prefer managed services over self-hosting"
+      - "Start simple, add complexity as needed"
+      - "Choose flexible technologies for pivots"
+
+    avoid:
+      - "Bleeding edge (pre-1.0 releases)"
+      - "Over-engineering for imagined scale"
+      - "Technologies with declining communities"
+      - "Complex enterprise patterns for SMB"
+
+  migration_project:
+    description: "Replacing existing system"
+    recommendations:
+      - "Prioritize reliability and stability"
+      - "Plan incremental migration (strangler fig)"
+      - "Keep similar patterns to ease transition"
+      - "Strong rollback capabilities"
+      - "Comprehensive testing strategy"
+
+    avoid:
+      - "Big bang migrations"
+      - "Radically different paradigms simultaneously"
+      - "Tight timelines"
+      - "Unproven technologies"
+
+  mvp_rapid_validation:
+    description: "Fast to market for validation"
+    recommendations:
+      - "Favor developer experience over performance"
+      - "Use managed services extensively"
+      - "Minimize technology count"
+      - "Choose technologies team knows"
+      - "Accept technical debt for speed"
+
+    avoid:
+      - "Custom infrastructure"
+      - "Premature optimization"
+      - "Learning new technologies"
+      - "Perfect architecture"
+
+  scale_up:
+    description: "Proven product, scaling up"
+    recommendations:
+      - "Optimize critical paths"
+      - "Add caching layers"
+      - "Database optimization focus"
+      - "Monitoring and observability"
+      - "Gradual architecture evolution"
+
+    avoid:
+      - "Rewrite from scratch"
+      - "Microservices without need"
+      - "Over-engineering non-bottlenecks"
+      - "Expensive over-solutions"
+
+# ============================================================================
+# SMB-SPECIFIC DECISION GUIDELINES
+# ============================================================================
+smb_decision_guidelines:
+
+  micro_business:
+    team_size: "1-2 developers"
+    budget: "< $100/month infrastructure"
+
+    priorities:
+      1: "Simplicity and ease of use"
+      2: "Low/no cost"
+      3: "Minimal maintenance"
+      4: "Can solo developer maintain"
+
+    technology_preferences:
+      hosting: "Vercel, Netlify, Railway free tiers"
+      database: "SQLite, Supabase free tier, PlanetScale"
+      auth: "Supabase Auth, Clerk free tier"
+      framework: "Next.js, Astro (minimize backend)"
+
+    avoid:
+      - "Self-hosted anything"
+      - "Complex microservices"
+      - "Multiple languages"
+      - "Enterprise tools"
+
+  small_business:
+    team_size: "3-8 developers"
+    budget: "$100-500/month infrastructure"
+
+    priorities:
+      1: "Team productivity"
+      2: "Maintainability"
+      3: "Reasonable cost"
+      4: "Some growth capacity"
+
+    technology_preferences:
+      hosting: "Vercel Pro, Railway, Render"
+      database: "PostgreSQL (managed), MongoDB Atlas"
+      auth: "Clerk, Auth0, Supabase"
+      framework: "React, Next.js, Node.js, Django"
+
+    avoid:
+      - "Cutting edge tech"
+      - "Complex DevOps"
+      - "Too many services"
+      - "Niche technologies"
+
+  medium_business:
+    team_size: "8-25 developers"
+    budget: "$500-2000/month infrastructure"
+
+    priorities:
+      1: "Scalability to 100k+ users"
+      2: "Team coordination"
+      3: "Performance and reliability"
+      4: "Professional operations"
+
+    technology_preferences:
+      hosting: "Railway, Render, potentially AWS/GCP with support"
+      database: "PostgreSQL with read replicas, Redis caching"
+      auth: "Auth0, custom with established libraries"
+      framework: "Established patterns, potential microservices"
+
+    can_consider:
+      - "Some self-hosting with DevOps support"
+      - "Limited microservices for clear boundaries"
+      - "More specialized tools"
+      - "Advanced monitoring"
+
+# ============================================================================
+# DECISION TREES
+# ============================================================================
+decision_trees:
+
+  frontend_framework:
+    question_1:
+      question: "Do you need SEO (server-side rendering)?"
+      yes: "question_2"
+      no: "question_3"
+
+    question_2:
+      question: "Which framework does your team know or prefer?"
+      react: "Next.js (industry standard)"
+      vue: "Nuxt (great DX)"
+      svelte: "SvelteKit (modern choice)"
+      none: "Next.js (largest community)"
+
+    question_3:
+      question: "Is this a content-heavy site with minimal interactivity?"
+      yes: "Astro (optimal for content)"
+      no: "question_4"
+
+    question_4:
+      question: "Which framework does your team know?"
+      react: "Vite + React (great DX)"
+      vue: "Vite + Vue (great DX)"
+      svelte: "Vite + Svelte (modern)"
+      none: "Vite + React (largest community)"
+
+  backend_framework:
+    question_1:
+      question: "What language does your team know best?"
+      javascript: "Express, Fastify, or NestJS"
+      python: "FastAPI or Django"
+      ruby: "Rails"
+      go: "Gin or Fiber"
+      other: "question_2"
+
+    question_2:
+      question: "What's your team's experience level?"
+      junior: "Express or Flask (simple)"
+      mid: "Fastify or FastAPI (modern + simple)"
+      senior: "Any framework, can learn"
+
+  database:
+    question_1:
+      question: "Is your data primarily relational or document-based?"
+      relational: "question_2"
+      document: "MongoDB"
+      both: "PostgreSQL (supports both with JSONB)"
+
+    question_2:
+      question: "What scale are you targeting?"
+      small: "SQLite or managed PostgreSQL"
+      medium: "Managed PostgreSQL"
+      large: "PostgreSQL with planned scaling strategy"
+
+# ============================================================================
+# VALIDATION AND SCORING
+# ============================================================================
+scoring_guidelines:
+
+  how_to_score:
+    - "Rate each criterion on 1-5 scale"
+    - "Multiply rating by weight (critical=3, high=2, medium=1, low=0.5)"
+    - "Sum weighted scores"
+    - "Calculate percentage of maximum possible score"
+    - "Compare options based on total scores"
+
+  interpretation:
+    excellent: "> 85% - Strong recommendation"
+    good: "70-85% - Solid choice"
+    acceptable: "60-70% - Viable but with concerns"
+    questionable: "< 60% - Consider alternatives"
+
+  decision_making:
+    - "Highest score is not always the choice"
+    - "Consider context and specific needs"
+    - "Critical criteria must score 4+ (very good or excellent)"
+    - "Low scores on high-weight criteria are red flags"
+    - "Discuss trade-offs with stakeholders"
+    - "Document rationale for choice"
+
+# ============================================================================
+# NOTES
+# ============================================================================
+notes:
+  - "These criteria provide structure, not dictation"
+  - "Adapt weights based on specific project needs"
+  - "Some criteria may not apply to all projects"
+  - "Context always matters - use judgment"
+  - "Document any deviations from standard weights"
+  - "Review criteria with stakeholders"

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libertação Empresarial em 90 Dias | Juçanã Maximiliano</title>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+           Easy customization point for colors, spacing, typography
+           ============================================ */
+        :root {
+            /* Brand Colors - Professional Foundation */
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+
+            /* Neutral Palette - Contemporary Refinement */
+            --off-white: #FAFAF9;
+            --warm-gray: #F5F4F1;
+            --mid-gray: #6B7280;
+            --light-navy: #2A3254;
+
+            /* Typography - Professional Hierarchy */
+            --font-serif: 'Lora', Georgia, serif;
+            --font-sans: 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            /* Spacing Scale - Structured Yet Breathing */
+            --space-xs: 0.5rem;   /* 8px */
+            --space-sm: 1rem;     /* 16px */
+            --space-md: 1.5rem;   /* 24px */
+            --space-lg: 2rem;     /* 32px */
+            --space-xl: 3rem;     /* 48px */
+            --space-2xl: 4rem;    /* 64px */
+            --space-3xl: 6rem;    /* 96px */
+
+            /* Typography Scale */
+            --text-xs: 0.75rem;   /* 12px */
+            --text-sm: 0.875rem;  /* 14px */
+            --text-base: 1rem;    /* 16px */
+            --text-lg: 1.125rem;  /* 18px */
+            --text-xl: 1.25rem;   /* 20px */
+            --text-2xl: 1.5rem;   /* 24px */
+            --text-3xl: 1.875rem; /* 30px */
+            --text-4xl: 2.25rem;  /* 36px */
+            --text-5xl: 3rem;     /* 48px */
+            --text-6xl: 3.75rem;  /* 60px */
+
+            /* Transitions - Refined Movements */
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Shadows - Professional Depth */
+            --shadow-sm: 0 1px 2px 0 rgba(25, 31, 58, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(25, 31, 58, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(25, 31, 58, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(25, 31, 58, 0.1);
+        }
+
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--navy);
+            background-color: var(--off-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ============================================
+           HERO SECTION - PROFESSIONAL FOUNDATION
+           Grid-based structure with contemporary refinement
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--off-white) 0%, var(--warm-gray) 100%);
+        }
+
+        /* Subtle Background Pattern - Professional Texture */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(90deg, rgba(25, 31, 58, 0.02) 1px, transparent 1px),
+                linear-gradient(rgba(25, 31, 58, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        /* Gold Accent Line - Subtle Sophistication */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+            opacity: 0.6;
+        }
+
+        /* ============================================
+           HERO CONTAINER - STRUCTURED LAYOUT
+           ============================================ */
+        .hero-container {
+            position: relative;
+            z-index: 1;
+            max-width: 100%;
+            margin: 0;
+            padding: var(--space-xl) var(--space-md);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+
+        /* ============================================
+           CONTENT AREA - PROFESSIONAL HIERARCHY
+           ============================================ */
+        .hero-content {
+            max-width: 640px;
+            animation: slideInFromLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Eyebrow - Context Setting */
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--borgonha);
+            margin-bottom: var(--space-md);
+            padding: var(--space-xs) var(--space-md);
+            background: rgba(129, 23, 31, 0.08);
+            border-radius: 2px;
+            border-left: 3px solid var(--borgonha);
+        }
+
+        .hero-eyebrow svg {
+            width: 16px;
+            height: 16px;
+            stroke-width: 2.5;
+        }
+
+        /* Headline - Emotional Impact with Professional Refinement */
+        .hero-headline {
+            font-family: var(--font-serif);
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--navy);
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-headline .highlight {
+            color: var(--borgonha);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Subtle underline accent */
+        .hero-headline .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--borgonha) 0%, var(--gold) 100%);
+            opacity: 0.3;
+        }
+
+        /* Subheadline - Clear Promise */
+        .hero-subheadline {
+            font-family: var(--font-serif);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--light-navy);
+            margin-bottom: var(--space-lg);
+            padding-left: var(--space-md);
+            border-left: 3px solid var(--gold);
+        }
+
+        /* Body Text - Credibility Building */
+        .hero-body {
+            font-size: var(--text-base);
+            line-height: 1.8;
+            color: var(--mid-gray);
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero-body p {
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-body strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* Key Message - Transformation Promise */
+        .hero-key-message {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-md);
+            background: white;
+            border-radius: 4px;
+            border-left: 4px solid var(--gold);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .hero-key-message svg {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            color: var(--gold);
+            stroke-width: 2;
+            margin-top: 2px;
+        }
+
+        .hero-key-message p {
+            font-family: var(--font-serif);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           CTA SECTION - CONVERSION FOCUS
+           Professional confidence with clear action
+           ============================================ */
+        .hero-cta-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        /* Primary CTA - High Contrast, Professional */
+        .hero-cta-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            font-family: var(--font-sans);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            background: var(--borgonha);
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Refined hover effect */
+        .hero-cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left var(--transition-slow);
+        }
+
+        .hero-cta-primary:hover::before {
+            left: 100%;
+        }
+
+        .hero-cta-primary:hover {
+            background: #6B1419;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .hero-cta-primary:active {
+            transform: translateY(0);
+        }
+
+        .hero-cta-primary svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2.5;
+            transition: transform var(--transition-base);
+        }
+
+        .hero-cta-primary:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* CTA Microcopy - Expectation Setting */
+        .hero-cta-microcopy {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: var(--text-sm);
+            color: var(--mid-gray);
+            font-style: italic;
+        }
+
+        .hero-cta-microcopy svg {
+            width: 16px;
+            height: 16px;
+            color: var(--gold);
+            stroke-width: 2;
+        }
+
+        /* ============================================
+           VISUAL AREA - PROFESSIONAL IMAGERY
+           Full-height image of Juçanã Maximiliano
+           ============================================ */
+        .hero-visual {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 600px;
+            overflow: hidden;
+            animation: slideInFromRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+        /* Gold accent corner */
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(225deg, var(--gold) 0%, transparent 100%);
+            opacity: 0.15;
+        }
+
+        /* ============================================
+           TRUST INDICATORS - SUBTLE CREDIBILITY
+           Professional proof without overwhelming
+           ============================================ */
+        .hero-trust {
+            margin-top: var(--space-xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(25, 31, 58, 0.1);
+        }
+
+        .hero-trust-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .trust-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+            stroke-width: 2;
+            flex-shrink: 0;
+        }
+
+        .trust-item-content {
+            flex: 1;
+        }
+
+        .trust-item-label {
+            font-size: var(--text-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--mid-gray);
+            margin-bottom: 2px;
+        }
+
+        .trust-item-value {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN - MOBILE FIRST
+           Professional across all devices
+           ============================================ */
+
+        /* Tablet (768px+) - Refined Spacing */
+        @media (min-width: 768px) {
+            .hero-content {
+                padding: 3rem 4rem;
+            }
+
+            .hero-headline {
+                font-size: var(--text-4xl);
+            }
+
+            .hero-subheadline {
+                font-size: var(--text-2xl);
+            }
+
+            .hero-visual {
+                height: 600px;
+            }
+
+            .hero-cta-wrapper {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .hero-trust-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-md);
+            }
+        }
+
+        /* Desktop (1024px+) - Two Column Grid */
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 0;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 0;
+                padding: 0;
+                max-width: none;
+                margin: 0;
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                max-width: 560px;
+                margin: 0 auto;
+                padding: 4rem 6rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            .hero-headline {
+                font-size: var(--text-5xl);
+            }
+
+            .hero-visual {
+                height: 100%;
+                min-height: 100vh;
+                margin: 0;
+                padding: 0;
+            }
+
+            .hero-trust-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-md);
+            }
+        }
+
+        /* Large Desktop (1440px+) - Maximum Refinement */
+        @media (min-width: 1440px) {
+            .hero-content {
+                max-width: 620px;
+                padding: 5rem 8rem;
+            }
+
+            .hero-headline {
+                font-size: var(--text-6xl);
+            }
+
+            .hero-subheadline {
+                font-size: var(--text-3xl);
+            }
+
+            .hero-body {
+                font-size: var(--text-lg);
+            }
+        }
+
+        /* ============================================
+           ACCESSIBILITY - WCAG AA COMPLIANCE
+           ============================================ */
+
+        /* Focus styles - Professional visibility */
+        *:focus-visible {
+            outline: 3px solid var(--borgonha);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .hero-content,
+            .hero-visual {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .hero {
+                background: white;
+            }
+
+            .hero::before {
+                display: none;
+            }
+
+            .hero-cta-primary {
+                border: 2px solid var(--navy);
+            }
+        }
+
+        /* Screen reader only class */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HERO SECTION
+         Professional trust meets contemporary craft
+         ============================================ -->
+    <section class="hero" role="banner" aria-label="Hero principal">
+        <div class="hero-container">
+            <!-- Content Area -->
+            <div class="hero-content">
+                <!-- Eyebrow - Context Setting -->
+                <div class="hero-eyebrow" aria-label="Programa de transformação">
+                    <i data-lucide="unlock" aria-hidden="true"></i>
+                    <span>Programa de Libertação em 90 Dias</span>
+                </div>
+
+                <!-- Headline - Primary Message -->
+                <h1 class="hero-headline">
+                    Seu Sucesso Não Deveria Parecer uma <span class="highlight">Prisão</span>
+                </h1>
+
+                <!-- Subheadline - Clear Promise -->
+                <h2 class="hero-subheadline">
+                    90 Dias para Libertação: Trabalhe 40 Horas, Não 70
+                </h2>
+
+                <!-- Body Text - Credibility & Connection -->
+                <div class="hero-body">
+                    <p>
+                        Você construiu um negócio de €30-50k/mês, mas está presa trabalhando 60-70 horas por semana.
+                        Sua equipe não executa sem você. Não consegue tirar férias. E se pergunta:
+                        <strong>"É realmente isso que sucesso parece?"</strong>
+                    </p>
+                    <p>
+                        Eu sou <strong>Juçanã Maximiliano</strong>—vivi exatamente onde você está. Transformei de 16 horas/dia
+                        para 4 horas/semana. E em 90 dias, você também pode se libertar.
+                    </p>
+                </div>
+
+                <!-- Key Message - Transformation Promise -->
+                <div class="hero-key-message" role="complementary" aria-label="Mensagem principal">
+                    <i data-lucide="lightbulb" aria-hidden="true"></i>
+                    <p>Não é mentalidade. Não é marketing. São <strong>SISTEMAS</strong> que te libertam.</p>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="hero-cta-wrapper">
+                    <a href="#aplicar" class="hero-cta-primary" role="button" aria-label="Aplicar para conversa de descoberta">
+                        <span>Aplicar para Conversa de Descoberta</span>
+                        <i data-lucide="arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="hero-cta-microcopy">
+                    <i data-lucide="shield-check" aria-hidden="true"></i>
+                    <span>Sem compromisso. Apenas 30 minutos para avaliar seu caminho.</span>
+                </div>
+
+                <!-- Trust Indicators - Subtle Credibility -->
+                <div class="hero-trust">
+                    <div class="hero-trust-grid">
+                        <div class="trust-item">
+                            <i data-lucide="users" aria-hidden="true"></i>
+                            <div class="trust-item-content">
+                                <div class="trust-item-label">Empreendedoras</div>
+                                <div class="trust-item-value">100+ Libertadas</div>
+                            </div>
+                        </div>
+
+                        <div class="trust-item">
+                            <i data-lucide="clock" aria-hidden="true"></i>
+                            <div class="trust-item-content">
+                                <div class="trust-item-label">Tempo Médio</div>
+                                <div class="trust-item-value">-30 horas/semana</div>
+                            </div>
+                        </div>
+
+                        <div class="trust-item">
+                            <i data-lucide="award" aria-hidden="true"></i>
+                            <div class="trust-item-content">
+                                <div class="trust-item-label">Taxa de Sucesso</div>
+                                <div class="trust-item-value">94% em 90 dias</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Area -->
+            <div class="hero-visual" role="img" aria-label="Juçanã Maximiliano - Mentora de Libertação Empresarial">
+                <img src="https://res.cloudinary.com/ds4dhbneq/image/upload/v1756764510/35DE548D-876B-4D23-96D5-C32046F0F1BA_1_rpxvmb.jpg" alt="Juçanã Maximiliano - Mentora especializada em libertar empreendedoras do operacional">
+            </div>
+        </div>
+    </section>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        // Initialize all Lucide icons with professional styling
+        lucide.createIcons({
+            attrs: {
+                'stroke-width': 2,
+                'aria-hidden': 'true'
+            }
+        });
+
+        // Optional: Smooth scroll for CTA
+        document.querySelector('.hero-cta-primary').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Add your form/application section scroll logic here
+            console.log('CTA clicked - redirect to application form');
+        });
+
+        // Optional: Track CTA interactions for analytics
+        // Add your tracking code here (e.g., Google Analytics, Facebook Pixel)
+    </script>
+</body>
+</html>

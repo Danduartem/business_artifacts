@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 11 - Modern Artisan V2.1 - Dramatic Gradients</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* === CENTURY GOTHIC FONT STACK === */
+        @font-face {
+            font-family: 'CenturyGothic';
+            src: local('Century Gothic'), local('CenturyGothic'), local('Century Gothic Regular');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'CenturyGothic';
+            src: local('Century Gothic Bold'), local('CenturyGothic-Bold');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* === CSS CUSTOM PROPERTIES === */
+        :root {
+            /* Brand Colors */
+            --navy: #191F3A;
+            --navy-dark: #0D1426;
+            --navy-light: #2A3552;
+            --navy-pale: #F2F4F8;
+
+            --borgonha: #81171F;
+            --borgonha-dark: #390A0E;
+            --borgonha-light: #A01D27;
+            --borgonha-pale: #F9E9EB;
+
+            --white: #FFFFFF;
+            --black: #1E1E1E;
+            --gray-100: #F8F9FA;
+            --gray-200: #E9ECEF;
+            --gray-300: #DEE2E6;
+            --gray-700: #495057;
+
+            /* Typography */
+            --font-heading: 'Lora', serif;
+            --font-body: 'CenturyGothic', 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            /* Spacing Scale */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
+
+            /* Transitions */
+            --transition-fast: 150ms ease;
+            --transition-base: 250ms ease;
+            --transition-slow: 350ms ease;
+        }
+
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--black);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* === SECTION 11 LAYOUT === */
+        .section-11 {
+            position: relative;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 50%, var(--borgonha-dark) 100%);
+            overflow: hidden;
+        }
+
+        /* Gradient overlay for depth */
+        .section-11::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(129, 23, 31, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(25, 31, 58, 0.4) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .section-11-container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-3xl) var(--space-lg);
+        }
+
+        /* === HERO HEADER === */
+        .hero-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            color: var(--white);
+        }
+
+        .hero-header h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--space-lg);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-intro {
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto var(--space-xl);
+            opacity: 0.95;
+        }
+
+        .hero-intro strong {
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .promise-text {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto var(--space-xl);
+            opacity: 0.92;
+        }
+
+        .promise-text strong {
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .transformation-highlight {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: var(--space-lg);
+            margin: var(--space-xl) auto;
+            max-width: 700px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .transformation-highlight p {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            font-weight: 600;
+            line-height: 1.6;
+            color: var(--white);
+            text-align: center;
+        }
+
+        /* === PROCESS FLOW SECTION === */
+        .process-section {
+            margin: var(--space-3xl) 0;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .process-header h3 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: var(--space-md);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .process-subtitle {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Process Flow Grid */
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .process-flow {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-lg);
+            }
+        }
+
+        /* Connecting Arrows (Desktop) */
+        .process-flow::before,
+        .process-flow::after {
+            content: '';
+            position: absolute;
+            top: 80px;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%);
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .process-flow::before {
+                display: block;
+                left: calc(33.333% - 30px);
+            }
+
+            .process-flow::after {
+                display: block;
+                left: calc(66.666% - 30px);
+            }
+        }
+
+        /* Arrow decorations */
+        .process-flow::before::after,
+        .process-flow::after::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: -3px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+        }
+
+        /* Process Step Cards */
+        .process-step {
+            background: var(--white);
+            border-radius: 20px;
+            padding: var(--space-xl) var(--space-lg);
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+            position: relative;
+            transition: all var(--transition-base);
+        }
+
+        .process-step:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Step Number Circle */
+        .step-number {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--space-md);
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--borgonha) 0%, var(--borgonha-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--white);
+            box-shadow: 0 4px 16px rgba(129, 23, 31, 0.3);
+            position: relative;
+        }
+
+        .step-number::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--borgonha) 0%, var(--borgonha-dark) 100%);
+            opacity: 0.3;
+            z-index: -1;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.1;
+            }
+        }
+
+        /* Step Icon */
+        .step-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+        }
+
+        .step-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Step Content */
+        .step-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: var(--space-sm);
+            line-height: 1.3;
+        }
+
+        .step-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--gray-700);
+        }
+
+        /* === CRITERIA SECTION === */
+        .criteria-section {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: var(--space-2xl) var(--space-lg);
+            margin: var(--space-2xl) 0;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .criteria-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .criteria-header p {
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Criteria List */
+        .criteria-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto var(--space-xl);
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        .criteria-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            padding: var(--space-md);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all var(--transition-base);
+        }
+
+        .criteria-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateX(8px);
+        }
+
+        .criteria-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .criteria-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .criteria-text {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .criteria-text strong {
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        /* Call Out */
+        .criteria-callout {
+            text-align: center;
+            margin-top: var(--space-xl);
+        }
+
+        .criteria-callout p {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.5;
+        }
+
+        /* === CTA SECTION === */
+        .cta-section {
+            background: var(--white);
+            border-radius: 24px;
+            padding: var(--space-2xl) var(--space-lg);
+            margin: var(--space-2xl) 0;
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-content strong {
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        /* CTA Button */
+        .cta-button-wrapper {
+            margin: var(--space-xl) 0;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-2xl);
+            font-family: var(--font-body);
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            font-weight: 700;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--borgonha) 0%, var(--borgonha-dark) 100%);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(129, 23, 31, 0.3);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--borgonha-light) 0%, var(--borgonha) 100%);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 12px 36px rgba(129, 23, 31, 0.4);
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .cta-button:active {
+            transform: translateY(-2px) scale(1.01);
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .button-icon {
+            position: relative;
+            z-index: 1;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .button-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .button-subtext {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--gray-700);
+            margin-top: var(--space-xs);
+            font-style: italic;
+        }
+
+        /* === CLOSING MESSAGE === */
+        .closing-message {
+            text-align: center;
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-2xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .closing-message p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-md);
+        }
+
+        .closing-message p:last-child {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0;
+        }
+
+        .closing-message strong {
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 767px) {
+            .section-11-container {
+                padding: var(--space-2xl) var(--space-md);
+            }
+
+            .hero-header {
+                margin-bottom: var(--space-2xl);
+            }
+
+            .transformation-highlight {
+                padding: var(--space-md);
+                margin: var(--space-lg) auto;
+            }
+
+            .process-section {
+                margin: var(--space-2xl) 0;
+            }
+
+            .criteria-section {
+                padding: var(--space-xl) var(--space-md);
+                margin: var(--space-xl) 0;
+            }
+
+            .cta-section {
+                padding: var(--space-xl) var(--space-md);
+                margin: var(--space-xl) 0;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .section-11-container {
+                padding: var(--space-3xl) var(--space-xl);
+            }
+        }
+
+        /* === ACCESSIBILITY === */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus visible for keyboard navigation */
+        *:focus-visible {
+            outline: 3px solid var(--white);
+            outline-offset: 4px;
+        }
+
+        .cta-button:focus-visible {
+            outline: 3px solid var(--white);
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+<body>
+    <section class="section-11">
+        <div class="section-11-container">
+            <!-- Hero Header -->
+            <header class="hero-header">
+                <h2>É Hora de Escolher: Sua Prisão ou Sua Liberdade?</h2>
+
+                <div class="hero-intro">
+                    <p>Do meu coração para o seu: <strong>você merece parar de carregar sua empresa nas costas.</strong></p>
+                </div>
+
+                <div class="promise-text">
+                    <p>Você não abriu esse negócio para ser CLT do seu CNPJ. Você sonhou com liberdade, impacto, vida plena. E de algum lugar no caminho, o sucesso virou prisão.</p>
+                    <p style="margin-top: 1rem;">Mas não precisa ser assim.</p>
+                </div>
+
+                <div class="transformation-highlight">
+                    <p>Em 90 dias, você pode estar trabalhando 40 horas por semana (não 70). Sua equipe executando independentemente (não te perguntando tudo). Você tirando férias de verdade (não com celular explodindo). <strong>Você sendo CEO, não operadora.</strong></p>
+                </div>
+            </header>
+
+            <!-- Process Flow Section -->
+            <div class="process-section">
+                <div class="process-header">
+                    <h3>Próximo Passo: Aplicar para Conversa de Descoberta</h3>
+                    <p class="process-subtitle">Um processo simples de 3 passos para começar sua jornada de libertação</p>
+                </div>
+
+                <div class="process-flow">
+                    <!-- Step 1 -->
+                    <article class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <line x1="10" y1="9" x2="8" y2="9"/>
+                            </svg>
+                        </div>
+                        <h4 class="step-title">Preencha a Aplicação</h4>
+                        <p class="step-description">5-7 perguntas breves sobre sua empresa, equipe e desafios atuais</p>
+                    </article>
+
+                    <!-- Step 2 -->
+                    <article class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                <path d="M8 10h.01"/>
+                                <path d="M12 10h.01"/>
+                                <path d="M16 10h.01"/>
+                            </svg>
+                        </div>
+                        <h4 class="step-title">Conversa de Descoberta</h4>
+                        <p class="step-description">Call de 45 minutos para entender sua realidade e ver se somos fit</p>
+                    </article>
+
+                    <!-- Step 3 -->
+                    <article class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <h4 class="step-title">Seu Roadmap de Libertação</h4>
+                        <p class="step-description">Se formos fit, traçamos juntas seu plano de 90 dias para liberdade</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Criteria Section -->
+            <div class="criteria-section">
+                <div class="criteria-header">
+                    <p>A Mentoria SEJA LIVRE não é para todo mundo. Eu trabalho 1-on-1, o que significa que <strong>só tenho 5 vagas disponíveis por trimestre.</strong></p>
+                </div>
+
+                <ul class="criteria-list">
+                    <li class="criteria-item">
+                        <div class="criteria-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div class="criteria-text"><strong>Fatura €30-50k/mês</strong> e está presa no operacional</div>
+                    </li>
+                    <li class="criteria-item">
+                        <div class="criteria-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div class="criteria-text">Tem <strong>equipe de 3-8 pessoas</strong> que não executa sem você</div>
+                    </li>
+                    <li class="criteria-item">
+                        <div class="criteria-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div class="criteria-text">Está <strong>pronta para fazer o TRABALHO</strong> (não busca varinha mágica)</div>
+                    </li>
+                    <li class="criteria-item">
+                        <div class="criteria-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div class="criteria-text">Quer <strong>se libertar nos próximos 90 dias</strong></div>
+                    </li>
+                </ul>
+
+                <div class="criteria-callout">
+                    <p>Então você é exatamente quem eu quero ajudar.</p>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <div class="cta-content">
+                    <p>Clique no botão abaixo. Você vai preencher uma aplicação breve (5-7 perguntas) e agendar nossa Conversa de Descoberta. Nessa call de 45 minutos, vamos entender sua realidade, ver se somos fit, e se sim—<strong>traçar seu roadmap de libertação.</strong></p>
+
+                    <div class="cta-button-wrapper">
+                        <a href="#aplicacao" class="cta-button">
+                            <span>SIM, ESCOLHO SER LIVRE</span>
+                            <div class="button-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"/>
+                                    <path d="m12 5 7 7-7 7"/>
+                                </svg>
+                            </div>
+                        </a>
+                        <span class="button-subtext">Aplicação + Agendamento de Call</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Closing Message -->
+            <div class="closing-message">
+                <p>Você chegou até aqui por uma razão. Seu instinto está te dizendo que chegou a hora.</p>
+                <p><strong>Não espere mais 6 meses para se libertar. VAAAAAAAMOOOOS?!</strong></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

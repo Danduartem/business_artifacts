@@ -1,0 +1,303 @@
+# Frontend Framework Selection Playbook
+# Flowchart-style decision tree for choosing the right frontend framework
+
+playbook:
+  name: "Frontend Framework Selection"
+  description: "Step-by-step guide to selecting the optimal frontend framework"
+  version: "1.0"
+  last_updated: "2025-01-14"
+
+decision_tree:
+  start:
+    question: "What type of project are you building?"
+    options:
+      - label: "Static content site (blog, marketing, documentation)"
+        next: "static_content"
+      - label: "Interactive web application (SaaS, dashboard, tool)"
+        next: "interactive_app"
+      - label: "E-commerce site"
+        next: "ecommerce"
+      - label: "Mobile-first or native-like app"
+        next: "mobile_first"
+      - label: "Simple landing page or portfolio"
+        next: "simple_site"
+
+  static_content:
+    question: "What's your priority?"
+    context: "Static content sites benefit from SSG (Static Site Generation)"
+    options:
+      - label: "Maximum performance and minimal JS"
+        recommendation: "Astro"
+        rationale: "Zero JS by default, brings only what you need, excellent for content"
+        next: null
+      - label: "React-based with good DX"
+        next: "static_react"
+      - label: "Vue-based with good DX"
+        recommendation: "Nuxt (SSG mode)"
+        rationale: "Excellent SSG support, great DX, Vue ecosystem"
+        next: null
+      - label: "Need advanced interactivity on some pages"
+        recommendation: "Next.js or Astro with Islands"
+        rationale: "Hybrid approach - static where possible, interactive where needed"
+        next: null
+
+  static_react:
+    question: "Do you need a CMS integration?"
+    options:
+      - label: "Yes, headless CMS"
+        recommendation: "Next.js (SSG mode)"
+        rationale: "Excellent CMS integrations, great ecosystem, easy deployment"
+        next: null
+      - label: "No CMS needed"
+        recommendation: "Astro with React"
+        rationale: "Better performance than pure Next.js for mostly-static content"
+        next: null
+
+  interactive_app:
+    question: "What's your team's experience level?"
+    context: "Interactive apps need robust state management and routing"
+    options:
+      - label: "Experienced with React"
+        next: "react_experience"
+      - label: "Experienced with Vue"
+        next: "vue_experience"
+      - label: "New to frontend frameworks"
+        next: "beginner_interactive"
+      - label: "Want cutting-edge performance"
+        next: "performance_focused"
+
+  react_experience:
+    question: "Do you need SSR (Server-Side Rendering)?"
+    options:
+      - label: "Yes, need SEO and fast initial load"
+        recommendation: "Next.js 14 (App Router)"
+        rationale: "Industry standard, excellent SEO, great ecosystem, easy deployment"
+        next: null
+      - label: "No, SPA is fine"
+        next: "react_spa"
+      - label: "Need server actions and data mutations"
+        recommendation: "Remix"
+        rationale: "Best-in-class data loading and mutations, progressive enhancement"
+        next: null
+
+  react_spa:
+    question: "What's your routing complexity?"
+    options:
+      - label: "Simple routing (< 10 routes)"
+        recommendation: "Vite + React + React Router"
+        rationale: "Lightweight, fast build times, full control, minimal overhead"
+        next: null
+      - label: "Complex routing and state"
+        recommendation: "Next.js (App Router) or Remix"
+        rationale: "Better DX for complex apps, file-based routing, built-in optimization"
+        next: null
+
+  vue_experience:
+    question: "Do you need SSR?"
+    options:
+      - label: "Yes, need SEO and fast initial load"
+        recommendation: "Nuxt 3"
+        rationale: "Vue's Next.js equivalent, excellent DX, auto-imports, great performance"
+        next: null
+      - label: "No, SPA is fine"
+        recommendation: "Vite + Vue 3 + Vue Router"
+        rationale: "Fast, modern, great DX, full control"
+        next: null
+
+  beginner_interactive:
+    question: "What's more important?"
+    context: "New developers benefit from opinionated frameworks"
+    options:
+      - label: "Easiest learning curve"
+        recommendation: "Svelte with SvelteKit"
+        rationale: "Minimal boilerplate, feels like vanilla JS, great docs"
+        next: null
+      - label: "Best job market skills"
+        recommendation: "Next.js (React)"
+        rationale: "Most in-demand, huge community, tons of resources"
+        next: null
+      - label: "Balance of both"
+        recommendation: "Vue 3 with Nuxt"
+        rationale: "Gentle learning curve, growing job market, great ecosystem"
+        next: null
+
+  performance_focused:
+    question: "What's the primary performance goal?"
+    options:
+      - label: "Smallest bundle size"
+        recommendation: "Svelte or Solid.js"
+        rationale: "Compile-time frameworks, no runtime overhead"
+        next: null
+      - label: "Fastest reactivity"
+        recommendation: "Solid.js"
+        rationale: "Fine-grained reactivity, React-like syntax, exceptional performance"
+        next: null
+      - label: "Best overall performance with good ecosystem"
+        recommendation: "Next.js 14 with Turbopack"
+        rationale: "Excellent optimization, streaming SSR, good balance"
+        next: null
+
+  ecommerce:
+    question: "Are you using a headless commerce platform?"
+    context: "E-commerce needs excellent SEO and performance"
+    options:
+      - label: "Yes (Shopify, Commerce.js, etc.)"
+        recommendation: "Next.js 14"
+        rationale: "Best headless commerce integrations, excellent SEO, fast"
+        next: null
+      - label: "No, custom backend"
+        recommendation: "Next.js 14 or Remix"
+        rationale: "SSR for SEO, optimized images, good payment integrations"
+        next: null
+      - label: "Using WordPress/WooCommerce"
+        recommendation: "Next.js with WPGraphQL"
+        rationale: "Decouple frontend, better performance than traditional WordPress"
+        next: null
+
+  mobile_first:
+    question: "Do you need true native functionality?"
+    options:
+      - label: "Yes, need native APIs (camera, sensors, etc.)"
+        recommendation: "React Native or Capacitor + Your framework"
+        rationale: "Native capabilities while using web tech"
+        next: null
+      - label: "No, PWA is sufficient"
+        next: "pwa_choice"
+
+  pwa_choice:
+    question: "What's your framework preference?"
+    context: "Most modern frameworks support PWA"
+    options:
+      - label: "React"
+        recommendation: "Next.js with PWA plugin"
+        rationale: "Great PWA support, easy setup, excellent performance"
+        next: null
+      - label: "Vue"
+        recommendation: "Nuxt with PWA module"
+        rationale: "Built-in PWA support, easy configuration"
+        next: null
+      - label: "Svelte"
+        recommendation: "SvelteKit with PWA adapter"
+        rationale: "Smallest bundle, great for mobile"
+        next: null
+
+  simple_site:
+    question: "Do you need any interactivity?"
+    context: "Simple sites often don't need a full framework"
+    options:
+      - label: "No, pure static content"
+        recommendation: "Astro or just HTML/CSS"
+        rationale: "Zero unnecessary JS, fast, simple deployment"
+        next: null
+      - label: "Minimal interactivity (forms, animations)"
+        recommendation: "Astro with Alpine.js or HTMX"
+        rationale: "Minimal JS, progressive enhancement, simple"
+        next: null
+      - label: "Yes, want to use a framework"
+        next: "simple_with_framework"
+
+  simple_with_framework:
+    question: "What do you know already?"
+    options:
+      - label: "React"
+        recommendation: "Next.js"
+        rationale: "Easy deployment, can grow with project, good DX"
+        next: null
+      - label: "Vue"
+        recommendation: "Nuxt"
+        rationale: "Easy deployment, can grow with project, good DX"
+        next: null
+      - label: "Nothing yet"
+        recommendation: "Astro"
+        rationale: "Easiest to learn, can bring React/Vue later if needed"
+        next: null
+
+# Quick reference matrix
+quick_reference:
+  by_use_case:
+    saas_dashboard: "Next.js or Remix"
+    marketing_site: "Astro or Next.js (SSG)"
+    blog: "Astro or Next.js"
+    ecommerce: "Next.js"
+    documentation: "Astro or Docusaurus"
+    admin_panel: "React + Vite or Next.js"
+    real_time_app: "Next.js or Nuxt with WebSocket"
+
+  by_team_skill:
+    beginner: "Svelte/SvelteKit or Astro"
+    intermediate: "Next.js or Nuxt"
+    advanced: "Remix or custom Vite setup"
+
+  by_priority:
+    performance: "Astro, Solid.js, or Svelte"
+    developer_experience: "Next.js or Nuxt"
+    learning_curve: "Svelte or Vue"
+    job_market: "React (Next.js)"
+    future_proof: "Next.js or Nuxt"
+
+  by_team_size:
+    solo: "Next.js or Astro (great docs, easy deploy)"
+    small_2_5: "Next.js, Nuxt, or Remix"
+    medium_6_plus: "Next.js, Nuxt, or Angular (if need structure)"
+
+# Common decision patterns
+patterns:
+  greenfield_saas:
+    recommendation: "Next.js 14 (App Router)"
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"]
+    rationale: "Industry standard, excellent ecosystem, easy hiring"
+
+  content_heavy_site:
+    recommendation: "Astro"
+    stack: ["Astro", "Tailwind CSS", "React Islands (optional)"]
+    rationale: "Best performance for content, minimal JS"
+
+  rapid_prototype:
+    recommendation: "Vite + React or Svelte"
+    stack: ["Vite", "React/Svelte", "Tailwind"]
+    rationale: "Fastest setup, minimal configuration"
+
+  enterprise_app:
+    recommendation: "Next.js or Angular"
+    stack: ["Next.js", "TypeScript", "Testing Library", "Storybook"]
+    rationale: "Scalable, maintainable, good for large teams"
+
+# Red flags (when NOT to use specific frameworks)
+red_flags:
+  react:
+    - "Team has no React experience and project is simple"
+    - "Pure static site with no interactivity"
+
+  angular:
+    - "Small team (< 3 developers)"
+    - "Simple project (< 20 routes)"
+    - "Need rapid iteration"
+
+  vue:
+    - "Must hire React developers (market availability)"
+    - "Heavy integration with React ecosystem tools"
+
+  svelte:
+    - "Large existing React/Vue codebase"
+    - "Need to hire experienced developers quickly"
+
+  solid:
+    - "Team unfamiliar with fine-grained reactivity"
+    - "Need large ecosystem of components"
+    - "Risk-averse organization"
+
+# SMB-specific guidance
+smb_guidance:
+  micro_business_1_2_people:
+    recommendation: "Next.js or Astro"
+    rationale: "Best docs, easiest deployment, can handle solo"
+
+  small_business_3_10_people:
+    recommendation: "Next.js, Nuxt, or Remix"
+    rationale: "Good balance of power and simplicity, easy hiring"
+
+  avoid_for_smb:
+    - "Angular (too complex for small teams)"
+    - "Custom Webpack configs (use Vite/Next.js)"
+    - "Micro-frontends (premature for SMB)"
+    - "Bleeding-edge frameworks (hiring risk)"

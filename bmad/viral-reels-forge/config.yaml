@@ -1,0 +1,22 @@
+# Viral Reels Forge Module Configuration
+# Generated manually for testing
+
+# Core Configuration (inherited from installer)
+user_name: Daniel
+communication_language: English
+document_output_language: English
+output_folder: /Users/danielmenezes/Coding/business_artifacts/docs
+
+# Module-specific Configuration
+idea_count: 25
+instagram_handle: ""  # Optional: Add your Instagram handle
+
+# Data Freshness Rules
+trend_data_max_age_days: 7
+competitor_data_max_age_days: 30
+niche_data_max_age_days: 90
+user_data_max_age_days: 180
+
+# Module Info
+module_version: "1.0.0"
+data_path: /Users/danielmenezes/Coding/business_artifacts/bmad/viral-reels-forge/data

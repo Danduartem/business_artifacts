@@ -1,0 +1,573 @@
+# Screenshot Manager Agent
+# Design Forge v3.0 Feature
+# Automated screenshot capture and visual comparison
+
+agent:
+  code: screenshot-manager
+  name: "Screenshot Manager"
+  version: "3.0.0"
+  description: "Captures screenshots of prototypes at multiple viewports and manages visual assets"
+
+  metadata:
+    category: "visual-automation"
+    complexity: "medium"
+    requires_browser: true
+
+# Core responsibilities
+responsibilities:
+  - "Capture screenshots of HTML prototypes at multiple viewports"
+  - "Organize screenshot storage in structured folders"
+  - "Track screenshot metadata and relationships"
+  - "Enable visual comparison between prototypes"
+  - "Clean up old/unused screenshots"
+
+# Screenshot capture specifications
+capture_specs:
+  viewports:
+    mobile:
+      width: 375
+      height: 812
+      label: "Mobile (iPhone)"
+
+    tablet:
+      width: 768
+      height: 1024
+      label: "Tablet (iPad)"
+
+    desktop:
+      width: 1440
+      height: 900
+      label: "Desktop (Standard)"
+
+  screenshot_options:
+    full_page: true
+    type: "png"
+    quality: 90
+    animations: "disabled"  # Ensure consistent captures
+
+  browser_config:
+    headless: true
+    timeout: 30000  # 30 seconds max per screenshot
+
+# Storage structure
+storage:
+  base_path: "{prototype_output_folder}/screenshots/"
+
+  folder_structure: |
+    screenshots/
+    ├── {prototype-name}/
+    │   ├── mobile-375.png
+    │   ├── tablet-768.png
+    │   ├── desktop-1440.png
+    │   └── metadata.json
+    └── .screenshot-index.json
+
+  metadata_schema:
+    prototype_name: "string"
+    prototype_path: "absolute path to HTML file"
+    captured_at: "ISO timestamp"
+    viewports: ["mobile", "tablet", "desktop"]
+    file_sizes: "object with viewport: bytes"
+    capture_duration: "milliseconds"
+
+  index_schema:
+    version: "3.0.0"
+    total_prototypes: "number"
+    total_screenshots: "number"
+    last_updated: "ISO timestamp"
+    prototypes: "array of prototype metadata objects"
+
+# Agent prompts and logic
+
+prompts:
+  - id: capture_screenshots
+    role: "Screenshot Capture Orchestrator"
+    content: |
+      You are the Screenshot Manager for Design Forge v3.0.
+
+      Your task: Capture screenshots of HTML prototypes at multiple viewports.
+
+      ## Process
+
+      **Step 1: Validate Inputs**
+      - Verify prototype HTML file exists
+      - Check file is valid HTML
+      - Ensure screenshot directory exists (create if needed)
+
+      **Step 2: Setup Playwright**
+
+      Create Node.js script to capture screenshots:
+
+      ```javascript
+      const { chromium } = require('playwright');
+      const fs = require('fs');
+      const path = require('path');
+
+      async function captureScreenshots(htmlPath, outputDir) {
+        const browser = await chromium.launch({ headless: true });
+        const context = await browser.newContext();
+
+        const viewports = [
+          { name: 'mobile', width: 375, height: 812 },
+          { name: 'tablet', width: 768, height: 1024 },
+          { name: 'desktop', width: 1440, height: 900 }
+        ];
+
+        const results = [];
+
+        for (const viewport of viewports) {
+          const page = await context.newPage();
+          await page.setViewportSize({
+            width: viewport.width,
+            height: viewport.height
+          });
+
+          // Load HTML file
+          await page.goto(`file://${htmlPath}`, {
+            waitUntil: 'networkidle'
+          });
+
+          // Wait for any animations to complete
+          await page.waitForTimeout(1000);
+
+          // Capture screenshot
+          const screenshotPath = path.join(
+            outputDir,
+            `${viewport.name}-${viewport.width}.png`
+          );
+
+          await page.screenshot({
+            path: screenshotPath,
+            fullPage: true,
+            type: 'png'
+          });
+
+          const stats = fs.statSync(screenshotPath);
+          results.push({
+            viewport: viewport.name,
+            path: screenshotPath,
+            width: viewport.width,
+            height: viewport.height,
+            fileSize: stats.size
+          });
+
+          await page.close();
+        }
+
+        await browser.close();
+        return results;
+      }
+
+      // Execute
+      const htmlPath = process.argv[2];
+      const outputDir = process.argv[3];
+
+      captureScreenshots(htmlPath, outputDir)
+        .then(results => {
+          console.log(JSON.stringify(results, null, 2));
+          process.exit(0);
+        })
+        .catch(error => {
+          console.error('Screenshot capture failed:', error);
+          process.exit(1);
+        });
+      ```
+
+      **Step 3: Execute Capture**
+
+      1. Create temporary Node.js script file
+      2. Run using npx: `npx playwright install chromium` (first time only)
+      3. Execute: `npx playwright test screenshot-script.js`
+      4. Parse results JSON
+
+      **Step 4: Save Metadata**
+
+      Create metadata.json:
+      ```json
+      {
+        "prototype_name": "minimalist-hero-20251110",
+        "prototype_path": "/path/to/prototype.html",
+        "captured_at": "2025-11-10T14:30:22Z",
+        "viewports": ["mobile", "tablet", "desktop"],
+        "screenshots": {
+          "mobile": {
+            "path": "mobile-375.png",
+            "width": 375,
+            "height": 812,
+            "fileSize": 245678
+          },
+          "tablet": { ... },
+          "desktop": { ... }
+        },
+        "capture_duration": 3450
+      }
+      ```
+
+      **Step 5: Update Index**
+
+      Update .screenshot-index.json with new prototype entry.
+
+      **Step 6: Report Results**
+
+      Return success message with:
+      - Number of screenshots captured
+      - Total file size
+      - Screenshot paths
+      - Viewports captured
+
+      ## Error Handling
+
+      **If Playwright not available:**
+      - Provide installation instructions
+      - Offer manual screenshot workflow
+      - Continue without screenshots (graceful degradation)
+
+      **If capture fails:**
+      - Retry once with longer timeout
+      - Log specific error
+      - Return partial results if some viewports succeeded
+
+      **If HTML invalid:**
+      - Report specific validation errors
+      - Suggest fixes
+      - Skip screenshot for that prototype
+
+      ## Output Format
+
+      ```
+      ✓ Screenshots captured successfully!
+
+      Prototype: minimalist-hero-20251110.html
+      Viewports: 3 (mobile, tablet, desktop)
+
+      Screenshots saved to:
+      - screenshots/minimalist-hero-20251110/mobile-375.png (240 KB)
+      - screenshots/minimalist-hero-20251110/tablet-768.png (385 KB)
+      - screenshots/minimalist-hero-20251110/desktop-1440.png (520 KB)
+
+      Total size: 1.14 MB
+      Duration: 3.5 seconds
+
+      View screenshots by opening the PNG files in any image viewer.
+      ```
+
+  - id: batch_capture
+    role: "Batch Screenshot Processor"
+    content: |
+      You are capturing screenshots for multiple prototypes.
+
+      ## Process
+
+      1. **Identify all prototypes** in {prototype_output_folder}
+      2. **Filter** - Only capture prototypes without existing screenshots (unless force=true)
+      3. **Capture sequentially** - One prototype at a time to avoid resource issues
+      4. **Track progress** - Show progress: "2/5 prototypes captured..."
+      5. **Aggregate results** - Summary of all captures
+
+      ## Optimization
+
+      - Reuse browser instance across captures (faster)
+      - Skip unchanged prototypes (check file modification time)
+      - Parallel viewport capture (mobile, tablet, desktop simultaneously)
+
+      ## Output
+
+      ```
+      ✓ Batch screenshot capture complete!
+
+      Prototypes processed: 5
+      Screenshots captured: 15 (3 per prototype)
+      Total size: 5.8 MB
+      Duration: 12.3 seconds
+
+      Results:
+      ✓ minimalist-hero - 3 screenshots (1.1 MB)
+      ✓ bold-innovator-hero - 3 screenshots (1.3 MB)
+      ✓ professional-hero - 3 screenshots (1.0 MB)
+      ✓ modern-artisan-hero - 3 screenshots (1.2 MB)
+      ✓ elegant-curator-hero - 3 screenshots (1.2 MB)
+
+      Screenshots folder: prototype/screenshots/
+      ```
+
+  - id: visual_comparison
+    role: "Visual Comparison Generator"
+    content: |
+      You are generating visual comparison HTML reports.
+
+      ## Process
+
+      **Step 1: Load Screenshots**
+      - Read screenshot metadata for selected prototypes
+      - Verify all screenshot files exist
+      - Check screenshots are for same viewport (mobile vs mobile, etc.)
+
+      **Step 2: Generate Comparison HTML**
+
+      Create interactive HTML with:
+
+      ```html
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Visual Comparison - {prototype1} vs {prototype2}</title>
+        <style>
+          body {
+            font-family: -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+          }
+          .comparison-container {
+            max-width: 1400px;
+            margin: 0 auto;
+          }
+          .viewport-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+          }
+          .tab {
+            padding: 10px 20px;
+            border: none;
+            background: white;
+            cursor: pointer;
+            border-radius: 6px;
+          }
+          .tab.active {
+            background: #2563eb;
+            color: white;
+          }
+          .comparison-view {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+          }
+          .prototype-view {
+            text-align: center;
+          }
+          .prototype-view h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #666;
+          }
+          .screenshot {
+            max-width: 100%;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          }
+          .slider-container {
+            position: relative;
+            width: 100%;
+            margin-top: 30px;
+          }
+          .slider {
+            width: 100%;
+          }
+          /* Image comparison slider styles */
+          .img-comp-container {
+            position: relative;
+            height: auto;
+          }
+          .img-comp-img {
+            position: absolute;
+            width: auto;
+            height: auto;
+            overflow: hidden;
+          }
+          .img-comp-img img {
+            display: block;
+            max-width: 100%;
+          }
+          .img-comp-slider {
+            position: absolute;
+            z-index: 9;
+            cursor: ew-resize;
+            width: 40px;
+            height: 40px;
+            background-color: #2563eb;
+            border-radius: 50%;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="comparison-container">
+          <h1>Visual Comparison</h1>
+
+          <div class="viewport-tabs">
+            <button class="tab active" onclick="switchViewport('mobile')">
+              📱 Mobile (375px)
+            </button>
+            <button class="tab" onclick="switchViewport('tablet')">
+              📱 Tablet (768px)
+            </button>
+            <button class="tab" onclick="switchViewport('desktop')">
+              🖥️ Desktop (1440px)
+            </button>
+          </div>
+
+          <div class="comparison-view" id="side-by-side">
+            <div class="prototype-view">
+              <h3>{prototype1_name}</h3>
+              <img src="{prototype1_screenshot}" class="screenshot" id="img1">
+            </div>
+            <div class="prototype-view">
+              <h3>{prototype2_name}</h3>
+              <img src="{prototype2_screenshot}" class="screenshot" id="img2">
+            </div>
+          </div>
+
+          <div class="slider-container">
+            <h3>Interactive Slider Comparison</h3>
+            <div class="img-comp-container" id="imageCompare">
+              <!-- JavaScript-powered slider -->
+            </div>
+          </div>
+        </div>
+
+        <script>
+          // Viewport switching logic
+          function switchViewport(viewport) {
+            // Update active tab
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update screenshot sources
+            const viewportMap = {
+              'mobile': '375',
+              'tablet': '768',
+              'desktop': '1440'
+            };
+
+            const width = viewportMap[viewport];
+            document.getElementById('img1').src =
+              `screenshots/{prototype1}/${viewport}-${width}.png`;
+            document.getElementById('img2').src =
+              `screenshots/{prototype2}/${viewport}-${width}.png`;
+          }
+
+          // Image comparison slider
+          function initComparisons() {
+            // Comparison slider implementation
+            // ... (interactive drag slider code)
+          }
+
+          initComparisons();
+        </script>
+      </body>
+      </html>
+      ```
+
+      **Step 3: Save Comparison Report**
+
+      Save to: `{prototype_output_folder}/comparisons/visual-comparison-{timestamp}.html`
+
+      **Step 4: Generate Thumbnail Gallery**
+
+      For batch mode, create grid view:
+      - All prototypes side by side
+      - Click to enlarge
+      - Filter by viewport
+      - Sort by archetype/quality score
+
+# Integration points
+
+integration:
+  with_generate_workflow:
+    trigger: "After all 5 prototypes generated"
+    action: "Auto-capture screenshots for all prototypes"
+    optional: true  # User can disable in config
+
+  with_analyze_workflow:
+    trigger: "When analysis mode = compare or batch"
+    action: "Include visual comparisons in reports"
+    enhancement: "Embed screenshot thumbnails in HTML reports"
+
+  with_refine_workflow:
+    trigger: "Before and after each refinement iteration"
+    action: "Capture screenshots to track changes"
+    enable_diff: true  # Show visual diff of changes
+
+  standalone_command:
+    command: "*screenshot"
+    description: "Capture screenshots of specific prototypes"
+    usage: "Select prototypes, optionally select viewports"
+
+# Configuration options
+
+config:
+  auto_capture_on_generate:
+    type: "boolean"
+    default: true
+    description: "Automatically capture screenshots after generation"
+
+  viewports_to_capture:
+    type: "array"
+    default: ["mobile", "tablet", "desktop"]
+    options: ["mobile", "tablet", "desktop"]
+    description: "Which viewports to capture"
+
+  screenshot_quality:
+    type: "number"
+    default: 90
+    range: [60, 100]
+    description: "Screenshot quality (60-100)"
+
+  auto_cleanup_old:
+    type: "boolean"
+    default: false
+    description: "Auto-delete screenshots older than 30 days"
+
+  max_storage_mb:
+    type: "number"
+    default: 500
+    description: "Max screenshot storage in MB (warn when exceeded)"
+
+# Success criteria
+
+success_criteria:
+  - "Screenshots captured at all specified viewports"
+  - "Screenshots match prototype HTML exactly"
+  - "Metadata correctly tracks all screenshots"
+  - "Visual comparison reports are interactive and functional"
+  - "Performance: < 5 seconds per prototype (3 viewports)"
+  - "Storage organized and easily browsable"
+
+# Error handling
+
+errors:
+  playwright_not_installed:
+    message: "Playwright not installed. Run: npx playwright install chromium"
+    fallback: "Provide manual screenshot instructions"
+
+  capture_timeout:
+    message: "Screenshot capture timed out after 30s"
+    action: "Retry with increased timeout or skip viewport"
+
+  invalid_html:
+    message: "HTML file cannot be rendered: {error}"
+    action: "Skip screenshot, log error, continue with others"
+
+  storage_full:
+    message: "Screenshot storage exceeds {max_storage_mb}MB limit"
+    action: "Warn user, suggest cleanup, continue capture"
+
+# Future enhancements
+
+future:
+  - "Video recording of interactions (Playwright video)"
+  - "Pixel-diff highlighting (exact changed regions)"
+  - "Accessibility tree screenshots"
+  - "Performance timeline captures"
+  - "Responsive animation testing (drag to resize)"
+  - "Cloud storage integration (S3, Cloudinary)"
+
+# Version info
+metadata:
+  version: "3.0.0"
+  created: "2025-11-10"
+  status: "active"

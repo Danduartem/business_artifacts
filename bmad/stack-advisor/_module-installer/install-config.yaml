@@ -1,0 +1,62 @@
+# Stack Advisor Module Configuration
+# This file defines installation questions and module configuration values
+
+code: stack-advisor
+name: "Stack Advisor"
+default_selected: false
+
+# Welcome message shown during installation
+prompt:
+  - "Thank you for choosing Stack Advisor!"
+  - "Multi-agent tech stack advisory system for SMB projects."
+  - "Get modern, stable architecture recommendations adapted to your constraints."
+
+# Core config values are automatically inherited:
+## user_name
+## communication_language
+## document_output_language
+## output_folder
+
+# ============================================================================
+# CONFIGURATION FIELDS
+# ============================================================================
+
+# Output location for deliverables
+output_location:
+  prompt: "Where should Stack Advisor save tech stack deliverables?"
+  default: "output/stack-advisor"
+  result: "{project-root}/{value}"
+
+# Tech currency threshold
+tech_currency_threshold:
+  prompt: "What's your acceptable framework age threshold?"
+  default: "1-month"
+  result: "{value}"
+  single-select:
+    - value: "2-weeks"
+      label: "Cutting edge - Very latest stable releases"
+    - value: "1-month"
+      label: "Current - Recommended balance of new and proven"
+    - value: "3-months"
+      label: "Stable - Battle-tested in production"
+
+# SMB scale level
+smb_scale_level:
+  prompt: "What business scale should recommendations target?"
+  default: "small"
+  result: "{value}"
+  single-select:
+    - value: "micro"
+      label: "Micro - Solo/freelancer (1-5 users)"
+    - value: "small"
+      label: "Small - Small business (5-50 users)"
+    - value: "medium"
+      label: "Medium - Medium business (50-500 users)"
+
+# Static paths
+data_path:
+  result: "{project-root}/bmad/stack-advisor/data"
+
+# Module version
+module_version:
+  result: "1.0.0"

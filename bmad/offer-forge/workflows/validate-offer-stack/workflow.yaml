@@ -1,0 +1,121 @@
+# Validate Offer Stack Workflow Configuration
+# Module: offer-forge
+# Version: 1.0.0 (V2)
+# Date: 2025-11-04
+
+workflow:
+  name: validate-offer-stack
+  description: Perform periodic quality checks on existing offer stacks against current standards and market conditions
+  author: Daniel
+  version: 1.0.0
+  module: offer-forge
+  type: action
+
+  config_source: "{project-root}/bmad/offer-forge/config.yaml"
+
+  # Standard config variables (BMAD v6 required)
+  output_folder: "{config_source}:output_folder"
+  user_name: "{config_source}:user_name"
+  communication_language: "{config_source}:communication_language"
+  date: system-generated
+
+  installed_path: "{project-root}/bmad/offer-forge/workflows/validate-offer-stack"
+
+  # Action workflow - no template, generates validation report
+  template: false
+
+  # Workflow execution instructions
+  instructions: "{installed_path}/instructions.md"
+
+  # This workflow can be invoked directly via hub agent
+  standalone: true
+
+  # Input requirements
+  input:
+    required:
+      - existing_offer_stack_path  # Path to existing offer stack document
+    optional:
+      - validation_frequency  # monthly, quarterly, annual, or custom
+      - competitive_refresh  # true/false - include fresh competitive analysis
+
+  # Output configuration
+  output:
+    location: "{output_folder}"
+    naming_pattern: "{business_name}-validation-report-{date}.md"
+    generate_recommendations: true
+
+  # Documentation: Required agents (invoked by name in instructions, not by path)
+  dependencies:
+    agents:
+      - "{project-root}/bmad/offer-forge/agents/senior-offer-specialist.agent.yaml"
+      - "{project-root}/bmad/offer-forge/agents/offer-architect.agent.yaml"  # For competitive analysis
+    tools:
+      - web_search  # Optional: for competitive pricing checks
+
+  # Documentation: Validation checks performed (reference for understanding workflow)
+  validation_checks:
+    core_quality:
+      description: "Run 8-criteria quality assessment"
+      agent: "senior-offer-specialist"
+
+    competitive_positioning:
+      description: "Analyze current competitive landscape"
+      agent: "offer-architect"
+      requires_web_search: true
+      optional: true
+
+    pricing_currency:
+      description: "Check if pricing still aligns with market"
+      agent: "pricing-strategist"
+      optional: true
+
+    conversion_health:
+      description: "Analyze tier distribution and conversion patterns"
+      requires_user_data: true
+      optional: true
+
+  # Documentation: Workflow phases (not programmatically enforced in instructions)
+  phases:
+    - id: load_existing
+      name: "Load Existing Offer Stack"
+      description: "Parse current offer stack and metadata"
+      interaction_level: low
+
+    - id: gather_validation_context
+      name: "Gather Validation Context"
+      description: "Collect performance data and market context"
+      interaction_level: high
+
+    - id: core_validation
+      name: "Core Quality Validation"
+      description: "Run 8-criteria assessment"
+      agent: senior-offer-specialist
+      interaction_level: low
+
+    - id: competitive_analysis
+      name: "Competitive Analysis"
+      description: "Check current market positioning"
+      agent: offer-architect
+      interaction_level: low
+      conditional: true  # Only if user requests
+
+    - id: generate_report
+      name: "Generate Validation Report"
+      description: "Create comprehensive validation report with recommendations"
+      interaction_level: low
+
+    - id: present_recommendations
+      name: "Present Recommendations"
+      description: "Show actionable next steps"
+      interaction_level: high
+
+  # Web bundle configuration for sharing/distribution
+  web_bundle:
+    name: "validate-offer-stack"
+    description: "Perform periodic quality checks on existing offer stacks against current standards and market conditions"
+    files:
+      - "bmad/offer-forge/workflows/validate-offer-stack/workflow.yaml"
+      - "bmad/offer-forge/workflows/validate-offer-stack/instructions.md"
+    agents_required:
+      - "bmad/offer-forge/agents/senior-offer-specialist.agent.yaml"
+      - "bmad/offer-forge/agents/offer-architect.agent.yaml"

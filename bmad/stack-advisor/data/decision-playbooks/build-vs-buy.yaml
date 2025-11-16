@@ -1,0 +1,516 @@
+# Build vs Buy Decision Playbook
+# Flowchart-style decision tree for build vs buy decisions
+
+playbook:
+  name: "Build vs Buy Decisions"
+  description: "Step-by-step guide to deciding whether to build custom or use third-party services"
+  version: "1.0"
+  last_updated: "2025-01-14"
+
+decision_tree:
+  start:
+    question: "What functionality are you considering?"
+    options:
+      - label: "Authentication & user management"
+        next: "auth_decision"
+      - label: "Payments & billing"
+        next: "payments_decision"
+      - label: "Email sending"
+        next: "email_decision"
+      - label: "File storage & uploads"
+        next: "storage_decision"
+      - label: "Analytics & tracking"
+        next: "analytics_decision"
+      - label: "Search functionality"
+        next: "search_decision"
+      - label: "Real-time features"
+        next: "realtime_decision"
+      - label: "CMS / Content management"
+        next: "cms_decision"
+
+  auth_decision:
+    question: "What's your situation?"
+    context: "Auth is security-critical and time-consuming to build right"
+    options:
+      - label: "Standard auth (email/password, OAuth)"
+        recommendation: "Buy (Clerk, Supabase Auth, Auth0)"
+        rationale: "Security risk + time investment not worth it. Use managed service."
+        cost: "$0-100/month"
+        next: null
+      - label: "Enterprise SSO/SAML required"
+        recommendation: "Buy (Auth0 or WorkOS)"
+        rationale: "Too complex to build, compliance risk"
+        cost: "$125-500/month"
+        next: null
+      - label: "Very simple, tight budget, have expertise"
+        recommendation: "Build with library (Passport, NextAuth)"
+        rationale: "Use battle-tested library, not from scratch"
+        cost: "$0 (your time)"
+        next: null
+
+  payments_decision:
+    question: "What's your compliance tolerance?"
+    context: "Payment handling has PCI compliance requirements"
+    options:
+      - label: "Want to minimize compliance burden"
+        recommendation: "Buy (Stripe, PayPal, Paddle)"
+        rationale: "Never touch card data, they handle compliance"
+        cost: "2.9% + $0.30 per transaction"
+        next: null
+      - label: "Need custom payment flows"
+        recommendation: "Buy (Stripe or PayPal) - use their APIs"
+        rationale: "Can customize with their APIs without compliance burden"
+        cost: "2.9% + $0.30 per transaction"
+        next: null
+      - label: "Considering building payment processing"
+        recommendation: "Don't build - use Stripe"
+        rationale: "PCI compliance is a nightmare, fraud prevention is hard"
+        next: null
+
+  email_decision:
+    question: "What's your email volume?"
+    context: "Email deliverability is harder than it looks"
+    options:
+      - label: "Low volume (< 1000/month)"
+        recommendation: "Buy (Resend, SendGrid free tier)"
+        rationale: "Free tier covers you, better deliverability than self-hosted"
+        cost: "$0"
+        next: null
+      - label: "Medium volume (1k-100k/month)"
+        recommendation: "Buy (Resend, SendGrid, Mailgun)"
+        rationale: "Deliverability is critical, these handle it better"
+        cost: "$10-80/month"
+        next: null
+      - label: "High volume (100k+/month)"
+        recommendation: "Buy (SendGrid, Amazon SES)"
+        rationale: "Scale and deliverability matter, they're experts"
+        cost: "$80-500+/month"
+        next: null
+      - label: "Just transactional emails"
+        recommendation: "Buy (Resend or SendGrid)"
+        rationale: "Focus on product, not email infrastructure"
+        next: null
+
+  storage_decision:
+    question: "What's your storage needs?"
+    context: "Object storage is commodity, but features vary"
+    options:
+      - label: "Simple file uploads (images, docs)"
+        recommendation: "Buy (Supabase Storage, Cloudflare R2, S3)"
+        rationale: "Cheap, reliable, CDN included"
+        cost: "$0-10/month for small scale"
+        next: null
+      - label: "Need image processing/optimization"
+        recommendation: "Buy (Cloudinary, Uploadcare, or Vercel Blob)"
+        rationale: "They handle optimization, transformations, CDN"
+        cost: "$0-89/month depending on usage"
+        next: null
+      - label: "Video storage and streaming"
+        recommendation: "Buy (Mux, Cloudflare Stream)"
+        rationale: "Video is complex, let experts handle it"
+        cost: "$1-5 per 1000 minutes delivered"
+        next: null
+      - label: "Large files, academic/research"
+        recommendation: "Build with S3 or Backblaze B2"
+        rationale: "Storage is cheap, don't need fancy features"
+        cost: "$5/TB/month"
+        next: null
+
+  analytics_decision:
+    question: "What type of analytics?"
+    context: "Different analytics have different privacy and cost trade-offs"
+    options:
+      - label: "Website analytics (traffic, pages)"
+        recommendation: "Buy (Plausible, Fathom, or Google Analytics)"
+        rationale: "Cheap/free, privacy-friendly options available"
+        cost: "$0-9/month"
+        next: null
+      - label: "Product analytics (events, funnels, cohorts)"
+        recommendation: "Buy (PostHog, Mixpanel, Amplitude)"
+        rationale: "Complex to build well, these are specialized"
+        cost: "$0-200/month for SMB scale"
+        next: null
+      - label: "Custom business metrics"
+        recommendation: "Build (with your database + charts)"
+        rationale: "Business-specific, simple SQL queries work"
+        cost: "$0 (your time)"
+        next: null
+      - label: "Need complete control and privacy"
+        recommendation: "Buy self-hosted (PostHog or Matomo)"
+        rationale: "Open source, self-host for control"
+        cost: "$0-50/month hosting"
+        next: null
+
+  search_decision:
+    question: "What's your search complexity?"
+    context: "Search ranges from simple to very complex"
+    options:
+      - label: "Simple search (< 10k documents)"
+        recommendation: "Build with PostgreSQL full-text search"
+        rationale: "Good enough for most cases, no extra infrastructure"
+        cost: "$0 (uses existing DB)"
+        next: null
+      - label: "Advanced search (facets, typo tolerance)"
+        recommendation: "Buy (Meilisearch, Typesense, Algolia)"
+        rationale: "Much better UX than basic search, reasonable cost"
+        cost: "$0-100/month"
+        next: null
+      - label: "E-commerce product search"
+        recommendation: "Buy (Algolia or Typesense)"
+        rationale: "Search is critical for sales, these are optimized"
+        cost: "$1-300/month depending on scale"
+        next: null
+      - label: "Enterprise scale (millions of docs)"
+        recommendation: "Buy (Elasticsearch or Algolia)"
+        rationale: "Operational complexity of Elasticsearch needs expertise"
+        cost: "$300-2000+/month"
+        next: null
+
+  realtime_decision:
+    question: "What real-time features do you need?"
+    context: "Real-time can be simple or very complex"
+    options:
+      - label: "Database change subscriptions"
+        recommendation: "Buy (Supabase or Firebase real-time)"
+        rationale: "Built-in to these platforms, easy to use"
+        cost: "$0-25/month"
+        next: null
+      - label: "Custom WebSocket features (chat, collaboration)"
+        recommendation: "Build with Socket.io or Supabase Broadcast"
+        rationale: "Not too complex, good libraries available"
+        cost: "$0-50/month for hosting"
+        next: null
+      - label: "Presence (who's online)"
+        recommendation: "Buy (Supabase Presence or Ably)"
+        rationale: "Presence is tricky to build reliably"
+        cost: "$0-25/month"
+        next: null
+      - label: "Multiplayer sync (collaborative editing)"
+        recommendation: "Buy (Liveblocks, Partykit, or Yjs)"
+        rationale: "CRDT-based sync is very complex"
+        cost: "$0-100/month"
+        next: null
+
+  cms_decision:
+    question: "What type of content management?"
+    context: "CMS needs vary widely"
+    options:
+      - label: "Simple blog/marketing content"
+        recommendation: "Buy headless CMS (Sanity, Contentful, Strapi)"
+        rationale: "Great editor UX, affordable, less to build"
+        cost: "$0-100/month"
+        next: null
+      - label: "Complex content modeling"
+        recommendation: "Buy (Sanity or Strapi)"
+        rationale: "Flexible modeling, good APIs"
+        cost: "$0-100/month"
+        next: null
+      - label: "Need complete control"
+        recommendation: "Build with Payload CMS or use Strapi (self-host)"
+        rationale: "Open source, full control, can customize"
+        cost: "$10-50/month hosting"
+        next: null
+      - label: "WordPress integration needed"
+        recommendation: "Buy (WordPress.com or headless WordPress)"
+        rationale: "Use existing WordPress ecosystem"
+        cost: "$0-25/month"
+        next: null
+
+# General decision framework
+decision_framework:
+  always_buy:
+    - "Payments (Stripe, PayPal, Paddle)"
+    - "Auth for B2B with SSO (Auth0, WorkOS)"
+    - "Email deliverability (SendGrid, Resend)"
+    - "Video processing (Mux, Cloudflare Stream)"
+    - "Compliance-heavy features (HIPAA, SOC 2)"
+
+  usually_buy:
+    - "Authentication (Clerk, Supabase Auth)"
+    - "File storage (S3, Cloudflare R2)"
+    - "Search (Algolia, Meilisearch)"
+    - "CMS (Sanity, Contentful)"
+    - "Analytics (PostHog, Mixpanel)"
+    - "Monitoring (Sentry, LogRocket)"
+
+  consider_building:
+    - "Simple admin panels"
+    - "Custom business logic"
+    - "Internal tools"
+    - "Simple reporting"
+    - "Basic CRUD with standard patterns"
+
+  usually_build:
+    - "Core product features"
+    - "Unique competitive advantages"
+    - "Business-specific workflows"
+    - "Custom algorithms"
+    - "Your secret sauce"
+
+# Decision criteria
+criteria:
+  buy_when:
+    security_critical:
+      - "Payments (PCI compliance)"
+      - "Auth (security expertise needed)"
+      - "Data encryption (get it wrong = breach)"
+
+    not_differentiating:
+      - "Email sending"
+      - "File storage"
+      - "User authentication (unless unique)"
+
+    complex_to_maintain:
+      - "Search engines"
+      - "Video processing"
+      - "Real-time infrastructure at scale"
+
+    time_sensitive:
+      - "MVP timeline is tight"
+      - "Want to focus on core product"
+      - "Small team"
+
+    cost_effective:
+      - "Generous free tiers available"
+      - "Your time is more expensive than service"
+      - "Scale is uncertain (pay-per-use better)"
+
+  build_when:
+    core_differentiator:
+      - "Unique feature nobody else has"
+      - "Competitive advantage"
+      - "Your secret sauce"
+
+    simple_enough:
+      - "Can build in < 1 week"
+      - "Well-understood problem"
+      - "Good libraries available"
+
+    cost_prohibitive:
+      - "Service costs $1000s/month"
+      - "Usage-based pricing becomes expensive at your scale"
+
+    control_needed:
+      - "Need to customize heavily"
+      - "Vendor lock-in is unacceptable"
+      - "Compliance requires on-premise"
+
+    learning_valuable:
+      - "Team wants to learn this skill"
+      - "Will reuse in other projects"
+      - "Strategic capability to build"
+
+# Cost-benefit analysis
+cost_analysis:
+  build_costs:
+    - "Development time (2-8 weeks for complex features)"
+    - "Maintenance time (ongoing)"
+    - "Security updates"
+    - "Bug fixes"
+    - "Documentation"
+    - "Testing"
+    - "Opportunity cost (not building core features)"
+
+  buy_costs:
+    - "Monthly/usage fees"
+    - "Integration time (usually 1-5 days)"
+    - "Potential vendor lock-in"
+    - "Limited customization"
+
+  hidden_build_costs:
+    - "Hiring specialists (if expertise lacking)"
+    - "Compliance certifications"
+    - "Infrastructure and scaling"
+    - "24/7 monitoring and support"
+    - "Disaster recovery"
+
+# SMB-specific guidance
+smb_guidance:
+  micro_business_1_2_people:
+    default: "Buy everything possible"
+    rationale: "Your time is the constraint, focus on product"
+    buy:
+      - "Auth (Supabase or Clerk)"
+      - "Payments (Stripe)"
+      - "Email (Resend)"
+      - "Storage (Cloudflare R2 or Supabase)"
+      - "Analytics (Plausible)"
+      - "Monitoring (Sentry free tier)"
+
+  small_business_3_10_people:
+    default: "Buy commodity, build unique"
+    rationale: "Focus team on competitive advantages"
+    buy:
+      - "Infrastructure services"
+      - "Security-critical features"
+      - "Complex operational features"
+    build:
+      - "Core product features"
+      - "Simple internal tools"
+      - "Custom business logic"
+
+  medium_business_10_50_people:
+    default: "Buy initially, build if cost-prohibitive or strategic"
+    rationale: "Can afford to build, but should validate first"
+    buy:
+      - "Non-core features"
+      - "Start with services to validate"
+    build:
+      - "Features at scale where services are expensive"
+      - "Strategic capabilities"
+      - "Competitive differentiators"
+
+# Service comparison by category
+service_categories:
+  authentication:
+    buy_options:
+      clerk: {cost: "$25-100/mo", best_for: "Best DX"}
+      supabase_auth: {cost: "$0-25/mo", best_for: "Budget + features"}
+      auth0: {cost: "$240+/mo", best_for: "Enterprise"}
+    build_option: {cost: "2-4 weeks dev", risk: "High security risk"}
+    recommendation: "Buy (almost always)"
+
+  payments:
+    buy_options:
+      stripe: {cost: "2.9% + $0.30", best_for: "Best overall"}
+      paddle: {cost: "5% + $0.50", best_for: "Merchant of record"}
+      paypal: {cost: "2.9% + $0.30", best_for: "Consumer trust"}
+    build_option: {cost: "Months + PCI", risk: "Extreme compliance risk"}
+    recommendation: "Never build"
+
+  email:
+    buy_options:
+      resend: {cost: "$0-20/mo", best_for: "Modern DX"}
+      sendgrid: {cost: "$0-20/mo", best_for: "Scale"}
+      amazon_ses: {cost: "$0.10/1000", best_for: "High volume"}
+    build_option: {cost: "1-2 weeks + deliverability issues", risk: "Medium"}
+    recommendation: "Buy (deliverability matters)"
+
+  storage:
+    buy_options:
+      cloudflare_r2: {cost: "$0.015/GB", best_for: "No egress fees"}
+      s3: {cost: "$0.023/GB", best_for: "Ecosystem"}
+      supabase: {cost: "$0.021/GB", best_for: "If using Supabase"}
+    build_option: {cost: "Trivial with S3 SDK", risk: "Low"}
+    recommendation: "Buy S3-compatible service"
+
+  search:
+    buy_options:
+      typesense: {cost: "$0-90/mo", best_for: "Self-hosted option"}
+      meilisearch: {cost: "Self-host", best_for: "Open source"}
+      algolia: {cost: "$1-300/mo", best_for: "Best features"}
+    build_option: {cost: "Use Postgres FTS", risk: "Low for simple"}
+    recommendation: "Postgres FTS → Meilisearch → Algolia as you grow"
+
+  analytics:
+    buy_options:
+      plausible: {cost: "$9/mo", best_for: "Privacy-focused"}
+      posthog: {cost: "$0-200/mo", best_for: "Product analytics"}
+      mixpanel: {cost: "$0-200/mo", best_for: "Features"}
+    build_option: {cost: "1-2 weeks for basic", risk: "Medium"}
+    recommendation: "Buy for web analytics, consider building custom business metrics"
+
+# Red flags (when NOT to build)
+red_flags_building:
+  - "Team has no security expertise but want to build auth"
+  - "Want to build payment processing"
+  - "Building email infrastructure for deliverability"
+  - "Creating your own monitoring/logging system"
+  - "Building video transcoding/processing"
+  - "Creating your own CDN"
+  - "Building fraud detection from scratch"
+  - "Small team wanting to build everything"
+
+# Green flags (when building makes sense)
+green_flags_building:
+  - "Feature is your core competitive advantage"
+  - "Service costs are 10x what building would cost"
+  - "You need heavy customization"
+  - "Team has relevant expertise"
+  - "Can reuse in multiple products"
+  - "Vendor lock-in is unacceptable for strategic reasons"
+  - "Compliance requires on-premise"
+  - "Good open-source alternatives exist"
+
+# Migration considerations
+migration_paths:
+  buy_to_build:
+    when: "Service costs become prohibitive at scale"
+    risk: "Medium-High"
+    timeline: "2-6 months"
+    example: "Algolia → Self-hosted Elasticsearch when spending $2k/month"
+
+  build_to_buy:
+    when: "Operational burden too high or security concerns"
+    risk: "Low-Medium"
+    timeline: "1-3 months"
+    example: "Custom auth → Auth0 after security audit"
+
+  service_to_service:
+    when: "Better pricing or features elsewhere"
+    risk: "Low-Medium"
+    timeline: "2-8 weeks"
+    example: "Auth0 → Clerk for better DX and lower cost"
+
+# Common scenarios
+scenarios:
+  early_stage_startup:
+    approach: "Buy everything possible"
+    rationale: "Validate product-market fit before building infrastructure"
+    build: ["Core product features only"]
+    buy: ["Auth", "Payments", "Email", "Storage", "Analytics"]
+
+  scaling_startup:
+    approach: "Buy most, build selectively"
+    rationale: "Focus on scaling core product"
+    build: ["Core features", "Cost-prohibitive services"]
+    buy: ["Most infrastructure", "Non-core features"]
+
+  profitable_business:
+    approach: "Evaluate cost vs control"
+    rationale: "Can afford to build for control or cost savings"
+    build: ["Expensive services", "Strategic capabilities"]
+    buy: ["Commodity services", "Complex operational features"]
+
+  enterprise_customer:
+    approach: "Buy with compliance"
+    rationale: "Compliance and support requirements"
+    build: ["Core product"]
+    buy: ["SOC 2 compliant services only"]
+
+# Time-to-value estimates
+time_estimates:
+  auth_basic:
+    build: "2-4 weeks"
+    buy: "1-2 days"
+    savings: "2-4 weeks"
+
+  auth_enterprise:
+    build: "2-3 months"
+    buy: "1-2 weeks"
+    savings: "2+ months"
+
+  payments:
+    build: "Don't (compliance nightmare)"
+    buy: "2-5 days"
+    savings: "Months + risk avoidance"
+
+  email:
+    build: "1-2 weeks (poor deliverability)"
+    buy: "1 day"
+    savings: "1-2 weeks + better delivery"
+
+  search_simple:
+    build: "2-3 days (Postgres FTS)"
+    buy: "1-2 days"
+    savings: "Minimal"
+
+  search_advanced:
+    build: "2-3 weeks"
+    buy: "2-3 days"
+    savings: "2-3 weeks"
+
+  file_storage:
+    build: "2-3 days (using S3 SDK)"
+    buy: "1-2 days (using S3 SDK)"
+    savings: "Minimal (basically same)"

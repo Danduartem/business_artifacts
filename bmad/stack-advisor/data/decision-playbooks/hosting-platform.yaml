@@ -1,0 +1,523 @@
+# Hosting Platform Selection Playbook
+# Flowchart-style decision tree for choosing the right hosting platform
+
+playbook:
+  name: "Hosting Platform Selection"
+  description: "Step-by-step guide to selecting the optimal hosting platform"
+  version: "1.0"
+  last_updated: "2025-01-14"
+
+decision_tree:
+  start:
+    question: "What are you deploying?"
+    options:
+      - label: "Frontend only (static site or SSR)"
+        next: "frontend_hosting"
+      - label: "Full-stack application (frontend + backend)"
+        next: "fullstack_hosting"
+      - label: "Backend API only"
+        next: "backend_hosting"
+      - label: "Serverless functions"
+        next: "serverless_hosting"
+      - label: "Container-based application"
+        next: "container_hosting"
+
+  frontend_hosting:
+    question: "What framework are you using?"
+    context: "Modern frameworks have preferred hosting platforms"
+    options:
+      - label: "Next.js"
+        next: "nextjs_hosting"
+      - label: "Astro, Remix, SvelteKit, Nuxt"
+        next: "modern_framework_hosting"
+      - label: "React SPA (Vite, CRA)"
+        next: "spa_hosting"
+      - label: "Static HTML/CSS/JS"
+        next: "static_hosting"
+
+  nextjs_hosting:
+    question: "What's your priority?"
+    options:
+      - label: "Best performance and integration"
+        recommendation: "Vercel"
+        rationale: "Built by Next.js creators, best DX, automatic optimizations"
+        next: null
+      - label: "Cost-effective with good performance"
+        recommendation: "Netlify or Cloudflare Pages"
+        rationale: "Generous free tiers, good performance, easier on budget"
+        next: null
+      - label: "Self-hosted / full control"
+        recommendation: "Railway or Render"
+        rationale: "Node.js hosting, good for Next.js, affordable"
+        next: null
+
+  modern_framework_hosting:
+    question: "What's your priority?"
+    options:
+      - label: "Simplicity and great DX"
+        recommendation: "Netlify or Vercel"
+        rationale: "Auto-detect framework, easy setup, excellent DX"
+        next: null
+      - label: "Cost-effective"
+        recommendation: "Cloudflare Pages"
+        rationale: "Generous free tier, global edge network"
+        next: null
+      - label: "Need more control"
+        recommendation: "Railway or Render"
+        rationale: "More flexibility, can run any Node.js app"
+        next: null
+
+  spa_hosting:
+    question: "What's your budget?"
+    context: "SPAs are simple to host (just static files)"
+    options:
+      - label: "Free or very cheap"
+        recommendation: "Cloudflare Pages, Netlify, or GitHub Pages"
+        rationale: "All have generous free tiers, CDN included"
+        next: null
+      - label: "Don't care about cost, want best performance"
+        recommendation: "Cloudflare Pages or Vercel"
+        rationale: "Global edge network, instant cache invalidation"
+        next: null
+
+  static_hosting:
+    question: "What's your priority?"
+    options:
+      - label: "Absolutely free"
+        recommendation: "GitHub Pages or Cloudflare Pages"
+        rationale: "Completely free for static sites"
+        next: null
+      - label: "Custom domain and SSL"
+        recommendation: "Cloudflare Pages or Netlify"
+        rationale: "Free SSL, easy custom domains"
+        next: null
+      - label: "Maximum control"
+        recommendation: "S3 + CloudFront or any VPS"
+        rationale: "Full control, can optimize caching yourself"
+        next: null
+
+  fullstack_hosting:
+    question: "How complex is your stack?"
+    context: "Fullstack apps need both frontend and backend hosting"
+    options:
+      - label: "Next.js with API routes or tRPC"
+        next: "nextjs_fullstack"
+      - label: "Separate frontend and backend"
+        next: "separate_fullstack"
+      - label: "Monorepo with multiple services"
+        next: "monorepo_hosting"
+
+  nextjs_fullstack:
+    question: "What's your priority?"
+    options:
+      - label: "Best DX and performance"
+        recommendation: "Vercel"
+        rationale: "Optimized for Next.js, serverless functions, edge runtime"
+        next: null
+      - label: "More affordable"
+        recommendation: "Railway or Render"
+        rationale: "Flat pricing, no surprises, good performance"
+        next: null
+      - label: "Need long-running processes"
+        recommendation: "Railway, Render, or DigitalOcean App Platform"
+        rationale: "Vercel has 10s function limit, these support longer processes"
+        next: null
+
+  separate_fullstack:
+    question: "What's your backend technology?"
+    options:
+      - label: "Node.js / Python / Go API"
+        recommendation: "Railway, Render, or Fly.io"
+        rationale: "Easy deployment, auto-scaling, affordable"
+        next: null
+      - label: "Django or Rails (needs traditional server)"
+        recommendation: "Railway, Render, or DigitalOcean"
+        rationale: "Support traditional servers, easy database integration"
+        next: null
+      - label: "Containerized backend"
+        next: "container_hosting"
+
+  monorepo_hosting:
+    question: "What's your preference?"
+    options:
+      - label: "All-in-one platform"
+        recommendation: "Vercel or Netlify (with monorepo support)"
+        rationale: "Can deploy multiple projects from one repo"
+        next: null
+      - label: "Separate platforms for each service"
+        recommendation: "Mix Vercel (frontend) + Railway (backend)"
+        rationale: "Use best platform for each part"
+        next: null
+      - label: "Everything on one platform"
+        recommendation: "Railway or Render"
+        rationale: "Can host frontend, backend, workers, databases"
+        next: null
+
+  backend_hosting:
+    question: "What type of backend?"
+    context: "Different backends have different hosting needs"
+    options:
+      - label: "REST API (Node/Python/Go)"
+        next: "api_hosting"
+      - label: "WebSocket / Real-time server"
+        next: "realtime_hosting"
+      - label: "Background workers / cron jobs"
+        next: "worker_hosting"
+
+  api_hosting:
+    question: "What's your priority?"
+    options:
+      - label: "Simplicity and good DX"
+        recommendation: "Railway or Render"
+        rationale: "Git push to deploy, auto-scaling, simple pricing"
+        next: null
+      - label: "Cost-effective for low traffic"
+        recommendation: "Fly.io or Railway"
+        rationale: "Pay for what you use, generous free tiers"
+        next: null
+      - label: "Global low latency"
+        recommendation: "Fly.io or Cloudflare Workers"
+        rationale: "Deploy to edge locations globally"
+        next: null
+      - label: "Maximum control and customization"
+        recommendation: "DigitalOcean Droplet or Hetzner VPS"
+        rationale: "Full control, cheaper for high traffic"
+        next: null
+
+  realtime_hosting:
+    question: "What's your scale?"
+    context: "Real-time needs persistent connections"
+    options:
+      - label: "Small scale (< 1k concurrent)"
+        recommendation: "Railway or Render"
+        rationale: "Support WebSockets, easy to set up"
+        next: null
+      - label: "Medium scale (1k-10k concurrent)"
+        recommendation: "Fly.io or self-managed VPS"
+        rationale: "Better WebSocket handling, can scale horizontally"
+        next: null
+      - label: "Large scale (10k+ concurrent)"
+        recommendation: "Self-managed on AWS/GCP or Ably/Pusher"
+        rationale: "Need specialized infrastructure or managed service"
+        next: null
+
+  worker_hosting:
+    question: "What's your use case?"
+    options:
+      - label: "Scheduled jobs (cron)"
+        recommendation: "Railway, Render Cron Jobs, or GitHub Actions"
+        rationale: "Easy to set up cron, no separate infrastructure"
+        next: null
+      - label: "Queue-based background jobs"
+        recommendation: "Railway (with Redis) or Inngest"
+        rationale: "Railway for full control; Inngest for managed queues"
+        next: null
+      - label: "Heavy processing jobs"
+        recommendation: "Dedicated VPS or AWS Batch"
+        rationale: "Need more resources, dedicated compute"
+        next: null
+
+  serverless_hosting:
+    question: "What's your framework/runtime?"
+    context: "Different platforms support different runtimes"
+    options:
+      - label: "Next.js API Routes"
+        recommendation: "Vercel"
+        rationale: "Native Next.js support, optimized serverless"
+        next: null
+      - label: "Generic Node.js/Python functions"
+        recommendation: "Cloudflare Workers or Vercel Functions"
+        rationale: "Easy setup, auto-scaling, generous free tiers"
+        next: null
+      - label: "Edge functions (global)"
+        recommendation: "Cloudflare Workers or Deno Deploy"
+        rationale: "Run at edge globally, ultra-fast cold starts"
+        next: null
+      - label: "AWS Lambda ecosystem"
+        recommendation: "AWS Lambda or SST"
+        rationale: "AWS ecosystem, SST for better DX"
+        next: null
+
+  container_hosting:
+    question: "What's your priority?"
+    context: "Containers need orchestration or managed services"
+    options:
+      - label: "Simplicity (don't want to manage Kubernetes)"
+        recommendation: "Railway, Render, or Fly.io"
+        rationale: "Docker support, no K8s complexity, git push to deploy"
+        next: null
+      - label: "Need Kubernetes"
+        next: "kubernetes_hosting"
+      - label: "Maximum control and cost optimization"
+        recommendation: "DigitalOcean or Hetzner VPS with Docker Compose"
+        rationale: "Full control, cheaper at scale"
+        next: null
+
+  kubernetes_hosting:
+    question: "What's your team's Kubernetes experience?"
+    options:
+      - label: "Experienced with K8s"
+        recommendation: "DigitalOcean Kubernetes or GKE Autopilot"
+        rationale: "DO for simplicity; GKE for Google ecosystem"
+        next: null
+      - label: "Need managed Kubernetes"
+        recommendation: "GKE Autopilot or Railway"
+        rationale: "GKE Autopilot is easiest managed K8s"
+        next: null
+      - label: "Don't actually need Kubernetes"
+        recommendation: "Railway or Render (avoid K8s complexity)"
+        rationale: "Most SMBs don't need K8s - simpler is better"
+        next: null
+
+# Quick reference matrix
+quick_reference:
+  by_app_type:
+    nextjs_app: "Vercel or Railway"
+    static_site: "Cloudflare Pages or Netlify"
+    spa_react_vue: "Netlify or Cloudflare Pages"
+    rest_api: "Railway or Render"
+    websocket_app: "Fly.io or Railway"
+    full_stack: "Vercel (all-in-one) or Vercel + Railway (separate)"
+    containers: "Railway or Fly.io"
+
+  by_priority:
+    simplicity: "Vercel or Railway"
+    cost: "Cloudflare Pages or Fly.io"
+    performance: "Vercel or Cloudflare"
+    global_edge: "Cloudflare or Fly.io"
+    control: "DigitalOcean or Hetzner VPS"
+
+  by_budget:
+    free: "Cloudflare Pages, Netlify, Vercel (hobby), Railway (free tier)"
+    under_20_month: "Railway, Render, Fly.io"
+    under_100_month: "Railway, Render, DigitalOcean App Platform"
+    no_limit: "Vercel Pro, AWS, GCP"
+
+  by_team_size:
+    solo_1_person: "Vercel or Railway (easiest)"
+    small_2_5: "Railway or Render (good balance)"
+    medium_6_plus: "Mix of platforms or self-managed"
+
+# Platform comparison
+platform_features:
+  vercel:
+    best_for: "Next.js, frontend frameworks"
+    pros:
+      - "Best Next.js DX"
+      - "Automatic edge optimizations"
+      - "Preview deployments"
+      - "Analytics built-in"
+    cons:
+      - "Expensive at scale"
+      - "10s function timeout (hobby)"
+      - "Vendor lock-in"
+    pricing: "Free hobby, $20/user/month Pro"
+
+  netlify:
+    best_for: "Static sites, Jamstack"
+    pros:
+      - "Great free tier"
+      - "Forms, split testing built-in"
+      - "Edge functions"
+    cons:
+      - "Slower builds than Vercel"
+      - "Less optimized for Next.js"
+    pricing: "Free tier, $19/user/month Pro"
+
+  cloudflare_pages:
+    best_for: "Static sites, global edge"
+    pros:
+      - "Generous free tier"
+      - "Global edge network"
+      - "Fast deployments"
+      - "Free unlimited bandwidth"
+    cons:
+      - "Less mature than Vercel/Netlify"
+      - "Smaller ecosystem"
+    pricing: "Free tier, $20/month Pro"
+
+  railway:
+    best_for: "Full-stack apps, APIs, databases"
+    pros:
+      - "Simple pricing ($5/month + usage)"
+      - "Database hosting included"
+      - "Docker support"
+      - "No timeout limits"
+    cons:
+      - "Not specialized for frontend"
+      - "Manual scaling config"
+    pricing: "$5/month + usage (pay what you use)"
+
+  render:
+    best_for: "Full-stack apps, APIs"
+    pros:
+      - "Free tier for web services"
+      - "Database hosting"
+      - "Cron jobs"
+      - "Docker support"
+    cons:
+      - "Free tier spins down after inactivity"
+      - "Can be slow to deploy"
+    pricing: "Free tier, $7/month and up"
+
+  flyio:
+    best_for: "APIs, global edge deployment"
+    pros:
+      - "Global deployment"
+      - "Bring your own Docker"
+      - "Great for WebSockets"
+      - "Generous free tier"
+    cons:
+      - "More complex than Railway/Render"
+      - "CLI-first (less UI)"
+    pricing: "Free tier, pay-per-use"
+
+  digitalocean:
+    best_for: "Control, cost optimization at scale"
+    pros:
+      - "Predictable pricing"
+      - "Full control"
+      - "Good documentation"
+    cons:
+      - "More manual setup"
+      - "Need to manage servers"
+    pricing: "$4-6/month droplets, $12/month App Platform"
+
+# Hosting patterns
+recommended_patterns:
+  simple_saas:
+    frontend: "Vercel"
+    backend: "Railway (if separate)"
+    database: "Supabase or Railway"
+    rationale: "Modern, easy deployment, scales well"
+
+  cost_optimized_saas:
+    frontend: "Cloudflare Pages"
+    backend: "Fly.io or Railway"
+    database: "Supabase free tier or self-hosted"
+    rationale: "Generous free tiers, pay-per-use"
+
+  api_only_product:
+    backend: "Railway or Render"
+    database: "Railway or Supabase"
+    rationale: "Simple, affordable, good DX"
+
+  content_heavy_site:
+    frontend: "Netlify or Cloudflare Pages"
+    cms: "Sanity or Contentful (headless)"
+    rationale: "Static generation, fast CDN, easy CMS integration"
+
+  global_edge_app:
+    frontend: "Cloudflare Pages"
+    backend: "Cloudflare Workers or Fly.io"
+    database: "Turso or Neon (global)"
+    rationale: "Deploy everywhere, low latency globally"
+
+# Multi-region deployment
+multi_region:
+  when_needed:
+    - "Users in multiple continents"
+    - "Need < 100ms latency globally"
+    - "Compliance requires data residency"
+
+  easy_multi_region:
+    - "Cloudflare (automatic)"
+    - "Vercel Edge Network (automatic)"
+    - "Fly.io (configurable regions)"
+
+  complex_multi_region:
+    - "AWS multi-region (manual setup)"
+    - "GCP multi-region (manual setup)"
+    - "Self-managed geo-distributed"
+
+# Red flags
+red_flags:
+  vercel:
+    - "Tight budget with high traffic"
+    - "Need long-running processes (> 60s)"
+    - "Heavy compute workloads"
+
+  netlify:
+    - "Next.js is primary framework"
+    - "Need advanced edge features"
+
+  railway:
+    - "Need advanced CDN features"
+    - "Want serverless auto-scaling"
+
+  aws_lambda:
+    - "Small team with no DevOps"
+    - "Want simple deployment"
+    - "Cold starts are critical"
+
+  vps_self_managed:
+    - "Solo developer with limited ops experience"
+    - "Want to focus on product, not infrastructure"
+    - "Don't have time for security updates"
+
+# Migration paths
+migration_difficulty:
+  vercel_to_netlify: "Easy (similar platforms)"
+  vercel_to_railway: "Medium (different architecture)"
+  netlify_to_cloudflare: "Easy (similar platforms)"
+  aws_to_railway: "Medium (different approach)"
+  vps_to_paas: "Easy (same code, easier deploy)"
+
+# SMB-specific guidance
+smb_guidance:
+  micro_business_1_2_people:
+    recommendation: "Vercel (frontend) or Railway (full-stack)"
+    rationale: "Zero ops, focus on product, easy deployment"
+    monthly_cost: "$0-50"
+
+  small_business_3_10_people:
+    recommendation: "Railway or Render (all-in-one)"
+    rationale: "Simple, affordable, can grow with you"
+    monthly_cost: "$50-200"
+
+  medium_business_10_50_people:
+    recommendation: "Mix: Vercel (frontend) + Railway (backend) or DigitalOcean"
+    rationale: "Best tool for each job or control costs"
+    monthly_cost: "$200-1000"
+
+  avoid_for_smb:
+    - "Self-managed Kubernetes (too complex)"
+    - "AWS without abstraction (too complex)"
+    - "Multiple cloud providers (unnecessary complexity)"
+    - "Bare metal servers (too much ops work)"
+
+# Cost optimization strategies
+cost_optimization:
+  development:
+    - "Use free tiers (Vercel hobby, Railway dev, Render free)"
+    - "Use preview deployments instead of staging servers"
+    - "Share staging environment across team"
+
+  production_small:
+    - "Start with managed platforms (Railway, Render)"
+    - "Use serverless where possible (pay per use)"
+    - "Leverage free tiers (Cloudflare Pages, Supabase)"
+
+  production_scaling:
+    - "Monitor costs, optimize hot paths"
+    - "Consider VPS when managed gets expensive"
+    - "Use CDN to reduce origin load"
+    - "Cache aggressively"
+
+# Performance optimization
+performance_tips:
+  static_sites:
+    - "Use Cloudflare Pages or Vercel (global CDN)"
+    - "Enable compression"
+    - "Optimize images (use CDN image optimization)"
+
+  ssr_apps:
+    - "Use edge runtime where possible (Vercel Edge, Cloudflare)"
+    - "Implement ISR (Incremental Static Regeneration)"
+    - "Cache at CDN level"
+
+  apis:
+    - "Deploy close to database (reduce latency)"
+    - "Use Redis for caching"
+    - "Implement API response caching"
+    - "Consider edge caching for read-heavy APIs"

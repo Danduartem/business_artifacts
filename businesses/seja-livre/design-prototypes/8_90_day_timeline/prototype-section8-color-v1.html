@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 8: 90-Day Timeline - Light & Airy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Century Gothic', 'Lato', 'Avenir', sans-serif;
+            line-height: 1.6;
+            color: #2C3E50;
+            background: linear-gradient(135deg, #FAF8F5 0%, #FFFFFF 50%, #F5F3EF 100%);
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: #191F3A;
+        }
+
+        .section-header h1 {
+            font-family: 'Lora', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #2C3E50;
+        }
+
+        /* Progress Indicator */
+        .progress-container {
+            margin: 60px auto 80px;
+            max-width: 900px;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 30px;
+            left: 20px;
+            right: 20px;
+            height: 4px;
+            background: #E8E6E3;
+            z-index: 1;
+        }
+
+        .progress-line-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, #81171F 0%, #A63C58 100%);
+            border-radius: 2px;
+        }
+
+        .progress-step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-circle {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #81171F 0%, #A63C58 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 20px rgba(129, 23, 31, 0.25);
+            border: 3px solid #FFFFFF;
+        }
+
+        .step-label {
+            color: #191F3A;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Timeline Grid */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Phase Cards */
+        .phase-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #E8E6E3;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .phase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #C9A227 0%, #E5B94D 100%);
+        }
+
+        .phase-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #81171F 0%, #A63C58 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(129, 23, 31, 0.2);
+        }
+
+        .phase-title {
+            font-family: 'Lora', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #191F3A;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .phase-period {
+            color: #81171F;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .phase-subtitle {
+            font-family: 'Lora', serif;
+            font-size: 1.125rem;
+            color: #2C3E50;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .phase-outcomes {
+            margin-bottom: 30px;
+        }
+
+        .outcome-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: #2C3E50;
+            line-height: 1.6;
+        }
+
+        .outcome-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .check-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            margin-top: 2px;
+        }
+
+        .check-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: #81171F;
+            stroke-width: 2.5;
+            fill: none;
+        }
+
+        .feeling-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #FFF9F0;
+            border-radius: 12px;
+            border-left: 4px solid #C9A227;
+        }
+
+        .feeling-label {
+            color: #81171F;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+
+        .feeling-text {
+            font-family: 'Lora', serif;
+            font-style: italic;
+            color: #2C3E50;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+        }
+
+        /* Bottom CTA Section */
+        .bottom-cta {
+            text-align: center;
+            margin-top: 80px;
+            padding: 50px 30px;
+            background: #FAF8F5;
+            border-radius: 16px;
+            border: 2px solid #E8E6E3;
+        }
+
+        .bottom-cta p {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: #2C3E50;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .bottom-cta strong {
+            font-weight: 700;
+            color: #81171F;
+        }
+
+        .eagle-icon {
+            font-size: 2rem;
+            margin-top: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 15px;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+
+            .progress-container {
+                margin: 40px auto 60px;
+            }
+
+            .progress-steps {
+                padding: 0 10px;
+            }
+
+            .step-circle {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+
+            .step-label {
+                font-size: 0.75rem;
+            }
+
+            .timeline-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .phase-card {
+                padding: 30px 25px;
+            }
+
+            .phase-title {
+                font-size: 1.5rem;
+            }
+
+            .bottom-cta {
+                margin-top: 60px;
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .progress-line {
+                top: 25px;
+            }
+
+            .step-circle {
+                width: 45px;
+                height: 45px;
+                font-size: 0.875rem;
+            }
+
+            .step-label {
+                font-size: 0.7rem;
+            }
+
+            .phase-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <h1>Sua Jornada de Libertação: O Que Acontece em 90 Dias</h1>
+            <p>Eu sei que 90 dias pode parecer muito tempo quando você está no limite. Mas vou te mostrar exatamente o que acontece em cada fase—e quando você vai começar a RESPIRAR de novo.</p>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="progress-container">
+            <div class="progress-steps">
+                <div class="progress-line">
+                    <div class="progress-line-fill"></div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-circle">30</div>
+                    <div class="step-label">Dias</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-circle">60</div>
+                    <div class="step-label">Dias</div>
+                </div>
+                <div class="progress-step">
+                    <div class="step-circle">90</div>
+                    <div class="step-label">Dias</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Grid -->
+        <div class="timeline-grid">
+            <!-- Phase 1 -->
+            <div class="phase-card">
+                <div class="phase-number">1</div>
+                <h2 class="phase-title">Fundação</h2>
+                <span class="phase-period">Dias 1-30</span>
+                <p class="phase-subtitle">"Pare de Apagar Incêndios, Comece a Construir"</p>
+
+                <div class="phase-outcomes">
+                    <div class="outcome-item">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span>Identificamos os 3 maiores gargalos que te prendem na operação</span>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span>Criamos seu primeiro sistema operacional (o que você mais precisa)</span>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span>Implementamos processos de delegação que FUNCIONAM</span>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span>Sua equipe começa a executar tarefas sem te perguntar tudo</span>
+                    </div>
+                </div>
+
+                <div class="feeling-section">
+                    <div class="feeling-label">Você vai sentir:</div>
+                    <div class="feeling-text">Primeiros sinais de alívio. Menos interrupções. Começa a acreditar que é possível.</div>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="phase-card">
+                <div class="phase-number">2</div>
+                <h2 class="phase-title">Implementação</h2>
+                <span class="phase-period">Dias 31-60</span>
+                <p class="phase-subtitle">"De Operadora a CEO"</p>
+
+                <div class="phase-outcomes">
+                    <div class="outcome-item">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span>Construímos seus sistemas de vendas, marca e atração de clientes</span>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span>Implementamos automações inteligentes (tecnologia trabalhando por você)</span>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span>Treinamos sua equipe nos novos processos (eles se tornam autônomos)</span>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span>Você delega 60-70% do operacional que antes fazia sozinha</span>
+                    </div>
+                </div>
+
+                <div class="feeling-section">
+                    <div class="feeling-label">Você vai sentir:</div>
+                    <div class="feeling-text">Liberdade crescente. Trabalha menos horas. Consegue pensar estrategicamente pela primeira vez em anos.</div>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="phase-card">
+                <div class="phase-number">3</div>
+                <h2 class="phase-title">Liberação</h2>
+                <span class="phase-period">Dias 61-90</span>
+                <p class="phase-subtitle">"Empresa Autossustentável"</p>
+
+                <div class="phase-outcomes">
+                    <div class="outcome-item">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span>Refinamos todos os sistemas (agora eles rodam sem você)</span>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span>Você tira sua primeira semana off completa (sem pânico!)</span>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span>Sua equipe opera independentemente—você só intervém no estratégico</span>
+                    </div>
+                    <div class="outcome-item">
+                        <div class="check-icon">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <span>Você trabalha 40 horas/semana (ou menos) e a empresa cresce</span>
+                    </div>
+                </div>
+
+                <div class="feeling-section">
+                    <div class="feeling-label">Você vai sentir:</div>
+                    <div class="feeling-text">LIVRE. Sua empresa não é mais sua prisão. Você é CEO, não CLT do seu CNPJ.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="bottom-cta">
+            <p><strong>Aos 90 dias, você não vai reconhecer sua vida.</strong> E o melhor? Você não precisa esperar 90 dias para sentir diferença—a partir da semana 3, você já respira melhor. <span class="eagle-icon">🦅</span></p>
+        </div>
+    </div>
+</body>
+</html>

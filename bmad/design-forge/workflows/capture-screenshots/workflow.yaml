@@ -1,0 +1,36 @@
+# Capture Screenshots Workflow Configuration
+name: "capture-screenshots"
+description: "Automated screenshot capture of prototypes at multiple viewports using browser automation"
+author: "Design Forge"
+version: "3.0.0"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/design-forge/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Module-specific config variables
+prototype_output_folder: "{config_source}:prototype_output_folder"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/design-forge/workflows/capture-screenshots"
+template: false
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# External tool (recommended architecture)
+# Note: This workflow is a lightweight wrapper around browser automation tool
+# For full functionality, install: npx playwright install chromium
+
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  workflow: "bmad/design-forge/workflows/capture-screenshots/workflow.yaml"
+  files:
+    - "bmad/design-forge/workflows/capture-screenshots/workflow.yaml"
+    - "bmad/design-forge/workflows/capture-screenshots/instructions.md"
+    - "bmad/design-forge/workflows/capture-screenshots/checklist.md"
+    - "bmad/design-forge/workflows/capture-screenshots/README.md"
+  existing_workflows: []

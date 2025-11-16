@@ -1,0 +1,205 @@
+# Offer Forge Module Configuration
+# This file contains module-specific settings that can be customized per installation
+# Version: 1.0.0
+# Date: 2025-11-04
+
+# ============================================================================
+# CORE CONFIGURATION
+# These values are inherited from BMAD installer but can be overridden here
+# ============================================================================
+
+# User's name (used in personalization)
+user_name: "Daniel"
+
+# Primary communication language
+communication_language: "English"
+
+# Output folder for generated offer stacks and deliverables
+output_folder: "{project-root}/docs"
+
+# ============================================================================
+# MODULE-SPECIFIC CONFIGURATION
+# ============================================================================
+
+# Module metadata
+module:
+  name: "Offer Forge"
+  version: "1.0.0"
+  code: "offer-forge"
+  description: "Transform customer intelligence into irresistible offer stacks"
+
+# Module paths
+paths:
+  data: "{project-root}/bmad/offer-forge/data"
+  templates: "{project-root}/bmad/offer-forge/templates"
+  agents: "{project-root}/bmad/offer-forge/agents"
+  workflows: "{project-root}/bmad/offer-forge/workflows"
+
+# Agent references
+agents:
+  hub: "{project-root}/bmad/offer-forge/agents/offer-forge.agent.yaml"
+  offer_architect: "{project-root}/bmad/offer-forge/agents/offer-architect.agent.yaml"
+  value_proposition_specialist: "{project-root}/bmad/offer-forge/agents/value-proposition-specialist.agent.yaml"
+  pricing_strategist: "{project-root}/bmad/offer-forge/agents/pricing-strategist.agent.yaml"
+  senior_offer_specialist: "{project-root}/bmad/offer-forge/agents/senior-offer-specialist.agent.yaml"
+
+# Workflow references
+workflows:
+  create: "{project-root}/bmad/offer-forge/workflows/create-offer-stack/workflow.yaml"
+  update: "{project-root}/bmad/offer-forge/workflows/update-offer-stack/workflow.yaml"
+  validate: "{project-root}/bmad/offer-forge/workflows/validate-offer-stack/workflow.yaml"
+  optimize: "{project-root}/bmad/offer-forge/workflows/optimize-offer-stack/workflow.yaml"
+  compare: "{project-root}/bmad/offer-forge/workflows/compare-offer-variations/workflow.yaml"
+  audit: "{project-root}/bmad/offer-forge/workflows/audit-competitor/workflow.yaml"
+
+# ============================================================================
+# WORKFLOW DEFAULTS
+# ============================================================================
+
+# Default settings for CREATE workflow
+create_defaults:
+  stack_structure: "3-tier"  # Options: "2-tier" or "3-tier"
+  include_competitive_analysis: true
+  validation_threshold: 8.0  # Minimum quality score to proceed without corrections
+
+# Default settings for UPDATE workflow
+update_defaults:
+  backup_original: true
+  max_correction_cycles:
+    minor: 1
+    moderate: 2
+    major: 3
+
+# Default settings for VALIDATE workflow
+validate_defaults:
+  validation_frequency: "quarterly"  # Options: "monthly", "quarterly", "semi-annual", "annual"
+  include_competitive_refresh: false  # Whether to run fresh competitive analysis
+  generate_recommendations: true
+
+# ============================================================================
+# QUALITY STANDARDS
+# ============================================================================
+
+# Validation scoring thresholds
+quality_thresholds:
+  strong: 8.0   # 8.0-10.0: Strong quality, no corrections needed
+  good: 7.0     # 7.0-7.9: Good quality, minor corrections (1 cycle)
+  moderate: 5.0 # 5.0-6.9: Moderate issues, corrections needed (2 cycles)
+  weak: 0.0     # <5.0: Major issues, significant corrections (3 cycles)
+
+# Validation criteria weights (for calculating overall score)
+validation_weights:
+  value_ladder_integrity: 1.0
+  tier_differentiation: 1.0
+  transformation_promise: 1.0
+  messaging_alignment: 1.0
+  pricing_psychology: 1.0
+  objection_handling: 1.0
+  support_scaling: 1.0
+  competitive_differentiation: 1.0
+
+# ============================================================================
+# PRICING PSYCHOLOGY SETTINGS
+# ============================================================================
+
+# Pricing psychology techniques applied
+pricing_techniques:
+  - anchoring_effect
+  - charm_pricing
+  - price_value_gap
+  - payment_framing
+  - decoy_effect
+
+# Value ladder progression guidelines
+value_ladder:
+  min_multiplier: 3.0  # Minimum value jump between tiers (3x)
+  max_multiplier: 5.0  # Maximum value jump between tiers (5x)
+  ideal_multiplier: 4.0  # Ideal value jump
+
+# Support level progression
+support_levels:
+  entry: "self-serve"
+  core: "done-with-you"
+  premium: "done-for-you"
+
+# Access level progression
+access_levels:
+  entry: "large-group"    # Community, self-paced
+  core: "small-group"     # Cohorts, monthly 1-on-1
+  premium: "vip-access"   # Unlimited 1-on-1, priority
+
+# ============================================================================
+# MESSAGING FRAMEWORKS
+# ============================================================================
+
+# Eugene Schwartz's 5 Levels of Awareness mapping
+awareness_levels:
+  1: "unaware"         # Don't know they have a problem
+  2: "problem-aware"   # Know problem, don't know solutions
+  3: "solution-aware"  # Know solutions exist, don't know your solution
+  4: "product-aware"   # Know your solution, evaluating options
+  5: "most-aware"      # Ready to buy, needs final push
+
+# Tier-to-awareness mapping defaults
+tier_awareness_mapping:
+  entry: [3, 4]      # Solution-aware to Product-aware
+  core: [4, 5]       # Product-aware to Most-aware
+  premium: [5]       # Most-aware only
+
+# ============================================================================
+# OUTPUT CONFIGURATION
+# ============================================================================
+
+# Naming patterns for generated files
+output_naming:
+  offer_stack: "{business_name}-offer-stack.md"
+  offer_sheet_entry: "{business_name}-entry-offer-sheet.md"
+  offer_sheet_core: "{business_name}-core-offer-sheet.md"
+  offer_sheet_premium: "{business_name}-premium-offer-sheet.md"
+  pricing_strategy: "{business_name}-pricing-strategy.md"
+  objection_handling: "{business_name}-objection-handling.md"
+  validation_report: "{business_name}-validation-report-{date}.md"
+  update_log: "{business_name}-update-log-{date}.md"
+  backup_suffix: "-backup-{date}.md"
+
+# ============================================================================
+# FEATURE FLAGS
+# ============================================================================
+
+# Optional features that can be enabled/disabled
+features:
+  web_search_enabled: true           # For competitive analysis
+  persona_integration_enabled: false  # Future: Persona-to-Offer pipeline
+  ab_testing_enabled: false           # Future: A/B testing module
+  analytics_dashboard_enabled: false  # Future: Analytics integration
+
+# ============================================================================
+# ADVANCED SETTINGS
+# ============================================================================
+
+# Correction loop settings
+correction_loops:
+  enabled: true
+  max_cycles_override: 5  # Max cycles before requiring user intervention
+  auto_apply_minor_corrections: false  # Auto-apply without user confirmation
+
+# Agent timeout settings (milliseconds)
+agent_timeouts:
+  offer_architect: 180000      # 3 minutes
+  value_proposition_specialist: 180000  # 3 minutes
+  pricing_strategist: 120000   # 2 minutes
+  senior_offer_specialist: 120000  # 2 minutes
+
+# Performance optimization
+performance:
+  parallel_agent_execution: false  # Future: Run multiple agents in parallel
+  cache_agent_responses: false     # Future: Cache for faster re-runs
+  incremental_updates: true        # Only regenerate changed sections
+
+# ============================================================================
+# NOTES
+# ============================================================================
+# - This config is loaded by all workflows and agents at runtime
+# - Values can be overridden in individual workflow configurations
+# - User-specific customizations should go in {project-root}/bmad/_cfg/
+# - Module updates may add new configuration options

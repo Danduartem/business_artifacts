@@ -1,0 +1,46 @@
+# Track Persona Evolution Workflow Configuration
+name: track-evolution
+description: "Analyze how personas have evolved over time, identify trends, and visualize changes"
+author: "Persona Forge"
+
+# Critical variables load from module config
+config_source: "{project-root}/bmad/persona-forge/config.yaml"
+output_folder: "{config_source}:output_folder"
+persona_output_folder: "{config_source}:persona_output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+
+# System variables
+date: system-generated
+
+# Agent references
+senior_persona_specialist: "{project-root}/bmad/persona-forge/agents/senior-persona-specialist.md"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/persona-forge/workflows/track-evolution"
+template: false # Interactive workflow with evolution analysis
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Output configuration
+evolution_report_file: "{persona_output_folder}/evolution-report-{{persona_name_slug}}-{{date}}.md"
+
+# Workflow state
+persona_versions: []
+version_count: 0
+analysis_depth: null # quick/standard/deep
+trends_identified: []
+insights_generated: false
+
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  name: "track-evolution"
+  description: "Track how personas have evolved over time"
+  author: "Persona Forge"
+  instructions: "bmad/persona-forge/workflows/track-evolution/instructions.md"
+  web_bundle_files:
+    - bmad/persona-forge/workflows/track-evolution/instructions.md
+    - bmad/persona-forge/workflows/track-evolution/checklist.md
+    - bmad/persona-forge/agents/senior-persona-specialist.md

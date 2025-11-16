@@ -1,0 +1,99 @@
+# Design Forge Module Configuration
+# This file defines installation questions and module configuration values
+
+code: design-forge
+name: "Design Forge"
+default_selected: false
+
+# Welcome message shown during installation
+prompt:
+  - "Thank you for choosing Design Forge!"
+  - "The Vision Translation Engine that generates 5 visually beautiful, diverse HTML prototypes for web sections."
+  - "Solve 'The Translation Gap' - transform your design vision into production-ready code."
+
+# Core config values are automatically inherited:
+## user_name
+## communication_language
+## document_output_language
+## output_folder
+
+# ============================================================================
+# CONFIGURATION FIELDS
+# ============================================================================
+# Each field can be:
+# 1. INTERACTIVE (has 'prompt' - asks user during installation)
+# 2. STATIC (no 'prompt' - just uses 'result' value)
+# ============================================================================
+
+# INTERACTIVE - Asks user during installation
+prototype_output_folder:
+  prompt: "Where should Design Forge save prototype HTML files?"
+  default: "prototype"
+  result: "{project-root}/{value}"
+
+# STATIC - Hardcoded values (editable in config.yaml after install)
+diversity_mode:
+  result: "balanced"
+  # Options: conservative | balanced | wild
+  # Conservative: All 5 prototypes stay close to brief, subtle variations
+  # Balanced: Mix of safe + exploratory archetypes (default)
+  # Wild: Push boundaries, unexpected combinations
+
+include_design_rationale:
+  result: "true"
+  # If true, each HTML includes detailed comment block explaining:
+  # - Archetype's design philosophy
+  # - Specific design choices (layout, colors, typography)
+  # - Emotional response targeted
+  # - How design serves user's goals
+
+design_principles_path:
+  result: "{project-root}/context/design-principles.md"
+  # Path to design standards document
+  # Design Director references this when generating prototypes
+  # Optional - if file doesn't exist, uses built-in best practices
+
+style_guide_path:
+  result: "{project-root}/context/style-guide.md"
+  # Path to style guide document
+  # Design Director references brand colors, fonts, technical requirements
+  # Optional - if file doesn't exist, uses context from user input
+
+# ============================================================================
+# SCREENSHOT CAPTURE CONFIGURATION (v3.0)
+# ============================================================================
+
+# INTERACTIVE - Auto-capture screenshots after generation
+auto_capture_on_generate:
+  prompt: "Auto-capture screenshots after generating prototypes? (Requires Node.js + Playwright)"
+  default: "yes"
+  result: "{value}"
+  # If yes: Automatically captures screenshots after *generate completes
+  # If no: User must run *screenshot manually
+
+# STATIC - Default viewports to capture
+viewports_to_capture:
+  result: ["mobile", "tablet", "desktop"]
+  # Which viewports to capture by default
+  # Options: mobile (375px), tablet (768px), desktop (1440px)
+  # User can override in *screenshot workflow
+
+# STATIC - Screenshot quality
+screenshot_quality:
+  result: "90"
+  # PNG quality (60-100)
+  # Higher = better quality but larger files
+  # 90 is recommended balance
+
+# STATIC - Auto-cleanup old screenshots
+auto_cleanup_old:
+  result: "false"
+  # If true: Deletes screenshots older than 30 days automatically
+  # If false: Screenshots persist until manually deleted
+
+# STATIC - Maximum screenshot storage
+max_storage_mb:
+  result: "500"
+  # Warns when storage exceeds this limit (doesn't prevent capture)
+  # Typical: 1 prototype = ~1-2 MB (3 viewports)
+  # 5 prototypes = ~5-10 MB

@@ -1,0 +1,233 @@
+module:
+  metadata:
+    id: 'seo-audit-pro'
+    name: 'SEO Audit Pro'
+    version: '1.0.0'
+    description: 'Automated SEO Sales Intelligence System'
+    release_date: '2025-11-07'
+    bmad_core_required: '6.0.0'
+
+  paths:
+    module_root: '{project-root}/bmad/seo-audit-pro/'
+    agents: '{module_root}/agents/'
+    workflows: '{module_root}/workflows/'
+    tasks: '{module_root}/tasks/'
+    templates: '{module_root}/templates/'
+    data: '{module_root}/data/'
+    docs: '{module_root}/docs/'
+
+# SEO Data Source Configuration
+seo_data_sources:
+  mode: 'manual'  # Options: 'manual', 'api'
+
+  # If using API mode, configure provider and credentials:
+  api_provider: ''  # Options: 'ahrefs', 'semrush', 'moz', 'custom'
+  api_key: ''
+  api_backup_key: ''
+
+  # Manual entry settings:
+  manual_entry_enabled: true
+  allow_estimates: true
+  require_validation: false
+
+# Report Output Configuration
+report_output:
+  folder: '~/seo-reports/'  # Default output folder for PDF reports
+  archive_folder: '~/seo-reports/archive/'
+  filename_pattern: '{client_name}-SEO-Audit-{date}.pdf'
+  date_format: 'YYYY-MM-DD'
+
+  # Archive settings:
+  auto_archive: false
+  archive_after_days: 90
+  keep_archived_reports: true
+
+# Scoring Weights Configuration
+# All weights must sum to 1.0
+scoring_weights:
+  profile: 'balanced'  # Options: 'balanced', 'technical_focus', 'content_focus', 'custom'
+
+  # Balanced Profile (default):
+  technical: 0.25      # Technical SEO (performance, mobile, indexing)
+  onpage: 0.20         # On-Page SEO (content, meta tags, structure)
+  backlinks: 0.25      # Backlinks (domain authority, link profile)
+  competitors: 0.15    # Competitive positioning
+  opportunities: 0.15  # Growth opportunities
+
+  # Alternative profiles (uncomment to use):
+
+  # Technical Focus:
+  # technical: 0.35
+  # onpage: 0.15
+  # backlinks: 0.25
+  # competitors: 0.15
+  # opportunities: 0.10
+
+  # Content Focus:
+  # technical: 0.15
+  # onpage: 0.35
+  # backlinks: 0.20
+  # competitors: 0.15
+  # opportunities: 0.15
+
+# Problem Cascade Configuration
+problem_cascade:
+  enabled: true
+  structure: 'pain_cause_hope'  # The 3-part narrative structure
+
+  # Competitive urgency level affects tone:
+  competitive_urgency: 'high'  # Options: 'low', 'medium', 'high'
+
+  # Quantification requirements:
+  quantification_required: true  # Use specific numbers whenever possible
+  estimate_traffic_potential: true  # Calculate estimated traffic/revenue impact
+
+  # Language and tone:
+  business_language_level: 'decision_maker'  # Options: 'technical', 'business', 'decision_maker'
+  avoid_jargon: true
+  max_technical_depth: 'medium'  # Options: 'low', 'medium', 'high'
+
+# Quality Validation Configuration
+quality_validation:
+  enabled: true
+
+  # 3-phase validation loop:
+  consistency_check: true      # Verify findings align logically
+  cross_agent_validation: true # Check cross-agent alignment
+  completeness_check: true     # Ensure all data points present
+
+  # Sales narrative validation:
+  narrative_validation: true
+  cascade_compliance_check: true
+  business_language_audit: true
+
+  # Validation strictness:
+  fail_on_contradictions: false  # Warn but allow (true = block)
+  fail_on_missing_data: false
+  fail_on_jargon: false
+
+# Workflow Execution Configuration
+workflow_execution:
+  # Parallel execution settings:
+  parallel_specialists: true  # Run specialist analyses in parallel when possible
+  max_parallel_agents: 5      # Maximum concurrent agent executions
+
+  # Progress tracking:
+  show_progress_updates: true
+  progress_update_interval: 30  # seconds
+
+  # Timeout settings:
+  specialist_timeout: 600  # 10 minutes per specialist
+  total_workflow_timeout: 3600  # 60 minutes max for entire workflow
+
+  # Error handling:
+  continue_on_specialist_error: false  # Stop if any specialist fails
+  retry_on_failure: true
+  max_retries: 2
+
+# Agent Configuration
+agents:
+  master_orchestrator:
+    name: 'Director'
+    enabled: true
+
+  technical_seo_specialist:
+    name: 'Engineer'
+    enabled: true
+
+  onpage_seo_specialist:
+    name: 'Analyst'
+    enabled: true
+
+  backlinks_specialist:
+    name: 'Authority'
+    enabled: true
+
+  competitor_analyst:
+    name: 'Intel'
+    enabled: true
+    max_competitors: 5  # Maximum competitors to analyze
+
+  opportunity_specialist:
+    name: 'Vision'
+    enabled: true
+
+  sales_strategist:
+    name: 'Catalyst'
+    enabled: true
+
+# Performance Configuration
+performance:
+  # Caching settings:
+  cache_seo_data: true
+  cache_duration: 7  # days
+
+  # Optimization:
+  compress_reports: false
+  generate_thumbnails: true
+
+  # Resource limits:
+  max_pages_analyzed: 100
+  max_backlinks_analyzed: 1000
+  max_keywords_analyzed: 500
+
+# Feature Flags (for Phase 2/3 features)
+features:
+  quick_scan: false           # Phase 2 - 5-min lightweight audit
+  progress_tracking: false    # Phase 2 - Re-audit and comparison
+  competitor_research: false  # Phase 2 - Automated competitor discovery
+  template_learning: false    # Phase 2 - AI narrative improvement
+  white_label: false          # Phase 3 - Custom branding
+  multi_language: false       # Phase 3 - International support
+  industry_templates: false   # Phase 3 - Vertical-specific audits
+  automated_followup: false   # Phase 3 - CRM integration
+
+# Logging and Debugging
+logging:
+  enabled: true
+  log_level: 'info'  # Options: 'debug', 'info', 'warning', 'error'
+  log_folder: '{module_root}/logs/'
+  log_filename: 'seo-audit-pro-{date}.log'
+
+  # What to log:
+  log_specialist_execution: true
+  log_workflow_steps: true
+  log_validation_results: true
+  log_api_calls: true
+
+  # Sensitive data:
+  mask_api_keys: true
+  mask_client_urls: false
+
+# Advanced Configuration
+advanced:
+  # Custom scoring algorithms:
+  custom_scoring_enabled: false
+  custom_scoring_formula: ''
+
+  # Custom PDF templates:
+  custom_template_path: ''
+
+  # API configuration:
+  api_timeout: 30  # seconds
+  api_retry_attempts: 3
+
+  # Experimental features:
+  experimental_features: false
+
+# Installation Metadata (populated by installer)
+installation:
+  installed: false
+  install_date: ''
+  installed_by: ''
+  installation_mode: ''  # 'api_now', 'manual_mode', 'configure_later'
+  output_folder_mode: ''  # 'dedicated', 'bmad_output', 'custom'
+  scoring_profile: ''  # 'balanced', 'technical_focus', 'content_focus', 'custom'
+
+# Usage Statistics (internal tracking)
+usage:
+  total_audits: 0
+  last_audit_date: ''
+  audits_this_month: 0
+  reports_generated: 0
+  avg_audit_duration: 0  # minutes

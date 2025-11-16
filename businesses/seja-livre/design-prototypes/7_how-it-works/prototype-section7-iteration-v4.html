@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Funciona - Mentoria SEJA LIVRE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===================================
+           HYBRID ITERATION - DESIGN SYSTEM
+           Elegant Curator + Modern Artisan Blend
+           =================================== */
+
+        :root {
+            /* Color Palette - Blended */
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+            --white: #FFFFFF;
+            --cream: #F8F7F5;
+            --grey-light: #E8E6E3;
+            --grey-medium: #A6A39E;
+            --grey-700: #495057;
+
+            /* Typography - Hybrid Approach */
+            --font-serif: 'Lora', Georgia, serif;
+            --font-sans: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
+
+            /* Spacing System - Balanced (not maximum luxury, not tight) */
+            --space-xs: 0.5rem;
+            --space-sm: 0.875rem;
+            --space-md: 1.25rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4.5rem;
+            --space-3xl: 6rem;
+
+            /* Modern Refinements */
+            --border-radius-sm: 0.5rem;
+            --border-radius-md: 0.75rem;
+            --border-radius-lg: 1rem;
+
+            /* Shadows - Contemporary */
+            --shadow-md: 0 4px 12px rgba(25, 31, 58, 0.08);
+            --shadow-lg: 0 8px 24px rgba(25, 31, 58, 0.12);
+            --shadow-xl: 0 12px 32px rgba(25, 31, 58, 0.15);
+
+            /* Animation */
+            --transition-elegant: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===================================
+           RESET & BASE STYLES
+           =================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--navy);
+            background: var(--cream);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===================================
+           SECTION CONTAINER - BLENDED BACKGROUND
+           =================================== */
+
+        .how-it-works-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: linear-gradient(135deg, var(--cream) 0%, #FAF9F6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle contemporary overlay - blend of both styles */
+        .how-it-works-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===================================
+           HEADER - ELEGANT TYPOGRAPHY
+           =================================== */
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .eyebrow {
+            font-family: var(--font-sans);
+            font-size: 0.813rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--borgonha);
+            margin-bottom: var(--space-sm);
+            display: inline-block;
+            position: relative;
+            padding-bottom: var(--space-xs);
+        }
+
+        .eyebrow::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .headline {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--navy);
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.02em;
+        }
+
+        .subheadline {
+            font-family: var(--font-sans);
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--navy);
+            font-weight: 400;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .subheadline strong {
+            font-weight: 700;
+            color: var(--borgonha);
+        }
+
+        /* ===================================
+           COMPONENTS GRID - BALANCED SPACING
+           =================================== */
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .component-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--grey-light);
+            padding: var(--space-xl);
+            position: relative;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-smooth);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .component-card:nth-child(1) { animation-delay: 0.1s; }
+        .component-card:nth-child(2) { animation-delay: 0.2s; }
+        .component-card:nth-child(3) { animation-delay: 0.3s; }
+        .component-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .component-card:hover {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-4px);
+        }
+
+        /* Gold accent line - subtle luxury from Curator */
+        .component-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--borgonha) 100%);
+            border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+            transition: width var(--transition-smooth);
+        }
+
+        .component-card:hover::before {
+            width: 100%;
+        }
+
+        .component-header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .component-icon {
+            flex-shrink: 0;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.1) 0%, rgba(201, 162, 39, 0.05) 100%);
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(201, 162, 39, 0.15);
+            transition: all var(--transition-elegant);
+            position: relative;
+        }
+
+        /* Gold highlight ring */
+        .component-icon::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            opacity: 0;
+            transition: opacity var(--transition-elegant);
+        }
+
+        .component-card:hover .component-icon {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0.08) 100%);
+            transform: scale(1.05);
+        }
+
+        .component-card:hover .component-icon::after {
+            opacity: 1;
+        }
+
+        .component-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--navy);
+            stroke-width: 1.5;
+        }
+
+        .component-title-wrapper {
+            flex: 1;
+        }
+
+        .component-title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.3;
+            margin-bottom: var(--space-xs);
+        }
+
+        .component-description {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--grey-700);
+            font-weight: 400;
+        }
+
+        /* ===================================
+           DONE-WITH-YOU CALLOUT - NAVY + GOLD
+           =================================== */
+
+        .done-with-you-callout {
+            background: var(--navy);
+            color: var(--white);
+            padding: var(--space-xl);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards 0.5s;
+        }
+
+        /* Gold gradient border accent */
+        .done-with-you-callout::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--borgonha) 100%);
+        }
+
+        /* Subtle pattern overlay */
+        .done-with-you-callout::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .callout-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .callout-label {
+            font-family: var(--font-sans);
+            font-size: 0.813rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: var(--space-md);
+            display: inline-block;
+        }
+
+        .callout-text {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--white);
+            font-weight: 400;
+        }
+
+        .callout-text strong {
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.02em;
+        }
+
+        .callout-signature {
+            margin-top: var(--space-md);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 400;
+        }
+
+        .brand-hearts {
+            display: inline-block;
+            margin-left: var(--space-xs);
+        }
+
+        /* ===================================
+           RESPONSIVE DESIGN - MOBILE FIRST
+           =================================== */
+
+        /* Tablet - 768px */
+        @media (min-width: 768px) {
+            .how-it-works-section {
+                padding: var(--space-3xl) var(--space-lg);
+            }
+
+            .headline {
+                font-size: 3rem;
+            }
+
+            .subheadline {
+                font-size: 1.25rem;
+            }
+
+            .components-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-xl);
+            }
+
+            .component-card {
+                padding: var(--space-lg);
+            }
+
+            .done-with-you-callout {
+                padding: var(--space-2xl);
+            }
+
+            .callout-text {
+                font-size: 1.375rem;
+            }
+        }
+
+        /* Desktop - 1024px */
+        @media (min-width: 1024px) {
+            .how-it-works-section {
+                padding: var(--space-3xl) var(--space-xl);
+            }
+
+            .section-header {
+                margin-bottom: var(--space-3xl);
+            }
+
+            .headline {
+                font-size: 3.5rem;
+            }
+
+            .components-grid {
+                margin-bottom: var(--space-3xl);
+                gap: var(--space-lg) var(--space-xl);
+            }
+
+            .component-card {
+                padding: var(--space-xl);
+            }
+        }
+
+        /* Large Desktop - 1440px */
+        @media (min-width: 1440px) {
+            .headline {
+                font-size: 4rem;
+            }
+
+            .component-card {
+                padding: var(--space-2xl);
+            }
+
+            .done-with-you-callout {
+                padding: var(--space-3xl);
+            }
+        }
+
+        /* ===================================
+           ACCESSIBILITY ENHANCEMENTS
+           =================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus styles for keyboard navigation */
+        .component-card:focus-within {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        .done-with-you-callout:focus-within {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===================================
+         HOW IT WORKS SECTION
+         =================================== -->
+
+    <section class="how-it-works-section" aria-labelledby="section-headline">
+        <div class="section-container">
+
+            <!-- Header -->
+            <header class="section-header">
+                <p class="eyebrow">Como Funciona</p>
+                <h2 class="headline" id="section-headline">
+                    Mentoria 1-on-1 Intensiva (90 Dias)
+                </h2>
+                <p class="subheadline">
+                    Isso não é curso gravado. Não é grupo gigante onde você é mais um número.
+                    <strong>É você e eu, olho no olho, transformando sua operação.</strong>
+                </p>
+            </header>
+
+            <!-- Components Grid -->
+            <div class="components-grid">
+
+                <!-- Component 1: Weekly Sessions -->
+                <article class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon" aria-hidden="true">
+                            <!-- Lucide: Video icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/>
+                                <rect x="2" y="6" width="14" height="12" rx="2"/>
+                            </svg>
+                        </div>
+                        <div class="component-title-wrapper">
+                            <h3 class="component-title">12 Sessões Semanais 1-on-1 (2 horas cada)</h3>
+                        </div>
+                    </div>
+                    <p class="component-description">
+                        Durante 90 dias, nós nos encontramos toda semana. Você me mostra sua realidade,
+                        eu te ensino o sistema, e juntas implementamos. Cada sessão é gravada para você
+                        revisitar sempre que precisar.
+                    </p>
+                </article>
+
+                <!-- Component 2: Real-Time Implementation -->
+                <article class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon" aria-hidden="true">
+                            <!-- Lucide: Zap icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+                            </svg>
+                        </div>
+                        <div class="component-title-wrapper">
+                            <h3 class="component-title">Implementação Real-Time</h3>
+                        </div>
+                    </div>
+                    <p class="component-description">
+                        Não esperamos o "momento perfeito." Você implementa ENQUANTO ainda está apagando
+                        incêndios. Eu te mostro como criar sistemas no meio do caos—porque foi assim que eu fiz.
+                    </p>
+                </article>
+
+                <!-- Component 3: Direct WhatsApp Support -->
+                <article class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon" aria-hidden="true">
+                            <!-- Lucide: MessageCircle icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+                            </svg>
+                        </div>
+                        <div class="component-title-wrapper">
+                            <h3 class="component-title">Suporte WhatsApp Direto</h3>
+                        </div>
+                    </div>
+                    <p class="component-description">
+                        Entre sessões, você tem acesso direto a mim. Dúvida no meio da semana? Decisão urgente?
+                        Me manda mensagem. Respondo em 24-48 horas. Você não está sozinha nessa jornada.
+                    </p>
+                </article>
+
+                <!-- Component 4: Templates & Frameworks -->
+                <article class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon" aria-hidden="true">
+                            <!-- Lucide: FileText icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+                                <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+                                <path d="M10 9H8"/>
+                                <path d="M16 13H8"/>
+                                <path d="M16 17H8"/>
+                            </svg>
+                        </div>
+                        <div class="component-title-wrapper">
+                            <h3 class="component-title">Templates, Frameworks & Roadmap Personalizado</h3>
+                        </div>
+                    </div>
+                    <p class="component-description">
+                        Tudo que você precisa para implementar: templates de processos, scripts de delegação,
+                        frameworks de decisão. Não genéricos—personalizados para SEU negócio, SUA equipe, SUA realidade.
+                    </p>
+                </article>
+
+            </div>
+
+            <!-- Done-With-You Callout -->
+            <aside class="done-with-you-callout" role="complementary" aria-label="Diferencial da mentoria">
+                <div class="callout-content">
+                    <p class="callout-label">Done-With-You, Não Sozinha</p>
+                    <p class="callout-text">
+                        Muitos programas te ensinam e te largam. Aqui, <strong>EU PEGO NA SUA MÃO.</strong>
+                        Construímos juntas. Eu já percorri esse caminho—sei onde estão as armadilhas.
+                        Você não vai tropeçar onde eu tropecei.
+                    </p>
+                    <p class="callout-signature">
+                        É trabalho? Sim. Mas você não faz sozinha. E em 90 dias, sua empresa não será mais sua prisão.
+                        <span class="brand-hearts">💙❤️</span>
+                    </p>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+
+</body>
+</html>

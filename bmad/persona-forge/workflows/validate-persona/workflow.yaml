@@ -1,0 +1,49 @@
+# Validate Persona Workflow Configuration
+name: validate-persona
+description: "Quality validate existing persona documents against industry best practices and Persona Forge standards"
+author: "Persona Forge"
+
+# Critical variables load from module config
+config_source: "{project-root}/bmad/persona-forge/config.yaml"
+output_folder: "{config_source}:output_folder"
+persona_output_folder: "{config_source}:persona_output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+
+# System variables
+date: system-generated
+
+# Agent references
+senior_persona_specialist: "{project-root}/bmad/persona-forge/agents/senior-persona-specialist.md"
+market_intelligence_analyst: "{project-root}/bmad/persona-forge/agents/market-intelligence-analyst.md"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/persona-forge/workflows/validate-persona"
+template: false # This is an interactive workflow with agent orchestration
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Output configuration
+validation_report_file: "{persona_output_folder}/validation-report-{{persona_name_slug}}-{{date}}.md"
+
+# Workflow state management
+validation_type: null # quick/standard/deep
+include_research: false # Whether to validate against current market data
+validation_results: []
+issues_found: []
+
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  name: "validate-persona"
+  description: "Quality validate existing persona documents against industry best practices"
+  author: "Persona Forge"
+  instructions: "bmad/persona-forge/workflows/validate-persona/instructions.md"
+  web_bundle_files:
+    - bmad/persona-forge/workflows/validate-persona/instructions.md
+    - bmad/persona-forge/workflows/validate-persona/checklist.md
+    - bmad/persona-forge/agents/senior-persona-specialist.md
+    - bmad/persona-forge/agents/market-intelligence-analyst.md
+  existing_workflows:
+    - update_persona: "bmad/persona-forge/workflows/update-persona/workflow.yaml"

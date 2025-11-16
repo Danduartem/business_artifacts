@@ -1,0 +1,493 @@
+# Authentication Strategy Playbook
+# Flowchart-style decision tree for choosing auth implementation
+
+playbook:
+  name: "Authentication Strategy"
+  description: "Step-by-step guide to selecting authentication approach and providers"
+  version: "1.0"
+  last_updated: "2025-01-14"
+
+decision_tree:
+  start:
+    question: "Build or buy authentication?"
+    context: "Auth is security-critical - consider managed solutions"
+    options:
+      - label: "Buy/Use managed service (recommended for SMB)"
+        next: "managed_auth"
+      - label: "Build custom (have security expertise)"
+        next: "custom_auth"
+      - label: "Not sure, help me decide"
+        next: "build_vs_buy_auth"
+
+  build_vs_buy_auth:
+    question: "What's your situation?"
+    context: "Most SMBs should use managed auth"
+    options:
+      - label: "Small team, want to move fast"
+        recommendation: "Use managed service (Clerk, Supabase Auth, or Auth0)"
+        rationale: "Save time, reduce security risk, focus on product"
+        next: null
+      - label: "Have security expertise, unique requirements"
+        next: "custom_auth"
+      - label: "Using framework with built-in auth"
+        next: "framework_auth"
+      - label: "Very tight budget"
+        next: "budget_auth"
+
+  managed_auth:
+    question: "What's your application type?"
+    context: "Different providers excel at different use cases"
+    options:
+      - label: "Modern web app (React, Next.js, etc.)"
+        next: "modern_web_auth"
+      - label: "Mobile app (iOS, Android)"
+        next: "mobile_auth"
+      - label: "API only (no UI)"
+        next: "api_auth"
+      - label: "B2B SaaS (need organizations/teams)"
+        next: "b2b_auth"
+
+  modern_web_auth:
+    question: "What's your priority?"
+    options:
+      - label: "Best developer experience"
+        recommendation: "Clerk"
+        rationale: "Beautiful components, excellent DX, drop-in React components"
+        pricing: "$25/month (1000 MAU), then $0.02/MAU"
+        next: null
+      - label: "Free or very cheap"
+        next: "free_web_auth"
+      - label: "Full control with managed backend"
+        recommendation: "Supabase Auth"
+        rationale: "Open source, generous free tier, full control, great DX"
+        pricing: "Free up to 50k MAU"
+        next: null
+      - label: "Enterprise features (SSO, SAML)"
+        recommendation: "Auth0"
+        rationale: "Most mature, extensive features, great enterprise support"
+        pricing: "$240/month (Essentials)"
+        next: null
+
+  free_web_auth:
+    question: "What else are you using?"
+    options:
+      - label: "Using Supabase for database"
+        recommendation: "Supabase Auth"
+        rationale: "Built-in, free up to 50k MAU, integrates perfectly"
+        next: null
+      - label: "Using Firebase for backend"
+        recommendation: "Firebase Auth"
+        rationale: "Built-in, free up to 10k verifications/month"
+        next: null
+      - label: "Using Next.js"
+        recommendation: "NextAuth.js (Auth.js)"
+        rationale: "Free, open source, integrates perfectly with Next.js"
+        next: null
+      - label: "None of the above"
+        recommendation: "Supabase Auth or NextAuth.js"
+        rationale: "Both free, modern, good DX"
+        next: null
+
+  mobile_auth:
+    question: "What mobile technology?"
+    options:
+      - label: "React Native"
+        recommendation: "Clerk or Supabase Auth"
+        rationale: "Both have excellent React Native SDKs"
+        next: null
+      - label: "Native iOS/Android"
+        recommendation: "Firebase Auth or Auth0"
+        rationale: "Mature native SDKs, battle-tested"
+        next: null
+      - label: "Flutter"
+        recommendation: "Supabase Auth or Firebase Auth"
+        rationale: "Good Flutter support"
+        next: null
+
+  api_auth:
+    question: "Who's consuming your API?"
+    context: "Different auth patterns for different consumers"
+    options:
+      - label: "Your own frontend apps"
+        recommendation: "Supabase Auth or Clerk"
+        rationale: "JWT-based, easy integration with frontend"
+        next: null
+      - label: "Third-party developers (public API)"
+        recommendation: "API keys with Auth0 or custom"
+        rationale: "Need API key management, rate limiting"
+        next: null
+      - label: "Mobile apps only"
+        recommendation: "Firebase Auth or Supabase Auth"
+        rationale: "Mobile-first, good SDK support"
+        next: null
+
+  b2b_auth:
+    question: "What B2B features do you need?"
+    context: "B2B requires organizations, teams, and often SSO"
+    options:
+      - label: "Organizations, teams, role-based access"
+        recommendation: "Clerk (Organizations feature)"
+        rationale: "Built-in organizations, excellent UX, easy to implement"
+        pricing: "$25/month + $0.02/MAU"
+        next: null
+      - label: "SSO (SAML, OIDC) required"
+        recommendation: "Auth0 or WorkOS"
+        rationale: "Auth0 = full auth; WorkOS = SSO specialist"
+        pricing: "Auth0 $240/month; WorkOS $125/month"
+        next: null
+      - label: "Budget-conscious B2B"
+        recommendation: "Supabase Auth + custom org logic"
+        rationale: "Build org structure yourself, use Supabase for auth"
+        pricing: "Free up to 50k MAU"
+        next: null
+
+  budget_auth:
+    question: "How tight is the budget?"
+    options:
+      - label: "Absolutely zero budget"
+        recommendation: "NextAuth.js or Supabase Auth free tier"
+        rationale: "NextAuth = fully free; Supabase = generous free tier"
+        next: null
+      - label: "Can spend $10-50/month"
+        recommendation: "Supabase Auth or Clerk (small scale)"
+        rationale: "Both excellent value at this price point"
+        next: null
+      - label: "Can spend $100-500/month"
+        recommendation: "Clerk or Auth0"
+        rationale: "Best features, DX worth the investment"
+        next: null
+
+  framework_auth:
+    question: "What framework are you using?"
+    options:
+      - label: "Next.js"
+        recommendation: "NextAuth.js (Auth.js) or Clerk"
+        rationale: "NextAuth = free, integrated; Clerk = premium DX"
+        next: null
+      - label: "Django"
+        recommendation: "Django built-in auth or django-allauth"
+        rationale: "Django auth is excellent, battle-tested"
+        next: null
+      - label: "Rails"
+        recommendation: "Devise or Rails built-in"
+        rationale: "Devise is the Rails standard"
+        next: null
+      - label: "Laravel"
+        recommendation: "Laravel Breeze or Jetstream"
+        rationale: "Laravel has excellent auth scaffolding"
+        next: null
+
+  custom_auth:
+    question: "What are you building custom?"
+    context: "Building auth is risky - be careful"
+    options:
+      - label: "Simple email/password auth"
+        next: "custom_simple"
+      - label: "OAuth/Social login"
+        next: "custom_oauth"
+      - label: "Enterprise features (SSO, MFA)"
+        recommendation: "Don't build - use Auth0 or WorkOS"
+        rationale: "Too complex and risky to build yourself"
+        next: null
+
+  custom_simple:
+    question: "What's your backend?"
+    context: "Use a library - don't build from scratch"
+    options:
+      - label: "Node.js/Express"
+        recommendation: "Passport.js or Lucia"
+        rationale: "Passport = mature; Lucia = modern, lightweight"
+        next: null
+      - label: "Python/FastAPI"
+        recommendation: "fastapi-users or Python-Jose"
+        rationale: "fastapi-users = batteries included; Python-Jose = JWT library"
+        next: null
+      - label: "Django"
+        recommendation: "Use Django built-in auth"
+        rationale: "Django auth is excellent, don't reinvent"
+        next: null
+      - label: "Go"
+        recommendation: "golang-jwt/jwt or gorilla/sessions"
+        rationale: "JWT for stateless; sessions for traditional"
+        next: null
+
+  custom_oauth:
+    question: "Which providers do you need?"
+    context: "Use a library to handle OAuth complexity"
+    options:
+      - label: "Google, GitHub, major providers"
+        recommendation: "NextAuth.js or Passport.js"
+        rationale: "Both support major providers out of the box"
+        next: null
+      - label: "Many providers (10+)"
+        recommendation: "Use Auth0 or Clerk instead"
+        rationale: "Too much maintenance to handle yourself"
+        next: null
+
+# Quick reference matrix
+quick_reference:
+  by_use_case:
+    web_app: "Clerk or Supabase Auth"
+    mobile_app: "Firebase Auth or Supabase Auth"
+    b2b_saas: "Clerk (Organizations) or Auth0"
+    api_only: "Supabase Auth or custom JWT"
+    mvp_prototype: "Supabase Auth or NextAuth.js"
+    enterprise: "Auth0 or Okta"
+
+  by_budget:
+    free: "NextAuth.js, Supabase Auth free tier"
+    under_50_month: "Supabase Auth or Clerk"
+    under_500_month: "Clerk or Auth0"
+    enterprise: "Auth0 or Okta"
+
+  by_priority:
+    speed: "Clerk or Supabase Auth"
+    cost: "NextAuth.js or Supabase Auth"
+    features: "Auth0"
+    dx: "Clerk"
+    control: "Supabase Auth or custom"
+
+  by_team_skill:
+    beginner: "Clerk or Supabase Auth"
+    intermediate: "NextAuth.js or Supabase Auth"
+    advanced: "Auth0 or custom with Passport/fastapi-users"
+
+# Provider comparison
+providers:
+  clerk:
+    best_for: "Modern web/mobile apps, B2B with organizations"
+    pros:
+      - "Best-in-class DX"
+      - "Beautiful prebuilt components"
+      - "Organizations built-in"
+      - "Excellent documentation"
+    cons:
+      - "Can get expensive at scale"
+      - "Newer (less battle-tested than Auth0)"
+    pricing: "$25/month base + $0.02 per MAU after 1000"
+    free_tier: "Up to 5000 MAU in development"
+
+  supabase_auth:
+    best_for: "Web/mobile apps, when using Supabase"
+    pros:
+      - "Generous free tier (50k MAU)"
+      - "Open source"
+      - "Integrates with Supabase DB"
+      - "Row level security"
+    cons:
+      - "Less polished UI components than Clerk"
+      - "Fewer prebuilt features"
+    pricing: "Free up to 50k MAU, then $0.00325 per MAU"
+    free_tier: "50,000 MAU"
+
+  auth0:
+    best_for: "Enterprise, B2B, complex auth requirements"
+    pros:
+      - "Most mature"
+      - "Extensive features (SSO, MFA, etc.)"
+      - "Best enterprise support"
+      - "Huge ecosystem"
+    cons:
+      - "Expensive"
+      - "Complex for simple use cases"
+      - "Steeper learning curve"
+    pricing: "$240/month Essentials (up to 500 MAU), $0.80 per MAU after"
+    free_tier: "7000 MAU"
+
+  firebase_auth:
+    best_for: "Mobile apps, when using Firebase"
+    pros:
+      - "Free tier generous"
+      - "Great mobile SDKs"
+      - "Integrates with Firebase services"
+    cons:
+      - "Less modern than Clerk/Supabase"
+      - "Vendor lock-in to Google"
+    pricing: "Free up to 10k verifications/month"
+    free_tier: "10,000 phone auths/month, unlimited email/social"
+
+  nextauth:
+    best_for: "Next.js apps, budget-conscious"
+    pros:
+      - "Completely free"
+      - "Open source"
+      - "Perfect Next.js integration"
+      - "Supports many providers"
+    cons:
+      - "Self-hosted (you handle security)"
+      - "More manual setup than Clerk"
+      - "No prebuilt UI components"
+    pricing: "Free (self-hosted)"
+    free_tier: "Unlimited"
+
+  workos:
+    best_for: "B2B SSO and enterprise auth"
+    pros:
+      - "Focused on B2B features"
+      - "Excellent SSO support"
+      - "Good DX"
+    cons:
+      - "Not full auth solution (auth only, no user management)"
+      - "Need to build some pieces yourself"
+    pricing: "$125/month for SSO"
+    free_tier: "Up to 1 million MAU (for non-SSO features)"
+
+# Authentication patterns
+recommended_patterns:
+  simple_saas:
+    provider: "Clerk or Supabase Auth"
+    methods: ["Email/password", "Google OAuth", "GitHub OAuth"]
+    extras: ["Email verification", "Password reset"]
+
+  b2b_saas:
+    provider: "Clerk or Auth0"
+    methods: ["Email/password", "SSO (SAML)", "Google Workspace"]
+    extras: ["Organizations", "RBAC", "MFA", "Audit logs"]
+
+  mobile_app:
+    provider: "Firebase Auth or Supabase Auth"
+    methods: ["Email/password", "Phone (SMS)", "Apple", "Google"]
+    extras: ["Biometric", "Token refresh"]
+
+  public_api:
+    provider: "Custom or Auth0"
+    methods: ["API keys", "OAuth 2.0"]
+    extras: ["Rate limiting", "Key rotation", "Scopes"]
+
+  mvp:
+    provider: "Supabase Auth"
+    methods: ["Email/password", "Magic links"]
+    extras: ["Email verification"]
+
+# Security considerations
+security_checklist:
+  must_have:
+    - "Password hashing (bcrypt, argon2)"
+    - "HTTPS only"
+    - "CSRF protection"
+    - "Rate limiting on auth endpoints"
+    - "Email verification"
+    - "Secure session management"
+    - "Password reset flow"
+
+  should_have:
+    - "MFA/2FA option"
+    - "Account lockout after failed attempts"
+    - "Security headers (CSP, etc.)"
+    - "Session timeout"
+    - "Audit logging"
+
+  advanced:
+    - "Anomaly detection"
+    - "Device fingerprinting"
+    - "Geographic restrictions"
+    - "Passwordless auth"
+
+# Common auth flows
+auth_flows:
+  email_password:
+    steps:
+      - "User enters email/password"
+      - "Server validates credentials"
+      - "Server creates session/JWT"
+      - "Client stores token"
+      - "Client includes token in requests"
+    best_for: "Traditional web apps"
+
+  oauth_social:
+    steps:
+      - "User clicks 'Sign in with Google'"
+      - "Redirect to OAuth provider"
+      - "User approves"
+      - "Provider redirects back with code"
+      - "Exchange code for user data"
+      - "Create account/session"
+    best_for: "Consumer apps"
+
+  magic_link:
+    steps:
+      - "User enters email"
+      - "Server sends email with link + token"
+      - "User clicks link"
+      - "Server validates token, creates session"
+    best_for: "Low-friction signup, good UX"
+
+  api_key:
+    steps:
+      - "User generates API key in dashboard"
+      - "Client includes key in request header"
+      - "Server validates key"
+    best_for: "Developer APIs, machine-to-machine"
+
+# Red flags
+red_flags:
+  building_custom:
+    - "No security expertise on team"
+    - "Tight timeline"
+    - "Small team"
+    - "B2B customers requiring SOC 2 compliance"
+
+  using_clerk:
+    - "Very price sensitive at scale"
+    - "Need 100% control over auth flow"
+
+  using_auth0:
+    - "Tiny budget (< $100/month)"
+    - "Simple auth requirements"
+    - "Small scale (< 1000 MAU)"
+
+  using_firebase:
+    - "Want to avoid Google lock-in"
+    - "Need advanced B2B features"
+
+# SMB-specific guidance
+smb_guidance:
+  micro_business_1_2_people:
+    recommendation: "Supabase Auth or NextAuth.js"
+    rationale: "Free or cheap, focus on product not auth"
+    monthly_cost: "$0"
+
+  small_business_3_10_people:
+    recommendation: "Clerk or Supabase Auth"
+    rationale: "Great DX, affordable, reliable"
+    monthly_cost: "$25-100"
+
+  medium_business_10_50_people:
+    recommendation: "Clerk or Auth0"
+    rationale: "Advanced features, good support"
+    monthly_cost: "$100-500"
+
+  avoid_for_smb:
+    - "Building auth from scratch (security risk)"
+    - "Okta (too expensive for SMB)"
+    - "On-premise auth solutions (operational burden)"
+
+# Migration considerations
+migration_paths:
+  from_custom_to_clerk:
+    difficulty: "Medium"
+    steps: ["Export users", "Hash migration", "Update frontend", "Gradual rollout"]
+
+  from_auth0_to_clerk:
+    difficulty: "Medium"
+    steps: ["Export users", "Recreate org structure", "Update code", "Switch"]
+
+  from_firebase_to_supabase:
+    difficulty: "Easy"
+    steps: ["Export users", "Import to Supabase", "Update SDKs"]
+
+# Cost comparison (1000 MAU)
+cost_comparison_1k_mau:
+  nextauth: "$0 (self-hosted)"
+  supabase: "$0 (free tier covers 50k)"
+  clerk: "$25/month base"
+  firebase: "$0 (free tier covers 10k verifications)"
+  auth0: "$240/month (Essentials)"
+
+# Cost comparison (10k MAU)
+cost_comparison_10k_mau:
+  nextauth: "$0 (self-hosted)"
+  supabase: "$0 (free tier covers 50k)"
+  clerk: "$25 + $180 = $205/month"
+  firebase: "$0 (generous free tier)"
+  auth0: "$240 + extras (expensive)"

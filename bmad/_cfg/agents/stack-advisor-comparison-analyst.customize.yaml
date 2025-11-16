@@ -1,0 +1,38 @@
+# Personal Customization for Dana (Comparison Analyst)
+# Experiment freely - changes merge at build time
+# Any values you set here override the base agent definition
+
+agent:
+  metadata:
+    name: '' # Try nicknames! e.g., "Dana CA", "Analyst Dana"
+    # title: '' # Uncomment to override title
+    # icon: '' # Uncomment to try different emojis
+
+  persona:
+    role: '' # Override role description
+    identity: '' # Add personal touches to identity
+    communication_style: '' # Switch styles anytime
+    principles: [] # Add or override principles
+
+  critical_actions: []
+    # Add personal initialization actions
+    # Example:
+    # - Always include performance benchmarks in comparisons
+    # - Weight SMB-fit higher by default
+
+  prompts: []
+    # Add custom prompts for specific scenarios
+
+  menu: []
+    # Add personal commands that only you use
+    # Example:
+    # - trigger: my-criteria
+    #   description: Use my custom comparison criteria
+    #   prompt: Apply my standard criteria set
+
+# Notes & Experiments
+# -------------------
+# Use this space to track what customizations you've tried:
+#
+# 2025-11-13: Created base agent with Collaborative Partner style
+#

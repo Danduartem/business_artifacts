@@ -1,0 +1,214 @@
+<task id="bmad/lp-architect/tasks/niche-research-protocol.xml" name="Niche Research Protocol" standalone="false">
+  <objective>Structured research methodology for Agent Cipher to analyze competitive landscape and niche patterns</objective>
+
+  <llm critical="true">
+    <mandate>Research must be specific, tactical, and actionable - not vague observations</mandate>
+    <mandate>Focus on what ACTUALLY converts in this niche, backed by patterns and data</mandate>
+    <mandate>Identify both what to emulate AND what to differentiate from</mandate>
+  </llm>
+
+  <inputs>
+    <input name="business_type" required="true">Industry/niche/market segment</input>
+    <input name="offer_type" required="true">What they're selling (product/service/software/course/etc.)</input>
+    <input name="price_tier" required="true">Low/Medium/High price range</input>
+    <input name="known_competitors" required="false">Any specific competitors user mentioned</input>
+    <input name="research_depth" required="false">Quick (top 3-5) | Standard (top 10) | Deep (top 20)</input>
+  </inputs>
+
+  <research-protocol>
+    <phase n="1" title="Identify Top Performers">
+      <action>Based on niche and offer type, identify top performing competitors:
+
+- If user provided competitors, analyze those plus identify top performers
+- Look for established players with visible traction (reviews, social proof, traffic indicators)
+- Mix of direct competitors and aspirational benchmarks
+- Aim for diversity: different approaches, price points, positioning
+      </action>
+
+      <research-depth-guide>
+        <quick>Analyze top 3-5 competitors (15-20 minutes)</quick>
+        <standard>Analyze top 10 competitors (30-40 minutes) - RECOMMENDED</standard>
+        <deep>Analyze top 20 competitors (60+ minutes)</deep>
+      </research-depth-guide>
+
+      <output>List of competitors being analyzed</output>
+    </phase>
+
+    <phase n="2" title="Architecture Pattern Analysis">
+      <action>For each competitor, document their landing page architecture:
+
+**Section Analysis:**
+- What sections do they include?
+- What order/sequence?
+- What comes first (hero approach)?
+- Where do they place proof?
+- Where do they handle objections?
+- How many sections total?
+
+**Pattern Identification:**
+- What patterns appear across multiple competitors?
+- What seems to be "table stakes" for this niche?
+- What unique approaches stand out?
+- What sections are universally present?
+- What varies most between competitors?
+      </action>
+
+      <specific-elements-to-note>
+        <element>Hero/value prop approach (problem-focused, solution-focused, outcome-focused)</element>
+        <element>Social proof placement and format (testimonials, case studies, logos, numbers)</element>
+        <element>Feature/benefit balance</element>
+        <element>Objection handling approach (FAQ, inline, comparison tables)</element>
+        <element>CTA strategy (one primary, multiple, soft vs hard)</element>
+        <element>Education vs persuasion ratio</element>
+      </specific-elements-to-note>
+
+      <output>Architecture pattern summary by section type</output>
+    </phase>
+
+    <phase n="3" title="What Converts in This Niche">
+      <action>Synthesize patterns to identify niche-specific best practices:
+
+**High-Confidence Patterns** (appear in 70%+ of top performers):
+- These are likely required for credibility in this niche
+- Recommend including unless there's strategic reason not to
+
+**Common Patterns** (appear in 40-70% of top performers):
+- These are standard but not universal
+- Consider for inclusion based on strategy
+
+**Unique Approaches** (appear in <40% but from high performers):
+- These might be differentiation opportunities
+- Evaluate for strategic fit
+      </action>
+
+      <niche-characteristics>
+        <identify>How long are typical pages in this niche? (section count)</identify>
+        <identify>What's the typical awareness level this niche targets?</identify>
+        <identify>How technical vs emotional is the typical approach?</identify>
+        <identify>What proof types matter most (social, authority, data)?</identify>
+        <identify>What's the typical CTA ask (buy now, book call, trial)?</identify>
+      </niche-characteristics>
+
+      <output>Niche-specific conversion patterns and best practices</output>
+    </phase>
+
+    <phase n="4" title="Differentiation Gap Analysis">
+      <action>Identify what competitors are NOT doing well or consistently:
+
+**Common Weaknesses:**
+- What do most competitors do poorly or miss entirely?
+- Where are there obvious gaps in coverage?
+- What objections go unaddressed?
+- What sections feel weak or generic?
+
+**Saturation Points:**
+- What approaches are so common they no longer differentiate?
+- What messaging is so overused it's become noise?
+- Where does everyone sound the same?
+
+**Opportunities:**
+- Where can the user's architecture stand out?
+- What gaps can be filled for competitive advantage?
+- What approaches are underutilized despite being effective?
+      </action>
+
+      <specific-gaps-to-identify>
+        <gap-type>Missing objection handling</gap-type>
+        <gap-type>Weak persona resonance</gap-type>
+        <gap-type>Generic messaging (no differentiation)</gap-type>
+        <gap-type>Poor education/clarity</gap-type>
+        <gap-type>Insufficient proof for price point</gap-type>
+        <gap-type>Unclear CTAs or next steps</gap-type>
+      </specific-gaps-to-identify>
+
+      <output>Differentiation opportunities and competitive gaps</output>
+    </phase>
+
+    <phase n="5" title="Benchmark Data and Metrics">
+      <action>Provide performance context for this niche:
+
+**Conversion Benchmarks:**
+- Typical conversion rates for this niche/price point
+- What high performers achieve
+- What factors separate high from average performance
+
+**Success Indicators:**
+- What metrics matter most in this niche?
+- What signals indicate effective architecture?
+- What should user track post-launch?
+      </action>
+
+      <benchmark-sources>
+        <source>Industry reports and published data</source>
+        <source>Pattern analysis from research (if X elements present, performance typically Y)</source>
+        <source>Price tier expectations (low/medium/high typical ranges)</source>
+        <source>Offer type benchmarks (SaaS vs e-commerce vs services)</source>
+      </benchmark-sources>
+
+      <output>Niche-specific conversion benchmarks and performance expectations</output>
+    </phase>
+
+    <phase n="6" title="Strategic Intelligence Briefing">
+      <action>Compile findings into actionable intelligence report:
+
+**Executive Summary:**
+- [3-5 key insights about this niche]
+
+**Architecture Intelligence:**
+- Must-have sections for credibility
+- Common patterns to consider
+- Unique approaches to evaluate
+
+**Differentiation Strategy:**
+- Where competitors are weak
+- What's oversaturated (avoid copying)
+- Where to stand out
+
+**Benchmarks:**
+- Expected conversion performance
+- Key success metrics
+
+**Tactical Recommendations:**
+- Specific architecture suggestions based on research
+- What to emulate from top performers
+- What to do differently for advantage
+      </action>
+
+      <presentation-style>
+Present findings in Agent Cipher's voice:
+- "I've cracked the code on [niche] conversions..."
+- "Your competitors all [pattern], but here's the gap..."
+- "Based on analyzing [X] top performers, here's what actually works..."
+- Tactical, confident, intelligence-focused
+      </presentation-style>
+
+      <output>Complete competitive intelligence briefing</output>
+    </phase>
+  </research-protocol>
+
+  <outputs>
+    <output name="competitors_analyzed">List of competitors researched</output>
+    <output name="architecture_patterns">Section patterns across competitors</output>
+    <output name="niche_best_practices">What converts in this niche</output>
+    <output name="differentiation_opportunities">Competitive gaps and opportunities</output>
+    <output name="benchmark_data">Performance expectations and metrics</output>
+    <output name="intelligence_briefing">Complete tactical intelligence report</output>
+  </outputs>
+
+  <quality-standards>
+    <standard>Every insight must be specific and actionable</standard>
+    <standard>Patterns must be documented with frequency data</standard>
+    <standard>Differentiation opportunities must be concrete</standard>
+    <standard>Benchmarks must include ranges and context</standard>
+    <standard>Recommendations must connect research to action</standard>
+  </quality-standards>
+
+  <validation>
+    <check>Minimum competitor count met for research depth</check>
+    <check>All phases executed completely</check>
+    <check>Patterns identified with specificity (not vague)</check>
+    <check>Differentiation strategy is actionable</check>
+    <check>Benchmarks provided with context</check>
+    <check>Intelligence briefing is tactical and focused</check>
+  </validation>
+</task>

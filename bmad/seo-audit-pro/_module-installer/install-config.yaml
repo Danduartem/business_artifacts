@@ -1,0 +1,380 @@
+installer:
+  metadata:
+    module_id: 'seo-audit-pro'
+    module_name: 'SEO Audit Pro'
+    version: '1.0.0'
+    description: 'Automated SEO Sales Intelligence System - 7-agent audit engine generating sales-ready PDF reports'
+    author: 'BMAD Builder'
+    install_date: '{current_date}'
+
+  welcome:
+    title: '🚀 SEO Audit Pro - Module Installation'
+    message: |
+      Welcome to SEO Audit Pro - your automated sales intelligence gathering system.
+
+      This module transforms client website URLs into persuasive sales reports through:
+      - 7 specialized SEO analysis agents (30+ min comprehensive audits)
+      - Problem Cascade sales narrative (Pain → Cause → Hope psychology)
+      - Professional PDF reports optimized for closing deals
+      - Competitive intelligence and opportunity identification
+
+      Installation will:
+      1. Configure SEO data sources and report output
+      2. Compile 7 specialist agents (Director, Engineer, Analyst, Authority, Intel, Vision, Catalyst)
+      3. Set up workflow orchestration
+      4. Validate installation integrity
+
+      Estimated installation time: 3-5 minutes
+
+  prerequisites:
+    - check: 'bmad_core_installed'
+      description: 'Verify BMAD Core is installed'
+      required: true
+      error_message: 'BMAD Core must be installed first. Run: bmad install core'
+
+    - check: 'bmad_version'
+      description: 'Verify BMAD Core version >= 6.0'
+      required: true
+      min_version: '6.0.0'
+      error_message: 'BMAD Core 6.0+ required. Upgrade with: bmad upgrade core'
+
+    - check: 'python_version'
+      description: 'Check Python 3.8+ available (for PDF generation)'
+      required: false
+      min_version: '3.8'
+      warning_message: 'Python 3.8+ recommended for PDF generation. Manual PDF creation will be required without Python.'
+
+    - check: 'disk_space'
+      description: 'Verify sufficient disk space (50MB minimum)'
+      required: true
+      min_space_mb: 50
+      error_message: 'Insufficient disk space. Need 50MB for module installation.'
+
+  configuration:
+    - id: 'seo_data_sources'
+      prompt: |
+        **SEO Data Source Configuration**
+
+        SEO Audit Pro requires access to SEO metrics (domain authority, backlinks, rankings, etc.).
+
+        Configuration options:
+        A) Configure API keys now (Ahrefs, SEMrush, Moz, or similar)
+        B) Manual entry mode (enter scores manually during audits)
+        C) Configure later (skip for now, edit config.yaml manually)
+
+        Which option do you prefer?
+      type: 'choice'
+      choices:
+        - 'api_now'
+        - 'manual_mode'
+        - 'configure_later'
+      default: 'manual_mode'
+      store_as: 'data_source_mode'
+
+    - id: 'api_configuration'
+      prompt: |
+        **API Key Configuration**
+
+        Enter your SEO API credentials. Supported providers:
+        - Ahrefs (https://ahrefs.com/api)
+        - SEMrush (https://www.semrush.com/api-documentation/)
+        - Moz (https://moz.com/api)
+
+        Provider name:
+      type: 'string'
+      required: false
+      condition: 'data_source_mode == api_now'
+      store_as: 'api_provider'
+
+    - id: 'api_key'
+      prompt: 'API Key:'
+      type: 'string'
+      required: false
+      condition: 'data_source_mode == api_now'
+      sensitive: true
+      store_as: 'api_key'
+
+    - id: 'report_output_folder'
+      prompt: |
+        **Report Output Folder**
+
+        Where should SEO audit PDF reports be saved?
+
+        Options:
+        A) Use dedicated folder: ~/seo-reports/
+        B) Use BMAD output folder: {bmad_output_folder}/seo-reports/
+        C) Custom path (specify below)
+
+        Select option:
+      type: 'choice'
+      choices:
+        - 'dedicated'
+        - 'bmad_output'
+        - 'custom'
+      default: 'dedicated'
+      store_as: 'output_folder_mode'
+
+    - id: 'custom_output_path'
+      prompt: 'Enter custom output folder path:'
+      type: 'path'
+      required: false
+      condition: 'output_folder_mode == custom'
+      validate: 'writable_directory'
+      store_as: 'custom_output_path'
+
+    - id: 'scoring_profile'
+      prompt: |
+        **Scoring Weight Configuration**
+
+        SEO Audit Pro calculates overall scores using weighted categories.
+
+        Preset profiles:
+        A) Balanced (25% Technical, 20% On-Page, 25% Backlinks, 15% Competitors, 15% Opportunities)
+        B) Technical Focus (35% Technical, 15% On-Page, 25% Backlinks, 15% Competitors, 10% Opportunities)
+        C) Content Focus (15% Technical, 35% On-Page, 20% Backlinks, 15% Competitors, 15% Opportunities)
+        D) Custom weights (configure manually in config.yaml)
+
+        Select scoring profile:
+      type: 'choice'
+      choices:
+        - 'balanced'
+        - 'technical_focus'
+        - 'content_focus'
+        - 'custom'
+      default: 'balanced'
+      store_as: 'scoring_profile'
+
+  installation_steps:
+    - id: 'step-1'
+      name: 'Create Module Configuration'
+      action: |
+        Generate config.yaml with user-selected settings:
+
+        **Data Sources:**
+        {data_source_configuration}
+
+        **Report Output:**
+        {output_folder_configuration}
+
+        **Scoring Weights:**
+        {scoring_profile_configuration}
+
+        Write to: {module_root}/config.yaml
+      success_message: '✅ Configuration file created'
+
+    - id: 'step-2'
+      name: 'Create Report Output Folder'
+      action: |
+        Create report output directory:
+        - Path: {configured_output_path}
+        - Permissions: Read/Write
+        - Create subdirectories: /archive/, /templates/
+      success_message: '✅ Report output folder created'
+
+    - id: 'step-3'
+      name: 'Compile Agent 1/7: Master Orchestrator'
+      action: |
+        Compile YAML agent to BMAD format:
+        - Source: {module_root}/agents/master-orchestrator.agent.yaml
+        - Output: {agents_folder}/bmad/seo-audit-pro/agents/master-orchestrator.md
+        - Validate: metadata, persona, menu structure
+      success_message: '✅ Director (Master Orchestrator) compiled'
+
+    - id: 'step-4'
+      name: 'Compile Agent 2/7: Technical SEO Specialist'
+      action: |
+        Compile YAML agent to BMAD format:
+        - Source: {module_root}/agents/technical-seo-specialist.agent.yaml
+        - Output: {agents_folder}/bmad/seo-audit-pro/agents/technical-seo-specialist.md
+      success_message: '✅ Engineer (Technical SEO) compiled'
+
+    - id: 'step-5'
+      name: 'Compile Agent 3/7: On-Page SEO Specialist'
+      action: |
+        Compile YAML agent to BMAD format:
+        - Source: {module_root}/agents/onpage-seo-specialist.agent.yaml
+        - Output: {agents_folder}/bmad/seo-audit-pro/agents/onpage-seo-specialist.md
+      success_message: '✅ Analyst (On-Page SEO) compiled'
+
+    - id: 'step-6'
+      name: 'Compile Agent 4/7: Backlinks Specialist'
+      action: |
+        Compile YAML agent to BMAD format:
+        - Source: {module_root}/agents/backlinks-specialist.agent.yaml
+        - Output: {agents_folder}/bmad/seo-audit-pro/agents/backlinks-specialist.md
+      success_message: '✅ Authority (Backlinks) compiled'
+
+    - id: 'step-7'
+      name: 'Compile Agent 5/7: Competitor Analyst'
+      action: |
+        Compile YAML agent to BMAD format:
+        - Source: {module_root}/agents/competitor-analyst.agent.yaml
+        - Output: {agents_folder}/bmad/seo-audit-pro/agents/competitor-analyst.md
+      success_message: '✅ Intel (Competitors) compiled'
+
+    - id: 'step-8'
+      name: 'Compile Agent 6/7: Opportunity Specialist'
+      action: |
+        Compile YAML agent to BMAD format:
+        - Source: {module_root}/agents/opportunity-specialist.agent.yaml
+        - Output: {agents_folder}/bmad/seo-audit-pro/agents/opportunity-specialist.md
+      success_message: '✅ Vision (Opportunities) compiled'
+
+    - id: 'step-9'
+      name: 'Compile Agent 7/7: Sales Strategist'
+      action: |
+        Compile YAML agent to BMAD format:
+        - Source: {module_root}/agents/sales-strategist.agent.yaml
+        - Output: {agents_folder}/bmad/seo-audit-pro/agents/sales-strategist.md
+      success_message: '✅ Catalyst (Sales Strategist) compiled'
+
+    - id: 'step-10'
+      name: 'Register Workflows'
+      action: |
+        Register workflow configurations:
+        - Deep Audit: {module_root}/workflows/deep-audit/workflow.yaml
+        - (Future) Competitor Research, Quick Scan, Progress Report, Score Calibration
+
+        Create workflow index for BMAD Core
+      success_message: '✅ Workflows registered'
+
+    - id: 'step-11'
+      name: 'Validate Installation'
+      action: |
+        Run installation validation checks:
+        - [ ] All 7 agents compiled successfully
+        - [ ] Configuration file exists and valid
+        - [ ] Report output folder writable
+        - [ ] Workflows registered
+        - [ ] Module accessible from BMAD Core
+
+        If any check fails, display error and rollback installation.
+      success_message: '✅ Installation validation passed'
+
+  post_install:
+    success_message: |
+      🎉 **SEO Audit Pro Installation Complete!**
+
+      **Module Summary:**
+      - 7 Specialist Agents: Director, Engineer, Analyst, Authority, Intel, Vision, Catalyst
+      - 1 Primary Workflow: Deep Audit (30-45 min comprehensive analysis)
+      - Output: Sales-ready PDF reports with Problem Cascade narrative
+
+      **Configuration:**
+      - Data Source: {data_source_mode}
+      - Report Folder: {configured_output_path}
+      - Scoring Profile: {scoring_profile}
+
+      **Next Steps:**
+
+      1. **Activate the Master Agent:**
+         ```
+         bmad activate seo-audit-pro
+         ```
+         or
+         ```
+         master seo-audit-pro
+         ```
+
+      2. **Run Your First Audit:**
+         - Command: `analyze`
+         - Provide: Client website URL
+         - Duration: ~30-45 minutes
+         - Output: Professional PDF audit report
+
+      3. **Review Configuration (Optional):**
+         - Edit: {module_root}/config.yaml
+         - Update API keys, output folder, or scoring weights as needed
+
+      4. **Read Documentation:**
+         - Module README: {module_root}/README.md
+         - Workflow Guide: {module_root}/workflows/deep-audit/instructions.md
+         - Component Roadmap: {module_root}/docs/roadmap.md
+
+      **Quick Start Example:**
+      ```
+      bmad activate seo-audit-pro
+      Director: analyze
+      Client URL: https://client-website.com
+      Client Name: Acme Corp
+      Competitor URLs: [optional]
+
+      [30 min later...]
+
+      ✅ Report ready: ~/seo-reports/Acme-Corp-SEO-Audit-2025-11-07.pdf
+      ```
+
+      **Need Help?**
+      - Check troubleshooting: README.md → Troubleshooting section
+      - Review agent commands: Each agent has `help` command
+      - Component roadmap: docs/roadmap.md for Phase 2 features
+
+      Happy auditing! 🚀
+
+    commands_summary: |
+      **Available Commands (from Director):**
+      - `analyze` - Run comprehensive Deep Audit (30-45 min)
+      - `competitors` - Research competitor websites
+      - `status` - Check audit progress
+      - `review` - Run quality validation loop
+      - `help` - Display agent help and commands
+
+    configuration_path: '{module_root}/config.yaml'
+    documentation_path: '{module_root}/README.md'
+
+  rollback:
+    on_error: |
+      Installation error detected. Rolling back changes:
+      - Remove compiled agents
+      - Delete configuration file
+      - Clean up output folders
+      - Unregister workflows
+
+      Please resolve the error and try installation again.
+
+  uninstall:
+    confirmation: |
+      ⚠️ **Uninstall SEO Audit Pro?**
+
+      This will remove:
+      - All 7 compiled agents
+      - Workflow registrations
+      - Module configuration
+
+      This will NOT remove:
+      - Generated audit reports
+      - Output folder
+
+      Confirm uninstall? (yes/no)
+
+    steps:
+      - 'Remove compiled agents from {agents_folder}/bmad/seo-audit-pro/'
+      - 'Unregister workflows from BMAD Core'
+      - 'Delete module configuration: {module_root}/config.yaml'
+      - 'Display uninstall complete message'
+
+  version_info:
+    current: '1.0.0'
+    release_date: '2025-11-07'
+    bmad_core_required: '6.0.0'
+    changelog: |
+      **v1.0.0 (2025-11-07) - Initial Release**
+      - 7-agent SEO audit system
+      - Deep Audit workflow (30-45 min)
+      - Problem Cascade sales narrative engine
+      - Professional PDF report generation
+      - Balanced/Technical/Content scoring profiles
+      - Manual entry and API data source modes
+
+      **Planned (Phase 2):**
+      - Quick Scan workflow (5-min lightweight audit)
+      - Competitor Research workflow
+      - Progress Report workflow (re-audit tracking)
+      - Score Calibration workflow
+      - Template Learning system
+
+      **Planned (Phase 3):**
+      - White-label customization
+      - Multi-language support
+      - Industry-specific templates
+      - Automated follow-up system

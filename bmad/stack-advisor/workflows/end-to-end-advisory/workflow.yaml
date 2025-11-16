@@ -1,0 +1,52 @@
+# End-to-End Advisory Workflow Configuration
+name: end-to-end-advisory
+description: "Complete technology stack advisory process from requirements to final specification. Orchestrates all Stack Advisor agents through intake, research, architecture, comparison, and documentation."
+author: "Daniel"
+
+# Paths
+installed_path: "{project-root}/bmad/stack-advisor/workflows/end-to-end-advisory"
+template: false # Action workflow - orchestration only
+instructions: "{installed_path}/instructions.md"
+validation: false # No validation checklist for orchestration workflow
+
+# Critical variables from config
+config_source: "{project-root}/bmad/stack-advisor/config.yaml"
+output_folder: "{config_source}:output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Stack Advisor specific config
+smb_scale_level: "{config_source}:smb_scale_level"
+
+# Session tracking
+session_notes_file: "{output_folder}/stack-advisor/end-to-end-session-{{date}}.md"
+
+# Invocation control
+standalone: true
+
+# Recommended inputs (optional context)
+recommended_inputs:
+  - project_brief: "Any existing project documentation"
+
+# Web bundle configuration
+web_bundle:
+  name: "end-to-end-advisory"
+  description: "Complete technology stack advisory process from requirements to final specification. Orchestrates all Stack Advisor agents through intake, research, architecture, comparison, and documentation."
+  author: "Daniel"
+  instructions: "bmad/stack-advisor/workflows/end-to-end-advisory/instructions.md"
+  template: false
+  validation: false
+
+  web_bundle_files:
+    - "bmad/stack-advisor/workflows/end-to-end-advisory/instructions.md"
+
+  # Workflow dependencies
+  existing_workflows:
+    - smart_intake: "bmad/stack-advisor/workflows/smart-intake/workflow.yaml"
+    - constraint_filter: "bmad/stack-advisor/workflows/constraint-filter/workflow.yaml"
+    - materials_lab: "bmad/stack-advisor/workflows/materials-lab/workflow.yaml"
+    - blueprint_architect: "bmad/stack-advisor/workflows/blueprint-architect/workflow.yaml"
+    - comparison_matrix: "bmad/stack-advisor/workflows/comparison-matrix/workflow.yaml"
+    - migration_plan: "bmad/stack-advisor/workflows/migration-plan/workflow.yaml"
+    - spec_generator: "bmad/stack-advisor/workflows/spec-generator/workflow.yaml"

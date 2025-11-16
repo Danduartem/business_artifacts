@@ -1,0 +1,447 @@
+# Architecture Pattern Playbook
+# Flowchart-style decision tree for choosing the right architecture
+
+playbook:
+  name: "Architecture Pattern Selection"
+  description: "Step-by-step guide to choosing between monolith, modular monolith, microservices, and serverless"
+  version: "1.0"
+  last_updated: "2025-01-14"
+
+decision_tree:
+  start:
+    question: "What's your team size and experience?"
+    context: "Architecture complexity should match team capability"
+    options:
+      - label: "Solo or 2-3 developers"
+        next: "small_team"
+      - label: "Small team (4-10 developers)"
+        next: "medium_team"
+      - label: "Large team (10+ developers)"
+        next: "large_team"
+
+  small_team:
+    question: "What's your priority?"
+    context: "Small teams should keep things simple"
+    options:
+      - label: "Move fast, ship features"
+        recommendation: "Monolith"
+        rationale: "Simplest to build and deploy, fastest iteration"
+        pattern: "Single codebase, single deployment"
+        next: null
+      - label: "Need to scale parts independently"
+        recommendation: "Start with Monolith, plan for extraction later"
+        rationale: "Don't prematurely optimize - extract services when you need to"
+        next: null
+      - label: "Want to minimize infrastructure management"
+        recommendation: "Serverless (Next.js on Vercel or similar)"
+        rationale: "Zero infrastructure, auto-scaling, pay-per-use"
+        next: null
+
+  medium_team:
+    question: "What's your situation?"
+    context: "Medium teams can handle more complexity"
+    options:
+      - label: "Greenfield project, starting fresh"
+        next: "medium_greenfield"
+      - label: "Existing monolith that's struggling"
+        next: "monolith_problems"
+      - label: "Need to scale specific parts"
+        next: "partial_scale"
+
+  medium_greenfield:
+    question: "What's your priority?"
+    options:
+      - label: "Ship MVP quickly"
+        recommendation: "Modular Monolith"
+        rationale: "Fast to build, organized for future extraction, good DX"
+        pattern: "Single deployment, multiple modules with clear boundaries"
+        next: null
+      - label: "Know we'll need independent scaling"
+        recommendation: "Modular Monolith with plan to extract"
+        rationale: "Start simple, extract services when you have real data on bottlenecks"
+        next: null
+      - label: "Team has microservices experience"
+        next: "experienced_team"
+
+  experienced_team:
+    question: "Do you have DevOps/platform team?"
+    context: "Microservices need operational support"
+    options:
+      - label: "Yes, dedicated DevOps"
+        recommendation: "Microservices (if truly needed)"
+        rationale: "You have the team to support it"
+        next: null
+      - label: "No dedicated DevOps"
+        recommendation: "Modular Monolith"
+        rationale: "Microservices need ops support - don't burden developers"
+        next: null
+
+  monolith_problems:
+    question: "What specific problems are you facing?"
+    context: "Identify the real problem before adding complexity"
+    options:
+      - label: "Slow deployments, fear of breaking things"
+        recommendation: "Better testing and CI/CD, not microservices"
+        rationale: "Deployment problems are process issues, not architecture issues"
+        next: null
+      - label: "One part needs different scaling"
+        recommendation: "Extract that one service, keep rest as monolith"
+        rationale: "Hybrid approach - microservices where needed, monolith elsewhere"
+        next: null
+      - label: "Codebase is messy, hard to navigate"
+        recommendation: "Refactor to Modular Monolith"
+        rationale: "Clear module boundaries, same deployment simplicity"
+        next: null
+      - label: "Multiple unrelated products in one codebase"
+        recommendation: "Split into separate monoliths (not microservices)"
+        rationale: "Separate products = separate apps, still monolithic individually"
+        next: null
+
+  partial_scale:
+    question: "What needs independent scaling?"
+    context: "Only extract services with clear scaling needs"
+    options:
+      - label: "Background jobs / async processing"
+        recommendation: "Monolith + separate worker service"
+        rationale: "Workers can scale independently, main app stays simple"
+        pattern: "Monolith + job queue + workers"
+        next: null
+      - label: "API with high traffic"
+        recommendation: "Monolith + separate API service (if truly needed)"
+        rationale: "API can scale, but ask: can you just cache or use CDN?"
+        next: null
+      - label: "Real-time features (WebSocket)"
+        recommendation: "Monolith + separate real-time service"
+        rationale: "Real-time needs different infrastructure"
+        pattern: "Monolith + WebSocket server"
+        next: null
+
+  large_team:
+    question: "How is your team organized?"
+    context: "Architecture should match team structure (Conway's Law)"
+    options:
+      - label: "One team working on one product"
+        recommendation: "Modular Monolith"
+        rationale: "Even large teams can work effectively in a well-organized monolith"
+        next: null
+      - label: "Multiple teams, each owning a domain"
+        recommendation: "Microservices or separate modular monoliths"
+        rationale: "Team boundaries match service boundaries"
+        next: null
+      - label: "One platform team, multiple feature teams"
+        next: "platform_team"
+
+  platform_team:
+    question: "What does the platform team provide?"
+    options:
+      - label: "Shared infrastructure and deployment tools"
+        recommendation: "Microservices with platform support"
+        rationale: "Platform team can handle operational complexity"
+        next: null
+      - label: "Just infrastructure, no service support"
+        recommendation: "Modular Monolith per team"
+        rationale: "Each team owns a monolith, platform handles infra"
+        next: null
+
+# Quick reference matrix
+quick_reference:
+  by_team_size:
+    solo_1_2: "Monolith or Serverless"
+    small_3_10: "Modular Monolith"
+    medium_10_30: "Modular Monolith or selective microservices"
+    large_30_plus: "Modular Monolith or Microservices (if needed)"
+
+  by_use_case:
+    saas_mvp: "Monolith or Modular Monolith"
+    content_site: "Static generation or Serverless"
+    api_product: "Monolith API"
+    platform: "Modular Monolith with extraction plan"
+    enterprise: "Microservices (if team supports it)"
+
+  by_priority:
+    speed: "Monolith"
+    simplicity: "Monolith"
+    scalability: "Modular Monolith (extract later if needed)"
+    team_autonomy: "Microservices (if you can support it)"
+    cost: "Monolith or Serverless"
+
+  by_stage:
+    prototype: "Monolith"
+    mvp: "Monolith or Modular Monolith"
+    growth: "Modular Monolith"
+    scale: "Modular Monolith or selective Microservices"
+
+# Pattern descriptions
+patterns:
+  monolith:
+    description: "Single codebase, single deployment, shared database"
+    best_for:
+      - "Small teams (< 5 people)"
+      - "MVPs and early-stage products"
+      - "Simple domains"
+      - "Fast iteration needed"
+    pros:
+      - "Simple to develop"
+      - "Simple to deploy"
+      - "Easy to debug"
+      - "No network latency between components"
+      - "ACID transactions easy"
+    cons:
+      - "All-or-nothing deployment"
+      - "Entire app scales together"
+      - "Can become messy without discipline"
+    example_stack: "Next.js or Django monolith on Railway"
+
+  modular_monolith:
+    description: "Single deployment, but code organized into clear modules with boundaries"
+    best_for:
+      - "Growing teams (3-15 people)"
+      - "Products with clear domain boundaries"
+      - "Want flexibility to extract later"
+      - "Need organization without operational complexity"
+    pros:
+      - "Clear boundaries aid development"
+      - "Simple deployment"
+      - "Can extract modules to services later"
+      - "Easier to navigate than unstructured monolith"
+    cons:
+      - "Requires discipline to maintain boundaries"
+      - "All modules scale together"
+    example_stack: "NestJS with modules or Django with apps"
+
+  microservices:
+    description: "Multiple services, each deployed independently, communicate via network"
+    best_for:
+      - "Large teams (15+ people)"
+      - "Teams with DevOps support"
+      - "Clear scaling needs for different components"
+      - "Teams owning different domains"
+    pros:
+      - "Independent scaling"
+      - "Independent deployment"
+      - "Team autonomy"
+      - "Technology flexibility per service"
+    cons:
+      - "Operational complexity (service discovery, orchestration)"
+      - "Network latency and failure modes"
+      - "Distributed transactions are hard"
+      - "More expensive infrastructure"
+      - "Harder to debug"
+    example_stack: "Multiple services on Kubernetes or Railway"
+
+  serverless:
+    description: "Functions as a service, auto-scaling, pay-per-use"
+    best_for:
+      - "Variable traffic patterns"
+      - "Want zero infrastructure management"
+      - "APIs and simple backends"
+      - "Cost-sensitive early stage"
+    pros:
+      - "Zero infrastructure management"
+      - "Automatic scaling (including to zero)"
+      - "Pay only for usage"
+      - "Great for spiky traffic"
+    cons:
+      - "Cold starts"
+      - "Vendor lock-in"
+      - "Harder to debug"
+      - "Timeout limits (typically 10-60s)"
+      - "Stateless (need external state)"
+    example_stack: "Next.js on Vercel or Lambda functions"
+
+  hybrid:
+    description: "Monolith + extracted services for specific needs"
+    best_for:
+      - "Proven scaling bottlenecks"
+      - "Mix of stable and variable load components"
+      - "Want simplicity with targeted optimization"
+    pros:
+      - "Simplicity where possible, complexity where needed"
+      - "Can optimize specific bottlenecks"
+      - "Gradual migration path"
+    cons:
+      - "Need to manage both monolith and services"
+      - "Some operational complexity"
+    example_stack: "Rails monolith + Go microservice for data processing"
+
+# When to use each
+decision_criteria:
+  use_monolith_when:
+    - "Team is small (< 5 people)"
+    - "Product is early stage (MVP or prototype)"
+    - "Domain is simple or not well understood yet"
+    - "Want to move fast"
+    - "Don't have operational expertise"
+
+  use_modular_monolith_when:
+    - "Team is growing (3-15 people)"
+    - "Domain has clear boundaries"
+    - "Want organization without operational overhead"
+    - "May need to extract services later"
+    - "Want to scale the team efficiently"
+
+  use_microservices_when:
+    - "Have operational/DevOps support"
+    - "Multiple teams need autonomy"
+    - "Different components have very different scaling needs"
+    - "Parts of system use different tech stacks for good reason"
+    - "Team is experienced with distributed systems"
+
+  use_serverless_when:
+    - "Traffic is variable or spiky"
+    - "Want zero infrastructure management"
+    - "Building simple APIs or functions"
+    - "Cost optimization important"
+    - "Don't need long-running processes"
+
+  use_hybrid_when:
+    - "Have a proven bottleneck in existing monolith"
+    - "Need background processing at different scale"
+    - "Migrating from monolith to services gradually"
+    - "Want to optimize cost for specific components"
+
+# Migration paths
+migration_paths:
+  monolith_to_modular:
+    difficulty: "Medium"
+    approach: "Introduce module boundaries, refactor code into modules"
+    duration: "2-6 months depending on size"
+
+  monolith_to_microservices:
+    difficulty: "Hard"
+    approach: "Extract services one at a time (Strangler Fig pattern)"
+    duration: "6-24 months"
+    warning: "Don't do this unless you have a real need"
+
+  modular_to_microservices:
+    difficulty: "Medium"
+    approach: "Extract modules as services (already have boundaries)"
+    duration: "3-12 months"
+
+  microservices_to_modular:
+    difficulty: "Medium"
+    approach: "Consolidate services back into modules (reverse extraction)"
+    duration: "6-12 months"
+    when: "When microservices complexity isn't worth it"
+
+# Red flags
+red_flags:
+  microservices:
+    - "Team smaller than 10 people"
+    - "No DevOps expertise"
+    - "Domain not well understood yet"
+    - "Haven't built a monolith first"
+    - "Doing it because it's trendy"
+    - "Can't explain specific scaling needs"
+
+  serverless:
+    - "Need long-running processes (> 15 minutes)"
+    - "Stateful applications (WebSocket, etc.)"
+    - "Predictable high constant load (not cost-effective)"
+
+  monolith:
+    - "Very large team (30+ developers)"
+    - "Completely different products in one codebase"
+
+# Common anti-patterns
+anti_patterns:
+  premature_microservices:
+    problem: "Starting with microservices before understanding domain"
+    solution: "Start with monolith, extract services when you have data"
+
+  distributed_monolith:
+    problem: "Microservices that all deploy together, share database"
+    solution: "Go back to actual monolith or properly separate services"
+
+  nano_services:
+    problem: "Too many tiny services (one function per service)"
+    solution: "Group related functionality, aim for 5-15 services max"
+
+  big_ball_of_mud:
+    problem: "Monolith with no internal structure"
+    solution: "Refactor to modular monolith with clear boundaries"
+
+  wrong_boundaries:
+    problem: "Services split by technical layers not domains"
+    solution: "Split by business domains, each service owns its data"
+
+# SMB-specific guidance
+smb_guidance:
+  micro_business_1_2_people:
+    recommendation: "Monolith or Serverless"
+    rationale: "Simplicity is critical, no time for operational complexity"
+    pattern: "Next.js on Vercel or Rails on Railway"
+
+  small_business_3_10_people:
+    recommendation: "Modular Monolith"
+    rationale: "Good organization, room to grow, still simple"
+    pattern: "NestJS modules or Django apps"
+
+  medium_business_10_50_people:
+    recommendation: "Modular Monolith or selective Microservices"
+    rationale: "Can handle some complexity if there's real need"
+    pattern: "Modular monolith with 1-3 extracted services if needed"
+
+  avoid_for_smb:
+    - "Full microservices architecture (too complex)"
+    - "Event-driven architecture (too complex)"
+    - "Service mesh (overkill)"
+    - "More than 5-10 services (too much overhead)"
+
+# Decision checklist
+checklist:
+  before_choosing_microservices:
+    - "[ ] Do we have more than 10 developers?"
+    - "[ ] Do we have DevOps expertise?"
+    - "[ ] Do we have a proven scaling bottleneck?"
+    - "[ ] Can we articulate why services need independent deployment?"
+    - "[ ] Are we prepared for distributed system complexity?"
+    - "[ ] Have we tried a modular monolith first?"
+
+  before_choosing_serverless:
+    - "[ ] Is our traffic variable or spiky?"
+    - "[ ] Are all our processes short-lived (< 15 min)?"
+    - "[ ] Are we OK with vendor lock-in?"
+    - "[ ] Can we handle cold starts?"
+    - "[ ] Do we want to avoid infrastructure management?"
+
+# Module boundaries (for modular monolith)
+module_examples:
+  saas_app:
+    - "User Management (auth, profiles, billing)"
+    - "Core Product (main features)"
+    - "Analytics (reporting, dashboards)"
+    - "Admin (backoffice tools)"
+    - "Integration (third-party APIs)"
+
+  e_commerce:
+    - "Catalog (products, categories)"
+    - "Cart & Checkout"
+    - "Orders & Fulfillment"
+    - "Customers & Accounts"
+    - "Payments"
+    - "Admin"
+
+  b2b_platform:
+    - "Organizations & Teams"
+    - "User Management"
+    - "Core Platform"
+    - "Billing & Subscriptions"
+    - "Integrations & API"
+    - "Admin & Support"
+
+# Success metrics
+success_indicators:
+  good_architecture:
+    - "Developers can ship features quickly"
+    - "Deployments are low-stress"
+    - "System is reliable"
+    - "Costs are reasonable"
+    - "Team can understand and debug the system"
+
+  bad_architecture:
+    - "Deployments are scary"
+    - "Simple changes take days/weeks"
+    - "Frequent production issues"
+    - "Infrastructure costs more than it should"
+    - "New team members take forever to onboard"
