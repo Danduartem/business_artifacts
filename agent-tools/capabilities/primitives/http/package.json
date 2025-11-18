@@ -1,0 +1,21 @@
+{
+  "name": "@agent-tools/primitives-http",
+  "version": "1.0.0",
+  "description": "HTTP primitives: download, GET, POST",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node get.js --url https://api.github.com/zen"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  },
+  "keywords": [
+    "agent-tools",
+    "primitives",
+    "http",
+    "fetch"
+  ],
+  "author": "",
+  "license": "MIT"
+}

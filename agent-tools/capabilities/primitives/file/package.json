@@ -1,0 +1,15 @@
+{
+  "name": "@agent-tools/primitives-file",
+  "version": "1.0.0",
+  "description": "File operation primitives: read, write, parse JSON",
+  "type": "module",
+  "private": true,
+  "keywords": [
+    "agent-tools",
+    "primitives",
+    "file",
+    "io"
+  ],
+  "author": "",
+  "license": "MIT"
+}

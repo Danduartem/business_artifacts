@@ -1,0 +1,25 @@
+{
+  "name": "@agent-tools/primitives-media",
+  "version": "1.0.0",
+  "description": "Media processing primitives: extract audio, convert, transcribe",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "echo 'Requires ffmpeg and whisper.cpp'"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  },
+  "peerDependencies": {
+    "ffmpeg": "*"
+  },
+  "keywords": [
+    "agent-tools",
+    "primitives",
+    "media",
+    "ffmpeg",
+    "transcription"
+  ],
+  "author": "",
+  "license": "MIT"
+}
