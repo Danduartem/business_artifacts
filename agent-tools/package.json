@@ -1,0 +1,37 @@
+{
+  "name": "agent-tools",
+  "version": "1.0.0",
+  "description": "Multi-agent toolkit with modular capabilities",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "core",
+    "capabilities/primitives/browser",
+    "capabilities/primitives/page",
+    "capabilities/primitives/media",
+    "capabilities/primitives/http",
+    "capabilities/primitives/file",
+    "capabilities/primitives/storage",
+    "capabilities/workflows"
+  ],
+  "scripts": {
+    "register": "node scripts/build-registry.js",
+    "postinstall": "npm run register",
+    "health": "node scripts/health-check.js",
+    "list": "node scripts/list-tools.js",
+    "install:all": "npm install && npm install --workspaces",
+    "install:core": "npm install -w @agent-tools/core",
+    "install:storage": "npm install -w @agent-tools/primitives-storage",
+    "install:browser": "npm install -w @agent-tools/primitives-browser",
+    "install:media": "npm install -w @agent-tools/primitives-media",
+    "test": "npm test --workspaces"
+  },
+  "keywords": [
+    "agent-tools",
+    "multi-agent",
+    "primitives",
+    "workflows"
+  ],
+  "author": "",
+  "license": "MIT"
+}

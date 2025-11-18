@@ -1,0 +1,260 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent Tools Registry Schema",
+  "description": "Schema for the agent tools registry",
+  "type": "object",
+  "required": ["version", "primitives"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Registry version"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    },
+    "primitives": {
+      "type": "object",
+      "description": "Organized by primitive categories",
+      "additionalProperties": {
+        "$ref": "#/definitions/capability"
+      }
+    },
+    "workflows": {
+      "type": "object",
+      "description": "Pre-defined workflows",
+      "additionalProperties": {
+        "$ref": "#/definitions/workflow"
+      }
+    },
+    "jobs": {
+      "type": "object",
+      "description": "Long-running orchestrations",
+      "additionalProperties": {
+        "$ref": "#/definitions/job"
+      }
+    },
+    "schemas": {
+      "type": "object",
+      "description": "Data schemas",
+      "additionalProperties": {
+        "$ref": "#/definitions/schemaReference"
+      }
+    }
+  },
+  "definitions": {
+    "capability": {
+      "type": "object",
+      "required": ["description", "tools"],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/tool"
+          }
+        }
+      }
+    },
+    "tool": {
+      "type": "object",
+      "required": ["id", "name", "version", "path", "capabilities"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique tool identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable tool name"
+        },
+        "version": {
+          "type": "string",
+          "description": "Semantic version"
+        },
+        "path": {
+          "type": "string",
+          "description": "Relative path from agent-tools root"
+        },
+        "entrypoint": {
+          "type": "string",
+          "description": "Main script path (relative to tool path)"
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of capabilities this tool provides"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Expected input types"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Output types produced"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "NPM dependencies"
+        },
+        "systemDependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "System-level dependencies"
+        },
+        "envVars": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Required environment variables"
+        },
+        "requires": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Other tool IDs required"
+        },
+        "healthCheck": {
+          "type": "string",
+          "description": "Health check script path"
+        },
+        "documentation": {
+          "type": "string",
+          "description": "Documentation file path"
+        }
+      }
+    },
+    "workflow": {
+      "type": "object",
+      "required": ["description", "steps"],
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/workflowStep"
+          }
+        }
+      }
+    },
+    "workflowStep": {
+      "type": "object",
+      "required": ["tool", "action"],
+      "properties": {
+        "tool": {
+          "type": "string",
+          "description": "Tool ID"
+        },
+        "action": {
+          "type": "string",
+          "description": "Action to perform"
+        },
+        "condition": {
+          "type": "string",
+          "description": "Conditional execution"
+        }
+      }
+    },
+    "job": {
+      "type": "object",
+      "required": ["description", "tools"],
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Job description"
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/jobTool"
+          },
+          "description": "Job tools"
+        }
+      }
+    },
+    "jobTool": {
+      "type": "object",
+      "required": ["id", "name", "path"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique job identifier (e.g., job.instagram.bulk-content-extraction)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable job name"
+        },
+        "path": {
+          "type": "string",
+          "description": "Relative path from agent-tools root"
+        },
+        "orchestrates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Workflow IDs orchestrated by this job"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Expected input parameters"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Output types produced"
+        },
+        "resumable": {
+          "type": "boolean",
+          "description": "Whether the job supports resume capability",
+          "default": true
+        },
+        "estimatedDuration": {
+          "type": "string",
+          "description": "Estimated runtime (e.g., '2-4 hours', 'days')"
+        },
+        "checkpointStrategy": {
+          "type": "string",
+          "description": "Checkpoint strategy (e.g., 'per-stage', 'per-item', 'custom')"
+        }
+      }
+    },
+    "schemaReference": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

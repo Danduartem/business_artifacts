@@ -1,0 +1,28 @@
+# Environment
+.env
+
+# Logs
+temp/
+logs/
+*.log
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# State files
+*.checkpoint.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build artifacts
+dist/
+build/
