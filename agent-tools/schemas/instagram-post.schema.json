@@ -1,0 +1,178 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agent-tools/schemas/instagram-post.schema.json",
+  "title": "Instagram Post",
+  "description": "Standard schema for Instagram post data",
+  "type": "object",
+  "required": ["url", "date"],
+  "properties": {
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Instagram post URL"
+    },
+    "shortcode": {
+      "type": "string",
+      "description": "Instagram post shortcode (from URL)"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Post date (YYYY-MM-DD)"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Full timestamp with time"
+    },
+    "caption": {
+      "type": "string",
+      "description": "Post caption text"
+    },
+    "isReel": {
+      "type": "boolean",
+      "description": "Whether this is a reel/video"
+    },
+    "isCarousel": {
+      "type": "boolean",
+      "description": "Whether this is a carousel post"
+    },
+    "mediaType": {
+      "type": "string",
+      "enum": ["image", "video", "carousel"],
+      "description": "Type of media"
+    },
+    "mediaUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the media file"
+    },
+    "thumbnailUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to thumbnail image"
+    },
+    "screenshot": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL or path to screenshot"
+    },
+    "likes": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of likes"
+    },
+    "comments": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of comments"
+    },
+    "views": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of views (for videos)"
+    },
+    "engagement": {
+      "type": "object",
+      "properties": {
+        "likes": {
+          "type": "integer"
+        },
+        "comments": {
+          "type": "integer"
+        },
+        "shares": {
+          "type": "integer"
+        },
+        "saves": {
+          "type": "integer"
+        },
+        "engagementRate": {
+          "type": "number",
+          "description": "Engagement rate percentage"
+        }
+      }
+    },
+    "creator": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "Instagram username (without @)"
+        },
+        "handle": {
+          "type": "string",
+          "description": "Instagram handle (with @)"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "profileUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "followerCount": {
+          "type": "integer"
+        }
+      }
+    },
+    "transcription": {
+      "type": "string",
+      "description": "Video transcription text"
+    },
+    "transcriptionFormat": {
+      "type": "string",
+      "enum": ["txt", "srt", "vtt", "json"],
+      "description": "Format of the transcription"
+    },
+    "videoDuration": {
+      "type": "number",
+      "description": "Video duration in seconds"
+    },
+    "analysis": {
+      "$ref": "analysis-result.schema.json"
+    },
+    "hashtags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of hashtags used"
+    },
+    "mentions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of mentioned users"
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "lat": {
+          "type": "number"
+        },
+        "lng": {
+          "type": "number"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata",
+      "additionalProperties": true
+    },
+    "extractedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When this data was extracted"
+    },
+    "source": {
+      "type": "string",
+      "description": "Tool or method used to extract this data"
+    }
+  }
+}

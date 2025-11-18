@@ -1,0 +1,247 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://agent-tools/schemas/analysis-result.schema.json",
+  "title": "Analysis Result",
+  "description": "Standard schema for content analysis results",
+  "type": "object",
+  "properties": {
+    "framework": {
+      "type": "string",
+      "enum": [
+        "AIDA",
+        "PAS",
+        "BAB",
+        "4Ps",
+        "PASTOR",
+        "Como Fazer",
+        "História",
+        "Estudo de Caso",
+        "Listicle",
+        "Quebra de Mito",
+        "Desabafo",
+        "Pergunta-Resposta"
+      ],
+      "description": "Marketing framework identified"
+    },
+    "hookCategories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Lacuna de Curiosidade",
+          "Focado em Problema",
+          "Dor Direta",
+          "Promessa de Transformação",
+          "Mostrar Resultados",
+          "História Pessoal",
+          "Pergunta Direta",
+          "Declaração Controversa",
+          "Desabafo Pessoal",
+          "Aviso de Erro",
+          "Loop Aberto",
+          "Antes/Depois",
+          "Pergunta Provocativa",
+          "Problema Comum"
+        ]
+      },
+      "description": "Types of hooks used"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "Reel",
+        "Carrossel",
+        "Imagem Única",
+        "Reel - Falando na Câmera",
+        "Reel - B-Roll",
+        "Reel - Texto Sobreposto",
+        "Infográfico",
+        "Gráfico de Citação"
+      ],
+      "description": "Content format"
+    },
+    "ctaType": {
+      "type": "string",
+      "enum": [
+        "Salve Isso",
+        "Compartilhe/Marque",
+        "Comente Abaixo",
+        "Comentar/Engajar",
+        "Link na Bio",
+        "Mande DM",
+        "Assista Vídeo Completo",
+        "Arraste",
+        "Sem CTA Claro"
+      ],
+      "description": "Call-to-action type"
+    },
+    "emotionalTones": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Aspiracional",
+          "Empático",
+          "Urgente",
+          "Urgência",
+          "Educacional",
+          "Divertido",
+          "Vulnerável",
+          "Empoderador",
+          "Motivacional",
+          "Frustrado/Desabafando",
+          "Relacionável",
+          "Autoritário"
+        ]
+      },
+      "description": "Emotional tones detected"
+    },
+    "visualStyle": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Polido/Profissional",
+          "Cru/Autêntico",
+          "Colorido",
+          "Minimalista",
+          "Muito Texto",
+          "Cara na Câmera",
+          "Falando na Câmera",
+          "Só B-Roll",
+          "Escuro/Sombrio",
+          "Claro/Arejado",
+          "Estética Brasileira"
+        ]
+      },
+      "description": "Visual style characteristics"
+    },
+    "painPoint": {
+      "type": "string",
+      "description": "Main pain point addressed"
+    },
+    "titleHook": {
+      "type": "string",
+      "description": "Opening hook or title"
+    },
+    "keyPoints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Key points or takeaways"
+    },
+    "targetAudience": {
+      "type": "string",
+      "description": "Identified target audience"
+    },
+    "sentiment": {
+      "type": "object",
+      "properties": {
+        "overall": {
+          "type": "string",
+          "enum": ["positive", "neutral", "negative"]
+        },
+        "score": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "description": "Sentiment score from -1 (negative) to 1 (positive)"
+        }
+      }
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Main topics covered"
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["person", "organization", "location", "product", "brand"]
+          },
+          "name": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      },
+      "description": "Named entities identified"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string"
+          },
+          "relevance": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      },
+      "description": "Important keywords"
+    },
+    "contentQuality": {
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "clarity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "value": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "engagement": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional analysis notes"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Overall confidence in the analysis"
+    },
+    "analyzedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the analysis was performed"
+    },
+    "analyzer": {
+      "type": "string",
+      "description": "Tool or model used for analysis"
+    },
+    "version": {
+      "type": "string",
+      "description": "Analysis schema version"
+    }
+  }
+}
