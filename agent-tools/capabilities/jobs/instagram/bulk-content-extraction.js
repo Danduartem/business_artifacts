@@ -45,7 +45,8 @@ import { getEventBus } from '../../../core/events/index.js';
 import { getAgentToolsRoot } from '../../../core/utils/index.js';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { writeFile } from 'node:fs/promises';
+import { writeFile, mkdir, access } from 'node:fs/promises';
+import { constants } from 'node:fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -59,6 +60,33 @@ const state = createStateManager({
 });
 
 const events = getEventBus();
+
+// Helper to validate dependencies
+async function validateDependencies() {
+  const requiredWorkflows = [
+    'instagram/extract-profile.js',
+    'media/download-and-transcribe.js'
+  ];
+
+  const missing = [];
+
+  for (const workflow of requiredWorkflows) {
+    const workflowPath = path.join(__dirname, '../../workflows', workflow);
+    try {
+      await access(workflowPath, constants.F_OK);
+      logger.info('Dependency check passed', { workflow });
+    } catch (error) {
+      missing.push(workflow);
+      logger.error('Missing required workflow', { workflow, path: workflowPath });
+    }
+  }
+
+  if (missing.length > 0) {
+    throw new Error(`Missing required workflows: ${missing.join(', ')}`);
+  }
+
+  logger.info('All dependencies validated');
+}
 
 // Helper to execute workflows
 async function executeWorkflow(workflowPath, params) {
@@ -132,11 +160,12 @@ async function executeWorkflow(workflowPath, params) {
 const { values } = parseArgs({
   options: {
     profiles: { type: 'string' },
-    startDate: { type: 'string' },
-    endDate: { type: 'string' },
-    outputFormat: { type: 'string', default: 'json' },
-    includeStories: { type: 'boolean', default: false },
+    'start-date': { type: 'string' },
+    'end-date': { type: 'string' },
+    'output-format': { type: 'string', default: 'json' },
+    'include-stories': { type: 'boolean', default: false },
     resume: { type: 'boolean', default: false },
+    'dry-run': { type: 'boolean', default: false },
     help: { type: 'boolean', short: 'h' }
   }
 });
@@ -170,6 +199,8 @@ Options:
   --include-stories          Include stories if available (default: false)
 
   --resume                   Resume from last checkpoint after interruption
+
+  --dry-run                  Validate dependencies and configuration without executing
 
   --help, -h                 Show this help
 
@@ -226,12 +257,36 @@ async function main() {
   try {
     logger.info('Starting Instagram bulk content extraction job', { params: values });
 
+    // Validate dependencies first
+    await validateDependencies();
+
+    // Ensure output directory exists
+    const outputDir = path.join(getAgentToolsRoot(), 'temp');
+    await mkdir(outputDir, { recursive: true });
+    logger.info('Output directory ready', { path: outputDir });
+
+    // Dry-run mode: validate and exit
+    if (values['dry-run']) {
+      logger.info('Dry-run mode: validation successful');
+      console.log(JSON.stringify({
+        success: true,
+        mode: 'dry-run',
+        message: 'All dependencies validated successfully',
+        outputDirectory: outputDir,
+        requiredWorkflows: [
+          'instagram/extract-profile.js',
+          'media/download-and-transcribe.js'
+        ]
+      }));
+      process.exit(0);
+    }
+
     // Validate required inputs (unless resuming)
     if (!values.resume) {
       if (!values.profiles) {
         throw new Error('--profiles is required');
       }
-      if (!values.startDate || !values.endDate) {
+      if (!values['start-date'] || !values['end-date']) {
         throw new Error('--start-date and --end-date are required');
       }
     }
@@ -247,10 +302,10 @@ async function main() {
     let jobState = {
       stage: 'initialized',
       profiles: profiles || [],
-      startDate: values.startDate,
-      endDate: values.endDate,
-      outputFormat: values.outputFormat,
-      includeStories: values.includeStories,
+      startDate: values['start-date'],
+      endDate: values['end-date'],
+      outputFormat: values['output-format'],
+      includeStories: values['include-stories'],
       processedProfiles: [],
       failedProfiles: [],
       allPosts: [],
@@ -508,7 +563,10 @@ async function main() {
     }
 
     await writeFile(outputPath, fileContent, 'utf-8');
-    logger.info('Export file created', { path: outputPath });
+    logger.info('Export file created', {
+      absolutePath: outputPath,
+      relativePath: path.relative(process.cwd(), outputPath)
+    });
 
     // Calculate duration
     const duration = Date.now() - startTime;
