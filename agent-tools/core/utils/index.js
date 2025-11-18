@@ -6,6 +6,26 @@
 
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+/**
+ * Get the agent-tools root directory
+ * Walks up from the current file to find the agent-tools directory
+ */
+export function getAgentToolsRoot() {
+  // Get the directory of this file
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  // Walk up from core/utils to find agent-tools root
+  let current = __dirname;
+
+  // Go up two levels from core/utils to agent-tools
+  current = path.dirname(current); // core
+  current = path.dirname(current); // agent-tools
+
+  return current;
+}
 
 /**
  * Retry a function with exponential backoff
@@ -274,6 +294,7 @@ export class ProgressTracker {
 }
 
 export default {
+  getAgentToolsRoot,
   retry,
   sleep,
   formatDuration,
