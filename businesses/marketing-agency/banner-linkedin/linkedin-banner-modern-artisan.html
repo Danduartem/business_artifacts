@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Banner - The Modern Artisan</title>
+    <style>
+        /* ============================================
+           LINKEDIN BANNER - THE MODERN ARTISAN
+           Contemporary craft meets AI innovation
+           1584 x 396 pixels
+           ============================================ */
+
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* === CSS CUSTOM PROPERTIES (BRAND COLORS) === */
+        :root {
+            /* Oitavo Café Brand Colors */
+            --color-primary: #4E130D;      /* Dark coffee brown */
+            --color-secondary: #7A1307;    /* Medium brown */
+            --color-accent: #A1523C;       /* Terracota */
+            --color-light: #F8E8D8;        /* Light beige */
+            --color-gray: #ECECEC;         /* Light gray */
+
+            /* Design System */
+            --spacing-unit: 8px;
+            --border-radius: 12px;
+            --shadow-subtle: 0 2px 8px rgba(78, 19, 13, 0.08);
+            --shadow-medium: 0 4px 16px rgba(78, 19, 13, 0.12);
+        }
+
+        /* === CANVAS SETUP === */
+        body {
+            width: 1584px;
+            height: 396px;
+            overflow: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            position: relative;
+            background: linear-gradient(135deg, #4E130D 0%, #5E1810 50%, #7A1307 100%);
+        }
+
+        /* === MAIN CONTAINER === */
+        .banner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* === BACKGROUND PATTERN (GEOMETRIC MODERN) === */
+        .geometric-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.08;
+            overflow: hidden;
+        }
+
+        /* Geometric circles - coffee bean inspired */
+        .geometric-pattern::before,
+        .geometric-pattern::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid var(--color-light);
+        }
+
+        .geometric-pattern::before {
+            width: 480px;
+            height: 480px;
+            top: -140px;
+            left: 80px;
+            opacity: 0.6;
+        }
+
+        .geometric-pattern::after {
+            width: 320px;
+            height: 320px;
+            bottom: -80px;
+            left: 200px;
+            opacity: 0.4;
+        }
+
+        /* === ACCENT GEOMETRIC SHAPES === */
+        .accent-shape {
+            position: absolute;
+            background: var(--color-accent);
+            opacity: 0.15;
+        }
+
+        .accent-shape.shape-1 {
+            width: 280px;
+            height: 280px;
+            top: -80px;
+            right: 15%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
+        }
+
+        .accent-shape.shape-2 {
+            width: 160px;
+            height: 160px;
+            bottom: -40px;
+            right: 25%;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        /* === MODERN GRID LAYOUT === */
+        .content-grid {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 40% 60%;
+            padding: 48px 64px;
+            gap: 48px;
+            z-index: 10;
+        }
+
+        /* === LEFT COLUMN - LOGO & VISUAL === */
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-right: 32px;
+            position: relative;
+        }
+
+        /* Coffee bean infinity logo (abstract geometric) */
+        .logo-feature {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 24px;
+        }
+
+        .infinity-symbol {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Modern infinity/8 symbol using SVG-like CSS */
+        .infinity-symbol svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        .brand-mark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 72px;
+            font-weight: 800;
+            color: var(--color-light);
+            opacity: 0.2;
+            letter-spacing: -2px;
+        }
+
+        /* Refined detail lines */
+        .detail-line {
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-accent), transparent);
+            margin-top: 16px;
+            border-radius: 2px;
+        }
+
+        /* === RIGHT COLUMN - CONTENT === */
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: 32px;
+            border-left: 1px solid rgba(248, 232, 216, 0.15);
+        }
+
+        /* === TYPOGRAPHY === */
+        .headline {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--color-light);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .headline-highlight {
+            color: var(--color-accent);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Modern underline accent */
+        .headline-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--color-accent);
+            opacity: 0.5;
+            border-radius: 2px;
+        }
+
+        .supporting-text {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--color-light);
+            line-height: 1.4;
+            margin-bottom: 32px;
+            opacity: 0.9;
+            max-width: 680px;
+        }
+
+        /* === CTA BUTTON (MODERN REFINED) === */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--color-accent);
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-medium);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Button hover effect (modern) */
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cta-button:hover::before {
+            opacity: 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(161, 82, 60, 0.3);
+        }
+
+        /* Button icon (arrow) */
+        .cta-icon {
+            width: 20px;
+            height: 20px;
+            stroke: white;
+            stroke-width: 2.5;
+            fill: none;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover .cta-icon {
+            transform: translateX(4px);
+        }
+
+        /* === DECORATIVE ELEMENTS === */
+        .corner-accent {
+            position: absolute;
+            top: 32px;
+            right: 32px;
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--color-accent);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .corner-accent::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--color-accent);
+            border-radius: 50%;
+        }
+
+        /* === QUALITY DETAILS === */
+        .refined-border {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            right: 24px;
+            bottom: 24px;
+            border: 1px solid rgba(248, 232, 216, 0.1);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        /* === RESPONSIVE READABILITY === */
+        @media (max-width: 1584px) {
+            .headline {
+                font-size: 48px;
+            }
+            .supporting-text {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <!-- Background geometric pattern -->
+        <div class="geometric-pattern"></div>
+
+        <!-- Accent shapes -->
+        <div class="accent-shape shape-1"></div>
+        <div class="accent-shape shape-2"></div>
+
+        <!-- Refined border frame -->
+        <div class="refined-border"></div>
+
+        <!-- Corner accent -->
+        <div class="corner-accent"></div>
+
+        <!-- Main content grid -->
+        <div class="content-grid">
+            <!-- LEFT COLUMN: Logo & Visual Elements -->
+            <div class="left-column">
+                <div class="logo-feature">
+                    <!-- Infinity/8 symbol (coffee bean inspired) -->
+                    <div class="infinity-symbol">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Modern infinity symbol -->
+                            <path d="M 50 100 Q 50 60, 75 60 Q 100 60, 100 100 Q 100 140, 75 140 Q 50 140, 50 100 Z M 100 100 Q 100 60, 125 60 Q 150 60, 150 100 Q 150 140, 125 140 Q 100 140, 100 100 Z"
+                                  fill="none"
+                                  stroke="#F8E8D8"
+                                  stroke-width="3"
+                                  opacity="0.3"/>
+                            <!-- Coffee bean accent circles -->
+                            <circle cx="75" cy="100" r="35" fill="none" stroke="#A1523C" stroke-width="2" opacity="0.4"/>
+                            <circle cx="125" cy="100" r="35" fill="none" stroke="#A1523C" stroke-width="2" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <div class="brand-mark">8</div>
+                </div>
+                <div class="detail-line"></div>
+            </div>
+
+            <!-- RIGHT COLUMN: Main Content -->
+            <div class="right-column">
+                <!-- Main headline -->
+                <h1 class="headline">
+                    <span class="headline-highlight">ChatGPT</span> não é<br>
+                    estratégia de IA.
+                </h1>
+
+                <!-- Supporting text -->
+                <p class="supporting-text">
+                    IA para reduzir retrabalho e custo em empresas de serviços.
+                </p>
+
+                <!-- CTA Button -->
+                <a href="#" class="cta-button">
+                    <span>Agende seu Diagnóstico de IA</span>
+                    <!-- Arrow icon (Lucide-style) -->
+                    <svg class="cta-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
