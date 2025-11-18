@@ -1,0 +1,39 @@
+# Batch Instagram Analysis Workflow
+name: batch-analyze
+description: "Extract, analyze, and save multiple Instagram posts from specified profiles and date range to Notion"
+author: "Content Decoder Agent"
+version: 1.0.0
+
+# Load config from agent parent
+config_source: "{project-root}/bmad/bmb/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+
+# Workflow paths
+installed_path: "{project-root}/bmad/agents/content-decoder/workflows/batch-analyze"
+template: false  # Action workflow - no template output
+instructions: "{installed_path}/instructions.md"
+
+# Tools and integrations needed
+required_tools:
+  - browser-tools  # Instagram extraction
+  - video-processor  # Video transcription
+  - notion-integration  # Save to Notion
+  - content-decoder-agent  # Analysis
+
+# Input variables (collected during workflow)
+inputs:
+  instagram_profiles: []  # List of @handles
+  date_start: ""  # YYYY-MM-DD
+  date_end: ""  # YYYY-MM-DD
+  notion_database_id: "{config_source}:notion_database_id"  # From notion-integration config
+
+# Runtime state
+state:
+  total_posts: 0
+  processed_posts: 0
+  failed_posts: 0
+  current_profile: ""
+  current_post: ""
+
+standalone: true

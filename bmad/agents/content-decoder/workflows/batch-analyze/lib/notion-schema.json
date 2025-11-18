@@ -1,0 +1,198 @@
+{
+  "id": "2aeb1dc6-e56b-805c-af96-d0ab095245b9",
+  "title": "Conteúdo Benchmark",
+  "properties": {
+    "Caption": {
+      "type": "rich_text",
+      "id": "%3D%7CfN"
+    },
+    "Video Transcrito": {
+      "type": "rich_text",
+      "id": "%3ELog"
+    },
+    "Tom Emocional": {
+      "type": "multi_select",
+      "id": "%3FQcA",
+      "options": [
+        "Aspiracional",
+        "Empático",
+        "Urgente",
+        "Educacional",
+        "Divertido",
+        "Vulnerável",
+        "Empoderador",
+        "Motivacional",
+        "Frustrado/Desabafando",
+        "Relacionável",
+        "Autoritário",
+        "Direto",
+        "Facilitador",
+        "Autêntico",
+        "Profissional",
+        "Humorístico",
+        "Curioso",
+        "Confuso",
+        "Admirador",
+        "Inspirador",
+        "Espiritual",
+        "Grato",
+        "Descontraído",
+        "Ansioso",
+        "Entusiasmado",
+        "Frustrado",
+        "Afetuoso",
+        "Encorajador",
+        "Emocionado",
+        "Reflexivo",
+        "Surpreendente",
+        "Contemplativo",
+        "Confiante"
+      ]
+    },
+    "Data": {
+      "type": "date",
+      "id": "%40goH"
+    },
+    "Framework": {
+      "type": "select",
+      "id": "GQ%3BR",
+      "options": [
+        "AIDA",
+        "PAS",
+        "BAB",
+        "4Ps",
+        "PASTOR",
+        "Como Fazer",
+        "História",
+        "Estudo de Caso",
+        "Listicle",
+        "Quebra de Mito",
+        "Desabafo",
+        "Pergunta-Resposta",
+        "CTA Simples",
+        "Oferta Direta",
+        "Antes e Depois",
+        "Benefício Direto",
+        "Identificação",
+        "Dúvida/FAQ",
+        "Social Proof",
+        "Testemunho",
+        "Problema-Solução",
+        "Relacionável",
+        "Reflexão",
+        "Prova Social",
+        "Inspiracional",
+        "Visual",
+        "Desconstrução",
+        "Apresentação",
+        "Garantia de Resultado",
+        "Afirmação",
+        "Storytelling",
+        "Contraste"
+      ]
+    },
+    "Tipo de CTA": {
+      "type": "select",
+      "id": "NUUG",
+      "options": [
+        "Salve Isso",
+        "Compartilhe/Marque",
+        "Comente Abaixo",
+        "Link na Bio",
+        "Mande DM",
+        "Assista Vídeo Completo",
+        "Arraste",
+        "Sem CTA Claro",
+        "Comentário",
+        "Participação",
+        "Reflexão",
+        "Implícito"
+      ]
+    },
+    "Título/Hook": {
+      "type": "rich_text",
+      "id": "V%7Dr%7C"
+    },
+    "Estilo Visual": {
+      "type": "multi_select",
+      "id": "X%3Ax%7C",
+      "options": [
+        "Polido/Profissional",
+        "Cru/Autêntico",
+        "Colorido",
+        "Minimalista",
+        "Muito Texto",
+        "Cara na Câmera",
+        "Só B-Roll",
+        "Escuro/Sombrio",
+        "Claro/Arejado",
+        "Estética Brasileira",
+        "Profissional",
+        "Humorístico",
+        "Aspiracional",
+        "Poético"
+      ]
+    },
+    "Ponto de Dor": {
+      "type": "rich_text",
+      "id": "%5CJGc"
+    },
+    "Duração do Vídeo (seg)": {
+      "type": "number",
+      "id": "iVbC"
+    },
+    "Formato": {
+      "type": "select",
+      "id": "m%5CiJ",
+      "options": [
+        "Reel",
+        "Carrossel",
+        "Imagem Única",
+        "Reel - Falando na Câmera",
+        "Reel - B-Roll",
+        "Reel - Texto Sobreposto",
+        "Infográfico",
+        "Gráfico de Citação",
+        "Reels"
+      ]
+    },
+    "URL": {
+      "type": "url",
+      "id": "uj%7D%3C"
+    },
+    "Categoria do Hook": {
+      "type": "multi_select",
+      "id": "%7BCH_",
+      "options": [
+        "Lacuna de Curiosidade",
+        "Focado em Problema",
+        "Dor Direta",
+        "Promessa de Transformação",
+        "Mostrar Resultados",
+        "História Pessoal",
+        "Pergunta Direta",
+        "Declaração Controversa",
+        "Desabafo Pessoal",
+        "Aviso de Erro",
+        "Loop Aberto",
+        "Antes/Depois",
+        "CTA Direto",
+        "Pergunta de Audiência",
+        "Comentário de Fã",
+        "Humor",
+        "Antes e Depois",
+        "Testemunho",
+        "Reflexão",
+        "Revelação",
+        "Empoderamento",
+        "Bio/Apresentação",
+        "Promessa de Resultado",
+        "Afirmação"
+      ]
+    },
+    "Instagram": {
+      "type": "title",
+      "id": "title"
+    }
+  }
+}
