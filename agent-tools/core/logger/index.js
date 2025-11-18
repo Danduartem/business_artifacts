@@ -8,6 +8,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { getAgentToolsRoot } from '../utils/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -37,7 +38,7 @@ class Logger {
     this.agentId = options.agentId || 'unknown';
     this.toolName = options.toolName || 'unknown';
     this.sessionId = options.sessionId || this.generateSessionId();
-    this.logDir = options.logDir || path.join(process.cwd(), 'temp', 'logs');
+    this.logDir = options.logDir || path.join(getAgentToolsRoot(), 'temp', 'logs');
     this.enableFile = options.enableFile !== false;
     this.enableConsole = options.enableConsole !== false;
     this.structured = options.structured || false;

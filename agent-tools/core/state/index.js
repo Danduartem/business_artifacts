@@ -8,12 +8,13 @@
 import fs from 'fs';
 import path from 'path';
 import { createLogger } from '../logger/index.js';
+import { getAgentToolsRoot } from '../utils/index.js';
 
 const logger = createLogger({ toolName: 'state-manager' });
 
 class StateManager {
   constructor(options = {}) {
-    this.stateDir = options.stateDir || path.join(process.cwd(), 'temp', 'state');
+    this.stateDir = options.stateDir || path.join(getAgentToolsRoot(), 'temp', 'state');
     this.namespace = options.namespace || 'default';
     this.autoSave = options.autoSave !== false;
     this.saveInterval = options.saveInterval || 5000; // 5 seconds

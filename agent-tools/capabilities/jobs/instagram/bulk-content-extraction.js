@@ -42,6 +42,7 @@ import { spawn } from 'node:child_process';
 import { createLogger } from '../../../core/logger/index.js';
 import { createStateManager } from '../../../core/state/index.js';
 import { getEventBus } from '../../../core/events/index.js';
+import { getAgentToolsRoot } from '../../../core/utils/index.js';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeFile } from 'node:fs/promises';
@@ -293,7 +294,7 @@ async function main() {
 
       jobState.stage = `extracting-${username}`;
       state.set('jobState', jobState);
-      state.checkpoint();
+      state.createCheckpoint();
 
       try {
         logger.info('Extracting profile posts', { username });
@@ -334,7 +335,7 @@ async function main() {
 
       // Checkpoint after each profile
       state.set('jobState', jobState);
-      state.checkpoint();
+      state.createCheckpoint();
     }
 
     // STAGE 2: Download all media
@@ -344,7 +345,7 @@ async function main() {
 
     jobState.stage = 'downloading-media';
     state.set('jobState', jobState);
-    state.checkpoint();
+    state.createCheckpoint();
 
     for (const profileData of jobState.allPosts) {
       for (const post of profileData.posts || []) {
@@ -390,7 +391,7 @@ async function main() {
 
       // Checkpoint after each profile's media
       state.set('jobState', jobState);
-      state.checkpoint();
+      state.createCheckpoint();
     }
 
     // STAGE 3: Transcribe videos
@@ -400,7 +401,7 @@ async function main() {
 
     jobState.stage = 'transcribing';
     state.set('jobState', jobState);
-    state.checkpoint();
+    state.createCheckpoint();
 
     const videosToTranscribe = jobState.allMedia.filter(m => m.mediaType === 'video');
 
@@ -437,7 +438,7 @@ async function main() {
       // Checkpoint every 10 videos
       if (jobState.stats.transcribedVideos % 10 === 0) {
         state.set('jobState', jobState);
-        state.checkpoint();
+        state.createCheckpoint();
       }
     }
 
@@ -448,7 +449,7 @@ async function main() {
 
     jobState.stage = 'exporting';
     state.set('jobState', jobState);
-    state.checkpoint();
+    state.createCheckpoint();
 
     // Merge all data
     const exportData = {
@@ -490,7 +491,7 @@ async function main() {
     // Generate output file
     const timestamp = new Date().toISOString().split('T')[0];
     const outputFileName = `instagram-export-${timestamp}.${jobState.outputFormat}`;
-    const outputPath = path.join(process.cwd(), 'temp', outputFileName);
+    const outputPath = path.join(getAgentToolsRoot(), 'temp', outputFileName);
 
     // Format based on output format
     let fileContent;

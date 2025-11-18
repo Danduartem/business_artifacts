@@ -9,6 +9,7 @@ import { EventEmitter } from 'events';
 import fs from 'fs';
 import path from 'path';
 import { createLogger } from '../logger/index.js';
+import { getAgentToolsRoot } from '../utils/index.js';
 
 const logger = createLogger({ toolName: 'event-bus' });
 
@@ -18,7 +19,7 @@ class EventBus extends EventEmitter {
     this.setMaxListeners(options.maxListeners || 100);
     this.eventLog = [];
     this.enableLogging = options.enableLogging !== false;
-    this.logDir = options.logDir || path.join(process.cwd(), 'temp', 'events');
+    this.logDir = options.logDir || path.join(getAgentToolsRoot(), 'temp', 'events');
     this.persistEvents = options.persistEvents || false;
 
     if (this.enableLogging || this.persistEvents) {
