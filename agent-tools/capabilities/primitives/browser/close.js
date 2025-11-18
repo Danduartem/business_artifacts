@@ -24,10 +24,23 @@ async function closeBrowser() {
 
     logger.info('Closing', { tabOnly });
 
-    // Connect to existing browser
-    const browser = await puppeteer.connect({
-      browserURL: 'http://localhost:9222'
-    });
+    // Try to connect to existing browser
+    let browser;
+    try {
+      browser = await puppeteer.connect({
+        browserURL: 'http://localhost:9222'
+      });
+    } catch (connectError) {
+      // No browser running - this is fine for cleanup operations
+      logger.info('No browser running to close', { error: connectError.message });
+      console.log(JSON.stringify({
+        success: true,
+        action: 'no-browser-running',
+        message: 'No browser instance found to close'
+      }));
+      process.exit(0);
+      return;
+    }
 
     if (tabOnly) {
       const pages = await browser.pages();
