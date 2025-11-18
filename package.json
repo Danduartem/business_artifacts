@@ -1,0 +1,31 @@
+{
+  "name": "business-artifacts",
+  "version": "1.0.0",
+  "description": "Business artifacts workspace with BMAD framework and agent tools",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "config",
+    "agent-tools",
+    "agent-tools/core",
+    "agent-tools/capabilities/primitives/browser",
+    "agent-tools/capabilities/primitives/page",
+    "agent-tools/capabilities/primitives/media",
+    "agent-tools/capabilities/primitives/http",
+    "agent-tools/capabilities/primitives/file",
+    "agent-tools/capabilities/primitives/storage",
+    "agent-tools/capabilities/workflows",
+    "bmad/agents/content-decoder/workflows/batch-analyze"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "health": "cd agent-tools && npm run health"
+  },
+  "keywords": [
+    "business-artifacts",
+    "bmad",
+    "agent-tools"
+  ],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@business-artifacts/config",
+  "version": "1.0.0",
+  "description": "Central configuration for business artifacts workspace",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  }
+}
