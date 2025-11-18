@@ -1,0 +1,20 @@
+{
+  "name": "@agent-tools/workflows",
+  "version": "1.0.0",
+  "description": "High-level workflows composing multiple primitives",
+  "type": "module",
+  "private": true,
+  "peerDependencies": {
+    "@agent-tools/primitives-browser": "*",
+    "@agent-tools/primitives-media": "*",
+    "@agent-tools/primitives-storage": "*",
+    "@agent-tools/primitives-http": "*"
+  },
+  "keywords": [
+    "agent-tools",
+    "workflows",
+    "composition"
+  ],
+  "author": "",
+  "license": "MIT"
+}
