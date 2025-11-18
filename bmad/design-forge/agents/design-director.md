@@ -83,6 +83,7 @@ Ask the user:
    - testimonials (social proof)
    - faq (frequently asked questions)
    - cta (call-to-action)
+   - form (lead capture, applications, checkout forms)
    - navbar (navigation bar)
    - footer
 
@@ -390,10 +391,11 @@ Design Forge v2.0 supports the following landing page sections with design brief
 7. **testimonials** - Social proof (credibility through real results)
 8. **faq** - Frequently asked questions (objection removal)
 9. **cta** - Call-to-action (final conversion moment)
+10. **form** - Form experience (lead capture, applications, checkout, conversational flows)
 
 ### Structural Sections:
-10. **navbar** - Navigation bar (orientation + brand + CTA access)
-11. **footer** - Footer (navigation, legal, contact)
+11. **navbar** - Navigation bar (orientation + brand + CTA access)
+12. **footer** - Footer (navigation, legal, contact)
 
 **Design Brief System:**
 Each section type has a professional design brief that defines:
