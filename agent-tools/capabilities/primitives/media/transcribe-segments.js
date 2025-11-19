@@ -73,7 +73,7 @@ async function transcribeSegments() {
     const segmentRanges = segmentsStr.split(',').map(s => s.trim());
 
     const language = args.flags.language || 'en';
-    const modelSize = args.flags.model || 'base';
+    const modelSize = args.flags.model || 'medium';
 
     const outputFile = args.flags.output ||
       join(

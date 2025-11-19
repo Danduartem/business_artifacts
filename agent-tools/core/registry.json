@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
   "version": "2.0.0",
-  "lastUpdated": "2025-11-18T23:21:11.024Z",
+  "lastUpdated": "2025-11-19T01:40:00.000Z",
   "primitives": {
     "browser": {
       "description": "Atomic browser operations",
@@ -205,6 +205,37 @@
         }
       ]
     },
+    "instagram": {
+      "description": "Atomic Instagram operations",
+      "tools": [
+        {
+          "id": "instagram.download-video",
+          "description": "Download video from Instagram post/reel URL using yt-dlp (free, open-source)",
+          "category": "instagram",
+          "inputs": [
+            "url",
+            "output",
+            "cookies",
+            "quality"
+          ],
+          "outputs": [
+            "output",
+            "size",
+            "quality",
+            "success"
+          ],
+          "capabilities": [
+            "download-video"
+          ],
+          "systemDependencies": [
+            "yt-dlp"
+          ],
+          "example": "* node instagram/download-video.js --url \"https://www.instagram.com/p/ABC123/\" --output /path/to/video.mp4",
+          "path": "capabilities/primitives/instagram/download-video.js",
+          "name": "Download Video"
+        }
+      ]
+    },
     "media": {
       "description": "Atomic media operations",
       "tools": [
@@ -261,6 +292,33 @@
           ],
           "path": "capabilities/primitives/media/extract-audio.js",
           "name": "Extract Audio"
+        },
+        {
+          "id": "media.transcribe",
+          "description": "Transcribe audio/video file using whisper.cpp (free, local, zero-cost)",
+          "category": "media",
+          "inputs": [
+            "input",
+            "output",
+            "language",
+            "format",
+            "model"
+          ],
+          "outputs": [
+            "text",
+            "output",
+            "success"
+          ],
+          "capabilities": [
+            "transcribe"
+          ],
+          "systemDependencies": [
+            "ffmpeg",
+            "whisper.cpp"
+          ],
+          "example": "* node media/transcribe.js --input /path/to/audio.mp3 --output /path/to/transcript.txt --language pt",
+          "path": "capabilities/primitives/media/transcribe.js",
+          "name": "Transcribe"
         },
         {
           "id": "media.ocr-image",
@@ -566,49 +624,6 @@
       ]
     }
   },
-  "jobs": {
-    "instagram": {
-      "description": "Instagram long-running jobs",
-      "tools": [
-        {
-          "id": "job.instagram.bulk-content-extraction",
-          "name": "Bulk Content Extraction",
-          "path": "capabilities/jobs/instagram/bulk-content-extraction.js",
-          "description": "Extracts all Instagram posts from specified profiles within a date range, downloads media, transcribes videos, and exports to structured format",
-          "orchestrates": [
-            "workflow.instagram.extract-profile",
-            "workflow.media.download-and-transcribe",
-            "workflow.content.format-export"
-          ],
-          "inputs": [
-            "profiles",
-            "startDate",
-            "endDate",
-            "outputFormat",
-            "includeStories"
-          ],
-          "outputs": [
-            "processedPosts",
-            "downloadedMedia",
-            "transcribedVideos",
-            "outputFile",
-            "summary"
-          ],
-          "resumable": true,
-          "estimatedDuration": "1-4 hours",
-          "checkpointStrategy": "per-stage"
-        }
-      ]
-    },
-    "media": {
-      "description": "Media long-running jobs",
-      "tools": []
-    },
-    "content": {
-      "description": "Content long-running jobs",
-      "tools": []
-    }
-  },
   "workflows": {
     "content": {
       "description": "Content workflows",
@@ -741,6 +756,35 @@
           ],
           "path": "capabilities/workflows/instagram/download-reel.js",
           "name": "Download Reel"
+        },
+        {
+          "id": "instagram.extract-post-full",
+          "description": "Extract complete Instagram post data including caption, format, screenshot, and media",
+          "category": "instagram",
+          "inputs": [
+            "url",
+            "profile",
+            "screenshot",
+            "download-media"
+          ],
+          "outputs": [
+            "postId",
+            "url",
+            "creator",
+            "datePosted",
+            "caption",
+            "format",
+            "isReel",
+            "screenshotPath",
+            "mediaUrls",
+            "videoTranscription"
+          ],
+          "capabilities": [
+            "extract-post-full"
+          ],
+          "example": "* node instagram/extract-post-full.js --url \"https://www.instagram.com/p/ABC123/\" --profile",
+          "path": "capabilities/workflows/instagram/extract-post-full.js",
+          "name": "Extract Post Full"
         },
         {
           "id": "workflow.instagram.extract-post",

@@ -108,7 +108,7 @@ class Logger {
       ? ` ${JSON.stringify(metadata)}`
       : '';
 
-    console.log(
+    console.error(
       `${color}[${timestamp}] [${level}] [${this.agentId}/${this.toolName}]${reset} ${message}${metaStr}`
     );
   }

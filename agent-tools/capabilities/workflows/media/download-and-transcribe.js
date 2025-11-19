@@ -21,7 +21,7 @@
 import { executePrimitive } from '../workflow-utils.js';
 import { parseArgs } from '../../../core/utils/index.js';
 import { createLogger } from '../../../core/logger/index.js';
-import { mkdirSync, unlinkSync } from 'fs';
+import { mkdirSync, unlinkSync, existsSync } from 'fs';
 import { join } from 'path';
 
 const logger = createLogger({ toolName: 'workflow.download-and-transcribe' });
@@ -48,31 +48,59 @@ async function downloadAndTranscribe() {
 
     logger.info('Starting download and transcribe workflow', { url, language });
 
-    // STEP 1: Download video (shell out to primitive)
-    logger.info('Step 1/3: Downloading video');
-    const downloadResult = executePrimitive('http/download.js', {
-      url,
-      output: videoPath
-    });
+    // STEP 1: Download video/audio (shell out to primitive)
+    // Detect platform and use appropriate downloader
+    const isInstagram = url.includes('instagram.com');
+    const isYouTube = url.includes('youtube.com') || url.includes('youtu.be');
+    const downloaderPrimitive = isInstagram
+      ? 'instagram/download-video.js'
+      : isYouTube
+        ? 'youtube/download-video.js'
+        : 'http/download.js';
+
+    logger.info('Using downloader', { primitive: downloaderPrimitive, isInstagram, isYouTube });
+
+    let downloadResult;
+    if (isInstagram || isYouTube) {
+      // For Instagram/YouTube: download audio directly (faster, smaller)
+      logger.info('Step 1/2: Downloading audio directly');
+      downloadResult = executePrimitive(downloaderPrimitive, {
+        url,
+        output: audioPath,
+        'audio-only': true
+      });
+    } else {
+      // For other URLs: download video then extract audio
+      logger.info('Step 1/3: Downloading video');
+      downloadResult = executePrimitive(downloaderPrimitive, {
+        url,
+        output: videoPath
+      });
+
+      if (!downloadResult.success) {
+        throw new Error('Failed to download video');
+      }
+
+      // STEP 2: Extract audio (shell out to primitive)
+      logger.info('Step 2/3: Extracting audio');
+      const audioResult = executePrimitive('media/extract-audio.js', {
+        input: videoPath,
+        output: audioPath,
+        format: 'mp3'
+      });
+
+      if (!audioResult.success) {
+        throw new Error('Failed to extract audio');
+      }
+    }
 
     if (!downloadResult.success) {
-      throw new Error('Failed to download video');
+      throw new Error((isInstagram || isYouTube) ? 'Failed to download audio' : 'Failed to download video');
     }
 
-    // STEP 2: Extract audio (shell out to primitive)
-    logger.info('Step 2/3: Extracting audio');
-    const audioResult = executePrimitive('media/extract-audio.js', {
-      input: videoPath,
-      output: audioPath,
-      format: 'mp3'
-    });
-
-    if (!audioResult.success) {
-      throw new Error('Failed to extract audio');
-    }
-
-    // STEP 3: Transcribe (shell out to primitive)
-    logger.info('Step 3/3: Transcribing audio');
+    // STEP 2/3: Transcribe (shell out to primitive)
+    const stepLabel = (isInstagram || isYouTube) ? 'Step 2/2' : 'Step 3/3';
+    logger.info(`${stepLabel}: Transcribing audio`);
     const transcribeResult = executePrimitive('media/transcribe.js', {
       input: audioPath,
       output: transcriptPath,
@@ -86,8 +114,13 @@ async function downloadAndTranscribe() {
 
     // Cleanup if requested
     if (!keepVideo) {
-      unlinkSync(videoPath);
-      unlinkSync(audioPath);
+      // Only delete video if it was downloaded (not for Instagram/YouTube audio-only)
+      if (!isInstagram && !isYouTube && existsSync(videoPath)) {
+        unlinkSync(videoPath);
+      }
+      if (existsSync(audioPath)) {
+        unlinkSync(audioPath);
+      }
     }
 
     const result = {

@@ -80,11 +80,14 @@ async function extractProfilePostsPuppeteer() {
       throw new Error('No browser running. Start browser first with: node capabilities/primitives/browser/start.js --profile');
     }
 
-    const pages = await browser.pages();
-    const page = pages[pages.length - 1];
+    let pages = await browser.pages();
+    let page = pages[pages.length - 1];
 
+    // If no active tab, create one
     if (!page) {
-      throw new Error('No active tab found');
+      logger.info('No active tab found, creating new tab');
+      page = await browser.newPage();
+      logger.info('New tab created');
     }
 
     // Navigate to profile
@@ -104,8 +107,37 @@ async function extractProfilePostsPuppeteer() {
     const seenUrls = new Set();
     let scrollAttempts = 0;
     let stableCount = 0;
+    let noNewPostsCount = 0; // Track consecutive scrolls with no new posts
 
-    while (scrollAttempts < maxScrolls && stableCount < 3) {
+    // Max time limit: 5 minutes
+    const MAX_SCROLL_TIME = 5 * 60 * 1000;
+    const scrollStartTime = Date.now();
+    let lastProgressLog = Date.now();
+
+    while (scrollAttempts < maxScrolls && stableCount < 3 && noNewPostsCount < 5) {
+      // Check max time limit
+      const elapsed = Date.now() - scrollStartTime;
+      if (elapsed > MAX_SCROLL_TIME) {
+        logger.warn('Max scroll time reached (5 minutes), exiting scroll loop', {
+          totalPosts: posts.length,
+          scrollAttempts,
+          elapsedMs: elapsed
+        });
+        break;
+      }
+
+      // Progress logging every 10 seconds
+      if (Date.now() - lastProgressLog > 10000) {
+        logger.info('Scroll progress', {
+          totalPosts: posts.length,
+          scrollAttempts,
+          elapsedSeconds: Math.floor(elapsed / 1000),
+          stableCount,
+          noNewPostsCount
+        });
+        lastProgressLog = Date.now();
+      }
+
       // Extract visible posts using page.$$eval (no complex eval!)
       const newPosts = await page.$$eval(
         'a[href*="/p/"], a[href*="/reel/"]',
@@ -138,6 +170,19 @@ async function extractProfilePostsPuppeteer() {
         totalPosts: posts.length,
         newPosts: addedCount
       });
+
+      // Track consecutive scrolls with no new posts
+      if (addedCount === 0) {
+        noNewPostsCount++;
+        if (noNewPostsCount >= 5) {
+          logger.info('No new posts found in 5 consecutive scrolls, likely reached end', {
+            totalPosts: posts.length
+          });
+          break;
+        }
+      } else {
+        noNewPostsCount = 0;
+      }
 
       // Get current height (simple expression - Mario's style!)
       const previousHeight = await page.evaluate(() => document.body.scrollHeight);
@@ -197,6 +242,9 @@ async function extractProfilePostsPuppeteer() {
 
     // Disconnect (don't close browser, it might be used by other tools)
     await browser.disconnect();
+
+    // Exit successfully
+    process.exit(0);
 
   } catch (error) {
     logger.error('Extraction failed', { error: error.message, stack: error.stack });

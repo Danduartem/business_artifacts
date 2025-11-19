@@ -164,6 +164,7 @@ const { values } = parseArgs({
     'end-date': { type: 'string' },
     'output-format': { type: 'string', default: 'json' },
     'include-stories': { type: 'boolean', default: false },
+    profile: { type: 'boolean', default: false },
     resume: { type: 'boolean', default: false },
     'dry-run': { type: 'boolean', default: false },
     help: { type: 'boolean', short: 'h' }
@@ -198,6 +199,8 @@ Options:
 
   --include-stories          Include stories if available (default: false)
 
+  --profile                  Use your Chrome profile (logged-in Instagram session)
+
   --resume                   Resume from last checkpoint after interruption
 
   --dry-run                  Validate dependencies and configuration without executing
@@ -221,6 +224,13 @@ Examples:
     --start-date "2024-01-01" \\
     --end-date "2024-01-31" \\
     --include-stories
+
+  # Use logged-in Chrome session (for private profiles)
+  node bulk-content-extraction.js \\
+    --profiles '["user1","user2"]' \\
+    --start-date "2024-01-01" \\
+    --end-date "2024-01-31" \\
+    --profile
 
 Output (JSON):
   {
@@ -306,6 +316,7 @@ async function main() {
       endDate: values['end-date'],
       outputFormat: values['output-format'],
       includeStories: values['include-stories'],
+      useProfile: values.profile,
       processedProfiles: [],
       failedProfiles: [],
       allPosts: [],
@@ -358,7 +369,8 @@ async function main() {
           username: username,
           startDate: jobState.startDate,
           endDate: jobState.endDate,
-          includeStories: jobState.includeStories
+          includeStories: jobState.includeStories,
+          profile: jobState.useProfile
         });
 
         if (extractResult.success) {
