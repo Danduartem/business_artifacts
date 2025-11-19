@@ -15,7 +15,7 @@
     "capabilities/workflows"
   ],
   "scripts": {
-    "register": "node scripts/build-registry.js",
+    "register": "node scripts/build-registry.js && node scripts/build-split-registry.js",
     "postinstall": "npm run register",
     "health": "node scripts/health-check.js",
     "list": "node scripts/list-tools.js",

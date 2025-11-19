@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Read File
+ * @tool file.read
+ * @when Read file contents
+ * @category file
  *
- * Purpose: Read file contents
- * Inputs:
- *   --path (required) - File path to read
- *   --encoding (optional) - File encoding (default: utf8)
- * Outputs: File contents
+ * @flag path - File path to read (required)
+ * @flag encoding - File encoding (default: utf8) (optional)
  *
- * This is an ATOMIC operation - reads file only.
+ * @example
+ * node read.js --param value
  */
 
 import { readFileSync, existsSync } from 'fs';

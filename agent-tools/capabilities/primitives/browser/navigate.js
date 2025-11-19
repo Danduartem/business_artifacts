@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Navigate Browser
+ * @tool browser.navigate
+ * @when Navigate to a URL in the current or new tab
+ * @category browser
  *
- * Purpose: Navigate to a URL in the current or new tab
- * Inputs:
- *   --url (required) - URL to navigate to
- *   --new-tab (optional) - Open in new tab instead of current
- *   --wait-until (optional) - Wait until: load|domcontentloaded|networkidle0|networkidle2 (default: domcontentloaded)
- * Outputs: Navigation result with final URL
+ * @flag url - URL to navigate to (required)
+ * @flag new-tab - Open in new tab instead of current (optional)
+ * @flag wait-until - Wait until: load|domcontentloaded|networkidle0|networkidle2 (default: domcontentloaded) (optional)
  *
- * This is an ATOMIC operation - navigates only.
- * Assumes browser is already running on port 9222.
+ * @example
+ * node navigate.js --param value
  */
 
 import puppeteer from 'puppeteer-core';

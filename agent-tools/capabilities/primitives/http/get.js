@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: HTTP GET Request
+ * @tool http.get
+ * @when Make HTTP GET request
+ * @category http
  *
- * Purpose: Make HTTP GET request
- * Inputs:
- *   --url (required) - URL to request
- *   --headers (optional) - JSON string of headers
- *   --timeout (optional) - Request timeout in ms (default: 30000)
- * Outputs: Response status, headers, and body
+ * @flag url - URL to request (required)
+ * @flag headers - JSON string of headers (optional)
+ * @flag timeout - Request timeout in ms (default: 30000) (optional)
  *
- * This is an ATOMIC operation - makes GET request only.
+ * @example
+ * node get.js --param value
  */
 
 import { get } from 'https';

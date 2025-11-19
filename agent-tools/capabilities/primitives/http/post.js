@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: HTTP POST Request
+ * @tool http.post
+ * @when Make HTTP POST request
+ * @category http
  *
- * Purpose: Make HTTP POST request
- * Inputs:
- *   --url (required) - URL to request
- *   --data (required) - JSON string of data to POST
- *   --headers (optional) - JSON string of headers
- *   --timeout (optional) - Request timeout in ms (default: 30000)
- * Outputs: Response status, headers, and body
+ * @flag url - URL to request (required)
+ * @flag data - JSON string of data to POST (required)
+ * @flag headers - JSON string of headers (optional)
+ * @flag timeout - Request timeout in ms (default: 30000) (optional)
  *
- * This is an ATOMIC operation - makes POST request only.
+ * @example
+ * node post.js --param value
  */
 
 import { request } from 'https';

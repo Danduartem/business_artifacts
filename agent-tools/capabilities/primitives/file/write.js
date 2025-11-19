@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Write File
+ * @tool file.write
+ * @when Write content to file
+ * @category file
  *
- * Purpose: Write content to file
- * Inputs:
- *   --path (required) - File path to write
- *   --content (required) - Content to write
- *   --encoding (optional) - File encoding (default: utf8)
- *   --append (optional) - Append to file instead of overwrite
- * Outputs: Written file path
+ * @flag path - File path to write (required)
+ * @flag content - Content to write (required)
+ * @flag encoding - File encoding (default: utf8) (optional)
+ * @flag append - Append to file instead of overwrite (optional)
  *
- * This is an ATOMIC operation - writes file only.
+ * @example
+ * node write.js --param value
  */
 
 import { writeFileSync, appendFileSync, mkdirSync } from 'fs';

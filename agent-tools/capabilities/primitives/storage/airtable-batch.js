@@ -1,19 +1,17 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Batch Create Airtable Records
+ * @tool storage.airtable-batch
+ * @when Create multiple records in an Airtable table (max 10 per batch)
+ * @category storage
  *
- * Purpose: Create multiple records in an Airtable table (max 10 per batch)
- * Inputs:
- *   --table (required) - Table name
- *   --records (required) - JSON string of array of record field objects
- *   --api-key (optional) - Airtable API key (or use AIRTABLE_API_KEY env var)
- *   --base-id (optional) - Base ID (or use AIRTABLE_BASE_ID env var)
- * Outputs: Array of created record IDs and fields
+ * @flag table - Table name (required)
+ * @flag records - JSON string of array of record field objects (required)
+ * @flag api-key - Airtable API key (or use AIRTABLE_API_KEY env var) (optional)
+ * @flag base-id - Base ID (or use AIRTABLE_BASE_ID env var) (optional)
  *
- * This is an ATOMIC operation - creates multiple records in one API call.
- * Maximum 10 records per batch (Airtable limitation).
- * Requires Airtable API token and base ID.
+ * @example
+ * node airtable-batch.js --param value
  */
 
 import { parseArgs } from '../../../core/utils/index.js';

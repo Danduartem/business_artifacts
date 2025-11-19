@@ -1,19 +1,18 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Transcribe Audio
+ * @tool media.transcribe
+ * @when Transcribe audio/video file using whisper.cpp (free, local, zero-cost)
+ * @category media
  *
- * Purpose: Transcribe audio/video file using whisper.cpp (free, local, zero-cost)
- * Inputs:
- *   --input (required) - Input audio/video file path
- *   --output (required) - Output transcript file path
- *   --language (optional) - Language code (e.g., en, pt, es) (default: en)
- *   --format (optional) - Output format: txt, srt, vtt (default: txt)
- *   --model (optional) - Whisper model size: tiny, base, small, medium, large (default: base)
- * Outputs: Transcript file path and text content
+ * @flag input - Input audio/video file path (required)
+ * @flag output - Output transcript file path (required)
+ * @flag language - Language code (e.g., en, pt, es) (default: en) (optional)
+ * @flag format - Output format: txt, srt, vtt (default: txt) (optional)
+ * @flag model - Whisper model size: tiny, base, small, medium, large (default: base) (optional)
  *
- * This is an ATOMIC operation - transcribes only.
- * Uses whisper.cpp for local, free transcription.
+ * @example
+ * node transcribe.js --param value
  */
 
 import { existsSync, writeFileSync, unlinkSync, readFileSync } from 'fs';

@@ -1,18 +1,17 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Create Airtable Record
+ * @tool storage.airtable-create
+ * @when Create a single record in an Airtable table
+ * @category storage
  *
- * Purpose: Create a single record in an Airtable table
- * Inputs:
- *   --table (required) - Table name
- *   --fields (required) - JSON string of record fields
- *   --api-key (optional) - Airtable API key (or use AIRTABLE_API_KEY env var)
- *   --base-id (optional) - Base ID (or use AIRTABLE_BASE_ID env var)
- * Outputs: Created record ID and fields
+ * @flag table - Table name (required)
+ * @flag fields - JSON string of record fields (required)
+ * @flag api-key - Airtable API key (or use AIRTABLE_API_KEY env var) (optional)
+ * @flag base-id - Base ID (or use AIRTABLE_BASE_ID env var) (optional)
  *
- * This is an ATOMIC operation - creates single record only.
- * Requires Airtable API token and base ID.
+ * @example
+ * node airtable-create.js --param value
  */
 
 import { parseArgs } from '../../../core/utils/index.js';

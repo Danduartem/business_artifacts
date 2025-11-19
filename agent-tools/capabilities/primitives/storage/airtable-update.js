@@ -1,19 +1,18 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Update Airtable Record
+ * @tool storage.airtable-update
+ * @when Update an existing record in an Airtable table
+ * @category storage
  *
- * Purpose: Update an existing record in an Airtable table
- * Inputs:
- *   --table (required) - Table name
- *   --record-id (required) - Record ID to update
- *   --fields (required) - JSON string of fields to update
- *   --api-key (optional) - Airtable API key (or use AIRTABLE_API_KEY env var)
- *   --base-id (optional) - Base ID (or use AIRTABLE_BASE_ID env var)
- * Outputs: Updated record ID and fields
+ * @flag table - Table name (required)
+ * @flag record-id - Record ID to update (required)
+ * @flag fields - JSON string of fields to update (required)
+ * @flag api-key - Airtable API key (or use AIRTABLE_API_KEY env var) (optional)
+ * @flag base-id - Base ID (or use AIRTABLE_BASE_ID env var) (optional)
  *
- * This is an ATOMIC operation - updates single record only.
- * Requires Airtable API token and base ID.
+ * @example
+ * node airtable-update.js --param value
  */
 
 import { parseArgs } from '../../../core/utils/index.js';

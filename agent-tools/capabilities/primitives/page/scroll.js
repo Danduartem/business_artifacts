@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Scroll Page
+ * @tool page.scroll
+ * @when Scroll page to position or element
+ * @category page
  *
- * Purpose: Scroll page to position or element
- * Inputs:
- *   --to (optional) - Scroll to: top|bottom|element
- *   --selector (optional) - CSS selector to scroll to (if --to=element)
- *   --y (optional) - Scroll to specific Y position
- * Outputs: Scroll confirmation
+ * @flag to - Scroll to: top|bottom|element (optional)
+ * @flag selector - CSS selector to scroll to (if --to=element) (optional)
+ * @flag y - Scroll to specific Y position (optional)
  *
- * This is an ATOMIC operation - scrolls only.
- * Assumes browser is already navigated to target page.
+ * @example
+ * node scroll.js --param value
  */
 
 import puppeteer from 'puppeteer-core';

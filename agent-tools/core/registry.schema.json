@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Agent Tools Registry Schema",
-  "description": "Schema for the agent tools registry",
+  "title": "Agent Tools Registry Schema v3",
+  "description": "Schema for the agent tools registry with progressive disclosure support",
   "type": "object",
   "required": ["version", "primitives"],
   "properties": {
@@ -23,16 +23,9 @@
     },
     "workflows": {
       "type": "object",
-      "description": "Pre-defined workflows",
+      "description": "Multi-step workflows (simple and complex)",
       "additionalProperties": {
-        "$ref": "#/definitions/workflow"
-      }
-    },
-    "jobs": {
-      "type": "object",
-      "description": "Long-running orchestrations",
-      "additionalProperties": {
-        "$ref": "#/definitions/job"
+        "$ref": "#/definitions/capability"
       }
     },
     "schemas": {
@@ -61,27 +54,58 @@
     },
     "tool": {
       "type": "object",
-      "required": ["id", "name", "version", "path", "capabilities"],
+      "required": ["id", "path"],
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique tool identifier"
+          "description": "Unique tool identifier (e.g., 'instagram.extract-post', 'browser.start')"
         },
-        "name": {
+        "when": {
           "type": "string",
-          "description": "Human-readable tool name"
-        },
-        "version": {
-          "type": "string",
-          "description": "Semantic version"
+          "description": "Use case description for agent matching (e.g., 'Extract single Instagram post with metadata')"
         },
         "path": {
           "type": "string",
           "description": "Relative path from agent-tools root"
         },
-        "entrypoint": {
+        "category": {
           "type": "string",
-          "description": "Main script path (relative to tool path)"
+          "description": "Tool category (e.g., 'instagram', 'media', 'browser')"
+        },
+        "complexity": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "description": "Workflow complexity: low (minutes), medium (10-30min), high (hours/days)"
+        },
+        "resumable": {
+          "type": "boolean",
+          "description": "Whether the workflow supports --resume flag",
+          "default": false
+        },
+        "runtime": {
+          "type": "string",
+          "description": "Estimated runtime (e.g., '1-2min', '10-30min', 'hours')"
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Workflow features (e.g., 'resume', 'checkpoint', 'progress-tracking')"
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Command-line flags accepted (e.g., 'url', 'profile', 'resume')"
+        },
+        "composes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Other tools/workflows composed by this workflow"
         },
         "capabilities": {
           "type": "array",
@@ -95,14 +119,14 @@
           "items": {
             "type": "string"
           },
-          "description": "Expected input types"
+          "description": "Expected input parameter names"
         },
         "outputs": {
           "type": "array",
           "items": {
             "type": "string"
           },
-          "description": "Output types produced"
+          "description": "Output field names produced"
         },
         "dependencies": {
           "type": "array",
@@ -124,123 +148,6 @@
             "type": "string"
           },
           "description": "Required environment variables"
-        },
-        "requires": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Other tool IDs required"
-        },
-        "healthCheck": {
-          "type": "string",
-          "description": "Health check script path"
-        },
-        "documentation": {
-          "type": "string",
-          "description": "Documentation file path"
-        }
-      }
-    },
-    "workflow": {
-      "type": "object",
-      "required": ["description", "steps"],
-      "properties": {
-        "description": {
-          "type": "string"
-        },
-        "steps": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/workflowStep"
-          }
-        }
-      }
-    },
-    "workflowStep": {
-      "type": "object",
-      "required": ["tool", "action"],
-      "properties": {
-        "tool": {
-          "type": "string",
-          "description": "Tool ID"
-        },
-        "action": {
-          "type": "string",
-          "description": "Action to perform"
-        },
-        "condition": {
-          "type": "string",
-          "description": "Conditional execution"
-        }
-      }
-    },
-    "job": {
-      "type": "object",
-      "required": ["description", "tools"],
-      "properties": {
-        "description": {
-          "type": "string",
-          "description": "Job description"
-        },
-        "tools": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/jobTool"
-          },
-          "description": "Job tools"
-        }
-      }
-    },
-    "jobTool": {
-      "type": "object",
-      "required": ["id", "name", "path"],
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique job identifier (e.g., job.instagram.bulk-content-extraction)"
-        },
-        "name": {
-          "type": "string",
-          "description": "Human-readable job name"
-        },
-        "path": {
-          "type": "string",
-          "description": "Relative path from agent-tools root"
-        },
-        "orchestrates": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Workflow IDs orchestrated by this job"
-        },
-        "inputs": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Expected input parameters"
-        },
-        "outputs": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Output types produced"
-        },
-        "resumable": {
-          "type": "boolean",
-          "description": "Whether the job supports resume capability",
-          "default": true
-        },
-        "estimatedDuration": {
-          "type": "string",
-          "description": "Estimated runtime (e.g., '2-4 hours', 'days')"
-        },
-        "checkpointStrategy": {
-          "type": "string",
-          "description": "Checkpoint strategy (e.g., 'per-stage', 'per-item', 'custom')"
         }
       }
     },

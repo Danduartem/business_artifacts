@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Wait For Element
+ * @tool page.wait-for
+ * @when Wait for CSS selector to appear on page
+ * @category page
  *
- * Purpose: Wait for CSS selector to appear on page
- * Inputs:
- *   --selector (required) - CSS selector to wait for
- *   --timeout (optional) - Timeout in milliseconds (default: 30000)
- *   --visible (optional) - Wait for element to be visible
- * Outputs: Success when element appears
+ * @flag selector - CSS selector to wait for (required)
+ * @flag timeout - Timeout in milliseconds (default: 30000) (optional)
+ * @flag visible - Wait for element to be visible (optional)
  *
- * This is an ATOMIC operation - waits only.
- * Assumes browser is already navigated to target page.
+ * @example
+ * node wait-for.js --param value
  */
 
 import puppeteer from 'puppeteer-core';

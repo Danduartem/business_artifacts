@@ -1,18 +1,17 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Download YouTube Video
+ * @tool youtube.download-video
+ * @when Download video or audio from YouTube URL using yt-dlp
+ * @category youtube
  *
- * Purpose: Download video or audio from YouTube URL using yt-dlp
- * Inputs:
- *   --url (required) - YouTube video URL
- *   --output (required) - Output file path
- *   --quality (optional) - Video quality (best, worst, or format code)
- *   --audio-only (optional) - Download only audio (much faster, smaller)
- * Outputs: Downloaded video/audio file path and metadata
+ * @flag url - YouTube video URL (required)
+ * @flag output - Output file path (required)
+ * @flag quality - Video quality (best, worst, or format code) (optional)
+ * @flag audio-only - Download only audio (much faster, smaller) (optional)
  *
- * This is an ATOMIC operation - downloads only.
- * Uses yt-dlp to handle YouTube's complexities.
+ * @example
+ * node download-video.js --param value
  */
 
 import { spawnSync } from 'child_process';

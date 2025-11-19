@@ -4,30 +4,30 @@
  * Purpose: Load ONLY what you query, minimizing token consumption
  *
  * Token efficiency:
- * - getIndex(): 20 tokens
- * - getJobsByCategory('instagram'): 150 tokens
- * - getWorkflowsByCategory('media'): 50 tokens
+ * - getIndex(): 15 tokens
+ * - getWorkflowsByCategory('instagram'): 120 tokens
+ * - getWorkflowsByCategory('media'): 80 tokens
  * - getPrimitivesByCategory('browser'): 200 tokens
  *
  * vs loading full registry.json: 8,000 tokens
- * vs loading registry-lite.json: 1,500 tokens
+ * Typical discovery: 135 tokens (91% reduction)
  *
  * Example usage:
  * ```javascript
- * import { getIndex, getJobsByCategory } from './core/discovery.js';
+ * import { getIndex, getWorkflowsByCategory } from './core/discovery.js';
  *
- * // Load index (20 tokens)
+ * // Load index (15 tokens)
  * const index = getIndex();
  * console.log(index.categories); // { instagram: {...}, media: {...}, ... }
  *
- * // Load only Instagram jobs (150 tokens)
- * const instagramJobs = getJobsByCategory('instagram');
- * const job = instagramJobs.tools.find(j => j.id === 'complete-profile-extraction');
+ * // Load only Instagram workflows (120 tokens)
+ * const workflows = getWorkflowsByCategory('instagram');
+ * const workflow = workflows.tools.find(w => w.id === 'instagram.extract-profile');
  *
- * // Get parameters via --help (50 tokens)
- * execSync(`node ${job.path} --help`);
+ * // Execute workflow
+ * const result = await executeWorkflow(workflow.id, params);
  *
- * // Total: 20 + 150 + 50 = 220 tokens (vs 1,500 for registry-lite.json)
+ * // Total: 15 + 120 = 135 tokens (91% reduction from 1,500 tokens)
  * ```
  */
 
@@ -49,7 +49,7 @@ const REGISTRY_DIR = join(__dirname, 'registry');
  * @example
  * const index = getIndex();
  * console.log(index.categories);
- * // { instagram: { jobs: 3, workflows: 5, primitives: 2 }, ... }
+ * // { instagram: { workflows: 6, primitives: 1 }, media: { workflows: 3, primitives: 3 }, ... }
  */
 export function getIndex() {
   const indexPath = join(REGISTRY_DIR, 'index.json');
@@ -83,20 +83,6 @@ export function getTools(category, layer) {
   return JSON.parse(readFileSync(toolsPath, 'utf-8'));
 }
 
-/**
- * Get all jobs for a category
- * Tokens: ~100-200
- *
- * @param {string} category - e.g., 'instagram'
- * @returns {Object} Jobs in the specified category
- *
- * @example
- * const instagramJobs = getJobsByCategory('instagram');
- * console.log(instagramJobs.tools.length); // 3
- */
-export function getJobsByCategory(category) {
-  return getTools(category, 'jobs');
-}
 
 /**
  * Get all workflows for a category
@@ -155,14 +141,14 @@ export function getAvailableCategories() {
  *
  * @example
  * const results = findTool('instagram extraction');
- * console.log(results[0].id); // 'complete-profile-extraction'
+ * console.log(results[0].id); // 'instagram.bulk-extraction'
  * console.log(results[0].category); // 'instagram'
- * console.log(results[0].layer); // 'jobs'
+ * console.log(results[0].layer); // 'workflows'
  */
 export function findTool(query, options = {}) {
   const index = getIndex();
   const results = [];
-  const searchLayers = options.layers || ['jobs', 'workflows', 'primitives'];
+  const searchLayers = options.layers || ['workflows', 'primitives'];
   const searchCategories = options.categories || Object.keys(index.categories);
 
   const queryLower = query.toLowerCase();
@@ -205,20 +191,21 @@ export function findTool(query, options = {}) {
  * Get tool by exact ID (searches across all categories)
  * Tokens: Variable (loads only the category containing the tool)
  *
- * @param {string} toolId - Exact tool ID (e.g., 'complete-profile-extraction')
+ * @param {string} toolId - Exact tool ID (e.g., 'instagram.bulk-extraction')
  * @returns {Object|null} Tool object with category/layer info, or null if not found
  *
  * @example
- * const tool = getToolById('complete-profile-extraction');
- * console.log(tool.path); // 'capabilities/jobs/instagram/complete-profile-extraction.js'
+ * const tool = getToolById('instagram.bulk-extraction');
+ * console.log(tool.path); // 'capabilities/workflows/instagram/bulk-extraction.js'
  * console.log(tool.category); // 'instagram'
- * console.log(tool.layer); // 'jobs'
+ * console.log(tool.layer); // 'workflows'
+ * console.log(tool.complexity); // 'high'
  */
 export function getToolById(toolId) {
   const index = getIndex();
 
   for (const [category, layers] of Object.entries(index.categories)) {
-    for (const layer of ['jobs', 'workflows', 'primitives']) {
+    for (const layer of ['workflows', 'primitives']) {
       const layerCount = layers[layer];
       if (!layerCount || layerCount === 0) continue;
 
@@ -294,9 +281,8 @@ export function getToolSchema(toolId, includeHelp = false) {
  *
  * @example
  * const instagramTools = listCategoryTools('instagram');
- * console.log(instagramTools.jobs.length); // 3
- * console.log(instagramTools.workflows.length); // 5
- * console.log(instagramTools.primitives.length); // 2
+ * console.log(instagramTools.workflows.length); // 6
+ * console.log(instagramTools.primitives.length); // 1
  */
 export function listCategoryTools(category) {
   const index = getIndex();
@@ -307,21 +293,11 @@ export function listCategoryTools(category) {
 
   const result = {
     category,
-    jobs: [],
     workflows: [],
     primitives: []
   };
 
   const layers = index.categories[category];
-
-  if (layers.jobs) {
-    try {
-      const jobs = getJobsByCategory(category);
-      result.jobs = jobs.tools;
-    } catch (err) {
-      // No jobs for this category
-    }
-  }
 
   if (layers.workflows) {
     try {
@@ -345,6 +321,23 @@ export function listCategoryTools(category) {
 }
 
 /**
+ * Get workflows by complexity level
+ * Tokens: ~80-150 (loads workflow registry for category)
+ *
+ * @param {string} category - Category name (e.g., 'instagram', 'media')
+ * @param {string} level - Complexity level: 'low', 'medium', or 'high'
+ * @returns {Object[]} Array of workflows matching complexity level
+ *
+ * @example
+ * const complexWorkflows = getWorkflowsByComplexity('instagram', 'high');
+ * console.log(complexWorkflows); // [{id: 'instagram.bulk-extraction', ...}]
+ */
+export function getWorkflowsByComplexity(category, level) {
+  const workflows = getWorkflowsByCategory(category);
+  return workflows.tools.filter(t => t.complexity === level);
+}
+
+/**
  * Get recommended tool for a use case description
  * Tokens: Variable (uses findTool internally)
  *
@@ -353,8 +346,8 @@ export function listCategoryTools(category) {
  *
  * @example
  * const tool = getRecommendedTool('extract Instagram posts with transcription');
- * console.log(tool.id); // 'complete-profile-extraction'
- * console.log(tool.when); // 'Extract Instagram posts with full metadata...'
+ * console.log(tool.id); // 'instagram.bulk-extraction'
+ * console.log(tool.when); // 'Extract multiple profiles with full content...'
  */
 export function getRecommendedTool(useCase) {
   const results = findTool(useCase);
@@ -363,31 +356,35 @@ export function getRecommendedTool(useCase) {
     return null;
   }
 
-  // Prioritize jobs over workflows over primitives
-  const jobs = results.filter(t => t.layer === 'jobs');
-  if (jobs.length > 0) return jobs[0];
-
+  // Prioritize workflows over primitives (more complete solutions)
   const workflows = results.filter(t => t.layer === 'workflows');
-  if (workflows.length > 0) return workflows[0];
+  if (workflows.length > 0) {
+    // If multiple workflows, prefer higher complexity (more feature-complete)
+    const sortedByComplexity = workflows.sort((a, b) => {
+      const complexityOrder = { low: 1, medium: 2, high: 3 };
+      return (complexityOrder[b.complexity] || 0) - (complexityOrder[a.complexity] || 0);
+    });
+    return sortedByComplexity[0];
+  }
 
   return results[0];
 }
 
 /**
- * Execute a job with automatic monitoring
- * This is the RECOMMENDED way to run jobs - combines discovery + execution + monitoring
- * Tokens: Discovery (~220) + Monitoring (~100 per 15s poll)
+ * Execute a workflow with automatic monitoring
+ * This is the RECOMMENDED way to run workflows - combines discovery + execution + monitoring
+ * Tokens: Discovery (~135) + Monitoring (~100 per 15s poll for complex workflows)
  *
- * @param {string} toolId - Tool ID (e.g., 'complete-profile-extraction')
- * @param {Object} params - Job parameters
+ * @param {string} toolId - Tool ID (e.g., 'instagram.bulk-extraction')
+ * @param {Object} params - Workflow parameters
  * @param {Object} options - Execution options (pollInterval, verbose, etc.)
- * @returns {Promise<Object>} Job result
+ * @returns {Promise<Object>} Workflow result
  *
  * @example
- * import { executeJob } from './core/discovery.js';
+ * import { executeWorkflow } from './core/discovery.js';
  *
- * const result = await executeJob('complete-profile-extraction', {
- *   username: 'blankschoolbr',
+ * const result = await executeWorkflow('instagram.bulk-extraction', {
+ *   profiles: ['blankschoolbr', 'user2'],
  *   'start-date': '2025-11-01',
  *   'end-date': '2025-11-30',
  *   profile: true,
@@ -395,7 +392,7 @@ export function getRecommendedTool(useCase) {
  * });
  *
  * // User sees:
- * // 🚀 Starting: complete-profile-extraction
+ * // 🚀 Starting: instagram.bulk-extraction
  * // 📊 Monitoring enabled (updates every 15s)
  * // 📍 Stage 1/4: Extracting URLs
  * // 📍 Stage 2/4: Extracting posts
@@ -404,7 +401,7 @@ export function getRecommendedTool(useCase) {
  * // ✅ Complete! (2m 15s)
  * //    Summary: {totalPosts: 12, videosTranscribed: 3}
  */
-export async function executeJob(toolId, params = {}, options = {}) {
+export async function executeWorkflow(toolId, params = {}, options = {}) {
   // Find the tool
   const tool = getToolById(toolId);
 
@@ -417,59 +414,58 @@ export async function executeJob(toolId, params = {}, options = {}) {
 }
 
 /**
- * Execute multiple jobs in sequence with monitoring
+ * Execute multiple workflows in sequence with monitoring
  *
- * @param {Array<{id: string, params: Object}>} jobs - Array of job configurations
+ * @param {Array<{id: string, params: Object}>} workflows - Array of workflow configurations
  * @param {Object} options - Execution options
  * @returns {Promise<Array>} Array of results
  *
  * @example
- * const results = await executeJobSequence([
- *   { id: 'complete-profile-extraction', params: { username: 'user1', ... } },
- *   { id: 'complete-profile-extraction', params: { username: 'user2', ... } }
+ * const results = await executeWorkflowSequence([
+ *   { id: 'instagram.extract-profile', params: { username: 'user1', ... } },
+ *   { id: 'instagram.extract-profile', params: { username: 'user2', ... } }
  * ]);
  */
-export async function executeJobSequence(jobs, options = {}) {
+export async function executeWorkflowSequence(workflows, options = {}) {
   // Convert tool IDs to paths
-  const jobsWithPaths = jobs.map(({ id, params }) => {
+  const workflowsWithPaths = workflows.map(({ id, params }) => {
     const tool = getToolById(id);
     if (!tool) throw new Error(`Tool not found: ${id}`);
     return { path: tool.path, params };
   });
 
-  return await execSequence(jobsWithPaths, options);
+  return await execSequence(workflowsWithPaths, options);
 }
 
 /**
- * Execute multiple jobs in parallel with monitoring
- * Note: Use with caution - parallel jobs may compete for resources
+ * Execute multiple workflows in parallel with monitoring
+ * Note: Use with caution - parallel workflows may compete for resources
  *
- * @param {Array<{id: string, params: Object}>} jobs - Array of job configurations
+ * @param {Array<{id: string, params: Object}>} workflows - Array of workflow configurations
  * @param {Object} options - Execution options
  * @returns {Promise<Array>} Array of results
  *
  * @example
- * const results = await executeJobParallel([
- *   { id: 'complete-profile-extraction', params: { username: 'user1', ... } },
- *   { id: 'complete-profile-extraction', params: { username: 'user2', ... } }
+ * const results = await executeWorkflowParallel([
+ *   { id: 'instagram.extract-profile', params: { username: 'user1', ... } },
+ *   { id: 'instagram.extract-profile', params: { username: 'user2', ... } }
  * ]);
  */
-export async function executeJobParallel(jobs, options = {}) {
+export async function executeWorkflowParallel(workflows, options = {}) {
   // Convert tool IDs to paths
-  const jobsWithPaths = jobs.map(({ id, params }) => {
+  const workflowsWithPaths = workflows.map(({ id, params }) => {
     const tool = getToolById(id);
     if (!tool) throw new Error(`Tool not found: ${id}`);
     return { path: tool.path, params };
   });
 
-  return await execParallel(jobsWithPaths, options);
+  return await execParallel(workflowsWithPaths, options);
 }
 
 // Export default object for convenience
 export default {
   getIndex,
   getTools,
-  getJobsByCategory,
   getWorkflowsByCategory,
   getPrimitivesByCategory,
   getAvailableCategories,
@@ -477,8 +473,9 @@ export default {
   getToolById,
   getToolSchema,
   listCategoryTools,
+  getWorkflowsByComplexity,
   getRecommendedTool,
-  executeJob,
-  executeJobSequence,
-  executeJobParallel
+  executeWorkflow,
+  executeWorkflowSequence,
+  executeWorkflowParallel
 };

@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Take Screenshot
+ * @tool page.screenshot
+ * @when Capture screenshot of page or element
+ * @category page
  *
- * Purpose: Capture screenshot of page or element
- * Inputs:
- *   --path (required) - Output file path
- *   --selector (optional) - CSS selector to screenshot specific element
- *   --fullpage (optional) - Capture full scrollable page
- * Outputs: Screenshot file path
+ * @flag path - Output file path (required)
+ * @flag selector - CSS selector to screenshot specific element (optional)
+ * @flag fullpage - Capture full scrollable page (optional)
  *
- * This is an ATOMIC operation - takes screenshot only.
- * Assumes browser is already navigated to target page.
+ * @example
+ * node screenshot.js --param value
  */
 
 import puppeteer from 'puppeteer-core';

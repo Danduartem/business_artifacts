@@ -1,0 +1,14 @@
+{
+  "category": "system",
+  "description": "Atomic system operations",
+  "tools": [
+    {
+      "id": "system.cleanup",
+      "when": "Kill hung processes and reset browser state",
+      "path": "capabilities/primitives/system/cleanup.js",
+      "capabilities": [
+        "cleanup"
+      ]
+    }
+  ]
+}

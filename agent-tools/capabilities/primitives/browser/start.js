@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Start Browser
+ * @tool browser.start
+ * @when Launch Chrome with debugging enabled
+ * @category browser
  *
- * Purpose: Launch Chrome with debugging enabled
- * Inputs: --profile (optional) - use existing profile
- * Outputs: Browser instance ID
+ * @flag param - TODO: Add parameter description
  *
- * This is an ATOMIC operation - does one thing only.
- * Use in workflows to compose complex operations.
+ * @example
+ * node start.js --param value
  */
 
 import puppeteer from 'puppeteer-core';

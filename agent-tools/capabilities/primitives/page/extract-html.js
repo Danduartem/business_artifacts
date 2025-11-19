@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Extract HTML from Page
+ * @tool page.extract-html
+ * @when Extract HTML content from CSS selector
+ * @category page
  *
- * Purpose: Extract HTML content from CSS selector
- * Inputs:
- *   --selector (required) - CSS selector
- *   --all (optional) - extract all matching elements
- *   --outer (optional) - extract outerHTML instead of innerHTML
- * Outputs: Extracted HTML content
+ * @flag selector - CSS selector (required)
+ * @flag all - extract all matching elements (optional)
+ * @flag outer - extract outerHTML instead of innerHTML (optional)
  *
- * This is an ATOMIC operation - extracts HTML only.
- * Assumes browser is already navigated to target page.
+ * @example
+ * node extract-html.js --param value
  */
 
 import puppeteer from 'puppeteer-core';

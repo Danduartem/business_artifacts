@@ -1,29 +1,43 @@
 {
   "category": "file",
-  "layer": "primitives",
-  "description": "File system atomic operations",
+  "description": "Atomic file operations",
   "tools": [
     {
-      "id": "read",
-      "when": "Read file contents",
-      "path": "capabilities/primitives/file/read.js",
-      "flags": ["--path"],
-      "example": "node capabilities/primitives/file/read.js --path data.txt"
-    },
-    {
-      "id": "write",
-      "when": "Write content to file",
-      "path": "capabilities/primitives/file/write.js",
-      "flags": ["--path", "--content"],
-      "example": "node capabilities/primitives/file/write.js --path output.txt --content 'Hello World'"
-    },
-    {
-      "id": "parse-json",
+      "id": "file.parse-json",
       "when": "Read and parse JSON file",
       "path": "capabilities/primitives/file/parse-json.js",
-      "flags": ["--path"],
-      "example": "node capabilities/primitives/file/parse-json.js --path data.json"
+      "flags": [
+        "path"
+      ],
+      "capabilities": [
+        "parse-json"
+      ]
+    },
+    {
+      "id": "file.read",
+      "when": "Read file contents",
+      "path": "capabilities/primitives/file/read.js",
+      "flags": [
+        "path",
+        "encoding"
+      ],
+      "capabilities": [
+        "read"
+      ]
+    },
+    {
+      "id": "file.write",
+      "when": "Write content to file",
+      "path": "capabilities/primitives/file/write.js",
+      "flags": [
+        "path",
+        "content",
+        "encoding",
+        "append"
+      ],
+      "capabilities": [
+        "write"
+      ]
     }
-  ],
-  "help": "All primitives support --help flag for detailed parameter information"
+  ]
 }

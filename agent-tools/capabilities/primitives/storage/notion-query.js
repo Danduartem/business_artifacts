@@ -1,19 +1,18 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Query Notion Database
+ * @tool storage.notion-query
+ * @when Query pages from a Notion database
+ * @category storage
  *
- * Purpose: Query pages from a Notion database
- * Inputs:
- *   --database-id (required) - Notion database ID
- *   --filter (optional) - JSON string of filter object
- *   --sorts (optional) - JSON string of sort array
- *   --limit (optional) - Page size limit (default: 100)
- *   --api-key (optional) - Notion API key (or use NOTION_API_TOKEN env var)
- * Outputs: Query results with pages
+ * @flag database-id - Notion database ID (required)
+ * @flag filter - JSON string of filter object (optional)
+ * @flag sorts - JSON string of sort array (optional)
+ * @flag limit - Page size limit (default: 100) (optional)
+ * @flag api-key - Notion API key (or use NOTION_API_TOKEN env var) (optional)
  *
- * This is an ATOMIC operation - queries database only.
- * Requires Notion API token.
+ * @example
+ * node notion-query.js --param value
  */
 
 import { parseArgs } from '../../../core/utils/index.js';

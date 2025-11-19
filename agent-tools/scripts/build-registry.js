@@ -141,6 +141,38 @@ function extractMetadata(content, filePath) {
   }
   if (envVars.length > 0) meta.envVars = envVars;
 
+  // Extract @when (use case description for agent matching)
+  const whenMatch = jsdoc.match(/@when\s+(.+)/);
+  if (whenMatch) meta.when = whenMatch[1].trim();
+
+  // Extract @complexity (low, medium, high)
+  const complexityMatch = jsdoc.match(/@complexity\s+(low|medium|high)/i);
+  if (complexityMatch) meta.complexity = complexityMatch[1].toLowerCase();
+
+  // Extract @resumable (boolean)
+  const resumableMatch = jsdoc.match(/@resumable\s+(true|false)/i);
+  if (resumableMatch) meta.resumable = resumableMatch[1].toLowerCase() === 'true';
+
+  // Extract @runtime (estimated duration)
+  const runtimeMatch = jsdoc.match(/@runtime\s+(.+)/);
+  if (runtimeMatch) meta.runtime = runtimeMatch[1].trim();
+
+  // Extract @features (array of features)
+  const features = [];
+  const featureMatches = jsdoc.matchAll(/@feature\s+(\S+)/g);
+  for (const match of featureMatches) {
+    features.push(match[1]);
+  }
+  if (features.length > 0) meta.features = features;
+
+  // Extract @flag (command-line flags)
+  const flags = [];
+  const flagMatches = jsdoc.matchAll(/@flag\s+(\S+)/g);
+  for (const match of flagMatches) {
+    flags.push(match[1]);
+  }
+  if (flags.length > 0) meta.flags = flags;
+
   // Extract @composes (for workflows)
   const composesMatch = jsdoc.match(/@composes\s+(.+)/);
   if (composesMatch) {
@@ -153,16 +185,6 @@ function extractMetadata(content, filePath) {
 
   // Store relative path
   meta.path = filePath.replace(ROOT + '/', '');
-
-  // Generate name from id
-  if (meta.id) {
-    const parts = meta.id.split('.');
-    const name = parts[parts.length - 1]
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-    meta.name = name;
-  }
 
   return meta;
 }
@@ -287,7 +309,7 @@ async function buildRegistry() {
 
   const registry = {
     "$schema": "./registry.schema.json",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "lastUpdated": new Date().toISOString(),
     "primitives": groupPrimitivesByCategory(primitiveFiles),
     "workflows": groupWorkflowsByCategory(workflowFiles),

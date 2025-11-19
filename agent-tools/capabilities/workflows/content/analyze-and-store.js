@@ -1,22 +1,21 @@
 #!/usr/bin/env node
-
 /**
- * WORKFLOW: Analyze Content and Store to Notion
+ * @workflow content.analyze-and-store
+ * @when Extract content, analyze it, and save to Notion database
+ * @complexity low
+ * @category content
  *
- * Purpose: Extract content, analyze it, and save to Notion database
- * Composes multiple primitives:
- *   1. file.read - Read content file
- *   2. storage.notion-create - Save to Notion
+ * @flag input - TODO: Add parameter description
  *
- * This is a HIGH-LEVEL workflow for convenience.
- * For custom needs, compose primitives directly.
+ * @example
+ * node analyze-and-store.js --param value
  */
 
 import { executePrimitive } from '../workflow-utils.js';
-import { parseArgs } from '../../../core/utils/index.js';
+import { parseArgs } from 'node:util';
 import { createLogger } from '../../../core/logger/index.js';
 
-const logger = createLogger({ toolName: 'workflow.analyze-and-store' });
+const logger = createLogger({ toolName: 'content.analyze-and-store' });
 const args = parseArgs();
 
 async function analyzeAndStore() {

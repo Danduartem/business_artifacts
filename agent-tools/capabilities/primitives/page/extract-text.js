@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Extract Text from Page
+ * @tool page.extract-text
+ * @when Extract text content from CSS selector
+ * @category page
  *
- * Purpose: Extract text content from CSS selector
- * Inputs:
- *   --selector (required) - CSS selector
- *   --all (optional) - extract all matching elements
- * Outputs: Extracted text content
+ * @flag selector - CSS selector (required)
+ * @flag all - extract all matching elements (optional)
  *
- * This is an ATOMIC operation - extracts text only.
- * Assumes browser is already navigated to target page.
+ * @example
+ * node extract-text.js --param value
  */
 
 import puppeteer from 'puppeteer-core';

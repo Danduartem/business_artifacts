@@ -1,19 +1,18 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Download Instagram Video
+ * @tool instagram.download-video
+ * @when Download video or audio from Instagram post/reel URL using yt-dlp
+ * @category instagram
  *
- * Purpose: Download video or audio from Instagram post/reel URL using yt-dlp
- * Inputs:
- *   --url (required) - Instagram post/reel URL
- *   --output (required) - Output file path
- *   --cookies (optional) - Path to cookies file (for private content)
- *   --quality (optional) - Video quality (best, worst, or format code)
- *   --audio-only (optional) - Download only audio (much faster, smaller)
- * Outputs: Downloaded video/audio file path and metadata
+ * @flag url - Instagram post/reel URL (required)
+ * @flag output - Output file path (required)
+ * @flag cookies - Path to cookies file (for private content) (optional)
+ * @flag quality - Video quality (best, worst, or format code) (optional)
+ * @flag audio-only - Download only audio (much faster, smaller) (optional)
  *
- * This is an ATOMIC operation - downloads only.
- * Uses yt-dlp to handle Instagram's complexities.
+ * @example
+ * node download-video.js --param value
  */
 
 import { spawnSync } from 'child_process';

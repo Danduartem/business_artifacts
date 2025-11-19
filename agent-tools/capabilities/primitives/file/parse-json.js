@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Parse JSON File
+ * @tool file.parse-json
+ * @when Read and parse JSON file
+ * @category file
  *
- * Purpose: Read and parse JSON file
- * Inputs:
- *   --path (required) - JSON file path
- * Outputs: Parsed JSON data
+ * @flag path - JSON file path (required)
  *
- * This is an ATOMIC operation - parses JSON only.
+ * @example
+ * node parse-json.js --param value
  */
 
 import { readFileSync, existsSync } from 'fs';

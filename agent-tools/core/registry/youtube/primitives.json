@@ -1,15 +1,20 @@
 {
   "category": "youtube",
-  "layer": "primitives",
-  "description": "YouTube atomic operations",
+  "description": "Atomic youtube operations",
   "tools": [
     {
-      "id": "download-video",
-      "when": "Download video or audio from YouTube URL",
+      "id": "youtube.download-video",
+      "when": "Download video or audio from YouTube URL using yt-dlp",
       "path": "capabilities/primitives/youtube/download-video.js",
-      "flags": ["--url", "--output", "--audio-only", "--quality"],
-      "example": "node capabilities/primitives/youtube/download-video.js --url 'https://youtube.com/watch?v=...' --output video.mp4"
+      "flags": [
+        "url",
+        "output",
+        "quality",
+        "audio-only"
+      ],
+      "capabilities": [
+        "download-video"
+      ]
     }
-  ],
-  "help": "All primitives support --help flag for detailed parameter information"
+  ]
 }

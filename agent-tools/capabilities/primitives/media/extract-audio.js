@@ -1,18 +1,17 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Extract Audio from Video
+ * @tool media.extract-audio
+ * @when Extract audio track from video file
+ * @category media
  *
- * Purpose: Extract audio track from video file
- * Inputs:
- *   --input (required) - Input video file path
- *   --output (optional) - Output audio file path
- *   --format (optional) - Audio format: mp3|wav|aac|flac (default: mp3)
- *   --quality (optional) - Audio quality 0-9, lower is better (default: 2)
- * Outputs: Extracted audio file path
+ * @flag input - Input video file path (required)
+ * @flag output - Output audio file path (optional)
+ * @flag format - Audio format: mp3|wav|aac|flac (default: mp3) (optional)
+ * @flag quality - Audio quality 0-9, lower is better (default: 2) (optional)
  *
- * This is an ATOMIC operation - extracts audio only.
- * Requires ffmpeg to be installed.
+ * @example
+ * node extract-audio.js --param value
  */
 
 import { spawn } from 'child_process';

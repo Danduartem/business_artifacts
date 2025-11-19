@@ -1,21 +1,20 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Query Airtable Records
+ * @tool storage.airtable-query
+ * @when Query records from an Airtable table
+ * @category storage
  *
- * Purpose: Query records from an Airtable table
- * Inputs:
- *   --table (required) - Table name
- *   --formula (optional) - Airtable filter formula
- *   --max-records (optional) - Maximum records to return (default: 100)
- *   --sort (optional) - JSON string of sort configuration
- *   --fields (optional) - Comma-separated list of fields to return
- *   --api-key (optional) - Airtable API key (or use AIRTABLE_API_KEY env var)
- *   --base-id (optional) - Base ID (or use AIRTABLE_BASE_ID env var)
- * Outputs: Array of matching records
+ * @flag table - Table name (required)
+ * @flag formula - Airtable filter formula (optional)
+ * @flag max-records - Maximum records to return (default: 100) (optional)
+ * @flag sort - JSON string of sort configuration (optional)
+ * @flag fields - Comma-separated list of fields to return (optional)
+ * @flag api-key - Airtable API key (or use AIRTABLE_API_KEY env var) (optional)
+ * @flag base-id - Base ID (or use AIRTABLE_BASE_ID env var) (optional)
  *
- * This is an ATOMIC operation - queries records only.
- * Requires Airtable API token and base ID.
+ * @example
+ * node airtable-query.js --param value
  */
 
 import { parseArgs } from '../../../core/utils/index.js';

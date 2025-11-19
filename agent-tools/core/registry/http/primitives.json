@@ -1,29 +1,46 @@
 {
   "category": "http",
-  "layer": "primitives",
-  "description": "HTTP request atomic operations",
+  "description": "Atomic http operations",
   "tools": [
     {
-      "id": "get",
-      "when": "Make HTTP GET request",
-      "path": "capabilities/primitives/http/get.js",
-      "flags": ["--url", "--headers"],
-      "example": "node capabilities/primitives/http/get.js --url 'https://api.example.com/data'"
-    },
-    {
-      "id": "post",
-      "when": "Make HTTP POST request",
-      "path": "capabilities/primitives/http/post.js",
-      "flags": ["--url", "--data", "--headers"],
-      "example": "node capabilities/primitives/http/post.js --url 'https://api.example.com/create' --data '{\"key\":\"value\"}'"
-    },
-    {
-      "id": "download",
+      "id": "http.download",
       "when": "Download file from HTTP/HTTPS URL",
       "path": "capabilities/primitives/http/download.js",
-      "flags": ["--url", "--output"],
-      "example": "node capabilities/primitives/http/download.js --url 'https://example.com/file.pdf' --output file.pdf"
+      "flags": [
+        "url",
+        "output",
+        "timeout"
+      ],
+      "capabilities": [
+        "download"
+      ]
+    },
+    {
+      "id": "http.get",
+      "when": "Make HTTP GET request",
+      "path": "capabilities/primitives/http/get.js",
+      "flags": [
+        "url",
+        "headers",
+        "timeout"
+      ],
+      "capabilities": [
+        "get"
+      ]
+    },
+    {
+      "id": "http.post",
+      "when": "Make HTTP POST request",
+      "path": "capabilities/primitives/http/post.js",
+      "flags": [
+        "url",
+        "data",
+        "headers",
+        "timeout"
+      ],
+      "capabilities": [
+        "post"
+      ]
     }
-  ],
-  "help": "All primitives support --help flag for detailed parameter information"
+  ]
 }

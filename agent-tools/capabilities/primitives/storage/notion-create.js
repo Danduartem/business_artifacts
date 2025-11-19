@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Create Notion Page
+ * @tool storage.notion-create
+ * @when Create a new page in a Notion database
+ * @category storage
  *
- * Purpose: Create a new page in a Notion database
- * Inputs:
- *   --database-id (required) - Notion database ID
- *   --properties (required) - JSON string of page properties
- *   --api-key (optional) - Notion API key (or use NOTION_API_TOKEN env var)
- * Outputs: Created page ID and URL
+ * @flag database-id - Notion database ID (required)
+ * @flag properties - JSON string of page properties (required)
+ * @flag api-key - Notion API key (or use NOTION_API_TOKEN env var) (optional)
  *
- * This is an ATOMIC operation - creates page only.
- * Requires Notion API token.
+ * @example
+ * node notion-create.js --param value
  */
 
 import { parseArgs } from '../../../core/utils/index.js';

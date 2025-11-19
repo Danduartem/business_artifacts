@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Download File from URL
+ * @tool http.download
+ * @when Download file from HTTP/HTTPS URL
+ * @category http
  *
- * Purpose: Download file from HTTP/HTTPS URL
- * Inputs:
- *   --url (required) - URL to download from
- *   --output (required) - Output file path
- *   --timeout (optional) - Request timeout in ms (default: 60000)
- * Outputs: Downloaded file path and size
+ * @flag url - URL to download from (required)
+ * @flag output - Output file path (required)
+ * @flag timeout - Request timeout in ms (default: 60000) (optional)
  *
- * This is an ATOMIC operation - downloads only.
+ * @example
+ * node download.js --param value
  */
 
 import { createWriteStream } from 'fs';

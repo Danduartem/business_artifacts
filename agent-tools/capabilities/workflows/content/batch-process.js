@@ -1,20 +1,21 @@
 #!/usr/bin/env node
-
 /**
- * WORKFLOW: Batch Process Items
+ * @workflow content.batch-process
+ * @when Process multiple items with checkpointing and recovery
+ * @complexity high
+ * @category content
  *
- * Purpose: Process multiple items with checkpointing and recovery
- * Composes multiple primitives based on input configuration
+ * @flag input - TODO: Add parameter description
  *
- * This is a HIGH-LEVEL workflow for convenience.
- * Demonstrates batch processing pattern with recovery.
+ * @example
+ * node batch-process.js --param value
  */
 
 import { executePrimitive } from '../workflow-utils.js';
-import { parseArgs } from '../../../core/utils/index.js';
+import { parseArgs } from 'node:util';
 import { createLogger } from '../../../core/logger/index.js';
 
-const logger = createLogger({ toolName: 'workflow.batch-process' });
+const logger = createLogger({ toolName: 'content.batch-process' });
 const args = parseArgs();
 
 async function batchProcess() {

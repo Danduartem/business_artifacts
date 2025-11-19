@@ -1,20 +1,19 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Convert Video Format
+ * @tool media.convert
+ * @when Convert video between formats
+ * @category media
  *
- * Purpose: Convert video between formats
- * Inputs:
- *   --input (required) - Input video file path
- *   --output (optional) - Output video file path
- *   --format (optional) - Output format: mp4|webm|avi (default: mp4)
- *   --codec (optional) - Video codec: libx264|libvpx-vp9
- *   --preset (optional) - Encoding preset: ultrafast|fast|medium|slow (default: medium)
- *   --bitrate (optional) - Video bitrate (e.g., 1000k, 2M)
- * Outputs: Converted video file path
+ * @flag input - Input video file path (required)
+ * @flag output - Output video file path (optional)
+ * @flag format - Output format: mp4|webm|avi (default: mp4) (optional)
+ * @flag codec - Video codec: libx264|libvpx-vp9 (optional)
+ * @flag preset - Encoding preset: ultrafast|fast|medium|slow (default: medium) (optional)
+ * @flag bitrate - Video bitrate (e.g., 1000k, 2M) (optional)
  *
- * This is an ATOMIC operation - converts format only.
- * Requires ffmpeg to be installed.
+ * @example
+ * node convert.js --param value
  */
 
 import { spawn } from 'child_process';

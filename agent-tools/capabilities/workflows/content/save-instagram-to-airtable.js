@@ -1,32 +1,23 @@
 #!/usr/bin/env node
-
 /**
- * WORKFLOW: Save Instagram Content to Airtable
+ * @workflow content.save-instagram-to-airtable
+ * @when High-level workflow to save analyzed Instagram posts to Airtable
+ * @complexity low
+ * @category content
  *
- * Purpose: High-level workflow to save analyzed Instagram posts to Airtable
- * Inputs:
- *   --posts (required) - JSON file path or JSON string of posts array
- *   --creator (required) - Creator username (e.g., @berudolph)
- *   --batch-size (optional) - Records per batch (default: 10, max: 10)
- *   --skip-duplicates (optional) - Skip duplicate URL checking (default: false)
- *   --dry-run (optional) - Test mode without saving (default: false)
- * Outputs: Summary of saved, skipped, and failed records
+ * @flag input - TODO: Add parameter description
  *
- * This workflow:
- * 1. Finds or creates creator record
- * 2. Checks for duplicate posts (optional)
- * 3. Maps post data to Airtable schema
- * 4. Batch creates records
- * 5. Handles errors gracefully
+ * @example
+ * node save-instagram-to-airtable.js --param value
  */
 
 import { readFileSync } from 'fs';
-import { parseArgs } from '../../../core/utils/index.js';
+import { parseArgs } from 'node:util';
 import { createLogger } from '../../../core/logger/index.js';
 import { getAirtableBase } from '../../../core/clients/airtable.js';
 import { execSync } from 'child_process';
 
-const logger = createLogger({ toolName: 'workflow.save-instagram-airtable' });
+const logger = createLogger({ toolName: 'content.save-instagram-to-airtable' });
 const args = parseArgs();
 
 /**

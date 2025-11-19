@@ -1,30 +1,23 @@
 #!/usr/bin/env node
-
 /**
- * WORKFLOW: Download and Transcribe Video
+ * @workflow media.download-and-transcribe
+ * @when Complete workflow to download video from URL and transcribe it
+ * @complexity low
+ * @category media
  *
- * Purpose: Complete workflow to download video from URL and transcribe it
- * Composes multiple primitives by shelling out to them:
- *   1. http.download - Download video
- *   2. media.extract-audio - Extract audio
- *   3. media.transcribe - Transcribe audio
+ * @flag input - TODO: Add parameter description
  *
- * This is a HIGH-LEVEL workflow for convenience.
- * For custom needs, compose primitives directly.
- *
- * Benefits of shelling out:
- * - No SDK overhead (lighter weight)
- * - Primitives can be used standalone
- * - Clear separation of concerns
+ * @example
+ * node download-and-transcribe.js --param value
  */
 
 import { executePrimitive } from '../workflow-utils.js';
-import { parseArgs } from '../../../core/utils/index.js';
+import { parseArgs } from 'node:util';
 import { createLogger } from '../../../core/logger/index.js';
 import { mkdirSync, unlinkSync, existsSync } from 'fs';
 import { join } from 'path';
 
-const logger = createLogger({ toolName: 'workflow.download-and-transcribe' });
+const logger = createLogger({ toolName: 'media.download-and-transcribe' });
 const args = parseArgs();
 
 async function downloadAndTranscribe() {

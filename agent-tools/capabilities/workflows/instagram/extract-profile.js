@@ -1,25 +1,21 @@
 #!/usr/bin/env node
-
 /**
- * WORKFLOW: Extract Instagram Profile
+ * @workflow instagram.extract-profile
+ * @when Extract Instagram profile information and posts
+ * @complexity medium
+ * @category instagram
  *
- * Purpose: Complete workflow to extract Instagram profile information
- * Composes multiple primitives:
- *   1. browser.start - Launch browser
- *   2. browser.navigate - Navigate to profile
- *   3. page.wait-for - Wait for content
- *   4. page.extract-text - Extract profile data
- *   5. browser.close - Close browser
+ * @flag input - TODO: Add parameter description
  *
- * This is a HIGH-LEVEL workflow for convenience.
- * For custom needs, compose primitives directly.
+ * @example
+ * node extract-profile.js --param value
  */
 
 import { executePrimitive, executePrimitiveNoReturn } from '../workflow-utils.js';
-import { parseArgs } from '../../../core/utils/index.js';
+import { parseArgs } from 'node:util';
 import { createLogger } from '../../../core/logger/index.js';
 
-const logger = createLogger({ toolName: 'workflow.instagram.extract-profile' });
+const logger = createLogger({ toolName: 'instagram.extract-profile' });
 const args = parseArgs();
 
 async function extractProfile() {

@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Click Element
+ * @tool page.click
+ * @when Click an element by CSS selector
+ * @category page
  *
- * Purpose: Click an element by CSS selector
- * Inputs:
- *   --selector (required) - CSS selector to click
- *   --wait (optional) - Wait for selector before clicking
- * Outputs: Click confirmation
+ * @flag selector - CSS selector to click (required)
+ * @flag wait - Wait for selector before clicking (optional)
  *
- * This is an ATOMIC operation - clicks only.
- * Assumes browser is already navigated to target page.
+ * @example
+ * node click.js --param value
  */
 
 import puppeteer from 'puppeteer-core';

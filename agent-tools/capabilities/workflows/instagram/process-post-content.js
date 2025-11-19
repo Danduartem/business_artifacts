@@ -1,35 +1,32 @@
 #!/usr/bin/env node
-
 /**
  * @workflow instagram.process-post-content
- * @description Process Instagram post content: extract media, analyze images, transcribe videos with timestamps
+ * @when Process Instagram post content: extract media, analyze images, transcribe videos with timestamps
+ * @complexity medium
  * @category instagram
  *
  * @composes browser.start, browser.navigate, page.wait-for, page.screenshot, http.download, media.analyze-image, media.ocr-image, media.transcribe-segments, browser.eval, browser.close
  *
- * @input url string - Instagram post URL (required)
- * @input download-media boolean - Download media files (optional, default: true)
- * @input process-images boolean - Analyze and OCR images (optional, default: true)
- * @input transcribe-videos boolean - Transcribe videos with timestamps (optional, default: true)
- * @input video-segments string - Video time segments (optional, default: "0-3,3-10,10+")
- * @input output-dir string - Output directory for files (optional, default: ./instagram_content)
- * @input profile boolean - Use Chrome profile (optional)
- * @input headless boolean - Force headless Chrome (optional)
- *
- * @output post object - Complete post data with processed content
- * @output success boolean - Operation success status
+ * @flag url - Instagram post URL (required)
+ * @flag download-media - Download media files (optional)
+ * @flag process-images - Analyze and OCR images (optional)
+ * @flag transcribe-videos - Transcribe videos with timestamps (optional)
+ * @flag video-segments - Video time segments (optional)
+ * @flag output-dir - Output directory for files (optional)
+ * @flag profile - Use Chrome profile (optional)
+ * @flag headless - Force headless Chrome (optional)
  *
  * @example
- * node instagram/process-post-content.js --url "https://www.instagram.com/p/ABC123/"
+ * node process-post-content.js --param value
  */
 
 import { executePrimitive, executePrimitiveNoReturn } from '../workflow-utils.js';
-import { parseArgs } from '../../../core/utils/index.js';
+import { parseArgs } from 'node:util';
 import { createLogger } from '../../../core/logger/index.js';
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
-const logger = createLogger({ toolName: 'workflow.instagram.process-post-content' });
+const logger = createLogger({ toolName: 'instagram.process-post-content' });
 const args = parseArgs();
 
 async function processPostContent() {

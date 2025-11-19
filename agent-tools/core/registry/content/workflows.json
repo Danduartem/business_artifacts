@@ -1,29 +1,39 @@
 {
   "category": "content",
-  "layer": "workflows",
-  "description": "Content processing workflows",
+  "description": "Content workflows",
   "tools": [
     {
-      "id": "save-instagram-to-airtable",
-      "when": "Export Instagram posts to Airtable with structured fields",
-      "path": "capabilities/workflows/content/save-instagram-to-airtable.js",
-      "flags": ["--posts", "--table"],
-      "example": "node capabilities/workflows/content/save-instagram-to-airtable.js --posts posts.json --table 'Instagram Posts'"
+      "id": "content.analyze-and-store",
+      "when": "Extract content, analyze it, and save to Notion database",
+      "complexity": "low",
+      "path": "capabilities/workflows/content/analyze-and-store.js",
+      "flags": [
+        "input"
+      ],
+      "features": [],
+      "resumable": false
     },
     {
-      "id": "analyze-images-with-claude",
-      "when": "Analyze images using Claude Vision API",
-      "path": "capabilities/workflows/content/analyze-images-with-claude.js",
-      "flags": ["--images", "--prompt", "--output"],
-      "example": "node capabilities/workflows/content/analyze-images-with-claude.js --images images.json --prompt 'Describe this image'"
-    },
-    {
-      "id": "batch-process",
-      "when": "Batch process content items",
+      "id": "content.batch-process",
+      "when": "Process multiple items with checkpointing and recovery",
+      "complexity": "high",
       "path": "capabilities/workflows/content/batch-process.js",
-      "flags": ["--input", "--operation", "--output"],
-      "example": "node capabilities/workflows/content/batch-process.js --input items.json --operation format"
+      "flags": [
+        "input"
+      ],
+      "features": [],
+      "resumable": false
+    },
+    {
+      "id": "content.save-instagram-to-airtable",
+      "when": "High-level workflow to save analyzed Instagram posts to Airtable",
+      "complexity": "low",
+      "path": "capabilities/workflows/content/save-instagram-to-airtable.js",
+      "flags": [
+        "input"
+      ],
+      "features": [],
+      "resumable": false
     }
-  ],
-  "help": "All workflows support --help flag for detailed parameter information"
+  ]
 }

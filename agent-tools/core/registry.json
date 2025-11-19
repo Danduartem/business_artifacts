@@ -1,7 +1,7 @@
 {
   "$schema": "./registry.schema.json",
-  "version": "2.0.0",
-  "lastUpdated": "2025-11-19T01:40:00.000Z",
+  "version": "3.0.0",
+  "lastUpdated": "2025-11-19T18:20:06.721Z",
   "primitives": {
     "browser": {
       "description": "Atomic browser operations",
@@ -9,87 +9,73 @@
         {
           "id": "browser.close",
           "category": "browser",
-          "description": "Close the browser instance or specific tab",
-          "inputs": [
-            "tab-only"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "close"
           ],
-          "path": "capabilities/primitives/browser/close.js",
-          "name": "Close"
+          "when": "Close the browser instance or specific tab",
+          "flags": [
+            "tab-only"
+          ],
+          "example": "* node close.js --param value",
+          "path": "capabilities/primitives/browser/close.js"
         },
         {
           "id": "browser.cookies",
           "category": "browser",
-          "description": "Get or set browser cookies",
-          "inputs": [
-            "get"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "cookies"
           ],
-          "path": "capabilities/primitives/browser/cookies.js",
-          "name": "Cookies"
+          "when": "Get or set browser cookies",
+          "flags": [
+            "get",
+            "set",
+            "name",
+            "value",
+            "domain"
+          ],
+          "example": "* node cookies.js --param value",
+          "path": "capabilities/primitives/browser/cookies.js"
         },
         {
           "id": "browser.eval",
           "category": "browser",
-          "description": "Execute JavaScript code in browser context",
-          "inputs": [
-            "code"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "eval"
           ],
-          "path": "capabilities/primitives/browser/eval.js",
-          "name": "Eval"
+          "when": "Execute JavaScript code in browser context",
+          "flags": [
+            "code"
+          ],
+          "example": "* node eval.js --param value",
+          "path": "capabilities/primitives/browser/eval.js"
         },
         {
           "id": "browser.navigate",
           "category": "browser",
-          "description": "Navigate to a URL in the current or new tab",
-          "inputs": [
-            "url"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "navigate"
           ],
-          "path": "capabilities/primitives/browser/navigate.js",
-          "name": "Navigate"
+          "when": "Navigate to a URL in the current or new tab",
+          "flags": [
+            "url",
+            "new-tab",
+            "wait-until"
+          ],
+          "example": "* node navigate.js --param value",
+          "path": "capabilities/primitives/browser/navigate.js"
         },
         {
           "id": "browser.start",
           "category": "browser",
-          "description": "Launch Chrome with debugging enabled",
-          "inputs": [
-            "profile"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "start"
           ],
-          "path": "capabilities/primitives/browser/start.js",
-          "name": "Start"
+          "when": "Launch Chrome with debugging enabled",
+          "flags": [
+            "param"
+          ],
+          "example": "* node start.js --param value",
+          "path": "capabilities/primitives/browser/start.js"
         }
       ]
     },
@@ -99,53 +85,45 @@
         {
           "id": "file.parse-json",
           "category": "file",
-          "description": "Read and parse JSON file",
-          "inputs": [
-            "path"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "parse-json"
           ],
-          "path": "capabilities/primitives/file/parse-json.js",
-          "name": "Parse Json"
+          "when": "Read and parse JSON file",
+          "flags": [
+            "path"
+          ],
+          "example": "* node parse-json.js --param value",
+          "path": "capabilities/primitives/file/parse-json.js"
         },
         {
           "id": "file.read",
           "category": "file",
-          "description": "Read file contents",
-          "inputs": [
-            "path"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "read"
           ],
-          "path": "capabilities/primitives/file/read.js",
-          "name": "Read"
+          "when": "Read file contents",
+          "flags": [
+            "path",
+            "encoding"
+          ],
+          "example": "* node read.js --param value",
+          "path": "capabilities/primitives/file/read.js"
         },
         {
           "id": "file.write",
           "category": "file",
-          "description": "Write content to file",
-          "inputs": [
-            "path"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "write"
           ],
-          "path": "capabilities/primitives/file/write.js",
-          "name": "Write"
+          "when": "Write content to file",
+          "flags": [
+            "path",
+            "content",
+            "encoding",
+            "append"
+          ],
+          "example": "* node write.js --param value",
+          "path": "capabilities/primitives/file/write.js"
         }
       ]
     },
@@ -155,84 +133,70 @@
         {
           "id": "http.download",
           "category": "http",
-          "description": "Download file from HTTP/HTTPS URL",
-          "inputs": [
-            "url"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "download"
           ],
-          "path": "capabilities/primitives/http/download.js",
-          "name": "Download"
+          "when": "Download file from HTTP/HTTPS URL",
+          "flags": [
+            "url",
+            "output",
+            "timeout"
+          ],
+          "example": "* node download.js --param value",
+          "path": "capabilities/primitives/http/download.js"
         },
         {
           "id": "http.get",
           "category": "http",
-          "description": "Make HTTP GET request",
-          "inputs": [
-            "url"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "get"
           ],
-          "path": "capabilities/primitives/http/get.js",
-          "name": "Get"
+          "when": "Make HTTP GET request",
+          "flags": [
+            "url",
+            "headers",
+            "timeout"
+          ],
+          "example": "* node get.js --param value",
+          "path": "capabilities/primitives/http/get.js"
         },
         {
           "id": "http.post",
           "category": "http",
-          "description": "Make HTTP POST request",
-          "inputs": [
-            "url"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "post"
           ],
-          "path": "capabilities/primitives/http/post.js",
-          "name": "Post"
+          "when": "Make HTTP POST request",
+          "flags": [
+            "url",
+            "data",
+            "headers",
+            "timeout"
+          ],
+          "example": "* node post.js --param value",
+          "path": "capabilities/primitives/http/post.js"
         }
       ]
     },
     "instagram": {
-      "description": "Atomic Instagram operations",
+      "description": "Atomic instagram operations",
       "tools": [
         {
           "id": "instagram.download-video",
-          "description": "Download video from Instagram post/reel URL using yt-dlp (free, open-source)",
           "category": "instagram",
-          "inputs": [
-            "url",
-            "output",
-            "cookies",
-            "quality"
-          ],
-          "outputs": [
-            "output",
-            "size",
-            "quality",
-            "success"
-          ],
           "capabilities": [
             "download-video"
           ],
-          "systemDependencies": [
-            "yt-dlp"
+          "when": "Download video or audio from Instagram post/reel URL using yt-dlp",
+          "flags": [
+            "url",
+            "output",
+            "cookies",
+            "quality",
+            "audio-only"
           ],
-          "example": "* node instagram/download-video.js --url \"https://www.instagram.com/p/ABC123/\" --output /path/to/video.mp4",
-          "path": "capabilities/primitives/instagram/download-video.js",
-          "name": "Download Video"
+          "example": "* node download-video.js --param value",
+          "path": "capabilities/primitives/instagram/download-video.js"
         }
       ]
     },
@@ -256,69 +220,41 @@
             "analyze-image"
           ],
           "example": "* node media/analyze-image.js --input /path/to/image.jpg",
-          "path": "capabilities/primitives/media/analyze-image.js",
-          "name": "Analyze Image"
+          "path": "capabilities/primitives/media/analyze-image.js"
         },
         {
           "id": "media.convert",
           "category": "media",
-          "description": "Convert video between formats",
-          "inputs": [
-            "input"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "convert"
           ],
-          "path": "capabilities/primitives/media/convert.js",
-          "name": "Convert"
+          "when": "Convert video between formats",
+          "flags": [
+            "input",
+            "output",
+            "format",
+            "codec",
+            "preset",
+            "bitrate"
+          ],
+          "example": "* node convert.js --param value",
+          "path": "capabilities/primitives/media/convert.js"
         },
         {
           "id": "media.extract-audio",
           "category": "media",
-          "description": "Extract audio track from video file",
-          "inputs": [
-            "input"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "extract-audio"
           ],
-          "path": "capabilities/primitives/media/extract-audio.js",
-          "name": "Extract Audio"
-        },
-        {
-          "id": "media.transcribe",
-          "description": "Transcribe audio/video file using whisper.cpp (free, local, zero-cost)",
-          "category": "media",
-          "inputs": [
+          "when": "Extract audio track from video file",
+          "flags": [
             "input",
             "output",
-            "language",
             "format",
-            "model"
+            "quality"
           ],
-          "outputs": [
-            "text",
-            "output",
-            "success"
-          ],
-          "capabilities": [
-            "transcribe"
-          ],
-          "systemDependencies": [
-            "ffmpeg",
-            "whisper.cpp"
-          ],
-          "example": "* node media/transcribe.js --input /path/to/audio.mp3 --output /path/to/transcript.txt --language pt",
-          "path": "capabilities/primitives/media/transcribe.js",
-          "name": "Transcribe"
+          "example": "* node extract-audio.js --param value",
+          "path": "capabilities/primitives/media/extract-audio.js"
         },
         {
           "id": "media.ocr-image",
@@ -340,8 +276,7 @@
             "tesseract"
           ],
           "example": "* node media/ocr-image.js --input /path/to/image.jpg",
-          "path": "capabilities/primitives/media/ocr-image.js",
-          "name": "Ocr Image"
+          "path": "capabilities/primitives/media/ocr-image.js"
         },
         {
           "id": "media.transcribe-segments",
@@ -366,8 +301,24 @@
             "whisper.cpp"
           ],
           "example": "* node media/transcribe-segments.js --input /path/to/video.mp4 --segments \"0-3,3-10,10+\"",
-          "path": "capabilities/primitives/media/transcribe-segments.js",
-          "name": "Transcribe Segments"
+          "path": "capabilities/primitives/media/transcribe-segments.js"
+        },
+        {
+          "id": "media.transcribe",
+          "category": "media",
+          "capabilities": [
+            "transcribe"
+          ],
+          "when": "Transcribe audio/video file using whisper.cpp (free, local, zero-cost)",
+          "flags": [
+            "input",
+            "output",
+            "language",
+            "format",
+            "model"
+          ],
+          "example": "* node transcribe.js --param value",
+          "path": "capabilities/primitives/media/transcribe.js"
         }
       ]
     },
@@ -377,104 +328,90 @@
         {
           "id": "page.click",
           "category": "page",
-          "description": "Click an element by CSS selector",
-          "inputs": [
-            "selector"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "click"
           ],
-          "path": "capabilities/primitives/page/click.js",
-          "name": "Click"
+          "when": "Click an element by CSS selector",
+          "flags": [
+            "selector",
+            "wait"
+          ],
+          "example": "* node click.js --param value",
+          "path": "capabilities/primitives/page/click.js"
         },
         {
           "id": "page.extract-html",
           "category": "page",
-          "description": "Extract HTML content from CSS selector",
-          "inputs": [
-            "selector"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "extract-html"
           ],
-          "path": "capabilities/primitives/page/extract-html.js",
-          "name": "Extract Html"
+          "when": "Extract HTML content from CSS selector",
+          "flags": [
+            "selector",
+            "all",
+            "outer"
+          ],
+          "example": "* node extract-html.js --param value",
+          "path": "capabilities/primitives/page/extract-html.js"
         },
         {
           "id": "page.extract-text",
           "category": "page",
-          "description": "Extract text content from CSS selector",
-          "inputs": [
-            "selector"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "extract-text"
           ],
-          "path": "capabilities/primitives/page/extract-text.js",
-          "name": "Extract Text"
+          "when": "Extract text content from CSS selector",
+          "flags": [
+            "selector",
+            "all"
+          ],
+          "example": "* node extract-text.js --param value",
+          "path": "capabilities/primitives/page/extract-text.js"
         },
         {
           "id": "page.screenshot",
           "category": "page",
-          "description": "Capture screenshot of page or element",
-          "inputs": [
-            "path"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "screenshot"
           ],
-          "path": "capabilities/primitives/page/screenshot.js",
-          "name": "Screenshot"
+          "when": "Capture screenshot of page or element",
+          "flags": [
+            "path",
+            "selector",
+            "fullpage"
+          ],
+          "example": "* node screenshot.js --param value",
+          "path": "capabilities/primitives/page/screenshot.js"
         },
         {
           "id": "page.scroll",
           "category": "page",
-          "description": "Scroll page to position or element",
-          "inputs": [
-            "to"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "scroll"
           ],
-          "path": "capabilities/primitives/page/scroll.js",
-          "name": "Scroll"
+          "when": "Scroll page to position or element",
+          "flags": [
+            "to",
+            "selector",
+            "y"
+          ],
+          "example": "* node scroll.js --param value",
+          "path": "capabilities/primitives/page/scroll.js"
         },
         {
           "id": "page.wait-for",
           "category": "page",
-          "description": "Wait for CSS selector to appear on page",
-          "inputs": [
-            "selector"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "wait-for"
           ],
-          "path": "capabilities/primitives/page/wait-for.js",
-          "name": "Wait For"
+          "when": "Wait for CSS selector to appear on page",
+          "flags": [
+            "selector",
+            "timeout",
+            "visible"
+          ],
+          "example": "* node wait-for.js --param value",
+          "path": "capabilities/primitives/page/wait-for.js"
         }
       ]
     },
@@ -484,121 +421,117 @@
         {
           "id": "storage.airtable-batch",
           "category": "storage",
-          "description": "Create multiple records in an Airtable table (max 10 per batch)",
-          "inputs": [
-            "table"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "airtable-batch"
           ],
-          "path": "capabilities/primitives/storage/airtable-batch.js",
-          "name": "Airtable Batch"
+          "when": "Create multiple records in an Airtable table (max 10 per batch)",
+          "flags": [
+            "table",
+            "records",
+            "api-key",
+            "base-id"
+          ],
+          "example": "* node airtable-batch.js --param value",
+          "path": "capabilities/primitives/storage/airtable-batch.js"
         },
         {
           "id": "storage.airtable-create",
           "category": "storage",
-          "description": "Create a single record in an Airtable table",
-          "inputs": [
-            "table"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "airtable-create"
           ],
-          "path": "capabilities/primitives/storage/airtable-create.js",
-          "name": "Airtable Create"
+          "when": "Create a single record in an Airtable table",
+          "flags": [
+            "table",
+            "fields",
+            "api-key",
+            "base-id"
+          ],
+          "example": "* node airtable-create.js --param value",
+          "path": "capabilities/primitives/storage/airtable-create.js"
         },
         {
           "id": "storage.airtable-query",
           "category": "storage",
-          "description": "Query records from an Airtable table",
-          "inputs": [
-            "table"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "airtable-query"
           ],
-          "path": "capabilities/primitives/storage/airtable-query.js",
-          "name": "Airtable Query"
+          "when": "Query records from an Airtable table",
+          "flags": [
+            "table",
+            "formula",
+            "max-records",
+            "sort",
+            "fields",
+            "api-key",
+            "base-id"
+          ],
+          "example": "* node airtable-query.js --param value",
+          "path": "capabilities/primitives/storage/airtable-query.js"
         },
         {
           "id": "storage.airtable-update",
           "category": "storage",
-          "description": "Update an existing record in an Airtable table",
-          "inputs": [
-            "table"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "airtable-update"
           ],
-          "path": "capabilities/primitives/storage/airtable-update.js",
-          "name": "Airtable Update"
+          "when": "Update an existing record in an Airtable table",
+          "flags": [
+            "table",
+            "record-id",
+            "fields",
+            "api-key",
+            "base-id"
+          ],
+          "example": "* node airtable-update.js --param value",
+          "path": "capabilities/primitives/storage/airtable-update.js"
         },
         {
           "id": "storage.notion-create",
           "category": "storage",
-          "description": "Create a new page in a Notion database",
-          "inputs": [
-            "database-id"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "notion-create"
           ],
-          "path": "capabilities/primitives/storage/notion-create.js",
-          "name": "Notion Create"
+          "when": "Create a new page in a Notion database",
+          "flags": [
+            "database-id",
+            "properties",
+            "api-key"
+          ],
+          "example": "* node notion-create.js --param value",
+          "path": "capabilities/primitives/storage/notion-create.js"
         },
         {
           "id": "storage.notion-query",
           "category": "storage",
-          "description": "Query pages from a Notion database",
-          "inputs": [
-            "database-id"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "notion-query"
           ],
-          "path": "capabilities/primitives/storage/notion-query.js",
-          "name": "Notion Query"
+          "when": "Query pages from a Notion database",
+          "flags": [
+            "database-id",
+            "filter",
+            "sorts",
+            "limit",
+            "api-key"
+          ],
+          "example": "* node notion-query.js --param value",
+          "path": "capabilities/primitives/storage/notion-query.js"
         },
         {
           "id": "storage.notion-update",
           "category": "storage",
-          "description": "Update an existing Notion page",
-          "inputs": [
-            "page-id"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "notion-update"
           ],
-          "path": "capabilities/primitives/storage/notion-update.js",
-          "name": "Notion Update"
+          "when": "Update an existing Notion page",
+          "flags": [
+            "page-id",
+            "properties",
+            "api-key"
+          ],
+          "example": "* node notion-update.js --param value",
+          "path": "capabilities/primitives/storage/notion-update.js"
         }
       ]
     },
@@ -618,8 +551,28 @@
             "cleanup"
           ],
           "example": "* node cleanup.js",
-          "path": "capabilities/primitives/system/cleanup.js",
-          "name": "Cleanup"
+          "path": "capabilities/primitives/system/cleanup.js"
+        }
+      ]
+    },
+    "youtube": {
+      "description": "Atomic youtube operations",
+      "tools": [
+        {
+          "id": "youtube.download-video",
+          "category": "youtube",
+          "capabilities": [
+            "download-video"
+          ],
+          "when": "Download video or audio from YouTube URL using yt-dlp",
+          "flags": [
+            "url",
+            "output",
+            "quality",
+            "audio-only"
+          ],
+          "example": "* node download-video.js --param value",
+          "path": "capabilities/primitives/youtube/download-video.js"
         }
       ]
     }
@@ -629,86 +582,46 @@
       "description": "Content workflows",
       "tools": [
         {
-          "id": "workflow.content.analyze-and-store",
+          "id": "content.analyze-and-store",
           "category": "content",
-          "description": "Extract content, analyze it, and save to Notion database",
           "capabilities": [
             "analyze-and-store"
           ],
-          "path": "capabilities/workflows/content/analyze-and-store.js",
-          "name": "Analyze And Store"
+          "when": "Extract content, analyze it, and save to Notion database",
+          "complexity": "low",
+          "flags": [
+            "input"
+          ],
+          "example": "* node analyze-and-store.js --param value",
+          "path": "capabilities/workflows/content/analyze-and-store.js"
         },
         {
-          "id": "content.analyze-images-with-claude",
-          "description": "Analyze images using Claude Code Task agents with vision (fully automated, zero-cost)",
+          "id": "content.batch-process",
           "category": "content",
-          "inputs": [
-            "queue-file",
-            "max-concurrent"
-          ],
-          "outputs": [
-            "processed",
-            "success"
-          ],
-          "capabilities": [
-            "analyze-images-with-claude"
-          ],
-          "composes": [
-            "Task (Claude Code agents with vision)"
-          ],
-          "example": "* node content/analyze-images-with-claude.js --queue-file temp/image_analysis_queue.json",
-          "path": "capabilities/workflows/content/analyze-images-with-claude.js",
-          "name": "Analyze Images With Claude"
-        },
-        {
-          "id": "workflow.content.batch-process",
-          "category": "content",
-          "description": "Process multiple items with checkpointing and recovery",
           "capabilities": [
             "batch-process"
           ],
-          "path": "capabilities/workflows/content/batch-process.js",
-          "name": "Batch Process"
+          "when": "Process multiple items with checkpointing and recovery",
+          "complexity": "high",
+          "flags": [
+            "input"
+          ],
+          "example": "* node batch-process.js --param value",
+          "path": "capabilities/workflows/content/batch-process.js"
         },
         {
-          "id": "content.process-image-queue",
-          "description": "Process queued images using Claude Code agents for AI vision analysis (Option C: zero-cost)",
+          "id": "content.save-instagram-to-airtable",
           "category": "content",
-          "inputs": [
-            "queue-file",
-            "batch-size",
-            "parallel"
-          ],
-          "outputs": [
-            "processed",
-            "success"
-          ],
-          "capabilities": [
-            "process-image-queue"
-          ],
-          "composes": [
-            "Task (Claude Code agents)"
-          ],
-          "example": "* node content/process-image-queue.js --queue-file temp/image_analysis_queue.json",
-          "path": "capabilities/workflows/content/process-image-queue.js",
-          "name": "Process Image Queue"
-        },
-        {
-          "id": "workflow.content.save-instagram-to-airtable",
-          "category": "content",
-          "description": "High-level workflow to save analyzed Instagram posts to Airtable",
-          "inputs": [
-            "posts"
-          ],
-          "outputs": [
-            "result",
-            "success"
-          ],
           "capabilities": [
             "save-instagram-to-airtable"
           ],
-          "path": "capabilities/workflows/content/save-instagram-to-airtable.js",
-          "name": "Save Instagram To Airtable"
+          "when": "High-level workflow to save analyzed Instagram posts to Airtable",
+          "complexity": "low",
+          "flags": [
+            "input"
+          ],
+          "example": "* node save-instagram-to-airtable.js --param value",
+          "path": "capabilities/workflows/content/save-instagram-to-airtable.js"
         }
       ]
     },
@@ -716,125 +629,82 @@
       "description": "Instagram workflows",
       "tools": [
         {
-          "id": "instagram.batch-extract-and-process",
-          "description": "Main orchestrator: Extract posts from multiple Instagram profiles by date range and process all content",
+          "id": "instagram.bulk-extraction",
           "category": "instagram",
-          "inputs": [
-            "usernames",
-            "start-date",
-            "end-date",
-            "output-dir",
-            "process-content",
-            "save-to-airtable",
-            "airtable-table",
-            "profile",
-            "headless",
-            "resume"
-          ],
-          "outputs": [
-            "results",
-            "success"
-          ],
           "capabilities": [
-            "batch-extract-and-process"
+            "bulk-extraction"
+          ],
+          "when": "Extract all Instagram posts from specified profiles within a date range, download media, transcribe videos, and export to structured format",
+          "complexity": "high",
+          "flags": [
+            "profiles",
+            "startDate",
+            "endDate",
+            "outputFormat",
+            "includeStories"
           ],
           "composes": [
-            "workflow.instagram.extract-profile-posts-daterange",
-            "workflow.instagram.process-post-content",
-            "storage.airtable-batch"
+            "instagram.extract-profile",
+            "media.download-and-transcribe",
+            "content.format-export"
           ],
-          "example": "* node instagram/batch-extract-and-process.js --usernames \"user1,user2,user3\" --start-date 2024-01-01 --end-date 2024-01-31",
-          "path": "capabilities/workflows/instagram/batch-extract-and-process.js",
-          "name": "Batch Extract And Process"
+          "example": "* node bulk-extraction.js --param value",
+          "path": "capabilities/workflows/instagram/bulk-extraction.js"
         },
         {
-          "id": "workflow.instagram.download-reel",
+          "id": "instagram.download-reel",
           "category": "instagram",
-          "description": "Complete workflow to download and optionally transcribe Instagram reel",
           "capabilities": [
             "download-reel"
           ],
-          "path": "capabilities/workflows/instagram/download-reel.js",
-          "name": "Download Reel"
+          "when": "Download and optionally transcribe Instagram reel",
+          "complexity": "low",
+          "flags": [
+            "input"
+          ],
+          "example": "* node download-reel.js --param value",
+          "path": "capabilities/workflows/instagram/download-reel.js"
         },
         {
-          "id": "instagram.extract-post-full",
-          "description": "Extract complete Instagram post data including caption, format, screenshot, and media",
+          "id": "instagram.extract-post",
           "category": "instagram",
-          "inputs": [
+          "capabilities": [
+            "extract-post"
+          ],
+          "when": "Extract complete Instagram post data including caption, format, screenshot, and media URLs",
+          "complexity": "low",
+          "flags": [
             "url",
             "profile",
             "screenshot",
             "download-media"
           ],
-          "outputs": [
-            "postId",
-            "url",
-            "creator",
-            "datePosted",
-            "caption",
-            "format",
-            "isReel",
-            "screenshotPath",
-            "mediaUrls",
-            "videoTranscription"
-          ],
-          "capabilities": [
-            "extract-post-full"
-          ],
-          "example": "* node instagram/extract-post-full.js --url \"https://www.instagram.com/p/ABC123/\" --profile",
-          "path": "capabilities/workflows/instagram/extract-post-full.js",
-          "name": "Extract Post Full"
+          "example": "* node extract-post.js --param value",
+          "path": "capabilities/workflows/instagram/extract-post.js"
         },
         {
-          "id": "workflow.instagram.extract-post",
+          "id": "instagram.extract-profile",
           "category": "instagram",
-          "description": "Complete workflow to extract Instagram post data",
-          "capabilities": [
-            "extract-post"
-          ],
-          "path": "capabilities/workflows/instagram/extract-post.js",
-          "name": "Extract Post"
-        },
-        {
-          "id": "instagram.extract-profile-posts-puppeteer",
-          "description": "Extract Instagram posts using Puppeteer native APIs (no eval!)",
-          "category": "instagram",
-          "inputs": [
-            "username",
-            "start-date",
-            "end-date",
-            "profile",
-            "headless",
-            "output",
-            "max-scrolls"
-          ],
-          "outputs": [
-            "posts",
-            "success"
-          ],
-          "capabilities": [
-            "extract-profile-posts-puppeteer"
-          ],
-          "example": "* node instagram/extract-profile-posts-puppeteer.js --username natgeo --start-date 2024-01-01 --end-date 2024-12-31",
-          "path": "capabilities/workflows/instagram/extract-profile-posts-puppeteer.js",
-          "name": "Extract Profile Posts Puppeteer"
-        },
-        {
-          "id": "workflow.instagram.extract-profile",
-          "category": "instagram",
-          "description": "Complete workflow to extract Instagram profile information",
           "capabilities": [
             "extract-profile"
           ],
-          "path": "capabilities/workflows/instagram/extract-profile.js",
-          "name": "Extract Profile"
+          "when": "Extract Instagram profile information and posts",
+          "complexity": "medium",
+          "flags": [
+            "input"
+          ],
+          "example": "* node extract-profile.js --param value",
+          "path": "capabilities/workflows/instagram/extract-profile.js"
         },
         {
           "id": "instagram.process-post-content",
-          "description": "Process Instagram post content: extract media, analyze images, transcribe videos with timestamps",
           "category": "instagram",
-          "inputs": [
+          "capabilities": [
+            "process-post-content"
+          ],
+          "when": "Process Instagram post content: extract media, analyze images, transcribe videos with timestamps",
+          "complexity": "medium",
+          "flags": [
             "url",
             "download-media",
             "process-images",
@@ -843,13 +713,6 @@
             "output-dir",
             "profile",
             "headless"
-          ],
-          "outputs": [
-            "post",
-            "success"
-          ],
-          "capabilities": [
-            "process-post-content"
           ],
           "composes": [
             "browser.start",
@@ -863,9 +726,22 @@
             "browser.eval",
             "browser.close"
           ],
-          "example": "* node instagram/process-post-content.js --url \"https://www.instagram.com/p/ABC123/\"",
-          "path": "capabilities/workflows/instagram/process-post-content.js",
-          "name": "Process Post Content"
+          "example": "* node process-post-content.js --param value",
+          "path": "capabilities/workflows/instagram/process-post-content.js"
+        },
+        {
+          "id": "instagram.process-urls",
+          "category": "instagram",
+          "capabilities": [
+            "process-urls"
+          ],
+          "when": "Process list of Instagram post URLs and extract full content data",
+          "complexity": "low",
+          "flags": [
+            "input"
+          ],
+          "example": "* node process-urls.js --param value",
+          "path": "capabilities/workflows/instagram/process-urls.js"
         }
       ]
     },
@@ -873,14 +749,18 @@
       "description": "Media workflows",
       "tools": [
         {
-          "id": "workflow.media.download-and-transcribe",
+          "id": "media.download-and-transcribe",
           "category": "media",
-          "description": "Complete workflow to download video from URL and transcribe it",
           "capabilities": [
             "download-and-transcribe"
           ],
-          "path": "capabilities/workflows/media/download-and-transcribe.js",
-          "name": "Download And Transcribe"
+          "when": "Complete workflow to download video from URL and transcribe it",
+          "complexity": "low",
+          "flags": [
+            "input"
+          ],
+          "example": "* node download-and-transcribe.js --param value",
+          "path": "capabilities/workflows/media/download-and-transcribe.js"
         }
       ]
     }

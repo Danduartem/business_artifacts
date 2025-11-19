@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Evaluate JavaScript
+ * @tool browser.eval
+ * @when Execute JavaScript code in browser context
+ * @category browser
  *
- * Purpose: Execute JavaScript code in browser context
- * Inputs:
- *   --code (required) - JavaScript code to execute
- * Outputs: Result of evaluation
+ * @flag code - JavaScript code to execute (required)
  *
- * This is an ATOMIC operation - executes JavaScript only.
- * Assumes browser is already navigated to target page.
+ * @example
+ * node eval.js --param value
  */
 
 import puppeteer from 'puppeteer-core';

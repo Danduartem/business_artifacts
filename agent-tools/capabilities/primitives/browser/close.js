@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Close Browser
+ * @tool browser.close
+ * @when Close the browser instance or specific tab
+ * @category browser
  *
- * Purpose: Close the browser instance or specific tab
- * Inputs:
- *   --tab-only (optional) - Close only current tab, not entire browser
- * Outputs: Success confirmation
+ * @flag tab-only - Close only current tab, not entire browser (optional)
  *
- * This is an ATOMIC operation - closes browser or tab only.
+ * @example
+ * node close.js --param value
  */
 
 import puppeteer from 'puppeteer-core';

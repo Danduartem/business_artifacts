@@ -1,29 +1,98 @@
 {
   "category": "media",
-  "layer": "primitives",
-  "description": "Media processing atomic operations",
+  "description": "Atomic media operations",
   "tools": [
     {
-      "id": "transcribe",
-      "when": "Transcribe audio/video file using Whisper",
-      "path": "capabilities/primitives/media/transcribe.js",
-      "flags": ["--input", "--language", "--model", "--output"],
-      "example": "node capabilities/primitives/media/transcribe.js --input video.mp4 --language pt"
+      "id": "media.analyze-image",
+      "when": "Save image metadata and create analysis queue for Claude Code agent processing (zero-cost)",
+      "path": "capabilities/primitives/media/analyze-image.js",
+      "flags": [
+        "input",
+        "queue-file"
+      ],
+      "capabilities": [
+        "analyze-image"
+      ]
     },
     {
-      "id": "transcribe-segments",
-      "when": "Transcribe with segment timestamps",
-      "path": "capabilities/primitives/media/transcribe-segments.js",
-      "flags": ["--input", "--language", "--model", "--output"],
-      "example": "node capabilities/primitives/media/transcribe-segments.js --input video.mp4 --language pt"
+      "id": "media.convert",
+      "when": "Convert video between formats",
+      "path": "capabilities/primitives/media/convert.js",
+      "flags": [
+        "input",
+        "output",
+        "format",
+        "codec",
+        "preset",
+        "bitrate"
+      ],
+      "capabilities": [
+        "convert"
+      ]
     },
     {
-      "id": "extract-audio",
+      "id": "media.extract-audio",
       "when": "Extract audio track from video file",
       "path": "capabilities/primitives/media/extract-audio.js",
-      "flags": ["--input", "--output"],
-      "example": "node capabilities/primitives/media/extract-audio.js --input video.mp4 --output audio.wav"
+      "flags": [
+        "input",
+        "output",
+        "format",
+        "quality"
+      ],
+      "capabilities": [
+        "extract-audio"
+      ]
+    },
+    {
+      "id": "media.ocr-image",
+      "when": "Extract text from images using Tesseract OCR (free, local, zero-cost)",
+      "path": "capabilities/primitives/media/ocr-image.js",
+      "flags": [
+        "input",
+        "output",
+        "language"
+      ],
+      "capabilities": [
+        "ocr-image"
+      ],
+      "systemDependencies": [
+        "tesseract"
+      ]
+    },
+    {
+      "id": "media.transcribe-segments",
+      "when": "Transcribe video with timestamps in specific time segments using whisper.cpp (free, local, zero-cost)",
+      "path": "capabilities/primitives/media/transcribe-segments.js",
+      "flags": [
+        "input",
+        "segments",
+        "output",
+        "language",
+        "model"
+      ],
+      "capabilities": [
+        "transcribe-segments"
+      ],
+      "systemDependencies": [
+        "ffmpeg",
+        "whisper.cpp"
+      ]
+    },
+    {
+      "id": "media.transcribe",
+      "when": "Transcribe audio/video file using whisper.cpp (free, local, zero-cost)",
+      "path": "capabilities/primitives/media/transcribe.js",
+      "flags": [
+        "input",
+        "output",
+        "language",
+        "format",
+        "model"
+      ],
+      "capabilities": [
+        "transcribe"
+      ]
     }
-  ],
-  "help": "All primitives support --help flag for detailed parameter information"
+  ]
 }

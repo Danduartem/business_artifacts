@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Browser Cookies
+ * @tool browser.cookies
+ * @when Get or set browser cookies
+ * @category browser
  *
- * Purpose: Get or set browser cookies
- * Inputs:
- *   --get (optional) - Get cookies (default action)
- *   --set (optional) - Set cookie (requires --name, --value)
- *   --name (optional) - Cookie name for set operation
- *   --value (optional) - Cookie value for set operation
- *   --domain (optional) - Cookie domain for set operation
- * Outputs: Cookie data or set confirmation
+ * @flag get - Get cookies (default action) (optional)
+ * @flag set - Set cookie (requires --name, --value) (optional)
+ * @flag name - Cookie name for set operation (optional)
+ * @flag value - Cookie value for set operation (optional)
+ * @flag domain - Cookie domain for set operation (optional)
  *
- * This is an ATOMIC operation - handles cookies only.
+ * @example
+ * node cookies.js --param value
  */
 
 import puppeteer from 'puppeteer-core';

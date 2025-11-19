@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * PRIMITIVE: Update Notion Page
+ * @tool storage.notion-update
+ * @when Update an existing Notion page
+ * @category storage
  *
- * Purpose: Update an existing Notion page
- * Inputs:
- *   --page-id (required) - Notion page ID to update
- *   --properties (required) - JSON string of properties to update
- *   --api-key (optional) - Notion API key (or use NOTION_API_TOKEN env var)
- * Outputs: Updated page ID and URL
+ * @flag page-id - Notion page ID to update (required)
+ * @flag properties - JSON string of properties to update (required)
+ * @flag api-key - Notion API key (or use NOTION_API_TOKEN env var) (optional)
  *
- * This is an ATOMIC operation - updates page only.
- * Requires Notion API token.
+ * @example
+ * node notion-update.js --param value
  */
 
 import { parseArgs } from '../../../core/utils/index.js';

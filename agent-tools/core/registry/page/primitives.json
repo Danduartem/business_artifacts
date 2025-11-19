@@ -1,50 +1,82 @@
 {
   "category": "page",
-  "layer": "primitives",
-  "description": "Page interaction atomic operations",
+  "description": "Atomic page operations",
   "tools": [
     {
-      "id": "click",
-      "when": "Click an element on the page",
+      "id": "page.click",
+      "when": "Click an element by CSS selector",
       "path": "capabilities/primitives/page/click.js",
-      "flags": ["--selector"],
-      "example": "node capabilities/primitives/page/click.js --selector 'button.submit'"
+      "flags": [
+        "selector",
+        "wait"
+      ],
+      "capabilities": [
+        "click"
+      ]
     },
     {
-      "id": "type",
-      "when": "Type text into an input field",
-      "path": "capabilities/primitives/page/type.js",
-      "flags": ["--selector", "--text"],
-      "example": "node capabilities/primitives/page/type.js --selector 'input#search' --text 'query'"
+      "id": "page.extract-html",
+      "when": "Extract HTML content from CSS selector",
+      "path": "capabilities/primitives/page/extract-html.js",
+      "flags": [
+        "selector",
+        "all",
+        "outer"
+      ],
+      "capabilities": [
+        "extract-html"
+      ]
     },
     {
-      "id": "extract-text",
-      "when": "Extract text from page elements",
+      "id": "page.extract-text",
+      "when": "Extract text content from CSS selector",
       "path": "capabilities/primitives/page/extract-text.js",
-      "flags": ["--selector"],
-      "example": "node capabilities/primitives/page/extract-text.js --selector 'h1'"
+      "flags": [
+        "selector",
+        "all"
+      ],
+      "capabilities": [
+        "extract-text"
+      ]
     },
     {
-      "id": "screenshot",
-      "when": "Take screenshot of page or element",
+      "id": "page.screenshot",
+      "when": "Capture screenshot of page or element",
       "path": "capabilities/primitives/page/screenshot.js",
-      "flags": ["--selector", "--output", "--fullpage"],
-      "example": "node capabilities/primitives/page/screenshot.js --output screenshot.png --fullpage"
+      "flags": [
+        "path",
+        "selector",
+        "fullpage"
+      ],
+      "capabilities": [
+        "screenshot"
+      ]
     },
     {
-      "id": "wait",
-      "when": "Wait for element or condition",
-      "path": "capabilities/primitives/page/wait.js",
-      "flags": ["--selector", "--timeout"],
-      "example": "node capabilities/primitives/page/wait.js --selector '.content' --timeout 5000"
-    },
-    {
-      "id": "scroll",
-      "when": "Scroll page or element",
+      "id": "page.scroll",
+      "when": "Scroll page to position or element",
       "path": "capabilities/primitives/page/scroll.js",
-      "flags": ["--direction", "--amount", "--selector"],
-      "example": "node capabilities/primitives/page/scroll.js --direction down --amount 500"
+      "flags": [
+        "to",
+        "selector",
+        "y"
+      ],
+      "capabilities": [
+        "scroll"
+      ]
+    },
+    {
+      "id": "page.wait-for",
+      "when": "Wait for CSS selector to appear on page",
+      "path": "capabilities/primitives/page/wait-for.js",
+      "flags": [
+        "selector",
+        "timeout",
+        "visible"
+      ],
+      "capabilities": [
+        "wait-for"
+      ]
     }
-  ],
-  "help": "All primitives support --help flag for detailed parameter information"
+  ]
 }
