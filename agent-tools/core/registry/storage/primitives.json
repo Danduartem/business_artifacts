@@ -1,0 +1,57 @@
+{
+  "category": "storage",
+  "layer": "primitives",
+  "description": "External storage atomic operations",
+  "tools": [
+    {
+      "id": "airtable-create",
+      "when": "Create record in Airtable",
+      "path": "capabilities/primitives/storage/airtable-create.js",
+      "flags": ["--table", "--fields"],
+      "example": "node capabilities/primitives/storage/airtable-create.js --table 'Posts' --fields '{\"url\":\"...\"}'"
+    },
+    {
+      "id": "airtable-read",
+      "when": "Read records from Airtable",
+      "path": "capabilities/primitives/storage/airtable-read.js",
+      "flags": ["--table", "--filter"],
+      "example": "node capabilities/primitives/storage/airtable-read.js --table 'Posts'"
+    },
+    {
+      "id": "airtable-update",
+      "when": "Update Airtable record",
+      "path": "capabilities/primitives/storage/airtable-update.js",
+      "flags": ["--table", "--record-id", "--fields"],
+      "example": "node capabilities/primitives/storage/airtable-update.js --table 'Posts' --record-id 'rec123' --fields '{\"status\":\"done\"}'"
+    },
+    {
+      "id": "airtable-delete",
+      "when": "Delete Airtable record",
+      "path": "capabilities/primitives/storage/airtable-delete.js",
+      "flags": ["--table", "--record-id"],
+      "example": "node capabilities/primitives/storage/airtable-delete.js --table 'Posts' --record-id 'rec123'"
+    },
+    {
+      "id": "notion-create",
+      "when": "Create page in Notion",
+      "path": "capabilities/primitives/storage/notion-create.js",
+      "flags": ["--database-id", "--properties"],
+      "example": "node capabilities/primitives/storage/notion-create.js --database-id 'db123' --properties '{\"Name\":\"Page Title\"}'"
+    },
+    {
+      "id": "notion-read",
+      "when": "Read pages from Notion database",
+      "path": "capabilities/primitives/storage/notion-read.js",
+      "flags": ["--database-id", "--filter"],
+      "example": "node capabilities/primitives/storage/notion-read.js --database-id 'db123'"
+    },
+    {
+      "id": "notion-update",
+      "when": "Update Notion page",
+      "path": "capabilities/primitives/storage/notion-update.js",
+      "flags": ["--page-id", "--properties"],
+      "example": "node capabilities/primitives/storage/notion-update.js --page-id 'page123' --properties '{\"Status\":\"Done\"}'"
+    }
+  ],
+  "help": "All primitives support --help flag for detailed parameter information"
+}

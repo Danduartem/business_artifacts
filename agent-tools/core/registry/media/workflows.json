@@ -1,0 +1,15 @@
+{
+  "category": "media",
+  "layer": "workflows",
+  "description": "Media processing workflows",
+  "tools": [
+    {
+      "id": "download-and-transcribe",
+      "when": "Download video/audio from URL and transcribe using Whisper",
+      "path": "capabilities/workflows/media/download-and-transcribe.js",
+      "flags": ["--url", "--language", "--output-dir"],
+      "example": "node capabilities/workflows/media/download-and-transcribe.js --url 'https://example.com/video.mp4' --language pt"
+    }
+  ],
+  "help": "All workflows support --help flag for detailed parameter information"
+}

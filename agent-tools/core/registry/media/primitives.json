@@ -1,0 +1,29 @@
+{
+  "category": "media",
+  "layer": "primitives",
+  "description": "Media processing atomic operations",
+  "tools": [
+    {
+      "id": "transcribe",
+      "when": "Transcribe audio/video file using Whisper",
+      "path": "capabilities/primitives/media/transcribe.js",
+      "flags": ["--input", "--language", "--model", "--output"],
+      "example": "node capabilities/primitives/media/transcribe.js --input video.mp4 --language pt"
+    },
+    {
+      "id": "transcribe-segments",
+      "when": "Transcribe with segment timestamps",
+      "path": "capabilities/primitives/media/transcribe-segments.js",
+      "flags": ["--input", "--language", "--model", "--output"],
+      "example": "node capabilities/primitives/media/transcribe-segments.js --input video.mp4 --language pt"
+    },
+    {
+      "id": "extract-audio",
+      "when": "Extract audio track from video file",
+      "path": "capabilities/primitives/media/extract-audio.js",
+      "flags": ["--input", "--output"],
+      "example": "node capabilities/primitives/media/extract-audio.js --input video.mp4 --output audio.wav"
+    }
+  ],
+  "help": "All primitives support --help flag for detailed parameter information"
+}

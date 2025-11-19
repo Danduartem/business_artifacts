@@ -1,0 +1,15 @@
+{
+  "category": "youtube",
+  "layer": "primitives",
+  "description": "YouTube atomic operations",
+  "tools": [
+    {
+      "id": "download-video",
+      "when": "Download video or audio from YouTube URL",
+      "path": "capabilities/primitives/youtube/download-video.js",
+      "flags": ["--url", "--output", "--audio-only", "--quality"],
+      "example": "node capabilities/primitives/youtube/download-video.js --url 'https://youtube.com/watch?v=...' --output video.mp4"
+    }
+  ],
+  "help": "All primitives support --help flag for detailed parameter information"
+}

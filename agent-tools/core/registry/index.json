@@ -1,0 +1,41 @@
+{
+  "version": "3.0.0",
+  "description": "Tiered registry index for progressive disclosure. Load only what you query.",
+  "categories": {
+    "instagram": {
+      "jobs": 3,
+      "workflows": 5,
+      "primitives": 2
+    },
+    "media": {
+      "workflows": 1,
+      "primitives": 3
+    },
+    "storage": {
+      "primitives": 7
+    },
+    "browser": {
+      "primitives": 5
+    },
+    "page": {
+      "primitives": 6
+    },
+    "http": {
+      "primitives": 3
+    },
+    "file": {
+      "primitives": 3
+    },
+    "content": {
+      "workflows": 3
+    },
+    "youtube": {
+      "primitives": 1
+    }
+  },
+  "usage": {
+    "pattern": "Load index → Query category/layer → Get tool details via --help",
+    "example": "getIndex() → getJobsByCategory('instagram') → node job.js --help",
+    "helpers": "Use core/discovery.js for programmatic access"
+  }
+}

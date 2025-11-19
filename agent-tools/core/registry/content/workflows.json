@@ -1,0 +1,29 @@
+{
+  "category": "content",
+  "layer": "workflows",
+  "description": "Content processing workflows",
+  "tools": [
+    {
+      "id": "save-instagram-to-airtable",
+      "when": "Export Instagram posts to Airtable with structured fields",
+      "path": "capabilities/workflows/content/save-instagram-to-airtable.js",
+      "flags": ["--posts", "--table"],
+      "example": "node capabilities/workflows/content/save-instagram-to-airtable.js --posts posts.json --table 'Instagram Posts'"
+    },
+    {
+      "id": "analyze-images-with-claude",
+      "when": "Analyze images using Claude Vision API",
+      "path": "capabilities/workflows/content/analyze-images-with-claude.js",
+      "flags": ["--images", "--prompt", "--output"],
+      "example": "node capabilities/workflows/content/analyze-images-with-claude.js --images images.json --prompt 'Describe this image'"
+    },
+    {
+      "id": "batch-process",
+      "when": "Batch process content items",
+      "path": "capabilities/workflows/content/batch-process.js",
+      "flags": ["--input", "--operation", "--output"],
+      "example": "node capabilities/workflows/content/batch-process.js --input items.json --operation format"
+    }
+  ],
+  "help": "All workflows support --help flag for detailed parameter information"
+}

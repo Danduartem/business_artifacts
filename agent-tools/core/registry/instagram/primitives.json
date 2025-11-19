@@ -1,0 +1,22 @@
+{
+  "category": "instagram",
+  "layer": "primitives",
+  "description": "Instagram atomic operations",
+  "tools": [
+    {
+      "id": "selectors",
+      "when": "Get Instagram DOM selectors for scraping",
+      "path": "capabilities/primitives/instagram/selectors.js",
+      "flags": [],
+      "example": "node capabilities/primitives/instagram/selectors.js"
+    },
+    {
+      "id": "download-video",
+      "when": "Download video from Instagram media URL",
+      "path": "capabilities/primitives/instagram/download-video.js",
+      "flags": ["--url", "--output"],
+      "example": "node capabilities/primitives/instagram/download-video.js --url 'https://...' --output video.mp4"
+    }
+  ],
+  "help": "All primitives support --help flag for detailed parameter information"
+}

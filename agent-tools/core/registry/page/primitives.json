@@ -1,0 +1,50 @@
+{
+  "category": "page",
+  "layer": "primitives",
+  "description": "Page interaction atomic operations",
+  "tools": [
+    {
+      "id": "click",
+      "when": "Click an element on the page",
+      "path": "capabilities/primitives/page/click.js",
+      "flags": ["--selector"],
+      "example": "node capabilities/primitives/page/click.js --selector 'button.submit'"
+    },
+    {
+      "id": "type",
+      "when": "Type text into an input field",
+      "path": "capabilities/primitives/page/type.js",
+      "flags": ["--selector", "--text"],
+      "example": "node capabilities/primitives/page/type.js --selector 'input#search' --text 'query'"
+    },
+    {
+      "id": "extract-text",
+      "when": "Extract text from page elements",
+      "path": "capabilities/primitives/page/extract-text.js",
+      "flags": ["--selector"],
+      "example": "node capabilities/primitives/page/extract-text.js --selector 'h1'"
+    },
+    {
+      "id": "screenshot",
+      "when": "Take screenshot of page or element",
+      "path": "capabilities/primitives/page/screenshot.js",
+      "flags": ["--selector", "--output", "--fullpage"],
+      "example": "node capabilities/primitives/page/screenshot.js --output screenshot.png --fullpage"
+    },
+    {
+      "id": "wait",
+      "when": "Wait for element or condition",
+      "path": "capabilities/primitives/page/wait.js",
+      "flags": ["--selector", "--timeout"],
+      "example": "node capabilities/primitives/page/wait.js --selector '.content' --timeout 5000"
+    },
+    {
+      "id": "scroll",
+      "when": "Scroll page or element",
+      "path": "capabilities/primitives/page/scroll.js",
+      "flags": ["--direction", "--amount", "--selector"],
+      "example": "node capabilities/primitives/page/scroll.js --direction down --amount 500"
+    }
+  ],
+  "help": "All primitives support --help flag for detailed parameter information"
+}

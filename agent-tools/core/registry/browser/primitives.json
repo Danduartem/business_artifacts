@@ -1,0 +1,43 @@
+{
+  "category": "browser",
+  "layer": "primitives",
+  "description": "Browser automation atomic operations",
+  "tools": [
+    {
+      "id": "start",
+      "when": "Launch Chrome with debugging enabled",
+      "path": "capabilities/primitives/browser/start.js",
+      "flags": ["--profile", "--headless", "--chrome-path", "--no-kill"],
+      "example": "node capabilities/primitives/browser/start.js --profile"
+    },
+    {
+      "id": "navigate",
+      "when": "Navigate to a URL in current or new tab",
+      "path": "capabilities/primitives/browser/navigate.js",
+      "flags": ["--url", "--new-tab"],
+      "example": "node capabilities/primitives/browser/navigate.js --url 'https://example.com'"
+    },
+    {
+      "id": "eval",
+      "when": "Execute JavaScript code in browser context",
+      "path": "capabilities/primitives/browser/eval.js",
+      "flags": ["--code", "--code-base64"],
+      "example": "node capabilities/primitives/browser/eval.js --code 'document.title'"
+    },
+    {
+      "id": "cookies",
+      "when": "Get or set browser cookies",
+      "path": "capabilities/primitives/browser/cookies.js",
+      "flags": ["--get", "--set", "--domain"],
+      "example": "node capabilities/primitives/browser/cookies.js --get"
+    },
+    {
+      "id": "close",
+      "when": "Close browser instance or specific tab",
+      "path": "capabilities/primitives/browser/close.js",
+      "flags": ["--tab-only"],
+      "example": "node capabilities/primitives/browser/close.js"
+    }
+  ],
+  "help": "All primitives support --help flag for detailed parameter information"
+}

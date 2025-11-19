@@ -1,0 +1,43 @@
+{
+  "category": "instagram",
+  "layer": "workflows",
+  "description": "Instagram extraction workflows (multi-step compositions)",
+  "tools": [
+    {
+      "id": "extract-profile-posts-puppeteer",
+      "when": "Get post URLs from an Instagram profile within a date range (first step before full extraction)",
+      "path": "capabilities/workflows/instagram/extract-profile-posts-puppeteer.js",
+      "flags": ["--username", "--start-date", "--end-date", "--max-scrolls", "--profile"],
+      "example": "node capabilities/workflows/instagram/extract-profile-posts-puppeteer.js --username berudolph --start-date 2025-11-01 --end-date 2025-11-30"
+    },
+    {
+      "id": "extract-post-full",
+      "when": "Extract complete metadata from a single Instagram post URL (caption, likes, media URLs, format)",
+      "path": "capabilities/workflows/instagram/extract-post-full.js",
+      "flags": ["--url", "--profile", "--screenshot"],
+      "example": "node capabilities/workflows/instagram/extract-post-full.js --url 'https://instagram.com/p/ABC123/' --screenshot"
+    },
+    {
+      "id": "extract-post",
+      "when": "Basic post metadata extraction (lighter version of extract-post-full)",
+      "path": "capabilities/workflows/instagram/extract-post.js",
+      "flags": ["--url", "--profile"],
+      "example": "node capabilities/workflows/instagram/extract-post.js --url 'https://instagram.com/p/ABC123/'"
+    },
+    {
+      "id": "download-reel",
+      "when": "Download video from an Instagram reel",
+      "path": "capabilities/workflows/instagram/download-reel.js",
+      "flags": ["--url", "--output"],
+      "example": "node capabilities/workflows/instagram/download-reel.js --url 'https://instagram.com/reel/ABC123/' --output video.mp4"
+    },
+    {
+      "id": "batch-extract-and-process",
+      "when": "Batch process multiple Instagram posts",
+      "path": "capabilities/workflows/instagram/batch-extract-and-process.js",
+      "flags": ["--urls", "--output"],
+      "example": "node capabilities/workflows/instagram/batch-extract-and-process.js --urls urls.json --output results.json"
+    }
+  ],
+  "help": "All workflows support --help flag for detailed parameter information"
+}
