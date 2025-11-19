@@ -2,31 +2,158 @@
 
 Modular automation toolkit for multi-agent workflows that run for hours or days.
 
+---
+
+## 🤖 FOR AI AGENTS IN NEW SESSIONS
+
+**When the user requests Instagram extraction or any job execution:**
+
+1. **Read HOW-TO-USE.md first** - Contains natural language → code mapping
+2. **Use `executeJob()` from `./core/discovery.js`** - Never run jobs directly
+3. **User will see real-time progress** - Automatic monitoring every 15s
+
+**Example pattern:**
+- User says: "Extract posts from @username for December"
+- You use: `executeJob('complete-profile-extraction', {username, dates, profile: true})`
+- System handles: Progress updates, completion, summary, 98% token savings
+
+**Key files:**
+- **HOW-TO-USE.md** - Practical examples and parameter mapping
+- **USAGE-GUIDE.md** - Technical details and patterns
+- **This README** - Quick reference
+
+---
+
+## ⚠️ CRITICAL FOR AI AGENTS: Progressive Disclosure + Monitoring
+
+**ALWAYS use the v3.0 discovery system with automatic monitoring.**
+This is required for token efficiency (97% savings) and proper UX (no silent 10-min waits).
+
+### The Correct Way to Execute Jobs
+
+```javascript
+import { executeJob } from './core/discovery.js';
+
+// ✅ CORRECT: Discovery + Execution + Monitoring (all-in-one)
+const result = await executeJob('complete-profile-extraction', {
+  username: 'blankschoolbr',
+  'start-date': '2025-11-01',
+  'end-date': '2025-11-30',
+  profile: true,
+  transcribe: true
+});
+
+// User sees real-time progress:
+// 🚀 Starting: complete-profile-extraction
+// 📊 Monitoring enabled (updates every 15s)
+// 📍 Stage 1/4: Extracting URLs
+// 📍 Stage 2/4: Extracting posts
+//    [42%] Extracting posts: 5/12
+// ...
+// ✅ Complete! (2m 15s)
+//    Summary: {totalPosts: 12, videosTranscribed: 3}
+```
+
+**Token Usage**:
+- Discovery: 220 tokens (one-time)
+- Monitoring: ~100 tokens per 15s poll
+- 2-min job: 1,020 tokens total
+- **vs 51,000 tokens** (reading full logs without monitoring)
+- **98% token savings**
+
+### What NOT to Do
+
+```javascript
+// ❌ WRONG: Direct execution (bypasses discovery, no monitoring)
+exec('node capabilities/jobs/instagram/complete-profile-extraction.js ...');
+// Problems:
+// - User waits 10 minutes with no feedback
+// - Wastes 51k tokens reading full logs
+// - Doesn't use progressive disclosure
+
+// ❌ WRONG: Load full registry upfront
+const registry = require('./core/registry.json'); // 8,000 tokens!
+// Should use discovery.js instead (20-220 tokens)
+```
+
+---
+
 ## Quick Start
 
 ```bash
 # Install all workspaces
 npm install
 
-# Or install selectively (for library users)
-npm install -w @agent-tools/core
-npm install -w @agent-tools/primitives-browser
-
 # Setup environment
 cp .env.example .env
 # Edit .env with your API keys
-
-# Use any tool
-node capabilities/primitives/browser/start.js --help
-node capabilities/workflows/media/download-and-transcribe.js --url "https://example.com/video.mp4"
 ```
 
-## For AI Agents: Tool Discovery
-
-**Primary discovery mechanism**: `core/registry.json`
+### For AI Agents: Discover → Execute → Monitor
 
 ```javascript
-// Load registry
+// Step 1: Discover (20 tokens)
+import { getIndex } from './core/discovery.js';
+const index = getIndex();
+console.log(index.categories); // { instagram: {...}, media: {...}, ... }
+
+// Step 2: Find job (150 tokens)
+import { getJobsByCategory } from './core/discovery.js';
+const jobs = getJobsByCategory('instagram');
+const job = jobs.tools.find(j => j.id === 'complete-profile-extraction');
+
+// Step 3: Execute with monitoring (820 tokens for 2-min job)
+import { executeJob } from './core/discovery.js';
+const result = await executeJob('complete-profile-extraction', {
+  username: 'blankschoolbr',
+  'start-date': '2025-11-01',
+  'end-date': '2025-11-30'
+});
+
+// Total: 990 tokens vs 51,000 tokens (95% savings)
+```
+
+---
+
+## For AI Agents: Tool Discovery (v3.0)
+
+### Progressive Disclosure (Recommended)
+
+**Start with job-level catalog for 94% token savings:**
+
+```javascript
+// Option 1: Load lite registry (1,500 tokens vs 8,000 tokens)
+const registryLite = require('./core/registry-lite.json');
+
+// See available jobs and their use cases
+const instagramJobs = registryLite.jobs.instagram.tools;
+
+// Option 2: Load prime prompts (300 tokens)
+// Read: core/prime-prompts/instagram-extraction.md
+// Provides job-level interfaces without primitive details
+
+// Option 3: Use Claude Code Skills (500 tokens when invoked)
+// .claude/skills/instagram-extraction/skill.md
+// Auto-discovered and loaded on-demand
+```
+
+**When to use each discovery method:**
+
+| Method | Tokens | Best For |
+|--------|--------|----------|
+| **registry-lite.json** | ~1,500 | Job + workflow discovery |
+| **prime-prompts/*.md** | ~300 | Specific use case (e.g., Instagram extraction) |
+| **Skills** | ~500 | Auto-discovery in Claude Code |
+| **registry.json** | ~8,000 | Building custom workflows from primitives |
+
+**Recommendation:** Load `registry-lite.json` or prime prompts first. Only load full `registry.json` when building custom workflows.
+
+### Full Registry (Traditional)
+
+**For advanced use cases or custom workflow composition:**
+
+```javascript
+// Load full registry (8,000 tokens - use sparingly)
 const registry = require('./core/registry.json');
 
 // Find all primitives in a category
@@ -66,6 +193,23 @@ Each tool entry includes:
 - `outputs` - Expected return fields
 - `dependencies` - NPM packages required
 - `envVars` - Environment variables needed
+
+### On-Demand Discovery
+
+All tools support `--help` flag for parameter discovery:
+
+```bash
+# Discover job parameters
+node capabilities/jobs/instagram/complete-profile-extraction.js --help
+
+# Discover workflow parameters
+node capabilities/workflows/media/download-and-transcribe.js --help
+
+# Discover primitive parameters
+node capabilities/primitives/browser/start.js --help
+```
+
+**Progressive disclosure pattern:** Load high-level catalog → Use `--help` for details → Avoid loading full primitive registry
 
 ## Architecture
 
@@ -246,7 +390,10 @@ agent-tools/
 │   ├── health-check.js    # Verify setup
 │   └── list-tools.js      # Browse catalog
 ├── core/
-│   ├── registry.json      # AUTO-GENERATED tool catalog
+│   ├── registry.json      # AUTO-GENERATED full tool catalog (8K tokens)
+│   ├── registry-lite.json # Job-level catalog for progressive disclosure (1.5K tokens)
+│   ├── prime-prompts/     # Use-case-specific prompts (300 tokens each)
+│   │   └── instagram-extraction.md
 │   ├── logger/
 │   ├── state/
 │   ├── events/
@@ -275,18 +422,22 @@ agent-tools/
 
 - **CONVENTIONS.md** - Required reading for creating tools
 - **ENVIRONMENT.md** - Environment variable setup
-- **core/registry.json** - Auto-generated tool catalog
+- **ARCHITECTURE.md** - Progressive disclosure design and token optimization
+- **core/registry-lite.json** - Lightweight job-level catalog (recommended for AI agents)
+- **core/registry.json** - Full tool catalog (for custom workflow composition)
+- **core/prime-prompts/** - Use-case-specific prompts (300 tokens each)
 - **templates/** - Copy-paste templates for new tools
 
 ## Key Principles
 
-1. **Discoverable** - All tools in registry.json
-2. **Self-documenting** - JSDoc headers + --help flag
-3. **Composable** - Primitives → Workflows → Applications
-4. **Resilient** - State checkpointing for long operations
-5. **Observable** - Centralized logging
+1. **Discoverable** - Progressive disclosure via registry-lite.json and prime prompts
+2. **Self-documenting** - JSDoc headers + --help flag for on-demand parameter discovery
+3. **Composable** - Primitives → Workflows → Jobs → Applications
+4. **Resilient** - State checkpointing and --resume capability for long operations
+5. **Observable** - Centralized logging to temp/logs/
 6. **Maintainable** - Auto-generated registry, clear conventions
 7. **Modular** - Workspace architecture for selective installation
+8. **Token-efficient** - 94% token reduction via progressive disclosure (300-1,500 vs 8,000 tokens)
 
 ## For Library Users
 
