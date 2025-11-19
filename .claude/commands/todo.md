@@ -1,48 +1,27 @@
-## /todo - Unified Task Management
+## /todo - Plan Approval & Execution
 
-**Modes:**
+**Purpose:** Approve Claude's suggested plan and create TodoWrite entries for tracking.
 
-### 1. Approval Mode: `/todo yes, but [modifications]`
-**Trigger:** Input contains "yes" or "do"
-**Actions:**
-1. Parse my previous message for numbered steps/plan
-2. Apply user modifications (e.g., "remove item 4 and 8", "add X at the end")
-3. Write tasks to `.todo.md` Active section (source of truth)
-4. Sync to TodoWrite with status: pending, priority: high
-5. Start executing the plan
+**Usage:** `/todo [optional modifications]`
 
-**Format for .todo.md:**
-```
-- [ ] Task description (id: N, priority: high)
-```
+**Flow:**
+1. Parse my previous message to extract the numbered plan/steps I suggested
+2. Apply any user modifications from the input:
+   - "remove step 3" or "skip item 4 and 7"
+   - "add [new task] at the end"
+   - "change step 2 to [different description]"
+3. Create TodoWrite with all tasks in pending status
+4. Mark first task as in_progress
+5. Begin execution
 
-### 2. Restore Mode: `/todo -restore`
-**Trigger:** Input contains "-restore"
-**Actions:**
-1. Read `.todo.md` Active section
-2. Parse unchecked tasks
-3. Populate TodoWrite with these tasks
-4. Show what was restored
+**Examples:**
+- `/todo` - Approve plan as-is
+- `/todo yes but remove step 3` - Skip step 3
+- `/todo ok but add testing at the end` - Add extra step
+- `/todo yes, change step 2 to use PostgreSQL instead` - Modify a step
 
-### 3. Status/Verification Mode: `/todo` (no args or "status")
-**Trigger:** Empty input or "status"
-**Actions:**
-1. Read `.todo.md` as source of truth
-2. Compare with TodoWrite
-3. If .todo.md has unchecked items not in TodoWrite:
-   - Sync them to TodoWrite
-   - Show missing items
-4. Show status: Active count, what's incomplete
-5. If user is asking "are we done?": verify .todo.md is fully checked
-
-**CRITICAL RULE:**
-- `.todo.md` is the source of truth
-- NEVER say "done" unless ALL items in .todo.md Active section are checked
-- If mismatch between .todo.md and TodoWrite: .todo.md wins, update TodoWrite
-
-**Completion Flow:**
-When marking tasks complete:
-1. Check item in .todo.md: `- [ ]` → `- [x]`
-2. Update TodoWrite status: pending/in_progress → completed
-3. When ALL active tasks checked: move to Done section (keep last 10)
-4. Update header: `Active: N | Done: M`
+**Important:**
+- Extract plan from my LAST 3 messages only (don't search old messages)
+- If no clear numbered plan exists, ask user to clarify what to track
+- Use clear task descriptions in both forms (content + activeForm)
+- Set all tasks to pending except first one (in_progress)
