@@ -27,21 +27,32 @@ import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
 
 const logger = createLogger({ toolName: 'instagram.process-post-content' });
-const args = parseArgs();
+const args = parseArgs({
+  options: {
+    'url': { type: 'string' },
+    'download-media': { type: 'string' },
+    'process-images': { type: 'string' },
+    'transcribe-videos': { type: 'string' },
+    'video-segments': { type: 'string' },
+    'output-dir': { type: 'string' },
+    'profile': { type: 'string' },
+    'headless': { type: 'string' }
+  }
+});
 
 async function processPostContent() {
   try {
-    if (!args.flags.url) {
+    if (!args.values.url) {
       throw new Error('--url is required');
     }
 
-    const postUrl = args.flags.url;
-    const downloadMedia = args.flags['download-media'] !== false;
-    const processImages = args.flags['process-images'] !== false;
-    const transcribeVideos = args.flags['transcribe-videos'] !== false;
-    const videoSegments = args.flags['video-segments'] || '0-3,3-10,10+';
-    const outputDir = args.flags['output-dir'] || join(process.cwd(), 'instagram_content');
-    const headlessMode = args.flags.headless === true;
+    const postUrl = args.values.url;
+    const downloadMedia = args.values['download-media'] !== 'false';
+    const processImages = args.values['process-images'] !== 'false';
+    const transcribeVideos = args.values['transcribe-videos'] !== 'false';
+    const videoSegments = args.values['video-segments'] || '0-3,3-10,10+';
+    const outputDir = args.values['output-dir'] || join(process.cwd(), 'instagram_content');
+    const headlessMode = args.values.headless === 'true';
 
     // Create output directory
     if (!existsSync(outputDir)) {
@@ -53,7 +64,7 @@ async function processPostContent() {
     // STEP 1: Start browser
     logger.info('Step 1: Starting browser');
     const browserStart = executePrimitive('browser/start.js', {
-      profile: args.flags.profile,
+      profile: args.values.profile,
       headless: headlessMode
     });
 
@@ -73,10 +84,12 @@ async function processPostContent() {
     }
 
     // STEP 3: Wait for content
+    // Note: When logged in, Instagram doesn't use <article> tags
+    // Wait for body instead (always present) with a small delay for JS to load
     logger.info('Step 3: Waiting for content to load');
     const waitResult = executePrimitive('page/wait-for.js', {
-      selector: 'article',
-      timeout: 15000
+      selector: 'body',
+      timeout: 5000
     });
 
     if (!waitResult.success) {
@@ -87,96 +100,107 @@ async function processPostContent() {
     logger.info('Step 4: Extracting post metadata');
 
     const metadataCode = `
-      (() => {
-        const article = document.querySelector('article');
-        if (!article) return null;
+      async () => {
+        const shortcode = window.location.pathname.match(/\\/(p|reel)\\/([^/]+)/)?.[2] || 'unknown';
+        const main = document.querySelector('main') || document.body;
 
-        // Extract caption
-        const captionEl = article.querySelector('h1') || article.querySelector('span[dir="auto"]');
-        const caption = captionEl ? captionEl.textContent.trim() : '';
+        // Get caption from spans (Instagram doesn't use h1 for captions)
+        let caption = '';
+        const spans = Array.from(main.querySelectorAll('span'));
+        const longSpan = spans.find(s => s.textContent && s.textContent.length > 20 && !s.querySelector('*'));
+        if (longSpan) {
+          caption = longSpan.textContent.trim();
+        }
 
-        // Extract timestamp
-        const timeEl = article.querySelector('time');
-        const timestamp = timeEl ? timeEl.dateTime : null;
+        // Get timestamp
+        const timeEl = main.querySelector('time');
+        const timestamp = timeEl ? (timeEl.dateTime || timeEl.getAttribute('datetime')) : null;
         const date = timestamp ? timestamp.split('T')[0] : null;
 
-        // Extract username
-        const usernameEl = article.querySelector('a[href^="/"][role="link"]');
-        const username = usernameEl ? usernameEl.textContent.trim() : '';
-        const profileUrl = usernameEl ? \`https://www.instagram.com\${usernameEl.getAttribute('href')}\` : '';
+        // Get username
+        let username = '';
+        let profileUrl = '';
+        const links = Array.from(main.querySelectorAll('a'));
+        const profileLink = links.find(a => {
+          const href = a.getAttribute('href');
+          return href && href.match(/^\\/[^/]+\\/$/) && !href.includes('/p/') && !href.includes('/reel/');
+        });
+
+        if (profileLink) {
+          username = profileLink.textContent.trim();
+          profileUrl = 'https://www.instagram.com' + profileLink.getAttribute('href');
+        }
 
         // Determine media type
-        let mediaType = 'image';
-        let isCarousel = false;
+        const videoEl = main.querySelector('video');
+        const nextButton = main.querySelector('[aria-label*="Next"]') || main.querySelector('[aria-label*="next"]');
 
-        const videoEl = article.querySelector('video');
-        const carouselDots = article.querySelectorAll('div[role="button"][style*="background-color"]');
+        let mediaType = 'unknown';
+        let isCarousel = false;
 
         if (videoEl) {
           mediaType = 'video';
-        }
-
-        if (carouselDots.length > 1) {
-          isCarousel = true;
+        } else if (nextButton) {
           mediaType = 'carousel';
+          isCarousel = true;
+        } else if (main.querySelector('img')) {
+          mediaType = 'image';
         }
 
         // Extract media URLs
         const mediaUrls = [];
 
-        if (videoEl) {
+        if (videoEl && videoEl.src) {
           mediaUrls.push({
             type: 'video',
             url: videoEl.src,
             thumbnail: videoEl.poster || null
           });
-        } else if (isCarousel) {
-          // For carousel, get all images
-          const imgElements = article.querySelectorAll('img[srcset]');
-          imgElements.forEach((img, index) => {
-            if (img.alt && !img.alt.includes('profile picture')) {
+        }
+
+        // Get images
+        const images = Array.from(main.querySelectorAll('img'));
+        images.forEach((img, index) => {
+          if (img.src && img.src.includes('instagram') && img.width > 100 && img.height > 100) {
+            const alt = img.alt || '';
+            if (!alt.toLowerCase().includes('profile picture')) {
               mediaUrls.push({
                 type: 'image',
                 url: img.src,
                 index: index
               });
             }
-          });
-        } else {
-          // Single image
-          const imgEl = article.querySelector('img[srcset]');
-          if (imgEl && imgEl.alt && !imgEl.alt.includes('profile picture')) {
-            mediaUrls.push({
-              type: 'image',
-              url: imgEl.src
-            });
           }
-        }
+        });
 
         return {
           url: window.location.href,
-          shortcode: window.location.pathname.match(/\/(p|reel)\/([^/]+)/)?.[2] || null,
-          caption,
+          shortcode,
+          caption: caption || '',
           date,
           timestamp,
           creator: {
-            username,
-            profileUrl
+            username: username || 'unknown',
+            profileUrl: profileUrl || ''
           },
           mediaType,
           isCarousel,
           mediaUrls,
           extractedAt: new Date().toISOString()
         };
-      })()
+      }
     `;
 
     const metadataResult = executePrimitive('browser/eval.js', {
       code: metadataCode
     });
 
-    if (!metadataResult.success || !metadataResult.result) {
-      throw new Error('Failed to extract post metadata');
+    if (!metadataResult.success) {
+      throw new Error(`Eval failed: ${metadataResult.error || 'Unknown error'}`);
+    }
+
+    if (!metadataResult.result) {
+      throw new Error('Metadata extraction returned null - check selectors');
     }
 
     const postData = metadataResult.result;
