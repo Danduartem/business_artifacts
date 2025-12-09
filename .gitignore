@@ -34,6 +34,9 @@ tmp/
 *.tmp
 .cache/
 
+# Workflow process tracking
+.workflow-pids.json
+
 # OS generated files
 Thumbs.db
 ehthumbs.db

@@ -1,39 +1,49 @@
-# Safe Push Workflow
+---
+description: "Push current branch with confirmation"
+model: "haiku"
+allowed-tools: ["Bash", "AskUserQuestion"]
+---
+
+# Safe Push
 
 ## Instructions
+- **IMPORTANT**: Always use AskUserQuestion before pushing (because pushing is irreversible)
+- **IMPORTANT**: Never force push to main/master without explicit confirmation (because it can destroy team history)
+- Set up tracking (-u) automatically for new branches
 
-1. **Analyze branch state**: Run in parallel:
-   - `git status` - Check current branch and state
-   - `git log origin/$(git branch --show-current)..HEAD --oneline` - Show unpushed commits
-   - `git rev-parse --abbrev-ref --symbolic-full-name @{u}` - Check remote tracking
+## Constraints
+- Never push to main/master directly without confirmation
+- Avoid pushing if there are uncommitted changes
 
-2. **Validate safety**:
-   - Warn if force push to main/master
-   - Check if branch has remote tracking configured
-   - Show which commits will be pushed
+## Trigger
+Execute this workflow immediately upon invocation.
 
-3. **Present plan**: Display:
-   - Current branch name
-   - Number of commits to push
-   - List of commit messages (with SHAs)
-   - Remote destination
+## Workflow
 
-4. **Get confirmation**: Use **AskUserQuestion** tool to ask user to approve/cancel
+### 1. Check Status
 
-5. **Execute push**:
-   - If no tracking branch: `git push -u origin <branch>`
-   - If tracking exists: `git push`
-   - If force needed: Explicitly warn and require confirmation
+```bash
+git status -s && git branch --show-current
+```
 
-6. **Confirm**: Show success message with remote URL if available
+### 2. Show Unpushed Commits
 
-## Rules
-- NEVER force push to main/master without explicit user confirmation
-- Always show what will be pushed before pushing
-- Set up tracking (`-u`) for new branches automatically
-- Fail safely if remote is ahead (suggest pull/rebase)
+```bash
+git log @{u}.. --oneline 2>/dev/null || echo "No upstream set"
+```
 
-## Safety Checks
-- Detect force push scenarios and warn prominently
-- Check for unpulled changes on remote
-- Verify remote repository is accessible
+### 3. Confirm Push
+
+Use AskUserQuestion to confirm push with commit list.
+
+### 4. Execute Push
+
+```bash
+git push -u origin HEAD
+```
+
+### 5. Report
+
+```bash
+git status -s
+```

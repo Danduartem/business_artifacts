@@ -1,27 +1,83 @@
-## /todo - Plan Approval & Execution
+---
+description: "Approve plan and create tracked todos"
+argument-hint: "[optional modifications]"
+allowed-tools: ["TodoWrite", "AskUserQuestion"]
+model: "haiku"
+---
 
-**Purpose:** Approve Claude's suggested plan and create TodoWrite entries for tracking.
+# Plan Approval & Execution
 
-**Usage:** `/todo [optional modifications]`
+**Arguments:** `$ARGUMENTS`
 
-**Flow:**
-1. Parse my previous message to extract the numbered plan/steps I suggested
-2. Apply any user modifications from the input:
-   - "remove step 3" or "skip item 4 and 7"
-   - "add [new task] at the end"
-   - "change step 2 to [different description]"
-3. Create TodoWrite with all tasks in pending status
-4. Mark first task as in_progress
-5. Begin execution
+Approve suggested plan with optional modifications.
 
-**Examples:**
-- `/todo` - Approve plan as-is
-- `/todo yes but remove step 3` - Skip step 3
-- `/todo ok but add testing at the end` - Add extra step
-- `/todo yes, change step 2 to use PostgreSQL instead` - Modify a step
+## Variables
+MODIFICATIONS: `$ARGUMENTS`
+CONTEXT_WINDOW: `last 3 messages`
 
-**Important:**
-- Extract plan from my LAST 3 messages only (don't search old messages)
-- If no clear numbered plan exists, ask user to clarify what to track
-- Use clear task descriptions in both forms (content + activeForm)
+## Instructions
+- **IMPORTANT**: Extract plan from LAST 3 messages only (because searching old messages wastes context)
+- **IMPORTANT**: If no clear numbered plan exists, ask user to clarify (because ambiguous plans cause wrong todos)
+- **IMPORTANT**: Use clear task descriptions with content + activeForm (because TodoWrite requires both)
 - Set all tasks to pending except first one (in_progress)
+
+## Context Boundaries
+
+<never_read>
+- Messages older than last 3
+- Unrelated conversation context
+</never_read>
+
+<use_instead>
+- Recent messages for plan extraction
+- AskUserQuestion if plan unclear
+</use_instead>
+
+## Trigger
+Execute this workflow immediately upon invocation.
+
+## Workflow
+
+### 1. Extract Plan
+
+Parse previous 3 messages to find numbered plan/steps.
+
+<decision_tree>
+If clear numbered plan found:
+  → Proceed to Step 2
+
+If no clear plan:
+  → Use AskUserQuestion: "I don't see a clear plan. What tasks should I track?"
+  → STOP until clarified
+</decision_tree>
+
+### 2. Apply Modifications
+
+<decision_tree>
+If $ARGUMENTS is empty:
+  → Use plan as-is
+
+If $ARGUMENTS contains modifications:
+  → "remove step X" → skip that step
+  → "add [task] at end" → append task
+  → "change step X to [new]" → modify description
+</decision_tree>
+
+### 3. Create Todos
+
+Use TodoWrite with all tasks:
+- All tasks set to `pending`
+- First task set to `in_progress`
+
+### 4. Begin Execution
+
+Start working on the first task.
+
+## Examples
+
+```
+/todo                                    # Approve as-is
+/todo yes but remove step 3              # Skip step 3
+/todo ok but add testing at the end      # Add extra step
+/todo yes, change step 2 to use PostgreSQL  # Modify step
+```

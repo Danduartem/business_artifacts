@@ -1,0 +1,57 @@
+﻿Nome Reunião,Data,Número Sessão,Cliente,Empresa,Execução Anterior,Category,Job Principal JTBD,Jobs Secundários,Breakthrough,Comprometimento,Tem Depoimento
+ENCONTRO 0 1_2 SEJA LIVRE - 2025_09_04 04_44 GMT-03_00 - CARLOS,04/09/2025,Encontro 0 (Sessão Inicial - Parte 1/2),Carlos,Box Indústria 101,N/A,Mentoria,Escalar Operações,"Aumentar Receita, Entregar Valor, Sair do Travamento",Yes,Alto,No
+ENCONTRO 0 2_2 SEJA LIVRE - 2025_09_04 04_44 GMT-03_00 - CARLOS,04/09/2025,Encontro 0,Carlos,Box Indústria 101,N/A,Mentoria,Escalar Operações,"Conseguir Clientes, Sair do Travamento, Tomar Decisões",Yes,Alto,No
+ENCONTRO 01  02_02 - 2025_07_01 06_58 GMT-03_00 - Gabriela,01/07/2025,Encontro 01 - Bloco 2/2,Gabriela,Sense Clinic,N/A,Mentoria,Conseguir Clientes,"Aumentar Receita, Sair do Travamento, Tomar Decisões",Yes,Alto,No
+ENCONTRO 01 01_02  - 2025_07_01 06_58 GMT-03_00 - Gabriela,01/07/2025,Encontro 01 - Parte 1/2,Gabriela,Sense Clinic,N/A,Mentoria,Conseguir Clientes,"Fechar Vendas, Tomar Decisões",Yes,Alto,No
+ENCONTRO 07 PARTE 01_02 _ Juçanã  - 2025_08_19 07_05 GMT-03_00 - SENSE,19/08/2025,Encontro 7,Gabriela,Sense Clinic,Completo,Mentoria,Conseguir Clientes,"Aumentar Receita, Fechar Vendas, Sair do Travamento",Yes,Alto,No
+ENCONTRO 07 PARTE 02_02  - 2025_08_19 07_05 GMT-03_00 - SENSE,19/08/2025,Encontro 07 - Parte 02,Gabriela,Sense Clinic,Parcial,Mentoria,Conseguir Clientes,"Aumentar Receita, Sair do Travamento, Tomar Decisões",Yes,Alto,Yes
+ENCONTRO 1 1_2 SEJA LIVRE- 2025_09_09 04_44 GMT-03_00 - CARLOS,09/09/2025,Encontro 1,Carlos,Box Indústria 101,Completo,Mentoria,Conseguir Clientes,"Escalar Operações, Tomar Decisões",Yes,Alto,No
+ENCONTRO 1 2_2  SEJA LIVRE - 2025_09_09 04_44 GMT-03_00 - CARLOS,09/09/2025,"Encontro 1, Bloco 2",Carlos,Box Indústria 101,Parcial,Mentoria,Escalar Operações,"Entregar Valor, Sair do Travamento",Yes,Alto,No
+ENCONTRO 10 - 2025_09_02 06_59 GMT-03_00 - GABRIELA SENSE,02/09/2025,Encontro 10,Gabriela,Sense Clinic,Parcial,Mentoria,Conseguir Clientes,"Sair do Travamento, Tomar Decisões",Yes,Médio,No
+ENCONTRO 11 SEJA LIVRE - 2025_09_09 06_58 GMT-03_00 - GABRIELA SENSE,09/09/2025,Encontro 11,Gabriela,Sense Clinic,Completo,Mentoria,Fechar Vendas,"Aumentar Receita, Entregar Valor, Escalar Operações",Yes,Alto,No
+ENCONTRO 12 1_2  - 2025_09_16 07_16 GMT-03_00 - GABRIELA SENSE,16/09/2025,Encontro 12,Gabriela,Sense Clinic,Completo,Mentoria,Aumentar Receita,"Conseguir Clientes, Escalar Operações, Sair do Travamento",Yes,Alto,No
+ENCONTRO 12 1_2 - 2025_11_11 07_58 GMT-03_00 - CARLOS,11/11/2025,Sessão #12,Carlos,Box Indústria 101,Completo,Mentoria,Conseguir Clientes,"Aumentar Receita, Escalar Operações, Tomar Decisões",Yes,Alto,No
+ENCONTRO 12 2_2  - 2025_09_16 07_16 GMT-03_00 - GABRIELA SENSE,16/09/2025,Sessão 12,Gabriela,Sense Clinic,Parcial,Mentoria,Conseguir Clientes,"Aumentar Receita, Escalar Operações, Tomar Decisões",Yes,Alto,No
+ENCONTRO 12 2_2 - 2025_11_11 07_58 GMT-03_00 - CARLOS,11/11/2025,Encontro 12 2/2,Carlos,Box Indústria 101,Completo,Mentoria,Conseguir Clientes,"Escalar Operações, Fechar Vendas, Sair do Travamento",Yes,Médio,No
+ENCONTRO 13 1_2 - 2025_11_18 08_01 GMT-03_00 - CARLOS,18/11/2025,13,Carlos,Box Indústria 101,Completo,Mentoria,Conseguir Clientes,"Aumentar Receita, Escalar Operações, Tomar Decisões",Yes,Alto,No
+ENCONTRO 13 2_2 - 2025_11_18 08_01 GMT-03_00 - CARLOS,18/11/2025,"Encontro 13, Bloco 2",Carlos,Box Indústria 101,Parcial,Mentoria,Conseguir Clientes,"Aumentar Receita, Escalar Operações",Yes,Alto,No
+ENCONTRO 14 1_2 - 2025_11_25 07_59 GMT-03_00 - CARLOS,25/11/2025,14,Carlos,Box Indústria 101,Parcial,Mentoria,Escalar Operações,"Entregar Valor, Sair do Travamento, Tomar Decisões",Yes,Alto,No
+ENCONTRO 14 2_2 - 2025_11_25 07_59 GMT-03_00 - CARLOS,25/11/2025,Encontro 14 (Bloco 2/2),Carlos,Box Indústria 101,Parcial,Mentoria,Escalar Operações,"Conseguir Clientes, Sair do Travamento, Tomar Decisões",No,Alto,No
+ENCONTRO 15 Finalização 1_2 - 2025_12_02 08_11 GMT-03_00 - CARLOS,02/12/2025,Encontro 15 - Finalização,Carlos,Box Indústria 101,Parcial,Mentoria,Escalar Operações,"Entregar Valor, Sair do Travamento, Tomar Decisões",Yes,Alto,Yes
+ENCONTRO 2 - 2025_07_08 06_58 GMT-03_00 - Gabriela SENSE CLINIC,08/07/2025,Encontro 2,Gabriela,Sense Clinic,N/A,Mentoria,Conseguir Clientes,"Aumentar Receita, Escalar Operações, Sair do Travamento",No,Médio,No
+ENCONTRO 2 MARKETING DE CONTEÚDO  - 2025_07_08 06_58 GMT-03_00 - Gabriela SENSE CLINIC,08/07/2025,Encontro 2 - Marketing de Conteúdo,Gabriela,Sense Clinic,N/A,Mentoria,Conseguir Clientes,"Sair do Travamento, Tomar Decisões",Yes,Alto,No
+ENCONTRO 2 TO DO IST  - 2025_07_08 06_58 GMT-03_00 - Gabriela SENSE CLINIC,08/07/2025,Encontro 2,Gabriela,Sense Clinic,N/A,Mentoria,Escalar Operações,"Conseguir Clientes, Sair do Travamento",No,Médio,No
+ENCONTRO 3 1_2- 2025_07_15 07_00 GMT-03_00 - Gabriela SENSE,15/07/2025,Sessão 3,Gabriela,Sense Clinic,Parcial,Mentoria,Conseguir Clientes,"Aumentar Receita, Sair do Travamento, Tomar Decisões",Yes,Médio,No
+ENCONTRO 3 2_2 - 2025_07_15 08_27 GMT-03_00 - Gabriela SENSE,15/07/2025,Encontro 3,Gabriela,Sense Clinic,Parcial,Mentoria,Aumentar Receita,"Conseguir Clientes, Escalar Operações, Fechar Vendas",Yes,Alto,No
+ENCONTRO 4 - 2025_07_21 06_57 GMT-03_00 - Gabriela  SENSE,21/07/2025,Encontro 4,Gabriela,Sense Clinic,Parcial,Mentoria,Aumentar Receita,"Conseguir Clientes, Fechar Vendas, Sair do Travamento",Yes,Alto,No
+ENCONTRO 6 1_2 - 2025_10_14 06_58 GMT-03_00 - CARLOS,14/10/2025,,Carlos,Box Indústria 101,,Mentoria,,,No,,No
+ENCONTRO 6 2_2- 2025_10_14 06_58 GMT-03_00 - CARLOS,14/10/2025,Encontro 6 - Bloco 2,Carlos,Box Indústria 101,Parcial,Mentoria,Escalar Operações,"Aumentar Receita, Conseguir Clientes, Tomar Decisões",No,Alto,No
+ENCONTRO 7 1_2- 2025_10_21 07_01 GMT-03_00 - CARLOS,21/10/2025,Encontro 7,Carlos,Box Indústria 101,Completo,Mentoria,Escalar Operações,"Conseguir Clientes, Entregar Valor, Tomar Decisões",Yes,Alto,No
+ENCONTRO 7 2_2 - 2025_10_21 07_01 GMT-03_00 - CARLOS,21/10/2025,Encontro 7 - Parte 2,Carlos,Box Indústria 101,Completo,Mentoria,Conseguir Clientes,"Escalar Operações, Sair do Travamento",Yes,Alto,No
+ENCONTRO 8 - Juçanã IN LOCO - 2025_08_21 06_59 GMT-03_00 - GABRIELA SENSE,21/08/2025,Encontro 8,Gabriela,Sense Clinic,Completo,Mentoria,Conseguir Clientes,"Entregar Valor, Escalar Operações, Sair do Travamento",Yes,Alto,No
+ENCONTRO 8 1_2 - 2025_10_28 08_15 GMT-03_00 - CARLOS,28/10/2025,Encontro 8 (1/2),Carlos,Box Indústria 101,Completo,Mentoria,Conseguir Clientes,"Escalar Operações, Fechar Vendas, Tomar Decisões",Yes,Alto,No
+ENCONTRO 8 2_2- 2025_10_28 08_15 GMT-03_00 - CARLOS,28/10/2025,Sessão 8 (Bloco 12),Carlos,Box Indústria 101,Completo,Mentoria,Conseguir Clientes,"Entregar Valor, Escalar Operações, Tomar Decisões",No,Alto,No
+ENCONTRO 9  1_3 - 2025_08_26 07_00 GMT-03_00 - GABRIELA SENSE,26/08/2025,Sessão 9,Gabriela,Sense Clinic,Completo,Mentoria,Conseguir Clientes,"Fechar Vendas, Sair do Travamento",Yes,Alto,No
+ENCONTRO 9 1_2 - 2025_09_30 04_45 GMT-03_00 - CARLOS,30/09/2025,,Carlos,Box Indústria 101,,Mentoria,,,No,,No
+ENCONTRO 9 2_2- 2025_11_04 08_00 GMT-03_00 - CARLOS,04/11/2025,,Carlos,Box Indústria 101,,Mentoria,,,No,,No
+ENCONTRO 9 2_3  - 2025_08_26 07_00 GMT-03_00 - GABRIELA SENSE,26/08/2025,"Encontro 9, Bloco 2",Gabriela,Sense Clinic,N/A,Mentoria,Conseguir Clientes,,No,Baixo,No
+ENCONTRO 9 3_3 - 2025_08_26 08_47 GMT-03_00 - GABRIELA SENSE,26/08/2025,Encontro 9 (3/3),Gabriela,Sense Clinic,Parcial,Mentoria,Conseguir Clientes,"Entregar Valor, Escalar Operações",Yes,Médio,No
+Encontro 2  - 2025_09_16 04_43 GMT-03_00 - Carlos,16/09/2025,Sessão 2,Carlos,Box Indústria 101,Completo,Mentoria,Conseguir Clientes,"Aumentar Receita, Escalar Operações, Tomar Decisões",Yes,Alto,No
+Encontro 2 - 2_2 - 2025_09_16 04_43 GMT-03_00 - Carlos,16/09/2025,Encontro 2 - Bloco 2,Carlos,Box Indústria 101,N/A,Mentoria,Aumentar Receita,"Entregar Valor, Escalar Operações, Sair do Travamento",Yes,Alto,No
+KICK OFF INSTAGRAM Juçanã _ Gabriela - 2025_11_18 10_59 GMT-03_00 - Recording,18/11/2025,Kick-off Instagram,Gabriela,Sense Clinic,Nenhum,Mentoria,Conseguir Clientes,"Aumentar Receita, Sair do Travamento, Tomar Decisões",Yes,Médio,No
+KICK OFF INSTAGRAM Juçanã _ Gabriela - 2025_11_25 11_00 GMT-03_00 - Recording,25/11/2025,KICK OFF INSTAGRAM,Gabriela,Sense Clinic,Parcial,Mentoria,Conseguir Clientes,"Escalar Operações, Sair do Travamento, Tomar Decisões",Yes,Alto,No
+KICK OFF INSTAGRAM- 2025_11_11 10_59 GMT-03_00 - GABRIELA SENSE,11/11/2025,Sessão 1 - Kick Off Instagram,Gabriela,Sense Clinic,N/A,Mentoria,Conseguir Clientes,"Sair do Travamento, Tomar Decisões",Yes,Alto,No
+PLANOS  - 2025_11_14 13_14 GMT-03_00 - CARLOS,14/11/2025,,Carlos,Box Indústria 101,,Mentoria,,,No,,No
+RADAR Nova planilha - Rodrigo (2025-02-20 07_01 GMT-3),03/12/2025,,Rodrigo,CFL,Parcial,Mentoria,Fechar Vendas,"Aumentar Receita, Conseguir Clientes, Escalar Operações",Yes,Alto,No
+SEJA LIVRE Gabriela _ Juçanã  - 2025_09_29 05_56 GMT-03_00 - Recording,29/09/2025,,Gabriela,Sense Clinic,Parcial,Mentoria,Aumentar Receita,"Conseguir Clientes, Escalar Operações, Sair do Travamento, Tomar Decisões",Yes,Alto,No
+SEJA LIVRE Gabriela _ Juçanã  - 2025_09_30 07_00 GMT-03_00 - Recording,30/09/2025,Última sessão do programa de 90 dias,Gabriela,Sense Clinic,Parcial,Mentoria,Escalar Operações,"Aumentar Receita, Entregar Valor, Sair do Travamento, Tomar Decisões",Yes,Médio,No
+TO DO IST - Rodrigo (2025-02-11 13_10 GMT-3),03/12/2025,,Rodrigo,CFL,Nenhum,Mentoria,Escalar Operações,"Conseguir Clientes, Entregar Valor",Yes,Médio,No
+FINALIZAÇÃO  - 2025_11_13 07_59 GMT-03_00 - MONICA NEVERLAND,13/11/2025,Sessão de Finalização,Monica,Neverland,Completo,Mentoria,Escalar Operações,"Conseguir Clientes, Entregar Valor, Sair do Travamento",No,Alto,Yes
+Monica Neverland Finalização (2025-03-06 13_46 GMT-3),03/12/2025,Sessão de Finalização - Ciclo 1 (120 dias),Monica,Neverland,Completo,Mentoria,Entregar Valor,"Conseguir Clientes, Escalar Operações, Sair do Travamento",Yes,Alto,Yes
+SEJA LIVRE Fechamento ciclo 2 (1_2) - 2025_07_02 07_29 GMT-03_00 - NEVERLAND,02/07/2025,Fechamento ciclo 2 (1/2),Monica,Neverland,Completo,Mentoria,Conseguir Clientes,"Aumentar Receita, Escalar Operações, Tomar Decisões",Yes,Alto,Yes
+ENCONTRO 15 Finalização 2_2 - 2025_12_02 08_11 GMT-03_00 - CARLOS,02/12/2025,Sessão 15,Carlos,Box Indústria 101,N/A,Mentoria,Conseguir Clientes,"Aumentar Receita, Fechar Vendas",Yes,Alto,Yes
+KICK OFF INSTAGRAM Juçanã _ Gabriela - 2025_12_04 13_59 GMT-03_00 - Recording,04/12/2025,,Gabriela,Sense Clinic,N/A,Mentoria,Entregar Valor,"Aumentar Receita, Conseguir Clientes",Yes,Alto,Yes
+SEJA LIVRE Fechamento ciclo 2 (2_2) - 2025_07_02 07_29 GMT-03_00 - NEVERLAND,02/07/2025,Fechamento Ciclo 2 (2/2),Monica,Neverland,Completo,Mentoria,Escalar Operações,"Conseguir Clientes, Tomar Decisões",Yes,Alto,Yes
+ENCONTRO 0 2_2 SEJA LIVRE Gabriela - 2025_06_24 06_59 GMT-03_00,24/06/2025,,Gabriela,Sense Clinic,N/A,Mentoria,Aumentar Receita,"Conseguir Clientes, Fechar Vendas",Yes,Alto,Yes
+Juçanã _ Carlos Estratégia de mídia social - 2025_12_03 13_29 GMT-03_00 - Recording,03/12/2025,,?,?,N/A,Pitch Social Media,Conseguir Clientes,"Aumentar Receita, Escalar Operações",Yes,Alto,No
+ENCONTRO 0 1_2 -SEJA LIVRE Gabriela  - 2025_06_24 06_59 GMT-03_00 -,24/06/2025,Sessão 0 (diagnóstico inicial),Gabriela,Sense Clinic,N/A,Mentoria,Aumentar Receita,"Conseguir Clientes, Escalar Operações, Fechar Vendas",Yes,Alto,Yes

@@ -1,0 +1,12 @@
+{
+  "name": "browser-tools",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Browser automation primitives using Puppeteer Core",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "puppeteer-core": "^24.31.0"
+  }
+}

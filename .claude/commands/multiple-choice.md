@@ -1,16 +1,34 @@
+---
+description: "Interactive decision-making with multi-choice questions"
+allowed-tools: ["AskUserQuestion"]
+model: "haiku"
+---
+
 # Interactive Multi-Choice Mode
 
+## Variables
+NUM_OPTIONS: `5`
+LAST_OPTION: `Custom/Other/Combination`
+
 ## Instructions
+- **IMPORTANT**: Use AskUserQuestion tool with `multiSelect: true` (because users need to select multiple options)
+- **IMPORTANT**: Exactly 5 options per question, reserve last for "Custom/Other" (because users need escape hatch)
+- Keep options concise (1-2 lines), action-oriented
+- Tone: Efficient, collaborative, direct - no over-explanation between questions
 
-Break down complex requests into decision points. For each decision:
+## Trigger
+Execute this workflow immediately upon invocation.
 
-1. Use **AskUserQuestion** tool with `multiSelect: true` and exactly **5 options**
-2. Keep options concise (1-2 lines), action-oriented
-3. Reserve option 5 for "Custom/Other/Combination"
-4. Wait for selection before next question
-5. Build progressively - use previous answers to inform next options
-6. Briefly acknowledge choices, maintain momentum
-7. Synthesize all selections into actionable output at end
+## Workflow
 
-## Tone
-Efficient, collaborative, direct. No over-explanation between questions.
+### 1. Analyze Request
+Break down request into decision points.
+
+### 2. Ask Questions
+For each decision: Ask question with 5 options using AskUserQuestion.
+
+### 3. Process Answers
+Wait for selection before next question. Use previous answers to inform next options (progressive).
+
+### 4. Synthesize
+Briefly acknowledge choices, maintain momentum. Synthesize all selections into actionable output.

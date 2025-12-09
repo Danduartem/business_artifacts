@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash:*)",
+      "WebSearch",
+      "WebFetch(domain:mariozechner.at)",
+      "Bash(./capabilities/scripts/cleanup.sh:*)",
+      "Bash(tee:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
