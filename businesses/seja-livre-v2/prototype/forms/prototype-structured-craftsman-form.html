@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicação - SEJA LIVRE Mentoria | Juçanã Maximiliano</title>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           DESIGN SYSTEM - CSS CUSTOM PROPERTIES
+           ============================================ */
+        :root {
+            /* Brand Colors */
+            --navy-primary: #191F3A;
+            --navy-lighter: #2A3154;
+            --navy-input: #232A48;
+            --borgonha: #81171F;
+            --borgonha-hover: #6B1319;
+            --borgonha-active: #5A1016;
+            --beige: #F5F5DC;
+            --beige-soft: #E8E8CC;
+            --white: #FFFFFF;
+            --error-red: #E74C3C;
+            --success-green: #27AE60;
+
+            /* Typography */
+            --font-serif: 'Lora', Georgia, serif;
+            --font-sans: 'Century Gothic', 'Futura', sans-serif;
+
+            /* Spacing Scale */
+            --space-xs: 8px;
+            --space-sm: 12px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+
+            /* Animation Timing */
+            --transition-fast: 150ms;
+            --transition-medium: 200ms;
+            --transition-slow: 250ms;
+            --easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Component Sizing */
+            --button-height-mobile: 56px;
+            --button-height-desktop: 64px;
+            --input-height: 56px;
+            --border-radius-sm: 4px;
+            --border-radius-md: 8px;
+            --border-radius-lg: 12px;
+
+            /* Layout */
+            --content-max-width: 640px;
+            --mobile-padding: 20px;
+            --desktop-padding: 40px;
+        }
+
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--navy-primary);
+            color: var(--white);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Respect user motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ============================================
+           TYPOGRAPHY SYSTEM
+           ============================================ */
+        .question-text {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--white);
+            margin-bottom: var(--space-lg);
+        }
+
+        .section-label {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--beige);
+            margin-bottom: var(--space-sm);
+            opacity: 0.9;
+        }
+
+        .helper-text {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--beige-soft);
+            margin-top: var(--space-md);
+            opacity: 0.85;
+        }
+
+        .error-message {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            color: var(--error-red);
+            margin-top: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .character-count {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            color: var(--beige);
+            text-align: right;
+            margin-top: var(--space-xs);
+            opacity: 0.7;
+        }
+
+        /* ============================================
+           LAYOUT STRUCTURE
+           ============================================ */
+        .app-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .screen {
+            display: none;
+            opacity: 0;
+            min-height: 100vh;
+            padding: var(--mobile-padding);
+            animation: fadeIn var(--transition-medium) var(--easing) forwards;
+        }
+
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .screen-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--space-2xl) 0;
+        }
+
+        /* ============================================
+           PROGRESS INDICATOR
+           ============================================ */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(25, 31, 58, 0.95);
+            backdrop-filter: blur(10px);
+            padding: var(--space-md) var(--mobile-padding);
+            z-index: 100;
+            border-bottom: 1px solid rgba(245, 245, 220, 0.1);
+        }
+
+        .progress-wrapper {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+        }
+
+        .progress-text {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            color: var(--beige);
+            margin-bottom: var(--space-xs);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 4px;
+            background: var(--navy-lighter);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--borgonha), #A02028);
+            border-radius: 2px;
+            transition: width var(--transition-slow) var(--easing);
+        }
+
+        .screen-content.with-progress {
+            padding-top: calc(var(--space-3xl) + 60px);
+        }
+
+        /* ============================================
+           FORM ELEMENTS - INPUTS
+           ============================================ */
+        .input-wrapper {
+            margin-bottom: var(--space-lg);
+        }
+
+        .text-input,
+        .phone-input-field,
+        .textarea-input,
+        .select-input {
+            width: 100%;
+            height: var(--input-height);
+            padding: 0 var(--space-md);
+            font-family: var(--font-sans);
+            font-size: 18px;
+            color: var(--white);
+            background: var(--navy-input);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius-md);
+            transition: all var(--transition-fast) var(--easing);
+            outline: none;
+        }
+
+        .textarea-input {
+            height: auto;
+            min-height: 140px;
+            padding: var(--space-md);
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        .text-input::placeholder,
+        .phone-input-field::placeholder,
+        .textarea-input::placeholder {
+            color: rgba(245, 245, 220, 0.4);
+        }
+
+        .text-input:focus,
+        .phone-input-field:focus,
+        .textarea-input:focus,
+        .select-input:focus {
+            border-color: var(--borgonha);
+            background: var(--navy-lighter);
+        }
+
+        .text-input.error,
+        .phone-input-field.error,
+        .textarea-input.error {
+            border-color: var(--error-red);
+        }
+
+        /* Phone Input with Country Selector */
+        .phone-input-container {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .country-select {
+            flex-shrink: 0;
+            width: 120px;
+            height: var(--input-height);
+            padding: 0 var(--space-sm);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            color: var(--white);
+            background: var(--navy-input);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius-md);
+            transition: all var(--transition-fast) var(--easing);
+            outline: none;
+            cursor: pointer;
+        }
+
+        .country-select:focus {
+            border-color: var(--borgonha);
+            background: var(--navy-lighter);
+        }
+
+        .country-select option {
+            background: var(--navy-input);
+            color: var(--white);
+        }
+
+        .phone-input-field {
+            flex: 1;
+        }
+
+        /* ============================================
+           FORM ELEMENTS - RADIO BUTTONS
+           ============================================ */
+        .radio-options {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .radio-option {
+            position: relative;
+        }
+
+        .radio-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            padding: var(--space-md) var(--space-lg);
+            background: var(--navy-input);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast) var(--easing);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--white);
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-label {
+            background: var(--navy-lighter);
+            border-color: var(--borgonha);
+        }
+
+        .radio-option input[type="radio"]:focus + .radio-label {
+            border-color: var(--borgonha);
+        }
+
+        .radio-label:hover {
+            background: var(--navy-lighter);
+        }
+
+        .radio-custom-indicator {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            margin-right: var(--space-md);
+            border: 2px solid var(--beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast) var(--easing);
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-label .radio-custom-indicator {
+            border-color: var(--borgonha);
+            background: var(--borgonha);
+        }
+
+        .radio-custom-indicator::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--white);
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            transition: all var(--transition-fast) var(--easing);
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-label .radio-custom-indicator::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ============================================
+           FORM ELEMENTS - CHECKBOXES
+           ============================================ */
+        .checkbox-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .checkbox-item {
+            position: relative;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            padding: var(--space-md);
+            background: var(--navy-input);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast) var(--easing);
+            font-family: var(--font-sans);
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--white);
+        }
+
+        .checkbox-item input[type="checkbox"]:checked + .checkbox-label {
+            background: var(--navy-lighter);
+            border-color: var(--borgonha);
+        }
+
+        .checkbox-item input[type="checkbox"]:focus + .checkbox-label {
+            border-color: var(--borgonha);
+        }
+
+        .checkbox-label:hover {
+            background: var(--navy-lighter);
+        }
+
+        .checkbox-custom-indicator {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            margin-right: var(--space-md);
+            border: 2px solid var(--beige);
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast) var(--easing);
+        }
+
+        .checkbox-item input[type="checkbox"]:checked + .checkbox-label .checkbox-custom-indicator {
+            border-color: var(--borgonha);
+            background: var(--borgonha);
+        }
+
+        .checkbox-custom-indicator i {
+            opacity: 0;
+            transform: scale(0);
+            transition: all var(--transition-fast) var(--easing);
+        }
+
+        .checkbox-item input[type="checkbox"]:checked + .checkbox-label .checkbox-custom-indicator i {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ============================================
+           BUTTONS
+           ============================================ */
+        .primary-button {
+            width: 100%;
+            height: var(--button-height-mobile);
+            padding: 0 var(--space-xl);
+            font-family: var(--font-sans);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--white);
+            background: var(--borgonha);
+            border: none;
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast) var(--easing);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(129, 23, 31, 0.3);
+        }
+
+        .primary-button:hover:not(:disabled) {
+            background: var(--borgonha-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(129, 23, 31, 0.4);
+        }
+
+        .primary-button:active:not(:disabled) {
+            background: var(--borgonha-active);
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(129, 23, 31, 0.3);
+        }
+
+        .primary-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .button-subtext {
+            font-size: 13px;
+            color: var(--beige);
+            text-align: center;
+            margin-top: var(--space-sm);
+            opacity: 0.7;
+            font-weight: 400;
+            letter-spacing: normal;
+            text-transform: none;
+        }
+
+        .secondary-link {
+            display: inline-block;
+            margin-top: var(--space-md);
+            font-family: var(--font-sans);
+            font-size: 15px;
+            color: var(--beige);
+            text-decoration: underline;
+            cursor: pointer;
+            transition: opacity var(--transition-fast);
+        }
+
+        .secondary-link:hover {
+            opacity: 0.8;
+        }
+
+        /* ============================================
+           INTRO SCREEN (SCREEN 0)
+           ============================================ */
+        .intro-screen {
+            text-align: center;
+            justify-content: center;
+        }
+
+        .intro-logo {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.5px;
+        }
+
+        .intro-headline {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            color: var(--beige);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .intro-content {
+            background: rgba(42, 49, 84, 0.5);
+            border: 1px solid rgba(245, 245, 220, 0.1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+            text-align: left;
+        }
+
+        .intro-text {
+            font-family: var(--font-sans);
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--white);
+            margin-bottom: var(--space-lg);
+        }
+
+        .intro-warning {
+            background: rgba(129, 23, 31, 0.2);
+            border-left: 3px solid var(--borgonha);
+            padding: var(--space-md);
+            margin: var(--space-lg) 0;
+            font-size: 15px;
+            color: var(--beige);
+        }
+
+        .intro-signature {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--beige);
+            margin-top: var(--space-lg);
+        }
+
+        /* ============================================
+           SUCCESS SCREEN
+           ============================================ */
+        .success-screen {
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-xl);
+            background: var(--borgonha);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: successPulse 1s ease-out;
+        }
+
+        .success-icon i {
+            color: var(--white);
+        }
+
+        .success-title {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-md);
+        }
+
+        .success-text {
+            font-family: var(--font-sans);
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--beige);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .calendly-container {
+            background: rgba(42, 49, 84, 0.5);
+            border: 1px solid rgba(245, 245, 220, 0.1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-xl);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendly-placeholder {
+            font-family: var(--font-sans);
+            font-size: 15px;
+            color: var(--beige);
+            text-align: center;
+        }
+
+        /* ============================================
+           REJECTION SCREEN
+           ============================================ */
+        .rejection-container {
+            background: rgba(42, 49, 84, 0.5);
+            border: 1px solid rgba(245, 245, 220, 0.1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-xl);
+        }
+
+        .rejection-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto var(--space-lg);
+            background: rgba(129, 23, 31, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rejection-icon i {
+            color: var(--borgonha);
+        }
+
+        .rejection-title {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: var(--space-md);
+            text-align: center;
+        }
+
+        .rejection-text {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--beige);
+            text-align: left;
+            margin-bottom: var(--space-md);
+        }
+
+        .rejection-recommendations {
+            margin: var(--space-lg) 0;
+            padding-left: var(--space-md);
+        }
+
+        .rejection-recommendations li {
+            margin-bottom: var(--space-sm);
+            color: var(--beige);
+        }
+
+        /* ============================================
+           PRICING DISPLAY
+           ============================================ */
+        .pricing-display {
+            background: rgba(42, 49, 84, 0.5);
+            border: 1px solid rgba(245, 245, 220, 0.1);
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-xl);
+            text-align: center;
+        }
+
+        .pricing-title {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--beige);
+            margin-bottom: var(--space-lg);
+        }
+
+        .pricing-item {
+            padding: var(--space-md) 0;
+        }
+
+        .pricing-item:not(:last-child) {
+            border-bottom: 1px solid rgba(245, 245, 220, 0.1);
+            margin-bottom: var(--space-md);
+        }
+
+        .pricing-label {
+            font-family: var(--font-sans);
+            font-size: 14px;
+            color: var(--beige);
+            margin-bottom: var(--space-xs);
+        }
+
+        .pricing-value {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .pricing-note {
+            font-size: 14px;
+            color: var(--beige);
+            margin-top: var(--space-md);
+            opacity: 0.8;
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes successPulse {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (min-width: 768px) {
+            .screen {
+                padding: var(--desktop-padding);
+            }
+
+            .progress-container {
+                padding: var(--space-lg) var(--desktop-padding);
+            }
+
+            .question-text {
+                font-size: 26px;
+            }
+
+            .intro-logo {
+                font-size: 40px;
+            }
+
+            .intro-text {
+                font-size: 18px;
+            }
+
+            .success-title {
+                font-size: 32px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .primary-button {
+                height: var(--button-height-desktop);
+            }
+
+            .question-text {
+                font-size: 28px;
+            }
+
+            .intro-logo {
+                font-size: 48px;
+            }
+        }
+
+        /* ============================================
+           ACCESSIBILITY
+           ============================================ */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        *:focus-visible {
+            outline: 2px solid var(--borgonha);
+            outline-offset: 2px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+
+        <!-- Progress Indicator (Hidden on Screen 0 & Success) -->
+        <div class="progress-container" id="progressContainer" style="display: none;">
+            <div class="progress-wrapper">
+                <div class="progress-text">
+                    <span id="progressText">1 de 10</span>
+                    <span id="progressPercentage">10%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar" style="width: 10%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 0 - INTRO -->
+        <div class="screen active" id="screen0">
+            <div class="screen-content intro-screen">
+                <div class="intro-logo">SEJA LIVRE</div>
+                <div class="intro-headline">Mentoria Empresarial</div>
+
+                <div class="intro-content">
+                    <p class="intro-text">
+                        Vamos avaliar pessoalmente cada aplicação e selecionar apenas quem realmente pode aproveitar essa oportunidade.
+                    </p>
+                    <p class="intro-text">
+                        Baseado nas suas respostas, você será ou não convidada para uma Sessão de Diagnóstico gratuita comigo.
+                    </p>
+
+                    <div class="intro-warning">
+                        <strong>Importante:</strong> O preenchimento deste formulário não garante sua vaga. Vagas limitadas — avaliamos cautelosamente cada interessada.
+                    </div>
+
+                    <p class="intro-text">
+                        Nos próximos 5 minutos, vou te fazer algumas perguntas para entender se somos fit perfeitas. Seja honesta — não existe resposta "certa", existe a SUA resposta.
+                    </p>
+
+                    <p class="intro-signature">
+                        Do meu coração para o seu, vamos? 💙❤️
+                    </p>
+                </div>
+
+                <button class="primary-button" onclick="goToScreen(1)">
+                    COMEÇAR
+                    <i data-lucide="arrow-right" width="20" height="20"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 1 - NOME COMPLETO -->
+        <div class="screen" id="screen1">
+            <div class="screen-content with-progress">
+                <div class="section-label">Informações Básicas</div>
+                <h1 class="question-text">Nome completo:</h1>
+
+                <div class="input-wrapper">
+                    <input
+                        type="text"
+                        class="text-input"
+                        id="nomeCompleto"
+                        placeholder="Digite seu nome completo..."
+                        aria-label="Nome completo"
+                    >
+                    <div class="error-message hidden" id="nomeError" role="alert">
+                        <i data-lucide="alert-circle" width="16" height="16"></i>
+                        <span></span>
+                    </div>
+                </div>
+
+                <button class="primary-button" onclick="validateAndProceed(1, 2)">
+                    OK
+                    <i data-lucide="arrow-right" width="20" height="20"></i>
+                </button>
+                <div class="button-subtext">Pressione Enter ↵</div>
+            </div>
+        </div>
+
+        <!-- SCREEN 2 - WHATSAPP -->
+        <div class="screen" id="screen2">
+            <div class="screen-content with-progress">
+                <div class="section-label">Informações Básicas</div>
+                <h1 class="question-text">WhatsApp com DDD:</h1>
+
+                <div class="input-wrapper">
+                    <div class="phone-input-container">
+                        <select class="country-select" id="countryCode" aria-label="Código do país">
+                            <option value="+55" selected>🇧🇷 +55</option>
+                            <option value="+351">🇵🇹 +351</option>
+                        </select>
+                        <input
+                            type="tel"
+                            class="phone-input-field"
+                            id="whatsapp"
+                            placeholder="(00) 00000-0000"
+                            aria-label="Número de WhatsApp"
+                        >
+                    </div>
+                    <div class="helper-text">
+                        Vou usar apenas para te enviar o link da nossa conversa. Nada de spam, prometo. 💙
+                    </div>
+                    <div class="error-message hidden" id="whatsappError" role="alert">
+                        <i data-lucide="alert-circle" width="16" height="16"></i>
+                        <span></span>
+                    </div>
+                </div>
+
+                <button class="primary-button" onclick="validateAndProceed(2, 3)">
+                    CONTINUAR
+                    <i data-lucide="arrow-right" width="20" height="20"></i>
+                </button>
+                <div class="button-subtext">Pressione Enter ↵</div>
+            </div>
+        </div>
+
+        <!-- SCREEN 3 - INSTAGRAM -->
+        <div class="screen" id="screen3">
+            <div class="screen-content with-progress">
+                <div class="section-label">Informações Básicas</div>
+                <h1 class="question-text">@ do Instagram:</h1>
+
+                <div class="input-wrapper">
+                    <input
+                        type="text"
+                        class="text-input"
+                        id="instagram"
+                        placeholder="@seuinstagram"
+                        aria-label="Instagram (opcional)"
+                    >
+                    <div class="helper-text">
+                        Quero conhecer um pouquinho do seu mundo antes da nossa conversa. 👀
+                    </div>
+                </div>
+
+                <button class="primary-button" onclick="validateAndProceed(3, 4)">
+                    CONTINUAR
+                    <i data-lucide="arrow-right" width="20" height="20"></i>
+                </button>
+                <div class="button-subtext">Pressione Enter ↵</div>
+
+                <a class="secondary-link" onclick="skipInstagram()">Não tenho Instagram</a>
+            </div>
+        </div>
+
+        <!-- SCREEN 4 - TIPO DE NEGÓCIO -->
+        <div class="screen" id="screen4">
+            <div class="screen-content with-progress">
+                <div class="section-label">Contexto do Negócio</div>
+                <h1 class="question-text">Qual tipo de negócio você tem?</h1>
+
+                <div class="radio-options">
+                    <div class="radio-option">
+                        <input type="radio" name="tipoNegocio" id="tipoA" value="A">
+                        <label for="tipoA" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>Prestação de serviços (clínica, estética, consultoria, etc.)</span>
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="tipoNegocio" id="tipoB" value="B">
+                        <label for="tipoB" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>Academia / Box / Estúdio fitness</span>
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="tipoNegocio" id="tipoC" value="C">
+                        <label for="tipoC" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>Agência (marketing, design, desenvolvimento, etc.)</span>
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="tipoNegocio" id="tipoD" value="D">
+                        <label for="tipoD" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>Escola / Curso presencial</span>
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="tipoNegocio" id="tipoE" value="E">
+                        <label for="tipoE" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>Outro tipo de serviço</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="primary-button" onclick="validateAndProceed(4, 5)">
+                    CONTINUAR
+                    <i data-lucide="arrow-right" width="20" height="20"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 5 - FATURAMENTO -->
+        <div class="screen" id="screen5">
+            <div class="screen-content with-progress">
+                <div class="section-label">Qualificação</div>
+                <h1 class="question-text">Qual é o faturamento mensal médio do seu negócio nos últimos 6 meses?</h1>
+
+                <div class="radio-options" id="faturamentoOptions">
+                    <!-- Options populated by JS based on country -->
+                </div>
+
+                <button class="primary-button" onclick="validateAndProceed(5, 6)">
+                    CONTINUAR
+                    <i data-lucide="arrow-right" width="20" height="20"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 5.5 - REJECTION (REVENUE) -->
+        <div class="screen" id="screen5_rejection">
+            <div class="screen-content">
+                <div class="rejection-container">
+                    <div class="rejection-icon">
+                        <i data-lucide="heart" width="28" height="28"></i>
+                    </div>
+                    <h1 class="rejection-title">Obrigada pela sua honestidade! 💙</h1>
+                    <p class="rejection-text">
+                        A Mentoria SEJA LIVRE é desenhada para empresárias de serviço que já faturam <span id="rejectionMinRevenue">€15k+/mês</span> e estão presas no operacional — trabalhando demais para manter esse faturamento.
+                    </p>
+                    <p class="rejection-text">
+                        Para negócios em estágio anterior, recomendo:
+                    </p>
+                    <ul class="rejection-recommendations">
+                        <li>Meu Instagram (@jucanamaximiliano) — conteúdo gratuito sobre vendas, sistemas e mentalidade</li>
+                        <li>Café com Vendas (evento trimestral) — próxima turma em breve</li>
+                    </ul>
+                    <p class="rejection-text">
+                        Quando você chegar nesse faturamento e sentir que está trabalhando DEMAIS para sustentar isso, volta aqui. Vou estar te esperando. 🦅
+                    </p>
+                    <p class="rejection-text" style="margin-top: 24px; font-style: italic;">
+                        Do meu coração para o seu: existe um jeito mais fácil. Mas cada fase tem seu desafio específico. Você está no caminho certo. Continue! 💙❤️
+                    </p>
+
+                    <button class="primary-button" style="margin-top: 24px;" onclick="window.open('https://instagram.com/jucanamaximiliano', '_blank')">
+                        SEGUIR @JUCANAMAXIMILIANO
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 6 - TAMANHO DA EQUIPE -->
+        <div class="screen" id="screen6">
+            <div class="screen-content with-progress">
+                <div class="section-label">Qualificação</div>
+                <h1 class="question-text">Quantas pessoas trabalham no seu negócio (incluindo você)?</h1>
+
+                <div class="radio-options">
+                    <div class="radio-option">
+                        <input type="radio" name="equipe" id="equipeA" value="A">
+                        <label for="equipeA" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>Só eu (solo)</span>
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="equipe" id="equipeB" value="B">
+                        <label for="equipeB" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>2-3 pessoas</span>
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="equipe" id="equipeC" value="C">
+                        <label for="equipeC" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>4-8 pessoas</span>
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="equipe" id="equipeD" value="D">
+                        <label for="equipeD" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>9-15 pessoas</span>
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="equipe" id="equipeE" value="E">
+                        <label for="equipeE" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>16+ pessoas</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="primary-button" onclick="validateAndProceed(6, 7)">
+                    CONTINUAR
+                    <i data-lucide="arrow-right" width="20" height="20"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 6.5 - REJECTION (SOLO) -->
+        <div class="screen" id="screen6_rejection">
+            <div class="screen-content">
+                <div class="rejection-container">
+                    <div class="rejection-icon">
+                        <i data-lucide="heart" width="28" height="28"></i>
+                    </div>
+                    <h1 class="rejection-title">Obrigada por compartilhar! 💙</h1>
+                    <p class="rejection-text">
+                        A Mentoria SEJA LIVRE é focada em estruturar EQUIPES e SISTEMAS para empresárias que já têm pelo menos 3-4 pessoas no negócio.
+                    </p>
+                    <p class="rejection-text">
+                        Se você ainda é solo, seu desafio agora é diferente — é construir a base para depois escalar.
+                    </p>
+                    <p class="rejection-text">
+                        Recomendo:
+                    </p>
+                    <ul class="rejection-recommendations">
+                        <li>Meu Instagram (@jucanamaximiliano) — conteúdo sobre vendas e primeiras contratações</li>
+                        <li>Quando você tiver sua primeira equipe montada e sentir que está "pau pra toda obra", volta aqui</li>
+                    </ul>
+                    <p class="rejection-text" style="margin-top: 24px; font-style: italic;">
+                        Do meu coração para o seu: você está construindo algo incrível. O momento de sistematizar vai chegar. 💙❤️
+                    </p>
+
+                    <button class="primary-button" style="margin-top: 24px;" onclick="window.open('https://instagram.com/jucanamaximiliano', '_blank')">
+                        SEGUIR @JUCANAMAXIMILIANO
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 7 - MAIOR DESAFIO -->
+        <div class="screen" id="screen7">
+            <div class="screen-content with-progress">
+                <div class="section-label">Contexto</div>
+                <h1 class="question-text">Qual o MAIOR desafio que você enfrenta hoje no seu negócio?</h1>
+
+                <div class="input-wrapper">
+                    <textarea
+                        class="textarea-input"
+                        id="maiorDesafio"
+                        placeholder="Ex: 'Trabalho 12 horas por dia e se eu paro, tudo para. Minha equipe não executa sem eu ficar em cima...'"
+                        aria-label="Maior desafio"
+                        maxlength="300"
+                    ></textarea>
+                    <div class="character-count" id="desafioCount">0 / 300</div>
+                    <div class="helper-text">
+                        Seja específica. Quanto mais eu entender, melhor posso te ajudar na nossa conversa. 💙
+                    </div>
+                    <div class="error-message hidden" id="desafioError" role="alert">
+                        <i data-lucide="alert-circle" width="16" height="16"></i>
+                        <span></span>
+                    </div>
+                </div>
+
+                <button class="primary-button" onclick="validateAndProceed(7, 8)">
+                    CONTINUAR
+                    <i data-lucide="arrow-right" width="20" height="20"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 8 - INVESTIMENTO -->
+        <div class="screen" id="screen8">
+            <div class="screen-content with-progress">
+                <div class="section-label">Fit</div>
+                <h1 class="question-text">O investimento na Mentoria SEJA LIVRE é:</h1>
+
+                <div class="pricing-display" id="pricingDisplay">
+                    <div class="pricing-title">INVESTIMENTO</div>
+                    <div class="pricing-item">
+                        <div class="pricing-label">Parcelado</div>
+                        <div class="pricing-value" id="pricingInstallment">6x de €750</div>
+                    </div>
+                    <div class="pricing-item">
+                        <div class="pricing-label">À vista</div>
+                        <div class="pricing-value" id="pricingFull">€4.500</div>
+                    </div>
+                    <div class="pricing-note">(Mentoria 1-on-1 de 6 meses)</div>
+                </div>
+
+                <h2 class="question-text" style="font-size: 18px; margin-bottom: 16px;">Como você se sente em relação a esse investimento?</h2>
+
+                <div class="radio-options">
+                    <div class="radio-option">
+                        <input type="radio" name="investimento" id="investA" value="A">
+                        <label for="investA" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>Estou pronta e consigo investir agora</span>
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="investimento" id="investB" value="B">
+                        <label for="investB" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>É significativo, mas vejo o valor e consigo fazer</span>
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="investimento" id="investC" value="C">
+                        <label for="investC" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>Preciso avaliar com mais calma / falar com sócio(a)</span>
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="investimento" id="investD" value="D">
+                        <label for="investD" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>Está fora do meu alcance neste momento</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="helper-text" style="margin-bottom: 24px;">
+                    Eu sei que é um investimento significativo. Pensa assim: quanto CUSTA continuar presa trabalhando 10-14h/dia? Sua saúde declinando? Relacionamentos sofrendo? O custo real é o de continuar onde está. 💙
+                </div>
+
+                <button class="primary-button" onclick="validateAndProceed(8, 9)">
+                    CONTINUAR
+                    <i data-lucide="arrow-right" width="20" height="20"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 9 - DISPONIBILIDADE -->
+        <div class="screen" id="screen9">
+            <div class="screen-content with-progress">
+                <div class="section-label">Fit</div>
+                <h1 class="question-text">Você tem disponibilidade de 2-3 horas por semana para as sessões e implementação?</h1>
+
+                <div class="helper-text" style="margin-bottom: 24px; margin-top: 0;">
+                    • 2 horas/semana: Sessões ao vivo comigo<br>
+                    • 1-2 horas/semana: Implementação no seu negócio
+                </div>
+
+                <div class="radio-options">
+                    <div class="radio-option">
+                        <input type="radio" name="disponibilidade" id="dispSim" value="sim">
+                        <label for="dispSim" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>Sim, tenho disponibilidade</span>
+                        </label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="disponibilidade" id="dispNao" value="nao">
+                        <label for="dispNao" class="radio-label">
+                            <span class="radio-custom-indicator"></span>
+                            <span>Não tenho disponibilidade no momento</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="helper-text">
+                    Transformação real exige tempo E comprometimento. Se você não consegue dedicar esse tempo agora, talvez não seja o momento ideal. E tudo bem — eu prefiro te ter quando você pode aproveitar 100%. 💙
+                </div>
+
+                <button class="primary-button" onclick="validateAndProceed(9, 10)">
+                    CONTINUAR
+                    <i data-lucide="arrow-right" width="20" height="20"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 10 - CONFIRMAÇÃO FINAL -->
+        <div class="screen" id="screen10">
+            <div class="screen-content with-progress">
+                <div class="section-label">Confirmação</div>
+                <h1 class="question-text">Antes de finalizar, confirme:</h1>
+
+                <div class="checkbox-list">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="confirm1" value="invest">
+                        <label for="confirm1" class="checkbox-label">
+                            <span class="checkbox-custom-indicator">
+                                <i data-lucide="check" width="16" height="16"></i>
+                            </span>
+                            <span id="confirmInvestText">Li e entendi que o investimento é de €4.500 (ou 6x €750)</span>
+                        </label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="confirm2" value="tempo">
+                        <label for="confirm2" class="checkbox-label">
+                            <span class="checkbox-custom-indicator">
+                                <i data-lucide="check" width="16" height="16"></i>
+                            </span>
+                            <span>Tenho disponibilidade de 2-3 horas/semana para o programa</span>
+                        </label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="confirm3" value="processo">
+                        <label for="confirm3" class="checkbox-label">
+                            <span class="checkbox-custom-indicator">
+                                <i data-lucide="check" width="16" height="16"></i>
+                            </span>
+                            <span>Entendo que a aplicação não garante minha vaga (processo seletivo)</span>
+                        </label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="confirm4" value="contato">
+                        <label for="confirm4" class="checkbox-label">
+                            <span class="checkbox-custom-indicator">
+                                <i data-lucide="check" width="16" height="16"></i>
+                            </span>
+                            <span>Autorizo contato via WhatsApp para dar seguimento ao processo</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="helper-text" style="margin-bottom: 24px;">
+                    Essas confirmações garantem que estamos alinhadas. Se algo não faz sentido agora, talvez não seja o momento ideal — e tudo bem! Prefiro te ter quando você está 100% pronta. 💙❤️
+                </div>
+
+                <div class="error-message hidden" id="confirmError" role="alert">
+                    <i data-lucide="alert-circle" width="16" height="16"></i>
+                    <span>Por favor, marque todas as opções para continuar.</span>
+                </div>
+
+                <button class="primary-button" id="finalSubmitBtn" onclick="validateAndProceed(10, 11)" disabled>
+                    FINALIZAR APLICAÇÃO
+                    <i data-lucide="arrow-right" width="20" height="20"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- SCREEN 11 - SUCCESS + CALENDLY -->
+        <div class="screen" id="screen11">
+            <div class="screen-content success-screen">
+                <div class="success-icon">
+                    <i data-lucide="check-circle" width="40" height="40"></i>
+                </div>
+
+                <h1 class="success-title">Aplicação recebida, <span id="successName">Nome</span>! 🎉</h1>
+
+                <p class="success-text">
+                    Obrigada por compartilhar sua história comigo. Eu li cada palavra e já estou pensando em como posso te ajudar.
+                </p>
+
+                <p class="success-text">
+                    <strong>Próximo passo:</strong> Agende agora sua Sessão de Diagnóstico gratuita (45 minutos).
+                </p>
+
+                <div class="calendly-container">
+                    <div class="calendly-placeholder">
+                        <p style="margin-bottom: 12px;">
+                            <i data-lucide="calendar" width="32" height="32" style="display: block; margin: 0 auto 12px;"></i>
+                        </p>
+                        <p>Calendly embed will appear here.</p>
+                        <p style="margin-top: 8px; font-size: 14px; opacity: 0.7;">
+                            Replace this placeholder with your Calendly iframe or inline widget.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="success-text" style="margin-top: 32px; font-style: italic;">
+                    Do meu coração para o seu: você chegou até aqui por uma razão. Seu instinto está te dizendo que é hora de mudar. Confie nele. 💙❤️🦅
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // ============================================
+        // STATE MANAGEMENT
+        // ============================================
+        let formData = {
+            nomeCompleto: '',
+            whatsapp: '',
+            countryCode: '+55',
+            instagram: '',
+            tipoNegocio: '',
+            faturamento: '',
+            tamanhoEquipe: '',
+            maiorDesafio: '',
+            investimento: '',
+            disponibilidade: '',
+            confirmations: []
+        };
+
+        // Pricing by country
+        const pricing = {
+            '+55': {
+                installment: '6x de R$4.500',
+                full: 'R$25.000',
+                confirmText: 'Li e entendi que o investimento é de R$25.000 (ou 6x R$4.500)',
+                minRevenue: 'R$50k+/mês',
+                revenueOptions: [
+                    { value: 'A', label: 'Até R$30.000/mês', qualifies: false },
+                    { value: 'B', label: 'R$30.000 - R$50.000/mês', qualifies: false },
+                    { value: 'C', label: 'R$50.000 - R$100.000/mês', qualifies: true },
+                    { value: 'D', label: 'R$100.000 - R$150.000/mês', qualifies: true },
+                    { value: 'E', label: 'R$150.000+/mês', qualifies: true }
+                ]
+            },
+            '+351': {
+                installment: '6x de €750',
+                full: '€4.500',
+                confirmText: 'Li e entendi que o investimento é de €4.500 (ou 6x €750)',
+                minRevenue: '€15k+/mês',
+                revenueOptions: [
+                    { value: 'A', label: 'Até €5.000/mês', qualifies: false },
+                    { value: 'B', label: '€5.000 - €15.000/mês', qualifies: false },
+                    { value: 'C', label: '€15.000 - €25.000/mês', qualifies: true },
+                    { value: 'D', label: '€25.000 - €40.000/mês', qualifies: true },
+                    { value: 'E', label: '€40.000+/mês', qualifies: true }
+                ]
+            }
+        };
+
+        // ============================================
+        // NAVIGATION
+        // ============================================
+        function goToScreen(screenNumber) {
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => {
+                screen.classList.remove('active');
+            });
+
+            const targetScreen = document.getElementById(`screen${screenNumber}`);
+            if (targetScreen) {
+                targetScreen.classList.add('active');
+                window.scrollTo(0, 0);
+
+                // Update progress bar
+                if (screenNumber === 0 || screenNumber === 11 || screenNumber.toString().includes('rejection')) {
+                    document.getElementById('progressContainer').style.display = 'none';
+                } else {
+                    document.getElementById('progressContainer').style.display = 'block';
+                    updateProgress(screenNumber);
+                }
+
+                lucide.createIcons();
+
+                // Populate dynamic content
+                if (screenNumber === 5) {
+                    populateFaturamentoOptions();
+                }
+                if (screenNumber === 8) {
+                    updatePricingDisplay();
+                }
+                if (screenNumber === 10) {
+                    updateConfirmText();
+                }
+                if (screenNumber === 11) {
+                    document.getElementById('successName').textContent = formData.nomeCompleto.split(' ')[0];
+                }
+
+                focusFirstInput(screenNumber);
+            }
+        }
+
+        function focusFirstInput(screenNumber) {
+            setTimeout(() => {
+                const screen = document.getElementById(`screen${screenNumber}`);
+                if (screen) {
+                    const firstInput = screen.querySelector('input:not([type="radio"]):not([type="checkbox"]), textarea');
+                    if (firstInput) {
+                        firstInput.focus();
+                    }
+                }
+            }, 300);
+        }
+
+        // ============================================
+        // PROGRESS BAR
+        // ============================================
+        function updateProgress(screenNumber) {
+            const totalScreens = 10;
+            const percentage = Math.round((screenNumber / totalScreens) * 100);
+
+            document.getElementById('progressText').textContent = `${screenNumber} de ${totalScreens}`;
+            document.getElementById('progressPercentage').textContent = `${percentage}%`;
+            document.getElementById('progressBar').style.width = `${percentage}%`;
+        }
+
+        // ============================================
+        // DYNAMIC CONTENT
+        // ============================================
+        function populateFaturamentoOptions() {
+            const country = formData.countryCode;
+            const options = pricing[country].revenueOptions;
+            const container = document.getElementById('faturamentoOptions');
+
+            container.innerHTML = options.map(opt => `
+                <div class="radio-option">
+                    <input type="radio" name="faturamento" id="fat${opt.value}" value="${opt.value}" data-qualifies="${opt.qualifies}">
+                    <label for="fat${opt.value}" class="radio-label">
+                        <span class="radio-custom-indicator"></span>
+                        <span>${opt.label}</span>
+                    </label>
+                </div>
+            `).join('');
+        }
+
+        function updatePricingDisplay() {
+            const country = formData.countryCode;
+            document.getElementById('pricingInstallment').textContent = pricing[country].installment;
+            document.getElementById('pricingFull').textContent = pricing[country].full;
+        }
+
+        function updateConfirmText() {
+            const country = formData.countryCode;
+            document.getElementById('confirmInvestText').textContent = pricing[country].confirmText;
+        }
+
+        // ============================================
+        // VALIDATION
+        // ============================================
+        function validateScreen1() {
+            const nome = document.getElementById('nomeCompleto').value.trim();
+
+            if (!nome) {
+                showError('nomeError', 'Preciso do seu nome completo para te conhecer melhor. Pode escrever seu nome inteiro? 💙');
+                return false;
+            }
+
+            const words = nome.split(/\s+/).filter(w => w.length > 0);
+            if (words.length < 2) {
+                showError('nomeError', 'Por favor, escreva seu nome completo (nome e sobrenome). 💙');
+                return false;
+            }
+
+            hideError('nomeError');
+            formData.nomeCompleto = nome;
+            return true;
+        }
+
+        function validateScreen2() {
+            const countryCode = document.getElementById('countryCode').value;
+            const phone = document.getElementById('whatsapp').value.trim();
+
+            if (!phone) {
+                showError('whatsappError', 'Preciso do seu WhatsApp para agendar nossa conversa. 💙');
+                return false;
+            }
+
+            const digitsOnly = phone.replace(/\D/g, '');
+
+            if (countryCode === '+55' && (digitsOnly.length < 10 || digitsOnly.length > 11)) {
+                showError('whatsappError', 'Confere se digitou o número completo com DDD? 💙');
+                return false;
+            }
+
+            if (countryCode === '+351' && digitsOnly.length < 9) {
+                showError('whatsappError', 'Confere se digitou o número completo? 💙');
+                return false;
+            }
+
+            hideError('whatsappError');
+            formData.countryCode = countryCode;
+            formData.whatsapp = phone;
+            return true;
+        }
+
+        function validateScreen3() {
+            let instagram = document.getElementById('instagram').value.trim();
+            if (instagram && !instagram.startsWith('@')) {
+                instagram = '@' + instagram;
+            }
+            formData.instagram = instagram;
+            return true;
+        }
+
+        function skipInstagram() {
+            formData.instagram = '';
+            goToScreen(4);
+        }
+
+        function validateScreen4() {
+            const selected = document.querySelector('input[name="tipoNegocio"]:checked');
+            if (!selected) {
+                alert('Por favor, selecione uma opção para continuar.');
+                return false;
+            }
+            formData.tipoNegocio = selected.value;
+            return true;
+        }
+
+        function validateScreen5() {
+            const selected = document.querySelector('input[name="faturamento"]:checked');
+            if (!selected) {
+                alert('Por favor, selecione uma opção para continuar.');
+                return false;
+            }
+
+            formData.faturamento = selected.value;
+            const qualifies = selected.dataset.qualifies === 'true';
+
+            if (!qualifies) {
+                document.getElementById('rejectionMinRevenue').textContent = pricing[formData.countryCode].minRevenue;
+                goToScreen('5_rejection');
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateScreen6() {
+            const selected = document.querySelector('input[name="equipe"]:checked');
+            if (!selected) {
+                alert('Por favor, selecione uma opção para continuar.');
+                return false;
+            }
+
+            formData.tamanhoEquipe = selected.value;
+
+            // Disqualify if solo
+            if (selected.value === 'A') {
+                goToScreen('6_rejection');
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateScreen7() {
+            const desafio = document.getElementById('maiorDesafio').value.trim();
+
+            if (!desafio) {
+                showError('desafioError', 'Me conta um pouquinho sobre o seu maior desafio. É importante para nossa conversa. 💙');
+                return false;
+            }
+
+            if (desafio.length < 30) {
+                showError('desafioError', 'Preciso que você detalhe um pouquinho mais. O que te mantém acordada à noite sobre o negócio? 💙');
+                return false;
+            }
+
+            hideError('desafioError');
+            formData.maiorDesafio = desafio;
+            return true;
+        }
+
+        function validateScreen8() {
+            const selected = document.querySelector('input[name="investimento"]:checked');
+            if (!selected) {
+                alert('Por favor, selecione uma opção para continuar.');
+                return false;
+            }
+            formData.investimento = selected.value;
+            return true;
+        }
+
+        function validateScreen9() {
+            const selected = document.querySelector('input[name="disponibilidade"]:checked');
+            if (!selected) {
+                alert('Por favor, selecione uma opção para continuar.');
+                return false;
+            }
+            formData.disponibilidade = selected.value;
+            return true;
+        }
+
+        function validateScreen10() {
+            const checkboxes = document.querySelectorAll('#screen10 input[type="checkbox"]');
+            const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+
+            if (!allChecked) {
+                document.getElementById('confirmError').classList.remove('hidden');
+                return false;
+            }
+
+            document.getElementById('confirmError').classList.add('hidden');
+            formData.confirmations = Array.from(checkboxes).map(cb => cb.value);
+
+            console.log('Form submitted:', formData);
+            return true;
+        }
+
+        function validateAndProceed(currentScreen, nextScreen) {
+            let isValid = false;
+
+            switch(currentScreen) {
+                case 1: isValid = validateScreen1(); break;
+                case 2: isValid = validateScreen2(); break;
+                case 3: isValid = validateScreen3(); break;
+                case 4: isValid = validateScreen4(); break;
+                case 5: isValid = validateScreen5(); if (!isValid) return; break;
+                case 6: isValid = validateScreen6(); if (!isValid) return; break;
+                case 7: isValid = validateScreen7(); break;
+                case 8: isValid = validateScreen8(); break;
+                case 9: isValid = validateScreen9(); break;
+                case 10: isValid = validateScreen10(); break;
+                default: isValid = true;
+            }
+
+            if (isValid) {
+                goToScreen(nextScreen);
+            }
+        }
+
+        // ============================================
+        // ERROR HANDLING
+        // ============================================
+        function showError(errorId, message) {
+            const errorEl = document.getElementById(errorId);
+            if (errorEl) {
+                const messageSpan = errorEl.querySelector('span');
+                if (messageSpan) {
+                    messageSpan.textContent = message;
+                }
+                errorEl.classList.remove('hidden');
+                lucide.createIcons();
+            }
+        }
+
+        function hideError(errorId) {
+            const errorEl = document.getElementById(errorId);
+            if (errorEl) {
+                errorEl.classList.add('hidden');
+            }
+        }
+
+        // ============================================
+        // EVENT LISTENERS
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Character counter
+            const desafioTextarea = document.getElementById('maiorDesafio');
+            if (desafioTextarea) {
+                desafioTextarea.addEventListener('input', function() {
+                    document.getElementById('desafioCount').textContent = `${this.value.length} / 300`;
+                });
+            }
+
+            // Phone formatting
+            const whatsappInput = document.getElementById('whatsapp');
+            if (whatsappInput) {
+                whatsappInput.addEventListener('input', function(e) {
+                    const countryCode = document.getElementById('countryCode').value;
+                    if (countryCode === '+55') {
+                        const numbers = e.target.value.replace(/\D/g, '');
+                        if (numbers.length <= 2) {
+                            e.target.value = numbers;
+                        } else if (numbers.length <= 7) {
+                            e.target.value = `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
+                        } else if (numbers.length <= 11) {
+                            e.target.value = `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(7)}`;
+                        }
+                    }
+                });
+            }
+
+            // Instagram @ prepending
+            const instagramInput = document.getElementById('instagram');
+            if (instagramInput) {
+                instagramInput.addEventListener('blur', function(e) {
+                    const value = e.target.value.trim();
+                    if (value && !value.startsWith('@')) {
+                        e.target.value = '@' + value;
+                    }
+                });
+            }
+
+            // Checkbox monitoring
+            const checkboxes = document.querySelectorAll('#screen10 input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+                    document.getElementById('finalSubmitBtn').disabled = !allChecked;
+                    if (allChecked) {
+                        document.getElementById('confirmError').classList.add('hidden');
+                    }
+                });
+            });
+
+            // Enter key handler
+            document.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    const activeScreen = document.querySelector('.screen.active');
+                    if (activeScreen) {
+                        const button = activeScreen.querySelector('.primary-button:not(:disabled)');
+                        const textarea = document.activeElement.tagName === 'TEXTAREA';
+                        if (!textarea && button) {
+                            e.preventDefault();
+                            button.click();
+                        }
+                    }
+                }
+            });
+
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
