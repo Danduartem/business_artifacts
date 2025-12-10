@@ -1,0 +1,35 @@
+# Generate Wireframes Workflow Configuration
+name: "generate-wireframes"
+description: "Generate 5 low-fidelity wireframe variations focused on layout and structure before styling"
+author: "Design Forge"
+version: "1.0.0"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/design-forge/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Module-specific config variables
+prototype_output_folder: "{config_source}:prototype_output_folder"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/design-forge/workflows/generate-wireframes"
+template: false
+instructions: "{installed_path}/instructions.md"
+
+# Output subfolder for wireframes
+wireframe_output_folder: "{prototype_output_folder}/wireframes"
+
+# Selected wireframe storage (used by generate-prototypes)
+selected_wireframe_file: "{wireframe_output_folder}/.selected-wireframe.json"
+
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  workflow: "bmad/design-forge/workflows/generate-wireframes/workflow.yaml"
+  files:
+    - "bmad/design-forge/workflows/generate-wireframes/workflow.yaml"
+    - "bmad/design-forge/workflows/generate-wireframes/instructions.md"
+  existing_workflows: []
