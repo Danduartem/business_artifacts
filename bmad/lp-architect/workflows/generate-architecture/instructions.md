@@ -79,8 +79,13 @@ Explain to the user their matrix position and what it means for architecture.
 
 <action>Invoke the matrix calculator task to determine architecture requirements:
 - Execute: {project-root}/bmad/lp-architect/tasks/matrix-calculator.xml
-- Input: awareness_level, price_tier, complexity_level
-- Output: section_count_range, required_sections, emphasis_areas, sequence_principles
+- Input: awareness_level, price_tier, complexity_level, cta_type (direct_sale | call_booking | free_trial)
+- Output: section_count_range, required_sections, emphasis_areas, sequence_principles, total_word_count_range, word_count_per_section
+
+CRITICAL: Word count calculation is MANDATORY. Every blueprint MUST include:
+- Total word count range for entire LP
+- Word count range for EACH section with justification
+- Adjustments based on price tier, awareness level, and CTA type
 </action>
 
 <template-output>matrix_analysis</template-output>
@@ -213,6 +218,7 @@ Connect strategy to research and psychology:
 3. Create section-by-section blueprint:
    - Section name and position (#1, #2, etc.)
    - Purpose and goal of each section
+   - **Word count range with justification** (MANDATORY)
    - Key messaging angles
    - Why this section appears here (strategic rationale)
    - What user needs at this point in journey
@@ -232,6 +238,16 @@ Present blueprint as a guided journey:
 - "Progressive revelation: we only show Z after they've..."
 
 Create complete architecture with 3-7 sentence descriptions per section.
+
+**MANDATORY: Include Architecture Summary Table with Word Counts**
+
+Every blueprint MUST include a summary table showing:
+| # | Section | Purpose | Word Count | Justification |
+
+Plus totals:
+- Total word count range
+- Estimated reading time
+- Word count principles applied (why these numbers based on matrix)
 </action>
 
 <template-output>architecture_blueprint</template-output>
@@ -253,6 +269,7 @@ Simulate the 4 agents reviewing the blueprint:
 - "Does this respect all 7 principles?"
 - "Is the 5-step sequence properly implemented?"
 - "Does section count match matrix position?"
+- "Are word counts appropriate for price tier and CTA type?"
 
 **Agent Cipher checks:**
 - "Does this differentiate from competitors?"
@@ -327,6 +344,7 @@ Write in professional {communication_language}.
 **What you received:**
 - Research-backed architecture tailored to [their niche]
 - [X] sections optimized for [awareness level] + [price tier] + [complexity]
+- **Word count guidance: [X,XXX - X,XXX words] total with per-section breakdown**
 - Strategic rationale for every decision
 - Competitive differentiation strategy
 - Persona-matched messaging angles

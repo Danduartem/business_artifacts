@@ -53,7 +53,8 @@
 </persona>
 
 <menu>
-  <item cmd="*generate" action="#generate_prototypes">Generate 5 Design Prototypes</item>
+  <item cmd="*wireframe" workflow="bmad/design-forge/workflows/generate-wireframes/workflow.yaml">Generate 5 Layout Wireframes (START HERE - Recommended)</item>
+  <item cmd="*generate" action="#generate_prototypes">Generate 5 Styled Prototypes (uses wireframe if selected)</item>
   <item cmd="*landing-page" workflow="bmad/design-forge/workflows/generate-landing-page/workflow.yaml">Generate Multi-Section Landing Page (v4.0)</item>
   <item cmd="*refine" workflow="bmad/design-forge/workflows/refine-selection/workflow.yaml">Refine Single Prototype (v1.5)</item>
   <item cmd="*remix" workflow="bmad/design-forge/workflows/remix-prototypes/workflow.yaml">Remix Multiple Prototypes (v2.0)</item>
@@ -65,9 +66,35 @@
 </menu>
 
 <prompt id="generate_prototypes">
-## Generate 5 Design Prototypes
+## Generate 5 Styled Prototypes
 
 The Design Director shall now orchestrate the creation of 5 beautiful, diverse design prototypes.
+
+**STEP 0: Check for Selected Wireframe (NEW - v3.1)**
+
+FIRST, check if a wireframe has been selected:
+- Look for: {prototype_output_folder}/wireframes/.selected-wireframe.json
+
+**If wireframe file EXISTS:**
+1. Load the selected wireframe data (section_type, layout_archetype, wireframe_file, structural_requirements)
+2. Inform user: "Found selected wireframe: {layout_archetype} layout for {section_type} section. All 5 prototypes will use this structure."
+3. Read the actual wireframe HTML file to extract the layout structure
+4. Store layout constraints to pass to designer agents
+5. Skip to STEP 1.2 (section type already known from wireframe)
+
+**If wireframe file DOES NOT EXIST:**
+1. Ask user:
+   "No wireframe selected. Would you like to:
+
+   1. **Generate wireframes first** (Recommended) - Create 5 layout options, pick one, then style it
+   2. **Skip wireframes** - Generate 5 prototypes with varied structures AND styles
+
+   Enter 1 or 2:"
+
+2. If user chooses 1: Inform them to run `*wireframe` first, then return to `*generate`
+3. If user chooses 2: Continue with traditional flow (varied structures)
+
+---
 
 **STEP 1: Gather Requirements**
 
@@ -153,6 +180,40 @@ For each of the 5 selected archetypes, create a Task with `subagent_type: "gener
 
 ```
 You are [ARCHETYPE NAME], a specialized web designer in the Design Forge studio.
+
+**=== WIREFRAME CONSTRAINT (IF SELECTED) ===**
+
+{IF wireframe was selected in STEP 0:}
+
+**CRITICAL: You MUST follow this layout structure exactly.**
+
+A wireframe has been pre-selected. Your job is to STYLE this structure, not change it.
+
+**Selected Layout:** {layout_archetype_name}
+**Wireframe File:** {wireframe_file_path}
+
+**Layout Constraints (extracted from wireframe):**
+- {layout_structure_description}
+- {element_positions}
+- {content_hierarchy}
+- {responsive_behavior}
+
+**What You CAN Change:**
+- Colors, gradients, backgrounds
+- Typography (fonts, weights, sizes within hierarchy)
+- Shadows, borders, visual effects
+- Animations and transitions
+- Component styling (buttons, cards, etc.)
+- Spacing fine-tuning (within the grid structure)
+
+**What You CANNOT Change:**
+- Overall layout pattern (centered, split, asymmetric, etc.)
+- Element order and hierarchy
+- Grid structure and columns
+- Relative proportions between sections
+- Position of CTA relative to content
+
+{ENDIF}
 
 **=== SECTION DESIGN BRIEF (YOUR FOUNDATION) ===**
 

@@ -140,11 +140,36 @@
 
 {{architecture_blueprint}}
 
+### Architecture Summary with Word Counts
+
+| # | Section | Purpose | Word Count | Justification |
+|---|---------|---------|------------|---------------|
+| 1 | [Section Name] | [Brief purpose] | **[XX-XX]** | [Why this length] |
+| 2 | [Section Name] | [Brief purpose] | **[XX-XX]** | [Why this length] |
+| 3 | [Section Name] | [Brief purpose] | **[XX-XX]** | [Why this length] |
+| [Continue for all sections...] |
+
+**Total Word Count Range:** [X,XXX - X,XXX words]
+**Estimated Reading Time:** [X-X minutes]
+
+### Word Count Principles Applied
+
+**Why these word counts?**
+- [Price tier] offers require [more/less] copy because [reason]
+- [Awareness level] audiences need [more/less] education
+- [CTA type] means [adjustment to total length]
+- Storytelling sections (Authority, Problem) get more space
+- Action sections (Hero, CTA, Guarantee) stay concise for impact
+
+---
+
 ### Section-by-Section Design
 
 #### Section 1: [Section Name]
 
 **Purpose:** [What this section accomplishes]
+
+**Word Count:** [XX-XX words]
 
 **Position Rationale:** [Why it appears here in the journey]
 
@@ -167,6 +192,8 @@
 #### Section 2: [Section Name]
 
 **Purpose:** [What this section accomplishes]
+
+**Word Count:** [XX-XX words]
 
 **Position Rationale:** [Why it appears here in the journey]
 
@@ -257,6 +284,16 @@
 
 **Tone & Voice:**
 - [Guidance based on persona psychology]
+
+**Word Count Targets by Section:**
+
+| Section | Word Count | Notes |
+|---------|------------|-------|
+| [Section 1] | [XX-XX] | [Keep concise / Can elaborate / etc.] |
+| [Section 2] | [XX-XX] | [Keep concise / Can elaborate / etc.] |
+| [etc.] | | |
+
+**Total Target:** [X,XXX - X,XXX words]
 
 **Key Messaging Angles by Section:**
 - Section 1: [Angles]

@@ -136,6 +136,54 @@
         <rule>Progressive revelation - information depth increases with commitment</rule>
       </sequencing-rules>
     </step>
+
+    <step n="7" title="Calculate Word Count Per Section">
+      <action>Determine word count ranges for each section based on matrix position:</action>
+
+      <word-count-principles>
+        <principle>High-ticket offers require more copy (trust takes words to build)</principle>
+        <principle>Low awareness requires more education (more words)</principle>
+        <principle>Complex offers need more explanation (more words)</principle>
+        <principle>Action sections (Hero, CTA, Guarantee) should be concise for impact</principle>
+        <principle>Storytelling sections (Authority, Problem) need space to develop</principle>
+        <principle>Mobile-first means shorter paragraphs, not necessarily fewer total words</principle>
+      </word-count-principles>
+
+      <total-word-count-by-price>
+        <price tier="low">Total: 800-1,500 words (quick decision, minimal proof needed)</price>
+        <price tier="medium">Total: 1,500-2,500 words (moderate proof and education)</price>
+        <price tier="high">Total: 2,000-4,000 words (extensive trust-building required)</price>
+        <price tier="high-with-call-cta">Total: 2,000-3,000 words (less than direct sale - leave curiosity for call)</price>
+      </total-word-count-by-price>
+
+      <section-word-count-ranges>
+        <section type="Hero/Value Proposition">50-100 words (impact over explanation)</section>
+        <section type="Problem Agitation">150-350 words (needs depth to resonate)</section>
+        <section type="Transformation/Outcome">100-200 words (visual + emotional hook)</section>
+        <section type="Solution Introduction">150-250 words (clear positioning)</section>
+        <section type="How It Works/Method">150-300 words (clarity, not overwhelm)</section>
+        <section type="Authority/Founder Story">250-450 words (storytelling needs space)</section>
+        <section type="Social Proof/Testimonials">200-400 words (3-5 testimonials × 50-80 words each)</section>
+        <section type="Process/Journey">100-200 words (steps should be scannable)</section>
+        <section type="Objection Handling/FAQ">250-450 words (4-6 objections × 50-80 words each)</section>
+        <section type="Risk Reversal/Guarantee">60-120 words (clarity beats verbosity)</section>
+        <section type="Final CTA">60-120 words (action moment, not explanation)</section>
+        <section type="Footer/Trust">40-80 words (functional, not persuasive)</section>
+      </section-word-count-ranges>
+
+      <awareness-adjustments>
+        <if condition="unaware">Add 20-30% more words to education sections</if>
+        <if condition="problem-aware">Standard word counts apply</if>
+        <if condition="solution-aware">Reduce education sections by 10-20%, increase comparison sections</if>
+        <if condition="product-aware">Reduce total by 20-30% - they need less convincing</if>
+      </awareness-adjustments>
+
+      <complexity-adjustments>
+        <if condition="complex">Add 20-30% more words to How It Works and Method sections</if>
+        <if condition="moderate">Standard word counts apply</if>
+        <if condition="simple">Reduce explanation sections by 15-25%</if>
+      </complexity-adjustments>
+    </step>
   </logic>
 
   <outputs>
@@ -144,6 +192,8 @@
     <output name="emphasis_areas">What should be emphasized (education/proof/clarity focus)</output>
     <output name="sequence_principles">Ordering guidelines specific to this matrix position</output>
     <output name="matrix_summary">Clear explanation of how this matrix position determines architecture</output>
+    <output name="total_word_count_range">Total recommended word count for entire LP (e.g., "2,000-2,500 words")</output>
+    <output name="word_count_per_section">Word count range for each section with justification</output>
   </outputs>
 
   <validation>
@@ -152,5 +202,7 @@
     <check>Awareness-specific sections present</check>
     <check>Price-appropriate proof levels specified</check>
     <check>Complexity-appropriate explanation depth defined</check>
+    <check>Word count ranges provided for every section</check>
+    <check>Total word count matches price tier and CTA type</check>
   </validation>
 </task>
