@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garantia de 30 Dias - Seja Livre</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            /* Brand Colors */
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --borgonha-light: #9D1F28;
+            --borgonha-dark: #5A1015;
+            --gold: #C9A227;
+            --gold-light: #D4B350;
+
+            /* Neutrals */
+            --white: #FFFFFF;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-700: #374151;
+            --gray-900: #1E1E1E;
+
+            /* Typography */
+            --font-serif: 'Lora', serif;
+            --font-sans: 'Century Gothic', 'CenturyGothic', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Spacing */
+            --unit: 8px;
+
+            /* Transitions */
+            --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            color: var(--gray-900);
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 50%, var(--gray-50) 100%);
+            min-height: 100vh;
+            padding: calc(var(--unit) * 6) calc(var(--unit) * 2);
+        }
+
+        .guarantee-container {
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 600ms ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            margin-bottom: calc(var(--unit) * 8);
+            position: relative;
+        }
+
+        .shield-icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 96px;
+            height: 96px;
+            background: linear-gradient(135deg, var(--borgonha) 0%, var(--borgonha-dark) 100%);
+            border-radius: 24px;
+            margin-bottom: calc(var(--unit) * 3);
+            box-shadow:
+                0 20px 40px -12px rgba(129, 23, 31, 0.4),
+                0 0 0 1px rgba(129, 23, 31, 0.1),
+                inset 0 2px 4px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: scaleIn 600ms var(--transition-bounce) 200ms backwards;
+        }
+
+        .shield-icon-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .shield-icon-wrapper svg {
+            width: 48px;
+            height: 48px;
+            color: var(--white);
+            stroke-width: 2;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2.8px;
+            text-transform: uppercase;
+            color: var(--borgonha);
+            margin-bottom: calc(var(--unit) * 2);
+            padding: calc(var(--unit) * 1.5) calc(var(--unit) * 3);
+            background: linear-gradient(90deg, transparent, rgba(129, 23, 31, 0.08), transparent);
+            border-left: 3px solid var(--borgonha);
+            border-right: 3px solid var(--borgonha);
+            animation: slideIn 600ms ease-out 300ms backwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .headline {
+            font-family: var(--font-serif);
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--navy);
+            margin-bottom: calc(var(--unit) * 2);
+            animation: slideIn 600ms ease-out 400ms backwards;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--borgonha-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Guarantee Points */
+        .guarantee-points {
+            background: var(--white);
+            border-radius: 24px;
+            padding: calc(var(--unit) * 6);
+            margin-bottom: calc(var(--unit) * 5);
+            box-shadow:
+                0 24px 48px -12px rgba(25, 31, 58, 0.12),
+                0 0 0 1px rgba(25, 31, 58, 0.05);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 600ms ease-out 500ms backwards;
+        }
+
+        .guarantee-points::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--borgonha) 0%, var(--gold) 50%, var(--borgonha) 100%);
+            background-size: 200% 100%;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 0%; }
+            50% { background-position: 100% 0%; }
+        }
+
+        .points-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--unit) * 3);
+        }
+
+        .point-item {
+            display: flex;
+            align-items: flex-start;
+            gap: calc(var(--unit) * 2.5);
+            opacity: 0;
+            animation: fadeInLeft 400ms ease-out forwards;
+        }
+
+        .point-item:nth-child(1) { animation-delay: 600ms; }
+        .point-item:nth-child(2) { animation-delay: 700ms; }
+        .point-item:nth-child(3) { animation-delay: 800ms; }
+        .point-item:nth-child(4) { animation-delay: 900ms; }
+        .point-item:nth-child(5) { animation-delay: 1000ms; }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .check-icon-wrapper {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--borgonha) 0%, var(--borgonha-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow:
+                0 8px 16px -4px rgba(129, 23, 31, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.2);
+            transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+        }
+
+        .point-item:hover .check-icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow:
+                0 12px 24px -6px rgba(129, 23, 31, 0.4),
+                inset 0 2px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        .check-icon-wrapper svg {
+            width: 20px;
+            height: 20px;
+            color: var(--white);
+            stroke-width: 3;
+        }
+
+        .point-text {
+            flex: 1;
+            font-family: var(--font-sans);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--gray-900);
+            padding-top: calc(var(--unit) * 1);
+        }
+
+        /* Why This Guarantee Section */
+        .why-section {
+            background: linear-gradient(135deg, var(--navy) 0%, #242B4D 100%);
+            border-radius: 24px;
+            padding: calc(var(--unit) * 6);
+            margin-bottom: calc(var(--unit) * 5);
+            box-shadow:
+                0 24px 48px -12px rgba(25, 31, 58, 0.3),
+                inset 0 1px 2px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 600ms ease-out 1100ms backwards;
+        }
+
+        .why-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 1;
+        }
+
+        .why-heading {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--white);
+            margin-bottom: calc(var(--unit) * 4);
+            position: relative;
+            display: inline-block;
+        }
+
+        .why-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+        }
+
+        .quotes-container {
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--unit) * 3);
+            position: relative;
+        }
+
+        .quote-block {
+            border-left: 4px solid var(--borgonha);
+            padding-left: calc(var(--unit) * 3);
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--white);
+            font-style: italic;
+            position: relative;
+            opacity: 0.95;
+            transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+        }
+
+        .quote-block:hover {
+            opacity: 1;
+            transform: translateX(8px);
+        }
+
+        .quote-block::before {
+            content: '"';
+            position: absolute;
+            left: -12px;
+            top: -8px;
+            font-size: 48px;
+            font-family: var(--font-serif);
+            color: var(--gold);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        /* Signature Section */
+        .signature-section {
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+            border-radius: 20px;
+            padding: calc(var(--unit) * 5);
+            border: 2px solid var(--gray-200);
+            box-shadow:
+                0 12px 24px -8px rgba(25, 31, 58, 0.08),
+                inset 0 2px 4px rgba(255, 255, 255, 0.8);
+            position: relative;
+            animation: fadeInUp 600ms ease-out 1200ms backwards;
+        }
+
+        .signature-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .signature-content {
+            display: flex;
+            align-items: center;
+            gap: calc(var(--unit) * 2.5);
+        }
+
+        .heart-icon-wrapper {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--borgonha) 0%, var(--borgonha-light) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 16px -4px rgba(129, 23, 31, 0.3);
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.1); }
+            40% { transform: scale(1); }
+        }
+
+        .heart-icon-wrapper svg {
+            width: 28px;
+            height: 28px;
+            color: var(--white);
+            stroke-width: 2;
+            fill: var(--white);
+        }
+
+        .signature-quote {
+            flex: 1;
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--navy);
+            font-style: italic;
+        }
+
+        .signature-quote strong {
+            color: var(--borgonha);
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: calc(var(--unit) * 4) calc(var(--unit) * 2);
+            }
+
+            .headline {
+                font-size: 36px;
+            }
+
+            .shield-icon-wrapper {
+                width: 80px;
+                height: 80px;
+            }
+
+            .shield-icon-wrapper svg {
+                width: 40px;
+                height: 40px;
+            }
+
+            .eyebrow {
+                font-size: 12px;
+                letter-spacing: 2.4px;
+            }
+
+            .guarantee-points,
+            .why-section,
+            .signature-section {
+                padding: calc(var(--unit) * 4);
+            }
+
+            .point-text {
+                font-size: 16px;
+            }
+
+            .why-heading {
+                font-size: 24px;
+            }
+
+            .quote-block {
+                font-size: 16px;
+            }
+
+            .signature-quote {
+                font-size: 18px;
+            }
+
+            .signature-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .headline {
+                font-size: 32px;
+            }
+
+            .check-icon-wrapper {
+                width: 36px;
+                height: 36px;
+            }
+
+            .check-icon-wrapper svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .heart-icon-wrapper {
+                width: 48px;
+                height: 48px;
+            }
+
+            .heart-icon-wrapper svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus Styles */
+        *:focus-visible {
+            outline: 3px solid var(--borgonha);
+            outline-offset: 4px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: var(--white);
+            }
+
+            .guarantee-container {
+                animation: none;
+                opacity: 1;
+            }
+
+            .guarantee-points,
+            .why-section,
+            .signature-section {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="guarantee-container">
+        <!-- Header Section -->
+        <header class="header-section">
+            <div class="shield-icon-wrapper" role="img" aria-label="Escudo de proteção">
+                <i data-lucide="shield-check"></i>
+            </div>
+            <div class="eyebrow" role="text">ZERO RISCO</div>
+            <h1 class="headline">A Garantia de 30 Dias</h1>
+        </header>
+
+        <!-- Guarantee Points -->
+        <section class="guarantee-points" aria-labelledby="guarantee-heading">
+            <h2 id="guarantee-heading" class="sr-only">Pontos da Garantia</h2>
+            <ul class="points-list">
+                <li class="point-item">
+                    <div class="check-icon-wrapper" role="img" aria-label="Confirmado">
+                        <i data-lucide="check"></i>
+                    </div>
+                    <p class="point-text">Teste o método por 30 dias (4 sessões)</p>
+                </li>
+                <li class="point-item">
+                    <div class="check-icon-wrapper" role="img" aria-label="Confirmado">
+                        <i data-lucide="check"></i>
+                    </div>
+                    <p class="point-text">Se não for para você, paga apenas pelo mês utilizado</p>
+                </li>
+                <li class="point-item">
+                    <div class="check-icon-wrapper" role="img" aria-label="Confirmado">
+                        <i data-lucide="check"></i>
+                    </div>
+                    <p class="point-text">Sem compromisso de continuar</p>
+                </li>
+                <li class="point-item">
+                    <div class="check-icon-wrapper" role="img" aria-label="Confirmado">
+                        <i data-lucide="check"></i>
+                    </div>
+                    <p class="point-text">Sem conversas estranhas</p>
+                </li>
+                <li class="point-item">
+                    <div class="check-icon-wrapper" role="img" aria-label="Confirmado">
+                        <i data-lucide="check"></i>
+                    </div>
+                    <p class="point-text">Sem perguntas</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Why This Guarantee Section -->
+        <section class="why-section" aria-labelledby="why-heading">
+            <h2 id="why-heading" class="why-heading">Por que essa garantia?</h2>
+            <div class="quotes-container">
+                <blockquote class="quote-block">
+                    Eu confio no método. E quero que você também confie antes de se comprometer.
+                </blockquote>
+                <blockquote class="quote-block">
+                    Se não funcionar para você, não quero seu dinheiro.
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Signature Section -->
+        <section class="signature-section" aria-label="Mensagem pessoal">
+            <div class="signature-content">
+                <div class="heart-icon-wrapper" role="img" aria-label="Coração">
+                    <i data-lucide="heart"></i>
+                </div>
+                <p class="signature-quote">
+                    Do meu coração para o seu: <strong>zero risco, máxima transformação</strong>.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // Add intersection observer for scroll-triggered animations
+        if ('IntersectionObserver' in window) {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe animated elements
+            document.querySelectorAll('.guarantee-points, .why-section, .signature-section').forEach(el => {
+                observer.observe(el);
+            });
+        }
+    </script>
+</body>
+</html>

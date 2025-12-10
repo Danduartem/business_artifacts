@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Funciona - The Modern Artisan</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+            --gold-light: #E5C65A;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Century Gothic', 'Futura', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            color: var(--gray-700);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1.5rem;
+        }
+
+        .section {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .eyebrow {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--borgonha);
+            margin-bottom: 1rem;
+            display: inline-block;
+            position: relative;
+            padding: 0 1.5rem;
+        }
+
+        .eyebrow::before,
+        .eyebrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold));
+        }
+
+        .eyebrow::before {
+            right: 100%;
+            margin-right: 0.75rem;
+        }
+
+        .eyebrow::after {
+            left: 100%;
+            margin-left: 0.75rem;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        .headline {
+            font-family: 'Lora', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-top: 0.5rem;
+        }
+
+        /* Timeline Container */
+        .timeline-container {
+            position: relative;
+            padding: 3rem 2rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Horizontal Connecting Line */
+        .timeline-line {
+            position: absolute;
+            top: 5.5rem;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg,
+                var(--gray-200) 0%,
+                var(--gold) 50%,
+                var(--gray-200) 100%);
+            z-index: 0;
+        }
+
+        /* Timeline Steps */
+        .timeline-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            z-index: 1;
+            gap: 1.5rem;
+        }
+
+        .step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.1s; }
+        .step:nth-child(2) { animation-delay: 0.2s; }
+        .step:nth-child(3) { animation-delay: 0.3s; }
+        .step:nth-child(4) { animation-delay: 0.4s; }
+        .step:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Step Node */
+        .step-node {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gray-50) 100%);
+            border: 3px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Lora', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--navy);
+            position: relative;
+            margin-bottom: 1.5rem;
+            box-shadow:
+                0 4px 12px rgba(201, 162, 39, 0.15),
+                0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .step:hover .step-node {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow:
+                0 12px 24px rgba(201, 162, 39, 0.25),
+                0 4px 8px rgba(0, 0, 0, 0.08);
+            border-color: var(--borgonha);
+        }
+
+        .step-node::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: radial-gradient(circle,
+                rgba(201, 162, 39, 0.1) 0%,
+                transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .step:hover .step-node::before {
+            opacity: 1;
+        }
+
+        /* Step Content */
+        .step-content {
+            max-width: 220px;
+        }
+
+        .step-title {
+            font-family: 'Lora', serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            transition: color 0.3s ease;
+        }
+
+        .step:hover .step-title {
+            color: var(--borgonha);
+        }
+
+        .step-description {
+            font-size: 0.9375rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Differentiator Callout */
+        .differentiator {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+            background: linear-gradient(135deg,
+                var(--navy) 0%,
+                #232A48 100%);
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 8px 24px rgba(25, 31, 58, 0.2),
+                0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .differentiator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                var(--gold) 50%,
+                transparent 100%);
+        }
+
+        .differentiator::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle,
+                rgba(201, 162, 39, 0.08) 0%,
+                transparent 60%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .differentiator-text {
+            font-family: 'Lora', serif;
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: var(--white);
+            position: relative;
+            z-index: 1;
+            line-height: 1.5;
+        }
+
+        .differentiator-text strong {
+            color: var(--gold-light);
+            font-weight: 700;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.5;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .headline {
+                font-size: 2.5rem;
+            }
+
+            .step-content {
+                max-width: 180px;
+            }
+
+            .step-title {
+                font-size: 1rem;
+            }
+
+            .step-description {
+                font-size: 0.875rem;
+            }
+
+            .step-node {
+                width: 64px;
+                height: 64px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 3rem 1.25rem;
+            }
+
+            .headline {
+                font-size: 2rem;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+            }
+
+            .eyebrow::before,
+            .eyebrow::after {
+                width: 30px;
+            }
+
+            /* Vertical Stack */
+            .timeline-container {
+                padding: 1.5rem 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .timeline-line {
+                display: none; /* Hide horizontal line on mobile */
+            }
+
+            .timeline-steps {
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            .step {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .step-node {
+                width: 68px;
+                height: 68px;
+                font-size: 1.625rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .step-content {
+                max-width: 100%;
+            }
+
+            .step-title {
+                font-size: 1.125rem;
+            }
+
+            .step-description {
+                font-size: 0.9375rem;
+            }
+
+            .differentiator {
+                padding: 1.75rem 2rem;
+            }
+
+            .differentiator-text {
+                font-size: 1.125rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .headline {
+                font-size: 1.75rem;
+            }
+
+            .eyebrow {
+                font-size: 0.8125rem;
+                padding: 0 1rem;
+            }
+
+            .eyebrow::before,
+            .eyebrow::after {
+                width: 20px;
+            }
+
+            .differentiator {
+                padding: 1.5rem 1.5rem;
+            }
+
+            .differentiator-text {
+                font-size: 1rem;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus Styles */
+        .step:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
+            border-radius: 8px;
+        }
+
+        /* High Contrast Support */
+        @media (prefers-contrast: high) {
+            .step-node {
+                border-width: 4px;
+            }
+
+            .timeline-line {
+                height: 3px;
+            }
+
+            .differentiator {
+                border: 2px solid var(--gold);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="eyebrow" role="doc-subtitle">COMO FUNCIONA</div>
+            <h2 class="headline">A Jornada em 5 Passos</h2>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-container">
+            <!-- Horizontal Connecting Line -->
+            <div class="timeline-line" aria-hidden="true"></div>
+
+            <!-- Timeline Steps -->
+            <div class="timeline-steps">
+                <!-- Step 1 -->
+                <article class="step" tabindex="0">
+                    <div class="step-node" aria-label="Passo 1">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Sessão de Diagnóstico (Gratuita)</h3>
+                        <p class="step-description">Em 1 hora, mapeamos exatamente o que te mantém preso(a) no seu negócio.</p>
+                    </div>
+                </article>
+
+                <!-- Step 2 -->
+                <article class="step" tabindex="0">
+                    <div class="step-node" aria-label="Passo 2">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Se for fit, começamos</h3>
+                        <p class="step-description">A mentoria 1-on-1 semanal. Só aceito se eu realmente puder ajudar.</p>
+                    </div>
+                </article>
+
+                <!-- Step 3 -->
+                <article class="step" tabindex="0">
+                    <div class="step-node" aria-label="Passo 3">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">24 sessões de 2 horas</h3>
+                        <p class="step-description">Implementação personalizada no SEU negócio, não teoria genérica.</p>
+                    </div>
+                </article>
+
+                <!-- Step 4 -->
+                <article class="step" tabindex="0">
+                    <div class="step-node" aria-label="Passo 4">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">WhatsApp direto com a Juçanã</h3>
+                        <p class="step-description">Acesso ilimitado para dúvidas entre sessões. Não é chatbot, não é equipe — sou eu.</p>
+                    </div>
+                </article>
+
+                <!-- Step 5 -->
+                <article class="step" tabindex="0">
+                    <div class="step-node" aria-label="Passo 5">5</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Resultado em 6 meses</h3>
+                        <p class="step-description">Empresa estruturada + vendas previsíveis + liberdade real.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- Differentiator Callout -->
+        <div class="differentiator" role="complementary">
+            <p class="differentiator-text">
+                Não é curso. Não é grupo. É <strong>1-on-1 COM a Juçanã</strong>.
+            </p>
+        </div>
+    </section>
+</body>
+</html>

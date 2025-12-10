@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Solution C: Split Statement</title>
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* SYSTEM FONTS ONLY */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.5;
+            background: #ffffff;
+            color: #1a1a1a;
+            padding: 40px 20px;
+        }
+
+        /* WIREFRAME LABEL */
+        .wireframe-label {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #000;
+            color: #fff;
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px solid #000;
+            z-index: 1000;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 2px solid #d0d0d0;
+            padding: 60px 40px;
+        }
+
+        /* EYEBROW */
+        .eyebrow {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 32px;
+            color: #666;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+
+        /* SPLIT LAYOUT */
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* LEFT COLUMN - THE PITCH */
+        .left-column {
+            border-right: 2px solid #d0d0d0;
+            padding-right: 60px;
+        }
+
+        .element-label {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .main-statement {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+
+        .clarification {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #333;
+            padding: 20px;
+            background: #f5f5f5;
+            border-left: 4px solid #666;
+        }
+
+        .differentiation {
+            padding: 24px;
+            background: #e8e8e8;
+            border: 2px solid #999;
+        }
+
+        .differentiation-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .differentiation-subtitle {
+            font-size: 16px;
+            color: #4a4a4a;
+            font-style: italic;
+        }
+
+        /* RIGHT COLUMN - THE FILTER */
+        .right-column {
+            padding-left: 20px;
+        }
+
+        .qualification-block {
+            margin-bottom: 40px;
+        }
+
+        .qualification-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .qualification-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .criteria-list {
+            list-style: none;
+        }
+
+        .criteria-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .criteria-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .criteria-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border: 2px solid #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 2px;
+        }
+
+        .criteria-icon.positive {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .criteria-icon.negative {
+            background: #fff;
+            color: #1a1a1a;
+        }
+
+        /* RESPONSIVE: MOBILE STACKING */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            .split-container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .left-column {
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 2px solid #d0d0d0;
+                padding-bottom: 48px;
+            }
+
+            .right-column {
+                padding-left: 0;
+            }
+
+            .main-statement {
+                font-size: 28px;
+            }
+
+            .clarification {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .container {
+                padding: 32px 20px;
+            }
+
+            .main-statement {
+                font-size: 24px;
+            }
+
+            .clarification {
+                font-size: 15px;
+                padding: 16px;
+            }
+
+            .differentiation {
+                padding: 20px;
+            }
+
+            .differentiation-title {
+                font-size: 18px;
+            }
+
+            .differentiation-subtitle {
+                font-size: 15px;
+            }
+
+            .qualification-title {
+                font-size: 18px;
+            }
+
+            .criteria-item {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wireframe-label">WIREFRAME - LAYOUT C: SPLIT STATEMENT</div>
+
+    <div class="container">
+
+        <!-- EYEBROW -->
+        <div class="eyebrow">
+            <div class="element-label">[Eyebrow]</div>
+            A Solução
+        </div>
+
+        <!-- SPLIT LAYOUT -->
+        <div class="split-container">
+
+            <!-- LEFT COLUMN: THE PITCH -->
+            <div class="left-column">
+
+                <!-- MAIN STATEMENT -->
+                <div class="element-label">[Main Statement]</div>
+                <h1 class="main-statement">
+                    Mentoria personalizada de 6 meses para estruturar sua empresa E vender mais com menos esforço.
+                </h1>
+
+                <!-- CLARIFICATION -->
+                <div class="element-label">[Clarification]</div>
+                <div class="clarification">
+                    1-on-1 direto com a Juçanã. Não é curso. Não é grupo. É acompanhamento personalizado para o SEU negócio.
+                </div>
+
+                <!-- DIFFERENTIATION -->
+                <div class="element-label">[Differentiation]</div>
+                <div class="differentiation">
+                    <div class="differentiation-title">
+                        A única mentoria que resolve operação + vendas + conversão juntos.
+                    </div>
+                    <div class="differentiation-subtitle">
+                        Porque resolver só um lado não funciona.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN: THE FILTER -->
+            <div class="right-column">
+
+                <!-- PARA QUEM É -->
+                <div class="qualification-block">
+                    <div class="element-label">[For Whom - Positive]</div>
+                    <h2 class="qualification-title">Para Quem É</h2>
+                    <ul class="criteria-list">
+                        <li class="criteria-item">
+                            <span class="criteria-icon positive">✓</span>
+                            <span>Dono(a) de negócio com equipe (5-15 funcionários)</span>
+                        </li>
+                        <li class="criteria-item">
+                            <span class="criteria-icon positive">✓</span>
+                            <span>€15k-40k/mês (PT) ou R$50k-150k/mês (BR)</span>
+                        </li>
+                        <li class="criteria-item">
+                            <span class="criteria-icon positive">✓</span>
+                            <span>"Pau pra toda obra" — faz tudo na empresa</span>
+                        </li>
+                        <li class="criteria-item">
+                            <span class="criteria-icon positive">✓</span>
+                            <span>Pronto(a) para implementar, não só aprender</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- PARA QUEM NÃO É -->
+                <div class="qualification-block">
+                    <div class="element-label">[For Whom - Negative]</div>
+                    <h2 class="qualification-title">Para Quem NÃO É</h2>
+                    <ul class="criteria-list">
+                        <li class="criteria-item">
+                            <span class="criteria-icon negative">✗</span>
+                            <span>Empreendedor solo sem equipe</span>
+                        </li>
+                        <li class="criteria-item">
+                            <span class="criteria-icon negative">✗</span>
+                            <span>Faturamento abaixo de €10k/mês</span>
+                        </li>
+                        <li class="criteria-item">
+                            <span class="criteria-icon negative">✗</span>
+                            <span>Já tem empresa estruturada E sistema de vendas</span>
+                        </li>
+                        <li class="criteria-item">
+                            <span class="criteria-icon negative">✗</span>
+                            <span>Busca "fórmula mágica" sem implementar</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

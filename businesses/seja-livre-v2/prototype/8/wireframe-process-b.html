@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Process Section (Horizontal Timeline)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px 40px;
+            border: 2px solid #333;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 8px 20px;
+            border: 2px solid #666;
+            background: #e0e0e0;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .headline {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            margin-top: 16px;
+        }
+
+        /* Horizontal Timeline */
+        .timeline-wrapper {
+            position: relative;
+            padding: 0 40px;
+            margin-bottom: 80px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 30px;
+            left: 80px;
+            right: 80px;
+            height: 3px;
+            background: #333;
+            z-index: 1;
+        }
+
+        .timeline-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        .step-node {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #333;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .step-content {
+            max-width: 200px;
+        }
+
+        .step-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 12px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 12px;
+            min-height: 60px;
+        }
+
+        /* Differentiator Box */
+        .differentiator {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .differentiator-box {
+            display: inline-block;
+            padding: 24px 48px;
+            border: 3px solid #333;
+            background: #e8e8e8;
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        /* Annotations */
+        .annotation {
+            position: absolute;
+            font-size: 11px;
+            color: #999;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        .annotation-header {
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .annotation-timeline {
+            top: -25px;
+            left: 0;
+        }
+
+        .annotation-diff {
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .headline {
+                font-size: 28px;
+            }
+
+            .timeline-wrapper {
+                padding: 0;
+            }
+
+            .timeline-line {
+                display: none;
+            }
+
+            .timeline-steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .timeline-step {
+                padding: 0;
+            }
+
+            .step-node {
+                margin-bottom: 16px;
+            }
+
+            .step-content {
+                max-width: 100%;
+            }
+
+            .step-title {
+                font-size: 18px;
+                min-height: auto;
+            }
+
+            .step-description {
+                font-size: 15px;
+            }
+
+            .differentiator-box {
+                padding: 20px 32px;
+                font-size: 16px;
+            }
+        }
+
+        /* Wireframe Labels */
+        .wireframe-label {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #333;
+            color: white;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            z-index: 1000;
+        }
+
+        .layout-note {
+            margin-top: 40px;
+            padding: 20px;
+            border: 2px dashed #999;
+            background: #fafafa;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .layout-note strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe-label">WIREFRAME - LOW FIDELITY</div>
+
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header" style="position: relative;">
+            <span class="annotation annotation-header">Section Header (Centered)</span>
+            <div class="eyebrow">COMO FUNCIONA</div>
+            <h2 class="headline">A Jornada em 5 Passos</h2>
+        </div>
+
+        <!-- Horizontal Timeline -->
+        <div class="timeline-wrapper" style="position: relative;">
+            <span class="annotation annotation-timeline">Horizontal Timeline with Connected Nodes</span>
+
+            <div class="timeline-line"></div>
+
+            <div class="timeline-steps">
+                <!-- Step 1 -->
+                <div class="timeline-step">
+                    <div class="step-node">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Sessão de Diagnóstico</div>
+                        <div class="step-description">Gratuita. Vamos entender se você está pronto e se temos fit.</div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-step">
+                    <div class="step-node">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Se for fit, começamos</div>
+                        <div class="step-description">Assinamos o contrato e você entra para o programa exclusivo.</div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-step">
+                    <div class="step-node">3</div>
+                    <div class="step-content">
+                        <div class="step-title">24 sessões de 2 horas</div>
+                        <div class="step-description">Trabalho profundo, quinzenal, focado na sua transformação.</div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-step">
+                    <div class="step-node">4</div>
+                    <div class="step-content">
+                        <div class="step-title">WhatsApp direto com a Juçanã</div>
+                        <div class="step-description">Suporte entre sessões quando você mais precisa.</div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-step">
+                    <div class="step-node">5</div>
+                    <div class="step-content">
+                        <div class="step-title">Resultado em 6 meses</div>
+                        <div class="step-description">Transformação real: vida pessoal organizada e negócio estruturado.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Differentiator -->
+        <div class="differentiator" style="position: relative;">
+            <span class="annotation annotation-diff">Differentiator Callout Box</span>
+            <div class="differentiator-box">
+                Não é curso. Não é grupo. É 1-on-1 COM a Juçanã.
+            </div>
+        </div>
+
+        <!-- Layout Notes -->
+        <div class="layout-note">
+            <strong>LAYOUT VARIATION B: HORIZONTAL TIMELINE</strong>
+            <ul style="margin-left: 20px; margin-top: 8px;">
+                <li>Steps spread horizontally across page width</li>
+                <li>Horizontal line (3px) connecting all step nodes</li>
+                <li>Circled numbers (60px) as nodes on the line</li>
+                <li>Title + description positioned below each node</li>
+                <li>Shows linear progression visually from left to right</li>
+                <li>Mobile: automatically converts to vertical stack</li>
+                <li>Differentiator box centered below timeline</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Add mobile view indicator
+        function updateViewport() {
+            const isMobile = window.innerWidth <= 768;
+            const label = document.querySelector('.wireframe-label');
+            if (isMobile) {
+                label.textContent = 'WIREFRAME - MOBILE VIEW';
+            } else {
+                label.textContent = 'WIREFRAME - LOW FIDELITY';
+            }
+        }
+
+        window.addEventListener('resize', updateViewport);
+        updateViewport();
+    </script>
+</body>
+</html>

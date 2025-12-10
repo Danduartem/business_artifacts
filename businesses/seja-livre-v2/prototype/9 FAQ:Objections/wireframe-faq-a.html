@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Wireframe - Classic Accordion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .headline {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .preface {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Accordion Container */
+        .accordion-wrapper {
+            max-width: 800px;
+            margin: 0 auto 48px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Accordion Item */
+        .accordion-item {
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Question Row */
+        .question-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 28px;
+            cursor: pointer;
+            background: white;
+            transition: background 0.2s;
+        }
+
+        .question-row:hover {
+            background: #fafafa;
+        }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        /* Chevron Icon */
+        .chevron {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #333;
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+
+        .chevron::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%) rotate(45deg);
+            width: 8px;
+            height: 8px;
+            border-right: 2px solid #333;
+            border-bottom: 2px solid #333;
+        }
+
+        .accordion-item.active .chevron {
+            transform: rotate(180deg);
+        }
+
+        /* Answer Panel */
+        .answer-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #fafafa;
+        }
+
+        .accordion-item.active .answer-panel {
+            max-height: 500px;
+        }
+
+        .answer-content {
+            padding: 0 28px 28px 28px;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* Soft CTA */
+        .soft-cta {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 32px 20px;
+        }
+
+        .cta-text {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            border: 2px solid #333;
+            background: white;
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #333;
+            color: white;
+        }
+
+        /* Wireframe Label */
+        .wireframe-label {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #333;
+            color: white;
+            padding: 8px 16px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 24px;
+            }
+
+            .question-text {
+                font-size: 16px;
+            }
+
+            .question-row {
+                padding: 20px 20px;
+            }
+
+            .answer-content {
+                padding: 0 20px 20px 20px;
+                font-size: 15px;
+            }
+
+            .accordion-wrapper {
+                border-radius: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe-label">LOW-FI WIREFRAME</div>
+
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="eyebrow">DÚVIDAS COMUNS</div>
+            <h1 class="headline">As Perguntas Que Você Está Pensando</h1>
+            <p class="preface">Tire suas dúvidas antes de decidir</p>
+        </div>
+
+        <!-- Accordion -->
+        <div class="accordion-wrapper">
+            <!-- Q1 - Initially Expanded -->
+            <div class="accordion-item active">
+                <div class="question-row">
+                    <div class="question-text">Não tenho tempo para mais nada</div>
+                    <div class="chevron"></div>
+                </div>
+                <div class="answer-panel">
+                    <div class="answer-content">
+                        Essa é exatamente a razão para entrar. Você não tem tempo PORQUE sua empresa não tem estrutura. O método economiza tempo, não consome. 2 horas por semana comigo = 20+ horas de volta para você.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="accordion-item">
+                <div class="question-row">
+                    <div class="question-text">Será que funciona para o MEU tipo de negócio?</div>
+                    <div class="chevron"></div>
+                </div>
+                <div class="answer-panel">
+                    <div class="answer-content">
+                        Se você tem negócio com equipe e é pau pra toda obra — funciona. Já ajudei donos de box, clínicas, consultorias, agências. O método é testado.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="accordion-item">
+                <div class="question-row">
+                    <div class="question-text">Já fiz cursos/mentorias que não funcionaram</div>
+                    <div class="chevron"></div>
+                </div>
+                <div class="answer-panel">
+                    <div class="answer-content">
+                        A maioria foca SÓ em gestão ou SÓ em vendas. SEJA LIVRE é diferente porque estrutura a EMPRESA e cria SISTEMA DE VENDAS — os dois juntos.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="accordion-item">
+                <div class="question-row">
+                    <div class="question-text">Quanto custa?</div>
+                    <div class="chevron"></div>
+                </div>
+                <div class="answer-panel">
+                    <div class="answer-content">
+                        Discutimos o investimento na sessão de diagnóstico. Primeiro, quero entender se é certo para você. O diagnóstico é gratuito e sem compromisso.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="accordion-item">
+                <div class="question-row">
+                    <div class="question-text">Preciso falar com meu marido/minha mulher</div>
+                    <div class="chevron"></div>
+                </div>
+                <div class="answer-panel">
+                    <div class="answer-content">
+                        Claro, faz sentido. Posso preparar um resumo para vocês discutirem juntos. Ou estar disponível para uma call com os dois.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Soft CTA -->
+        <div class="soft-cta">
+            <p class="cta-text">Ainda tem dúvidas? Vamos conversar no diagnóstico gratuito.</p>
+            <a href="#" class="cta-button">Agendar Diagnóstico</a>
+        </div>
+    </div>
+
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.question-row').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.closest('.accordion-item');
+                const wasActive = item.classList.contains('active');
+
+                // Close all items (one at a time behavior)
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+
+                // Toggle clicked item
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

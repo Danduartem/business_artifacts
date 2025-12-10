@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe: Transformation Section - Layout E</title>
+    <style>
+        /* WIREFRAME STYLES - STRUCTURE ONLY */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #F5F5F5;
+            color: #212121;
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        /* Element Labels */
+        .label {
+            display: inline-block;
+            background-color: #424242;
+            color: #FFFFFF;
+            font-size: 10px;
+            padding: 2px 6px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Container */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #FFFFFF;
+            padding: 20px;
+        }
+
+        /* Visual Placeholder - LARGE (40-50% height) */
+        .visual-placeholder {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background-color: #E0E0E0;
+            border: 2px solid #9E9E9E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .visual-placeholder::before,
+        .visual-placeholder::after {
+            content: '';
+            position: absolute;
+            background-color: #9E9E9E;
+        }
+
+        .visual-placeholder::before {
+            width: 2px;
+            height: 100%;
+            transform: rotate(45deg);
+        }
+
+        .visual-placeholder::after {
+            width: 2px;
+            height: 100%;
+            transform: rotate(-45deg);
+        }
+
+        .visual-text {
+            position: absolute;
+            font-size: 14px;
+            color: #424242;
+            background-color: #FFFFFF;
+            padding: 4px 8px;
+            z-index: 1;
+        }
+
+        /* Headline Overlaid on Visual */
+        .headline-overlay {
+            position: relative;
+            margin-top: -80px;
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border: 1px solid #E0E0E0;
+        }
+
+        .headline {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #212121;
+            text-align: center;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* ANTES - Small/Compact */
+        .antes-section {
+            background-color: #F5F5F5;
+            padding: 16px;
+            border: 1px solid #E0E0E0;
+        }
+
+        .antes-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #424242;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .antes-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 12px;
+            color: #424242;
+        }
+
+        .antes-item {
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .antes-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+        }
+
+        /* DEPOIS - Large/Prominent */
+        .depois-section {
+            background-color: #FFFFFF;
+            padding: 30px;
+            border: 2px solid #212121;
+        }
+
+        .depois-title {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #212121;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .depois-list {
+            display: grid;
+            gap: 16px;
+            font-size: 16px;
+            color: #212121;
+        }
+
+        .depois-item {
+            padding: 12px;
+            background-color: #F5F5F5;
+            border-left: 3px solid #424242;
+            font-weight: 500;
+        }
+
+        /* Vision Block - Emphasized */
+        .vision-section {
+            background-color: #212121;
+            color: #FFFFFF;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .vision-title {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .vision-statements {
+            display: grid;
+            gap: 16px;
+        }
+
+        .vision-item {
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.4;
+            padding-left: 20px;
+            border-left: 2px solid #9E9E9E;
+        }
+
+        /* Tagline - Prominent */
+        .tagline {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #212121;
+            padding: 20px;
+            background-color: #F5F5F5;
+            border: 1px solid #E0E0E0;
+        }
+
+        /* Responsive Breakpoints */
+
+        /* Mobile: 375px */
+        @media (max-width: 767px) {
+            .visual-placeholder {
+                height: 250px;
+            }
+
+            .headline {
+                font-size: 22px;
+            }
+
+            .headline-overlay {
+                margin-top: -60px;
+                padding: 16px;
+            }
+
+            .antes-list {
+                grid-template-columns: 1fr;
+            }
+
+            .depois-title {
+                font-size: 18px;
+            }
+
+            .depois-item {
+                font-size: 14px;
+            }
+
+            .vision-item {
+                font-size: 16px;
+            }
+
+            .tagline {
+                font-size: 18px;
+            }
+        }
+
+        /* Tablet: 768px */
+        @media (min-width: 768px) {
+            .section-container {
+                padding: 40px;
+            }
+
+            .visual-placeholder {
+                height: 400px;
+            }
+
+            .headline {
+                font-size: 32px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr 2fr;
+                align-items: start;
+            }
+
+            .vision-item {
+                font-size: 20px;
+            }
+        }
+
+        /* Desktop: 1024px+ */
+        @media (min-width: 1024px) {
+            .visual-placeholder {
+                height: 500px;
+            }
+
+            .headline {
+                font-size: 36px;
+            }
+
+            .headline-overlay {
+                margin-top: -100px;
+                padding: 30px;
+            }
+
+            .depois-section {
+                padding: 40px;
+            }
+
+            .depois-list {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .vision-section {
+                padding: 50px;
+            }
+
+            .vision-statements {
+                grid-template-columns: 1fr;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .tagline {
+                font-size: 24px;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--
+WIREFRAME: Transformation Section
+LAYOUT: E - Immersive Vision
+DESCRIPTION: Large visual with emphasized "After" state, minimized "Before"
+
+STRUCTURAL ELEMENTS:
+- Visual placeholder: Large (40-50%)
+- Headline: Overlaid or prominent
+- ANTES: Small/compact reference
+- DEPOIS: Large, prominent outcomes
+- Vision block: Emphasized "Imagine..." statements
+- Tagline: Centered, prominent
+
+READING PATTERN: Visual draws eye → Dream state emphasized → Tagline
+HIERARCHY: Visual + Headline → DEPOIS (large) → ANTES (small) → Vision → Tagline
+-->
+
+    <div class="section-container">
+
+        <!-- Large Visual Placeholder -->
+        <span class="label">Visual Placeholder (40-50%)</span>
+        <div class="visual-placeholder">
+            <span class="visual-text">ASPIRATIONAL IMAGE<br>Large Visual Area</span>
+        </div>
+
+        <!-- Headline Overlaid -->
+        <span class="label">Section Headline (Overlaid)</span>
+        <div class="headline-overlay">
+            <h2 class="headline">De funcionário do próprio negócio para CEO</h2>
+        </div>
+
+        <!-- Content Grid: ANTES (small) + DEPOIS (large) -->
+        <div class="content-grid">
+
+            <!-- ANTES - Small/Compact -->
+            <div>
+                <span class="label">ANTES (Compact/Minimized)</span>
+                <div class="antes-section">
+                    <div class="antes-title">Preso no negócio</div>
+                    <div class="antes-list">
+                        <div class="antes-item">10-14h trabalho/dia</div>
+                        <div class="antes-item">Faturamento montanha-russa</div>
+                        <div class="antes-item">Se você para, tudo para</div>
+                        <div class="antes-item">Corre atrás de cliente</div>
+                        <div class="antes-item">Culpa por não estar com família</div>
+                        <div class="antes-item">Sem férias de verdade</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEPOIS - Large/Prominent -->
+            <div>
+                <span class="label">DEPOIS (Large/Emphasized)</span>
+                <div class="depois-section">
+                    <div class="depois-title">Livre</div>
+                    <div class="depois-list">
+                        <div class="depois-item">6-8h focadas em estratégia</div>
+                        <div class="depois-item">Vendas previsíveis</div>
+                        <div class="depois-item">Equipe executa sem você</div>
+                        <div class="depois-item">Clientes vêm até você</div>
+                        <div class="depois-item">Presente para quem você ama</div>
+                        <div class="depois-item">Viaja quando quer</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Vision Block - Emphasized -->
+        <span class="label">Vision Block (Emphasized)</span>
+        <div class="vision-section">
+            <div class="vision-title">O Destino</div>
+            <div class="vision-statements">
+                <div class="vision-item">Imagine saber exatamente quanto vai faturar no próximo mês.</div>
+                <div class="vision-item">Imagine sair às 18h com paz.</div>
+                <div class="vision-item">Imagine tirar férias de verdade — sem trabalhar escondido.</div>
+            </div>
+        </div>
+
+        <!-- Tagline - Prominent -->
+        <span class="label">Tagline (Prominent)</span>
+        <div class="tagline">
+            Tire a empresa das costas. Seja livre.
+        </div>
+
+    </div>
+
+</body>
+</html>

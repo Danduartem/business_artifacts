@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Guarantee Section D (Bullet Points)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .wireframe-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border: 2px solid #333;
+            padding: 60px 40px;
+        }
+
+        /* Header Section */
+        .guarantee-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: #e0e0e0;
+            padding: 8px 20px;
+            margin-bottom: 20px;
+            border: 1px solid #999;
+        }
+
+        .shield-icon {
+            width: 60px;
+            height: 60px;
+            background: #e0e0e0;
+            border: 2px solid #999;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .headline {
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            border: 2px dashed #999;
+            padding: 15px;
+            background: #fafafa;
+        }
+
+        /* Guarantee Points */
+        .guarantee-points {
+            margin-bottom: 50px;
+        }
+
+        .guarantee-points h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .bullet-list {
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .bullet-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .checkmark {
+            width: 28px;
+            height: 28px;
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 15px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .bullet-text {
+            flex: 1;
+            padding-top: 3px;
+        }
+
+        /* Why Section */
+        .why-guarantee {
+            background: #f9f9f9;
+            border: 2px solid #ddd;
+            padding: 40px;
+            margin-bottom: 40px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .why-guarantee h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .why-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: white;
+            border-left: 4px solid #999;
+        }
+
+        /* Signature */
+        .signature-section {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 2px solid #ddd;
+        }
+
+        .signature-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .signature-text {
+            font-size: 16px;
+            font-style: italic;
+            color: #555;
+            padding: 20px;
+            background: #fafafa;
+            border: 1px dashed #999;
+            flex: 1;
+        }
+
+        .badge-icon {
+            width: 50px;
+            height: 50px;
+            background: #e0e0e0;
+            border: 2px solid #999;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        /* Annotations */
+        .annotation {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .wireframe-container {
+                padding: 40px 20px;
+            }
+
+            .headline {
+                font-size: 28px;
+            }
+
+            .bullet-list li {
+                font-size: 16px;
+            }
+
+            .why-guarantee {
+                padding: 30px 20px;
+            }
+
+            .why-text {
+                font-size: 16px;
+            }
+
+            .signature-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .signature-text {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .wireframe-container {
+                padding: 30px 15px;
+            }
+
+            .headline {
+                font-size: 24px;
+                padding: 12px;
+            }
+
+            .bullet-list li {
+                font-size: 15px;
+            }
+
+            .checkmark {
+                width: 24px;
+                height: 24px;
+                font-size: 14px;
+            }
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #333;
+            color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .info-box h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="info-box">
+        <h1>WIREFRAME D: BULLET POINTS LAYOUT</h1>
+        <p>Low-Fidelity Guarantee Section - Variation D</p>
+        <p>Scannable bullet format with checkmarks</p>
+    </div>
+
+    <div class="wireframe-container">
+
+        <!-- Header Section -->
+        <div class="guarantee-header">
+            <div class="shield-icon">🛡</div>
+            <div class="eyebrow">ZERO RISCO</div>
+            <h1 class="headline">A Garantia de 30 Dias</h1>
+        </div>
+
+        <!-- Guarantee Points (Bullet List) -->
+        <div class="guarantee-points">
+            <h3>[Guarantee Points Section]</h3>
+            <ul class="bullet-list">
+                <li>
+                    <span class="checkmark">✓</span>
+                    <span class="bullet-text">Teste o método por 30 dias (4 sessões)</span>
+                </li>
+                <li>
+                    <span class="checkmark">✓</span>
+                    <span class="bullet-text">Se não for para você, paga apenas o mês utilizado</span>
+                </li>
+                <li>
+                    <span class="checkmark">✓</span>
+                    <span class="bullet-text">Sem compromisso de continuar</span>
+                </li>
+                <li>
+                    <span class="checkmark">✓</span>
+                    <span class="bullet-text">Sem conversas estranhas</span>
+                </li>
+                <li>
+                    <span class="checkmark">✓</span>
+                    <span class="bullet-text">Sem perguntas</span>
+                </li>
+            </ul>
+            <p class="annotation">[Scannable bullet points with checkmarks]</p>
+        </div>
+
+        <!-- Why This Guarantee -->
+        <div class="why-guarantee">
+            <h3>[Why This Guarantee]</h3>
+            <p class="why-text">
+                "Eu confio no método. E quero que você também confie antes de se comprometer."
+            </p>
+            <p class="why-text">
+                "Se não funcionar para você, não quero seu dinheiro."
+            </p>
+            <p class="annotation">[Authenticity statements]</p>
+        </div>
+
+        <!-- Signature Section -->
+        <div class="signature-section">
+            <div class="signature-container">
+                <p class="signature-text">
+                    "Do meu coração para o seu: zero risco, máxima transformação."
+                </p>
+                <div class="badge-icon">♥</div>
+            </div>
+            <p class="annotation">[Personal signature with optional badge]</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

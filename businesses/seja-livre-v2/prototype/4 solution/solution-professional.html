@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution Section - The Professional</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette - Conservative Professional */
+            --navy-primary: #191F3A;
+            --navy-medium: #2A3354;
+            --navy-light: #3D4A6E;
+            --borgonha-accent: #8B1538;
+            --neutral-50: #F8F9FA;
+            --neutral-100: #E9ECEF;
+            --neutral-200: #DEE2E6;
+            --neutral-300: #CED4DA;
+            --neutral-700: #495057;
+            --neutral-900: #212529;
+            --white: #FFFFFF;
+            --success-green: #1E6B3E;
+            --error-red: #B71C1C;
+
+            /* Typography */
+            --font-headline: 'Lora', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Spacing */
+            --container-max: 1200px;
+            --section-padding: 120px;
+            --section-padding-mobile: 60px;
+
+            /* Shadows - Subtle */
+            --shadow-sm: 0 1px 3px rgba(25, 31, 58, 0.08);
+            --shadow-md: 0 4px 12px rgba(25, 31, 58, 0.10);
+            --shadow-lg: 0 8px 24px rgba(25, 31, 58, 0.12);
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--neutral-900);
+            background-color: var(--neutral-50);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Section Container */
+        .solution-section {
+            padding: var(--section-padding) 24px;
+            background: linear-gradient(to bottom, var(--white) 0%, var(--neutral-50) 100%);
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        /* Eyebrow */
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--borgonha-accent);
+            background-color: var(--white);
+            padding: 8px 20px;
+            border-radius: 4px;
+            border: 1px solid var(--neutral-200);
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out 0.2s forwards;
+        }
+
+        /* Split Container */
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* Left Column - The Pitch */
+        .pitch-column {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out 0.4s forwards;
+        }
+
+        .main-statement {
+            font-family: var(--font-headline);
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--navy-primary);
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+
+        .clarification {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 48px;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--neutral-700);
+            font-weight: 400;
+        }
+
+        .clarification::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 4px;
+            width: 4px;
+            background-color: var(--borgonha-accent);
+            border-radius: 2px;
+        }
+
+        .differentiation-block {
+            background-color: var(--navy-primary);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--navy-medium);
+        }
+
+        .differentiation-title {
+            font-family: var(--font-headline);
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .differentiation-subtitle {
+            font-size: 0.9375rem;
+            color: var(--neutral-200);
+            font-weight: 400;
+        }
+
+        /* Right Column - The Filter */
+        .filter-column {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out 0.6s forwards;
+        }
+
+        .filter-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 36px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--neutral-200);
+        }
+
+        .filter-section + .filter-section {
+            margin-top: 32px;
+        }
+
+        .filter-heading {
+            font-family: var(--font-headline);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--navy-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .filter-heading.positive {
+            color: var(--success-green);
+        }
+
+        .filter-heading.negative {
+            color: var(--error-red);
+        }
+
+        .criteria-list {
+            list-style: none;
+        }
+
+        .criteria-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--neutral-100);
+        }
+
+        .criteria-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .criteria-item:first-child {
+            padding-top: 0;
+        }
+
+        .criteria-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-top: 2px;
+        }
+
+        .criteria-icon.check {
+            background-color: rgba(30, 107, 62, 0.1);
+            color: var(--success-green);
+        }
+
+        .criteria-icon.x {
+            background-color: rgba(183, 28, 28, 0.1);
+            color: var(--error-red);
+        }
+
+        .criteria-text {
+            flex: 1;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: var(--neutral-700);
+            font-weight: 400;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .solution-section {
+                padding: var(--section-padding-mobile) 20px;
+            }
+
+            .eyebrow {
+                margin-bottom: 32px;
+                font-size: 0.75rem;
+            }
+
+            .split-container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .main-statement {
+                font-size: 1.875rem;
+                margin-bottom: 24px;
+            }
+
+            .clarification {
+                font-size: 1rem;
+                margin-bottom: 32px;
+                padding-left: 20px;
+            }
+
+            .differentiation-block {
+                padding: 32px 24px;
+            }
+
+            .differentiation-title {
+                font-size: 1.25rem;
+            }
+
+            .differentiation-subtitle {
+                font-size: 0.875rem;
+            }
+
+            .filter-section {
+                padding: 28px 24px;
+            }
+
+            .filter-heading {
+                font-size: 1.125rem;
+                margin-bottom: 20px;
+            }
+
+            .criteria-item {
+                gap: 12px;
+                padding: 12px 0;
+            }
+
+            .criteria-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .criteria-text {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-statement {
+                font-size: 1.625rem;
+            }
+
+            .differentiation-block {
+                padding: 24px 20px;
+            }
+
+            .filter-section {
+                padding: 24px 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .solution-section {
+                padding: 40px 0;
+            }
+
+            .eyebrow,
+            .pitch-column,
+            .filter-column {
+                animation: none;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="solution-section">
+        <div class="container">
+            <!-- Eyebrow -->
+            <div class="eyebrow">A Solução</div>
+
+            <!-- Split Container -->
+            <div class="split-container">
+                <!-- Left Column: The Pitch -->
+                <div class="pitch-column">
+                    <!-- Main Statement -->
+                    <h2 class="main-statement">
+                        Mentoria personalizada de 6 meses para estruturar sua empresa E vender mais com menos esforço.
+                    </h2>
+
+                    <!-- Clarification -->
+                    <div class="clarification">
+                        1-on-1 direto com a Juçanã. Não é curso. Não é grupo. É acompanhamento personalizado para o SEU negócio.
+                    </div>
+
+                    <!-- Differentiation Block -->
+                    <div class="differentiation-block">
+                        <div class="differentiation-title">
+                            A única mentoria que resolve operação + vendas + conversão juntos.
+                        </div>
+                        <div class="differentiation-subtitle">
+                            Porque resolver só um lado não funciona.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: The Filter -->
+                <div class="filter-column">
+                    <!-- Para Quem É -->
+                    <div class="filter-section">
+                        <h3 class="filter-heading positive">Para Quem É</h3>
+                        <ul class="criteria-list">
+                            <li class="criteria-item">
+                                <div class="criteria-icon check" aria-hidden="true">
+                                    <i data-lucide="check" width="16" height="16"></i>
+                                </div>
+                                <div class="criteria-text">
+                                    Dono(a) de negócio com equipe (5-15 funcionários)
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-icon check" aria-hidden="true">
+                                    <i data-lucide="check" width="16" height="16"></i>
+                                </div>
+                                <div class="criteria-text">
+                                    €15k-40k/mês (PT) ou R$50k-150k/mês (BR)
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-icon check" aria-hidden="true">
+                                    <i data-lucide="check" width="16" height="16"></i>
+                                </div>
+                                <div class="criteria-text">
+                                    "Pau pra toda obra" — faz tudo na empresa
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-icon check" aria-hidden="true">
+                                    <i data-lucide="check" width="16" height="16"></i>
+                                </div>
+                                <div class="criteria-text">
+                                    Pronto(a) para implementar, não só aprender
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Para Quem NÃO É -->
+                    <div class="filter-section">
+                        <h3 class="filter-heading negative">Para Quem NÃO É</h3>
+                        <ul class="criteria-list">
+                            <li class="criteria-item">
+                                <div class="criteria-icon x" aria-hidden="true">
+                                    <i data-lucide="x" width="16" height="16"></i>
+                                </div>
+                                <div class="criteria-text">
+                                    Empreendedor solo sem equipe
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-icon x" aria-hidden="true">
+                                    <i data-lucide="x" width="16" height="16"></i>
+                                </div>
+                                <div class="criteria-text">
+                                    Faturamento abaixo de €10k/mês
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-icon x" aria-hidden="true">
+                                    <i data-lucide="x" width="16" height="16"></i>
+                                </div>
+                                <div class="criteria-text">
+                                    Já tem empresa estruturada E sistema de vendas
+                                </div>
+                            </li>
+                            <li class="criteria-item">
+                                <div class="criteria-icon x" aria-hidden="true">
+                                    <i data-lucide="x" width="16" height="16"></i>
+                                </div>
+                                <div class="criteria-text">
+                                    Busca "fórmula mágica" sem implementar
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Accessibility: Add proper ARIA labels
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkIcons = document.querySelectorAll('.criteria-icon.check');
+            checkIcons.forEach(icon => {
+                icon.setAttribute('aria-label', 'Critério positivo');
+            });
+
+            const xIcons = document.querySelectorAll('.criteria-icon.x');
+            xIcons.forEach(icon => {
+                icon.setAttribute('aria-label', 'Critério negativo');
+            });
+        });
+    </script>
+</body>
+</html>

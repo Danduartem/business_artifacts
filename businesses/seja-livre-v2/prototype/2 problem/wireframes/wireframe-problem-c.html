@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe: Problem Section - Layout C</title>
+    <style>
+        /* WIREFRAME STYLES - GRAYSCALE ONLY */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #FFFFFF;
+            color: #212121;
+            line-height: 1.6;
+        }
+
+        /* ELEMENT LABELS */
+        .label {
+            font-size: 10px;
+            color: #9E9E9E;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* SECTION */
+        .problem-section {
+            padding: 60px 0;
+            background-color: #F5F5F5;
+            border: 1px solid #E0E0E0;
+        }
+
+        /* HEADLINE BLOCK - FULL WIDTH */
+        .headline-block {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .headline {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #212121;
+        }
+
+        .intro-text {
+            font-size: 20px;
+            color: #424242;
+            font-style: italic;
+        }
+
+        /* 3-COLUMN PROBLEM GRID */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .problem-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E0E0E0;
+            padding: 30px;
+        }
+
+        .problem-number {
+            font-size: 14px;
+            color: #9E9E9E;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .problem-title {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            color: #212121;
+        }
+
+        .problem-body {
+            font-size: 16px;
+            color: #424242;
+            line-height: 1.6;
+        }
+
+        /* TRAP BLOCK - FULL WIDTH */
+        .trap-block {
+            background-color: #E0E0E0;
+            border: 2px solid #9E9E9E;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .trap-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #212121;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .trap-body {
+            font-size: 18px;
+            color: #212121;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .emotional-hook {
+            font-size: 18px;
+            color: #424242;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* HOPE PIVOT - FULL WIDTH */
+        .hope-block {
+            background-color: #FFFFFF;
+            border: 2px solid #424242;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .hope-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #212121;
+        }
+
+        .hope-body {
+            font-size: 18px;
+            color: #212121;
+            line-height: 1.6;
+        }
+
+        /* TRANSITION CUE */
+        .transition-cue {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .transition-arrow {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 16px;
+            background-color: #E0E0E0;
+            border: 1px solid #9E9E9E;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #424242;
+        }
+
+        .transition-text {
+            font-size: 14px;
+            color: #9E9E9E;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* TABLET BREAKPOINT */
+        @media (min-width: 768px) {
+            .problem-section {
+                padding: 80px 0;
+            }
+
+            .headline {
+                font-size: 48px;
+            }
+
+            .intro-text {
+                font-size: 24px;
+            }
+
+            .problem-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .trap-block,
+            .hope-block {
+                padding: 50px;
+            }
+        }
+
+        /* DESKTOP BREAKPOINT - 3 COLUMNS */
+        @media (min-width: 1024px) {
+            .problem-section {
+                padding: 100px 0;
+            }
+
+            .headline {
+                font-size: 56px;
+            }
+
+            .intro-text {
+                font-size: 26px;
+            }
+
+            .headline-block {
+                margin-bottom: 60px;
+            }
+
+            /* 3-COLUMN GRID ON DESKTOP */
+            .problem-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+                margin-bottom: 60px;
+            }
+
+            .problem-card {
+                padding: 40px;
+            }
+
+            .trap-block,
+            .hope-block {
+                padding: 60px;
+                margin-bottom: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!--
+WIREFRAME: Problem Section
+LAYOUT: C - Full-Width Sequential
+DESCRIPTION: Horizontal 3-column problem showcase
+
+STRUCTURAL ELEMENTS:
+- Headline: Full-width, centered, largest
+- Intro: Full-width, centered
+- Problem Grid: 3 equal columns side-by-side
+- Trap Block: Full-width, highlighted
+- Hope Pivot: Full-width, differentiated
+- Transition: Downward cue
+
+READING PATTERN: Down then across (headline → scan 3 problems → continue)
+HIERARCHY: Headline → Intro → Problems (equal) → Trap → Hope → Transition
+-->
+
+<section class="problem-section">
+    <div class="container">
+
+        <!-- HEADLINE BLOCK -->
+        <div class="headline-block">
+            <div class="label">[Full-Width Headline Block]</div>
+            <h1 class="headline">O Problema de 3 Cabeças</h1>
+            <p class="intro-text">Você é pau pra toda obra. Eu sei. Eu já fui assim também.</p>
+        </div>
+
+        <!-- 3-COLUMN PROBLEM GRID -->
+        <div class="label">[3-Column Problem Grid - Desktop / Stacked - Mobile]</div>
+        <div class="problem-grid">
+
+            <!-- PROBLEM 1 -->
+            <div class="problem-card">
+                <div class="label">[Problem Card 1]</div>
+                <div class="problem-number">PROBLEMA #1</div>
+                <h2 class="problem-title">1. Você faz tudo na operação</h2>
+                <p class="problem-body">Apaga incêndio todo dia. Resolve pepino da equipe. Lembra todo mundo do que precisa ser feito. Financeiro, atendimento, gestão — se você não faz, ninguém faz direito.</p>
+            </div>
+
+            <!-- PROBLEM 2 -->
+            <div class="problem-card">
+                <div class="label">[Problem Card 2]</div>
+                <div class="problem-number">PROBLEMA #2</div>
+                <h2 class="problem-title">2. Você corre atrás de cliente</h2>
+                <p class="problem-body">Posta no Instagram (ou tenta). Responde DMs e WhatsApp de leads. Cria promoções quando o mês está fraco. Faz TUDO para trazer faturamento. E mesmo assim, vendas são uma montanha-russa.</p>
+            </div>
+
+            <!-- PROBLEM 3 -->
+            <div class="problem-card">
+                <div class="label">[Problem Card 3]</div>
+                <div class="problem-number">PROBLEMA #3</div>
+                <h2 class="problem-title">3. Você não consegue fechar como deveria</h2>
+                <p class="problem-body">Atrai leads mas não converte todos. Sente que deixa dinheiro na mesa. Cada venda é uma batalha diferente. Sem processo, sem método.</p>
+            </div>
+
+        </div>
+
+        <!-- TRAP BLOCK -->
+        <div class="label">[Full-Width Trap Block - Highlighted]</div>
+        <div class="trap-block">
+            <h3 class="trap-title">A Armadilha</h3>
+            <p class="trap-body">Se você para, tudo para. Não consegue delegar NEM tirar férias de verdade. Trabalha 10-14 horas por dia... e os resultados não são proporcionais ao esforço.</p>
+            <p class="emotional-hook">Você ama o que faz — isso nunca esteve em dúvida. Mas tem dias em que você sente que o negócio está tirando a paz de você.</p>
+        </div>
+
+        <!-- HOPE PIVOT -->
+        <div class="label">[Full-Width Hope Pivot - Differentiated]</div>
+        <div class="hope-block">
+            <h3 class="hope-title">A Verdade Que Ninguém Te Conta</h3>
+            <p class="hope-body">Você não é o problema. O MODELO é o problema. Ninguém te ensinou a estruturar empresa E vender ao mesmo tempo.</p>
+        </div>
+
+        <!-- TRANSITION CUE -->
+        <div class="label">[Transition to Solution Section]</div>
+        <div class="transition-cue">
+            <div class="transition-arrow">↓</div>
+            <p class="transition-text">Continue Para a Solução</p>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>

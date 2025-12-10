@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe: CTA Section - Centered Hero (Variation A)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* === CTA SECTION: CENTERED HERO === */
+        .cta-section {
+            background: #f5f5f5;
+            padding: 120px 24px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Headline */
+        .cta-headline {
+            font-size: 48px;
+            font-weight: 900;
+            color: #222222;
+            margin-bottom: 32px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        /* Subheadline */
+        .cta-subheadline {
+            font-size: 20px;
+            color: #555555;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .cta-subheadline:last-of-type {
+            margin-bottom: 48px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: #222222;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 24px 64px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 48px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #000000;
+            transform: translateY(-2px);
+        }
+
+        /* Reassurance Points */
+        .reassurance-list {
+            list-style: none;
+            margin-bottom: 48px;
+            padding: 0;
+        }
+
+        .reassurance-item {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .checkmark {
+            width: 24px;
+            height: 24px;
+            background: #222222;
+            color: #ffffff;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Closing Statement */
+        .closing-statement {
+            font-size: 18px;
+            color: #444444;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .closing-emphasis {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222222;
+            margin-top: 24px;
+            letter-spacing: 1px;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .cta-section {
+                padding: 80px 20px;
+            }
+
+            .cta-headline {
+                font-size: 32px;
+                margin-bottom: 24px;
+            }
+
+            .cta-subheadline {
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
+
+            .cta-subheadline:last-of-type {
+                margin-bottom: 32px;
+            }
+
+            .cta-button {
+                font-size: 18px;
+                padding: 20px 48px;
+                margin-bottom: 32px;
+            }
+
+            .reassurance-item {
+                font-size: 16px;
+            }
+
+            .closing-statement {
+                font-size: 16px;
+            }
+
+            .closing-emphasis {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cta-section {
+                padding: 60px 16px;
+            }
+
+            .cta-headline {
+                font-size: 28px;
+            }
+
+            .cta-button {
+                width: 100%;
+                padding: 20px 32px;
+                font-size: 16px;
+            }
+        }
+
+        /* === WIREFRAME ANNOTATION === */
+        .wireframe-note {
+            background: #e8e8e8;
+            border-left: 4px solid #222222;
+            padding: 16px;
+            margin: 32px auto;
+            max-width: 800px;
+            text-align: left;
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .wireframe-note strong {
+            color: #222222;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- === WIREFRAME ANNOTATION === -->
+    <div class="wireframe-note">
+        <strong>WIREFRAME TYPE:</strong> Low-Fidelity | Centered Hero CTA<br>
+        <strong>LAYOUT:</strong> Variation A - Full-width, symmetrical, centered alignment<br>
+        <strong>FOCAL POINT:</strong> Large CTA button with reassurance points<br>
+        <strong>COLOR SCHEME:</strong> Grayscale only (ready for brand colors)<br>
+        <strong>RESPONSIVE:</strong> Scales naturally on all devices
+    </div>
+
+    <!-- === CTA SECTION: CENTERED HERO === -->
+    <section class="cta-section">
+        <div class="cta-container">
+
+            <!-- Headline -->
+            <h1 class="cta-headline">
+                Pronto(a) para tirar a empresa das suas costas?
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="cta-subheadline">
+                Agenda sua sessão de diagnóstico gratuita.
+            </p>
+            <p class="cta-subheadline">
+                Em 1 hora, vamos mapear exatamente o que te mantém preso(a) — e se SEJA LIVRE é o caminho certo para você.
+            </p>
+
+            <!-- CTA Button -->
+            <a href="#" class="cta-button">
+                AGENDAR DIAGNÓSTICO GRATUITO
+            </a>
+
+            <!-- Reassurance Points -->
+            <ul class="reassurance-list">
+                <li class="reassurance-item">
+                    <span class="checkmark">✓</span>
+                    <span>Sem compromisso</span>
+                </li>
+                <li class="reassurance-item">
+                    <span class="checkmark">✓</span>
+                    <span>Sem pressão de venda</span>
+                </li>
+                <li class="reassurance-item">
+                    <span class="checkmark">✓</span>
+                    <span>Só clareza sobre seu negócio</span>
+                </li>
+            </ul>
+
+            <!-- Closing Statement -->
+            <p class="closing-statement">
+                O diagnóstico é gratuito. A decisão é sua.
+            </p>
+            <p class="closing-statement">
+                Mas se você estava esperando um sinal, é esse.
+            </p>
+            <p class="closing-emphasis">
+                VAAAAAAAMOOOOS?!
+            </p>
+
+        </div>
+    </section>
+
+    <!-- === WIREFRAME ANNOTATION === -->
+    <div class="wireframe-note">
+        <strong>DESIGN NOTES:</strong><br>
+        • Full-width background (#f5f5f5) creates containment<br>
+        • Large headline (48px) establishes hierarchy<br>
+        • CTA button (dark fill) is the primary focal point<br>
+        • Reassurance checkmarks reduce friction<br>
+        • Closing statement adds emotional push<br>
+        • Generous padding (120px vertical) creates breathing room<br>
+        • Centered alignment throughout maintains symmetry<br>
+        • Responsive: scales down naturally on mobile devices
+    </div>
+
+</body>
+</html>

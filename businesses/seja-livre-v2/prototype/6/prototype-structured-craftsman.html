@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do Burnout à Liberdade - Juçanã Seja Livre</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ===================================
+           CSS CUSTOM PROPERTIES
+           =================================== */
+        :root {
+            /* Brand Colors */
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+            --white: #FFFFFF;
+            --off-white: #F8F8F8;
+            --light-gray: #E5E5E5;
+            --medium-gray: #6B6B6B;
+            --near-black: #1E1E1E;
+
+            /* Typography */
+            --font-heading: 'Lora', serif;
+            --font-body: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
+
+            /* Spacing Scale */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+
+            /* Typography Scale */
+            --text-xs: 0.875rem;
+            --text-sm: 1rem;
+            --text-base: 1.125rem;
+            --text-lg: 1.25rem;
+            --text-xl: 1.5rem;
+            --text-2xl: 2rem;
+            --text-3xl: 2.5rem;
+            --text-4xl: 3rem;
+
+            /* Layout */
+            --max-width: 1440px;
+            --border-radius: 4px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===================================
+           RESET & BASE STYLES
+           =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            line-height: 1.6;
+            color: var(--near-black);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===================================
+           TYPOGRAPHY
+           =================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--navy);
+        }
+
+        /* ===================================
+           SECTION CONTAINER
+           =================================== */
+        .section {
+            width: 100%;
+            background: linear-gradient(to bottom, var(--white) 0%, var(--off-white) 100%);
+            padding: var(--space-3xl) var(--space-md);
+        }
+
+        .section__container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* ===================================
+           SECTION HEADER
+           =================================== */
+        .section__header {
+            margin-bottom: var(--space-2xl);
+            text-align: left;
+        }
+
+        .section__eyebrow {
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--borgonha);
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .section__eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(to right, var(--borgonha), var(--gold));
+        }
+
+        .section__headline {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        /* ===================================
+           TWO-COLUMN GRID LAYOUT
+           =================================== */
+        .authority-grid {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        /* ===================================
+           LEFT COLUMN - PORTRAIT & CREDENTIALS
+           =================================== */
+        .authority-grid__left {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .portrait-container {
+            position: relative;
+            aspect-ratio: 3 / 4;
+            background: linear-gradient(135deg, var(--navy) 0%, #2A3454 100%);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow:
+                0 4px 6px rgba(25, 31, 58, 0.05),
+                0 10px 20px rgba(25, 31, 58, 0.08);
+        }
+
+        .portrait-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(135deg, rgba(201, 162, 39, 0.05) 0%, transparent 50%),
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 10px,
+                    rgba(255, 255, 255, 0.02) 10px,
+                    rgba(255, 255, 255, 0.02) 20px
+                );
+            pointer-events: none;
+        }
+
+        .portrait-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: var(--font-heading);
+        }
+
+        .portrait-placeholder i {
+            width: 64px;
+            height: 64px;
+            margin-bottom: var(--space-sm);
+            opacity: 0.4;
+        }
+
+        .portrait-placeholder p {
+            font-size: var(--text-sm);
+            letter-spacing: 0.05em;
+        }
+
+        .credentials-block {
+            background: var(--white);
+            padding: var(--space-lg);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--light-gray);
+            box-shadow: 0 2px 4px rgba(25, 31, 58, 0.04);
+        }
+
+        .credentials-block__title {
+            font-family: var(--font-heading);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: var(--space-md);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .credentials-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            color: var(--near-black);
+        }
+
+        .credential-item i {
+            width: 20px;
+            height: 20px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .credential-item strong {
+            color: var(--borgonha);
+            font-weight: 600;
+        }
+
+        /* ===================================
+           RIGHT COLUMN - STORY CONTENT
+           =================================== */
+        .authority-grid__right {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .opening-statement {
+            font-family: var(--font-heading);
+            font-size: var(--text-2xl);
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--navy);
+            margin-bottom: var(--space-sm);
+        }
+
+        .story-content {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .story-paragraph {
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            line-height: 1.6;
+            color: var(--near-black);
+        }
+
+        .story-paragraph strong {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* ===================================
+           HIGHLIGHTED INSIGHT BOX
+           =================================== */
+        .insight-box {
+            background: linear-gradient(to right, rgba(129, 23, 31, 0.03), rgba(201, 162, 39, 0.02));
+            border-left: 4px solid var(--borgonha);
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .insight-box__label {
+            font-family: var(--font-body);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--borgonha);
+            margin-bottom: var(--space-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .insight-box__label i {
+            width: 16px;
+            height: 16px;
+        }
+
+        .insight-box__text {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--navy);
+        }
+
+        .insight-box__text em {
+            font-style: italic;
+            color: var(--borgonha);
+        }
+
+        /* ===================================
+           CLOSING STATEMENT
+           =================================== */
+        .closing-statement {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--navy);
+            margin-top: var(--space-md);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--light-gray);
+        }
+
+        /* ===================================
+           EMOTIONAL CLOSING SECTION
+           =================================== */
+        .emotional-closing {
+            background: linear-gradient(135deg, var(--navy) 0%, #2A3454 100%);
+            padding: var(--space-2xl) var(--space-xl);
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow:
+                0 10px 30px rgba(25, 31, 58, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .emotional-closing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+        }
+
+        .emotional-closing__icon {
+            width: 48px;
+            height: 48px;
+            color: var(--gold);
+            margin: 0 auto var(--space-md);
+            opacity: 0.9;
+        }
+
+        .emotional-closing__subheading {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            font-weight: 500;
+            color: var(--gold);
+            margin-bottom: var(--space-sm);
+            letter-spacing: 0.02em;
+        }
+
+        .emotional-closing__text {
+            font-family: var(--font-body);
+            font-size: var(--text-xl);
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--white);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* ===================================
+           RESPONSIVE DESIGN
+           =================================== */
+
+        /* Tablet (≤768px) */
+        @media (max-width: 768px) {
+            :root {
+                --text-3xl: 2rem;
+                --text-2xl: 1.5rem;
+                --text-xl: 1.25rem;
+                --space-3xl: 4rem;
+                --space-2xl: 3rem;
+            }
+
+            .section {
+                padding: var(--space-2xl) var(--space-md);
+            }
+
+            .authority-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+
+            .authority-grid__left {
+                order: 1;
+            }
+
+            .authority-grid__right {
+                order: 2;
+            }
+
+            .portrait-container {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .section__headline {
+                font-size: var(--text-2xl);
+            }
+
+            .opening-statement {
+                font-size: var(--text-xl);
+            }
+
+            .emotional-closing {
+                padding: var(--space-xl) var(--space-lg);
+            }
+        }
+
+        /* Mobile (≤375px) */
+        @media (max-width: 375px) {
+            :root {
+                --text-3xl: 1.75rem;
+                --text-2xl: 1.375rem;
+                --text-xl: 1.125rem;
+                --text-lg: 1.125rem;
+                --space-2xl: 2rem;
+                --space-xl: 2rem;
+            }
+
+            .section {
+                padding: var(--space-xl) var(--space-sm);
+            }
+
+            .credentials-block {
+                padding: var(--space-md);
+            }
+
+            .insight-box {
+                padding: var(--space-md);
+            }
+
+            .emotional-closing {
+                padding: var(--space-lg) var(--space-md);
+            }
+
+            .emotional-closing__text {
+                font-size: var(--text-lg);
+            }
+        }
+
+        /* ===================================
+           ACCESSIBILITY
+           =================================== */
+
+        /* Focus states */
+        *:focus-visible {
+            outline: 2px solid var(--borgonha);
+            outline-offset: 2px;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ===================================
+           ANIMATIONS
+           =================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .portrait-container {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portrait-container:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 6px 12px rgba(25, 31, 58, 0.08),
+                0 15px 30px rgba(25, 31, 58, 0.12);
+        }
+
+        .credential-item {
+            transition: transform 0.2s ease;
+        }
+
+        .credential-item:hover {
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+<body>
+
+    <section class="section" aria-labelledby="section-headline">
+        <div class="section__container">
+
+            <!-- Section Header -->
+            <header class="section__header">
+                <div class="section__eyebrow" role="doc-subtitle">Sobre a Juçanã</div>
+                <h1 class="section__headline" id="section-headline">Do Burnout à Liberdade</h1>
+            </header>
+
+            <!-- Two-Column Grid -->
+            <div class="authority-grid">
+
+                <!-- Left Column: Portrait + Credentials -->
+                <div class="authority-grid__left">
+
+                    <!-- Portrait -->
+                    <div class="portrait-container" role="img" aria-label="Retrato da Juçanã">
+                        <div class="portrait-placeholder">
+                            <i data-lucide="user" aria-hidden="true"></i>
+                            <p>Retrato Profissional</p>
+                        </div>
+                    </div>
+
+                    <!-- Credentials Block -->
+                    <aside class="credentials-block" aria-label="Credenciais profissionais">
+                        <h2 class="credentials-block__title">Experiência</h2>
+                        <div class="credentials-list">
+                            <div class="credential-item">
+                                <i data-lucide="trending-up" aria-hidden="true"></i>
+                                <span><strong>14 anos</strong> vendendo</span>
+                            </div>
+                            <div class="credential-item">
+                                <i data-lucide="briefcase" aria-hidden="true"></i>
+                                <span><strong>10 anos</strong> empreendendo</span>
+                            </div>
+                        </div>
+                    </aside>
+
+                </div>
+
+                <!-- Right Column: Story Content -->
+                <div class="authority-grid__right">
+
+                    <!-- Opening Statement -->
+                    <p class="opening-statement">Eu trabalhava 16 horas por dia.</p>
+
+                    <!-- Story Paragraphs -->
+                    <div class="story-content">
+                        <p class="story-paragraph">
+                            Burnout. Crises de choro. Perdi peso. A empresa dependia de mim para tudo. Eu era a pessoa que mais trabalhava no meu próprio negócio.
+                        </p>
+
+                        <p class="story-paragraph">
+                            Em 2022, viajei para Portugal por um mês para descansar. Precisava respirar.
+                        </p>
+
+                        <p class="story-paragraph">
+                            Quando voltei, tudo tinha desmoronado na empresa.
+                        </p>
+                    </div>
+
+                    <!-- Highlighted Insight Box -->
+                    <aside class="insight-box" aria-label="Momento de transformação">
+                        <div class="insight-box__label">
+                            <i data-lucide="lightbulb" aria-hidden="true"></i>
+                            O Momento da Virada
+                        </div>
+                        <p class="insight-box__text">
+                            Eu <em>TINHA</em> uma empresa — eu não <em>ERA</em> a empresa.
+                        </p>
+                    </aside>
+
+                    <!-- Continuation -->
+                    <div class="story-content">
+                        <p class="story-paragraph">
+                            Criei um plano prático que me levou de 16 horas por dia para 4 horas por semana.
+                        </p>
+
+                        <p class="story-paragraph">
+                            Hoje viajo 2 meses por ano enquanto a empresa lucra sem mim. Vendi meu box de CrossFit — do total zero a dominar o mercado.
+                        </p>
+                    </div>
+
+                    <!-- Closing Statement -->
+                    <p class="closing-statement">
+                        Não sou guru no pedestal. Sou alguém que andou pelo mesmo caminho que você.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Emotional Closing Section -->
+            <div class="emotional-closing" role="complementary" aria-label="Mensagem emocional de encerramento">
+                <i data-lucide="heart" class="emotional-closing__icon" aria-hidden="true"></i>
+                <p class="emotional-closing__subheading">Do Meu Coração Para o Seu</p>
+                <p class="emotional-closing__text">
+                    Eu sei exatamente como é carregar a empresa nas costas. Existe um jeito mais fácil.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

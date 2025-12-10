@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método SEJA LIVRE - 5 Pilares Integrados</title>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* CSS Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Brand Colors */
+        :root {
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+            --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --gray: #666666;
+            --transition-speed: 300ms;
+        }
+
+        /* Typography */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap');
+
+        body {
+            font-family: 'Century Gothic', 'Lato', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--navy);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.2;
+        }
+
+        /* Container */
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h1 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .section-header h1 strong {
+            color: var(--borgonha);
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 24px;
+            font-size: 1.125rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .intro-text strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* SIDE-BY-SIDE LAYOUT - Desktop */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 45% 55%;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        /* Pentagon Container (LEFT SIDE) */
+        .pentagon-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 600px;
+            margin: 0 auto;
+        }
+
+        /* Pentagon SVG */
+        .pentagon-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Pentagon Lines */
+        .pentagon-line {
+            stroke: var(--gold);
+            stroke-width: 2;
+            fill: none;
+            opacity: 0.3;
+            transition: opacity var(--transition-speed);
+        }
+
+        .pentagon-line.active {
+            opacity: 0.8;
+            stroke-width: 3;
+        }
+
+        /* Center Hub */
+        .center-hub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--borgonha) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(25, 31, 58, 0.2);
+            z-index: 10;
+        }
+
+        .center-hub-text {
+            color: var(--white);
+            font-family: 'Lora', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* Pentagon Node */
+        .pentagon-node {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--navy);
+            border: 3px solid var(--gold);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+            z-index: 20;
+            box-shadow: 0 5px 20px rgba(25, 31, 58, 0.3);
+        }
+
+        .pentagon-node:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(25, 31, 58, 0.4);
+        }
+
+        .pentagon-node:focus {
+            outline: 3px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        .pentagon-node.active {
+            background: var(--borgonha);
+            border-color: var(--gold);
+            border-width: 4px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 10px 30px rgba(129, 23, 31, 0.4), 0 0 0 0 rgba(201, 162, 39, 0.7);
+            }
+            50% {
+                box-shadow: 0 10px 40px rgba(129, 23, 31, 0.6), 0 0 0 15px rgba(201, 162, 39, 0);
+            }
+        }
+
+        .pentagon-node-icon {
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .pentagon-node-label {
+            color: var(--white);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Node Positions - Aligned to Pentagon Corners */
+        .pentagon-node:nth-child(3) { /* Mentalidade (pillar 1) - Top */
+            top: 13.33%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pentagon-node:nth-child(4) { /* Estrutura (pillar 2) - Top Right */
+            top: 38.33%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pentagon-node:nth-child(5) { /* Estratégia (pillar 3) - Bottom Right */
+            top: 80%;
+            left: 68.57%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pentagon-node:nth-child(6) { /* Social Seller (pillar 4) - Bottom Left */
+            top: 80%;
+            left: 31.43%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pentagon-node:nth-child(7) { /* Alavanca (pillar 5) - Top Left */
+            top: 38.33%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Content Panel (RIGHT SIDE) */
+        .content-panel {
+            background: var(--white);
+            border: 2px solid var(--navy);
+            border-radius: 12px;
+            padding: 48px;
+            box-shadow: 0 10px 40px rgba(25, 31, 58, 0.1);
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+            transition: opacity 150ms ease-in-out;
+        }
+
+        .pillar-content {
+            display: none;
+            animation: fadeIn var(--transition-speed) ease;
+        }
+
+        .pillar-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Pillar Header */
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .pillar-icon-box {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--borgonha) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .pillar-icon-box svg {
+            color: var(--white);
+        }
+
+        .pillar-title-group {
+            flex: 1;
+        }
+
+        .pillar-title {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .position-indicator {
+            font-size: 0.875rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Authority Quote */
+        .authority-quote {
+            background: var(--light-gray);
+            border-left: 4px solid var(--gold);
+            padding: 20px 24px;
+            margin-bottom: 32px;
+            border-radius: 4px;
+        }
+
+        .authority-quote p {
+            font-style: italic;
+            color: var(--gray);
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        .authority-quote strong {
+            color: var(--navy);
+            font-style: normal;
+        }
+
+        /* Description */
+        .pillar-description {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        .pillar-description strong {
+            color: var(--borgonha);
+            font-weight: 600;
+        }
+
+        /* Key Benefits Callout */
+        .benefits-callout {
+            background: var(--borgonha);
+            color: var(--white);
+            padding: 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .benefits-callout strong {
+            color: var(--gold);
+        }
+
+        /* Closing Section */
+        .closing-section {
+            max-width: 800px;
+            margin: 80px auto 0;
+            text-align: center;
+        }
+
+        .closing-section h2 {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .closing-section p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .closing-section strong {
+            color: var(--borgonha);
+            font-weight: 600;
+        }
+
+        .closing-highlight {
+            background: var(--light-gray);
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            padding: 32px;
+            margin-top: 32px;
+        }
+
+        .closing-highlight p {
+            font-size: 1.25rem;
+            color: var(--navy);
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .pentagon-container {
+                max-width: 500px;
+                height: 500px;
+            }
+
+            .center-hub {
+                width: 150px;
+                height: 150px;
+            }
+
+            .pentagon-node {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-container {
+                padding: 60px 24px;
+            }
+
+            .section-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+            }
+
+            .pentagon-container {
+                height: 450px;
+            }
+
+            .center-hub {
+                width: 120px;
+                height: 120px;
+            }
+
+            .center-hub-text {
+                font-size: 1rem;
+            }
+
+            .pentagon-node {
+                width: 85px;
+                height: 85px;
+            }
+
+            .pentagon-node-icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            .pentagon-node-label {
+                font-size: 0.75rem;
+            }
+
+            .content-panel {
+                padding: 32px 24px;
+                min-height: auto;
+            }
+
+            .pillar-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .pillar-icon-box {
+                width: 64px;
+                height: 64px;
+            }
+
+            .pillar-title {
+                font-size: 1.5rem;
+            }
+
+            .pillar-description {
+                font-size: 1rem;
+            }
+
+            .authority-quote p {
+                font-size: 1rem;
+            }
+
+            .closing-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .closing-section p {
+                font-size: 1rem;
+            }
+
+            .closing-highlight p {
+                font-size: 1.125rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pentagon-container {
+                height: 400px;
+            }
+
+            .center-hub {
+                width: 100px;
+                height: 100px;
+                padding: 12px;
+            }
+
+            .center-hub-text {
+                font-size: 0.875rem;
+            }
+
+            .pentagon-node {
+                width: 70px;
+                height: 70px;
+            }
+
+            .pentagon-node-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .pentagon-node-label {
+                font-size: 0.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section-container">
+        <!-- Section Header -->
+        <header class="section-header">
+            <h1>O Método <strong>SEJA LIVRE</strong></h1>
+            <div class="intro-text">
+                <p><strong>5 pilares. 6 meses. Transformação completa.</strong></p>
+                <p>Uma metodologia integrada que ataca todos os pontos onde sua empresa te prende. Cada pilar trabalha junto para tirar a empresa das suas costas.</p>
+            </div>
+        </header>
+
+        <!-- Main Grid: Pentagon LEFT + Content RIGHT -->
+        <div class="main-grid">
+            <!-- Pentagon Navigation (LEFT) -->
+            <div class="pentagon-container" role="navigation" aria-label="Navegação dos 5 pilares">
+                <!-- SVG Pentagon Lines -->
+                <svg class="pentagon-svg" viewBox="0 0 700 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <!-- Pentagon outline connecting all nodes -->
+                    <polygon class="pentagon-line" points="350,80 560,230 480,480 220,480 140,230" id="pentagon-outline"/>
+
+                    <!-- Lines from center to each node -->
+                    <line class="pentagon-line" x1="350" y1="300" x2="350" y2="80" id="line-1"/>
+                    <line class="pentagon-line" x1="350" y1="300" x2="560" y2="230" id="line-2"/>
+                    <line class="pentagon-line" x1="350" y1="300" x2="480" y2="480" id="line-3"/>
+                    <line class="pentagon-line" x1="350" y1="300" x2="220" y2="480" id="line-4"/>
+                    <line class="pentagon-line" x1="350" y1="300" x2="140" y2="230" id="line-5"/>
+                </svg>
+
+                <!-- Center Hub -->
+                <div class="center-hub">
+                    <div class="center-hub-text">SEJA LIVRE</div>
+                </div>
+
+                <!-- Pentagon Nodes (Hoverable) -->
+                <button class="pentagon-node active"
+                        data-pillar="1"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Pilar 1: Mentalidade">
+                    <i data-lucide="brain" class="pentagon-node-icon" width="32" height="32"></i>
+                    <span class="pentagon-node-label">Mentalidade</span>
+                </button>
+
+                <button class="pentagon-node"
+                        data-pillar="2"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Pilar 2: Estrutura de Marca">
+                    <i data-lucide="gem" class="pentagon-node-icon" width="32" height="32"></i>
+                    <span class="pentagon-node-label">Estrutura de Marca</span>
+                </button>
+
+                <button class="pentagon-node"
+                        data-pillar="3"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Pilar 3: Estratégia de Vendas">
+                    <i data-lucide="trending-up" class="pentagon-node-icon" width="32" height="32"></i>
+                    <span class="pentagon-node-label">Estratégia de Vendas</span>
+                </button>
+
+                <button class="pentagon-node"
+                        data-pillar="4"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Pilar 4: Social Seller">
+                    <i data-lucide="smartphone" class="pentagon-node-icon" width="32" height="32"></i>
+                    <span class="pentagon-node-label">Social Seller</span>
+                </button>
+
+                <button class="pentagon-node"
+                        data-pillar="5"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Pilar 5: Alavanca">
+                    <i data-lucide="zap" class="pentagon-node-icon" width="32" height="32"></i>
+                    <span class="pentagon-node-label">Alavanca</span>
+                </button>
+            </div>
+
+            <!-- Content Panel (RIGHT) -->
+            <div class="content-panel" role="region" aria-live="polite">
+                <!-- Pilar 1: Mentalidade -->
+                <div class="pillar-content active" id="pillar-1-content" data-pillar="1">
+                    <div class="pillar-header">
+                        <div class="pillar-icon-box">
+                            <i data-lucide="brain" width="48" height="48"></i>
+                        </div>
+                        <div class="pillar-title-group">
+                            <h2 class="pillar-title">MENTALIDADE</h2>
+                            <div class="position-indicator">Pilar 1 de 5</div>
+                        </div>
+                    </div>
+
+                    <div class="authority-quote">
+                        <p>"10x mais resultados com 10x menos esforço."</p>
+                    </div>
+
+                    <div class="pillar-description">
+                        <p>De cultura do hustle para pensamento estratégico. Trabalhamos a transição de executor para líder, desenvolvendo confiança para delegar, estruturar times e tomar decisões estratégicas. <strong>Sem mindset certo, nenhum sistema funciona.</strong></p>
+                    </div>
+
+                    <div class="benefits-callout">
+                        <strong>Resultado:</strong> Liberação mental para confiar, delegar e liderar sem ser o gargalo do próprio negócio.
+                    </div>
+                </div>
+
+                <!-- Pilar 2: Estrutura de Marca -->
+                <div class="pillar-content" id="pillar-2-content" data-pillar="2">
+                    <div class="pillar-header">
+                        <div class="pillar-icon-box">
+                            <i data-lucide="gem" width="48" height="48"></i>
+                        </div>
+                        <div class="pillar-title-group">
+                            <h2 class="pillar-title">ESTRUTURA DE MARCA</h2>
+                            <div class="position-indicator">Pilar 2 de 5</div>
+                        </div>
+                    </div>
+
+                    <div class="authority-quote">
+                        <p>"Construa marca que vende por você."</p>
+                    </div>
+
+                    <div class="pillar-description">
+                        <p>Avatar raio laser, posicionamento claro, diferenciação real. Sua marca precisa vender quando você NÃO está presente. <strong>Marca autossustentável = menos dependência de você.</strong></p>
+                    </div>
+
+                    <div class="benefits-callout">
+                        <strong>Resultado:</strong> Clientes chegam qualificados, prontos para comprar, porque sua marca comunica valor automaticamente.
+                    </div>
+                </div>
+
+                <!-- Pilar 3: Estratégia de Vendas -->
+                <div class="pillar-content" id="pillar-3-content" data-pillar="3">
+                    <div class="pillar-header">
+                        <div class="pillar-icon-box">
+                            <i data-lucide="trending-up" width="48" height="48"></i>
+                        </div>
+                        <div class="pillar-title-group">
+                            <h2 class="pillar-title">ESTRATÉGIA DE VENDAS</h2>
+                            <div class="position-indicator">Pilar 3 de 5</div>
+                        </div>
+                    </div>
+
+                    <div class="authority-quote">
+                        <p>"Sistema previsível + melhor conversão."</p>
+                    </div>
+
+                    <div class="pillar-description">
+                        <p>Os 5 níveis de consciência do cliente. Oferta irresistível. Criamos processos claros, scripts, funil previsível. <strong>Quando vendas são sistemáticas, qualquer pessoa capacitada pode executar.</strong></p>
+                    </div>
+
+                    <div class="benefits-callout">
+                        <strong>Resultado:</strong> Equipe vende sem você estar em cada call. Sistema replicável que funciona mesmo quando você não está presente.
+                    </div>
+                </div>
+
+                <!-- Pilar 4: Social Seller -->
+                <div class="pillar-content" id="pillar-4-content" data-pillar="4">
+                    <div class="pillar-header">
+                        <div class="pillar-icon-box">
+                            <i data-lucide="smartphone" width="48" height="48"></i>
+                        </div>
+                        <div class="pillar-title-group">
+                            <h2 class="pillar-title">SOCIAL SELLER</h2>
+                            <div class="position-indicator">Pilar 4 de 5</div>
+                        </div>
+                    </div>
+
+                    <div class="authority-quote">
+                        <p>"Autoridade que atrai clientes."</p>
+                    </div>
+
+                    <div class="pillar-description">
+                        <p>Marketing de conteúdo estratégico. Copywriting que converte. Conteúdo que posiciona você como autoridade E nutre leads sem esforço manual constante. <strong>Automatize atração enquanto você foca em atividades de CEO.</strong></p>
+                    </div>
+
+                    <div class="benefits-callout">
+                        <strong>Resultado:</strong> Pipeline cheio de leads qualificados gerados organicamente — sem você estar preso criando conteúdo 24/7.
+                    </div>
+                </div>
+
+                <!-- Pilar 5: Alavanca -->
+                <div class="pillar-content" id="pillar-5-content" data-pillar="5">
+                    <div class="pillar-header">
+                        <div class="pillar-icon-box">
+                            <i data-lucide="zap" width="48" height="48"></i>
+                        </div>
+                        <div class="pillar-title-group">
+                            <h2 class="pillar-title">ALAVANCA</h2>
+                            <div class="position-indicator">Pilar 5 de 5</div>
+                        </div>
+                    </div>
+
+                    <div class="authority-quote">
+                        <p>"Escalar sem escalar horas."</p>
+                    </div>
+
+                    <div class="pillar-description">
+                        <p>Métricas, sistemas, crescimento sustentável. CAC, LTV, ROI. Identificamos onde investir energia para máximo retorno. <strong>Trabalhe nas coisas que só VOCÊ pode fazer. Delegue/automatize o resto.</strong></p>
+                    </div>
+
+                    <div class="benefits-callout">
+                        <strong>Resultado:</strong> Você se torna CEO estratégico, não operador sobrecarregado. Mais resultado com menos esforço.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing Section -->
+        <section class="closing-section">
+            <h2>A Promessa</h2>
+            <p><strong>Método testado para negócios como o seu.</strong></p>
+            <p>Não é teoria. É implementação. No SEU negócio.</p>
+
+            <div class="closing-highlight">
+                <p>Os 5 pilares juntos criam uma <strong>"Empresa Autossustentável"</strong> — uma operação que funciona com ou sem você.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // State Management
+        let currentPillar = 1;
+        let transitionInProgress = false;
+
+        // DOM Elements
+        const pentagonNodes = document.querySelectorAll('.pentagon-node');
+        const pillarContents = document.querySelectorAll('.pillar-content');
+        const pentagonLines = document.querySelectorAll('.pentagon-line');
+        const contentPanel = document.querySelector('.content-panel');
+
+        // Initialize
+        function init() {
+            setupEventListeners();
+            highlightPentagonLines(1); // Initial highlight
+        }
+
+        // Setup Event Listeners - HOVER INTERACTION
+        function setupEventListeners() {
+            pentagonNodes.forEach(node => {
+                // Mouse hover
+                node.addEventListener('mouseenter', () => {
+                    const pillar = parseInt(node.dataset.pillar);
+                    switchToPillar(pillar);
+                });
+
+                // Keyboard navigation
+                node.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const pillar = parseInt(node.dataset.pillar);
+                        switchToPillar(pillar);
+                    }
+                });
+
+                // Focus handling for keyboard users
+                node.addEventListener('focus', () => {
+                    const pillar = parseInt(node.dataset.pillar);
+                    switchToPillar(pillar);
+                });
+            });
+        }
+
+        // Switch to specific pillar with smooth fade
+        function switchToPillar(pillarNumber) {
+            if (pillarNumber === currentPillar) return;
+            if (transitionInProgress) return; // Prevent overlapping transitions
+
+            transitionInProgress = true;
+
+            // Fade out
+            contentPanel.style.opacity = '0';
+
+            setTimeout(() => {
+                // Update pentagon nodes
+                pentagonNodes.forEach(node => {
+                    const nodePillar = parseInt(node.dataset.pillar);
+                    const isActive = nodePillar === pillarNumber;
+                    node.classList.toggle('active', isActive);
+                });
+
+                // Update content panels
+                pillarContents.forEach(content => {
+                    const contentPillar = parseInt(content.dataset.pillar);
+                    const isActive = contentPillar === pillarNumber;
+                    content.classList.toggle('active', isActive);
+                });
+
+                // Highlight connected pentagon lines
+                highlightPentagonLines(pillarNumber);
+
+                currentPillar = pillarNumber;
+
+                // Fade in
+                setTimeout(() => {
+                    contentPanel.style.opacity = '1';
+                    transitionInProgress = false;
+
+                    // Re-initialize icons in newly visible content
+                    lucide.createIcons();
+                }, 50);
+            }, 150);
+        }
+
+        // Highlight pentagon lines connected to active node
+        function highlightPentagonLines(pillarNumber) {
+            pentagonLines.forEach(line => {
+                line.classList.remove('active');
+            });
+
+            // Highlight line from center to active node
+            const centerLine = document.getElementById(`line-${pillarNumber}`);
+            if (centerLine) {
+                centerLine.classList.add('active');
+            }
+
+            // Highlight outline
+            const outline = document.getElementById('pentagon-outline');
+            if (outline) {
+                outline.classList.add('active');
+            }
+        }
+
+        // Initialize on page load
+        init();
+    </script>
+
+</body>
+</html>

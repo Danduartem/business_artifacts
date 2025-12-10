@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe: Transformation Section - D Contrast Stack</title>
+    <style>
+        /* WIREFRAME STYLES - STRUCTURE ONLY */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.5;
+            background-color: #F5F5F5;
+        }
+
+        /* ELEMENT LABELS */
+        .label {
+            display: inline-block;
+            background-color: #E0E0E0;
+            color: #424242;
+            padding: 4px 8px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        /* SECTION CONTAINER */
+        .section-transformation {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        /* HEADLINE */
+        .headline-container {
+            background-color: #FFFFFF;
+            padding: 48px 20px;
+            text-align: center;
+        }
+
+        .headline {
+            font-size: 32px;
+            font-weight: bold;
+            color: #212121;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.2;
+        }
+
+        /* ANTES BLOCK - DARK */
+        .antes-block {
+            background-color: #212121;
+            padding: 64px 20px;
+            width: 100%;
+        }
+
+        .antes-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .antes-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .antes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .pain-item {
+            background-color: #424242;
+            padding: 24px;
+            border-left: 4px solid #9E9E9E;
+        }
+
+        .pain-text {
+            font-size: 18px;
+            color: #FFFFFF;
+            line-height: 1.4;
+        }
+
+        /* TRANSITION ELEMENT */
+        .transition-element {
+            background-color: #9E9E9E;
+            padding: 32px 20px;
+            text-align: center;
+        }
+
+        .transition-arrow {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #424242;
+            border-left: none;
+            border-top: none;
+            transform: rotate(45deg);
+            margin: 0 auto;
+        }
+
+        /* DEPOIS BLOCK - LIGHT */
+        .depois-block {
+            background-color: #FFFFFF;
+            padding: 64px 20px;
+            width: 100%;
+        }
+
+        .depois-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .depois-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #212121;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .depois-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .outcome-item {
+            background-color: #F5F5F5;
+            padding: 24px;
+            border-left: 4px solid #424242;
+        }
+
+        .outcome-text {
+            font-size: 18px;
+            color: #212121;
+            line-height: 1.4;
+        }
+
+        /* VISION BLOCK */
+        .vision-block {
+            background-color: #F5F5F5;
+            padding: 64px 20px;
+            text-align: center;
+        }
+
+        .vision-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .vision-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #212121;
+            margin-bottom: 32px;
+        }
+
+        .vision-statement {
+            font-size: 18px;
+            color: #424242;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        /* TAGLINE */
+        .tagline-container {
+            background-color: #FFFFFF;
+            padding: 48px 20px;
+            text-align: center;
+        }
+
+        .tagline {
+            font-size: 28px;
+            font-weight: bold;
+            color: #212121;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.3;
+        }
+
+        /* RESPONSIVE - TABLET */
+        @media (min-width: 768px) {
+            .headline-container {
+                padding: 64px 40px;
+            }
+
+            .headline {
+                font-size: 42px;
+            }
+
+            .antes-block {
+                padding: 80px 40px;
+            }
+
+            .antes-title {
+                font-size: 28px;
+                margin-bottom: 48px;
+            }
+
+            .antes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .pain-item {
+                padding: 28px;
+            }
+
+            .pain-text {
+                font-size: 19px;
+            }
+
+            .transition-element {
+                padding: 40px;
+            }
+
+            .transition-arrow {
+                width: 50px;
+                height: 50px;
+            }
+
+            .depois-block {
+                padding: 80px 40px;
+            }
+
+            .depois-title {
+                font-size: 28px;
+                margin-bottom: 48px;
+            }
+
+            .depois-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .outcome-item {
+                padding: 28px;
+            }
+
+            .outcome-text {
+                font-size: 19px;
+            }
+
+            .vision-block {
+                padding: 80px 40px;
+            }
+
+            .vision-title {
+                font-size: 22px;
+            }
+
+            .vision-statement {
+                font-size: 20px;
+            }
+
+            .tagline-container {
+                padding: 64px 40px;
+            }
+
+            .tagline {
+                font-size: 32px;
+            }
+        }
+
+        /* RESPONSIVE - DESKTOP */
+        @media (min-width: 1024px) {
+            .headline-container {
+                padding: 80px 60px;
+            }
+
+            .headline {
+                font-size: 48px;
+            }
+
+            .antes-block {
+                padding: 100px 60px;
+            }
+
+            .antes-title {
+                font-size: 32px;
+                margin-bottom: 56px;
+            }
+
+            .antes-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 28px;
+            }
+
+            .pain-item {
+                padding: 32px;
+            }
+
+            .pain-text {
+                font-size: 20px;
+            }
+
+            .transition-element {
+                padding: 48px;
+            }
+
+            .transition-arrow {
+                width: 60px;
+                height: 60px;
+                border-width: 5px;
+            }
+
+            .depois-block {
+                padding: 100px 60px;
+            }
+
+            .depois-title {
+                font-size: 32px;
+                margin-bottom: 56px;
+            }
+
+            .depois-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 28px;
+            }
+
+            .outcome-item {
+                padding: 32px;
+            }
+
+            .outcome-text {
+                font-size: 20px;
+            }
+
+            .vision-block {
+                padding: 100px 60px;
+            }
+
+            .vision-title {
+                font-size: 24px;
+            }
+
+            .vision-statement {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            .tagline-container {
+                padding: 80px 60px;
+            }
+
+            .tagline {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--
+WIREFRAME: Transformation Section
+LAYOUT: D - Contrast Stack
+DESCRIPTION: Vertical stack with dramatic dark→light contrast
+
+STRUCTURAL ELEMENTS:
+- Headline: Full-width, centered
+- ANTES block: Dark background, full-width, 6 pain points
+- Transition: Arrow/divider
+- DEPOIS block: Light background, full-width, 6 outcomes
+- Vision block: Light background
+- Tagline: Centered, prominent
+
+READING PATTERN: Straight down with dramatic shift
+HIERARCHY: Headline → ANTES (dark) → Transition → DEPOIS (light) → Vision → Tagline
+-->
+
+<section class="section-transformation">
+
+    <!-- HEADLINE -->
+    <div class="headline-container">
+        <span class="label">[SECTION HEADLINE]</span>
+        <h2 class="headline">De funcionário do próprio negócio para CEO</h2>
+    </div>
+
+    <!-- ANTES BLOCK - DARK -->
+    <div class="antes-block">
+        <div class="antes-content">
+            <span class="label" style="background-color: #424242; color: #FFFFFF;">[ANTES - PRESO NO NEGÓCIO]</span>
+            <h3 class="antes-title">Preso no negócio</h3>
+            <div class="antes-grid">
+                <div class="pain-item">
+                    <span class="label" style="background-color: #212121; color: #9E9E9E;">[PAIN 1]</span>
+                    <p class="pain-text">10-14h trabalho/dia</p>
+                </div>
+                <div class="pain-item">
+                    <span class="label" style="background-color: #212121; color: #9E9E9E;">[PAIN 2]</span>
+                    <p class="pain-text">Faturamento montanha-russa</p>
+                </div>
+                <div class="pain-item">
+                    <span class="label" style="background-color: #212121; color: #9E9E9E;">[PAIN 3]</span>
+                    <p class="pain-text">Se você para, tudo para</p>
+                </div>
+                <div class="pain-item">
+                    <span class="label" style="background-color: #212121; color: #9E9E9E;">[PAIN 4]</span>
+                    <p class="pain-text">Corre atrás de cliente</p>
+                </div>
+                <div class="pain-item">
+                    <span class="label" style="background-color: #212121; color: #9E9E9E;">[PAIN 5]</span>
+                    <p class="pain-text">Culpa por não estar com família</p>
+                </div>
+                <div class="pain-item">
+                    <span class="label" style="background-color: #212121; color: #9E9E9E;">[PAIN 6]</span>
+                    <p class="pain-text">Sem férias de verdade</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TRANSITION ELEMENT -->
+    <div class="transition-element">
+        <span class="label">[TRANSITION]</span>
+        <div class="transition-arrow"></div>
+    </div>
+
+    <!-- DEPOIS BLOCK - LIGHT -->
+    <div class="depois-block">
+        <div class="depois-content">
+            <span class="label">[DEPOIS - LIVRE]</span>
+            <h3 class="depois-title">Livre</h3>
+            <div class="depois-grid">
+                <div class="outcome-item">
+                    <span class="label">[OUTCOME 1]</span>
+                    <p class="outcome-text">6-8h focadas em estratégia</p>
+                </div>
+                <div class="outcome-item">
+                    <span class="label">[OUTCOME 2]</span>
+                    <p class="outcome-text">Vendas previsíveis</p>
+                </div>
+                <div class="outcome-item">
+                    <span class="label">[OUTCOME 3]</span>
+                    <p class="outcome-text">Equipe executa sem você</p>
+                </div>
+                <div class="outcome-item">
+                    <span class="label">[OUTCOME 4]</span>
+                    <p class="outcome-text">Clientes vêm até você</p>
+                </div>
+                <div class="outcome-item">
+                    <span class="label">[OUTCOME 5]</span>
+                    <p class="outcome-text">Presente para quem você ama</p>
+                </div>
+                <div class="outcome-item">
+                    <span class="label">[OUTCOME 6]</span>
+                    <p class="outcome-text">Viaja quando quer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VISION BLOCK -->
+    <div class="vision-block">
+        <div class="vision-content">
+            <span class="label">[O DESTINO]</span>
+            <h3 class="vision-title">O Destino</h3>
+            <p class="vision-statement">Imagine saber exatamente quanto vai faturar no próximo mês.</p>
+            <p class="vision-statement">Imagine sair às 18h com paz.</p>
+            <p class="vision-statement">Imagine tirar férias de verdade — sem trabalhar escondido.</p>
+        </div>
+    </div>
+
+    <!-- TAGLINE -->
+    <div class="tagline-container">
+        <span class="label">[TAGLINE]</span>
+        <p class="tagline">Tire a empresa das costas. Seja livre.</p>
+    </div>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe B: Split Screen - Hero</title>
+  <style>
+    /* === RESET === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* === WIREFRAME FOUNDATION === */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #FFFFFF;
+      color: #212121;
+      line-height: 1.5;
+    }
+
+    /* === HERO CONTAINER === */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #E0E0E0;
+    }
+
+    /* === SPLIT SCREEN LAYOUT === */
+    .hero__container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    /* === CONTENT COLUMN === */
+    .hero__content {
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #F5F5F5;
+      border-bottom: 1px solid #E0E0E0;
+    }
+
+    .hero__content-inner {
+      max-width: 540px;
+    }
+
+    /* === VISUAL COLUMN === */
+    .hero__visual {
+      padding: 0;
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
+      background: #FFFFFF;
+      min-height: 350px;
+    }
+
+    .hero__visual-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 350px;
+      background: #E0E0E0;
+      border: 1px solid #9E9E9E;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero__visual-placeholder::before,
+    .hero__visual-placeholder::after {
+      content: '';
+      position: absolute;
+      background: #9E9E9E;
+      width: 1px;
+      height: 141%;
+    }
+
+    .hero__visual-placeholder::before {
+      transform: rotate(45deg);
+    }
+
+    .hero__visual-placeholder::after {
+      transform: rotate(-45deg);
+    }
+
+    .hero__visual-label {
+      position: absolute;
+      font-size: 11px;
+      color: #616161;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 1;
+      background: #E0E0E0;
+      padding: 4px 8px;
+      border: 1px solid #9E9E9E;
+    }
+
+    /* === ELEMENT LABELS === */
+    .element-label {
+      font-size: 10px;
+      color: #9E9E9E;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    /* === HEADLINE === */
+    .hero__headline {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #212121;
+      margin-bottom: 24px;
+      border: 1px solid #E0E0E0;
+      padding: 16px;
+      background: #FFFFFF;
+    }
+
+    /* === SUBHEADLINE === */
+    .hero__subheadline {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #616161;
+      margin-bottom: 32px;
+      border: 1px solid #E0E0E0;
+      padding: 16px;
+      background: #FFFFFF;
+    }
+
+    .hero__subheadline-emphasis {
+      display: block;
+      font-weight: 600;
+      color: #212121;
+      margin-top: 8px;
+    }
+
+    /* === CTA GROUP === */
+    .hero__cta-group {
+      border: 1px solid #E0E0E0;
+      padding: 20px;
+      background: #FFFFFF;
+    }
+
+    .hero__cta {
+      display: inline-block;
+      padding: 16px 32px;
+      background: #212121;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: 2px solid #212121;
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+
+    .hero__cta-microcopy {
+      font-size: 12px;
+      color: #9E9E9E;
+      display: block;
+    }
+
+    /* === TABLET: 768px+ === */
+    @media (min-width: 768px) {
+      .hero__content {
+        padding: 60px 40px;
+      }
+
+      .hero__visual {
+        padding: 0;
+        min-height: 400px;
+      }
+
+      .hero__headline {
+        font-size: 42px;
+      }
+
+      .hero__subheadline {
+        font-size: 18px;
+      }
+
+      .hero__cta {
+        font-size: 15px;
+        padding: 18px 36px;
+      }
+    }
+
+    /* === DESKTOP: 1024px+ === */
+    @media (min-width: 1024px) {
+      .hero__container {
+        flex-direction: row;
+      }
+
+      .hero__content {
+        width: 55%;
+        padding: 80px 60px;
+        border-bottom: none;
+        border-right: 1px solid #E0E0E0;
+      }
+
+      .hero__visual {
+        width: 45%;
+        padding: 0;
+        min-height: auto;
+      }
+
+      .hero__visual-placeholder {
+        min-height: 85vh;
+      }
+
+      .hero__headline {
+        font-size: 48px;
+        margin-bottom: 28px;
+      }
+
+      .hero__subheadline {
+        font-size: 19px;
+        margin-bottom: 36px;
+      }
+
+      .hero__cta {
+        font-size: 16px;
+        padding: 20px 40px;
+      }
+    }
+
+    /* === LARGE DESKTOP: 1280px+ === */
+    @media (min-width: 1280px) {
+      .hero__content {
+        padding: 100px 80px;
+      }
+
+      .hero__visual {
+        padding: 0;
+      }
+
+      .hero__content-inner {
+        max-width: 600px;
+      }
+
+      .hero__headline {
+        font-size: 52px;
+      }
+
+      .hero__subheadline {
+        font-size: 20px;
+      }
+    }
+
+    /* === WIREFRAME METADATA === */
+    .wireframe-info {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      background: #212121;
+      color: #FFFFFF;
+      padding: 8px 12px;
+      font-size: 11px;
+      border: 1px solid #616161;
+      z-index: 1000;
+      font-family: monospace;
+    }
+
+    .wireframe-info__title {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .wireframe-info__details {
+      font-size: 10px;
+      color: #9E9E9E;
+    }
+  </style>
+</head>
+<body>
+  <!--
+  WIREFRAME: Hero Section
+  LAYOUT: B - Split Screen
+  DESCRIPTION: Two-column layout - content left (55%), visual right (45%)
+
+  STRUCTURAL ELEMENTS:
+  - Left column: Headline, Subheadline, CTA Button, CTA Microcopy
+  - Right column: Visual placeholder (image/video area)
+
+  READING PATTERN: Z-shaped (left to right, top to bottom)
+  HIERARCHY: Headline → Subheadline → CTA | Visual supports content
+  RESPONSIVE: Mobile stacks to single column, Desktop splits 55/45
+  -->
+
+  <!-- Wireframe Metadata -->
+  <div class="wireframe-info">
+    <div class="wireframe-info__title">LAYOUT B: SPLIT SCREEN</div>
+    <div class="wireframe-info__details">Section: Hero | Height: 85vh | Grayscale Only</div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero__container">
+
+      <!-- CONTENT COLUMN (Left - 55%) -->
+      <div class="hero__content">
+        <div class="hero__content-inner">
+
+          <!-- Headline -->
+          <div>
+            <div class="element-label">[HEADLINE]</div>
+            <h1 class="hero__headline">
+              Para quem carrega a empresa nas costas
+            </h1>
+          </div>
+
+          <!-- Subheadline -->
+          <div>
+            <div class="element-label">[SUBHEADLINE]</div>
+            <div class="hero__subheadline">
+              Operação, vendas e conversão. Tudo depende de você.
+              Se você para, tudo para.
+              <span class="hero__subheadline-emphasis">Existe um jeito mais fácil.</span>
+            </div>
+          </div>
+
+          <!-- CTA Group -->
+          <div class="hero__cta-group">
+            <div class="element-label">[PRIMARY CTA]</div>
+            <a href="#" class="hero__cta">
+              Agendar Diagnóstico Gratuito
+            </a>
+            <div class="element-label" style="margin-top: 12px; margin-bottom: 8px;">[CTA MICROCOPY]</div>
+            <span class="hero__cta-microcopy">
+              Sem compromisso. Só clareza.
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- VISUAL COLUMN (Right - 45%) -->
+      <div class="hero__visual">
+        <div class="hero__visual-placeholder">
+          <span class="hero__visual-label">[VISUAL: IMAGE/VIDEO]</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Solution B: Pentagon Methodology Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #FFFFFF;
+            color: #424242;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #212121;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #616161;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Main Grid Layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            align-items: start;
+        }
+
+        /* Left Side - Pentagon Visualization */
+        .pentagon-container {
+            background-color: #F5F5F5;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 600px;
+        }
+
+        .pentagon-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .pentagon-line {
+            stroke: #9E9E9E;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .spoke-line {
+            stroke: #E0E0E0;
+            stroke-width: 1.5;
+        }
+
+        .center-hub {
+            fill: #FFFFFF;
+            stroke: #424242;
+            stroke-width: 3;
+        }
+
+        .node-circle {
+            fill: #FFFFFF;
+            stroke: #616161;
+            stroke-width: 2.5;
+        }
+
+        .center-text {
+            font-size: 18px;
+            font-weight: 700;
+            fill: #212121;
+            text-anchor: middle;
+            dominant-baseline: middle;
+        }
+
+        .node-text {
+            font-size: 13px;
+            font-weight: 600;
+            fill: #424242;
+            text-anchor: middle;
+        }
+
+        .label-text {
+            font-size: 10px;
+            fill: #9E9E9E;
+            text-anchor: middle;
+        }
+
+        /* Right Side - Content Panel */
+        .content-panel {
+            background-color: #FFFFFF;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 40px;
+        }
+
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #E0E0E0;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: #F5F5F5;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon-placeholder {
+            width: 32px;
+            height: 32px;
+            background-color: #E0E0E0;
+            border-radius: 4px;
+        }
+
+        .pillar-title-group h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #212121;
+            margin-bottom: 4px;
+        }
+
+        .pillar-position {
+            font-size: 14px;
+            color: #9E9E9E;
+            font-weight: 500;
+        }
+
+        .quote-block {
+            background-color: #F5F5F5;
+            border-left: 4px solid #616161;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        .quote-block p {
+            font-size: 16px;
+            font-style: italic;
+            color: #424242;
+            line-height: 1.6;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #424242;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .benefits-callout {
+            background-color: #F5F5F5;
+            border: 1px solid #E0E0E0;
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .benefits-callout h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #616161;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .benefits-callout p {
+            font-size: 15px;
+            color: #424242;
+            line-height: 1.6;
+        }
+
+        /* Closing Section */
+        .closing-section {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .closing-section h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #212121;
+            margin-bottom: 20px;
+        }
+
+        .summary-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #F5F5F5;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 32px;
+        }
+
+        .summary-box p {
+            font-size: 16px;
+            color: #424242;
+            line-height: 1.7;
+        }
+
+        /* Element Labels */
+        .element-label {
+            position: absolute;
+            font-size: 10px;
+            color: #9E9E9E;
+            background-color: #FFFFFF;
+            padding: 2px 6px;
+            border-radius: 3px;
+            border: 1px solid #E0E0E0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-grid {
+                gap: 40px;
+            }
+
+            .pentagon-container {
+                padding: 30px;
+                min-height: 500px;
+            }
+
+            .content-panel {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section-header h1 {
+                font-size: 28px;
+            }
+
+            .section-header p {
+                font-size: 16px;
+            }
+
+            .pentagon-container {
+                min-height: 400px;
+            }
+
+            .pentagon-wrapper {
+                max-width: 400px;
+            }
+
+            .node-text {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .section-header h1 {
+                font-size: 24px;
+            }
+
+            .pentagon-container {
+                padding: 20px;
+                min-height: 350px;
+            }
+
+            .content-panel {
+                padding: 24px;
+            }
+
+            .pillar-header h2 {
+                font-size: 20px;
+            }
+
+            .icon-box {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <h1>O Método SEJA LIVRE: 5 Pilares Integrados</h1>
+            <p>Uma metodologia completa que transforma empreendedores em líderes estratégicos, combinando mindset, estrutura de marca, vendas, presença digital e sistemas de crescimento.</p>
+        </div>
+
+        <!-- Main Grid: Pentagon + Content Panel -->
+        <div class="main-grid">
+            <!-- Left Side: Pentagon Visualization -->
+            <div class="pentagon-container">
+                <div class="pentagon-wrapper">
+                    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Pentagon Outline -->
+                        <polygon
+                            points="250,50 450,190 380,420 120,420 50,190"
+                            class="pentagon-line"
+                        />
+
+                        <!-- Spokes from center to vertices -->
+                        <line x1="250" y1="250" x2="250" y2="50" class="spoke-line" />
+                        <line x1="250" y1="250" x2="450" y2="190" class="spoke-line" />
+                        <line x1="250" y1="250" x2="380" y2="420" class="spoke-line" />
+                        <line x1="250" y1="250" x2="120" y2="420" class="spoke-line" />
+                        <line x1="250" y1="250" x2="50" y2="190" class="spoke-line" />
+
+                        <!-- Center Hub (Larger) -->
+                        <circle cx="250" cy="250" r="65" class="center-hub" />
+                        <text x="250" y="245" class="center-text">SEJA</text>
+                        <text x="250" y="265" class="center-text">LIVRE</text>
+
+                        <!-- Node 1: MENTALIDADE (Top) - Larger -->
+                        <circle cx="250" cy="50" r="45" class="node-circle" />
+                        <text x="250" y="45" class="node-text">MENTALIDADE</text>
+                        <text x="250" y="62" class="label-text">[Pilar 1]</text>
+
+                        <!-- Node 2: ESTRUTURA DE MARCA (Top-Right) - Larger -->
+                        <circle cx="450" cy="190" r="45" class="node-circle" />
+                        <text x="450" y="185" class="node-text">ESTRUTURA</text>
+                        <text x="450" y="198" class="node-text">DE MARCA</text>
+                        <text x="450" y="212" class="label-text">[Pilar 2]</text>
+
+                        <!-- Node 3: ESTRATÉGIA DE VENDAS (Bottom-Right) - Larger -->
+                        <circle cx="380" cy="420" r="45" class="node-circle" />
+                        <text x="380" y="412" class="node-text">ESTRATÉGIA</text>
+                        <text x="380" y="425" class="node-text">DE VENDAS</text>
+                        <text x="380" y="438" class="label-text">[Pilar 3]</text>
+
+                        <!-- Node 4: SOCIAL SELLER (Bottom-Left) - Larger -->
+                        <circle cx="120" cy="420" r="45" class="node-circle" />
+                        <text x="120" y="415" class="node-text">SOCIAL</text>
+                        <text x="120" y="428" class="node-text">SELLER</text>
+                        <text x="120" y="442" class="label-text">[Pilar 4]</text>
+
+                        <!-- Node 5: ALAVANCA (Top-Left) - Larger -->
+                        <circle cx="50" cy="190" r="45" class="node-circle" />
+                        <text x="50" y="187" class="node-text">ALAVANCA</text>
+                        <text x="50" y="203" class="label-text">[Pilar 5]</text>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Right Side: Content Panel -->
+            <div class="content-panel">
+                <div class="pillar-header">
+                    <div class="icon-box">
+                        <div class="icon-placeholder"></div>
+                    </div>
+                    <div class="pillar-title-group">
+                        <h2>MENTALIDADE</h2>
+                        <p class="pillar-position">Pilar 1 de 5</p>
+                    </div>
+                </div>
+
+                <div class="quote-block">
+                    <p>"Mude seus pensamentos e mude seu mundo."</p>
+                </div>
+
+                <div class="description">
+                    <p>Esse pilar quebra as crenças que te mantêm refém. Trabalhamos a transição de executor para líder, desenvolvendo confiança para delegar, estruturar times e tomar decisões estratégicas sem culpa ou insegurança.</p>
+                </div>
+
+                <div class="benefits-callout">
+                    <h3>Benefício Principal</h3>
+                    <p>Liberação mental para confiar, delegar e liderar sem ser o gargalo do próprio negócio.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing Section -->
+        <div class="closing-section">
+            <h3>Por que 5 pilares?</h3>
+            <div class="summary-box">
+                <p>Cada pilar representa uma área fundamental do seu negócio. Quando integrados, eles criam um sistema completo de transformação: da sua mentalidade à sua estrutura de vendas, da sua presença digital aos seus sistemas de crescimento. Nenhum pilar funciona isoladamente – todos se conectam para criar o método SEJA LIVRE.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

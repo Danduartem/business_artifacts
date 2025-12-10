@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEJA LIVRE - Diagnóstico Gratuito</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* === CSS CUSTOM PROPERTIES === */
+        :root {
+            /* Brand Colors */
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+            --white: #FFFFFF;
+            --near-black: #1E1E1E;
+
+            /* Extended Palette */
+            --navy-light: rgba(25, 31, 58, 0.05);
+            --navy-medium: rgba(25, 31, 58, 0.7);
+            --borgonha-light: rgba(129, 23, 31, 0.1);
+            --gold-light: rgba(201, 162, 39, 0.15);
+
+            /* Typography */
+            --font-heading: 'Lora', serif;
+            --font-body: 'Century Gothic', 'CenturyGothic', -apple-system, BlinkMacSystemFont, sans-serif;
+
+            /* Spacing (8px base unit) */
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-2xl: 64px;
+            --spacing-3xl: 96px;
+
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-soft: 0 4px 24px rgba(25, 31, 58, 0.08);
+            --shadow-medium: 0 8px 32px rgba(25, 31, 58, 0.12);
+            --shadow-strong: 0 12px 48px rgba(25, 31, 58, 0.16);
+
+            /* Transitions */
+            --transition-fast: 200ms ease-out;
+            --transition-base: 300ms ease-out;
+        }
+
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--navy);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: linear-gradient(135deg, #f8f9fb 0%, #ffffff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md);
+        }
+
+        /* === MAIN CONTAINER === */
+        .cta-section {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* === CONTENT CARD === */
+        .content-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle background pattern */
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--borgonha) 0%, var(--gold) 100%);
+            opacity: 0.8;
+        }
+
+        /* === HEADLINE === */
+        .headline {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--navy);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        /* === SUBHEADLINES === */
+        .subheadline-group {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .subheadline {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--navy-medium);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .subheadline:last-child {
+            margin-bottom: 0;
+        }
+
+        .subheadline strong {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        /* === CTA BUTTON === */
+        .cta-button-wrapper {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 40px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--borgonha) 0%, #9a1d26 100%);
+            border: none;
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 16px rgba(129, 23, 31, 0.3);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Button shine effect */
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(129, 23, 31, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(129, 23, 31, 0.3);
+        }
+
+        /* === REASSURANCE POINTS === */
+        .reassurance-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .reassurance-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideIn var(--transition-base) ease-out forwards;
+        }
+
+        .reassurance-item:nth-child(1) {
+            animation-delay: 0.4s;
+        }
+
+        .reassurance-item:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .reassurance-item:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .icon-wrapper {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--gold-light) 0%, rgba(201, 162, 39, 0.05) 100%);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(201, 162, 39, 0.15);
+        }
+
+        .icon-wrapper svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--gold);
+            stroke-width: 2.5;
+        }
+
+        .reassurance-text {
+            font-size: 1rem;
+            color: var(--navy-medium);
+            font-weight: 500;
+        }
+
+        /* === CLOSING STATEMENT === */
+        .closing-statement {
+            text-align: center;
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid rgba(25, 31, 58, 0.1);
+        }
+
+        .closing-line {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--navy-medium);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .rally-cry {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: var(--spacing-md);
+            background: linear-gradient(135deg, var(--borgonha) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.02em;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.85;
+            }
+        }
+
+        /* === RESPONSIVE DESIGN === */
+
+        /* Mobile (375px baseline) */
+        @media (max-width: 767px) {
+            .content-card {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+
+            .headline {
+                font-size: 1.75rem;
+            }
+
+            .subheadline {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                width: 100%;
+                padding: 16px 32px;
+                font-size: 0.9375rem;
+            }
+
+            .rally-cry {
+                font-size: 1.5rem;
+            }
+
+            .closing-line {
+                font-size: 1rem;
+            }
+        }
+
+        /* Tablet (768px+) */
+        @media (min-width: 768px) {
+            .content-card {
+                padding: var(--spacing-3xl) var(--spacing-2xl);
+            }
+
+            .headline {
+                font-size: 2.5rem;
+            }
+
+            .reassurance-list {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: var(--spacing-lg);
+            }
+
+            .reassurance-item {
+                flex-direction: column;
+                text-align: center;
+                max-width: 140px;
+            }
+        }
+
+        /* Desktop (1440px+) */
+        @media (min-width: 1440px) {
+            .headline {
+                font-size: 3rem;
+            }
+
+            .subheadline {
+                font-size: 1.25rem;
+            }
+
+            .cta-button {
+                font-size: 1.125rem;
+                padding: 20px 48px;
+            }
+
+            .rally-cry {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* === ACCESSIBILITY === */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .cta-button:focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        /* Screen reader only */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <main class="cta-section" role="main">
+        <div class="content-card">
+            <!-- Headline -->
+            <h1 class="headline">
+                Pronto(a) para tirar a empresa das suas costas?
+            </h1>
+
+            <!-- Subheadlines -->
+            <div class="subheadline-group">
+                <p class="subheadline">
+                    <strong>Agenda sua sessão de diagnóstico gratuita.</strong>
+                </p>
+                <p class="subheadline">
+                    Em 1 hora, vamos mapear exatamente o que te mantém preso(a) — e se SEJA LIVRE é o caminho certo para você.
+                </p>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="cta-button-wrapper">
+                <a href="#" class="cta-button" role="button" aria-label="Agendar diagnóstico gratuito">
+                    Agendar Diagnóstico Gratuito
+                </a>
+            </div>
+
+            <!-- Reassurance Points -->
+            <div class="reassurance-list" role="list" aria-label="Garantias do diagnóstico">
+                <div class="reassurance-item" role="listitem">
+                    <div class="icon-wrapper" aria-hidden="true">
+                        <i data-lucide="check"></i>
+                    </div>
+                    <span class="reassurance-text">Sem compromisso</span>
+                </div>
+
+                <div class="reassurance-item" role="listitem">
+                    <div class="icon-wrapper" aria-hidden="true">
+                        <i data-lucide="check"></i>
+                    </div>
+                    <span class="reassurance-text">Sem pressão de venda</span>
+                </div>
+
+                <div class="reassurance-item" role="listitem">
+                    <div class="icon-wrapper" aria-hidden="true">
+                        <i data-lucide="check"></i>
+                    </div>
+                    <span class="reassurance-text">Só clareza sobre seu negócio</span>
+                </div>
+            </div>
+
+            <!-- Closing Statement -->
+            <div class="closing-statement">
+                <p class="closing-line">
+                    O diagnóstico é gratuito. A decisão é sua.
+                </p>
+                <p class="closing-line">
+                    Mas se você estava esperando um sinal, é esse.
+                </p>
+                <p class="rally-cry" aria-label="Vamos">
+                    VAAAAAAAMOOOOS?!
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // Smooth scroll for CTA button (if it links to a section)
+        document.querySelector('.cta-button').addEventListener('click', (e) => {
+            // Prevent default if it's an anchor link
+            const href = e.target.getAttribute('href');
+            if (href && href.startsWith('#') && href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

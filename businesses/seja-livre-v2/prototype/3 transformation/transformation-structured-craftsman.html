@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformação - The Structured Craftsman</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2C3E50;
+            background: #F8F9FA;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Section Container */
+        .transformation-section {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Headline Block */
+        .headline-block {
+            background: linear-gradient(135deg, #191F3A 0%, #2C3E50 100%);
+            padding: 4rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .headline-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(201, 162, 39, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        .headline-block h1 {
+            font-size: clamp(1.75rem, 4vw, 3rem);
+            color: #FFFFFF;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .headline-accent {
+            display: block;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #C9A227;
+            font-weight: 400;
+            margin-top: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* ANTES Block - Dark */
+        .antes-block {
+            background: #191F3A;
+            padding: 5rem 1.5rem;
+            position: relative;
+        }
+
+        .antes-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(129, 23, 31, 0.5), transparent);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .antes-block .section-title h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        /* Pain Point Card */
+        .pain-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .pain-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(129, 23, 31, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .pain-card .icon-wrapper {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: rgba(129, 23, 31, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(129, 23, 31, 0.3);
+        }
+
+        .pain-card .icon-wrapper svg {
+            color: #E74C3C;
+            width: 20px;
+            height: 20px;
+        }
+
+        .pain-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Transition Element */
+        .transition-element {
+            background: linear-gradient(180deg, #191F3A 0%, #F8F9FA 100%);
+            padding: 4rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .transition-arrow {
+            width: 80px;
+            height: 80px;
+            background: #C9A227;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(201, 162, 39, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+
+        .transition-arrow svg {
+            color: #191F3A;
+            width: 36px;
+            height: 36px;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 8px 32px rgba(201, 162, 39, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 12px 40px rgba(201, 162, 39, 0.5);
+            }
+        }
+
+        .transition-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg,
+                rgba(201, 162, 39, 0) 0%,
+                rgba(201, 162, 39, 0.5) 50%,
+                rgba(201, 162, 39, 0) 100%
+            );
+            transform: translateX(-50%);
+        }
+
+        /* DEPOIS Block - Light */
+        .depois-block {
+            background: #F8F9FA;
+            padding: 5rem 1.5rem;
+            position: relative;
+        }
+
+        .depois-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.3), transparent);
+        }
+
+        .depois-block .section-title h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            color: #191F3A;
+            margin-bottom: 0.5rem;
+        }
+
+        .depois-block .section-subtitle {
+            color: rgba(25, 31, 58, 0.6);
+        }
+
+        /* Outcome Card */
+        .outcome-card {
+            background: #FFFFFF;
+            border: 2px solid #E8E8E8;
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .outcome-card:hover {
+            border-color: #C9A227;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 162, 39, 0.15);
+        }
+
+        .outcome-card .icon-wrapper {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: rgba(201, 162, 39, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(201, 162, 39, 0.2);
+        }
+
+        .outcome-card .icon-wrapper svg {
+            color: #C9A227;
+            width: 20px;
+            height: 20px;
+        }
+
+        .outcome-card p {
+            color: #191F3A;
+            font-size: 1.125rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Vision Block */
+        .vision-block {
+            background: #FFFFFF;
+            padding: 5rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid #E8E8E8;
+        }
+
+        .vision-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .vision-item {
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .vision-item:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .vision-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .vision-item:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .vision-item p {
+            font-family: 'Lora', serif;
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+            color: #191F3A;
+            line-height: 1.6;
+            font-style: italic;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .vision-item p::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -0.25rem;
+            font-size: 3rem;
+            color: #C9A227;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        /* Tagline Block */
+        .tagline-block {
+            background: linear-gradient(135deg, #81171F 0%, #A01F28 100%);
+            padding: 4rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tagline-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%);
+            pointer-events: none;
+        }
+
+        .tagline-block h3 {
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            color: #FFFFFF;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        .tagline-accent {
+            display: inline-block;
+            border-bottom: 3px solid #C9A227;
+            padding-bottom: 0.25rem;
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus Styles */
+        *:focus-visible {
+            outline: 3px solid #C9A227;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <section class="transformation-section">
+        <!-- 1. Headline Block -->
+        <div class="headline-block">
+            <h1>
+                De funcionário do próprio negócio para CEO
+                <span class="headline-accent">A transformação que liberta</span>
+            </h1>
+        </div>
+
+        <!-- 2. ANTES Block - Dark -->
+        <div class="antes-block">
+            <div class="section-title">
+                <h2>Preso no negócio</h2>
+                <p class="section-subtitle">A realidade que te prende</p>
+            </div>
+
+            <div class="grid-container">
+                <div class="pain-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="x-circle"></i>
+                    </div>
+                    <p>10-14h trabalho/dia</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="x-circle"></i>
+                    </div>
+                    <p>Faturamento montanha-russa</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="x-circle"></i>
+                    </div>
+                    <p>Se você para, tudo para</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="x-circle"></i>
+                    </div>
+                    <p>Corre atrás de cliente</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="x-circle"></i>
+                    </div>
+                    <p>Culpa por não estar com família</p>
+                </div>
+
+                <div class="pain-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="x-circle"></i>
+                    </div>
+                    <p>Sem férias de verdade</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Transition Element -->
+        <div class="transition-element">
+            <div class="transition-line"></div>
+            <div class="transition-arrow">
+                <i data-lucide="arrow-down"></i>
+            </div>
+        </div>
+
+        <!-- 4. DEPOIS Block - Light -->
+        <div class="depois-block">
+            <div class="section-title">
+                <h2>Livre</h2>
+                <p class="section-subtitle">O futuro que você merece</p>
+            </div>
+
+            <div class="grid-container">
+                <div class="outcome-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <p>6-8h focadas em estratégia</p>
+                </div>
+
+                <div class="outcome-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <p>Vendas previsíveis</p>
+                </div>
+
+                <div class="outcome-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <p>Equipe executa sem você</p>
+                </div>
+
+                <div class="outcome-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <p>Clientes vêm até você</p>
+                </div>
+
+                <div class="outcome-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <p>Presente para quem você ama</p>
+                </div>
+
+                <div class="outcome-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="check-circle"></i>
+                    </div>
+                    <p>Viaja quando quer</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Vision Block -->
+        <div class="vision-block">
+            <div class="vision-container">
+                <div class="vision-item">
+                    <p>Imagine saber exatamente quanto vai faturar no próximo mês.</p>
+                </div>
+
+                <div class="vision-item">
+                    <p>Imagine sair às 18h com paz.</p>
+                </div>
+
+                <div class="vision-item">
+                    <p>Imagine tirar férias de verdade — sem trabalhar escondido.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Tagline Block -->
+        <div class="tagline-block">
+            <h3>
+                Tire a empresa das costas. <span class="tagline-accent">Seja livre.</span>
+            </h3>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for scroll animations
+        document.querySelectorAll('.pain-card, .outcome-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova Social - Transformações Reais</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Brand Colors */
+            --navy: #191F3A;
+            --borgonha: #81171F;
+            --gold: #C9A227;
+            --neutral-50: #FAFBFC;
+            --neutral-100: #F5F6F7;
+            --neutral-200: #E8EAED;
+            --neutral-300: #D1D5DB;
+            --neutral-400: #9CA3AF;
+            --neutral-600: #4B5563;
+            --neutral-700: #374151;
+            --neutral-800: #1F2937;
+            --white: #FFFFFF;
+
+            /* Typography */
+            --font-heading: 'Lora', serif;
+            --font-body: 'Century Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --spacing-3xl: 6rem;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(25, 31, 58, 0.1), 0 10px 10px -5px rgba(25, 31, 58, 0.04);
+
+            /* Transitions */
+            --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--neutral-800);
+            background: var(--neutral-50);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Section Container */
+        .testimonials-section {
+            padding: var(--spacing-3xl) var(--spacing-md);
+            max-width: 1440px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--neutral-50) 0%, var(--white) 100%);
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--borgonha);
+            margin-bottom: var(--spacing-sm);
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: rgba(129, 23, 31, 0.08);
+            border-radius: 100px;
+            border: 1px solid rgba(129, 23, 31, 0.2);
+        }
+
+        .headline {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.2;
+            margin-top: var(--spacing-md);
+        }
+
+        /* Carousel Container */
+        .carousel-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 var(--spacing-xl);
+        }
+
+        /* Carousel Wrapper */
+        .carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--neutral-200);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Testimonial Card */
+        .testimonial-card {
+            min-width: 100%;
+            padding: var(--spacing-2xl) var(--spacing-xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Photo */
+        .photo-wrapper {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--neutral-200);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: var(--spacing-lg);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-200) 100%);
+            position: relative;
+        }
+
+        .photo-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--neutral-400);
+        }
+
+        /* Quote Mark */
+        .quote-mark {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--gold);
+            opacity: 0.3;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Quote Text */
+        .quote-text {
+            font-family: var(--font-body);
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--neutral-700);
+            margin-bottom: var(--spacing-lg);
+            max-width: 700px;
+            position: relative;
+            padding: var(--spacing-lg);
+            background: var(--neutral-50);
+            border-left: 3px solid var(--borgonha);
+            border-radius: 4px;
+        }
+
+        /* Author Info */
+        .author-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+            margin-top: var(--spacing-md);
+        }
+
+        .author-name {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .author-context {
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            color: var(--neutral-600);
+        }
+
+        /* Navigation Arrows */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--neutral-300);
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-base);
+            box-shadow: var(--shadow-md);
+            z-index: 10;
+        }
+
+        .nav-arrow:hover {
+            background: var(--navy);
+            border-color: var(--navy);
+            color: var(--white);
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-arrow:active {
+            transform: translateY(-50%) scale(0.98);
+        }
+
+        .nav-arrow.prev {
+            left: -24px;
+        }
+
+        .nav-arrow.next {
+            right: -24px;
+        }
+
+        .nav-arrow svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Progress Dots */
+        .progress-dots {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-xl);
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--neutral-300);
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+
+        .dot:hover {
+            background: var(--neutral-400);
+            transform: scale(1.15);
+        }
+
+        .dot.active {
+            background: var(--borgonha);
+            border-color: rgba(129, 23, 31, 0.2);
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px rgba(129, 23, 31, 0.1);
+        }
+
+        /* Closing CTA */
+        .closing-cta {
+            text-align: center;
+            margin-top: var(--spacing-3xl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid var(--neutral-200);
+        }
+
+        .closing-text {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--navy);
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: var(--spacing-2xl) var(--spacing-md);
+            }
+
+            .headline {
+                font-size: 2rem;
+            }
+
+            .carousel-container {
+                padding: 0;
+            }
+
+            .nav-arrow {
+                display: none;
+            }
+
+            .testimonial-card {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+
+            .quote-text {
+                font-size: 1rem;
+                padding: var(--spacing-md);
+            }
+
+            .photo-wrapper {
+                width: 100px;
+                height: 100px;
+            }
+
+            .quote-mark {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .headline {
+                font-size: 1.75rem;
+            }
+
+            .testimonial-card {
+                padding: var(--spacing-lg) var(--spacing-sm);
+            }
+
+            .quote-text {
+                font-size: 0.9375rem;
+            }
+        }
+
+        /* Accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Focus Styles */
+        .nav-arrow:focus,
+        .dot:focus {
+            outline: 2px solid var(--borgonha);
+            outline-offset: 2px;
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav-arrow,
+            .progress-dots {
+                display: none;
+            }
+
+            .carousel-track {
+                display: block;
+            }
+
+            .testimonial-card {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="testimonials-section" aria-labelledby="section-title">
+        <!-- Section Header -->
+        <div class="section-header">
+            <span class="eyebrow">PROVA SOCIAL</span>
+            <h2 id="section-title" class="headline">Transformações Reais</h2>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <!-- Navigation Arrows -->
+            <button class="nav-arrow prev" aria-label="Depoimento anterior" onclick="changeTestimonial(-1)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <button class="nav-arrow next" aria-label="Próximo depoimento" onclick="changeTestimonial(1)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+
+            <!-- Carousel Wrapper -->
+            <div class="carousel-wrapper">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="photo-wrapper">
+                            <div class="photo-placeholder">M</div>
+                        </div>
+                        <div class="quote-mark" aria-hidden="true">"</div>
+                        <blockquote class="quote-text">
+                            Antes eu era pau pra toda obra. Trabalhava 12 horas por dia, corria atrás de cliente, e ainda não conseguia fechar todas as vendas que deveria. Depois de 3 meses com a Ju, tenho processos que funcionam, equipe alinhada, e vendas previsíveis. Finalmente respiro.
+                        </blockquote>
+                        <div class="author-info">
+                            <div class="author-name">Marina</div>
+                            <div class="author-context">Clínica de Estética, Lisboa</div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="photo-wrapper">
+                            <div class="photo-placeholder">C</div>
+                        </div>
+                        <div class="quote-mark" aria-hidden="true">"</div>
+                        <blockquote class="quote-text">
+                            Eu achava que tinha que fazer tudo sozinho. Que pedir ajuda era fraqueza. A Ju me mostrou que é inteligência. Hoje trabalho 30% menos horas e faturo 40% mais. O método funciona.
+                        </blockquote>
+                        <div class="author-info">
+                            <div class="author-name">Carlos</div>
+                            <div class="author-context">Box de CrossFit, Porto</div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="photo-wrapper">
+                            <div class="photo-placeholder">S</div>
+                        </div>
+                        <div class="quote-mark" aria-hidden="true">"</div>
+                        <blockquote class="quote-text">
+                            O que mais me surpreendeu foi como tudo está conectado. Operação, vendas, conversão — resolver os três juntos fez toda a diferença. Em 4 meses, consegui tirar minhas primeiras férias de verdade em 3 anos.
+                        </blockquote>
+                        <div class="author-info">
+                            <div class="author-name">Sofia</div>
+                            <div class="author-context">Agência de Marketing, São Paulo</div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card">
+                        <div class="photo-wrapper">
+                            <div class="photo-placeholder">R</div>
+                        </div>
+                        <div class="quote-mark" aria-hidden="true">"</div>
+                        <blockquote class="quote-text">
+                            A Ju não fala como guru. Fala como alguém que viveu o que você está vivendo. Isso faz toda a diferença. Método prático, resultados reais.
+                        </blockquote>
+                        <div class="author-info">
+                            <div class="author-name">Rodrigo</div>
+                            <div class="author-context">Consultoria, Lisboa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Dots -->
+            <div class="progress-dots" role="tablist" aria-label="Navegação de depoimentos">
+                <button class="dot active" role="tab" aria-label="Depoimento 1" aria-selected="true" onclick="goToTestimonial(0)"></button>
+                <button class="dot" role="tab" aria-label="Depoimento 2" aria-selected="false" onclick="goToTestimonial(1)"></button>
+                <button class="dot" role="tab" aria-label="Depoimento 3" aria-selected="false" onclick="goToTestimonial(2)"></button>
+                <button class="dot" role="tab" aria-label="Depoimento 4" aria-selected="false" onclick="goToTestimonial(3)"></button>
+            </div>
+        </div>
+
+        <!-- Closing CTA -->
+        <div class="closing-cta">
+            <p class="closing-text">O próximo depoimento pode ser o seu.</p>
+        </div>
+    </section>
+
+    <script>
+        // Carousel State
+        let currentIndex = 0;
+        const totalTestimonials = 4;
+        const carouselTrack = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.dot');
+
+        // Change Testimonial Function
+        function changeTestimonial(direction) {
+            currentIndex += direction;
+
+            // Loop around
+            if (currentIndex < 0) {
+                currentIndex = totalTestimonials - 1;
+            } else if (currentIndex >= totalTestimonials) {
+                currentIndex = 0;
+            }
+
+            updateCarousel();
+        }
+
+        // Go to Specific Testimonial
+        function goToTestimonial(index) {
+            currentIndex = index;
+            updateCarousel();
+        }
+
+        // Update Carousel Display
+        function updateCarousel() {
+            // Move track
+            const offset = -currentIndex * 100;
+            carouselTrack.style.transform = `translateX(${offset}%)`;
+
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                    dot.setAttribute('aria-selected', 'true');
+                } else {
+                    dot.classList.remove('active');
+                    dot.setAttribute('aria-selected', 'false');
+                }
+            });
+        }
+
+        // Auto-rotate (optional - can be enabled)
+        let autoRotateInterval;
+
+        function startAutoRotate() {
+            autoRotateInterval = setInterval(() => {
+                changeTestimonial(1);
+            }, 7000);
+        }
+
+        function stopAutoRotate() {
+            clearInterval(autoRotateInterval);
+        }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeTestimonial(-1);
+                stopAutoRotate();
+            } else if (e.key === 'ArrowRight') {
+                changeTestimonial(1);
+                stopAutoRotate();
+            }
+        });
+
+        // Touch/Swipe Support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carouselTrack.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carouselTrack.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    changeTestimonial(1); // Swipe left
+                } else {
+                    changeTestimonial(-1); // Swipe right
+                }
+                stopAutoRotate();
+            }
+        }
+
+        // Optional: Start auto-rotate on load
+        // startAutoRotate();
+
+        // Pause auto-rotate when user interacts
+        document.querySelectorAll('.nav-arrow, .dot').forEach(element => {
+            element.addEventListener('click', stopAutoRotate);
+        });
+    </script>
+</body>
+</html>
