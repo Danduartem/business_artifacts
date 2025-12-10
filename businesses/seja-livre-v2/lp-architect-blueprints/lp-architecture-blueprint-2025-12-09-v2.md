@@ -604,6 +604,675 @@ Conversion Strategist confirmou: "CTA suave converte melhor para high-ticket." C
 
 ---
 
+## Arquitetura do Formulário de Aplicação
+
+### Visão Geral do Formulário
+
+| Aspecto | Especificação |
+|---------|---------------|
+| **Tipo** | One Question Per Screen (OQPS) |
+| **Total de Telas** | 11 telas + agendamento |
+| **Tempo Estimado** | 4-6 minutos |
+| **Objetivo** | Pré-qualificar leads para Sessão de Diagnóstico |
+| **Destino Final** | Calendly para agendamento de diagnóstico |
+
+### Por que OQPS (Uma Pergunta Por Tela)?
+
+1. **Carga Cognitiva Reduzida**: Menos intimidante que formulários longos
+2. **Rastreamento Granular**: Identifica exatamente onde leads abandonam
+3. **Coleta de Contato Antecipada**: WhatsApp/Instagram coletados até tela 3 (permite follow-up mesmo com abandono)
+4. **Comprometimento Progressivo**: Momentum psicológico ("já respondi 5 perguntas...")
+5. **Desqualificação Antecipada**: Filtra não-fits antes de ocupar tempo de ambos
+
+### Estratégia de Qualificação
+
+| Critério | Qualifica | Desqualifica |
+|----------|-----------|--------------|
+| **Faturamento** | €15k-40k+/mês (PT) ou R$50k-150k+/mês (BR) | Abaixo do mínimo |
+| **Equipe** | 3-15 funcionários | Solo ou equipe 1-2 pessoas |
+| **Tipo de Negócio** | Serviço (clínica, box, agência, consultoria) | Produto/e-commerce |
+| **Disponibilidade** | Pode dedicar tempo à mentoria | Sem disponibilidade (soft flag) |
+
+---
+
+### TELA 0: INTRO
+
+**Tipo:** Informacional (sem input)
+
+**Objetivo:** Definir expectativas, criar conexão, estabelecer voz
+
+**Layout:**
+- Tela cheia, conteúdo centralizado
+- Sem barra de progresso
+- Background navy (#191F3A)
+
+**Copy:**
+
+```
+SEJA LIVRE 🦅
+
+Mentoria Empresarial
+
+─────────────────────────────────────────
+
+Vamos avaliar pessoalmente cada aplicação e selecionar apenas
+quem realmente pode aproveitar essa oportunidade.
+
+Baseado nas suas respostas, você será ou não convidada para uma
+Sessão de Diagnóstico gratuita comigo.
+
+⚠️ Importante: O preenchimento deste formulário não garante sua vaga.
+Vagas limitadas — avaliamos cautelosamente cada interessada.
+
+Nos próximos 5 minutos, vou te fazer algumas perguntas para entender
+se somos fit perfeitas. Seja honesta — não existe resposta "certa",
+existe a SUA resposta. E é essa que eu preciso ouvir.
+
+Do meu coração para o seu, vamos? 💙❤️
+```
+
+**Botão:**
+- Texto: "COMEÇAR"
+- Estilo: Borgonha (#81171F), grande (56px altura)
+- Subtexto: "Pressione Enter ↵"
+
+---
+
+### TELA 1: NOME COMPLETO
+
+**Progresso:** 1 de 10
+
+**Seção:** "Informações Básicas"
+
+**Pergunta:** "Nome completo:"
+
+**Tipo:** Input de texto (obrigatório)
+
+**Placeholder:** "Digite seu nome completo..."
+
+**Validação:**
+- Campo obrigatório
+- Mínimo 2 palavras (nome + sobrenome)
+- Sem números ou caracteres especiais
+
+**Mensagem de Erro:**
+"Preciso do seu nome completo para te conhecer melhor. Pode escrever seu nome inteiro? 💙"
+
+---
+
+### TELA 2: WHATSAPP
+
+**Progresso:** 2 de 10
+
+**Seção:** "Informações Básicas"
+
+**Pergunta:** "WhatsApp com DDD:"
+
+**Tipo:** Input de telefone com seletor de país
+
+**País Padrão:** +55 (Brasil)
+**Países Prioritários:** Brasil (+55), Portugal (+351)
+
+**Placeholder:** "(47) 99963-9968"
+
+**Helper Text:**
+"Vou usar apenas para te enviar o link da nossa conversa. Nada de spam, prometo. 💙"
+
+**Validação:**
+- Campo obrigatório
+- Formato válido para país selecionado
+- Mínimo 10 dígitos (Brasil), 9 dígitos (Portugal)
+- Auto-formatação enquanto digita
+
+**Mensagem de Erro:**
+"Esse número não parece válido. Confere se digitou certinho? Preciso dele para te mandar o link da call. 💙"
+
+---
+
+### TELA 3: INSTAGRAM (Opcional)
+
+**Progresso:** 3 de 10
+
+**Seção:** "Informações Básicas"
+
+**Pergunta:** "@ do Instagram:"
+
+**Tipo:** Input de texto com prefixo @ automático
+
+**Placeholder:** "seuinstagram"
+
+**Helper Text:**
+"Quero conhecer um pouquinho do seu mundo antes da nossa conversa. 👀"
+
+**Validação:**
+- Opcional (pode pular)
+- Auto-prepend @ se usuário não incluir
+- Máximo 30 caracteres
+
+**Link Secundário:**
+"Não tenho Instagram" (permite pular para próxima tela)
+
+---
+
+### TELA 4: TIPO DE NEGÓCIO
+
+**Progresso:** 4 de 10
+
+**Seção:** "Contexto do Negócio"
+
+**Pergunta:** "Qual tipo de negócio você tem?"
+
+**Tipo:** Multiple choice (radio buttons, seleção única)
+
+**Opções:**
+
+```
+○ A. Prestação de serviços (clínica, estética, consultoria, etc.)
+
+○ B. Academia / Box / Estúdio fitness
+
+○ C. Agência (marketing, design, desenvolvimento, etc.)
+
+○ D. Escola / Curso presencial
+
+○ E. Outro tipo de serviço
+```
+
+**Sem Desqualificação:** Todas as opções procedem
+
+**Lógica de Desqualificação:**
+Se selecionar outra opção que adicionar no futuro (ex: e-commerce), mostrar tela de rejeição suave.
+
+---
+
+### TELA 5: FATURAMENTO MENSAL
+
+**Progresso:** 5 de 10
+
+**Seção:** "Qualificação"
+
+**Pergunta:** "Qual é o faturamento mensal médio do seu negócio nos últimos 6 meses?"
+
+**Tipo:** Multiple choice (radio buttons, seleção única)
+
+**Opções (Portugal):**
+
+```
+○ A. Até €5.000/mês
+
+○ B. €5.000 - €15.000/mês
+
+○ C. €15.000 - €25.000/mês ✓ QUALIFICA
+
+○ D. €25.000 - €40.000/mês ✓ QUALIFICA
+
+○ E. €40.000+/mês ✓ QUALIFICA
+```
+
+**Opções (Brasil):**
+
+```
+○ A. Até R$30.000/mês
+
+○ B. R$30.000 - R$50.000/mês
+
+○ C. R$50.000 - R$100.000/mês ✓ QUALIFICA
+
+○ D. R$100.000 - R$150.000/mês ✓ QUALIFICA
+
+○ E. R$150.000+/mês ✓ QUALIFICA
+```
+
+**Nota Técnica:** Detectar país pelo código de telefone (tela 2) ou adicionar seletor de país na tela.
+
+**LÓGICA DE DESQUALIFICAÇÃO:**
+
+### Se selecionar A ou B (abaixo do mínimo):
+
+**Tela de Rejeição Suave:**
+
+```
+═══════════════════════════════════════════
+
+Obrigada pela sua honestidade, [Nome]! 💙
+
+A Mentoria SEJA LIVRE é desenhada para empresárias de serviço que
+já faturam €15k+/mês e estão presas no operacional — trabalhando
+demais para manter esse faturamento.
+
+Para negócios em estágio anterior, recomendo:
+
+→ Meu Instagram (@jucanamaximiliano) — conteúdo gratuito sobre
+  vendas, sistemas e mentalidade
+
+→ Café com Vendas (evento trimestral) — próxima turma em breve
+
+Quando você chegar nos €15k/mês e sentir que está trabalhando
+DEMAIS para sustentar isso, volta aqui. Vou estar te esperando. 🦅
+
+Do meu coração para o seu: existe um jeito mais fácil. Mas cada
+fase tem seu desafio específico.
+
+Agora, seu foco é VENDER e ESTRUTURAR. Quando você estiver vendendo
+bem mas morrendo de trabalhar, aí sim a gente sistematiza.
+
+Você está no caminho certo. Continue! 💙❤️
+
+[BOTÃO PRINCIPAL: SEGUIR @JUCANAMAXIMILIANO]
+[BOTÃO SECUNDÁRIO: VOLTAR PARA O SITE]
+
+═══════════════════════════════════════════
+```
+
+---
+
+### TELA 6: TAMANHO DA EQUIPE
+
+**Progresso:** 6 de 10
+
+**Seção:** "Qualificação"
+
+**Pergunta:** "Quantas pessoas trabalham no seu negócio (incluindo você)?"
+
+**Tipo:** Multiple choice (radio buttons, seleção única)
+
+**Opções:**
+
+```
+○ A. Só eu (solo)
+
+○ B. 2-3 pessoas
+
+○ C. 4-8 pessoas ✓ IDEAL
+
+○ D. 9-15 pessoas ✓ QUALIFICA
+
+○ E. 16+ pessoas
+```
+
+**LÓGICA DE DESQUALIFICAÇÃO:**
+
+### Se selecionar A (solo):
+
+**Tela de Rejeição Suave:**
+
+```
+═══════════════════════════════════════════
+
+Obrigada por compartilhar, [Nome]! 💙
+
+A Mentoria SEJA LIVRE é focada em estruturar EQUIPES e SISTEMAS
+para empresárias que já têm pelo menos 3-4 pessoas no negócio.
+
+Se você ainda é solo, seu desafio agora é diferente — é construir
+a base para depois escalar.
+
+Recomendo:
+
+→ Meu Instagram (@jucanamaximiliano) — conteúdo sobre vendas e
+  primeiras contratações
+
+→ Quando você tiver sua primeira equipe montada e sentir que está
+  "pau pra toda obra", volta aqui
+
+Do meu coração para o seu: você está construindo algo incrível.
+O momento de sistematizar vai chegar. 💙❤️
+
+[BOTÃO PRINCIPAL: SEGUIR @JUCANAMAXIMILIANO]
+[BOTÃO SECUNDÁRIO: VOLTAR PARA O SITE]
+
+═══════════════════════════════════════════
+```
+
+### Se selecionar E (16+ pessoas):
+
+**Soft Flag:** Não desqualifica, mas flaggeia no banco de dados para Juçanã avaliar manualmente. Pode ser empresa grande demais ou pode ser fit perfeito.
+
+---
+
+### TELA 7: MAIOR DESAFIO
+
+**Progresso:** 7 de 10
+
+**Seção:** "Contexto"
+
+**Pergunta:** "Qual o MAIOR desafio que você enfrenta hoje no seu negócio?"
+
+**Tipo:** Textarea (obrigatório)
+
+**Placeholder:**
+```
+Ex: "Trabalho 12 horas por dia e se eu paro, tudo para.
+Minha equipe não executa sem eu ficar em cima..."
+```
+
+**Helper Text:**
+"Seja específica. Quanto mais eu entender, melhor posso te ajudar na nossa conversa. 💙"
+
+**Contador de Caracteres:** "0 / 300"
+
+**Validação:**
+- Obrigatório
+- Mínimo: 30 caracteres
+- Máximo: 300 caracteres
+
+**Mensagem de Erro:**
+"Preciso que você detalhe um pouquinho mais. O que te mantém acordada à noite sobre o negócio? 💙"
+
+---
+
+### TELA 8: INVESTIMENTO
+
+**Progresso:** 8 de 10
+
+**Seção:** "Fit"
+
+**Pergunta:** "O investimento na Mentoria SEJA LIVRE é:"
+
+**Display de Preço:**
+
+```
+┌─────────────────────────────────────────┐
+│  INVESTIMENTO                           │
+│                                         │
+│  Parcelado: 6x de €750                  │
+│  À vista: €4.500                        │
+│                                         │
+│  (Mentoria 1-on-1 de 6 meses)           │
+└─────────────────────────────────────────┘
+```
+
+**Pergunta de Follow-up:** "Como você se sente em relação a esse investimento?"
+
+**Opções:**
+
+```
+○ A. Estou pronta e consigo investir agora
+
+○ B. É significativo, mas vejo o valor e consigo fazer
+
+○ C. Preciso avaliar com mais calma / falar com sócio(a)
+
+○ D. Está fora do meu alcance neste momento
+```
+
+**Helper Text:**
+"Eu sei que é um investimento significativo. Pensa assim: quanto CUSTA continuar presa trabalhando 10-14h/dia? Sua saúde declinando? Relacionamentos sofrendo? O custo real é o de continuar onde está. 💙"
+
+**Sem Desqualificação:** Mesmo se selecionar D, procede — Juçanã aborda na call de diagnóstico.
+
+---
+
+### TELA 9: DISPONIBILIDADE
+
+**Progresso:** 9 de 10
+
+**Seção:** "Fit"
+
+**Pergunta:** "Você tem disponibilidade de 2-3 horas por semana para as sessões e implementação?"
+
+**Breakdown:**
+```
+• 2 horas/semana: Sessões ao vivo comigo
+• 1-2 horas/semana: Implementação no seu negócio
+```
+
+**Opções:**
+
+```
+○ Sim, tenho disponibilidade
+
+○ Não tenho disponibilidade no momento
+```
+
+**Helper Text:**
+"Transformação real exige tempo E comprometimento. Se você não consegue dedicar esse tempo agora, talvez não seja o momento ideal. E tudo bem — eu prefiro te ter quando você pode aproveitar 100%. 💙"
+
+**Soft Flag:** Se "Não", não bloqueia — flaggeia `availability_concern: true` para Juçanã abordar na call.
+
+---
+
+### TELA 10: CONFIRMAÇÃO FINAL
+
+**Progresso:** 10 de 10
+
+**Seção:** "Confirmação"
+
+**Pergunta:** "Antes de finalizar, confirme:"
+
+**Tipo:** Checkboxes (TODOS obrigatórios)
+
+**Opções:**
+
+```
+☐ Li e entendi que o investimento é de €4.500 (ou 6x €750)
+
+☐ Tenho disponibilidade de 2-3 horas/semana para o programa
+
+☐ Entendo que a aplicação não garante minha vaga (processo seletivo)
+
+☐ Autorizo contato via WhatsApp para dar seguimento ao processo
+```
+
+**Helper Text:**
+"Essas confirmações garantem que estamos alinhadas. Se algo não faz sentido agora, talvez não seja o momento ideal — e tudo bem! Prefiro te ter quando você está 100% pronta. 💙❤️"
+
+**Validação:**
+- TODOS os 4 checkboxes devem estar marcados para habilitar botão
+
+**Botão:** "FINALIZAR APLICAÇÃO"
+- Só ativo quando todos marcados
+- Tamanho grande (60px altura)
+- Borgonha com animação sutil no hover
+
+---
+
+### TELA 11: SUCESSO + AGENDAMENTO
+
+**Tipo:** Página de confirmação com Calendly embutido
+
+**Copy:**
+
+```
+═══════════════════════════════════════════
+
+🎉 APLICAÇÃO RECEBIDA, [NOME]!
+
+Obrigada por compartilhar sua história comigo. Eu li cada palavra
+e já estou pensando em como posso te ajudar.
+
+PRÓXIMO PASSO:
+
+Agende agora sua Sessão de Diagnóstico gratuita (45 minutos).
+
+Nessa conversa vamos:
+→ Mapear exatamente o que te mantém presa no negócio
+→ Identificar os 3 gargalos principais
+→ Traçar um plano de ação (mesmo que você não entre na mentoria)
+
+───────────────────────────────────────────
+
+[CALENDLY EMBED]
+- Appointment type: 45 minutos
+- Pre-fill: nome, telefone (do formulário)
+
+───────────────────────────────────────────
+
+ENQUANTO ISSO:
+
+→ Fique de olho no seu WhatsApp (vou confirmar o agendamento)
+→ Me segue no Instagram: @jucanamaximiliano
+→ Prepare-se pensando: "Como seria minha vida se meu negócio
+  funcionasse sem mim?"
+
+Do meu coração para o seu: você chegou até aqui por uma razão.
+Seu instinto está te dizendo que é hora de mudar. Confie nele.
+
+Até breve,
+Juçanã 💙❤️🦅
+
+═══════════════════════════════════════════
+```
+
+---
+
+### Automações de Email/WhatsApp
+
+#### Trigger 1: Confirmação Imediata (após Tela 11)
+
+**Canal:** Email + WhatsApp
+**Timing:** Instantâneo
+
+**Assunto (Email):** "Aplicação recebida, [Nome]! Próximos passos 💙"
+
+**Mensagem:**
+
+```
+Oi [Nome]!
+
+Sua aplicação para a Mentoria SEJA LIVRE foi recebida. 🎉
+
+Se você já agendou sua Sessão de Diagnóstico — perfeito!
+Se ainda não agendou, aqui está o link: [LINK CALENDLY]
+
+IMPORTANTE:
+→ Confere seu spam/lixeira (às vezes emails vão parar lá)
+→ Salva meu número: [WhatsApp]
+→ Prepara suas maiores dúvidas para nossa conversa
+
+Enquanto isso, me segue no Instagram (@jucanamaximiliano)
+e prepara o coração para nossa conversa. 💙❤️
+
+Juçanã 🦅
+```
+
+#### Trigger 2: Abandono após Tela 3+ (tem contato)
+
+**Canal:** WhatsApp
+**Timing:** 24 horas após abandono
+
+**Mensagem:**
+
+```
+Oi [Nome], aqui é a Juçanã 💙
+
+Vi que você começou a aplicação para a mentoria SEJA LIVRE
+mas não finalizou.
+
+Tá tudo bem? Algo te travou?
+
+Se foi dúvida sobre o processo ou se faz sentido para você —
+me responde aqui. Eu mesma respondo.
+
+Se não era o momento, sem problema. Você sabe onde me encontrar.
+
+Mas se você SENTE que precisa dessa transformação e algo te impediu
+de terminar... não deixa o medo decidir por você.
+
+Aqui está o link para continuar de onde parou:
+[LINK COM RESPOSTAS PRÉ-PREENCHIDAS]
+
+💙❤️
+```
+
+---
+
+### Métricas do Formulário
+
+| Métrica | Target | Benchmark |
+|---------|--------|-----------|
+| Tela 1 → Tela 2 | 85%+ | Nome é fácil |
+| Tela 2 → Tela 3 | 80%+ | Contato coletado |
+| Tela 5 qualificados | 60-70% | Revenue acima do mínimo |
+| Tela 6 qualificados | 80%+ dos que passaram tela 5 | Equipe adequada |
+| Tela 6 → Tela 11 | 70-80% | Completam após qualificação |
+| Conclusão total | 40-50% dos iniciantes | Com voz + UX corretos |
+| Agendamento (dos concluídos) | 60-70% | Calendly imediato |
+| Show rate diagnóstico | 80%+ | Follow-up + lembretes |
+
+---
+
+### Dados a Capturar (Backend)
+
+```json
+{
+  "nome_completo": "string",
+  "whatsapp": "string",
+  "country_code": "string",
+  "instagram": "string | null",
+  "tipo_negocio": "A | B | C | D | E",
+  "faturamento": "A | B | C | D | E",
+  "tamanho_equipe": "A | B | C | D | E",
+  "maior_desafio": "string",
+  "sentimento_investimento": "A | B | C | D",
+  "disponibilidade": "sim | nao",
+  "confirmations": ["invest", "tempo", "processo", "contato"],
+
+  "metadata": {
+    "utm_source": "string",
+    "utm_medium": "string",
+    "utm_campaign": "string",
+    "started_at": "timestamp",
+    "completed_at": "timestamp",
+    "abandoned_at_screen": "number | null",
+    "disqualified": "boolean",
+    "disqualification_reason": "string | null",
+    "flags": {
+      "availability_concern": "boolean",
+      "large_team_flag": "boolean",
+      "investment_concern": "boolean"
+    }
+  }
+}
+```
+
+---
+
+### Integração LP ↔ Formulário
+
+**Fluxo Completo:**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│  LANDING PAGE                                                   │
+│  ─────────────                                                  │
+│  12 seções → CTA "Agendar Diagnóstico Gratuito"                │
+│                                                                 │
+│                          │                                      │
+│                          ▼                                      │
+│                                                                 │
+│  FORMULÁRIO DE APLICAÇÃO                                        │
+│  ────────────────────────                                       │
+│  11 telas → Qualificação → Desqualificação OU Sucesso          │
+│                                                                 │
+│                          │                                      │
+│                          ▼                                      │
+│                                                                 │
+│  CALENDLY (Embutido na Tela 11)                                │
+│  ──────────────────────────────                                 │
+│  Agendamento de Sessão de Diagnóstico (45 min)                 │
+│                                                                 │
+│                          │                                      │
+│                          ▼                                      │
+│                                                                 │
+│  SESSÃO DE DIAGNÓSTICO                                         │
+│  ─────────────────────────                                      │
+│  1-on-1 com Juçanã → Apresentação do programa → Decisão        │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Notas de Implementação:**
+
+1. **CTA da LP**: Todos os CTAs "Agendar Diagnóstico Gratuito" apontam para o formulário (não direto para Calendly)
+2. **URL do Formulário**: `/aplicacao` ou `/diagnostico`
+3. **UTM Tracking**: Preservar UTMs da LP para o formulário
+4. **Mobile-first**: Formulário deve ser 100% responsivo
+5. **Auto-save**: Salvar progresso após cada tela (localStorage + backend)
+
+---
+
 ## Resumo da Arquitetura com Contagem de Palavras
 
 | # | Seção | Objetivo Principal | Palavras | Justificativa |
@@ -727,28 +1396,37 @@ Conversion Strategist confirmou: "CTA suave converte melhor para high-ticket." C
 
 ### Fase 1: Criação de Conteúdo
 
-- [ ] Escrever copy de cada seção seguindo blueprint
+- [ ] Escrever copy de cada seção da LP seguindo blueprint
 - [ ] Coletar/criar depoimentos (vídeo preferido)
 - [ ] Preparar visuais (Antes/Depois, 5 Pilares, fotos)
-- [ ] Definir formulário de agendamento de diagnóstico
+- [ ] Finalizar copy do formulário de aplicação (11 telas)
+- [ ] Preparar mensagens de desqualificação suave
+- [ ] Definir templates de email/WhatsApp para automações
 
 ### Fase 2: Design e Desenvolvimento
 
-- [ ] Design responsivo (mobile-first)
-- [ ] Velocidade de carregamento otimizada
-- [ ] CTAs visíveis e contrastantes
-- [ ] Integração com calendário de agendamento
+- [ ] Design responsivo da LP (mobile-first)
+- [ ] Implementar formulário de aplicação OQPS
+- [ ] Barra de progresso e transições entre telas
+- [ ] Lógica de qualificação/desqualificação
+- [ ] Integração com Calendly (embutido na tela 11)
+- [ ] Backend para armazenar dados do formulário
+- [ ] Automações de email/WhatsApp (abandono, confirmação)
 
 ### Fase 3: Lançamento e Otimização
 
-- [ ] Teste A/B de headlines
-- [ ] Rastreamento de conversão (LP → Diagnóstico)
+- [ ] Teste A/B de headlines na LP
+- [ ] Teste A/B de copy no formulário
+- [ ] Rastreamento de conversão completo (LP → Form → Calendly → Call)
+- [ ] Análise de abandono por tela do formulário
 - [ ] Heatmaps para entender comportamento
 - [ ] Iteração baseada em dados
 
 ---
 
 ## Métricas de Sucesso
+
+### Métricas da Landing Page
 
 | Métrica | Target | Benchmark do Nicho |
 |---------|--------|-------------------|
@@ -758,6 +1436,31 @@ Conversion Strategist confirmou: "CTA suave converte melhor para high-ticket." C
 | Taxa de Scroll | 60%+ até CTA final | 50-70% |
 | Taxa de Rejeição | <50% | 40-60% |
 
+### Métricas do Formulário de Aplicação
+
+| Métrica | Target | Benchmark |
+|---------|--------|-----------|
+| LP → Início do Formulário | 60-70% dos cliques em CTA | — |
+| Conclusão do Formulário | 40-50% dos iniciantes | — |
+| Taxa de Qualificação | 50-60% dos que completam | — |
+| Agendamento (dos qualificados) | 60-70% | — |
+| Show Rate Diagnóstico | 80%+ | — |
+| Diagnóstico → Venda | 25-40% | — |
+
+### Funil Completo (Exemplo com 1.000 visitantes)
+
+```
+1.000 visitantes na LP
+  └─→ 50 iniciam formulário (5% conversão LP)
+      └─→ 25 completam formulário (50% conclusão)
+          └─→ 15 qualificados (60% qualificação)
+              └─→ 10 agendam diagnóstico (67% agendamento)
+                  └─→ 8 comparecem (80% show rate)
+                      └─→ 2-3 fecham (25-40% close rate)
+
+ROI: 2-3 vendas × €4.500 = €9.000-13.500 por 1.000 visitantes
+```
+
 ---
 
 ## Documentos Relacionados
@@ -766,6 +1469,8 @@ Conversion Strategist confirmou: "CTA suave converte melhor para high-ticket." C
 - **Oferta**: `businesses/seja-livre-v2/offers/seja-livre-offer-stack.md`
 - **Objeções**: `businesses/seja-livre-v2/offers/seja-livre-objection-handling.md`
 - **Voz**: `docs/context/voice/voice_jucanamaximiliano.md`
+- **Referência de Form (Grupo de Tração)**: `businesses/seja-livre-v2/prototype/forms/application-form-design.md`
+- **Protótipo HTML (referência)**: `businesses/seja-livre-v2/prototype/forms/prototype-structured-craftsman-form.html`
 
 ---
 
