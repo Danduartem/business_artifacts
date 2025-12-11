@@ -366,7 +366,7 @@ Criadora do método SEJA LIVRE, ajuda donos de negócio a tirar a empresa das co
 
 ---
 
-*© 2025 SEJA LIVRE Mentoria Empresarial. Todos os direitos reservados.*
+*© 2024 SEJA LIVRE Mentoria Empresarial. Todos os direitos reservados.*
 
 ---
 
