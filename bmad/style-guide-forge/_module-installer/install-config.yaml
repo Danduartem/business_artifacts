@@ -1,0 +1,106 @@
+# Style Guide Forge Module Configuration
+# Multi-agent web design style guide generation system
+
+code: style-guide-forge
+name: "Style Guide Forge"
+default_selected: false
+
+# Welcome message shown during installation
+prompt:
+  - "Welcome to Style Guide Forge!"
+  - "A multi-agent system that generates comprehensive web design style guides from your brand inputs."
+  - "5 specialized agents create your style guide from different perspectives:"
+  - "  - Brand Translator: Converts brand guide to digital design principles"
+  - "  - Reference Analyzer: Captures and analyzes inspiration websites visually"
+  - "  - Foundations Architect: Creates typography, spacing, and token systems"
+  - "  - Component Designer: Documents 18+ UI components with all states"
+  - "  - Interaction Designer: Defines motion, timing, and microinteractions"
+  - "Integrates directly with Design Forge for consistent design generation."
+
+# Core config values are automatically inherited:
+## user_name
+## communication_language
+## document_output_language
+## output_folder
+
+# ============================================================================
+# CONFIGURATION FIELDS
+# ============================================================================
+
+# INTERACTIVE - Where to save generated style guides
+style_guide_output_folder:
+  prompt: "Where should Style Guide Forge save generated files?"
+  default: "output/style-guide-forge"
+  result: "{project-root}/{value}"
+
+# INTERACTIVE - Export formats
+export_formats:
+  prompt: "Which export formats should be generated?"
+  default: "css-tailwind"
+  result: "{value}"
+  single-select:
+    - value: "json-only"
+      label: "JSON only - Design tokens in JSON format"
+    - value: "css-tailwind"
+      label: "CSS + Tailwind - CSS custom properties and Tailwind config (Recommended)"
+    - value: "all"
+      label: "All formats - JSON, CSS, Tailwind, and SCSS"
+
+# INTERACTIVE - Component documentation depth
+component_depth:
+  prompt: "How detailed should component documentation be?"
+  default: "comprehensive"
+  result: "{value}"
+  single-select:
+    - value: "guidelines-only"
+      label: "Guidelines only - General component principles"
+    - value: "essential"
+      label: "Essential - Core components (buttons, inputs, cards, navigation)"
+    - value: "comprehensive"
+      label: "Comprehensive - 18+ component types with all states (Recommended)"
+
+# ============================================================================
+# STATIC CONFIGURATION
+# ============================================================================
+
+# Screenshot viewports for reference site capture
+screenshot_viewports:
+  result:
+    desktop: 1440
+    tablet: 768
+    mobile: 375
+
+# Typography base size (in pixels)
+typography_base_size:
+  result: "16"
+
+# Typography scale ratio
+typography_scale_ratio:
+  result: "1.25"
+  # Common ratios:
+  # 1.125 (minor second) - subtle variation
+  # 1.2 (minor third) - calm, professional
+  # 1.25 (major third) - balanced (recommended)
+  # 1.333 (perfect fourth) - more dramatic
+  # 1.5 (perfect fifth) - bold hierarchy
+
+# Spacing base unit (8pt grid)
+spacing_base_unit:
+  result: "8"
+
+# WCAG accessibility level
+wcag_level:
+  result: "AA"
+  # Options: AA | AAA
+
+# Include motion/animation guidelines
+include_motion_guidelines:
+  result: "true"
+
+# Design Forge integration path
+design_forge_config:
+  result: "{project-root}/bmad/design-forge/config.yaml"
+
+# Color Forge integration path
+color_forge_config:
+  result: "{project-root}/bmad/color-forge/config.yaml"

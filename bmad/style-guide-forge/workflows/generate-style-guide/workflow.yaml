@@ -1,0 +1,76 @@
+# Generate Style Guide Workflow Configuration
+name: "generate-style-guide"
+description: "Generate comprehensive web design style guide using 5 specialist agents with parallel execution"
+author: "Style Guide Forge"
+version: "1.0.0"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/style-guide-forge/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Module-specific config variables
+style_guide_output_folder: "{config_source}:style_guide_output_folder"
+export_formats: "{config_source}:export_formats"
+screenshot_viewports: "{config_source}:screenshot_viewports"
+typography_base_size: "{config_source}:typography_base_size"
+typography_scale_ratio: "{config_source}:typography_scale_ratio"
+spacing_base_unit: "{config_source}:spacing_base_unit"
+wcag_level: "{config_source}:wcag_level"
+include_motion_guidelines: "{config_source}:include_motion_guidelines"
+component_depth: "{config_source}:component_depth"
+design_forge_config: "{config_source}:design_forge_config"
+color_forge_config: "{config_source}:color_forge_config"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/style-guide-forge/workflows/generate-style-guide"
+template: false
+instructions: "{installed_path}/instructions.md"
+checklist: "{installed_path}/checklist.md"
+
+# Reference data files
+typography_data: "{project-root}/bmad/style-guide-forge/data/typography-best-practices.md"
+spacing_data: "{project-root}/bmad/style-guide-forge/data/spacing-systems.md"
+component_data: "{project-root}/bmad/style-guide-forge/data/component-patterns.md"
+accessibility_data: "{project-root}/bmad/style-guide-forge/data/accessibility-checklist.md"
+motion_data: "{project-root}/bmad/style-guide-forge/data/motion-guidelines.md"
+token_data: "{project-root}/bmad/style-guide-forge/data/design-token-spec.md"
+
+# Output files
+output_files:
+  brand_foundation: "{style_guide_output_folder}/brand-foundation.json"
+  reference_analysis: "{style_guide_output_folder}/reference-analysis.json"
+  foundations: "{style_guide_output_folder}/foundations.json"
+  components: "{style_guide_output_folder}/components.json"
+  interactions: "{style_guide_output_folder}/interactions.json"
+  scores: "{style_guide_output_folder}/style-guide-scores.json"
+  style_guide: "{style_guide_output_folder}/style-guide.md"
+  design_tokens: "{style_guide_output_folder}/design-tokens.json"
+  design_principles: "{style_guide_output_folder}/design-principles.md"
+  component_specs: "{style_guide_output_folder}/component-specs.md"
+
+# Export files
+export_files:
+  css: "{style_guide_output_folder}/exports/tokens.css"
+  tailwind: "{style_guide_output_folder}/exports/tailwind.config.js"
+
+# Screenshots folder
+screenshots_folder: "{style_guide_output_folder}/reference-screenshots"
+
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  workflow: "bmad/style-guide-forge/workflows/generate-style-guide/workflow.yaml"
+  files:
+    - "bmad/style-guide-forge/workflows/generate-style-guide/workflow.yaml"
+    - "bmad/style-guide-forge/workflows/generate-style-guide/instructions.md"
+    - "bmad/style-guide-forge/workflows/generate-style-guide/checklist.md"
+    - "bmad/style-guide-forge/data/typography-best-practices.md"
+    - "bmad/style-guide-forge/data/spacing-systems.md"
+    - "bmad/style-guide-forge/data/component-patterns.md"
+    - "bmad/style-guide-forge/data/accessibility-checklist.md"
+    - "bmad/style-guide-forge/data/motion-guidelines.md"
+    - "bmad/style-guide-forge/data/design-token-spec.md"
+  existing_workflows: []
