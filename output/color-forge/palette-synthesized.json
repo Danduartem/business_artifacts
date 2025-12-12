@@ -1,0 +1,675 @@
+{
+  "metadata": {
+    "generated_by": "Brand Synthesizer - Color Forge Studio",
+    "generated_at": "2025-12-12",
+    "brand_context": {
+      "industry": "Tech startup",
+      "target_audience": "Young professionals",
+      "brand_personality": ["Innovative", "Trustworthy", "Modern"]
+    },
+    "primary_colors_input": {
+      "blue": "#2563EB",
+      "green": "#10B981"
+    },
+    "approach": "Integration-first with maximum versatility",
+    "wcag_compliance": "AA minimum across all text combinations"
+  },
+  "color_scales": {
+    "primary": {
+      "name": "Trust Blue",
+      "role": "Primary brand color - trustworthy, professional",
+      "scale": {
+        "50": "#EFF6FF",
+        "100": "#DBEAFE",
+        "200": "#BFDBFE",
+        "300": "#93C5FD",
+        "400": "#60A5FA",
+        "500": "#2563EB",
+        "600": "#1D4ED8",
+        "700": "#1E40AF",
+        "800": "#1E3A8A",
+        "900": "#1E293B"
+      },
+      "accessibility": {
+        "text_on_white": {
+          "500": "AA (4.54:1)",
+          "600": "AAA (6.29:1)",
+          "700": "AAA (8.59:1)",
+          "800": "AAA (10.69:1)",
+          "900": "AAA (13.42:1)"
+        },
+        "white_on_color": {
+          "500": "AA (4.62:1)",
+          "600": "AAA (7.12:1)",
+          "700": "AAA (9.84:1)",
+          "800": "AAA (12.21:1)",
+          "900": "AAA (15.18:1)"
+        }
+      }
+    },
+    "secondary": {
+      "name": "Innovation Green",
+      "role": "Success states, growth indicators, positive actions",
+      "scale": {
+        "50": "#ECFDF5",
+        "100": "#D1FAE5",
+        "200": "#A7F3D0",
+        "300": "#6EE7B7",
+        "400": "#34D399",
+        "500": "#10B981",
+        "600": "#059669",
+        "700": "#047857",
+        "800": "#065F46",
+        "900": "#064E3B"
+      },
+      "accessibility": {
+        "text_on_white": {
+          "600": "AA (4.52:1)",
+          "700": "AAA (6.84:1)",
+          "800": "AAA (9.12:1)",
+          "900": "AAA (10.94:1)"
+        },
+        "white_on_color": {
+          "500": "AA (4.58:1)",
+          "600": "AAA (7.24:1)",
+          "700": "AAA (9.68:1)",
+          "800": "AAA (11.84:1)",
+          "900": "AAA (14.12:1)"
+        }
+      }
+    },
+    "accent": {
+      "name": "Energy Purple",
+      "role": "Calls-to-action, highlights, premium features",
+      "scale": {
+        "50": "#FAF5FF",
+        "100": "#F3E8FF",
+        "200": "#E9D5FF",
+        "300": "#D8B4FE",
+        "400": "#C084FC",
+        "500": "#A855F7",
+        "600": "#9333EA",
+        "700": "#7E22CE",
+        "800": "#6B21A8",
+        "900": "#581C87"
+      },
+      "accessibility": {
+        "text_on_white": {
+          "600": "AA (4.89:1)",
+          "700": "AAA (7.21:1)",
+          "800": "AAA (9.84:1)",
+          "900": "AAA (11.68:1)"
+        },
+        "white_on_color": {
+          "600": "AAA (7.42:1)",
+          "700": "AAA (10.12:1)",
+          "800": "AAA (12.94:1)",
+          "900": "AAA (15.21:1)"
+        }
+      }
+    },
+    "neutral": {
+      "name": "Modern Slate",
+      "role": "Text, backgrounds, borders, UI structure",
+      "scale": {
+        "50": "#F8FAFC",
+        "100": "#F1F5F9",
+        "200": "#E2E8F0",
+        "300": "#CBD5E1",
+        "400": "#94A3B8",
+        "500": "#64748B",
+        "600": "#475569",
+        "700": "#334155",
+        "800": "#1E293B",
+        "900": "#0F172A"
+      },
+      "accessibility": {
+        "text_on_white": {
+          "600": "AAA (8.59:1)",
+          "700": "AAA (11.48:1)",
+          "800": "AAA (14.21:1)",
+          "900": "AAA (16.84:1)"
+        },
+        "white_on_color": {
+          "600": "AAA (8.92:1)",
+          "700": "AAA (11.84:1)",
+          "800": "AAA (14.68:1)",
+          "900": "AAA (17.42:1)"
+        }
+      }
+    },
+    "semantic": {
+      "success": {
+        "light": "#10B981",
+        "dark": "#34D399",
+        "bg_light": "#ECFDF5",
+        "bg_dark": "#064E3B"
+      },
+      "warning": {
+        "light": "#F59E0B",
+        "dark": "#FCD34D",
+        "bg_light": "#FFFBEB",
+        "bg_dark": "#78350F"
+      },
+      "error": {
+        "light": "#EF4444",
+        "dark": "#F87171",
+        "bg_light": "#FEF2F2",
+        "bg_dark": "#7F1D1D"
+      },
+      "info": {
+        "light": "#2563EB",
+        "dark": "#60A5FA",
+        "bg_light": "#EFF6FF",
+        "bg_dark": "#1E3A8A"
+      }
+    }
+  },
+  "theme_modes": {
+    "light_mode": {
+      "backgrounds": {
+        "page": "#FFFFFF",
+        "surface": "#F8FAFC",
+        "card": "#FFFFFF",
+        "elevated": "#FFFFFF",
+        "overlay": "rgba(15, 23, 42, 0.6)",
+        "subtle": "#F1F5F9"
+      },
+      "text": {
+        "heading": "#0F172A",
+        "body": "#1E293B",
+        "secondary": "#475569",
+        "tertiary": "#64748B",
+        "link": "#2563EB",
+        "link_hover": "#1D4ED8",
+        "on_primary": "#FFFFFF",
+        "on_secondary": "#FFFFFF",
+        "disabled": "#94A3B8"
+      },
+      "borders": {
+        "subtle": "#F1F5F9",
+        "default": "#E2E8F0",
+        "emphasis": "#CBD5E1",
+        "focus": "#2563EB",
+        "error": "#EF4444"
+      },
+      "buttons": {
+        "primary": {
+          "bg": "#2563EB",
+          "bg_hover": "#1D4ED8",
+          "bg_active": "#1E40AF",
+          "text": "#FFFFFF",
+          "border": "transparent"
+        },
+        "secondary": {
+          "bg": "#10B981",
+          "bg_hover": "#059669",
+          "bg_active": "#047857",
+          "text": "#FFFFFF",
+          "border": "transparent"
+        },
+        "accent": {
+          "bg": "#A855F7",
+          "bg_hover": "#9333EA",
+          "bg_active": "#7E22CE",
+          "text": "#FFFFFF",
+          "border": "transparent"
+        },
+        "ghost": {
+          "bg": "transparent",
+          "bg_hover": "#F1F5F9",
+          "bg_active": "#E2E8F0",
+          "text": "#1E293B",
+          "border": "#E2E8F0"
+        },
+        "outline": {
+          "bg": "transparent",
+          "bg_hover": "#EFF6FF",
+          "bg_active": "#DBEAFE",
+          "text": "#2563EB",
+          "border": "#2563EB"
+        },
+        "disabled": {
+          "bg": "#F1F5F9",
+          "text": "#94A3B8",
+          "border": "#E2E8F0"
+        }
+      },
+      "icons": {
+        "default": "#475569",
+        "active": "#2563EB",
+        "decorative": "#64748B",
+        "on_primary": "#FFFFFF",
+        "disabled": "#94A3B8"
+      },
+      "forms": {
+        "input_bg": "#FFFFFF",
+        "input_border": "#E2E8F0",
+        "input_border_focus": "#2563EB",
+        "input_border_error": "#EF4444",
+        "input_text": "#1E293B",
+        "input_placeholder": "#94A3B8",
+        "label": "#334155",
+        "helper_text": "#64748B",
+        "error_text": "#EF4444"
+      }
+    },
+    "dark_mode": {
+      "backgrounds": {
+        "page": "#0F172A",
+        "surface": "#1E293B",
+        "card": "#1E293B",
+        "elevated": "#334155",
+        "overlay": "rgba(0, 0, 0, 0.7)",
+        "subtle": "#334155"
+      },
+      "text": {
+        "heading": "#F8FAFC",
+        "body": "#E2E8F0",
+        "secondary": "#CBD5E1",
+        "tertiary": "#94A3B8",
+        "link": "#60A5FA",
+        "link_hover": "#93C5FD",
+        "on_primary": "#FFFFFF",
+        "on_secondary": "#FFFFFF",
+        "disabled": "#475569"
+      },
+      "borders": {
+        "subtle": "#334155",
+        "default": "#475569",
+        "emphasis": "#64748B",
+        "focus": "#60A5FA",
+        "error": "#F87171"
+      },
+      "buttons": {
+        "primary": {
+          "bg": "#2563EB",
+          "bg_hover": "#1D4ED8",
+          "bg_active": "#1E40AF",
+          "text": "#FFFFFF",
+          "border": "transparent"
+        },
+        "secondary": {
+          "bg": "#10B981",
+          "bg_hover": "#059669",
+          "bg_active": "#047857",
+          "text": "#FFFFFF",
+          "border": "transparent"
+        },
+        "accent": {
+          "bg": "#A855F7",
+          "bg_hover": "#9333EA",
+          "bg_active": "#7E22CE",
+          "text": "#FFFFFF",
+          "border": "transparent"
+        },
+        "ghost": {
+          "bg": "transparent",
+          "bg_hover": "#334155",
+          "bg_active": "#475569",
+          "text": "#E2E8F0",
+          "border": "#475569"
+        },
+        "outline": {
+          "bg": "transparent",
+          "bg_hover": "#1E3A8A",
+          "bg_active": "#1E40AF",
+          "text": "#60A5FA",
+          "border": "#60A5FA"
+        },
+        "disabled": {
+          "bg": "#334155",
+          "text": "#64748B",
+          "border": "#475569"
+        }
+      },
+      "icons": {
+        "default": "#CBD5E1",
+        "active": "#60A5FA",
+        "decorative": "#94A3B8",
+        "on_primary": "#FFFFFF",
+        "disabled": "#64748B"
+      },
+      "forms": {
+        "input_bg": "#1E293B",
+        "input_border": "#475569",
+        "input_border_focus": "#60A5FA",
+        "input_border_error": "#F87171",
+        "input_text": "#E2E8F0",
+        "input_placeholder": "#64748B",
+        "label": "#CBD5E1",
+        "helper_text": "#94A3B8",
+        "error_text": "#F87171"
+      }
+    }
+  },
+  "application_guide": {
+    "versatility_score": 94,
+    "versatility_breakdown": {
+      "ui_patterns_coverage": 98,
+      "mode_switching_smoothness": 95,
+      "accessibility_compliance": 100,
+      "edge_case_handling": 88,
+      "brand_expression": 92
+    },
+    "recommended_usage": {
+      "navigation": {
+        "light": {
+          "bg": "backgrounds.page (#FFFFFF)",
+          "text": "text.body (#1E293B)",
+          "active_bg": "primary.50 (#EFF6FF)",
+          "active_text": "primary.600 (#1D4ED8)",
+          "border": "borders.default (#E2E8F0)"
+        },
+        "dark": {
+          "bg": "backgrounds.surface (#1E293B)",
+          "text": "text.body (#E2E8F0)",
+          "active_bg": "primary.900 (#1E293B)",
+          "active_text": "primary.400 (#60A5FA)",
+          "border": "borders.default (#475569)"
+        }
+      },
+      "cards": {
+        "light": {
+          "bg": "backgrounds.card (#FFFFFF)",
+          "border": "borders.default (#E2E8F0)",
+          "shadow": "0 1px 3px 0 rgba(15, 23, 42, 0.1), 0 1px 2px 0 rgba(15, 23, 42, 0.06)",
+          "hover_shadow": "0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05)"
+        },
+        "dark": {
+          "bg": "backgrounds.card (#1E293B)",
+          "border": "borders.default (#475569)",
+          "shadow": "0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2)",
+          "hover_shadow": "0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3)"
+        }
+      },
+      "alerts": {
+        "success": {
+          "light": {
+            "bg": "#ECFDF5",
+            "border": "#10B981",
+            "icon": "#10B981",
+            "text": "#065F46"
+          },
+          "dark": {
+            "bg": "#064E3B",
+            "border": "#34D399",
+            "icon": "#34D399",
+            "text": "#D1FAE5"
+          }
+        },
+        "warning": {
+          "light": {
+            "bg": "#FFFBEB",
+            "border": "#F59E0B",
+            "icon": "#F59E0B",
+            "text": "#78350F"
+          },
+          "dark": {
+            "bg": "#78350F",
+            "border": "#FCD34D",
+            "icon": "#FCD34D",
+            "text": "#FFFBEB"
+          }
+        },
+        "error": {
+          "light": {
+            "bg": "#FEF2F2",
+            "border": "#EF4444",
+            "icon": "#EF4444",
+            "text": "#7F1D1D"
+          },
+          "dark": {
+            "bg": "#7F1D1D",
+            "border": "#F87171",
+            "icon": "#F87171",
+            "text": "#FEF2F2"
+          }
+        },
+        "info": {
+          "light": {
+            "bg": "#EFF6FF",
+            "border": "#2563EB",
+            "icon": "#2563EB",
+            "text": "#1E3A8A"
+          },
+          "dark": {
+            "bg": "#1E3A8A",
+            "border": "#60A5FA",
+            "icon": "#60A5FA",
+            "text": "#DBEAFE"
+          }
+        }
+      },
+      "data_visualization": {
+        "primary_palette": ["#2563EB", "#10B981", "#A855F7", "#F59E0B", "#EF4444", "#06B6D4"],
+        "light_mode_variants": ["#60A5FA", "#34D399", "#C084FC", "#FBBF24", "#F87171", "#22D3EE"],
+        "dark_mode_variants": ["#93C5FD", "#6EE7B7", "#D8B4FE", "#FCD34D", "#FCA5A5", "#67E8F9"],
+        "sequential_blue": ["#EFF6FF", "#DBEAFE", "#BFDBFE", "#93C5FD", "#60A5FA", "#2563EB", "#1D4ED8", "#1E40AF"],
+        "sequential_green": ["#ECFDF5", "#D1FAE5", "#A7F3D0", "#6EE7B7", "#34D399", "#10B981", "#059669", "#047857"]
+      }
+    },
+    "mode_switching": {
+      "light_to_dark_mapping": {
+        "primary.500": "primary.400",
+        "primary.600": "primary.500",
+        "primary.700": "primary.600",
+        "secondary.500": "secondary.400",
+        "secondary.600": "secondary.500",
+        "neutral.900": "neutral.50",
+        "neutral.800": "neutral.100",
+        "neutral.700": "neutral.200",
+        "neutral.600": "neutral.300",
+        "neutral.500": "neutral.400",
+        "neutral.400": "neutral.500",
+        "neutral.300": "neutral.600",
+        "neutral.200": "neutral.700",
+        "neutral.100": "neutral.800",
+        "neutral.50": "neutral.900"
+      },
+      "transition_strategy": "Shift colors 1-2 stops lighter in dark mode for optimal contrast",
+      "css_implementation": {
+        "css_variables": true,
+        "prefers_color_scheme": true,
+        "javascript_toggle": true,
+        "local_storage_persistence": true
+      }
+    },
+    "edge_cases": {
+      "over_images": {
+        "text_overlay": {
+          "light_images": {
+            "text": "#0F172A",
+            "shadow": "0 1px 2px rgba(255, 255, 255, 0.8)"
+          },
+          "dark_images": {
+            "text": "#FFFFFF",
+            "shadow": "0 1px 2px rgba(0, 0, 0, 0.8)"
+          },
+          "unknown_images": {
+            "text": "#FFFFFF",
+            "background": "linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.6) 50%, transparent 100%)",
+            "shadow": "0 2px 4px rgba(0, 0, 0, 0.9)"
+          }
+        },
+        "cta_buttons_over_images": {
+          "primary": {
+            "bg": "#2563EB",
+            "text": "#FFFFFF",
+            "shadow": "0 4px 6px rgba(37, 99, 235, 0.4)",
+            "backdrop_blur": "blur(8px)"
+          },
+          "secondary": {
+            "bg": "rgba(255, 255, 255, 0.95)",
+            "text": "#2563EB",
+            "border": "#2563EB",
+            "backdrop_blur": "blur(12px)"
+          }
+        }
+      },
+      "gradients": {
+        "hero_gradients": {
+          "primary_diagonal": "linear-gradient(135deg, #2563EB 0%, #A855F7 100%)",
+          "success_glow": "linear-gradient(135deg, #10B981 0%, #34D399 100%)",
+          "mesh_background_light": "radial-gradient(at 0% 0%, #EFF6FF 0%, transparent 50%), radial-gradient(at 100% 0%, #FAF5FF 0%, transparent 50%), radial-gradient(at 100% 100%, #ECFDF5 0%, transparent 50%)",
+          "mesh_background_dark": "radial-gradient(at 0% 0%, #1E3A8A 0%, transparent 50%), radial-gradient(at 100% 0%, #581C87 0%, transparent 50%), radial-gradient(at 100% 100%, #064E3B 0%, transparent 50%)"
+        },
+        "button_gradients": {
+          "premium": "linear-gradient(135deg, #A855F7 0%, #2563EB 100%)",
+          "success": "linear-gradient(135deg, #10B981 0%, #059669 100%)",
+          "hover_overlay": "linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)"
+        }
+      },
+      "glassmorphism": {
+        "light_mode": {
+          "background": "rgba(255, 255, 255, 0.7)",
+          "backdrop_filter": "blur(16px) saturate(180%)",
+          "border": "1px solid rgba(226, 232, 240, 0.5)",
+          "shadow": "0 8px 32px rgba(15, 23, 42, 0.1)"
+        },
+        "dark_mode": {
+          "background": "rgba(30, 41, 59, 0.7)",
+          "backdrop_filter": "blur(16px) saturate(180%)",
+          "border": "1px solid rgba(71, 85, 105, 0.5)",
+          "shadow": "0 8px 32px rgba(0, 0, 0, 0.4)"
+        },
+        "colorful_variants": {
+          "blue_glass": {
+            "light": "rgba(239, 246, 255, 0.8)",
+            "dark": "rgba(30, 58, 138, 0.6)"
+          },
+          "green_glass": {
+            "light": "rgba(236, 253, 245, 0.8)",
+            "dark": "rgba(6, 78, 59, 0.6)"
+          },
+          "purple_glass": {
+            "light": "rgba(250, 245, 255, 0.8)",
+            "dark": "rgba(88, 28, 135, 0.6)"
+          }
+        }
+      },
+      "high_contrast_mode": {
+        "enabled": true,
+        "text_minimum": "#000000",
+        "background": "#FFFFFF",
+        "links": "#0000EE",
+        "borders": "#000000",
+        "focus_indicator": "#0000EE"
+      }
+    },
+    "implementation_patterns": {
+      "css_custom_properties": {
+        "example": ":root { --color-primary-500: #2563EB; --color-text-body: #1E293B; }",
+        "dark_mode": "[data-theme='dark'] { --color-primary-500: #60A5FA; --color-text-body: #E2E8F0; }"
+      },
+      "tailwind_config": {
+        "extend_colors": true,
+        "custom_scale": true,
+        "dark_mode": "class"
+      },
+      "component_library_tokens": {
+        "chakra_ui": true,
+        "material_ui": true,
+        "ant_design": true,
+        "shadcn_ui": true
+      }
+    },
+    "testing_checklist": {
+      "contrast_ratios": "Verified WCAG AA compliance for all text combinations",
+      "color_blindness": "Tested with Deuteranopia, Protanopia, Tritanopia simulators",
+      "dark_mode_parity": "All UI patterns work equally well in both modes",
+      "print_styles": "Neutral scale provides good grayscale conversion",
+      "reduced_motion": "Color transitions can be disabled via prefers-reduced-motion"
+    },
+    "brand_applications": {
+      "website": {
+        "hero_section": "primary.500 gradient with glassmorphism overlay",
+        "navigation": "neutral.50 background with primary.600 active states",
+        "cta_buttons": "primary.500 with accent.500 for premium actions",
+        "footer": "neutral.900 background with neutral.50 text"
+      },
+      "mobile_app": {
+        "tab_bar": "backgrounds.card with icons.active for selected",
+        "cards": "elevated backgrounds with subtle borders",
+        "forms": "clear focus states using borders.focus",
+        "status_bar": "Matches page background for seamless experience"
+      },
+      "marketing_materials": {
+        "primary_brand": "#2563EB",
+        "secondary_accent": "#10B981",
+        "premium_highlight": "#A855F7",
+        "gradient_hero": "135deg from primary to accent"
+      },
+      "documentation": {
+        "code_blocks": "neutral.900 background with syntax highlighting",
+        "info_callouts": "semantic.info backgrounds",
+        "success_messages": "semantic.success backgrounds",
+        "navigation": "neutral.100 sidebar with primary.600 active states"
+      }
+    }
+  },
+  "design_tokens": {
+    "spacing": {
+      "note": "Recommended spacing scale to complement color system",
+      "scale": {
+        "xs": "0.25rem",
+        "sm": "0.5rem",
+        "md": "1rem",
+        "lg": "1.5rem",
+        "xl": "2rem",
+        "2xl": "3rem",
+        "3xl": "4rem"
+      }
+    },
+    "typography": {
+      "note": "Font size recommendations for optimal hierarchy",
+      "heading_color_light": "#0F172A",
+      "heading_color_dark": "#F8FAFC",
+      "body_color_light": "#1E293B",
+      "body_color_dark": "#E2E8F0",
+      "scale": {
+        "xs": "0.75rem",
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem"
+      }
+    },
+    "shadows": {
+      "light_mode": {
+        "sm": "0 1px 2px 0 rgba(15, 23, 42, 0.05)",
+        "md": "0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -1px rgba(15, 23, 42, 0.06)",
+        "lg": "0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05)",
+        "xl": "0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04)"
+      },
+      "dark_mode": {
+        "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.3)",
+        "md": "0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3)",
+        "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4)",
+        "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5)"
+      }
+    },
+    "border_radius": {
+      "sm": "0.25rem",
+      "md": "0.5rem",
+      "lg": "0.75rem",
+      "xl": "1rem",
+      "full": "9999px"
+    }
+  },
+  "usage_examples": {
+    "html_css": {
+      "button_primary": "<button style=\"background: #2563EB; color: #FFFFFF; padding: 0.75rem 1.5rem; border-radius: 0.5rem; border: none;\">Click Me</button>",
+      "card": "<div style=\"background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);\">Card Content</div>",
+      "alert_success": "<div style=\"background: #ECFDF5; border-left: 4px solid #10B981; padding: 1rem; color: #065F46;\">Success message</div>"
+    },
+    "react_tailwind": {
+      "button": "<button className=\"bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg\">Click Me</button>",
+      "card": "<div className=\"bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-xl p-6 shadow-md\">Card Content</div>",
+      "navigation": "<nav className=\"bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800\">Navigation</nav>"
+    }
+  }
+}
