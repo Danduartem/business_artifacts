@@ -1,0 +1,37 @@
+# Color Forge Configuration
+# This file controls the behavior of the Design System Architect agent
+
+# User Settings (inherited from BMAD core)
+user_name: "Daniel"
+communication_language: "English"
+
+# Design System Settings
+design_system_name: "My Design System"
+tech_stack: "css-only"
+component_scope: "comprehensive"
+
+# Output Settings
+output_folder: "/Users/danielmenezes/coding/business-artifacts/docs"
+
+# Input File Paths (update these with your actual file paths)
+# Provide paths to your brand assets:
+brand_guide_path: ""
+# Should contain: Brand personality, voice, visual identity principles
+
+style_guide_path: ""
+# Should contain: Typography specs, spacing rules, component styling
+
+color_palette_path: ""
+# Should contain: All brand colors with hex values and semantic roles
+
+references_path: ""
+# Optional: Inspiration websites, screenshots, competitor examples
+
+logo_path: ""
+# Optional: Logo file for documentation
+
+# Generation Settings
+include_accessibility_audit: true
+auto_generate_docs: true
+wcag_level: "AA"
+# Options: AA | AAA

@@ -1,0 +1,54 @@
+# Generate Palette Workflow Configuration
+name: "generate-palette"
+description: "Generate 5 diverse color palettes using specialized agents with different approaches"
+author: "Color Forge"
+version: "1.0.0"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/color-forge/config.yaml"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Module-specific config variables
+palette_output_folder: "{config_source}:palette_output_folder"
+default_export_formats: "{config_source}:default_export_formats"
+wcag_level: "{config_source}:wcag_level"
+colorblind_validation: "{config_source}:colorblind_validation"
+generate_modes: "{config_source}:generate_modes"
+scale_granularity: "{config_source}:scale_granularity"
+include_semantic_colors: "{config_source}:include_semantic_colors"
+
+# Module path and component files
+installed_path: "{project-root}/bmad/color-forge/workflows/generate-palette"
+template: false
+instructions: "{installed_path}/instructions.md"
+checklist: "{installed_path}/checklist.md"
+
+# Reference data files
+color_psychology_data: "{project-root}/bmad/color-forge/data/color-psychology.md"
+wcag_standards_data: "{project-root}/bmad/color-forge/data/wcag-standards.md"
+industry_colors_data: "{project-root}/bmad/color-forge/data/industry-colors.md"
+
+# Output files
+palette_files:
+  psychology: "{palette_output_folder}/palette-psychology.json"
+  harmony: "{palette_output_folder}/palette-harmony.json"
+  accessible: "{palette_output_folder}/palette-accessible.json"
+  trendy: "{palette_output_folder}/palette-trendy.json"
+  synthesized: "{palette_output_folder}/palette-synthesized.json"
+  scores: "{palette_output_folder}/palette-scores.json"
+
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  workflow: "bmad/color-forge/workflows/generate-palette/workflow.yaml"
+  files:
+    - "bmad/color-forge/workflows/generate-palette/workflow.yaml"
+    - "bmad/color-forge/workflows/generate-palette/instructions.md"
+    - "bmad/color-forge/workflows/generate-palette/checklist.md"
+    - "bmad/color-forge/data/color-psychology.md"
+    - "bmad/color-forge/data/wcag-standards.md"
+    - "bmad/color-forge/data/industry-colors.md"
+  existing_workflows: []
