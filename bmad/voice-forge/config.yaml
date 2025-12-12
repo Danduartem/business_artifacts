@@ -1,0 +1,36 @@
+# Voice Forge Configuration
+# Multi-Agent Brand Voice Documentation System
+
+# User Settings (from core config)
+user_name: "Daniel"
+communication_language: "English"
+
+# Output Settings
+voice_output_folder: "/Users/danielmenezes/coding/business-artifacts/output/voice-forge"
+
+# Quality Settings
+quality_threshold: 90  # 9/10 minimum score required
+max_regeneration_attempts: 2
+
+# Voice Documentation Settings
+include_ai_guidelines: true
+include_training_exercises: true
+export_formats: "all"  # markdown | json | all
+
+# Channel Coverage
+channels:
+  - website
+  - blog
+  - instagram
+  - linkedin
+  - twitter
+  - email_marketing
+  - customer_support
+
+# Reference Analysis Settings
+max_reference_urls: 8
+min_reference_urls: 3
+
+# Integration
+design_forge_config: "/Users/danielmenezes/coding/business-artifacts/bmad/design-forge/config.yaml"
+color_forge_config: "/Users/danielmenezes/coding/business-artifacts/bmad/color-forge/config.yaml"
