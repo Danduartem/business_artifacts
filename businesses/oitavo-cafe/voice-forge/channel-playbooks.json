@@ -1,0 +1,1245 @@
+{
+  "metadata": {
+    "brand": "Oitavo Café",
+    "industry": "Marketing Agency / Digital Marketing",
+    "language": "pt-BR",
+    "voice_baseline": {
+      "formality": 4,
+      "humor": 4,
+      "irreverence": 4,
+      "energy": 4
+    },
+    "archetype": "Jester + Sage + Outlaw",
+    "positioning": "Sistema de vendas, não serviço de marketing",
+    "created_date": "2025-12-12",
+    "version": "1.0"
+  },
+
+  "channels": {
+    "website": {
+      "channel_profile": {
+        "platform_name": "Website",
+        "key_characteristics": [
+          "Primeiro ponto de contato formal com a marca",
+          "Visitantes estão em modo de pesquisa e avaliação",
+          "Precisa estabelecer credibilidade enquanto mantém personalidade",
+          "Tempo de atenção médio: 30-90 segundos por página"
+        ],
+        "audience_behavior": {
+          "mindset": "Céticos mas curiosos, buscando sinais de autenticidade",
+          "intent": "Avaliação de fit, comparação com concorrentes, busca por prova social",
+          "pain_points": "Cansados de promessas vazias, querem ver resultados reais"
+        },
+        "voice_adjustment_guidelines": {
+          "primary_goal": "Convencer sem empurrar, educar sem ser condescendente",
+          "personality_emphasis": "Sage (expertise) + Outlaw (diferenciação)",
+          "critical_balance": "Profissional o suficiente para confiar, irreverente o suficiente para lembrar"
+        }
+      },
+
+      "tone_adjustments": {
+        "formality": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Mais polido que redes sociais, mas ainda conversacional"
+        },
+        "humor": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Presente mas estratégico - não pode comprometer credibilidade"
+        },
+        "irreverence": {
+          "level": 4,
+          "shift": "0 from baseline",
+          "rationale": "Diferenciador chave - o que separa do mar de agências genéricas"
+        },
+        "energy": {
+          "level": 4,
+          "shift": "0 from baseline",
+          "rationale": "Confiante e direto, especialmente em CTAs"
+        }
+      },
+
+      "content_guidelines": {
+        "sections": {
+          "homepage": {
+            "headline_length": "5-10 palavras",
+            "subheadline_length": "15-25 palavras",
+            "body_paragraphs": "40-80 palavras cada",
+            "cta_copy": "2-4 palavras (ação clara)"
+          },
+          "about_page": {
+            "opening": "Hook emocional nos primeiros 50 palavras",
+            "story_arc": "Problema → Insight → Solução → Manifesto",
+            "team_bios": "80-120 palavras, primeira pessoa, personalidade forte"
+          },
+          "services_page": {
+            "service_description": "120-180 palavras",
+            "benefit_bullets": "10-15 palavras cada",
+            "pricing_philosophy": "Transparente mas não apologético"
+          }
+        },
+        "formatting": {
+          "paragraph_max": "3-4 linhas",
+          "use_subheadings": true,
+          "bullet_points": "Quando listando benefícios ou features",
+          "white_space": "Generoso - respire"
+        },
+        "language_specifics": {
+          "pronouns": "Primeira pessoa plural (a gente, nós) para inclusão",
+          "tense": "Presente para criar imediatismo",
+          "sentence_structure": "Mix de curtas (impacto) e médias (explicação)"
+        }
+      },
+
+      "voice_examples": {
+        "homepage_hero": {
+          "headline": "Marketing que vende. Não que enrola.",
+          "subheadline": "Chega de views que não pagam boleto. A gente transforma sua audiência em sistema de vendas previsível.",
+          "cta_primary": "Quero vender mais",
+          "cta_secondary": "Ver como funciona"
+        },
+        "about_intro": {
+          "example_1": "Nascemos de uma frustração: ver empresas fodas quebrando porque marketing virou sinônimo de enrolação.",
+          "example_2": "A gente não é mais uma agência prometendo awareness. Somos os caras que você chama quando precisa vender. Ponto."
+        },
+        "service_descriptions": {
+          "example_1": "Sistema de Vendas Digital: A gente não faz campanha bonita que ganha prêmio e não vende nada. Construímos uma máquina de vendas que funciona enquanto você dorme. Funil que converte, copy que vende, anúncio que traz dinheiro - não vaidade.",
+          "example_2": "Consultoria Estratégica: Sabe aquele papo de 'vamos fazer um diagnóstico' que vira PowerPoint engavetado? A gente não. Nossa consultoria vem com plano de ação, métricas claras e alguém cobrando resultado."
+        },
+        "social_proof": {
+          "testimonial_intro": "O que os clientes falam (quando não estão ocupados vendendo)",
+          "case_study_hook": "De R$ 30k para R$ 180k/mês. Veja como a [Cliente X] parou de depender de indicação."
+        }
+      },
+
+      "do_and_dont": {
+        "do": [
+          "Use dados concretos e números reais",
+          "Fale direto sobre dinheiro e ROI",
+          "Quebre objeções antes que surjam",
+          "Mostre que entende a dor da Carolina",
+          "Use 'a gente' em vez de 'nós' para proximidade",
+          "Termine seções com CTAs claros",
+          "Prove cada claim com exemplo ou dado"
+        ],
+        "dont": [
+          "Fazer promessas vagas ('aumentar resultados')",
+          "Usar jargão de agência ('awareness', 'branding journey')",
+          "Ser humilde demais - confiança é chave",
+          "Escrever blocos de texto sem respiração",
+          "Copiar tom de redes sociais (muito informal)",
+          "Esconder preços ou processo de trabalho",
+          "Usar terceira pessoa corporativa"
+        ]
+      },
+
+      "templates": {
+        "section_openings": [
+          "Pode parar de [problema]. Existe jeito melhor.",
+          "A verdade que ninguém conta: [insight provocador]",
+          "Enquanto a concorrência [erro comum], a gente [diferencial]"
+        ],
+        "transition_phrases": [
+          "Aqui está o que muda:",
+          "Funciona assim:",
+          "A diferença é simples:",
+          "Olha só:"
+        ],
+        "cta_formulas": [
+          "[Ação] + sem [objeção]",
+          "Vamos [resultado]?",
+          "Pronta para [transformação]?"
+        ]
+      },
+
+      "integration_notes": {
+        "from_social_media": "Visitantes de Instagram/LinkedIn esperam o mesmo tom - não decepcione com website genérico",
+        "to_email": "Captura de email deve prometer especificidade, não generalidade",
+        "to_blog": "Links para blog devem posicionar conteúdo como útil, não como 'awareness'",
+        "to_whatsapp": "CTA para WhatsApp deve sentir como escalada natural, não salto abrupto de formalidade"
+      }
+    },
+
+    "blog": {
+      "channel_profile": {
+        "platform_name": "Blog",
+        "key_characteristics": [
+          "Conteúdo de profundidade, não superficialidade",
+          "SEO importante mas não ao custo da voz",
+          "Leitor está em modo aprendizado ativo",
+          "Oportunidade para estabelecer thought leadership"
+        ],
+        "audience_behavior": {
+          "mindset": "Buscando solução para problema específico ou educação estratégica",
+          "intent": "Aprender tática aplicável ou validar abordagem",
+          "pain_points": "Cansados de listicles rasos e 'dicas' óbvias"
+        },
+        "voice_adjustment_guidelines": {
+          "primary_goal": "Educar com autoridade sem soar acadêmico",
+          "personality_emphasis": "Sage (expertise profunda) + Jester (entrega acessível)",
+          "critical_balance": "Substancioso mas não denso, útil mas não chato"
+        }
+      },
+
+      "tone_adjustments": {
+        "formality": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Conteúdo educacional requer clareza, mas mantém conversação"
+        },
+        "humor": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Usado para ilustrar pontos, não para encher linguiça"
+        },
+        "irreverence": {
+          "level": 4,
+          "shift": "0 from baseline",
+          "rationale": "Opinião forte é conteúdo memorável"
+        },
+        "energy": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Confiante mas não hiperativo - leitura longa pede ritmo sustentável"
+        }
+      },
+
+      "content_guidelines": {
+        "article_structure": {
+          "title": "50-70 caracteres, promessa clara + curiosidade",
+          "intro": "100-150 palavras, hook emocional → promessa → preview",
+          "body_length": "1200-2000 palavras para SEO, 800-1200 para tópicos táticos",
+          "sections": "H2 a cada 300-400 palavras, H3 para sub-pontos",
+          "conclusion": "80-120 palavras, resumo + próximo passo"
+        },
+        "formatting_rules": {
+          "paragraphs": "2-4 linhas máximo",
+          "lists": "Bullets para ações, números para sequências",
+          "bold": "Para conceitos-chave e takeaways",
+          "examples": "Sempre que possível - teoria sem exemplo é abstract demais",
+          "images": "Screenshots, gráficos de dados, memes ocasionais (brand-appropriate)"
+        },
+        "seo_integration": {
+          "keywords": "Natural, não forçado - escreva para humanos primeiro",
+          "internal_links": "2-4 por artigo, contextualizados no texto",
+          "meta_description": "140-155 caracteres, benefit-driven"
+        },
+        "posting_frequency": "2-3 artigos/mês, consistência > volume"
+      },
+
+      "voice_examples": {
+        "titles": {
+          "how_to": "Como Criar Funil que Vende (Sem Gastar Fortuna em Ads)",
+          "thought_leadership": "Por Que Seu Marketing Não Vende: 3 Mentiras que Agências Contam",
+          "case_study": "De 200 Seguidores para R$ 80k/mês: O Sistema que Carolina Usou",
+          "tactical": "Copy de Vendas: 7 Gatilhos que Fazem Sua Audiência Comprar Agora"
+        },
+        "article_intros": {
+          "example_1": "Vou te falar uma verdade: 90% das estratégias de marketing que você vê no Instagram são bonitas, mas não vendem. A gente analisou 47 campanhas de pequenas empresas no último trimestre. Sabe quantas geraram ROI positivo no primeiro mês? Três. Este artigo é sobre o que essas três fizeram diferente.",
+          "example_2": "Você já cansou de guru prometendo '10x seu faturamento' com truque de growth hacking? Eu também. O que ninguém conta: vendas previsíveis não vêm de hack. Vêm de sistema. Deixa eu te mostrar como construir um."
+        },
+        "section_transitions": {
+          "example_1": "Agora vem a parte boa:",
+          "example_2": "Aqui é onde a maioria erra:",
+          "example_3": "Olha o que acontece quando você aplica isso:"
+        },
+        "ctas": {
+          "mid_article": "→ Baixe nosso template de funil de vendas (sem pedir rim em troca)",
+          "end_article": "Quer implementar isso no seu negócio? A gente ajuda. Chama no WhatsApp.",
+          "content_upgrade": "Esse artigo tem 2000 palavras. Mas a checklist tem os 12 passos prontos. [Baixar checklist gratuita]"
+        }
+      },
+
+      "do_and_dont": {
+        "do": [
+          "Comece com hook que conecta com frustração real",
+          "Use exemplos concretos com números",
+          "Quebre mitos da indústria com evidência",
+          "Ofereça framework/processo aplicável",
+          "Termine com CTA relevante ao tópico",
+          "Use 'você' para falar com Carolina diretamente",
+          "Admita quando algo é difícil (credibilidade)"
+        ],
+        "dont": [
+          "Escrever intro genérica 'no mundo de hoje...'",
+          "Dar dica óbvia como insight profundo",
+          "Usar clickbait que não entrega",
+          "Fazer artigo de 3000 palavras que poderia ser email",
+          "Copiar estrutura de todo blog de marketing (seja distintivo)",
+          "Terminar sem CTA claro",
+          "Ser neutro demais - opinião forte > consenso morno"
+        ]
+      },
+
+      "templates": {
+        "article_frameworks": [
+          {
+            "name": "Myth-Buster",
+            "structure": "Mentira comum → Por que parece verdade → A realidade → O que fazer em vez disso"
+          },
+          {
+            "name": "System Breakdown",
+            "structure": "Problema → Por que métodos comuns falham → Sistema completo passo-a-passo → Como implementar"
+          },
+          {
+            "name": "Case Study Deep-Dive",
+            "structure": "Situação inicial → Desafio específico → Solução (com detalhes) → Resultados → Lições aplicáveis"
+          }
+        ],
+        "power_phrases": [
+          "Aqui está o que ninguém te conta:",
+          "A verdade inconveniente:",
+          "Pode copiar essa estratégia:",
+          "Esse é o erro que vejo toda semana:",
+          "Funciona assim na prática:"
+        ]
+      },
+
+      "integration_notes": {
+        "from_social": "Posts de Instagram/LinkedIn devem teaser insights do blog, não resumir completamente",
+        "to_email": "Artigos completos no blog, resumo executivo + link no email",
+        "content_upgrades": "Checklists, templates, swipe files como lead magnets específicos de cada artigo",
+        "repurposing": "1 artigo → 5-7 posts sociais, 1 newsletter, 3-5 stories, 1 thread Twitter"
+      }
+    },
+
+    "instagram": {
+      "channel_profile": {
+        "platform_name": "Instagram",
+        "key_characteristics": [
+          "Canal de construção de relacionamento e prova social",
+          "Mix de educação rápida + entretenimento + bastidores",
+          "Algoritmo favorece engajamento e salvamentos",
+          "Atenção extremamente fragmentada"
+        ],
+        "audience_behavior": {
+          "mindset": "Modo descoberta e scroll rápido, mas para quando reconhece sua dor",
+          "intent": "Busca inspiração, validação, educação rápida e conexão humana",
+          "pain_points": "Saturação de conteúdo genérico, promessas vazias, falta de autenticidade"
+        },
+        "voice_adjustment_guidelines": {
+          "primary_goal": "Parar scroll, construir confiança, gerar desejo",
+          "personality_emphasis": "Jester + Outlaw - máxima personalidade",
+          "critical_balance": "Entretenimento que educa, não que distrai da mensagem"
+        }
+      },
+
+      "tone_adjustments": {
+        "formality": {
+          "level": 4,
+          "shift": "0 from baseline",
+          "rationale": "Máximo casual - como conversa com amiga esperta"
+        },
+        "humor": {
+          "level": 5,
+          "shift": "+1 from baseline",
+          "rationale": "Humor é arma de engajamento e memorabilidade"
+        },
+        "irreverence": {
+          "level": 5,
+          "shift": "+1 from baseline",
+          "rationale": "Pattern interrupt - destacar no feed genérico"
+        },
+        "energy": {
+          "level": 5,
+          "shift": "+1 from baseline",
+          "rationale": "Alta energia = para scroll e gera compartilhamento"
+        }
+      },
+
+      "content_guidelines": {
+        "feed_posts": {
+          "caption_length": "Primeira linha: 125 caracteres (antes do 'mais')",
+          "caption_total": "800-1500 caracteres para posts educacionais",
+          "caption_structure": "Hook → Valor → CTA",
+          "carousel_slides": "6-10 slides, conteúdo denso mas escaneável",
+          "single_image": "Quote, resultado, meme, screenshot"
+        },
+        "stories": {
+          "text_per_slide": "10-15 palavras máximo",
+          "story_sequence": "3-7 slides para contar história completa",
+          "stickers": "Polls, quizzes, questions para engajamento",
+          "link_strategy": "1-2x por dia, contexto claro do porquê clicar"
+        },
+        "reels": {
+          "duration": "7-15 segundos (atenção curta) ou 30-45 (educação densa)",
+          "hook": "Primeiros 1-2 segundos são vida ou morte",
+          "text_overlay": "Grande, legível, keywords que geram curiosidade",
+          "audio": "Trending quando relevante, original quando diferenciação importa"
+        },
+        "hashtags": {
+          "count": "15-20 hashtags mix de tamanhos",
+          "strategy": "5 nicho (10k-50k), 10 médio (50k-500k), 5 amplo (500k+)",
+          "placement": "Primeiro comentário ou final da caption separado por linha"
+        },
+        "emoji_usage": {
+          "frequency": "Moderado - pontua, não substitui palavras",
+          "purpose": "Visual break, ênfase, não decoração fofa",
+          "avoid": "Emoji demais que infantiliza a mensagem"
+        },
+        "posting_frequency": {
+          "feed": "4-5x por semana",
+          "stories": "Diariamente (5-15 slides/dia)",
+          "reels": "3-4x por semana"
+        }
+      },
+
+      "voice_examples": {
+        "feed_captions": {
+          "educational": "🚨 Você está fazendo marketing errado (e perdendo dinheiro)\n\nNão queria ser essa pessoa, mas alguém tem que falar: aquele curso de tráfego pago que você comprou tá mentindo pra você.\n\nSabe por quê?\n\nPorque não adianta NADA você saber criar anúncio se:\n→ Sua oferta não vende\n→ Seu funil tem buraco\n→ Seu checkout espanta cliente\n\nA gente vê isso toda semana: empreendedora gastando R$ 5k em ads, gerando lead que não converte.\n\nMarketing não é sobre tráfego. É sobre SISTEMA.\n\n[Continua explicando o sistema...]\n\nSalva esse post e para de queimar dinheiro. ❤️",
+          "behind_scenes": "POV: Cliente pediu 'conteúdo viral'\n\nEu: Viral não paga boleto, amor. Você quer vendas ou views?\n\nEla: ... vendas?\n\nEu: Então esquece viral. Vamos construir funil.\n\n3 meses depois: R$ 120k de faturamento.\n\nEssa é a diferença entre agência de conteúdo e sistema de vendas. 💰",
+          "social_proof": "Carolina faturou R$ 180k em um lançamento.\n\nCom 800 seguidores.\n\nEnquanto você acha que precisa de 10k pra vender.\n\nQuer saber o segredo? Não tem segredo. Tem sistema.\n\n[Ver depoimento completo nos destaques]"
+        },
+        "story_sequences": {
+          "educational_thread": [
+            "Slide 1: Pergunta do milhão →",
+            "Slide 2: 'Quanto preciso investir em ads pra vender?'",
+            "Slide 3: Resposta curta: depende",
+            "Slide 4: Resposta honesta: se seu funil não converte...",
+            "Slide 5: ...você pode gastar R$ 50k que não vai vender",
+            "Slide 6: Moral da história:",
+            "Slide 7: Conserta funil ANTES de escalar tráfego",
+            "Slide 8: A gente pode ajudar com isso [LINK]"
+          ]
+        },
+        "reel_hooks": {
+          "pattern_interrupt": "Agência de marketing está roubando você.",
+          "curiosity": "3 palavras que matam conversão (você usa a #2)",
+          "contrarian": "Para de fazer marketing. Faz vendas.",
+          "result": "R$ 30k → R$ 180k em 90 dias. Sistema completo:"
+        },
+        "ctas": {
+          "soft": "Salva pra aplicar depois ❤️",
+          "medium": "Manda no direct se quer ajuda com isso",
+          "hard": "Link na bio pra conversar sobre seu sistema de vendas",
+          "engagement": "Comenta aqui: qual desses erros você tá cometendo?"
+        }
+      },
+
+      "do_and_dont": {
+        "do": [
+          "Primeira linha da caption = hook que para scroll",
+          "Use 'você' pra falar direto com Carolina",
+          "Mostre bastidores e processo real",
+          "Compartilhe opinião controversa (embasada)",
+          "Fale sobre dinheiro/resultado sem vergonha",
+          "Responda TODOS os DMs e comentários com personalidade",
+          "Teste diferentes formatos - carrossel educativo performa",
+          "Use stories para humanizar e criar intimidade"
+        ],
+        "dont": [
+          "Fazer caption genérica 'dicas de marketing'",
+          "Postar só conteúdo de venda (eduque 80%, venda 20%)",
+          "Usar hashtag aleatória só pra preencher número",
+          "Copiar formato de guru gringo sem adaptar pra Brasil",
+          "Ser corporativa demais - é rede social, não relatório",
+          "Ignorar comentários (engajamento alimenta algoritmo)",
+          "Prometer resultado sem mostrar prova",
+          "Usar meme que não conecta com mensagem"
+        ]
+      },
+
+      "templates": {
+        "caption_formulas": [
+          {
+            "name": "Myth Buster",
+            "template": "[Emoji] Mentira que te contaram: [mito]\n\nA verdade: [realidade]\n\nPor que importa: [impacto]\n\n[CTA para salvar/compartilhar]"
+          },
+          {
+            "name": "Story Time",
+            "template": "Cliente me disse: '[objeção comum]'\n\nEu respondi: '[verdade dura mas necessária]'\n\nResultado: [transformação]\n\nMoral: [lição aplicável]"
+          },
+          {
+            "name": "List/Tutorial",
+            "template": "[Número] coisas sobre [tópico] que [audiência] precisa parar de fazer:\n\n→ [Ponto 1 + por quê]\n→ [Ponto 2 + por quê]\n→ [Ponto 3 + por quê]\n\nFaz isso em vez: [solução]"
+          }
+        ],
+        "story_templates": [
+          "Pergunta caixa: 'Me pergunta sobre [tópico relevante]'",
+          "This or That: '[Opção A] ou [Opção B]? Vota!'",
+          "Behind Scenes: 'Como a gente [processo] pra [resultado]'",
+          "Quick Tip: '30 segundos de aula: [micro-lição valiosa]'"
+        ]
+      },
+
+      "integration_notes": {
+        "to_website": "Link na bio para landing específica, não homepage genérica",
+        "to_whatsapp": "Stories com CTA 'Manda DM' ou 'Chama no WhatsApp' para perguntas complexas",
+        "to_blog": "Carrossel com 'insight teasers' + 'link na bio pro artigo completo'",
+        "from_email": "Repurpose newsletter insights como carrossel educativo",
+        "cross_promotion": "Stories do Instagram pode virar thread no Twitter, carrossel pode virar post LinkedIn (com tom ajustado)"
+      }
+    },
+
+    "linkedin": {
+      "channel_profile": {
+        "platform_name": "LinkedIn",
+        "key_characteristics": [
+          "Rede profissional com audiência B2B em mindset de negócios",
+          "Algoritmo favorece conversação e tempo de leitura",
+          "Mistura de personal brand (fundador) e company page",
+          "Credibilidade e autoridade são moeda principal"
+        ],
+        "audience_behavior": {
+          "mindset": "Modo profissional mas cansados de corporate speak",
+          "intent": "Networking, learning, avaliação de parceiros/fornecedores",
+          "pain_points": "Conteúdo raso disfarçado de thought leadership, self-promotion sem substância"
+        },
+        "voice_adjustment_guidelines": {
+          "primary_goal": "Estabelecer autoridade sem arrogância, desafiar sem ofender",
+          "personality_emphasis": "Sage (expertise) + Outlaw (opinião forte) - menos Jester que Instagram",
+          "critical_balance": "Profissional o suficiente para confiar, humano o suficiente para conectar"
+        }
+      },
+
+      "tone_adjustments": {
+        "formality": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Mais polido que Instagram, mas longe de corporativo"
+        },
+        "humor": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Presente mas mais sutil - ironia > piada explícita"
+        },
+        "irreverence": {
+          "level": 4,
+          "shift": "0 from baseline",
+          "rationale": "Opiniões fortes são bem-vindas, mas com argumentação sólida"
+        },
+        "energy": {
+          "level": 4,
+          "shift": "0 from baseline",
+          "rationale": "Confiante e assertivo, não hiperativo"
+        }
+      },
+
+      "content_guidelines": {
+        "post_structure": {
+          "opening_line": "Hook em 1 linha - tese provocativa ou pergunta poderosa",
+          "body_length": "1200-1500 caracteres ideal (3-4 parágrafos curtos)",
+          "paragraph_length": "1-3 linhas - espaço em branco é amigo",
+          "formatting": "Use linha em branco entre parágrafos para escaneabilidade",
+          "conclusion": "CTA conversacional - pergunta, não comando"
+        },
+        "post_types": {
+          "thought_leadership": "Opinião forte sobre tendência da indústria",
+          "case_study": "História de transformação com números reais",
+          "educational": "Framework ou processo com aplicação prática",
+          "personal_story": "Lição de negócio através de experiência pessoal",
+          "contrarian_take": "Desafiar sabedoria convencional com evidência"
+        },
+        "visual_elements": {
+          "carousel_posts": "PDF com 6-10 slides, design limpo, alta densidade de info",
+          "single_image": "Quote própria, data visualization, screenshot de resultado",
+          "video": "1-2 minutos, legendado, entrega valor rápido"
+        },
+        "hashtags": {
+          "count": "3-5 hashtags relevantes",
+          "strategy": "Mix de nicho (#MarketingParaPME) e amplo (#Empreendedorismo)",
+          "placement": "Final do post, linha separada"
+        },
+        "posting_frequency": {
+          "personal_profile": "3-5x por semana",
+          "company_page": "2-3x por semana"
+        }
+      },
+
+      "voice_examples": {
+        "thought_leadership_posts": {
+          "example_1": "Marketing virou teatro.\n\nEmpresas gastam fortunas em 'brand awareness' que não converte em nada.\n\nEventos, podcasts, posts inspiracionais. Tudo lindo. Nada vende.\n\nEnquanto isso, o financeiro sangrando.\n\nA dura verdade que ninguém quer ouvir: se seu marketing não tem métrica de vendas, não é marketing. É hobby caro.\n\nNos últimos 18 meses, analisamos 73 empresas de serviço no Brasil.\n\nAs que cresceram? Tratavam marketing como sistema de vendas.\nAs que estagnaram? Perseguiam métricas de vaidade.\n\nMarketing não existe pra fazer sua marca famosa.\nExiste pra fazer seu telefone tocar com cliente pronto pra comprar.\n\nQual métrica você tá perseguindo?\n\n#MarketingDigital #VendasB2B #Empreendedorismo",
+          "example_2": "ROI de marketing é mentira.\n\nCalma, deixa eu explicar.\n\nCliente me liga: 'Qual o ROI que vocês entregam?'\n\nEu: 'Depende. Sua oferta converte? Seu processo de vendas funciona? Seu produto retém cliente?'\n\nSilêncio.\n\nPorque ninguém quer admitir que o problema não é o marketing.\n\nVocê pode ter a melhor campanha do mundo. Se sua oferta é fraca, vai queimar dinheiro.\n\nEssa semana, recusamos um cliente que queria 'ROI de 5x em 30 dias'.\n\nPor quê? Produto sem fit. Preço sem lógica. Funil inexistente.\n\nMarketing não faz milagre. Amplifica o que já funciona.\n\nConsertem a casa antes de abrir as portas.\n\n#MarketingStrategy #GrowthMarketing"
+        },
+        "case_study_posts": {
+          "example_1": "Carolina tinha 800 seguidores.\nFez R$ 180k em um lançamento.\n\nComo?\n\n(Spoiler: não foi sorte, foi sistema)\n\nQuando ela nos procurou, estava na armadilha clássica:\n→ Criando conteúdo todo dia\n→ Engajamento medíocre\n→ Vendendo por DM quando alguém perguntava preço\n→ Faturamento instável que não pagava as contas\n\nO que mudamos:\n\n1. Paramos de perseguir seguidores. Construímos lista de email.\n2. Trocamos posts 'inspiracionais' por educação que qualifica.\n3. Criamos funil de vendas automatizado (não mais vendas 1:1 por DM).\n4. Estruturamos lançamento com base em escassez real, não fake urgency.\n\nResultado:\n→ 847 leads qualificadas em 21 dias\n→ 34 vendas de produto de R$ 5.300\n→ R$ 180.200 de faturamento\n→ Com os mesmos 800 seguidores\n\nAudiência pequena não é desculpa.\nSistema ruim é.\n\n[Link para case completo no comentário]"
+        },
+        "educational_posts": {
+          "example_1": "Framework que usamos pra transformar seguidor em cliente:\n\nACQS (Atenção → Confiança → Qualificação → Separação)\n\nAtenção: Conteúdo que para scroll (problema específico + promessa clara)\nConfiança: Entregar valor sem pedir nada (educação real, não teaser)\nQualificação: Filtrar quem tem $ e dor (quiz, diagnóstico, webinar)\nSeparação: Oferta só pra quem levantou a mão (exclusividade, escassez)\n\nOnde a maioria erra?\n\nPula direto de Atenção pra Oferta.\n\nResultado: Taxa de conversão de 0.5% e DM reclamando de preço.\n\nQuando você nutre corretamente:\n→ Leads chegam pré-vendidas\n→ Objeção de preço desaparece\n→ Conversão sobe pra 8-15%\n\nFunil não é sobre empurrar.\nÉ sobre filtrar quem já quer comprar.\n\nSalva esse post pra revisar seu processo."
+        },
+        "ctas": {
+          "conversation_starter": "E você, qual parte desse sistema trava no seu negócio?",
+          "value_offer": "Quer o template completo desse framework? Manda DM que eu envio.",
+          "consultation": "Se isso ressoa com seu momento, vamos conversar. Link no meu perfil.",
+          "engagement": "Concorda? Discorda? Me desafia nos comentários."
+        }
+      },
+
+      "do_and_dont": {
+        "do": [
+          "Comece com tese ou pergunta que gera reação",
+          "Use parágrafos de 1-2 linhas (LinkedIn mobile)",
+          "Compartilhe números e dados reais",
+          "Conte história com estrutura: contexto → conflito → resolução → lição",
+          "Termine com pergunta que convida comentário",
+          "Responda todos os comentários nas primeiras 2h (algoritmo)",
+          "Misture posts pessoais e profissionais (humanize)",
+          "Posicione-se claramente, não seja neutro demais"
+        ],
+        "dont": [
+          "Escrever bloco de texto sem parágrafo",
+          "Fazer humildade falsa ('só um pensamento random')",
+          "Postar só promoção de serviço",
+          "Usar jargão corporativo ('sinergia', 'thinking outside the box')",
+          "Copiar formato de coach americano sem adaptar pra contexto BR",
+          "Terminar post sem CTA claro",
+          "Fazer post diário genérico só pra postar (qualidade > frequência)",
+          "Ignorar comentários (engajamento é rei)"
+        ]
+      },
+
+      "templates": {
+        "post_formulas": [
+          {
+            "name": "Contrarian Opinion",
+            "template": "[Opinião impopular]\n\n[Por que a maioria acredita no oposto]\n\n[Evidência/experiência que prova seu ponto]\n\n[Implicação prática]\n\n[CTA conversacional]"
+          },
+          {
+            "name": "Transformation Story",
+            "template": "[Estado inicial problemático]\n\n[Ponto de virada]\n\n[Ação específica tomada]\n\n[Resultado mensurável]\n\n[Lição aplicável para leitor]\n\n[Pergunta de engajamento]"
+          },
+          {
+            "name": "Framework Share",
+            "template": "[Nome do framework/processo]\n\n[Por que existe/problema que resolve]\n\n[Passo-a-passo com bullets]\n\n[Erro comum ao aplicar]\n\n[Resultado esperado]\n\n[CTA pra salvar/compartilhar]"
+          }
+        ],
+        "opening_lines": [
+          "[Número]% das empresas estão fazendo [erro]. Você provavelmente é uma delas.",
+          "Recusei um cliente de R$ [valor] essa semana. Aqui está o porquê:",
+          "[Crença comum] é a maior mentira que te contaram sobre [tópico].",
+          "Análise de [número] empresas revelou padrão que ninguém fala:",
+          "Conversa real que tive com cliente ontem:"
+        ]
+      },
+
+      "integration_notes": {
+        "personal_vs_company": "Personal brand do fundador = thought leadership. Company page = case studies, conteúdo educacional, vagas.",
+        "to_website": "Link no perfil para página de consultoria ou diagnóstico gratuito",
+        "to_email": "Posts com framework completo oferecido via PDF em troca de email",
+        "from_blog": "Repurpose artigos do blog como carrossel LinkedIn (visual diferente, mesma substância)",
+        "cross_promotion": "Post LinkedIn pode virar fio no Twitter (quebrado em tweets curtos) ou carrossel no Instagram (com tom mais casual)"
+      }
+    },
+
+    "twitter": {
+      "channel_profile": {
+        "platform_name": "Twitter/X",
+        "key_characteristics": [
+          "Velocidade e concisão extremas",
+          "Cultura de debate e hot takes",
+          "Retweets e citações ampliam alcance viral",
+          "Mix de shitposting inteligente e insights valiosos"
+        ],
+        "audience_behavior": {
+          "mindset": "Busca entretenimento inteligente e takes quentes",
+          "intent": "Descobrir ideias novas, debater, se atualizar rápido",
+          "pain_points": "Conteúdo corporativo chato, self-promotion sem substância"
+        },
+        "voice_adjustment_guidelines": {
+          "primary_goal": "Gerar reação (positiva ou controversa mas produtiva)",
+          "personality_emphasis": "Outlaw (opinião forte) + Jester (wit afiado)",
+          "critical_balance": "Provocativo sem ser troll, direto sem ser raso"
+        }
+      },
+
+      "tone_adjustments": {
+        "formality": {
+          "level": 5,
+          "shift": "+1 from baseline",
+          "rationale": "Máxima informalidade - linguagem de conversa de bar (inteligente)"
+        },
+        "humor": {
+          "level": 5,
+          "shift": "+1 from baseline",
+          "rationale": "Humor é o veículo principal da mensagem"
+        },
+        "irreverence": {
+          "level": 5,
+          "shift": "+1 from baseline",
+          "rationale": "Hot takes e opinião forte = moeda do Twitter"
+        },
+        "energy": {
+          "level": 4,
+          "shift": "0 from baseline",
+          "rationale": "Confiante mas não hiperativo - concisão é poder"
+        }
+      },
+
+      "content_guidelines": {
+        "tweet_types": {
+          "single_tweet": "1-280 caracteres, máximo impacto mínimo palavras",
+          "thread": "6-12 tweets, narrativa completa com ganchos entre tweets",
+          "quote_tweet": "Adiciona perspectiva única ao tweet original",
+          "reply": "Engajamento genuíno que adiciona valor"
+        },
+        "thread_structure": {
+          "tweet_1": "Hook killer - faz parar scroll",
+          "tweet_2": "Expande hook, adiciona contexto",
+          "tweets_3_n": "Desenvolvimento com pontos numerados ou bullets",
+          "tweet_final": "Conclusão + CTA",
+          "bonus_tweet": "Opcional - meta-comentário ou piada de alívio"
+        },
+        "formatting": {
+          "line_breaks": "Usa pra criar ênfase e escaneabilidade",
+          "emojis": "1-2 por tweet, estratégico não decorativo",
+          "bullets": "→ • ◆ para listas",
+          "caps": "CAPS para ênfase, não grito"
+        },
+        "hashtags": "1-2 apenas, e só quando absolutamente relevante (Twitter não depende de hashtag)",
+        "posting_frequency": {
+          "tweets": "3-8 por dia",
+          "threads": "2-3 por semana",
+          "engagement": "Responder continuamente"
+        }
+      },
+
+      "voice_examples": {
+        "single_tweets": {
+          "hot_take": "Marketing de conteúdo morreu.\n\nO que funciona agora: sistema de vendas disfarçado de conteúdo educacional.\n\nMas ninguém quer fazer a lição de casa de construir funil.",
+          "observation": "Você não tem problema de tráfego.\nVocê tem problema de conversão.\n\nMas continua gastando em ads pra compensar funil ruim.\n\n(É tipo comprar Lexus pra compensar que não sabe dirigir)",
+          "contrarian": "ROI de marketing em 30 dias é red flag.\n\nOu a agência é mágica.\nOu tá medindo métrica de vaidade.\n\nSpoiler: não é mágica.",
+          "educational": "Fórmula de copy que a gente usa:\n\nDor específica + Solução clara + Prova social + Escassez real\n\nNessa ordem.\nSempre.",
+          "personal": "Cliente: Quanto custa?\nEu: R$ 15k/mês\nCliente: Caraca, caro\nEu: Quanto você perde por mês sem sistema de vendas?\nCliente: ...\n\n[contrato assinado]\n\nPreço só é caro quando não tem contexto de valor."
+        },
+        "thread_examples": {
+          "educational_thread": [
+            "Por que 90% dos funis de vendas falham:\n\n(Thread baseado em análise de 50+ funis que a gente auditou) 🧵",
+            "1/ Problema não tá no tráfego\n\nTá todo mundo obsecado com anúncio.\nMas anúncio bom só amplifica oferta boa.\n\nSe oferta é ruim, você só queima dinheiro mais rápido.",
+            "2/ Landing page sem clareza\n\nVisitante tem 8 segundos de atenção.\nSua LP tem 3 parágrafos de 'Sobre Nós'\n\nNinguém se importa com você.\nSó com a dor deles.",
+            "3/ Lead magnet genérico\n\n'Baixe nosso ebook com 10 dicas'\n\nParabéns, você acabou de capturar email de gente que coleciona PDF e nunca compra nada.",
+            "[...continua com mais pontos...]",
+            "10/ Resumo:\n\n→ Oferta > Tráfego\n→ Clareza > Criatividade\n→ Qualificação > Volume\n→ Sistema > Hack\n\nFunil que vende é chato. Mas funciona.\n\nSalva essa thread pra revisar seu funil."
+          ]
+        },
+        "reply_examples": {
+          "adding_value": "Tweet alheio: 'Como escalar de 10k pra 100k/mês?'\nResposta Oitavo: 'Não escala o que não funciona.\n\nAntes de 100k:\n1. Prove que converte em 10k\n2. Documente o processo\n3. Identifique o gargalo\n4. DAAAAÍ escala\n\n(A maioria pula direto pro 4 e quebra)'",
+          "contrarian_take": "Tweet alheio: 'Autenticidade é a chave do marketing'\nResposta Oitavo: 'Autenticidade sem estratégia = diário público que não vende nada.\n\nO que funciona: autenticidade ESTRATÉGICA.\n\nSer você, mas a versão que resolve problema do cliente.'"
+        },
+        "ctas": {
+          "soft": "Salva pra não esquecer",
+          "medium": "Se isso ressoa, me segue pra mais",
+          "hard": "Quer ajuda com isso? Link no perfil",
+          "engagement": "Discorda? Me convence ↓"
+        }
+      },
+
+      "do_and_dont": {
+        "do": [
+          "Primeira linha = hook que gera curiosidade ou reação",
+          "Use line breaks pra criar ritmo e ênfase",
+          "Tenha opinião forte (mas defensável)",
+          "Faça threads com narrativa, não lista aleatória",
+          "Responda mentions e replies rápido",
+          "Quote tweet adicionando perspectiva única",
+          "Misture educational com hot takes",
+          "Seja conciso - cada palavra tem que justificar existência"
+        ],
+        "dont": [
+          "Fazer tweet corporativo genérico",
+          "Thread de autopromoção disfarçada",
+          "Usar hashtag aleatória (#motivation #success #entrepreneurlife)",
+          "Copiar formato de guru gringo sem adaptar",
+          "Ser controverso só por atenção (precisa ter ponto)",
+          "Ignorar replies (engajamento alimenta alcance)",
+          "Tweetar só pra bater frequência (qualidade > quantidade)",
+          "Fazer thread que poderia ser tweet único"
+        ]
+      },
+
+      "templates": {
+        "tweet_formulas": [
+          {
+            "name": "Contrarian Take",
+            "template": "[Opinião impopular]\n\n[Por que todo mundo erra]\n\n[O que fazer em vez disso]"
+          },
+          {
+            "name": "Observation",
+            "template": "Você acha que o problema é [X]\n\nMas o problema real é [Y]\n\n[Analogia ou exemplo]"
+          },
+          {
+            "name": "List",
+            "template": "[Número] [coisas] que [audiência] precisa [ação]:\n\n→ [Item 1]\n→ [Item 2]\n→ [Item 3]"
+          },
+          {
+            "name": "Story",
+            "template": "[Situação]\n[Diálogo ou pensamento]\n[Resultado]\n\n[Lição em 1 linha]"
+          }
+        ],
+        "thread_starters": [
+          "Por que [X] não funciona:\n\n(Thread baseado em [credibilidade]) 🧵",
+          "[Número] lições sobre [tópico] que ninguém te conta:",
+          "Como [resultado específico]:\n\nSistema completo em [número] passos 👇",
+          "Thread: a diferença entre [X] que funciona e [X] que falha"
+        ]
+      },
+
+      "integration_notes": {
+        "to_website": "Link no perfil para landing específica ou ferramenta gratuita",
+        "to_blog": "Thread pode teaser insights do artigo, link na bio pra ler completo",
+        "from_linkedin": "Post LinkedIn pode virar thread (quebrado em tweets atômicos)",
+        "to_email": "Tweet com framework/template oferecido via DM ou link",
+        "engagement_strategy": "Responder menções de forma que agrega valor = marketing de conteúdo gratuito"
+      }
+    },
+
+    "email": {
+      "channel_profile": {
+        "platform_name": "Email Marketing",
+        "key_characteristics": [
+          "Canal de maior intimidade e atenção focada",
+          "Audiência optou por receber - permissão explícita",
+          "Ambiente sem distração (diferente de redes sociais)",
+          "Mensuração direta de conversão"
+        ],
+        "audience_behavior": {
+          "mindset": "Mais receptiva que cold outreach, mas seletiva sobre o que abre",
+          "intent": "Busca valor consistente, não quer ser vendida todo email",
+          "pain_points": "Inbox lotada, promessa não cumprida, emails genéricos"
+        },
+        "voice_adjustment_guidelines": {
+          "primary_goal": "Construir relacionamento que leva a vendas, não vender todo email",
+          "personality_emphasis": "Sage (entregar valor) + Jester (personalidade memorável)",
+          "critical_balance": "Pessoal sem ser invasivo, persuasivo sem ser pushy"
+        }
+      },
+
+      "tone_adjustments": {
+        "formality": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Como conversa 1:1, mas com respeito ao tempo do leitor"
+        },
+        "humor": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Presente mas não força - email não é entretenimento"
+        },
+        "irreverence": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Opinião forte mas tom menos agressivo que redes sociais"
+        },
+        "energy": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Confiante mas calmo - leitor controla ritmo"
+        }
+      },
+
+      "content_guidelines": {
+        "email_types": {
+          "welcome_sequence": "3-5 emails introduzindo marca, estabelecendo expectativa, primeira oferta",
+          "newsletter": "Semanal ou quinzenal, mix de educação + curadoria + venda soft",
+          "nurture_sequence": "6-10 emails automatizados baseados em comportamento",
+          "promotional": "Lançamento, oferta limitada, evento",
+          "transactional": "Confirmação, onboarding, follow-up pós-compra"
+        },
+        "structure": {
+          "subject_line": "30-50 caracteres, curiosidade > descrição",
+          "preheader": "40-80 caracteres, expande subject line",
+          "opening": "1-2 linhas que justificam abertura do email",
+          "body": "200-400 palavras (newsletter), 100-200 (promocional)",
+          "cta": "1 CTA principal, button + link textual",
+          "ps": "Reforça CTA ou adiciona urgência/prova social"
+        },
+        "formatting": {
+          "paragraphs": "1-3 linhas máximo",
+          "line_breaks": "Linha em branco entre parágrafos",
+          "bold": "Para destacar benefício-chave ou CTA",
+          "links": "Texto âncora descritivo, não 'clique aqui'"
+        },
+        "personalization": {
+          "name": "Usa quando relevante, não força em todo email",
+          "segmentation": "Diferente copy baseado em: lead vs cliente, engajamento, interesse",
+          "behavior_triggers": "Email baseado em ação (ou inação) do subscriber"
+        },
+        "sending_frequency": {
+          "newsletter": "1x por semana (consistência > frequência)",
+          "promotional": "Máximo 1x por mês (fora de lançamentos)",
+          "automated": "Baseado em triggers, não calendário"
+        }
+      },
+
+      "voice_examples": {
+        "subject_lines": {
+          "curiosity": "Carolina, você tá cometendo esse erro?",
+          "benefit": "Como vender sem aumentar seguidores",
+          "urgency": "Última chamada: Sistema de vendas [oferta]",
+          "personal": "Aprendi isso da pior forma possível",
+          "contrarian": "Marketing de conteúdo tá morto (e agora?)",
+          "question": "Por que seu funil não converte?"
+        },
+        "welcome_sequence": {
+          "email_1": {
+            "subject": "Bem-vinda ao Oitavo Café ☕",
+            "preview": "Primeiro, uma promessa (e o que esperar daqui)",
+            "body": "Oi Carolina,\n\nBem-vinda! Se você tá aqui, provavelmente tá cansada de:\n\n→ Guru prometendo 10x seu faturamento com hack de 3 passos\n→ Agência cobrando fortuna pra entregar post bonito que não vende\n→ Curso de tráfego que ignora que seu funil tem buraco\n\nEu também.\n\nPor isso criamos o Oitavo Café: marketing que vende, não que enrola.\n\nO que você vai receber aqui:\n\n• Toda quinta: estratégia de vendas aplicável (sem blá blá blá)\n• Framework que a gente usa com clientes pagantes\n• Análise honesta do que funciona (e do que é hype)\n\nO que você NÃO vai receber:\n\n• Email todo dia vendendo curso novo\n• Dica genérica de 'poste consistente'\n• Promessa de resultado da noite pro dia\n\nAmanhã eu te mando o primeiro framework: como validar se sua oferta vende ANTES de gastar em ads.\n\nEnquanto isso, me responde essa: qual seu maior desafio em vendas online agora?\n\n(Pode responder esse email - eu leio todos)\n\nAbraço,\n[Nome do fundador]\nOitavo Café\n\nP.S.: Salva nosso email pra não cair em promoções. A gente manda conteúdo denso."
+          },
+          "email_2": {
+            "subject": "O framework que usei pra validar 23 ofertas",
+            "body": "[Entrega framework prometido com exemplo prático]\n\nP.S.: Amanhã eu conto como transformamos isso em sistema automatizado de vendas."
+          }
+        },
+        "newsletter": {
+          "subject": "Por que seu marketing não vende (análise de 47 campanhas)",
+          "body": "Oi,\n\nÚltimo trimestre, analisamos 47 campanhas de marketing de pequenas empresas.\n\n3 tiveram ROI positivo no primeiro mês.\n44 queimaram dinheiro.\n\nA diferença não foi criatividade.\nNem budget.\nNem timing.\n\nFoi sistema.\n\nAs 3 que venderam tinham:\n\n1. Oferta clara que resolve dor específica\n2. Funil que qualifica antes de vender\n3. Métrica de conversão em cada etapa\n\nAs 44 que falharam?\n\nTinham conteúdo bonito sem sistema de vendas.\n\nDeixa eu te mostrar a diferença:\n\n[Continua com exemplo detalhado...]\n\n---\n\nSe isso ressoa com seu momento:\n\nA gente abriu 3 vagas pra consultoria de sistema de vendas em Janeiro.\n\n[Link: Agendar diagnóstico gratuito]\n\nAbraço,\n[Nome]\n\nP.S.: Próxima semana eu mando o template completo de funil que essas 3 empresas usaram. Fica de olho."
+        },
+        "promotional": {
+          "subject": "Sistema de Vendas: última turma de 2025",
+          "body": "Carolina,\n\nVou direto ao ponto:\n\nSe você quer parar de depender de DM pra vender e construir sistema previsível, essa é a última chance em 2025.\n\nSistema de Vendas Digital - Turma Janeiro:\n\n→ 6 semanas de implementação (não mais um curso pra assistir e não aplicar)\n→ A gente constrói SEU funil juntos\n→ Template de campanha, copy, sequência - tudo adaptado pro seu negócio\n→ Mentoria semanal até validar conversão\n\nInvestimento: R$ 12.000 (ou 3x de R$ 4.200)\n\nSó 8 vagas (turma pequena = atenção real)\n\nJá vendemos 5.\n\n[Quero minha vaga]\n\nInscrições fecham sexta, 23:59.\n\nSe não for pra você, sem problemas.\nMas se for: não deixa pra última hora.\n\nPerguntas? Responde esse email.\n\nAbraço,\n[Nome]\n\nP.S.: Não sabe se é pra você? [Agende diagnóstico rápido] - a gente te fala com honestidade se faz sentido ou não."
+        }
+      },
+
+      "do_and_dont": {
+        "do": [
+          "Subject line = promessa ou curiosidade genuína",
+          "Primeira linha justifica por que vale abrir",
+          "Usa 'você' pra falar direto com Carolina",
+          "Quebra email em parágrafos curtos (escaneabilidade)",
+          "CTA claro - próximo passo óbvio",
+          "P.S. estratégico - segundo CTA ou urgência",
+          "Permite resposta (e responda quando receber)",
+          "Entrega valor antes de pedir venda"
+        ],
+        "dont": [
+          "Subject clickbait que email não cumpre",
+          "Começar com 'Espero que você esteja bem'",
+          "Blocos de texto sem respiração",
+          "Múltiplos CTAs competindo por atenção",
+          "Vender em todo email (regra: 80% valor, 20% venda)",
+          "No-reply email (mata relacionamento)",
+          "Enviar sem segmentação (email genérico = delete)",
+          "Prometer frequência e não cumprir"
+        ]
+      },
+
+      "templates": {
+        "welcome_email_structure": "Agradecimento + Promessa do que recebe + Expectativa de frequência + Primeira entrega de valor + CTA soft (responder com dúvida)",
+        "newsletter_structure": "Hook/insight → Desenvolvimento com exemplo → Aplicação prática → CTA relevante → P.S. com continuidade",
+        "promotional_structure": "Contexto → Oferta clara → Benefícios → Prova social → Escassez real → CTA → P.S. com objeção handling",
+        "subject_line_formulas": [
+          "[Nome], [curiosidade/pergunta]",
+          "[Número] [coisa] que [resultado]",
+          "[Contrarian take sobre tópico relevante]",
+          "Como [resultado] sem [objeção comum]",
+          "[Urgência real]: [oferta/conteúdo]"
+        ],
+        "opening_lines": [
+          "Vou te contar uma verdade que ninguém fala:",
+          "Essa semana aprendi [lição] da pior forma possível.",
+          "Você me perguntou sobre [tópico]. Aqui está a resposta honesta:",
+          "Analisei [número] [coisa] e descobri padrão interessante:",
+          "Direto ao ponto:"
+        ]
+      },
+
+      "integration_notes": {
+        "from_social": "Lead magnet via Instagram/LinkedIn → Welcome sequence via email",
+        "to_website": "Email drive tráfego qualificado pra landing específica, não homepage",
+        "to_whatsapp": "Email pode oferecer 'responda com dúvida' ou 'chama no WhatsApp pra [benefício específico]'",
+        "content_repurposing": "Newsletter pode virar thread Twitter, post LinkedIn, carrossel Instagram",
+        "segmentation_triggers": "Comportamento em email (abre, clica, não engaja) trigger sequências diferentes"
+      }
+    },
+
+    "customer_support": {
+      "channel_profile": {
+        "platform_name": "Customer Support",
+        "key_characteristics": [
+          "Cliente já comprou - está em modo 'preciso de ajuda'",
+          "Emoção pode estar alta se há problema ou frustração",
+          "Velocidade e clareza de resposta são críticas",
+          "Oportunidade de transformar cliente em promotor"
+        ],
+        "audience_behavior": {
+          "mindset": "Querendo solução rápida, clareza, não quer ser enrolado",
+          "intent": "Resolver problema técnico, esclarecer dúvida, reclamar de issue",
+          "pain_points": "Resposta demorada, genérica, ou que não resolve"
+        },
+        "voice_adjustment_guidelines": {
+          "primary_goal": "Resolver problema rapidamente mantendo relacionamento",
+          "personality_emphasis": "Sage (competência) + Jester light (empatia calorosa)",
+          "critical_balance": "Profissional sem ser robótico, empático sem ser dramático"
+        }
+      },
+
+      "tone_adjustments": {
+        "formality": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Respeitoso mas humano, não corporativo"
+        },
+        "humor": {
+          "level": 2,
+          "shift": "-2 from baseline",
+          "rationale": "Presente apenas se apropriado ao contexto (não em reclamação séria)"
+        },
+        "irreverence": {
+          "level": 2,
+          "shift": "-2 from baseline",
+          "rationale": "Baixa - foco é solução, não opinion"
+        },
+        "energy": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Calmo e confiante, transmite controle da situação"
+        }
+      },
+
+      "content_guidelines": {
+        "response_types": {
+          "technical_issue": "Diagnóstico → Solução passo-a-passo → Verificação de resolução",
+          "billing_question": "Clareza total sobre valores, datas, políticas",
+          "feature_request": "Agradecimento → Status (roadmap ou não) → Alternativa se aplicável",
+          "complaint": "Reconhecimento → Accountability → Solução → Compensação se necessário"
+        },
+        "response_structure": {
+          "greeting": "Usa nome, tom caloroso mas não exagerado",
+          "acknowledgment": "Mostra que entendeu o problema específico",
+          "solution": "Passo-a-passo claro, se complexo usa bullets",
+          "verification": "Confirma que resolveu, oferece ajuda adicional",
+          "closing": "Assinatura pessoal (nome de pessoa real)"
+        },
+        "timing": {
+          "critical_issue": "< 2 horas",
+          "normal_ticket": "< 24 horas",
+          "follow_up": "Se não resolveu em 48h, follow-up proativo"
+        },
+        "language": {
+          "clarity": "Sem jargão técnico a menos que cliente use primeiro",
+          "brevity": "Direto mas completo - não economiza info necessária",
+          "empathy": "Reconhece frustração sem ser dramático"
+        }
+      },
+
+      "voice_examples": {
+        "technical_issue": {
+          "subject": "Re: Problema com checkout (Ticket #1234)",
+          "body": "Oi Carolina,\n\nEntendi - o checkout tá travando na etapa de pagamento.\n\nIsso geralmente acontece por 2 motivos:\n\n1. Bloqueador de popup ativo (impede janela do cartão)\n2. Sessão expirada (se ficou mais de 15min na página)\n\nVamos testar:\n\n→ Abre em aba anônima (Ctrl+Shift+N no Chrome)\n→ Desativa bloqueador de popup se tiver\n→ Tenta de novo: [link direto pro checkout]\n\nSe ainda travar, me avisa que eu gero link de pagamento alternativo pra você.\n\nTestou? Me conta se funcionou.\n\nAbraço,\nPedro\nOitavo Café"
+        },
+        "billing_question": {
+          "subject": "Re: Dúvida sobre cobrança",
+          "body": "Oi Ana,\n\nEntão, sobre a cobrança de R$ 497 que apareceu hoje:\n\nÉ referente à renovação mensal do seu plano Pro, contratado em 12/11.\n\nDetalhes:\n→ Plano: Pro (R$ 497/mês)\n→ Próxima cobrança: 12/01/2026\n→ Forma de pagamento: Cartão final 1234\n\nSe quiser ajustar alguma coisa (data, plano, forma de pagamento), é só avisar.\n\nSe tiver outra dúvida, estou aqui!\n\nAbraço,\nJuliana\nOitavo Café\n\nP.S.: Nota fiscal já foi enviada pro email [email]. Avisa se não chegou."
+        },
+        "complaint_serious": {
+          "subject": "Re: Problema com entrega do material (Ticket #5678)",
+          "body": "Oi Fernanda,\n\nPrimeiro: desculpa pelo transtorno. Você tá certa em estar chateada.\n\nO material deveria ter chegado 24h após a compra. Olhei aqui e houve falha no nosso sistema de entrega automática.\n\nJá resolvi:\n\n→ Material completo enviado agora pro seu email\n→ Acesso liberado na plataforma (link: [url])\n→ Estendemos seu acesso em +30 dias como desculpa pelo atraso\n\nConfirma se recebeu tudo?\n\nDe novo, desculpa pela falha. A gente preza por entrega rápida e dessa vez falhamos.\n\nQualquer coisa, responde aqui ou chama no WhatsApp: [número]\n\nAbraço,\nRoberto - Oitavo Café"
+        },
+        "feature_request": {
+          "subject": "Re: Sugestão de funcionalidade",
+          "body": "Oi Lucas,\n\nAdorei a sugestão de [feature solicitada]!\n\nA gente já tinha isso no roadmap pro Q2/2026, então seu pedido reforça que é importante.\n\nEnquanto a gente não lança:\n\nUma workaround que pode ajudar é [alternativa se houver].\n\nQuando tivermos novidade sobre essa feature, te aviso em primeira mão.\n\nValeu pelo feedback - é assim que a gente melhora!\n\nAbraço,\nCarla\nOitavo Café"
+        }
+      },
+
+      "do_and_dont": {
+        "do": [
+          "Usa nome do cliente",
+          "Reconhece problema específico (mostra que leu)",
+          "Oferece solução clara, passo-a-passo se necessário",
+          "Assume accountability se erro foi nosso",
+          "Finaliza verificando se resolveu",
+          "Assina com nome real (humaniza)",
+          "Oferece canal adicional se urgente (WhatsApp)",
+          "Follow-up se não teve resposta em 48h"
+        ],
+        "dont": [
+          "Resposta template genérica que não endereça issue específico",
+          "Culpar cliente (mesmo quando erro é dele, eduque com empatia)",
+          "Jargão técnico sem explicação",
+          "Prometer o que não pode cumprir",
+          "Ser excessivamente formal/robótico",
+          "Ignorar emoção se cliente tá frustrado",
+          "Deixar ticket sem resolução clara",
+          "Terminar sem oferecer próximo passo"
+        ]
+      },
+
+      "templates": {
+        "response_structure_template": "[Nome do cliente],\n\n[Reconhecimento do problema específico]\n\n[Solução clara - bullets se múltiplos passos]\n\n[Verificação/próximo passo]\n\n[Closing caloroso],\n[Seu nome]\nOitavo Café",
+        "acknowledgment_phrases": [
+          "Entendi - [resumo do problema]",
+          "Valeu por avisar sobre isso",
+          "Realmente, isso não deveria ter acontecido",
+          "Boa pergunta - deixa eu esclarecer:"
+        ],
+        "solution_intros": [
+          "Aqui está como resolver:",
+          "Vamos testar isso:",
+          "A solução é:",
+          "Já resolvi aqui:"
+        ],
+        "closing_phrases": [
+          "Confirma se resolveu?",
+          "Funcionou? Qualquer coisa me avisa.",
+          "Se tiver outra dúvida, estou aqui!",
+          "Espero ter ajudado - qualquer coisa, volta aqui."
+        ]
+      },
+
+      "integration_notes": {
+        "to_whatsapp": "Se issue complexo ou urgente, ofereça continuar por WhatsApp para agilidade",
+        "to_knowledge_base": "Se pergunta recorrente, cria artigo na base de conhecimento e linka",
+        "feedback_loop": "Reclamações viram oportunidade de melhoria de produto/processo",
+        "retention_opportunity": "Cliente com problema resolvido bem = mais leal que cliente sem problema"
+      }
+    },
+
+    "whatsapp": {
+      "channel_profile": {
+        "platform_name": "WhatsApp",
+        "key_characteristics": [
+          "Canal mais pessoal e imediato",
+          "Expectativa de resposta rápida (minutos/horas, não dias)",
+          "Comunicação 1:1 direta com leads e clientes",
+          "Mix de vendas, suporte e relacionamento"
+        ],
+        "audience_behavior": {
+          "mindset": "Modo conversa - espera interação, não broadcast",
+          "intent": "Tirar dúvida rápida, negociar, resolver problema urgente",
+          "pain_points": "Demora pra responder, mensagem automática genérica, ser tratado como número"
+        },
+        "voice_adjustment_guidelines": {
+          "primary_goal": "Construir conexão pessoal que leva a conversão ou retenção",
+          "personality_emphasis": "Jester (caloroso) + Sage (útil) - máxima humanidade",
+          "critical_balance": "Pessoal mas profissional, rápido mas atencioso"
+        }
+      },
+
+      "tone_adjustments": {
+        "formality": {
+          "level": 4,
+          "shift": "0 from baseline",
+          "rationale": "Conversa natural, como falar com conhecido"
+        },
+        "humor": {
+          "level": 4,
+          "shift": "0 from baseline",
+          "rationale": "Usado pra criar rapport, não pra encher linguiça"
+        },
+        "irreverence": {
+          "level": 3,
+          "shift": "-1 from baseline",
+          "rationale": "Autêntico mas respeitoso - é conversa privada"
+        },
+        "energy": {
+          "level": 4,
+          "shift": "0 from baseline",
+          "rationale": "Presente e atencioso, não hiperativo"
+        }
+      },
+
+      "content_guidelines": {
+        "message_types": {
+          "first_contact_lead": "Apresentação breve → Contexto de conexão → Pergunta qualificadora",
+          "follow_up_lead": "Referência à conversa anterior → Valor adicional → Próximo passo",
+          "customer_onboarding": "Boas-vindas → Orientação rápida → Oferta de ajuda",
+          "support": "Diagnóstico rápido → Solução ou escalação",
+          "sales_closing": "Recap benefícios → Handling objeção → CTA claro"
+        },
+        "message_structure": {
+          "length": "Mensagens curtas - 1-3 parágrafos por mensagem",
+          "frequency": "Não envia mensagem gigante - quebra em 2-3 mensagens",
+          "timing": "Responde em minutos se horário comercial, no máximo 2h",
+          "media": "Usa áudio ocasional pra explicações complexas, imagens pra ilustrar"
+        },
+        "emoji_usage": {
+          "frequency": "Natural - 1-2 por mensagem quando apropriado",
+          "purpose": "Tom amigável, não profissional demais",
+          "avoid": "Emoji demais que parece desprofissional"
+        },
+        "voice_notes": {
+          "when": "Explicação complexa, dar toque pessoal, ou quando digitação longa demais",
+          "length": "30-90 segundos máximo",
+          "tone": "Conversacional, como explicaria pra amigo"
+        }
+      },
+
+      "voice_examples": {
+        "first_contact_lead": {
+          "example_1": "Oi Carolina! Tudo bem? 👋\n\nVi que você baixou nosso guia de funil de vendas.\n\nTá conseguindo implementar ou travou em alguma parte?",
+          "example_2": "E aí! Vi que você se inscreveu no diagnóstico gratuito.\n\nPra eu preparar bem nossa conversa: qual seu maior desafio em vendas online agora? 🎯"
+        },
+        "qualification": {
+          "example_1": "Entendi!\n\nSó pra eu te ajudar melhor: você já tem audiência (rede social, lista) ou tá começando do zero?",
+          "example_2": "Faz sentido!\n\nE quando você fala em 'funil que não converte', você tá gerando lead mas não vendendo? Ou travando antes disso?"
+        },
+        "value_delivery": {
+          "example_1": "Olha, pelo que você descreveu, o problema não é tráfego.\n\nÉ que seu lead magnet tá atraindo curioso, não comprador.\n\nManda print do que você tá oferecendo? Eu te dou um feedback rápido",
+          "example_2": "Te mando um vídeo de 2min explicando como resolver isso?\n\nOu prefere que eu mande por texto mesmo?"
+        },
+        "handling_objection": {
+          "price_objection": "Entendo a questão do investimento.\n\nDeixa eu te perguntar: quanto você tá perdendo por mês sem sistema funcionando?\n\nPorque se for mais que R$ 12k (valor do programa), você tá perdendo dinheiro por NÃO investir, saca?",
+          "timing_objection": "Justo!\n\nMas te falo por experiência: se você esperar 'momento certo', vai esperar pra sempre.\n\nA gente pode começar em ritmo que cabe na sua agenda. O importante é começar.\n\nQue tal a gente fazer assim: [proposta adaptada]?"
+        },
+        "closing": {
+          "example_1": "Então, resumindo:\n\n✓ Sistema completo de vendas\n✓ 6 semanas de implementação\n✓ Mentoria semanal\n✓ Investimento: 3x R$ 4.200\n\nFaz sentido pra você?\n\nSe sim, te mando link de pagamento agora e a gente já agenda primeira sessão 🚀",
+          "example_2": "Perfeito!\n\nVou te mandar o contrato por email agora.\n\nAssina e me confirma aqui que eu já libero acesso + agendo nosso kickoff.\n\nBora começar? 💪"
+        },
+        "customer_onboarding": {
+          "example_1": "Carolina! Bem-vinda ao time! 🎉\n\nSeu acesso tá liberado: [link]\n\nPrimeira coisa: assiste o vídeo de boas-vindas (5min)\n\nDepois me conta: quando você quer fazer nossa primeira sessão de estratégia?",
+          "example_2": "E aí, conseguiu acessar?\n\nQualquer dúvida ou trava, só gritar aqui que eu destrava na hora!\n\nAh, me add nos favoritos pra achar rápido quando precisar 😊"
+        },
+        "support_quick": {
+          "example_1": "Opa! Deixa eu ver aqui...\n\n[2 minutos depois]\n\nPronto! Era configuração de XYZ que tava travando.\n\nTesta de novo agora e me fala se resolveu ✅",
+          "example_2": "Entendi o problema!\n\nÉ um pouco técnico pra explicar por texto.\n\nPosso te mandar áudio de 1min explicando como resolver?"
+        }
+      },
+
+      "do_and_dont": {
+        "do": [
+          "Responde rápido (minutos, não horas)",
+          "Usa nome da pessoa",
+          "Escreve como fala - natural",
+          "Quebra mensagem grande em 2-3 pequenas",
+          "Confirma recebimento/entendimento",
+          "Oferece áudio pra explicação complexa",
+          "Emoji ocasional pra humanizar",
+          "Pergunta se resolveu dúvida"
+        ],
+        "dont": [
+          "Mensagem automática genérica",
+          "Demora pra responder (quebra expectativa do canal)",
+          "Mensagem gigante de 10 parágrafos",
+          "Ser corporativo demais (não é email)",
+          "Empurrar venda sem qualificar",
+          "Áudio muito longo (>2min)",
+          "Emoji excessivo (parece não-profissional)",
+          "Deixar mensagem sem resposta"
+        ]
+      },
+
+      "templates": {
+        "conversation_starters": [
+          "Oi [Nome]! Tudo bem? 👋 [Contexto]. [Pergunta qualificadora]?",
+          "E aí! Vi que você [ação]. [Oferta de ajuda]?",
+          "[Nome]! [Observação personalizada]. Posso te ajudar com [algo específico]?"
+        ],
+        "transition_to_sale": [
+          "Pelo que você me contou, faz total sentido a gente trabalhar juntos. Quer que eu te explique como funciona?",
+          "Olha, eu consigo te ajudar com isso. Deixa eu te mostrar como: [oferta]",
+          "Tenho a solução perfeita pro seu caso. Bora marcar 15min pra eu te mostrar?"
+        ],
+        "follow_up": [
+          "E aí [Nome], conseguiu [ação que você pediu]?",
+          "Oi! Só passando pra ver se você teve alguma dúvida sobre [tópico]",
+          "Lembrei de você quando vi [algo relevante]. Achei que você ia curtir: [link/info]"
+        ],
+        "closing_phrases": [
+          "Funcionou? Qualquer coisa me grita aqui!",
+          "Ajudou? Se tiver outra dúvida, só mandar 😊",
+          "Resolvido então! Fica à vontade pra me chamar quando precisar",
+          "Bora? Confirma aqui que eu [próxima ação]"
+        ]
+      },
+
+      "integration_notes": {
+        "from_social": "Instagram/LinkedIn DM → 'Chama no WhatsApp [número] que conversamos melhor'",
+        "from_email": "Email com interesse → 'Pra agilizar, me chama no WhatsApp: [link]'",
+        "to_sales": "WhatsApp qualifica → Reunião/call para fechar venda complexa",
+        "to_support": "Issue simples resolve no WhatsApp, complexo escala pra ticket/call",
+        "automation_balance": "Primeira mensagem pode ser automática (confirmação), mas resposta tem que ser humana"
+      }
+    }
+  }
+}

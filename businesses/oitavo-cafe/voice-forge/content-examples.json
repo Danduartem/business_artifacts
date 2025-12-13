@@ -1,0 +1,288 @@
+{
+  "brand": "Oitavo Café",
+  "language": "pt-BR",
+  "voice_archetype": "Jester (50%) + Sage (30%) + Outlaw (20%)",
+  "positioning": "Sistema de vendas, não serviço de marketing",
+
+  "before_after_transformations": [
+    {
+      "type": "homepage_hero",
+      "before": "Somos uma agência de marketing digital full-service com mais de 10 anos de experiência no mercado. Transformamos sua marca com estratégias inovadoras.",
+      "after": "Cansada de agência que vende 'visibilidade' mas não enche seu caixa? A gente também. Por isso criamos um sistema de vendas que funciona de verdade. (Nem acreditamos que precisamos dizer isso em voz alta.)",
+      "notes": "Desafia promessas vazias, foca em resultados financeiros, usa autodepreciação para gerar confiança"
+    },
+    {
+      "type": "instagram_caption",
+      "before": "Segunda-feira é dia de recomeçar! Vamos juntos conquistar nossos objetivos esta semana. 💪✨ #motivacao #empreendedorismo",
+      "after": "Segunda de novo. Aquele dia em que todo mundo posta frase motivacional mas ninguém fala do boleto que vence na quarta.\n\nVocê não precisa de mais motivação. Você precisa de um sistema que venda enquanto você dorme.\n\n(E não, não é sobre 'mindset'. É sobre método.)",
+      "notes": "Rejeita clichês, aborda realidade financeira diretamente, promete solução prática"
+    },
+    {
+      "type": "email_subject",
+      "before": "🎉 Novidades incríveis para você!",
+      "after": "Carolina, seu Instagram tá bonito. Mas cadê o dinheiro?",
+      "notes": "Personalização, provocação gentil, vai direto ao ponto de dor"
+    },
+    {
+      "type": "about_page",
+      "before": "Nossa missão é ajudar empresas a crescerem através de estratégias de marketing digital personalizadas e orientadas a resultados.",
+      "after": "A gente nasceu de uma birra. Cansamos de ver empreendedoras fodas investindo em marketing e recebendo likes em troca. Likes não pagam conta.\n\nEntão criamos o que a gente queria encontrar: um sistema que conecta todo o seu marketing (sim, TUDO) e transforma isso em vendas de verdade. Não em 'engajamento'. Não em 'alcance'. Em R$ na conta.",
+      "notes": "Origem autêntica, linguagem coloquial, obsessão com ROI tangível"
+    },
+    {
+      "type": "service_description",
+      "before": "Gestão de Redes Sociais: Criamos conteúdo estratégico e gerenciamos suas redes sociais para aumentar o engajamento e fortalecer sua marca.",
+      "after": "Sistema de Conteúdo que Vende\n\nNão fazemos 'post bonito'. Fazemos cada post trabalhar para você:\n→ Educa seu cliente ideal sobre o problema dele\n→ Posiciona você como a solução óbvia\n→ Conduz ele para a compra\n\nTudo rastreado. Tudo conectado. Tudo mensurável em R$.",
+      "notes": "Rejeita vaidade, estrutura clara de benefícios, promessa mensurável"
+    },
+    {
+      "type": "cta_button",
+      "before": "Solicite um orçamento gratuito",
+      "after": "Quero parar de jogar dinheiro fora",
+      "notes": "Voz do cliente, reconhece frustração atual, ação clara"
+    },
+    {
+      "type": "faq_answer",
+      "before": "Trabalhamos com diversas estratégias personalizadas de acordo com as necessidades de cada cliente, incluindo SEO, tráfego pago, redes sociais e email marketing.",
+      "after": "Olha, se a gente começar a listar siglas você vai dormir (SEO, CRO, CPC, blá blá blá).\n\nO que importa: a gente pega todos os pedaços soltos do seu marketing e transforma num sistema único. Cada parte conversa com a outra. Tudo rastreável. Tudo focado em venda.\n\nSe não dá para medir em R$, a gente nem faz.",
+      "notes": "Zomba do jargão da indústria, simplifica conceito complexo, ancora em valor tangível"
+    },
+    {
+      "type": "testimonial_intro",
+      "before": "Veja o que nossos clientes dizem sobre nós:",
+      "after": "Não acredite na gente. Acredite em quem já parou de desperdiçar dinheiro:",
+      "notes": "Consciência sobre ceticismo, foco no resultado (parar de desperdiçar), voz provocativa"
+    }
+  ],
+
+  "social_media_examples": {
+    "instagram": [
+      {
+        "format": "carrossel_educacional",
+        "hook": "5 sinais que você tá sendo enganada pela sua 'estratégia de marketing'",
+        "slides": [
+          "Slide 1: Seu relatório mensal tem 47 gráficos mas nenhum mostra quanto você vendeu",
+          "Slide 2: Você tem 10k seguidores mas não consegue encher uma turma de 5 pessoas",
+          "Slide 3: Sua agência fala muito de 'brand awareness' e pouco de faturamento",
+          "Slide 4: Você paga por Instagram, Google Ads, blog... mas nada conversa entre si",
+          "Slide 5: Você comemora likes mas chora vendo a conta bancária",
+          "Slide 6: A solução: sistema integrado onde TUDO trabalha para vender"
+        ],
+        "caption": "Se você reconheceu pelo menos 3... bem-vinda ao clube das empreendedoras que já foram enganadas por marketing bonito.\n\nA gente criou o Oitavo Café exatamente por isso. Sistema de vendas, não circo de vaidade métrica.\n\nSalva esse post e marca aquela amiga que tá nessa também.",
+        "hashtags": "#marketingdeverdade #vendasonline #empreendedorismofeminino"
+      },
+      {
+        "format": "reel_concept",
+        "hook": "POV: Você finalmente encontrou uma agência que fala de dinheiro",
+        "script": "Você: 'Quantos likes vou ter?'\nOitavo Café: 'Pergunta errada.'\nVocê: 'Quanto vou vender?'\nOitavo Café: 'ESSA é a pergunta.'\n\n[Text overlay: Quando a agência é tão obcecada com seu ROI quanto você]",
+        "audio_suggestion": "Trending sound - dramatic reveal",
+        "caption": "Imagina uma agência que te responde com planilha de vendas ao invés de relatório de alcance. Louco, né?\n\nPois é. A gente existe. 🤷‍♀️"
+      },
+      {
+        "format": "post_single",
+        "copy": "UNPOPULAR OPINION:\n\nVocê não precisa postar todo dia.\n\nVocê precisa postar com PROPÓSITO.\n\nUm post por semana que vende > 7 posts bonitos que ninguém lê.\n\n(Mas nenhuma agência vai te falar isso porque eles cobram por volume de post.)\n\n(Ops, a gente acabou de falar.)",
+        "visual": "Design minimalista, texto em destaque, cores da marca",
+        "hashtags": "#marketingsemengano #estrategiadevendas"
+      },
+      {
+        "format": "stories_sequence",
+        "tema": "Diagnóstico rápido",
+        "sequence": [
+          "Story 1: Quiz - 'Seu marketing funciona ou é só decoração?' Responda 👇",
+          "Story 2: Pergunta A - 'Você consegue rastrear de onde vem cada venda?'",
+          "Story 3: Pergunta B - 'Seu Instagram conversa com seu email?'",
+          "Story 4: Pergunta C - 'Você sabe quanto lucro cada canal traz?'",
+          "Story 5: Resultado - 'Se respondeu NÃO para 2+: você tem AÇÕES de marketing, não SISTEMA'",
+          "Story 6: CTA - 'Desliza para cima e vamos mudar isso'"
+        ]
+      },
+      {
+        "format": "post_single",
+        "copy": "A diferença entre a gente e outras agências?\n\nOutras agências: 'Olha que feed lindo você tem!'\nOitavo Café: 'Olha quanto você vendeu esse mês!'\n\nOutras agências: Relatório de 20 páginas sobre impressões\nOitavo Café: Planilha de 1 página sobre faturamento\n\nOutras agências: 'Vamos aumentar seu engajamento'\nOitavo Café: 'Vamos encher sua agenda de vendas'\n\nMarketing é meio. Vendas é o fim.\nNão confunda.",
+        "visual": "Formato comparativo, design clean",
+        "hashtags": "#sistemadevendas #marketingderesultados"
+      },
+      {
+        "format": "carrossel_manifesto",
+        "hook": "Por que criamos mais uma agência se já existe 1 milhão?",
+        "slides": [
+          "Porque a gente tava cansada de ver empreendedoras incríveis sendo enganadas",
+          "Cansada de relatório bonito que não enche bolso",
+          "Cansada de 'expert' que promete lua e entrega like",
+          "Cansada de marketing tratado como arte abstrata ao invés de ciência de vendas",
+          "Então a gente criou o que queria ter encontrado",
+          "Um sistema. Não um show."
+        ],
+        "caption": "O Oitavo Café nasceu de uma revolta.\n\nRevolta contra promessas vazias. Contra 'confia'. Contra 'daqui 6 meses você vê resultado'.\n\nA gente acredita que marketing bom se paga no primeiro mês. E que toda empreendedora merece saber EXATAMENTE para onde vai cada real investido.\n\nChato? Talvez. Honesto? Sempre."
+      },
+      {
+        "format": "post_single",
+        "copy": "Recebemos um cliente novo semana passada.\n\nEle tava pagando R$3k/mês em ads.\nR$2k em gestão de redes sociais.\nR$1,5k em 'consultoria estratégica'.\n\nTotal: R$6.500/mês\n\nPerguntamos: 'E aí, quanto vendeu mês passado?'\n\nSilêncio.\n\nEle não sabia. A agência nunca perguntou.\n\n—\n\nSe você não sabe quanto cada real de marketing te trouxe de volta, você não tem estratégia. Você tem despesa.",
+        "visual": "Story-based post, tipografia em destaque",
+        "hashtags": "#marketingtransparente #roimarketing"
+      },
+      {
+        "format": "reel_concept",
+        "hook": "Red flags de agência de marketing (versão HONESTA)",
+        "script": "🚩 Fala mais de 'branding' que de vendas\n🚩 Relatório mensal tem 0 menção a faturamento\n🚩 Quer contrato de 12 meses antes de provar resultado\n🚩 Não consegue te dizer o ROI de cada canal\n🚩 Usa 'é um processo' como desculpa pra não vender\n\n[Final frame: A gente sabe porque já vimos tudo isso]",
+        "caption": "Plot twist: a gente também já contratou agência ruim.\n\nPor isso a gente criou o oposto. Transparência radical. Foco em R$. Sem enrolação.\n\nSe tá passando por isso agora, a gente te entende. (E pode ajudar.)"
+      },
+      {
+        "format": "post_single_quote",
+        "quote": "\"Marketing sem sistema de vendas é igual café sem cafeína.\n\nBonito, cheiroso, mas não faz o que prometeu.\"",
+        "attribution": "— Oitavo Café",
+        "caption": "E você aí investindo em descafeinado... 🙃\n\nHora de despertar para um marketing que realmente funciona.",
+        "hashtags": "#marketingeficaz #vendas"
+      },
+      {
+        "format": "carrossel_tutorial",
+        "hook": "Como saber se sua agência presta (checklist de 2 minutos)",
+        "slides": [
+          "□ Pergunta quanto você quer faturar ANTES de falar de estratégia",
+          "□ Mostra cases com números reais (R$), não só 'aumentamos 300% o engajamento'",
+          "□ Explica como cada ação de marketing vira venda",
+          "□ Te dá acesso total a todas as métricas, sem esconder nada",
+          "□ Fala de ROI na primeira reunião",
+          "□ Tem sistema para conectar todos os canais",
+          "Marcou 5+? Você encontrou unicórnio. Marcou 3-? Corre."
+        ],
+        "caption": "Salva esse checklist e usa na próxima reunião com agência.\n\nSpoiler: a maioria vai falhar feio.\n\nE tá tudo bem. Agora você sabe o que procurar. 🎯"
+      }
+    ],
+
+    "linkedin": [
+      {
+        "type": "thought_leadership",
+        "copy": "Conversei com 3 CEOs essa semana.\n\nTodos gastando 5 dígitos/mês em marketing.\nNenhum conseguiu me dizer o ROI.\n\n'A agência manda relatório todo mês', me disseram.\n\nAbri os relatórios: 40 páginas de gráficos coloridos. Alcance, impressões, taxa de clique.\n\nPergunta que não tinha resposta: 'Quanto disso virou venda?'\n\n—\n\nMarketing digital tem 20 anos no Brasil. Como ainda aceitamos pagar por 'visibilidade' sem conectar isso ao que importa: receita?\n\nO problema não é falta de dados. É excesso de dados inúteis.\n\nMétricas de vaidade são a zona de conforto da agência medíocre. Porque qualquer um consegue gerar impressões. Vendas? Isso dá trabalho.\n\nPara empreendedores: se sua agência não fala de ROI na primeira reunião, você é o produto, não o cliente.\n\n#Marketing #ROI #Vendas #Empreendedorismo"
+      },
+      {
+        "type": "case_story",
+        "copy": "Cliente chegou mês passado: 'Já tentei 4 agências. Nada funciona.'\n\nOlhamos o histórico:\n- Instagram com 15k seguidores\n- Blog com 30 artigos  \n- Google Ads rodando há 8 meses\n- Email marketing com 3k contatos\n\nTudo solto. Nada conversando entre si.\n\nO Instagram não mencionava o blog.\nO blog não capturava email.\nO email não vendia.\nOs ads levavam pra home genérica.\n\n—\n\nRefizemos com uma pergunta: 'Qual a jornada até a venda?'\n\nConectamos tudo:\nAds → Landing específica → Email sequence → Venda\nInstagram → Blog → Lead magnet → Funil\n\n60 dias depois: 340% de aumento em conversões.\n\nMesmo orçamento. Mesmo produto. Sistema diferente.\n\nVocê não precisa de mais marketing. Precisa que seu marketing trabalhe junto.\n\n#CaseDeSuccesso #SistemaDeVendas #MarketingIntegrado"
+      },
+      {
+        "type": "contrarian_take",
+        "copy": "OPINIÃO IMPOPULAR:\n\nPostar todo dia no LinkedIn não vai te trazer clientes.\n\nEu sei, eu sei. Todo 'guru' fala pra criar conteúdo diário.\n\nMas frequência sem estratégia é só barulho.\n\nVi perfis com 1 post/dia e 0 vendas.\nVi perfis com 1 post/semana e agenda cheia.\n\nA diferença?\n\nGrupo 1 posta porque 'tem que postar'.\nGrupo 2 posta com PROPÓSITO:\n→ Identifica uma dor específica\n→ Demonstra autoridade no tema  \n→ Conduz para próximo passo\n\nMarketing é maratona? Sim.\nMas correr em círculo não te leva a lugar nenhum.\n\nAntes de criar mais conteúdo, pergunte: esse post vende ou só alimenta meu ego?\n\n(Comentário polêmico em 3, 2, 1...)\n\n#ContentMarketing #LinkedInTips #Vendas"
+      },
+      {
+        "type": "educational_list",
+        "copy": "5 perguntas que sua agência de marketing DEVERIA fazer (mas não faz):\n\n1. Quanto você precisa faturar esse mês?\n(Em vez de: 'Quais são seus objetivos de marca?')\n\n2. Qual o ticket médio do seu produto/serviço?\n(Em vez de: 'Quantos posts você quer por semana?')\n\n3. Quanto tempo leva do primeiro contato até a venda?\n(Em vez de: 'Qual a identidade visual que você prefere?')\n\n4. De onde vêm seus melhores clientes hoje?\n(Em vez de: 'Quer fazer TikTok também?')\n\n5. Quanto você pode investir para adquirir um cliente?\n(Em vez de: 'Nosso pacote básico é X por mês')\n\n—\n\nPercebeu o padrão?\n\nGrupo A foca em VENDAS.\nGrupo B foca em SERVIÇO.\n\nMarketing é meio, não fim.\nEscolha agência que entenda isso.\n\n#MarketingEstrategico #Vendas #GestaoDeMarketing"
+      },
+      {
+        "type": "behind_the_scenes",
+        "copy": "Reunião de ontem com cliente potencial:\n\nEla: 'Vocês fazem gestão de Instagram?'\nNós: 'Fazemos. Mas não é isso que você precisa.'\n\nSilêncio.\n\nExplicamos: você tem 200 seguidores. Instagram agora seria gastar pneu antes de ter motor.\n\nO que ela precisava primeiro:\n→ Sistema de captura de leads  \n→ Email sequence que vende\n→ Página de vendas que converte\n\nDepois que isso estiver rodando e vendendo? Aí sim, Instagram para amplificar.\n\n—\n\nEla podia ter ido em qualquer agência que toparia pegar os R$2k/mês dela e fazer 'gestão de redes sociais'.\n\nMas não ia vender nada.\n\nMarketing ético às vezes é dizer NÃO.\nMesmo quando o cliente quer pagar.\n\nVocê quer agência que vende o que você pede ou agência que entrega o que você precisa?\n\n#TransparenciaNoMarketing #ConsultoriaEstrategica"
+      }
+    ]
+  },
+
+  "email_examples": {
+    "welcome_sequence": [
+      {
+        "email_number": 1,
+        "send_timing": "Imediatamente após opt-in",
+        "subject_line": "Carolina, você não precisa de mais marketing",
+        "preview_text": "Você precisa de um sistema que funcione de verdade",
+        "body": "Oi, Carolina!\n\nObrigada por baixar nosso [material]. Sério mesmo.\n\nMas antes de você arquivar esse email (a gente sabe que você faz isso), deixa eu ser honesta:\n\nVocê não precisa de mais uma agência te prometendo 'resultados incríveis'.\nVocê não precisa de mais um 'especialista' te vendendo curso.\nVocê não precisa de mais dicas de Instagram.\n\nVocê já sabe demais. O problema não é conhecimento.\n\nO problema é que você tem:\n→ Instagram rodando (mais ou menos)\n→ Google Ads queimando dinheiro (de vez em quando)\n→ Email marketing parado (desde 2022)\n→ Blog que ninguém lê (mas tá lá)\n\nTudo solto. Nada conversando entre si.\n\nÉ como ter ingredientes de café gourmet mas fazer nescafé.\n\n—\n\nNos próximos dias, vou te mostrar como transformar esse monte de 'ações de marketing' num SISTEMA que vende enquanto você dorme.\n\nSem promessa mágica.\nSem 'confia que funciona'.\nCom muita planilha e pouca enrolação.\n\nPrepara o café (de verdade) e vem comigo.\n\nAbs,\nEquipe Oitavo Café\n\nP.S.: Se quiser pular as etapas e já conversar sobre seu caso específico, [AGENDE AQUI]. A gente é direto assim mesmo."
+      },
+      {
+        "email_number": 2,
+        "send_timing": "2 dias após email 1",
+        "subject_line": "O teste dos R$ 100",
+        "preview_text": "Se não passar, seu marketing tá quebrado",
+        "body": "Oi de novo!\n\nVou te fazer uma pergunta que a maioria das agências odeia:\n\nSe você investir R$ 100 em marketing hoje, quanto volta em vendas?\n\nA) Não faço ideia\nB) Acho que...\nC) Sei exatamente: R$ X\n\nSe você respondeu A ou B, a gente precisa conversar.\n\nPorque marketing que não é mensurável em R$ não é marketing. É arte abstrata.\n\n—\n\nDeixa eu te contar uma história real:\n\nCliente chegou mês passado gastando R$ 8k/mês em marketing.\n\nPerguntamos: 'Quanto vendeu por causa disso?'\nResposta: 'A agência disse que leva tempo...'\n\nHá quanto tempo? '14 meses.'\n\nR$ 112 mil investidos.\nResposta: 'confia'.\n\n🚩🚩🚩\n\n—\n\nMarketing bom se paga. Rápido.\n\nSe tá 'levando tempo' há mais de 90 dias, você não tem estratégia. Você tem esperança.\n\nE esperança não paga boleto.\n\nNo próximo email, vou te mostrar exatamente como a gente transforma marketing em máquina de vendas previsível.\n\n(Spoiler: tem planilha envolvida)\n\nAté lá,\nEquipe Oitavo Café\n\nP.S.: Respondeu C ('sei exatamente')? Parabéns, você faz parte dos 3%. Mas aposto que dá para melhorar esse número. [VAMOS CONVERSAR]."
+      },
+      {
+        "email_number": 3,
+        "send_timing": "4 dias após email 2",
+        "subject_line": "A receita secreta (que não é secreta)",
+        "preview_text": "Todo mundo sabe. Ninguém faz.",
+        "body": "Carolina,\n\nPromessa é dívida. Aqui vai a 'receita secreta' do marketing que funciona:\n\n1. Entenda EXATAMENTE quanto vale um cliente para você\n2. Descubra onde estão esses clientes\n3. Crie mensagem que fale da dor deles (não da sua empresa)\n4. Conduza eles por uma jornada lógica até a venda\n5. Meça tudo. TUDO.\n6. Otimiza o que funciona. Mata o que não funciona.\n7. Repete.\n\nPronto. Não é sexy. Não tem hack mágico. Não tem segredinho.\n\nÉ chato? É.\nÉ trabalhoso? É.\nFunciona? TODO DIA.\n\n—\n\nMas tem um problema:\n\nIsso dá trabalho.\n\nPor isso 90% das agências preferem te vender 'posts bonitos' e 'estratégia de branding'.\n\nÉ mais fácil. Mais rápido. E você não consegue provar que não funciona.\n\nA gente escolheu o caminho difícil:\n→ Sistema integrado (não ações soltas)\n→ Foco em vendas (não em vaidade métrica)  \n→ Transparência total (você vê TUDO)\n→ ROI mensurável (em R$, não em 'alcance')\n\n—\n\nSe você tá cansada de jogar dinheiro em marketing que não volta...\n\nSe você quer um sistema previsível ao invés de esperança...\n\nSe você valoriza honestidade mais que promessa bonita...\n\nA gente criou o Oitavo Café exatamente para você.\n\n[AGENDAR DIAGNÓSTICO GRATUITO]\n\n30 minutos. Zero compromisso. 100% transparência sobre se a gente pode te ajudar ou não.\n\n(E se não puder, a gente fala. Porque tempo é dinheiro. O seu e o nosso.)\n\nBora despertar?\n\nEquipe Oitavo Café\n\nP.S.: Se ainda não tá pronta, sem problema. Mas salva esse email. Quando você enjoar de marketing decorativo, a gente tá aqui."
+      }
+    ],
+
+    "subject_line_library": [
+      "Carolina, seu Instagram tá bonito. Mas cadê o dinheiro?",
+      "O teste dos R$ 100 (seu marketing passou?)",
+      "A verdade que sua agência não conta",
+      "Likes não pagam boleto",
+      "Marketing ou decoração? Descubra em 2 minutos",
+      "R$ 8k/mês em marketing. R$ 0 de retorno. (História real)",
+      "A métrica que importa (não é engajamento)",
+      "Por que a gente recusa 60% dos clientes",
+      "Seu relatório de marketing é mentira",
+      "O que fazer quando nada funciona"
+    ]
+  },
+
+  "website_copy_examples": {
+    "homepage_hero": {
+      "headline": "Sistema de vendas, não serviço de marketing",
+      "subheadline": "Cansada de pagar por 'visibilidade' que não enche seu caixa? A gente também. Por isso criamos um sistema de marketing que funciona de verdade — tudo integrado, tudo rastreável, tudo focado em R$ na sua conta.",
+      "primary_cta": "Quero parar de desperdiçar dinheiro",
+      "secondary_cta": "Mostrar como funciona",
+      "trust_element": "Sistema validado por 50+ empreendedoras que pararam de acreditar em promessa vazia"
+    },
+
+    "about_section": {
+      "headline": "A gente nasceu de uma birra",
+      "body": "Cansamos de ver empreendedoras fodas investindo em marketing e recebendo likes em troca.\n\nLikes não pagam conta. Impressões não pagam fornecedor. 'Alcance orgânico' não paga imposto.\n\nEntão criamos o Oitavo Café: um sistema que conecta TODO o seu marketing (sim, cada pedacinho) e transforma isso em vendas de verdade.\n\nNão em 'engajamento'. Não em 'awareness'. Em R$ na conta.\n\nDesde 2020, ajudamos empreendedoras céticas (como você) a pararem de acreditar em promessa e começarem a acreditar em planilha.\n\nMarketing chato? Talvez.\nMarketing honesto? Sempre.\nMarketing que funciona? Todo dia.",
+      "values_intro": "Nossa obsessão:",
+      "values": [
+        "Transparência radical — você vê tudo, do clique ao real na conta",
+        "ROI mensurável — se não dá para medir em R$, não fazemos",
+        "Sistema integrado — nada de ações soltas fingindo ser estratégia",
+        "Honestidade bruta — se não pudermos te ajudar, a gente fala"
+      ]
+    }
+  },
+
+  "support_responses": {
+    "greeting": {
+      "template": "Oi, [nome]! Tudo bem?\n\nAqui é [seu nome] do Oitavo. Vi sua mensagem e já vou te ajudar.\n\n[resposta específica]\n\nQualquer coisa, só gritar. A gente responde de verdade por aqui.",
+      "tone_notes": "Amigável mas eficiente, sem formalismo excessivo"
+    },
+
+    "problem_acknowledgment": {
+      "template": "Entendi a situação, [nome].\n\n[resumo do problema para confirmar entendimento]\n\nDeixa eu te explicar o que aconteceu e como a gente resolve:\n\n[explicação + solução]",
+      "tone_notes": "Validação sem drama, foco em solução"
+    },
+
+    "delay_explanation": {
+      "template": "Opa, [nome]!\n\nVocê tem razão de estar cobrando. [X] já deveria ter acontecido.\n\nO que rolou: [explicação honesta, sem desculpa genérica]\n\nO que a gente vai fazer: [solução + prazo realista]\n\nDesculpa pelo atraso. A gente valoriza seu tempo (e seu dinheiro).",
+      "tone_notes": "Assume responsabilidade, não joga culpa em 'processos'"
+    },
+
+    "feature_request_response": {
+      "template": "Boa, [nome]! Adorei a sugestão.\n\n[Se vai implementar:]\nJá anotei aqui e vou levar para o time. Faz muito sentido para [razão].\n\n[Se não vai implementar:]\nEntendo de onde vem a ideia, mas por enquanto não vai rolar porque [razão honesta]. Mas vou guardar o feedback!",
+      "tone_notes": "Valoriza input sem prometer o que não vai fazer"
+    },
+
+    "complaint_response": {
+      "template": "[Nome], entendo sua frustração.\n\nVocê esperava [X] e recebeu [Y]. Faz todo sentido estar chateada.\n\nDeixa eu te explicar o que aconteceu: [explicação sem passar pano]\n\nE o que vamos fazer para resolver: [ação concreta + prazo]\n\nMarketing já é investimento de risco. A gente não pode adicionar mais risco sendo pouco claro. Conta comigo para resolver isso.",
+      "tone_notes": "Empatia genuína, responsabilização, ação clara"
+    }
+  },
+
+  "signature_content": {
+    "brand_manifesto_short": {
+      "title": "Por que existimos",
+      "content": "A gente cansou.\n\nCansou de ver empreendedoras brilhantes jogando dinheiro em marketing que não volta.\n\nCansou de relatório bonito que não enche bolso.\n\nCansou de agência que promete lua e entrega like.\n\nCansou de 'especialista' que cobra em real mas entrega em promessa.\n\nEntão criamos o Oitavo Café.\n\nUm lugar onde:\n→ Marketing é tratado como ciência, não como arte abstrata\n→ Cada real investido é rastreado até virar venda\n→ Transparência não é diferencial, é obrigação\n→ ROI não é métrica de vaidade, é métrica de respeito\n\nMarketing chato? Provavelmente.\nMarketing honesto? Sempre.\nMarketing que funciona? Todo santo dia.\n\nPorque você não precisa de mais visibilidade.\nVocê precisa de mais vendas.\n\nE a gente tá aqui para isso."
+    },
+
+    "elevator_pitch_variations": [
+      {
+        "context": "Networking casual",
+        "pitch": "Sabe aquele dinheiro que empreendedor gasta em marketing e não sabe para onde vai? A gente transforma isso em sistema de vendas rastreável. Chato, mas funciona."
+      },
+      {
+        "context": "Pitch formal",
+        "pitch": "Oitavo Café é um sistema integrado de marketing focado em ROI mensurável. Conectamos todos os canais do cliente — redes sociais, ads, email, conteúdo — em uma jornada única orientada a vendas, com transparência total sobre investimento e retorno."
+      },
+      {
+        "context": "Cliente potencial",
+        "pitch": "A gente pega todo o seu marketing que tá solto — Instagram, Google, email, blog — e conecta tudo num sistema único focado em vender. Você vê exatamente quanto cada real investido traz de volta. Sem enrolação, sem métrica de vaidade."
+      }
+    ],
+
+    "why_statement": "Existimos porque empreendedoras sérias merecem marketing sério. Marketing que se paga. Marketing que você consegue explicar para seu contador. Marketing que respeita seu dinheiro tanto quanto você respeita o dinheiro do seu cliente. O resto é conversa."
+  }
+}

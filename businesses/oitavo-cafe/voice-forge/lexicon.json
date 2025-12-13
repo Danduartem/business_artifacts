@@ -1,0 +1,772 @@
+{
+  "brand_vocabulary": {
+    "core_terms": {
+      "sistema_de_vendas": {
+        "definition": "O que a gente faz de verdade - não é marketing bonitinho, é uma máquina calculada para transformar lead em cliente pagante",
+        "usage": "Signature positioning term - use frequently to reinforce differentiation",
+        "examples": [
+          "A gente não vende serviço de marketing. A gente monta sistema de vendas.",
+          "Sistema de vendas é como motor de carro: você não vê trabalhando, mas sente no resultado."
+        ]
+      },
+      "maquina_de_vendas": {
+        "definition": "Funil integrado que funciona sozinho - da primeira interação até o pagamento confirmado",
+        "usage": "Metaphor for automated sales process",
+        "examples": [
+          "Sua máquina de vendas funcionando enquanto você dorme (clichê, mas é verdade).",
+          "Construir máquina de vendas não é rocket science. É só parar de achar que post bonito vende."
+        ]
+      },
+      "ciencia_do_lucro": {
+        "definition": "Abordagem data-driven para crescimento - nada de achismo, só números que comprovam resultado",
+        "usage": "Emphasize analytical, scientific approach to sales",
+        "examples": [
+          "Marketing é arte. Vendas é ciência do lucro.",
+          "A ciência do lucro não mente: ou converteu ou não converteu."
+        ]
+      },
+      "funil_integrado": {
+        "definition": "Jornada completa do desconhecido ao cliente - topo, meio, fundo, todos conversando entre si",
+        "usage": "Technical term for full-funnel strategy",
+        "examples": [
+          "Funil integrado significa que seu anúncio, email e WhatsApp estão falando a mesma língua.",
+          "Sem funil integrado, você tá jogando dinheiro em buracos diferentes."
+        ]
+      },
+      "dashboard_transparente": {
+        "definition": "Painel onde o cliente vê exatamente onde cada real foi investido e o que retornou",
+        "usage": "Accountability and transparency positioning",
+        "examples": [
+          "Dashboard transparente: você vê os números ruins também. A gente não esconde nada.",
+          "Se sua agência não te mostra dashboard transparente, provavelmente tá escondendo algo."
+        ]
+      },
+      "lead_qualificado": {
+        "definition": "Pessoa que tem perfil, dinheiro e timing para comprar - não é qualquer curioso que clicou no anúncio",
+        "usage": "Quality over quantity in lead generation",
+        "examples": [
+          "Lead qualificado é aquele que pode e quer comprar. O resto é vanity metric.",
+          "Prefiro 10 leads qualificados que 1000 curiosos."
+        ]
+      },
+      "metrica_de_vaidade": {
+        "definition": "Número bonito que não paga boleto - curtidas, alcance, impressões sem conversão",
+        "usage": "Mocking term for meaningless metrics - use to criticize industry BS",
+        "examples": [
+          "Alcance de 500 mil é métrica de vaidade se nenhum deles virou cliente.",
+          "Parabéns, você viralizou. Seu banco agradece? Não? Então é métrica de vaidade."
+        ]
+      },
+      "relatorio_bonito": {
+        "definition": "Aquela apresentação cheia de gráficos coloridos que não mostra ROI real",
+        "usage": "Mocking term for superficial reporting",
+        "examples": [
+          "Relatório bonito impressiona em reunião. ROI positivo paga as contas.",
+          "Se você prefere relatório bonito a resultado real, a gente não é pra você."
+        ]
+      },
+      "papo_de_cafe": {
+        "definition": "Conversa direta, sem enrolação - como dois empreendedores tomariam café e falariam de negócio",
+        "usage": "Brand metaphor for honest, direct communication",
+        "examples": [
+          "Vamos ter um papo de café? Sem PowerPoint, sem enrolação.",
+          "No papo de café, a gente fala a verdade: marketing não faz milagre sozinho."
+        ]
+      },
+      "despertar_comercial": {
+        "definition": "Momento em que o empreendedor percebe que precisa de sistema, não de mais posts",
+        "usage": "Coffee metaphor for client awakening/realization",
+        "examples": [
+          "O despertar comercial dói um pouco. É perceber que você investiu no lugar errado.",
+          "Depois do despertar comercial, você nunca mais olha para 'engajamento' da mesma forma."
+        ]
+      }
+    },
+    "power_phrases": {
+      "positioning": [
+        "Sistema de vendas, não serviço de marketing",
+        "A gente não faz post bonito. A gente faz dinheiro entrar.",
+        "Marketing que não vende é hobby caro",
+        "Se não tem ROI, não é estratégia - é despesa",
+        "Métricas que importam são as que pagam boleto",
+        "A gente vende resultado, não relatório"
+      ],
+      "value_proposition": [
+        "Fórmula testada para transformar tráfego em faturamento",
+        "Do lead qualificado ao pagamento confirmado",
+        "Dashboard onde você vê cada real trabalhando",
+        "Sistema que vende enquanto você dorme (clichê verdadeiro)",
+        "Funil que funciona sem você precisar vigiar",
+        "Método mensurável, não magia de agência"
+      ],
+      "challenger_statements": [
+        "A indústria do marketing adora vender fumaça. A gente vende números.",
+        "Viralizar não paga as contas. Converter sim.",
+        "Alcance não é resultado. É só alcance.",
+        "Engajamento sem conversão é conversa sem negócio",
+        "A gente podia te vender presença digital. Mas isso não te interessa, né?",
+        "Se sua agência não fala de ROI, ela não fala a língua do seu bolso"
+      ],
+      "self_awareness": [
+        "A gente é agência de marketing criticando marketing. Weird, mas necessário.",
+        "Sim, a gente usa os mesmos canais que todo mundo. A diferença tá na régua de conversão.",
+        "Prometemos resultados? Sim. Garantimos? Não somos charlataões.",
+        "A gente não é pra todo mundo. E tá tudo bem.",
+        "Spoiler: não tem mágica. Tem método, teste e ajuste constante."
+      ]
+    },
+    "coffee_metaphors": {
+      "despertar": {
+        "meaning": "Perceber a realidade do marketing que não vende",
+        "usage": "Client awareness journey",
+        "variations": [
+          "despertar comercial",
+          "acordar para os números",
+          "hora de acordar para o resultado"
+        ]
+      },
+      "conexao": {
+        "meaning": "Relacionamento genuíno entre marca e cliente que gera vendas",
+        "usage": "Relationship building that converts",
+        "variations": [
+          "conexões que vendem",
+          "encontros que viram negócio",
+          "aquele papo que fecha contrato"
+        ]
+      },
+      "energia": {
+        "meaning": "Momentum de vendas, tração comercial",
+        "usage": "Sales velocity and momentum",
+        "variations": [
+          "energia comercial",
+          "fluxo constante de vendas",
+          "ritmo de conversão"
+        ]
+      },
+      "extrair_essencia": {
+        "meaning": "Identificar o que realmente importa nos dados - o insight valioso",
+        "usage": "Data analysis and optimization",
+        "variations": [
+          "extrair o que importa dos números",
+          "filtrar o ruído, ficar com o resultado",
+          "destilar a métrica que paga boleto"
+        ]
+      },
+      "blend_perfeito": {
+        "meaning": "Mix ideal de canais, mensagens e timing que gera vendas",
+        "usage": "Integrated marketing mix",
+        "variations": [
+          "receita equilibrada",
+          "fórmula ajustada pro seu negócio",
+          "combinação que converte"
+        ]
+      },
+      "temperatura_certa": {
+        "meaning": "Lead no momento ideal de compra - nem frio demais, nem queimado",
+        "usage": "Lead scoring and timing",
+        "variations": [
+          "ponto ideal de conversão",
+          "momento certo de abordar",
+          "timing de fechamento"
+        ]
+      }
+    }
+  },
+  "word_lists": {
+    "always_use": {
+      "results_oriented": [
+        "ROI",
+        "faturamento",
+        "conversão",
+        "resultado mensurável",
+        "lucro",
+        "receita",
+        "vendas",
+        "cliente pagante",
+        "retorno",
+        "investimento que retorna"
+      ],
+      "system_process": [
+        "sistema de vendas",
+        "funil integrado",
+        "máquina de vendas",
+        "processo escalável",
+        "método testado",
+        "fórmula replicável",
+        "dashboard",
+        "régua de conversão",
+        "jornada de compra"
+      ],
+      "lead_quality": [
+        "lead qualificado",
+        "prospect qualificado",
+        "potencial cliente",
+        "perfil ideal",
+        "ICP (Ideal Customer Profile)",
+        "lead quente",
+        "oportunidade real"
+      ],
+      "authenticity": [
+        "sem enrolação",
+        "direto ao ponto",
+        "transparência total",
+        "a real",
+        "na prática",
+        "na vida real",
+        "sem filtro",
+        "papo reto"
+      ],
+      "brazilian_flavor": [
+        "boleto",
+        "pagar as contas",
+        "cair na conta",
+        "grana que entra",
+        "dinheiro no bolso",
+        "faturar de verdade"
+      ]
+    },
+    "sometimes_use": {
+      "tactical_terms": [
+        "tráfego pago",
+        "anúncio",
+        "campanha",
+        "email marketing",
+        "automação",
+        "CRM",
+        "landing page",
+        "taxa de conversão",
+        "CAC (Custo de Aquisição)",
+        "LTV (Lifetime Value)",
+        "ticket médio"
+      ],
+      "strategic_terms": [
+        "posicionamento",
+        "estratégia comercial",
+        "proposta de valor",
+        "diferenciação",
+        "segmentação",
+        "persona",
+        "jornada do cliente"
+      ],
+      "approved_metrics": [
+        "taxa de conversão",
+        "custo por lead qualificado",
+        "custo por venda",
+        "ROI da campanha",
+        "receita atribuída",
+        "pipeline de vendas"
+      ],
+      "conditional_humor": [
+        "spoiler:",
+        "plot twist:",
+        "a bad news:",
+        "a verdade inconveniente:",
+        "alerta de sinceridade:"
+      ]
+    },
+    "avoid": {
+      "overused_buzzwords": [
+        "revolucionário",
+        "disruptivo",
+        "inovador",
+        "único",
+        "exclusivo",
+        "transformacional",
+        "game-changer",
+        "next level"
+      ],
+      "corporate_jargon": [
+        "sinergias",
+        "alavancagem",
+        "stakeholders",
+        "holístico",
+        "ecossistema",
+        "jornada transformadora",
+        "value proposition",
+        "mindset"
+      ],
+      "vague_promises": [
+        "garantimos resultados",
+        "sucesso garantido",
+        "sem risco",
+        "fórmula mágica",
+        "segredo revelado",
+        "método secreto"
+      ],
+      "generic_agency_speak": [
+        "soluções customizadas",
+        "atendimento personalizado",
+        "equipe dedicada",
+        "parceiro estratégico",
+        "excelência em",
+        "referência em"
+      ]
+    },
+    "never_use": {
+      "vanity_metrics_as_goals": [
+        "aumentar alcance",
+        "gerar awareness",
+        "fortalecer presença digital",
+        "melhorar engajamento",
+        "conquistar seguidores",
+        "viralizar conteúdo"
+      ],
+      "misleading_terms": [
+        "garantia de resultado",
+        "fórmula mágica",
+        "segredo dos milionários",
+        "método infalível",
+        "sem esforço",
+        "no automático"
+      ],
+      "pretentious_language": [
+        "curadoria de conteúdo premium",
+        "experiência imersiva",
+        "narrativa transmídia",
+        "storytelling disruptivo",
+        "branding holístico"
+      ],
+      "cliches_to_ban": [
+        "pensar fora da caixa",
+        "vestir a camisa",
+        "DNA da empresa",
+        "cultura de inovação",
+        "espírito empreendedor"
+      ]
+    }
+  },
+  "industry_translations": {
+    "marketing_bs_to_oitavo": {
+      "social_media_management": {
+        "industry_says": "gestão de redes sociais",
+        "oitavo_mocking": "pacote de posts que não vende nada",
+        "oitavo_legitimate": "presença social que alimenta o funil de vendas"
+      },
+      "brand_awareness": {
+        "industry_says": "awareness de marca",
+        "oitavo_mocking": "todo mundo te conhece, ninguém te paga",
+        "oitavo_legitimate": "reconhecimento que facilita a conversão"
+      },
+      "engagement_rate": {
+        "industry_says": "taxa de engajamento",
+        "oitavo_mocking": "números que não pagam as contas",
+        "oitavo_legitimate": "interação que vira venda"
+      },
+      "content_strategy": {
+        "industry_says": "estratégia de conteúdo",
+        "oitavo_mocking": "calendário editorial que ninguém lê",
+        "oitavo_legitimate": "conteúdo que nutre e qualifica lead"
+      },
+      "influencer_marketing": {
+        "industry_says": "marketing de influência",
+        "oitavo_mocking": "pagar famosinho pra postar e torcer",
+        "oitavo_legitimate": "parceria rastreada com código de conversão"
+      },
+      "organic_reach": {
+        "industry_says": "alcance orgânico",
+        "oitavo_mocking": "aquela métrica que o algoritmo matou em 2018",
+        "oitavo_legitimate": "tráfego gratuito (quando existe)"
+      },
+      "viral_content": {
+        "industry_says": "conteúdo viral",
+        "oitavo_mocking": "viralizou, e daí? Vendeu?",
+        "oitavo_legitimate": "alcance amplificado (se converteu)"
+      },
+      "digital_presence": {
+        "industry_says": "presença digital",
+        "oitavo_mocking": "existir na internet sem propósito comercial",
+        "oitavo_legitimate": "canais ativos com objetivo de vendas"
+      },
+      "community_management": {
+        "industry_says": "gestão de comunidade",
+        "oitavo_mocking": "responder DM de curioso que nunca compra",
+        "oitavo_legitimate": "relacionamento que retém e gera recompra"
+      },
+      "thought_leadership": {
+        "industry_says": "thought leadership",
+        "oitavo_mocking": "posar de expert no LinkedIn",
+        "oitavo_legitimate": "autoridade que atrai cliente qualificado"
+      }
+    },
+    "metrics_reframing": {
+      "impressions": "Impressões → Quantas vezes seu anúncio apareceu (e provavelmente foi ignorado)",
+      "reach": "Alcance → Pessoas que viram (mas não necessariamente se importaram)",
+      "engagement": "Engajamento → Interação (que pode ou não ter valor comercial)",
+      "followers": "Seguidores → Audiência (que talvez nunca compre)",
+      "likes": "Curtidas → Validação social (que não paga boleto)",
+      "shares": "Compartilhamentos → Distribuição gratuita (se bem direcionada, vale)",
+      "comments": "Comentários → Conversa (investigue se é do público certo)",
+      "click_through_rate": "CTR → Taxa de clique (boa, mas conversão é melhor)",
+      "cost_per_click": "CPC → Custo por clique (ok, mas custo por venda importa mais)",
+      "conversion_rate": "Taxa de Conversão → Essa sim interessa. Foco total.",
+      "roi": "ROI → A métrica rainha. Investiu X, faturou Y.",
+      "customer_acquisition_cost": "CAC → Quanto custa conquistar um cliente (tem que valer a pena)",
+      "lifetime_value": "LTV → Quanto um cliente vale ao longo do tempo (o casamento, não o date)"
+    }
+  },
+  "grammar_style_guide": {
+    "sentence_structure": {
+      "preferred_length": "Curtas e médias (8-15 palavras ideal). Longas permitidas para explicações técnicas.",
+      "rhythm": "Variar comprimento. Usar frases curtas para impacto. Médias para explicar. Uma palavra? Às vezes.",
+      "paragraph_breaks": "Frequentes. Parágrafos de 2-4 linhas no máximo. Respirar é bom.",
+      "lists": "Usar bullets generosamente. Facilita escaneabilidade. Cliente ocupado agradece.",
+      "rhetorical_questions": "Sim, usar. Com moderação. Cria diálogo. Você concorda? (viu, usei uma)"
+    },
+    "punctuation": {
+      "periods": "Normal. Direto. Sem cerimônia.",
+      "exclamation_points": "Usar estrategicamente para ênfase. Uma por sentença quando necessário. Múltiplas (!!!) apenas para efeito cômico intencional ou para mostrar exagero que estamos criticando.",
+      "question_marks": "Perguntas retóricas são amigas. Perguntas que fazem pensar também.",
+      "parentheses": "Liberado para comentários auto-irônicos (tipo esse aqui)",
+      "dashes": "Em-dash (—) para quebras dramáticas. Hífen (-) normal para compostos.",
+      "ellipses": "Raramente... Só quando criar suspense proposital... Ou indicar pausa reflexiva.",
+      "quotation_marks": "Usar para 'ironizar' ou destacar 'termos da indústria' que criticamos"
+    },
+    "capitalization": {
+      "titles": "Title Case para headlines em inglês. Apenas primeira maiúscula em português.",
+      "acronyms": "ROI, CAC, LTV, CRM sempre maiúsculas",
+      "brand_terms": "Oitavo Café (capitalizado), sistema de vendas (lowercase)",
+      "emphasis": "NÃO USAR CAPS LOCK PARA GRITAR (exceto propositalmente raro para efeito cômico)"
+    },
+    "number_formatting": {
+      "currency": "R$ 10.000 (ponto para milhar, vírgula para centavos R$ 10.000,00 quando necessário)",
+      "percentages": "35% (número + símbolo, sem espaço)",
+      "large_numbers": "Use 10 mil, 1 milhão (escrito) em texto corrido. 10.000, 1.000.000 em tabelas.",
+      "decimals": "10,5% (vírgula decimal no português BR)",
+      "ranges": "R$ 5.000 - R$ 15.000 (espaços ao redor do traço)"
+    },
+    "emoji_usage": {
+      "when": "Redes sociais: sim. Email marketing: moderado. Website: raramente. Propostas: não.",
+      "which": [
+        "☕ - café (óbvio, mas não abuse)",
+        "📊 - dados, dashboard",
+        "💰 - dinheiro, ROI, faturamento",
+        "🎯 - foco, objetivo, target",
+        "🚫 - proibido, evitar, não fazer",
+        "⚠️ - alerta, atenção",
+        "✅ - checklist, aprovado",
+        "🔥 - hot take, polêmico"
+      ],
+      "avoid": [
+        "🚀 (muito startup cliché)",
+        "💎 (muito coaching)",
+        "🙏 (emocional demais)",
+        "❤️ (fora de contexto)",
+        "🎉 (celebração genérica)"
+      ],
+      "frequency": "Máximo 1-2 por parágrafo. Zero é válido também."
+    },
+    "voice_markers": {
+      "contractions": "Usar sempre que natural: tá, pra, né, cê (em contextos informais)",
+      "brazilian_slang": "Moderado: grana, boleto, papo reto, sem mimimi (autêntico, não forçado)",
+      "tech_terms": "Em inglês quando necessário (ROI, dashboard, CRM). Traduzir quando possível sem perder clareza.",
+      "self_correction": "Permitido: 'Marketing... desculpa, sistema de vendas.' (mostra pensamento honesto)",
+      "asides": "Usar parênteses ou travessões para comentários laterais que quebram quarta parede"
+    }
+  },
+  "regional_adaptations": {
+    "brazil_vs_portugal": {
+      "currency": {
+        "brazil": "R$ (Real)",
+        "portugal": "€ (Euro)"
+      },
+      "vocabulary_differences": {
+        "voce": {
+          "brazil": "você",
+          "portugal": "tu (informal) / você (formal)"
+        },
+        "email": {
+          "brazil": "e-mail",
+          "portugal": "email ou correio eletrónico"
+        },
+        "site": {
+          "brazil": "site",
+          "portugal": "site ou website"
+        },
+        "celular": {
+          "brazil": "celular",
+          "portugal": "telemóvel"
+        },
+        "trem": {
+          "brazil": "trem (coisa)",
+          "portugal": "coisa (não usar 'trem')"
+        }
+      },
+      "formality": {
+        "brazil": "Tu-tudo (você) sempre, mesmo B2B. Informalidade é marca.",
+        "portugal": "Pode aceitar 'você', mas não forçar gírias BR pesadas. Adaptar."
+      },
+      "slang_adaptation": {
+        "brazil": "Grana, boleto, sem mimimi, papo reto (natural)",
+        "portugal": "Dinheiro, sem conversa, direto ao assunto (equivalentes menos coloquiais)"
+      }
+    },
+    "localization_notes": {
+      "primary_market": "Brasil - 80% do conteúdo otimizado para PT-BR",
+      "secondary_market": "Portugal - adaptar quando necessário, manter essência irreverente",
+      "approach": "Escrever em PT-BR por padrão. Ajustar vocabulário específico para PT-PT quando audiência identificada."
+    }
+  },
+  "signature_phrases": {
+    "taglines_variations": [
+      "Sistema de vendas, não serviço de marketing",
+      "Marketing que vende, não que enfeita",
+      "Do lead ao pagamento confirmado",
+      "Métricas que pagam boleto",
+      "A ciência do lucro aplicada ao seu negócio",
+      "Menos relatório bonito, mais dinheiro na conta"
+    ],
+    "opening_hooks": {
+      "email_subject_lines": [
+        "Seu ROI tá negativo? (a gente sabe por quê)",
+        "Alcance de 500 mil. E quantos compraram?",
+        "A real sobre marketing de agência",
+        "Viralizou. E daí?",
+        "Sua agência te mostra o dashboard real?"
+      ],
+      "blog_intros": [
+        "Vamos ter um papo de café? Sem enrolação.",
+        "A verdade que ninguém te conta sobre [tema]:",
+        "Spoiler: não é culpa sua. É do sistema errado.",
+        "Plot twist: [declaração contraintuitiva]",
+        "Todo mundo fala de [X]. Ninguém fala de [Y] (que importa mais)."
+      ],
+      "social_media": [
+        "A bad news primeiro:",
+        "Ninguém vai te contar isso, mas:",
+        "Enquanto você persegue [métrica de vaidade], seu concorrente persegue [resultado].",
+        "Alerta de sinceridade:",
+        "Pode doer, mas precisa ser dito:"
+      ]
+    },
+    "closing_ctas": {
+      "hard_sell": [
+        "Pronta pra trocar curtida por conversão?",
+        "Vamos montar seu sistema de vendas?",
+        "Quer ver quanto tá deixando na mesa? Dashboard transparente esperando.",
+        "Chega de relatório bonito. Vamos falar de ROI?"
+      ],
+      "soft_sell": [
+        "Quer saber como isso funciona na prática? Chama no café ☕",
+        "Curioso sobre seu potencial de faturamento? A gente calcula.",
+        "Próximos passos: conversa sem compromisso, dashboard sem filtro.",
+        "Dúvida sincera? Resposta direta. Sem textão de venda."
+      ],
+      "educational": [
+        "Baixa o checklist: [recurso gratuito]",
+        "Mais sobre isso no blog: [link]",
+        "Quer a versão completa? Newsletter semanal (sem spam, só resultado).",
+        "Continue lendo: [próximo artigo relacionado]"
+      ],
+      "challenger": [
+        "Ou você pode continuar pagando por relatório bonito. Você escolhe.",
+        "Se ainda acha que engajamento paga conta, esse papo não é pra você.",
+        "A gente não é pra todo mundo. Mas se você quer vender de verdade, vamos conversar.",
+        "Sua agência não vai gostar desse papo. Seu ROI vai."
+      ]
+    },
+    "transitional_phrases": [
+      "Olha só:",
+      "A questão é:",
+      "Aqui entra o pulo do gato:",
+      "Traduzindo:",
+      "Na prática:",
+      "Sem enrolação:",
+      "A real:",
+      "Mas (sempre tem um mas):",
+      "Plot twist:",
+      "Agora a parte boa:",
+      "O problema:",
+      "A solução:",
+      "Contextualiza aqui:"
+    ],
+    "section_headers_style": [
+      "Por que [tema] não funciona (e o que funciona)",
+      "A verdade sobre [tema]",
+      "[Tema]: expectativa vs. realidade",
+      "Como [fazer algo] sem [problema comum]",
+      "O que ninguém te conta sobre [tema]",
+      "[Número] sinais de que seu [X] tá te enganando",
+      "Checklist: seu [X] tá funcionando?"
+    ]
+  },
+  "prohibited_patterns": {
+    "cliches_to_avoid": [
+      "pensar fora da caixa",
+      "vestir a camisa",
+      "dar o próximo passo",
+      "elevar seu negócio a outro nível",
+      "DNA da empresa",
+      "jornada transformadora",
+      "abraçar a mudança",
+      "sair da zona de conforto (a não ser que ironize)"
+    ],
+    "overused_industry_phrases": [
+      "somos diferentes",
+      "atendimento personalizado",
+      "foco no cliente",
+      "excelência em [qualquer coisa]",
+      "referência no mercado",
+      "líder de mercado",
+      "anos de experiência",
+      "equipe altamente qualificada"
+    ],
+    "generic_marketing_speak": [
+      "soluções inovadoras",
+      "abordagem holística",
+      "estratégia integrada",
+      "resultados comprovados",
+      "parceria de sucesso",
+      "agregar valor",
+      "gerar impacto",
+      "promover engajamento"
+    ],
+    "false_urgency": [
+      "última chance",
+      "vagas limitadas",
+      "somente hoje",
+      "desconto exclusivo",
+      "você vai perder essa oportunidade"
+    ],
+    "hype_language": [
+      "revolucionário",
+      "nunca visto antes",
+      "o segredo que [grupo] não quer que você saiba",
+      "método secreto",
+      "fórmula mágica",
+      "resultados extraordinários",
+      "transformação completa"
+    ],
+    "passive_aggressive": [
+      "como você deveria saber",
+      "obviamente",
+      "todo mundo sabe que",
+      "é simples",
+      "basta apenas"
+    ],
+    "fake_humility": [
+      "somos apenas uma pequena agência tentando fazer diferença",
+      "não somos perfeitos, mas",
+      "humildemente oferecemos",
+      "com todo respeito aos concorrentes"
+    ]
+  },
+  "messaging_frameworks": {
+    "pain_agitate_solve": {
+      "pain": "Usar dados concretos do mercado de Carolina: 'Você investe R$ 5 mil/mês e não sabe quanto voltou'",
+      "agitate": "Amplificar com humor ácido: 'Enquanto isso, sua agência te manda relatório com alcance de 500 mil. Parabéns? 🎉'",
+      "solve": "Apresentar alternativa clara: 'Dashboard transparente. Cada real investido, cada real retornado. Simples assim.'"
+    },
+    "before_after_bridge": {
+      "before": "Pintar cenário atual com empatia: 'Hoje: você paga agência, recebe post bonito, torce pra vender'",
+      "after": "Mostrar futuro concreto: 'Depois: sistema rodando, leads qualificados chegando, você fecha venda'",
+      "bridge": "Explicar como chegar lá: 'A ponte: funil integrado com régua de conversão mensurável. Sem mágica, com método.'"
+    },
+    "problem_solution_proof": {
+      "problem": "Identificar dor específica: 'Marketing não tá vendendo porque não foi feito pra vender'",
+      "solution": "Apresentar abordagem: 'Sistema de vendas: cada etapa desenhada pra conversão, não pra métrica de vaidade'",
+      "proof": "Mostrar evidência: 'Cliente X: de R$ 30k para R$ 180k em 4 meses [link para case]'"
+    }
+  },
+  "content_patterns": {
+    "list_formats": [
+      "X sinais de que sua agência tá te enganando",
+      "X coisas que todo empreendedor deveria saber sobre [tema]",
+      "X métricas que importam (e X que não importam)",
+      "Como fazer X sem cair em Y",
+      "X vs Y: qual escolher?"
+    ],
+    "comparison_structures": [
+      "Expectativa vs Realidade",
+      "O que dizem vs O que é",
+      "Agência tradicional vs Sistema de vendas",
+      "Métrica de vaidade vs Métrica que paga conta",
+      "Promessa vs Entrega"
+    ],
+    "educational_formats": [
+      "Guia completo: [tema]",
+      "Checklist: como saber se [X]",
+      "Calculadora: quanto você tá perdendo com [problema]",
+      "Template: [ferramenta prática]",
+      "Case study: como [cliente] conseguiu [resultado]"
+    ]
+  },
+  "metaphor_system": {
+    "coffee_ecosystem": {
+      "beans": "Leads qualificados - a matéria-prima de qualidade",
+      "roasting": "Qualificação e nutrição - preparar no ponto certo",
+      "brewing": "Processo de vendas - extrair o valor máximo",
+      "serving": "Entrega de valor - experiência que gera recompra",
+      "aftertaste": "Pós-venda e retenção - gosto que fica e faz voltar"
+    },
+    "machine_system": {
+      "engine": "Funil de vendas - o motor que gera resultado",
+      "fuel": "Tráfego qualificado - combustível do sistema",
+      "dashboard": "Métricas e KPIs - o painel de controle",
+      "maintenance": "Otimização contínua - ajuste fino",
+      "output": "Vendas e faturamento - o que sai no final"
+    },
+    "science_system": {
+      "hypothesis": "Estratégia inicial - o que vamos testar",
+      "experiment": "Campanha e testes - colocar em prática",
+      "data": "Métricas e resultados - evidências coletadas",
+      "analysis": "Otimização - interpretar e ajustar",
+      "conclusion": "ROI e aprendizados - o que comprovamos"
+    }
+  },
+  "anti_patterns_examples": {
+    "dont_say": {
+      "example_1": {
+        "wrong": "Somos uma agência inovadora que oferece soluções customizadas para elevar seu negócio ao próximo nível",
+        "why_wrong": "Genérico, buzzwords vazios, promessa vaga",
+        "right": "A gente monta sistema de vendas que transforma tráfego em faturamento. ROI mensurável, dashboard transparente."
+      },
+      "example_2": {
+        "wrong": "Nosso atendimento personalizado e foco no cliente garantem resultados extraordinários",
+        "why_wrong": "Clichê de agência, promessa sem especificidade, garantia impossível",
+        "right": "Você tem acesso ao dashboard 24/7. Vê cada real investido e cada real retornado. Prometemos esforço, não milagre."
+      },
+      "example_3": {
+        "wrong": "Alcançamos 2 milhões de impressões e 50 mil engajamentos na última campanha!",
+        "why_wrong": "Métrica de vaidade sem contexto de conversão",
+        "right": "2 milhões de impressões geraram 340 leads qualificados que viraram 28 vendas. ROI de 420%. Isso importa."
+      },
+      "example_4": {
+        "wrong": "Revolucione seu marketing digital com nossa metodologia disruptiva",
+        "why_wrong": "Buzzwords inflados, promessa exagerada",
+        "right": "Marketing não precisa de revolução. Precisa de funil que converte. A gente sabe montar isso."
+      },
+      "example_5": {
+        "wrong": "Garanta sua vaga exclusiva! Últimas vagas disponíveis!",
+        "why_wrong": "Falsa urgência, gatilho manipulativo",
+        "right": "A gente atende 8 clientes simultâneos (mais que isso, qualidade cai). Hoje tem vaga, amanhã não sei."
+      }
+    }
+  },
+  "quality_control_checklist": {
+    "before_publishing": [
+      "✅ Removeu todos os buzzwords da lista 'never_use'?",
+      "✅ Há pelo menos 1 power word ou signature phrase?",
+      "✅ O texto fala de resultado mensurável (não só processo)?",
+      "✅ Tem humor/irreverência sem soar forçado?",
+      "✅ Evitou promessas de garantia impossível?",
+      "✅ A linguagem está em PT-BR natural (não tradução literal)?",
+      "✅ Usou self-awareness em momento apropriado?",
+      "✅ O CTA é específico e honesto?",
+      "✅ Se criticou a indústria, ofereceu alternativa concreta?",
+      "✅ Carolina (persona) entenderia e se reconheceria nisso?"
+    ]
+  },
+  "usage_notes": {
+    "tone_guidance": "For tone modulation by content type and audience stage, reference tone-matrix.json which provides comprehensive tone calibration guidelines.",
+    "integration": "This lexicon works in tandem with tone-matrix.json (tone), messaging-framework.json (structure), and persona.json (audience). Use all four documents for complete voice implementation."
+  },
+  "version_info": {
+    "lexicon_version": "1.1",
+    "last_updated": "2025-12-12",
+    "created_by": "Voice Forge - Lexicon Curator Agent",
+    "brand": "Oitavo Café",
+    "language": "Portuguese (Brazilian)",
+    "secondary_language": "Portuguese (European) - adaptations noted",
+    "quality_gate_status": "Consistency issues resolved - tone_modulation section removed to prevent conflicts with tone-matrix.json"
+  }
+}

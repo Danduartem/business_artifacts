@@ -1,0 +1,506 @@
+{
+  "brand_name": "Oitavo Café",
+  "brand_tagline": "Desperte conexões",
+  "brand_positioning": "Sistema de vendas, não serviço de marketing",
+  "version": "1.0",
+  "created_date": "2025-12-12",
+
+  "brand_archetype": {
+    "primary": {
+      "name": "Jester",
+      "weight": "50%",
+      "description": "O Jester usa humor inteligente para desmistificar o marketing e tornar conceitos complexos acessíveis. Não é o palhaço que faz graça vazia - é o comediante perspicaz que usa humor para revelar verdades inconvenientes.",
+      "application_guidelines": [
+        "Use humor auto-irônico para criar conexão, nunca para diminuir o cliente",
+        "Transforme jargões complexos em linguagem cotidiana através de analogias criativas",
+        "Faça o leitor sorrir enquanto aprende algo valioso",
+        "Questione o óbvio do mercado com leveza e inteligência",
+        "Seja o alívio cômico em meio à seriedade corporativa do marketing"
+      ],
+      "voice_impact": "Torna a comunicação memorável, acessível e humana. Remove a intimidação do marketing digital."
+    },
+    "secondary": {
+      "name": "Sage",
+      "weight": "30%",
+      "description": "O Sage traz autoridade baseada em conhecimento profundo sobre o que realmente gera resultados. Fala com dados, experiência e clareza sobre ROI - mas sem soberba acadêmica.",
+      "application_guidelines": [
+        "Sustente afirmações com lógica clara e dados quando relevante",
+        "Eduque sem condescender - o cliente é inteligente, apenas não tem tempo para aprender tudo",
+        "Compartilhe insights práticos, não teorias abstratas",
+        "Demonstre expertise através de clareza, não de vocabulário rebuscado",
+        "Seja o guia confiável que já percorreu o caminho"
+      ],
+      "voice_impact": "Estabelece credibilidade e confiança. Transforma ceticismo em consideração."
+    },
+    "tertiary": {
+      "name": "Outlaw",
+      "weight": "20%",
+      "description": "O Outlaw desafia o status quo das agências tradicionais e questiona métricas de vaidade. Não tem medo de falar verdades inconvenientes sobre a indústria.",
+      "application_guidelines": [
+        "Exponha práticas questionáveis da indústria com coragem e clareza",
+        "Posicione-se contra métricas vazias e promessas mágicas",
+        "Seja o advogado do cliente contra enrolação e relatórios bonitos sem resultado",
+        "Questione o establishment sem ser agressivo - use fatos, não ataques",
+        "Represente a mudança necessária no mercado"
+      ],
+      "voice_impact": "Cria diferenciação clara e atrai clientes cansados de promessas vazias."
+    }
+  },
+
+  "personality_traits": [
+    {
+      "trait": "Inteligente mas Acessível",
+      "description": "Domina conceitos complexos mas os explica como um amigo inteligente explicaria numa mesa de café, não como um professor num púlpito.",
+      "in_practice": "Substitui 'implementação de funil de conversão multicanal' por 'um sistema que transforma visitante em cliente pagante'",
+      "example": "Em vez de: 'Otimizamos a jornada do consumidor através de touchpoints estratégicos.' Dizemos: 'A gente mapeia cada momento que seu cliente tem com sua marca - e transforma cada um deles numa oportunidade de venda.'"
+    },
+    {
+      "trait": "Confiante mas Não Arrogante",
+      "description": "Sabe que o método funciona e fala com convicção, mas sempre com respeito pela inteligência e pelo ceticismo saudável do cliente.",
+      "in_practice": "Usa 'nosso método entrega resultados porque...' ao invés de 'somos os melhores'",
+      "example": "Em vez de: 'Somos a melhor agência do Brasil.' Dizemos: 'Já fizemos isso 47 vezes. Sabemos exatamente onde você está travando - e como destrava.'"
+    },
+    {
+      "trait": "Irreverente com a Indústria, Respeitoso com o Cliente",
+      "description": "Ironiza práticas vazias do mercado e promessas de gurus, mas trata o cliente com empatia e respeito genuínos.",
+      "in_practice": "Critica relatórios bonitos que não mostram ROI, mas valida as frustrações e o ceticismo do cliente",
+      "example": "Ironizamos: 'Ah, você quer um relatório com 40 slides coloridos mostrando que seu post teve 10 mil visualizações mas vendeu zero? A gente não faz isso.' Respeitamos: 'Você já gastou dinheiro sem ver retorno. Seu ceticismo não é paranoia - é experiência.'"
+    },
+    {
+      "trait": "Direto sobre Dinheiro e Resultados",
+      "description": "Não tem vergonha de falar sobre vendas, ROI e lucro. Entende que negócio existe para dar resultado financeiro, não para ganhar prêmio de criatividade.",
+      "in_practice": "Lidera conversas com impacto no faturamento, não com métricas de vaidade",
+      "example": "Em vez de: 'Vamos aumentar seu engajamento nas redes sociais.' Dizemos: 'Vamos transformar suas redes sociais em um canal de vendas que fatura R$ X por mês.'"
+    },
+    {
+      "trait": "Humorístico mas Substantivo",
+      "description": "Usa humor para engajar e criar conexão, mas sempre entrega valor real. A piada nunca é vazia - sempre carrega uma verdade ou um insight.",
+      "in_practice": "Cada momento de humor também ensina algo ou revela uma verdade sobre marketing",
+      "example": "'Curtida não paga conta. Comentário fofo não paga funcionário. Você sabe o que paga? Cliente comprando. E é nisso que a gente é especialista.' (Humor + verdade dura + proposta de valor)"
+    },
+    {
+      "trait": "Cético Saudável que Fala a Verdade",
+      "description": "Entende e valida o ceticismo do cliente porque compartilha dele. Não promete milagres - promete método, trabalho e resultado mensurável.",
+      "in_practice": "Antecipa objeções com empatia e as endereça com transparência",
+      "example": "'Você deve estar pensando: mais uma agência prometendo resultado. A diferença? A gente não promete milagre em 30 dias. A gente promete um sistema que funciona em 90 - e mostra exatamente como.'"
+    },
+    {
+      "trait": "Energético e Entusiasta (sem ser exagerado)",
+      "description": "Demonstra paixão genuína por ajudar negócios a crescerem, mas com confiança contida, não euforia de vendedor desesperado.",
+      "in_practice": "Tom energético vem de convicção no método, não de exclamações excessivas",
+      "example": "Evitamos: 'INCRÍVEL!!! REVOLUCIONÁRIO!!! VOCÊ VAI AMAR!!!' Preferimos: 'Isso aqui é bom. Funciona. E vai mudar como você vende.'"
+    }
+  ],
+
+  "voice_dimensions": {
+    "formality": {
+      "score": 2,
+      "scale": "1 (Muito Formal) a 5 (Muito Casual)",
+      "label": "Casual-Profissional",
+      "description": "Conversacional como um amigo inteligente, mas mantém profissionalismo nos momentos que importam. Usa 'a gente' ao invés de 'nós', fala 'você' ao invés de 'vossa empresa', mas nunca perde a credibilidade.",
+      "guidelines": {
+        "do": [
+          "Use linguagem coloquial brasileira natural: 'a gente', 'tá', 'pra'",
+          "Trate o leitor como 'você', nunca como 'vossa empresa' ou 'vocês'",
+          "Escreva como falaria numa conversa presencial num café",
+          "Use contrações naturais do português brasileiro",
+          "Mantenha sentenças curtas e ritmo de conversa"
+        ],
+        "dont": [
+          "Usar linguagem corporativa rebuscada: 'outrossim', 'destarte', 'hodiernamente'",
+          "Escrever no plural institucional: 'prezamos', 'ofertamos'",
+          "Usar jargões sem explicar: 'KPI', 'ROI', 'CAC' sem contexto",
+          "Criar parágrafos longos e densos",
+          "Soar como comunicado oficial ou press release"
+        ]
+      },
+      "examples": {
+        "right": "A gente sabe que você já ouviu essa promessa antes. 'Vamos revolucionar seu marketing.' Spoiler: não revolucionou nada, só drenou sua conta bancária.",
+        "wrong": "Nossa empresa preza pela excelência na entrega de soluções personalizadas que visam a otimização dos resultados mercadológicos de nossos clientes."
+      }
+    },
+    "humor": {
+      "score": 4,
+      "scale": "1 (Sério) a 5 (Muito Humorístico)",
+      "label": "Espirituoso-Inteligente",
+      "description": "Humor auto-irônico e observacional que revela verdades sobre a indústria. Não é piada de stand-up - é o comentário perspicaz que faz você sorrir e pensar ao mesmo tempo.",
+      "guidelines": {
+        "do": [
+          "Use ironia para expor contradições da indústria de marketing",
+          "Faça observações inesperadas que revelam verdades",
+          "Seja auto-irônico sobre a própria categoria de 'agência'",
+          "Use analogias criativas do cotidiano",
+          "Deixe o humor fluir naturalmente da verdade, não force piadas"
+        ],
+        "dont": [
+          "Fazer piadas que não agregam valor ou insight",
+          "Usar sarcasmo agressivo ou humor às custas do cliente",
+          "Forçar trocadilhos ou jogos de palavras fracos",
+          "Exagerar no humor a ponto de perder credibilidade",
+          "Usar memes ou referências que envelhecem rápido"
+        ]
+      },
+      "examples": {
+        "right": "Relatório com 50 slides coloridos mostrando quantas pessoas 'visualizaram' seu post é tipo diploma de participação. Bonito na parede, mas não paga a conta. A gente prefere mostrar quantos clientes compraram.",
+        "wrong": "Kkkkk marketing é tipo fazer mágica né gente!!! 🎩✨ Vem que a gente faz sua marca bombar!!!"
+      }
+    },
+    "irreverence": {
+      "score": 4,
+      "scale": "1 (Tradicional) a 5 (Muito Irreverente)",
+      "label": "Desafiador-Questionador",
+      "description": "Questiona práticas estabelecidas da indústria e fala verdades que outros evitam. Desafia o status quo das agências, mas sempre com inteligência e fatos, nunca com agressividade gratuita.",
+      "guidelines": {
+        "do": [
+          "Exponha práticas questionáveis comuns na indústria",
+          "Nomeie e desafie métricas de vaidade diretamente",
+          "Posicione-se contra promessas mágicas e gurus",
+          "Seja a voz que fala o que o cliente pensa mas não ousa dizer",
+          "Use dados e lógica para sustentar desafios ao status quo"
+        ],
+        "dont": [
+          "Atacar concorrentes específicos nominalmente",
+          "Ser irreverente só por ser - sempre tenha um propósito",
+          "Desrespeitar o cliente ou sua inteligência",
+          "Usar linguagem ofensiva ou agressiva",
+          "Questionar sem oferecer alternativa melhor"
+        ]
+      },
+      "examples": {
+        "right": "A verdade que ninguém fala: awareness sem conversão é dinheiro queimado com plateia. Você não precisa de mais gente sabendo que você existe. Você precisa das pessoas certas comprando o que você vende.",
+        "wrong": "As outras agências são uma piada e quem contrata elas é trouxa. Vem pra cá que aqui é sério."
+      }
+    },
+    "energy": {
+      "score": 4,
+      "scale": "1 (Calmo) a 5 (Muito Energético)",
+      "label": "Confiante-Entusiasta",
+      "description": "Energia vem de convicção genuína no método e paixão por resultados, não de exclamações excessivas. É o entusiasmo contido de quem já viu funcionar muitas vezes.",
+      "guidelines": {
+        "do": [
+          "Demonstre confiança através de afirmações diretas e claras",
+          "Use ritmo variado: sentenças curtas para impacto, médias para explicação",
+          "Transmita urgência quando relevante, mas nunca desespero",
+          "Seja assertivo nas propostas de valor",
+          "Mantenha o texto dinâmico com variedade de estruturas"
+        ],
+        "dont": [
+          "Abusar de pontos de exclamação (máximo um por parágrafo)",
+          "Usar CAPS LOCK para ênfase (exceto em siglas)",
+          "Soar como infomercial ou vendedor desesperado",
+          "Criar sensação artificial de urgência ('só hoje!!!', 'últimas vagas!!!')",
+          "Exagerar adjetivos: 'incrível', 'fantástico', 'revolucionário' sem fundamento"
+        ]
+      },
+      "examples": {
+        "right": "Você tem duas opções: continuar fazendo marketing que não vende, ou construir um sistema que transforma visitante em cliente pagante. A gente já fez a segunda opção 47 vezes. Funciona.",
+        "wrong": "ISSO É INCRÍVEL!!! VOCÊ VAI AMAR!!! REVOLUCIONÁRIO!!! IMPERDÍVEL!!! VAGAS LIMITADAS!!! CORRE!!!"
+      }
+    }
+  },
+
+  "brand_persona": {
+    "who_we_are": "Somos aquele amigo experiente que já construiu vários negócios, viu muita gente queimar dinheiro com promessa vazia, e decidiu falar a verdade que ninguém fala. Temos profundo conhecimento de marketing que funciona (não marketing que ganha prêmio). Usamos humor para tornar o complexo acessível, mas nunca perdemos de vista o que importa: resultado financeiro mensurável.",
+    "how_we_talk": "Conversamos como dois donos de negócio tomando um café - direto, inteligente, sem rodeios corporativos. Fazemos observações perspicazes sobre a indústria que fazem você pensar 'é exatamente isso!'. Ironizamos práticas questionáveis do mercado, mas sempre com respeito pela sua experiência e seu ceticismo. Falamos sobre dinheiro sem vergonha porque entendemos que negócio existe para lucrar, não para colecionar curtidas.",
+    "what_we_believe": [
+      "Marketing existe para vender, não para parecer bonito",
+      "Métricas de vaidade (curtidas, visualizações, seguidores) sem conversão são irrelevantes",
+      "Ceticismo do cliente não é obstáculo - é sinal de inteligência",
+      "Negócio pequeno e médio merece sistema, não serviço fragmentado",
+      "ROI é a única métrica que realmente importa",
+      "Humor e inteligência tornam verdades difíceis mais palatáveis",
+      "Transparência sobre processo e expectativas constrói confiança real"
+    ],
+    "what_we_value": [
+      "Resultados mensuráveis acima de relatórios bonitos",
+      "Clareza e transparência acima de jargão impressionante",
+      "Sistema replicável acima de serviço artesanal",
+      "Educação do cliente acima de dependência da agência",
+      "Vendas e lucro acima de awareness e engajamento",
+      "Verdade inconveniente acima de promessa confortável"
+    ],
+    "our_relationship_with_audience": "Tratamos nosso cliente como um igual inteligente que está cético por boas razões. Não somos o guru no palco - somos o parceiro estratégico que já percorreu o caminho e sabe os atalhos e as armadilhas. Validamos frustrações, compartilhamos a indignação com práticas questionáveis da indústria, e oferecemos alternativa clara e mensurável. Somos o advogado do cliente contra enrolação e promessas vazias."
+  },
+
+  "voice_principles": [
+    {
+      "principle": "Sempre lidere com resultado, não com processo",
+      "explanation": "Cliente se importa com o destino, não com o caminho. Comunique primeiro o impacto no negócio dele, depois explique como chegamos lá.",
+      "example_right": "Vamos transformar seu Instagram em um canal de vendas que fatura R$ 15 mil/mês. Como? Sistema de conteúdo estratégico + funil de conversão + automação de vendas.",
+      "example_wrong": "Vamos criar conteúdo estratégico no Instagram, implementar funil de conversão e automação de vendas para você."
+    },
+    {
+      "principle": "Ironize a indústria, respeite o cliente",
+      "explanation": "Use humor e irreverência para questionar práticas vazias do mercado, mas sempre valide a experiência e o ceticismo do cliente.",
+      "example_right": "Você já contratou agência que entregou relatório lindo mostrando 'alcance de 50 mil' mas não vendeu nada? A gente entende sua frustração. E não faz isso.",
+      "example_wrong": "Se você ainda acredita em alcance e engajamento, você não entende nada de marketing moderno."
+    },
+    {
+      "principle": "Substitua jargão por clareza",
+      "explanation": "Se você pode dizer em português simples, diga. Jargão só quando absolutamente necessário - e sempre com explicação.",
+      "example_right": "ROI é quanto você ganha para cada real que investe. Se você coloca R$ 1.000 e tira R$ 3.000, seu ROI é de 3x.",
+      "example_wrong": "Otimizamos o ROI através de estratégias de growth hacking omnichannel com foco em maximização do LTV/CAC ratio."
+    },
+    {
+      "principle": "Prove com lógica e dados, não com adjetivos vazios",
+      "explanation": "Credibilidade vem de raciocínio claro e evidências, não de dizer que você é 'incrível' ou 'o melhor'.",
+      "example_right": "Já aplicamos esse método em 47 negócios. Taxa média de conversão aumentou 3,2x em 90 dias. Funciona porque elimina os 3 vazamentos principais do seu funil.",
+      "example_wrong": "Somos a agência mais incrível e revolucionária do Brasil. Nossos resultados são fantásticos e você vai amar trabalhar conosco."
+    },
+    {
+      "principle": "Seja direto sobre dinheiro e expectativas",
+      "explanation": "Transparência sobre investimento e retorno esperado constrói confiança. Negócio é sobre números - fale sobre eles sem rodeios.",
+      "example_right": "Investimento inicial: R$ 8 mil. Expectativa de retorno: 3x a 5x em 90 dias. Se não atingir, a gente revisa a estratégia sem custo adicional.",
+      "example_wrong": "Vamos conversar sobre suas necessidades e depois elaboramos uma proposta personalizada de investimento adequado ao seu momento."
+    },
+    {
+      "principle": "Use humor que ensina, não humor que enche linguiça",
+      "explanation": "Cada momento de humor deve carregar uma verdade, um insight ou uma crítica válida. Piada vazia dispersa, humor inteligente engaja.",
+      "example_right": "Seguidor é tipo parente distante no Facebook: número alto impressiona, mas quando você precisa de ajuda, ninguém aparece. Cliente pagante é diferente.",
+      "example_wrong": "Marketing é tipo fazer um bolo, né? Tem que ter receita certa! Kkkk 🍰"
+    },
+    {
+      "principle": "Antecipe e valide objeções",
+      "explanation": "Cliente cético já tem objeções na cabeça. Demonstre que você entende trazendo essas objeções à tona com empatia - e endereçando com transparência.",
+      "example_right": "Você deve estar pensando: 'Mais uma agência prometendo resultado?' A diferença está no método. A gente não otimiza campanha no feeling - a gente constrói sistema com checkpoints semanais de validação.",
+      "example_wrong": "Confie em nós! Somos diferentes das outras agências!"
+    }
+  ],
+
+  "what_we_are_vs_not": [
+    {
+      "we_are": "Inteligente e acessível",
+      "we_are_not": "Acadêmico e rebuscado",
+      "explanation": "Explicamos conceitos complexos com clareza e analogias criativas, não com vocabulário que precisa de dicionário."
+    },
+    {
+      "we_are": "Confiante no método",
+      "we_are_not": "Arrogante ou presunçoso",
+      "explanation": "Sabemos que funciona e falamos com convicção, mas sempre respeitando a inteligência e o ceticismo do cliente."
+    },
+    {
+      "we_are": "Humorístico e perspicaz",
+      "we_are_not": "Palhaço ou descompromissado",
+      "explanation": "Usamos humor inteligente para engajar e revelar verdades, não para fazer graça vazia ou parecer menos profissional."
+    },
+    {
+      "we_are": "Irreverente com a indústria",
+      "we_are_not": "Desrespeitoso com o cliente",
+      "explanation": "Questionamos práticas vazias do mercado com coragem, mas sempre validamos a experiência e frustrações do cliente."
+    },
+    {
+      "we_are": "Direto sobre resultados e ROI",
+      "we_are_not": "Vendedor agressivo ou desesperado",
+      "explanation": "Falamos sobre dinheiro e vendas sem rodeios porque é isso que importa, mas com confiança tranquila, não pressão artificial."
+    },
+    {
+      "we_are": "Conversacional e natural",
+      "we_are_not": "Informal demais ou desleixado",
+      "explanation": "Escrevemos como falaríamos numa conversa inteligente, mas mantemos profissionalismo e clareza."
+    },
+    {
+      "we_are": "Cético saudável que valida frustrações",
+      "we_are_not": "Cínico ou negativo",
+      "explanation": "Entendemos por que o cliente duvida e validamos isso, mas sempre oferecemos alternativa positiva e clara."
+    },
+    {
+      "we_are": "Educador que capacita",
+      "we_are_not": "Guardião de conhecimento secreto",
+      "explanation": "Compartilhamos como funciona porque queremos cliente informado, não dependente e confuso."
+    }
+  ],
+
+  "voice_in_action": {
+    "scenario_website_hero": {
+      "context": "Headline principal do site, primeira impressão da marca",
+      "example": "Sistema de vendas, não serviço de marketing.\n\nVocê não precisa de mais curtidas, seguidores ou 'awareness'. Você precisa de um sistema que transforma visitante em cliente pagante - todo mês, de forma previsível.\n\nÉ nisso que a gente é especialista.",
+      "why_it_works": "Direto ao ponto de dor (serviço fragmentado), posiciona contra métricas de vaidade, promete resultado mensurável, tom confiante mas não arrogante."
+    },
+    "scenario_service_description": {
+      "context": "Descrevendo o serviço principal em página de produto",
+      "example": "A gente não vai fazer 'um post' ou 'uma campanha'. Isso é pensar pequeno.\n\nA gente constrói um sistema completo de vendas:\n• Conteúdo estratégico que atrai seu cliente ideal\n• Funil que transforma visitante em lead qualificado\n• Automação que converte lead em cliente pagante\n• Métricas que mostram exatamente o ROI de cada real investido\n\nNão é magia. É método. E funciona.",
+      "why_it_works": "Contrasta com abordagem fragmentada, detalha entregáveis com clareza, desmistifica promessas mágicas, afirma convicção baseada em método."
+    },
+    "scenario_objection_handling": {
+      "context": "Endereçando ceticismo sobre mais uma agência prometendo resultado",
+      "example": "Você já ouviu essa história antes, né?\n\n'A gente vai revolucionar seu marketing!'\n'Você vai bombar nas redes sociais!'\n'Resultados incríveis em 30 dias!'\n\nSpoiler: não revolucionou nada. Só drenou sua conta bancária.\n\nA gente entende seu ceticismo. Mais do que entende - compartilha dele. Por isso, não prometemos milagre.\n\nPrometemos um sistema testado 47 vezes, com método claro, checkpoints semanais de validação, e ROI mensurável em 90 dias. Não é sexy. Mas funciona.",
+      "why_it_works": "Antecipa objeção com empatia, ironiza promessas vazias da indústria, valida frustração do cliente, oferece alternativa transparente com evidências."
+    },
+    "scenario_social_media_post": {
+      "context": "Post educativo no Instagram sobre métricas de vaidade",
+      "example": "Você tem 10 mil seguidores.\nSeu último post teve 2 mil curtidas.\nE você vendeu... zero.\n\nO problema não é seu produto.\nO problema não é seu preço.\nO problema é que você está medindo o que não importa.\n\nSeguidor não paga conta.\nCurtida não paga funcionário.\nComentário fofo não paga fornecedor.\n\nVocê sabe o que paga? Cliente comprando.\n\nE se você está focando em métrica de vaidade ao invés de métrica de vendas, está jogando dinheiro fora com plateia.\n\nÉ duro ouvir. Mas é verdade.",
+      "why_it_works": "Estrutura impactante (problema concreto), expõe verdade inconveniente, usa repetição para ênfase, direto sobre dinheiro, tom de 'amigo que fala a verdade'."
+    },
+    "scenario_email_nurture": {
+      "context": "Email de nutrição para leads que baixaram material sobre ROI de marketing",
+      "example": "Assunto: Aquele relatório bonito não está te contando a verdade\n\nOi [Nome],\n\nVocê já recebeu aqueles relatórios de marketing com 40 slides coloridos?\n\nGráficos subindo. Números impressionantes. 'Alcance de 50 mil pessoas!'\n\nAí você olha sua conta bancária e pensa: 'E daí?'\n\nEsse é o problema dos relatórios tradicionais: mostram o que é fácil de medir (visualizações, curtidas, impressões), não o que realmente importa (quantos viraram clientes, quanto faturou, qual o ROI).\n\nA gente faz diferente.\n\nNosso relatório tem uma página. E responde 4 perguntas:\n1. Quantos leads qualificados geramos?\n2. Quantos viraram clientes pagantes?\n3. Quanto faturou?\n4. Qual foi o ROI?\n\nSe você está cansado de relatório bonito que não mostra resultado real, a gente precisa conversar.\n\nResponde esse email ou agenda 20 minutos aqui: [link]\n\nAbraço,\nEquipe Oitavo Café\n\nP.S.: Não, a gente não vai tentar te vender nada nessa conversa. Só queremos entender se faz sentido trabalharmos juntos. Se não fizer, a gente fala claramente.",
+      "why_it_works": "Cria empatia com frustração comum, ironiza práticas vazias, apresenta alternativa clara, CTA direto, PS que remove pressão de venda e constrói confiança."
+    },
+    "scenario_case_study_intro": {
+      "context": "Introdução de case de cliente em blog/site",
+      "example": "Case: Como a [Nome da Empresa] parou de 'fazer marketing' e começou a vender de verdade\n\nA [Nome] chegou até a gente com um problema que a gente vê toda semana:\n\n'A gente posta todo dia no Instagram. Faz stories, reels, interage com seguidores. Gastamos R$ 5 mil por mês com agência. E não vende.'\n\nO diagnóstico foi simples: ela estava fazendo conteúdo para algoritmo, não para cliente.\n\nMudança em 3 frentes:\n• Conteúdo: de 'inspiracional genérico' para 'solução de problema específico'\n• Funil: de 'esperando que as pessoas comprem' para 'sistema que guia até a compra'\n• Métrica: de 'curtidas e alcance' para 'leads gerados e vendas fechadas'\n\nResultado em 90 dias:\n• R$ 42 mil em vendas diretas de redes sociais (vs. R$ 0 antes)\n• ROI de 2,8x sobre investimento em marketing\n• 127 leads qualificados gerados por mês\n\nVeja como fizemos:",
+      "why_it_works": "Problema relatável com números reais, diagnóstico claro e direto, mudanças tangíveis, resultados mensuráveis, cria curiosidade para ler o case completo."
+    },
+    "scenario_pricing_communication": {
+      "context": "Comunicando preço e expectativa de retorno em proposta",
+      "example": "Vamos falar de dinheiro sem rodeios?\n\nInvestimento: R$ 8.000/mês por 3 meses (R$ 24 mil total)\n\nO que você recebe:\n• Sistema completo de vendas (não só 'posts' ou 'campanhas')\n• Time dedicado: estrategista, designer, copywriter, analista\n• Checkpoints semanais com métricas claras\n• Acesso a todos os ativos criados (você é dono, não a gente)\n\nRetorno esperado: 3x a 5x do investimento em 90 dias\n(Baseado em histórico de 47 clientes em situação similar)\n\nE se não funcionar?\nSe em 60 dias você não estiver vendo progresso claro nas métricas que importam (leads qualificados e vendas), a gente para, revisa a estratégia completamente, e aplica as mudanças sem custo adicional.\n\nA gente não te prende em contrato de 12 meses. Você fica porque está funcionando, não porque está preso.",
+      "why_it_works": "Transparência total sobre valores, detalha entregáveis concretos, expectativa de ROI baseada em dados, endereça risco com garantia clara, remove pressão de compromisso longo."
+    }
+  },
+
+  "content_guidelines": {
+    "sentence_structure": {
+      "principles": [
+        "Varie o tamanho: sentenças curtas para impacto, médias para explicação",
+        "Use uma sentença por linha para criar ritmo visual e facilitar leitura",
+        "Comece parágrafos com frases diretas que capturam atenção",
+        "Evite subordinadas excessivas - se ficou confuso, quebre em duas frases"
+      ],
+      "example_right": "Você tem duas opções.\n\nContinuar fazendo marketing que parece bonito mas não vende. Relatórios coloridos, métricas de vaidade, zero ROI.\n\nOu construir um sistema que transforma visitante em cliente pagante. Previsível. Mensurável. Escalável.\n\nA gente já fez a segunda opção 47 vezes.\nFunciona.",
+      "example_wrong": "Você tem duas opções, que são: continuar fazendo marketing que parece bonito mas não vende, com relatórios coloridos e métricas de vaidade mas zero ROI, ou então construir um sistema que transforma visitante em cliente pagante de forma previsível, mensurável e escalável, sendo que a gente já fez a segunda opção 47 vezes e funciona."
+    },
+    "paragraph_structure": {
+      "principles": [
+        "Parágrafos curtos: máximo 3-4 linhas na maioria dos casos",
+        "Uma ideia por parágrafo",
+        "Use parágrafos de uma única linha para criar impacto dramático",
+        "Deixe espaço em branco - ajuda na leitura e cria ritmo"
+      ]
+    },
+    "punctuation": {
+      "principles": [
+        "Ponto de exclamação: máximo um por parágrafo, use com parcimônia",
+        "Aspas: para destacar jargões ou ironizar expressões do mercado",
+        "Interrogação: use para criar diálogo e antecipar pensamentos do leitor",
+        "Reticências: evite, prefira ponto final firme",
+        "Emoji: evite completamente em textos longos, use com moderação extrema em redes sociais"
+      ]
+    },
+    "word_choice": {
+      "prefer": [
+        "Verbos de ação: construir, transformar, gerar, eliminar, converter",
+        "Substantivos concretos: cliente, venda, lucro, sistema, resultado",
+        "Números específicos: '47 clientes', 'R$ 42 mil', '3,2x de ROI'",
+        "Português brasileiro natural: 'a gente', 'tá', 'pra', 'né'"
+      ],
+      "avoid": [
+        "Jargão sem explicação: omnichannel, touchpoint, storytelling",
+        "Adjetivos vazios: incrível, fantástico, revolucionário, único",
+        "Verbos fracos: realizar, efetuar, processar",
+        "Expressões corporativas: 'prezamos', 'vossa empresa', 'outrossim'"
+      ]
+    },
+    "calls_to_action": {
+      "principles": [
+        "Seja direto sobre o próximo passo",
+        "Remova fricção: deixe claro que não é venda agressiva",
+        "Ofereça valor imediato: 'vamos diagnosticar', 'vamos conversar', não 'vamos vender'",
+        "Use linguagem natural: 'responde esse email' ao invés de 'clique aqui para entrar em contato'"
+      ],
+      "examples": [
+        "Responde esse email. Vamos diagnosticar onde seu marketing está travando.",
+        "Agenda 20 minutos aqui: [link]. Sem pressão de venda, só queremos entender se faz sentido.",
+        "Manda uma mensagem no WhatsApp: [número]. A gente responde em até 2 horas.",
+        "Baixa o diagnóstico gratuito aqui: [link]. Você descobre sozinho onde está o vazamento."
+      ]
+    }
+  },
+
+  "communication_scenarios": {
+    "first_contact": {
+      "tone": "Empático e validador, identifica dor, apresenta alternativa clara",
+      "approach": "Demonstre que entende a frustração, valide o ceticismo, mostre que existe caminho diferente",
+      "avoid": "Venda agressiva, promessas exageradas, desqualificar experiências anteriores do cliente"
+    },
+    "objection_handling": {
+      "tone": "Compreensivo mas confiante, transparente sobre limitações e fortalezas",
+      "approach": "Antecipe objeção, valide a preocupação, endereçe com lógica e evidências",
+      "avoid": "Defensividade, minimizar preocupação, prometer o impossível para contornar objeção"
+    },
+    "educational_content": {
+      "tone": "Professoral-amigável, compartilha conhecimento sem condescendência",
+      "approach": "Ensine algo genuinamente útil, use analogias criativas, critique práticas vazias",
+      "avoid": "Guardar informação como 'segredo', complexidade desnecessária, teoria sem aplicação prática"
+    },
+    "sales_conversation": {
+      "tone": "Consultivo e direto, foca em fit mútuo não em fechar a qualquer custo",
+      "approach": "Qualifique se faz sentido, seja transparente sobre investimento e expectativas, remova pressão",
+      "avoid": "Urgência artificial, descontos 'só hoje', falar mal de concorrentes, pressão emocional"
+    },
+    "post_sale_onboarding": {
+      "tone": "Acolhedor mas profissional, estabelece expectativas claras e próximos passos",
+      "approach": "Celebre a decisão, explique processo com clareza, estabeleça comunicação frequente",
+      "avoid": "Formalismo excessivo, linguagem jurídica, deixar cliente sem saber o que esperar"
+    },
+    "reporting_results": {
+      "tone": "Factual e direto, celebra vitórias mas é transparente sobre desafios",
+      "approach": "Lidere com números que importam (vendas, ROI), explique causa e efeito, próximos passos",
+      "avoid": "Encher relatório com métricas de vaidade, esconder problemas, não conectar ações a resultados"
+    }
+  },
+
+  "brand_lexicon": {
+    "preferred_terms": {
+      "sistema de vendas": "Nossa oferta principal - enfatiza previsibilidade e completude",
+      "cliente pagante": "Ao invés de 'lead' ou 'prospect' - direto sobre o que importa",
+      "métrica de vaidade": "Para curtidas, seguidores, alcance sem conversão",
+      "ROI": "Sempre explicar no primeiro uso, depois pode usar a sigla",
+      "funil de conversão": "Sistema que transforma visitante em cliente",
+      "a gente": "Primeira pessoa do plural padrão",
+      "você": "Segunda pessoa singular, nunca 'vossa empresa'",
+      "dinheiro/lucro/faturamento": "Sem eufemismos, direto ao ponto"
+    },
+    "terms_to_avoid": {
+      "jornada do consumidor": "Use: caminho do visitante até virar cliente",
+      "experiência do usuário": "Use: como a pessoa se sente usando X",
+      "engajamento": "Use com contexto claro ou evite - é métrica de vaidade isolada",
+      "awareness": "Use: quantas pessoas conhecem sua marca (mas explique por que pode não importar)",
+      "stakeholders": "Use: pessoas envolvidas / pessoas que decidem",
+      "touchpoint": "Use: momento de contato / ponto de interação",
+      "storytelling": "Use: contar história / criar narrativa"
+    },
+    "signature_phrases": [
+      "Sistema de vendas, não serviço de marketing",
+      "Curtida não paga conta",
+      "Métrica de vaidade é dinheiro queimado com plateia",
+      "A gente não promete milagre. A gente promete método.",
+      "Relatório bonito não mostra ROI",
+      "Marketing existe para vender, não para parecer bonito",
+      "Não é sexy. Mas funciona.",
+      "Você não precisa de mais awareness. Você precisa de mais vendas."
+    ]
+  },
+
+  "quality_checklist": {
+    "before_publishing": [
+      "☐ Liderei com resultado/benefício, não com processo?",
+      "☐ Usei linguagem conversacional (a gente, você) ao invés de corporativa?",
+      "☐ Substituí jargões por explicações claras ou expliquei quando necessário?",
+      "☐ O humor tem propósito (revela verdade/insight) ou é vazio?",
+      "☐ Fui irreverente com a indústria mas respeitoso com o cliente?",
+      "☐ Falei diretamente sobre dinheiro/ROI/resultado financeiro?",
+      "☐ Antecipei e endereçei possíveis objeções?",
+      "☐ Usei dados/números específicos ao invés de afirmações genéricas?",
+      "☐ Variei estrutura de sentenças (curtas para impacto, médias para explicação)?",
+      "☐ Parágrafos estão curtos e escaneáveis?",
+      "☐ Evitei mais de um ponto de exclamação por parágrafo?",
+      "☐ O tom soa como conversa inteligente, não como vendedor desesperado?",
+      "☐ Cada elemento do conteúdo serve a um propósito claro?",
+      "☐ Se eu fosse Carolina (nossa persona), isso ressoaria comigo ou soaria como mais uma promessa vazia?"
+    ]
+  },
+
+  "evolution_notes": {
+    "version": "1.0",
+    "date": "2025-12-12",
+    "created_by": "Voice Identity Architect - Voice Forge",
+    "notes": "Primeira versão da identidade de voz completa para Oitavo Café. Baseada em análise profunda da persona do cliente (Carolina - empresária cética), posicionamento único (sistema vs. serviço), e inspiração em Oatly (desafiador irreverente mas acolhedor). Arquétipos balanceados: Jester (50%) + Sage (30%) + Outlaw (20%) para criar voz única que educa com humor enquanto desafia status quo.",
+    "future_considerations": [
+      "Testar receptividade do nível de irreverência com primeiros 10 clientes",
+      "Coletar exemplos reais de comunicação que geraram melhor resposta",
+      "Adicionar guidelines específicas para vídeo/áudio quando expandir canais",
+      "Desenvolver matriz de tom por estágio do funil (topo pode ser mais irreverente, fundo mais consultivo)",
+      "Criar banco de analogias testadas e aprovadas para conceitos complexos"
+    ]
+  }
+}

@@ -1,0 +1,1033 @@
+{
+  "brand": "Oitavo Café",
+  "version": "1.0",
+  "last_updated": "2025-12-12",
+  "core_principle": "Voice stays constant (irreverent, witty, confident). Tone flexes based on situation, audience state, and content type. Irreverence targets the INDUSTRY, never the client.",
+
+  "baseline_tone": {
+    "description": "Default tone when situation is neutral and audience state is unknown",
+    "formality": {
+      "level": 4,
+      "label": "Casual",
+      "description": "Conversational and approachable, like talking to a smart friend over coffee. Uses 'você' naturally. Avoids corporate jargon and stuffy language.",
+      "examples": [
+        "Vamos ser sinceros aqui",
+        "A verdade é que...",
+        "Você já cansou de...",
+        "Não é sobre ser bonito, é sobre vender"
+      ]
+    },
+    "humor": {
+      "level": 4,
+      "label": "Playful-Witty",
+      "description": "Sharp, clever humor that makes serious points memorable. Self-aware without being self-deprecating. Uses wordplay and observational humor about the industry.",
+      "examples": [
+        "Curtida não paga boleto",
+        "Sistema de vendas, não galeria de arte",
+        "Enquanto você coleciona likes, sua concorrência coleciona clientes"
+      ]
+    },
+    "irreverence": {
+      "level": 4,
+      "label": "Challenger",
+      "description": "Questions industry norms and empty promises. Calls out vanity metrics, fragmented services, and performance theatre. Protective of the client, critical of bad practices.",
+      "targets": [
+        "Vanity metrics (likes, impressions without results)",
+        "Agencies that sell dreams instead of systems",
+        "Marketing that doesn't connect to sales",
+        "Fragmented services that don't integrate"
+      ],
+      "never_targets": [
+        "The client's current situation",
+        "Their past marketing failures",
+        "Their lack of knowledge",
+        "Their business size or budget"
+      ]
+    },
+    "energy": {
+      "level": 4,
+      "label": "Enthusiastic-Confident",
+      "description": "Energetic without being exhausting. Confident without arrogance. Shows conviction in the system and belief in the client's potential.",
+      "examples": [
+        "É isso que muda o jogo",
+        "Aqui é onde a mágica acontece",
+        "Isso sim gera resultado",
+        "Preparada para isso?"
+      ]
+    }
+  },
+
+  "situational_adjustments": {
+    "celebrating_success": {
+      "context": "Client wins, case studies, milestone achievements, positive results",
+      "tone_shifts": {
+        "formality": 4,
+        "humor": 5,
+        "irreverence": 3,
+        "energy": 5
+      },
+      "description": "Turn up the energy and playfulness. Make the client the hero. Use success to reinforce the system's credibility without being preachy.",
+      "voice_qualities": [
+        "Celebratory but not cheesy",
+        "Client is the protagonist",
+        "Subtle proof that the system works",
+        "Fun, shareable, authentic pride"
+      ],
+      "do": [
+        "Spotlight the client's specific achievement",
+        "Use concrete numbers and results",
+        "Show the before/after transformation",
+        "Make it about their effort + our system",
+        "Use exclamation points sparingly but with purpose"
+      ],
+      "dont": [
+        "Make it about Oitavo instead of the client",
+        "Use generic congratulations language",
+        "Overshadow the client's work",
+        "Get too salesy in the celebration"
+      ],
+      "examples": [
+        {
+          "before": "Congratulations on your success!",
+          "after": "R$ 47 mil em vendas diretas do Instagram. Nada de curtida, só conversão. Isso que é resultado, Carolina! 🔥"
+        },
+        {
+          "before": "Great job achieving your goals this month.",
+          "after": "De 'Instagram não vende' para 23 clientes novos em 30 dias. Spoiler: Instagram vende sim. Quando você tem um sistema, não um feed bonito."
+        }
+      ]
+    },
+
+    "delivering_bad_news": {
+      "context": "Price increases, service limitations, can't take them as a client, feature removal, delays",
+      "tone_shifts": {
+        "formality": 3,
+        "humor": 2,
+        "irreverence": 2,
+        "energy": 3
+      },
+      "description": "Dial down playfulness and irreverence significantly. Be direct, transparent, and respectful. Maintain warmth but add seriousness.",
+      "voice_qualities": [
+        "Honest and direct (no corporate speak)",
+        "Empathetic without being apologetic",
+        "Clear about reasons and context",
+        "Solution-oriented when possible"
+      ],
+      "do": [
+        "Lead with the news directly (no burying the lede)",
+        "Explain the 'why' with transparency",
+        "Offer alternatives or next steps",
+        "Maintain respect and warmth",
+        "Use simple, clear language"
+      ],
+      "dont": [
+        "Make jokes or use humor",
+        "Blame external factors excessively",
+        "Use corporate euphemisms",
+        "Be defensive or dismissive",
+        "Over-apologize (maintain dignity)"
+      ],
+      "examples": [
+        {
+          "before": "We regret to inform you that we cannot accommodate your request at this time due to capacity constraints.",
+          "after": "Preciso ser direta com você: não vamos conseguir te atender agora. Nossa operação está no limite e prefiro dizer não do que entregar mal feito. Vou te indicar duas pessoas que confio e que trabalham com o nosso método."
+        },
+        {
+          "before": "Due to market conditions, we will be implementing a price adjustment.",
+          "after": "Os valores do sistema vão mudar a partir de março. A verdade é que crescemos, o time cresceu, e a entrega ficou mais robusta. Os clientes atuais mantêm as condições de hoje - isso é garantido."
+        }
+      ]
+    },
+
+    "educating_teaching": {
+      "context": "Content marketing, blog posts, tutorials, explaining concepts, thought leadership",
+      "tone_shifts": {
+        "formality": 3,
+        "humor": 4,
+        "irreverence": 4,
+        "energy": 3
+      },
+      "description": "Authoritative but accessible. Use irreverence to challenge bad industry advice. Make complex concepts simple without being condescending.",
+      "voice_qualities": [
+        "Expert but never superior",
+        "Makes complex simple",
+        "Uses examples and analogies",
+        "Challenges conventional wisdom",
+        "Actionable and practical"
+      ],
+      "do": [
+        "Start with the problem or misconception",
+        "Use real examples and case studies",
+        "Break down concepts into clear steps",
+        "Call out industry BS with evidence",
+        "End with actionable takeaways",
+        "Use analogies and metaphors"
+      ],
+      "dont": [
+        "Assume the reader knows industry terms",
+        "Talk down to the audience",
+        "Present theory without application",
+        "Use educational content as a sales pitch",
+        "Overcomplicate to seem smart"
+      ],
+      "examples": [
+        {
+          "before": "Engagement metrics are not always indicative of business performance.",
+          "after": "Curtida não paga boleto. Parece óbvio, mas você já viu quanto coach celebrando '10k de alcance' enquanto vende zero? Métricas de vaidade são o ópio do empreendedor digital. O que importa: quantas pessoas entraram no seu WhatsApp. Quantas viraram cliente. Quanto $$ entrou."
+        },
+        {
+          "before": "A comprehensive sales funnel requires integration between marketing and sales operations.",
+          "after": "Sabe por que seu Instagram não vende? Porque você tem um pedaço de funil. Post bonito, mas e depois? A pessoa curte, some, e você fica rezando para ela lembrar de você. Sistema de verdade conecta: post → Stories → DM → WhatsApp → Venda. Tudo junto, tudo integrado."
+        }
+      ]
+    },
+
+    "selling_promoting": {
+      "context": "Sales pages, campaign launches, promotional emails, limited offers, landing pages",
+      "tone_shifts": {
+        "formality": 4,
+        "humor": 4,
+        "irreverence": 5,
+        "energy": 5
+      },
+      "description": "Maximum energy and irreverence. Challenge the status quo aggressively. Create urgency through value, not manipulation. Speak directly to pain points.",
+      "voice_qualities": [
+        "Bold and provocative",
+        "Pain-aware without exploiting",
+        "Urgency from value, not FOMO tricks",
+        "Clear differentiation from competitors",
+        "Confident in the offer"
+      ],
+      "do": [
+        "Lead with the transformation, not features",
+        "Call out what's NOT working for them now",
+        "Use specific, concrete results",
+        "Challenge industry norms directly",
+        "Create urgency through genuine scarcity or value",
+        "Use strong, active verbs"
+      ],
+      "dont": [
+        "Use manipulative scarcity tactics",
+        "Make promises you can't keep",
+        "Attack the client's current situation cruelly",
+        "Use hype without substance",
+        "Rely on discounts and desperation"
+      ],
+      "examples": [
+        {
+          "before": "Our comprehensive marketing solution delivers results.",
+          "after": "Chega de agência que vende sonho e entrega relatório bonito. Aqui é sistema de vendas: do primeiro post até a venda no WhatsApp. Tudo integrado, tudo rastreado, tudo convertendo. Não é serviço de marketing. É máquina de vendas."
+        },
+        {
+          "before": "Limited time offer - sign up now!",
+          "after": "Só abrimos 8 vagas por mês. Por quê? Porque não dá para implementar sistema de verdade em escala industrial. Ou fazemos direito, ou não fazemos. As vagas de janeiro abrem dia 15. Carolina cética que tá cansada de jogar dinheiro fora: é sua vez."
+        }
+      ]
+    },
+
+    "apologizing": {
+      "context": "Service failures, mistakes, delays, technical issues, unmet expectations",
+      "tone_shifts": {
+        "formality": 2,
+        "humor": 1,
+        "irreverence": 1,
+        "energy": 2
+      },
+      "description": "Maximum sincerity, minimum performance. Take ownership clearly. No jokes, no deflection. Solution-focused and respectful.",
+      "voice_qualities": [
+        "Genuine and direct",
+        "Takes full ownership",
+        "No excuses or justifications",
+        "Solution-oriented",
+        "Maintains dignity without defensiveness"
+      ],
+      "do": [
+        "State the problem clearly",
+        "Take ownership without hedging",
+        "Explain what happened (briefly)",
+        "Share the specific solution/fix",
+        "Set clear expectations going forward",
+        "Use 'I/we' language, not passive voice"
+      ],
+      "dont": [
+        "Make excuses or blame others",
+        "Use humor to deflect",
+        "Over-apologize or grovel",
+        "Use corporate non-apology language",
+        "Promise what you can't deliver"
+      ],
+      "examples": [
+        {
+          "before": "We apologize for any inconvenience this may have caused.",
+          "after": "Eu errei. O relatório saiu com os dados errados e isso impactou sua decisão. Já refiz com os números corretos (anexo) e mudei o processo aqui para isso não acontecer de novo. Você merece melhor que isso."
+        },
+        {
+          "before": "Unfortunately, due to unforeseen circumstances, there was a delay.",
+          "after": "Combinamos entrega sexta e não entregamos. Sem desculpa: eu falhei no planejamento. O material está pronto agora e já está no ar. A partir de hoje, você recebe confirmação 24h antes de cada prazo."
+        }
+      ]
+    },
+
+    "onboarding": {
+      "context": "Welcome emails, first contact, new client kickoff, getting started guides",
+      "tone_shifts": {
+        "formality": 3,
+        "humor": 3,
+        "irreverence": 3,
+        "energy": 4
+      },
+      "description": "Warm and welcoming without being overly enthusiastic. Build confidence and reduce anxiety. Set clear expectations. Make them feel they made the right choice.",
+      "voice_qualities": [
+        "Welcoming and reassuring",
+        "Clear about next steps",
+        "Builds confidence in decision",
+        "Sets realistic expectations",
+        "Human and accessible"
+      ],
+      "do": [
+        "Welcome them genuinely",
+        "Acknowledge their decision/courage",
+        "Set clear, simple next steps",
+        "Reduce overwhelm with structure",
+        "Show you understand their concerns",
+        "Make it easy to reach you"
+      ],
+      "dont": [
+        "Overwhelm with information",
+        "Be overly salesy (they already bought)",
+        "Make false promises about ease",
+        "Use complex jargon",
+        "Leave them confused about what's next"
+      ],
+      "examples": [
+        {
+          "before": "Welcome aboard! We're excited to have you as a client.",
+          "after": "Você está dentro, Carolina. Sei que você já rodou a roda com agência que promete e não entrega. Aqui vai ser diferente - e você vai ver isso na primeira semana. Próximo passo: reunião de imersão dia 18. Até lá, respira. Está no caminho certo."
+        },
+        {
+          "before": "Here's everything you need to know to get started with our platform.",
+          "after": "Bem-vinda ao sistema. Vamos com calma: essa semana é só entender seu negócio e onde estão os buracos. Semana que vem, a gente monta a estratégia. Em 15 dias, está rodando. Não precisa fazer tudo hoje. Só responde o formulário de imersão e relaxa."
+        }
+      ]
+    },
+
+    "handling_skepticism": {
+      "context": "Addressing doubts, objection handling, proving value, FAQ content, competitor comparisons",
+      "tone_shifts": {
+        "formality": 3,
+        "humor": 3,
+        "irreverence": 5,
+        "energy": 4
+      },
+      "description": "Acknowledge skepticism as valid and smart. Never defensive. Use evidence and transparency. Channel irreverence toward industry problems that created the skepticism.",
+      "voice_qualities": [
+        "Validates their skepticism",
+        "Evidence-based responses",
+        "Transparent about limitations",
+        "Channels anger at industry, not client",
+        "Confident but not defensive"
+      ],
+      "do": [
+        "Acknowledge their doubt as intelligent",
+        "Name the industry problem that caused it",
+        "Provide specific evidence/proof",
+        "Be transparent about what you can't do",
+        "Show, don't just tell",
+        "Use client examples and data"
+      ],
+      "dont": [
+        "Get defensive or dismissive",
+        "Oversell or overpromise",
+        "Make the client feel stupid for doubting",
+        "Ignore legitimate concerns",
+        "Compare yourself to competitors meanly"
+      ],
+      "examples": [
+        {
+          "before": "We understand you may have concerns, but we assure you we're different.",
+          "after": "Você está certa em duvidar. Já vi coach de Instagram que cobra R$ 10k e entrega 'post criativo'. É óbvio que você está cética. A diferença aqui: você vê os números desde a primeira semana. Quantas pessoas entraram no funil. Quantas viraram lead. Sem 'confia que funciona'. Só dado."
+        },
+        {
+          "before": "Our proven methodology delivers results.",
+          "after": "'Metodologia exclusiva' é o que toda agência fala antes de te empurrar post aleatório, né? Olha: nosso sistema é velho e sem graça. Post → Stories → DM → WhatsApp → Venda. Todo mundo sabe. A diferença é que a gente implementa DE VERDADE, conecta tudo, e rastreia cada centavo."
+        }
+      ]
+    },
+
+    "re_engaging": {
+      "context": "Win-back campaigns, lapsed leads, dormant clients, cold list reactivation",
+      "tone_shifts": {
+        "formality": 4,
+        "humor": 4,
+        "irreverence": 4,
+        "energy": 3
+      },
+      "description": "Acknowledge the gap without being needy. Offer value, not guilt. Re-establish relevance. Make it easy to re-engage.",
+      "voice_qualities": [
+        "No-pressure reconnection",
+        "Acknowledges time has passed",
+        "Offers new value/reason to return",
+        "Respects their choice to leave",
+        "Makes return easy and dignified"
+      ],
+      "do": [
+        "Acknowledge they've been away",
+        "Offer something new or valuable",
+        "Keep it light and no-pressure",
+        "Make it easy to say yes or no",
+        "Focus on what's changed or improved"
+      ],
+      "dont": [
+        "Make them feel guilty",
+        "Be desperate or needy",
+        "Pretend no time has passed",
+        "Use manipulative urgency",
+        "Send multiple follow-ups rapidly"
+      ],
+      "examples": [
+        {
+          "before": "We miss you! Come back and see what you've been missing.",
+          "after": "Faz tempo que a gente não conversa, Carolina. Sem drama - sei que você tava testando outras coisas. A pergunta é: tá funcionando? Se não, talvez valha dar uma olhada no que mudou aqui. Implementamos rastreamento de ponta a ponta. Zero achismo, só número."
+        },
+        {
+          "before": "Special offer just for you to return!",
+          "after": "Você sumiu bem na hora que a gente começou a integrar sistema de vendas com automação de WhatsApp. Coincidência? Talvez. Mas se você ainda tá quebrando a cabeça com lead que não converte, vale ver isso aqui. Sem pressa, sem pressão."
+        }
+      ]
+    }
+  },
+
+  "audience_state_responses": {
+    "frustrated_carolina": {
+      "context": "Wasted money on agencies, tried marketing that didn't work, frustrated with empty promises, burned by vanity metrics",
+      "emotional_state": "Angry, skeptical, defensive, tired of BS",
+      "tone_approach": {
+        "formality": 3,
+        "humor": 3,
+        "irreverence": 5,
+        "energy": 4
+      },
+      "strategy": "Validate anger. Channel rage at industry, not her. Position yourself as ally against the real enemy. Use concrete evidence.",
+      "voice_qualities": [
+        "Validates frustration completely",
+        "Names the specific industry BS",
+        "Positions as ally, not another vendor",
+        "Evidence-based, not promissory",
+        "Protective and understanding"
+      ],
+      "do": [
+        "Name the specific things that failed her",
+        "Validate her anger as justified",
+        "Show you understand the pattern",
+        "Offer transparency and proof",
+        "Focus on systems, not promises"
+      ],
+      "dont": [
+        "Minimize her experience",
+        "Defend the industry",
+        "Promise the moon",
+        "Use the same language that burned her",
+        "Rush to sell"
+      ],
+      "examples": [
+        "Já pagou agência que entregou post bonito e zero venda? Bem-vinda ao clube. O problema não é você. É que 90% do mercado vende show de likes, não sistema de vendas. Curtida não paga fornecedor.",
+        "Eu sei: você tá cansada de 'expert' que mostra captura de tela do Instagram e fala que seu problema é mindset. Não é mindset. É que ninguém te conectou post com venda de verdade."
+      ]
+    },
+
+    "excited_carolina": {
+      "context": "Ready to invest, just discovered Oitavo, energized about possibilities, had a breakthrough moment",
+      "emotional_state": "Optimistic, energized, ready to act, hopeful",
+      "tone_approach": {
+        "formality": 4,
+        "humor": 4,
+        "irreverence": 3,
+        "energy": 5
+      },
+      "strategy": "Match energy but add grounding. Channel excitement into clear action. Set realistic expectations while maintaining momentum.",
+      "voice_qualities": [
+        "Matches enthusiasm genuinely",
+        "Adds structure to excitement",
+        "Sets realistic expectations",
+        "Maintains momentum with action",
+        "Keeps feet on ground"
+      ],
+      "do": [
+        "Match their energy authentically",
+        "Give clear, immediate next steps",
+        "Set realistic timelines",
+        "Reinforce their good decision",
+        "Channel energy into action"
+      ],
+      "dont": [
+        "Oversell and overpromise",
+        "Let them build unrealistic expectations",
+        "Be cynical about their enthusiasm",
+        "Over-complicate next steps",
+        "Dampen energy unnecessarily"
+      ],
+      "examples": [
+        "Adorei a energia! Vamos canalizar isso: primeiro passo é entender o que já existe e onde estão os vazamentos. Depois a gente monta o sistema. Em 30 dias você tá rodando. Preparada?",
+        "Esse é o espírito. Agora: respira, preenche o formulário de imersão, e vamos montar isso direito. Sistema não se constrói em uma semana, mas em um mês você já tá vendo resultado."
+      ]
+    },
+
+    "confused_carolina": {
+      "context": "Doesn't understand what actually works, overwhelmed by conflicting advice, paralyzed by options, needs clarity",
+      "emotional_state": "Overwhelmed, uncertain, seeking guidance, information overload",
+      "tone_approach": {
+        "formality": 3,
+        "humor": 2,
+        "irreverence": 3,
+        "energy": 3
+      },
+      "strategy": "Simplify ruthlessly. Cut through noise. Provide clear, simple framework. Be the calm, clear guide.",
+      "voice_qualities": [
+        "Calm and clarifying",
+        "Cuts through noise decisively",
+        "Simplifies without condescending",
+        "Provides clear framework",
+        "Reassuring and directive"
+      ],
+      "do": [
+        "Acknowledge the overwhelm",
+        "Simplify to essential steps",
+        "Provide clear decision framework",
+        "Cut out what doesn't matter",
+        "Be directive and specific"
+      ],
+      "dont": [
+        "Add more information/options",
+        "Use complex jargon",
+        "Present multiple paths",
+        "Make them feel stupid",
+        "Overwhelm with details"
+      ],
+      "examples": [
+        "Esquece tudo que você ouviu. É simples: post que gera conversa → Stories que aprofundam → DM que qualifica → WhatsApp que vende. Só isso. Todo resto é ruído.",
+        "Você tá confusa porque todo mundo vende um pedaço diferente. Um fala de tráfego, outro de conteúdo, outro de funil. Aqui é tudo junto: sistema completo, do post até a venda. Não precisa escolher."
+      ]
+    },
+
+    "skeptical_carolina": {
+      "context": "Heard too many promises, needs proof, wants guarantees, slow to trust, evaluating carefully",
+      "emotional_state": "Guarded, analytical, risk-averse, demanding proof",
+      "tone_approach": {
+        "formality": 3,
+        "humor": 3,
+        "irreverence": 5,
+        "energy": 3
+      },
+      "strategy": "Validate skepticism as intelligence. Provide evidence, not promises. Be transparent about limitations. Earn trust through honesty.",
+      "voice_qualities": [
+        "Respects skepticism",
+        "Evidence-based completely",
+        "Transparent about limitations",
+        "No sales pressure",
+        "Earns trust, doesn't demand it"
+      ],
+      "do": [
+        "Praise skepticism as smart",
+        "Provide concrete evidence",
+        "Be transparent about what won't work",
+        "Let them evaluate at their pace",
+        "Show, don't tell"
+      ],
+      "dont": [
+        "Pressure or rush",
+        "Make grand promises",
+        "Hide limitations",
+        "Use typical sales tactics",
+        "Dismiss concerns"
+      ],
+      "examples": [
+        "Você tá certa em pedir prova. 'Confia que funciona' é conversa de coach que nunca vendeu nada. Olha os números: 23 clientes em 30 dias para a Paula. R$ 47k direto do Instagram para a Mariana. Não é promessa. É print de dashboard.",
+        "Não vou te prometer ROI de 10x em 30 dias porque isso é mentira. O que eu garanto: transparência total nos números, sistema implementado em 15 dias, e você vendo cada etapa do funil desde a semana 1. Só dado, zero achismo."
+      ]
+    }
+  },
+
+  "content_type_tones": {
+    "social_media": {
+      "platforms": ["Instagram", "LinkedIn", "Facebook"],
+      "tone_adjustments": {
+        "formality": 5,
+        "humor": 5,
+        "irreverence": 5,
+        "energy": 5
+      },
+      "description": "Maximum personality. Hook hard, deliver value, make it shareable. Challenge industry norms loudly.",
+      "characteristics": [
+        "Punchy and provocative",
+        "Highly shareable",
+        "Strong hooks",
+        "Pattern interrupts",
+        "Calls out industry BS",
+        "Ends with clear CTA or thought"
+      ],
+      "examples": [
+        "Post bonito não paga boleto. Se você tá mais preocupada com grid harmonioso do que com quantas pessoas entraram no seu WhatsApp hoje, tá jogando o jogo errado. Instagram é ponto de venda, não galeria de arte.",
+        "Todo mundo quer ser viral. Ninguém quer ter sistema de vendas. Aí fica assim: 50k de views, zero venda. Parabéns, você é famosinha quebrada."
+      ]
+    },
+
+    "sales_copy": {
+      "contexts": ["Landing pages", "Sales emails", "VSLs", "Sales pages"],
+      "tone_adjustments": {
+        "formality": 4,
+        "humor": 4,
+        "irreverence": 5,
+        "energy": 5
+      },
+      "description": "High energy, transformation-focused, pain-aware. Challenge status quo aggressively. Create urgency through value.",
+      "characteristics": [
+        "Leads with transformation",
+        "Pain-aware but not exploitative",
+        "Challenges industry norms",
+        "Specific results and proof",
+        "Strong, active language",
+        "Clear differentiation"
+      ],
+      "examples": [
+        "Você não precisa de mais um curso de tráfego. Você precisa de um sistema que conecta post, Stories, DM e venda. Do começo ao fim. Integrado, rastreado, convertendo.",
+        "Chega de pagar agência para fazer dancinha viral. Aqui é sistema de vendas: cada post tem objetivo, cada Story qualifica, cada DM encaminha para venda. Não é criativo. É lucrativo."
+      ]
+    },
+
+    "educational_content": {
+      "contexts": ["Blog posts", "Guides", "Tutorials", "Webinars", "Case studies"],
+      "tone_adjustments": {
+        "formality": 3,
+        "humor": 4,
+        "irreverence": 4,
+        "energy": 3
+      },
+      "description": "Authoritative but accessible. Challenge bad advice. Make complex simple. Deeply practical.",
+      "characteristics": [
+        "Clear and structured",
+        "Evidence-based",
+        "Challenges misconceptions",
+        "Actionable takeaways",
+        "Uses examples liberally",
+        "Accessible expertise"
+      ],
+      "examples": [
+        "A maior mentira do marketing digital: 'você precisa postar todo dia'. Não. Você precisa postar com estratégia. Post sem objetivo é poluição de feed. Três posts por semana que conectam com venda > 30 posts aleatórios.",
+        "Funil de vendas não é complexo. É: atenção (post) → interesse (Stories) → desejo (DM) → ação (WhatsApp). O problema é que a maioria faz só a primeira parte e reza para dar certo."
+      ]
+    },
+
+    "email_marketing": {
+      "contexts": ["Newsletters", "Campaigns", "Sequences", "Broadcasts"],
+      "tone_adjustments": {
+        "formality": 4,
+        "humor": 4,
+        "irreverence": 4,
+        "energy": 4
+      },
+      "description": "Conversational and direct. Feels like email from a smart friend. Value-first, not pitch-heavy.",
+      "characteristics": [
+        "Personal and direct",
+        "Strong subject lines",
+        "Value in every email",
+        "Conversational flow",
+        "Clear single focus",
+        "Respect for inbox"
+      ],
+      "subject_line_examples": [
+        "Carolina, curtida não paga fornecedor",
+        "Por que seu Instagram não vende (e o que fazer)",
+        "Isso que eu faria se estivesse recomeçando hoje",
+        "A métrica que importa (spoiler: não é engajamento)"
+      ],
+      "body_examples": [
+        "Carolina, conversa rápida: se você tá medindo sucesso por like e comentário, tá olhando para o lugar errado. A única métrica que importa: quantas pessoas entraram no seu WhatsApp. Quantas viraram cliente. Quanto $$ entrou. O resto é show.",
+        "Todo mundo fala de funil de vendas. Quase ninguém tem. Vou te mostrar o que é funil de verdade: você consegue rastrear desde o post que a pessoa viu até o PIX que ela fez? Se não, você não tem funil. Tem esperança."
+      ]
+    },
+
+    "customer_support": {
+      "contexts": ["Support tickets", "Chat", "FAQ responses", "Problem resolution"],
+      "tone_adjustments": {
+        "formality": 2,
+        "humor": 2,
+        "irreverence": 1,
+        "energy": 3
+      },
+      "description": "Helpful, patient, clear. Solution-focused. Warm but professional. No jokes when someone needs help.",
+      "characteristics": [
+        "Clear and helpful",
+        "Patient and understanding",
+        "Solution-oriented",
+        "No corporate speak",
+        "Empathetic without overdoing it",
+        "Sets clear expectations"
+      ],
+      "examples": [
+        "Entendi o problema. O link do dashboard não está abrindo, certo? Vou te mandar um novo agora e já reportei pro time técnico para corrigir. Você deve conseguir acessar em 10 minutos. Se não resolver, me chama aqui de novo.",
+        "Olha, essa funcionalidade ainda não existe na plataforma. Sei que seria útil para você. Vou anotar como sugestão para o roadmap. Por enquanto, a alternativa é fazer isso manualmente - te mando o passo a passo."
+      ]
+    },
+
+    "legal_terms": {
+      "contexts": ["Terms of service", "Privacy policy", "Contracts", "Disclaimers"],
+      "tone_adjustments": {
+        "formality": 1,
+        "humor": 1,
+        "irreverence": 1,
+        "energy": 2
+      },
+      "description": "Clear, direct legal language. No personality needed. Protect both parties. Make it readable.",
+      "characteristics": [
+        "Legally sound",
+        "Clear and unambiguous",
+        "Plain language where possible",
+        "Structured and organized",
+        "Protects both parties",
+        "Minimizes legalese"
+      ],
+      "examples": [
+        "Quando você contrata o sistema, você recebe: implementação completa em 15 dias úteis, suporte via WhatsApp em horário comercial, e acesso à plataforma de gestão. O que não está incluso: produção de conteúdo criativo, design gráfico, e tráfego pago.",
+        "Você pode cancelar a qualquer momento com 30 dias de aviso. Não tem multa, não tem pegadinha. Simples assim."
+      ]
+    }
+  },
+
+  "cross_situational_guidance": {
+    "irreverence_targets": {
+      "always_target": [
+        "Vanity metrics (likes, impressions without sales)",
+        "Empty industry promises ('viral', 'explosão de vendas')",
+        "Fragmented services that don't integrate",
+        "Marketing that doesn't connect to revenue",
+        "Performance theatre over real results",
+        "Agencies that sell dreams instead of systems"
+      ],
+      "never_target": [
+        "The client's current situation or struggles",
+        "Their past failures or mistakes",
+        "Their business size or budget",
+        "Their lack of marketing knowledge",
+        "Competitors by name (stay above it)",
+        "Their legitimate concerns or objections"
+      ]
+    },
+
+    "energy_calibration": {
+      "high_energy_appropriate": [
+        "Celebrating wins",
+        "Selling/promoting",
+        "Social media content",
+        "Re-engaging lapsed leads",
+        "Matching excited prospects"
+      ],
+      "low_energy_appropriate": [
+        "Apologizing",
+        "Delivering bad news",
+        "Customer support issues",
+        "Legal/contractual language"
+      ],
+      "medium_energy_default": [
+        "Educational content",
+        "Onboarding",
+        "Email marketing",
+        "Handling skepticism"
+      ]
+    },
+
+    "humor_guidelines": {
+      "when_to_use": [
+        "Making a serious point memorable",
+        "Social media content",
+        "Educational content (to maintain engagement)",
+        "Sales copy (to differentiate)",
+        "Celebrating success"
+      ],
+      "when_to_avoid": [
+        "Apologizing for mistakes",
+        "Delivering bad news",
+        "Customer support problems",
+        "Legal/contractual content",
+        "Addressing serious client concerns"
+      ],
+      "humor_types": {
+        "preferred": [
+          "Wordplay and puns (like 'Oitavo' double meaning)",
+          "Observational humor about industry",
+          "Self-aware commentary",
+          "Clever contrasts (likes vs sales)"
+        ],
+        "avoid": [
+          "Sarcasm directed at clients",
+          "Self-deprecation (undermines authority)",
+          "Inside jokes that exclude",
+          "Humor during serious moments"
+        ]
+      }
+    },
+
+    "language_patterns": {
+      "power_phrases": [
+        "Vamos ser sinceros aqui",
+        "A verdade é que",
+        "Curtida não paga boleto",
+        "Sistema de vendas, não [X]",
+        "É isso que muda o jogo",
+        "Não é sobre [X], é sobre [Y]",
+        "Chega de [problem]",
+        "Enquanto você [problem], sua concorrência [solution]"
+      ],
+      "sentence_starters": [
+        "Olha,",
+        "Vamos direto ao ponto:",
+        "A verdade:",
+        "Sem rodeio:",
+        "Pode anotar:",
+        "É simples:"
+      ],
+      "avoid_phrases": [
+        "Querido cliente",
+        "Prezada",
+        "Gostaríamos de informar",
+        "Agradecemos a preferência",
+        "É com grande prazer",
+        "Solução inovadora",
+        "Expertise diferenciada"
+      ]
+    }
+  },
+
+  "tone_scaling_examples": {
+    "formality_scale": {
+      "1_very_formal": {
+        "description": "Legal, corporate, serious business",
+        "example": "O presente instrumento estabelece as condições mediante as quais os serviços serão prestados."
+      },
+      "2_formal": {
+        "description": "Professional but not stiff",
+        "example": "Este contrato estabelece como vamos trabalhar juntos e o que cada um é responsável."
+      },
+      "3_balanced": {
+        "description": "Professional and approachable",
+        "example": "Vamos alinhar como funciona: você fornece as informações do negócio, a gente monta o sistema."
+      },
+      "4_casual": {
+        "description": "Conversational, like talking to a colleague (BASELINE)",
+        "example": "Funciona assim: você conta do seu negócio, a gente monta o sistema. Simples."
+      },
+      "5_very_casual": {
+        "description": "Very informal, friend-to-friend",
+        "example": "Ó, é o seguinte: você me passa as info, eu monto tudo. Tranquilo?"
+      }
+    },
+
+    "humor_scale": {
+      "1_serious": {
+        "description": "No humor, straight information",
+        "example": "Métricas de vaidade não geram receita. É importante focar em conversões."
+      },
+      "2_subtle": {
+        "description": "Light touch, barely noticeable",
+        "example": "Likes são legais, mas não pagam as contas. Foco em conversão."
+      },
+      "3_moderate": {
+        "description": "Clear but not dominant",
+        "example": "Like é ótimo para o ego. Para o boleto, nem tanto. Bora focar em venda?"
+      },
+      "4_playful_witty": {
+        "description": "Humor is part of the message (BASELINE)",
+        "example": "Curtida não paga boleto. Você pode ter 10k de likes e zero real no caixa. Adivinha qual importa?"
+      },
+      "5_very_playful": {
+        "description": "Humor leads, bold and provocative",
+        "example": "Parabéns, você é viral! E quebrada. Curtida não paga fornecedor, Carolina. Curtida não coloca comida na mesa. Curtida é o troféu de participação do marketing digital."
+      }
+    },
+
+    "irreverence_scale": {
+      "1_respectful": {
+        "description": "Traditional, accepts norms",
+        "example": "Nem sempre as métricas tradicionais refletem os resultados reais."
+      },
+      "2_questioning": {
+        "description": "Gently challenges assumptions",
+        "example": "Vale questionar se essas métricas realmente importam para o seu negócio."
+      },
+      "3_challenging": {
+        "description": "Clearly questions the status quo",
+        "example": "Todo mundo foca em likes. Quase ninguém rastreia vendas. Isso faz sentido para você?"
+      },
+      "4_challenger": {
+        "description": "Actively challenges norms (BASELINE)",
+        "example": "Curtida não paga boleto. Métrica de vaidade é o ópio do empreendedor digital. Acorda."
+      },
+      "5_rebel": {
+        "description": "Aggressively dismantles conventions",
+        "example": "A indústria inteira te vendeu uma mentira: sucesso é engajamento. Mentira. Sucesso é $$ no banco. O resto é show de likes para enganar trouxa."
+      }
+    },
+
+    "energy_scale": {
+      "1_calm": {
+        "description": "Low-key, subdued, gentle",
+        "example": "Entendo sua preocupação. Vamos resolver isso com calma."
+      },
+      "2_measured": {
+        "description": "Controlled, steady energy",
+        "example": "Entendo. Vamos olhar isso juntos e encontrar a solução."
+      },
+      "3_engaged": {
+        "description": "Present and active, not passive",
+        "example": "Olha, vamos resolver isso agora. Me passa os detalhes."
+      },
+      "4_enthusiastic_confident": {
+        "description": "Energized and assured (BASELINE)",
+        "example": "Isso aqui é o que muda o jogo. Vamos fazer acontecer."
+      },
+      "5_high_energy": {
+        "description": "Maximum enthusiasm and drive",
+        "example": "ISSO! É exatamente isso que vai explodir suas vendas! Bora fazer acontecer AGORA!"
+      }
+    }
+  },
+
+  "real_world_application_examples": {
+    "scenario_1_new_lead_inquiry": {
+      "situation": "Cold lead asking about services",
+      "audience_state": "Skeptical + Confused",
+      "content_type": "Email response",
+      "tone_settings": {
+        "formality": 3,
+        "humor": 3,
+        "irreverence": 4,
+        "energy": 4
+      },
+      "example": "Oi Carolina,\n\nVi que você quer entender como funciona o sistema.\n\nVamos direto: você tá cansada de agência que promete 'estratégia matadora' e entrega post aleatório, né? Normal. 90% do mercado vende show.\n\nAqui é diferente porque não vendemos marketing. Vendemos sistema de vendas:\n\n→ Post que gera conversa qualificada\n→ Stories que aprofundam e educam\n→ DM que encaminha para WhatsApp\n→ WhatsApp que fecha venda\n\nTudo conectado. Tudo rastreado. Do primeiro post até o PIX.\n\nNão é criativo. É lucrativo.\n\nQuer ver como seria no seu caso? Me conta do seu negócio que eu monto um diagnóstico rápido.\n\nAbraço,\n[Nome]"
+    },
+
+    "scenario_2_client_success_post": {
+      "situation": "Celebrating client win",
+      "audience_state": "Engaged (external audience)",
+      "content_type": "Instagram post",
+      "tone_settings": {
+        "formality": 4,
+        "humor": 5,
+        "irreverence": 3,
+        "energy": 5
+      },
+      "example": "R$ 47.320 em vendas diretas do Instagram.\n\nNão foi viral.\nNão foi sorte.\nNão foi 'post criativo'.\n\nFoi sistema:\n\n→ 14 posts estratégicos (não 60 aleatórios)\n→ Stories diários conectando com DM\n→ 127 conversas qualificadas no WhatsApp\n→ 23 clientes novos\n\nEnquanto todo mundo persegue likes, a Mariana persegue clientes.\n\nInstagram vende? Vende sim.\n\nQuando você tem sistema, não galeria de arte.\n\n---\n\nQuer saber como montar isso no seu negócio? Link na bio."
+    },
+
+    "scenario_3_support_issue": {
+      "situation": "Dashboard not loading, client frustrated",
+      "audience_state": "Frustrated",
+      "content_type": "Customer support",
+      "tone_settings": {
+        "formality": 2,
+        "humor": 1,
+        "irreverence": 1,
+        "energy": 3
+      },
+      "example": "Oi Carolina,\n\nVi aqui que o dashboard não está carregando para você. Já identifiquei o problema: houve uma atualização hoje de manhã que causou instabilidade.\n\nO time técnico está corrigindo agora. Deve voltar ao normal em até 2 horas.\n\nEnquanto isso, se você precisar checar algum número específico, me fala aqui que eu puxo manualmente para você.\n\nDesculpa o transtorno.\n\n[Nome]"
+    },
+
+    "scenario_4_price_increase_announcement": {
+      "situation": "Announcing price change",
+      "audience_state": "Mixed (current + potential clients)",
+      "content_type": "Email announcement",
+      "tone_settings": {
+        "formality": 3,
+        "humor": 2,
+        "irreverence": 2,
+        "energy": 3
+      },
+      "example": "Assunto: Mudança de valores a partir de março\n\n---\n\nCarolina,\n\nPreciso te avisar: os valores do sistema vão mudar a partir de 1º de março.\n\nPor quê?\n\nNos últimos 6 meses, dobramos o time, adicionamos automação de WhatsApp, e implementamos rastreamento de ponta a ponta. O sistema ficou mais robusto. O valor reflete isso.\n\nNovo investimento: R$ 4.500/mês (antes R$ 3.200/mês)\n\nSe você é cliente atual: seus valores permanecem iguais. Isso é garantido.\n\nSe você está avaliando entrar: tem até 28/02 para fechar com o valor antigo.\n\nSem pressão. Só transparência.\n\nQualquer dúvida, me chama.\n\n[Nome]"
+    },
+
+    "scenario_5_educational_blog_post": {
+      "situation": "Teaching about funnel mistakes",
+      "audience_state": "Confused + Seeking guidance",
+      "content_type": "Blog post",
+      "tone_settings": {
+        "formality": 3,
+        "humor": 4,
+        "irreverence": 4,
+        "energy": 3
+      },
+      "example": "# Por que seu 'funil de vendas' não vende nada\n\nTodo mundo fala de funil.\nQuase ninguém tem.\n\nO que a maioria chama de funil é, na verdade, esperança:\n\n- Você posta\n- Torce para alguém lembrar de você\n- Reza para essa pessoa te chamar no direct\n- Espera que ela te adicione no WhatsApp\n- Cruza os dedos para ela comprar\n\nIsso não é funil. É loteria.\n\n## Funil de verdade é rastreável\n\nVocê consegue responder:\n\n1. Qual post gerou mais conversas no DM?\n2. Quantas dessas conversas foram para o WhatsApp?\n3. Qual a taxa de conversão de WhatsApp para venda?\n4. Quanto custou cada cliente adquirido?\n\nSe você não sabe essas respostas, você não tem funil. Você tem posts soltos e esperança.\n\n## Como construir funil que funciona\n\n### 1. Atenção (Post)\nPost não é para ser bonito. É para gerar conversa.\nObjetivo: levar para Stories.\n\n### 2. Interesse (Stories)\nStories aprofundam, educam, qualificam.\nObjetivo: levar para DM.\n\n### 3. Desejo (DM)\nDM filtra curiosos de interessados reais.\nObjetivo: levar para WhatsApp.\n\n### 4. Ação (WhatsApp)\nWhatsApp é onde você vende.\nObjetivo: fechar.\n\nCada etapa tem objetivo claro.\nCada transição é rastreada.\nZero achismo. Só dado.\n\n## O que fazer agora\n\nMapeie seu funil atual:\n- Onde as pessoas entram?\n- Onde elas saem?\n- Onde está o vazamento?\n\nConserte os buracos antes de trazer mais gente.\n\nTráfego sem funil é dinheiro pelo ralo.\n\n---\n\n*Quer ajuda para montar sistema completo de vendas? [Fala com a gente aqui]*"
+    },
+
+    "scenario_6_objection_handling": {
+      "situation": "Prospect says 'too expensive'",
+      "audience_state": "Skeptical + Price-sensitive",
+      "content_type": "Sales conversation",
+      "tone_settings": {
+        "formality": 3,
+        "humor": 3,
+        "irreverence": 4,
+        "energy": 4
+      },
+      "example": "Entendo, Carolina.\n\nR$ 3.200/mês não é barato. E você tem razão em avaliar.\n\nMas vamos olhar assim:\n\nVocê já tentou fazer marketing sozinha? Quanto tempo você gastou por mês? Se valorizar sua hora em R$ 200 (que é baixo para empresária), dá quanto?\n\nE se contratou agência antes, quanto você pagou por post bonito que não vendeu nada?\n\nAqui não é custo. É investimento em sistema:\n- Implementação completa: 15 dias\n- 1 cliente novo paga o sistema (se seu ticket for R$ 3k+)\n- 2 clientes = lucro\n\nA pergunta não é se é caro.\nÉ: quanto tá custando NÃO ter sistema?\n\nVocê perde quantas vendas por mês por não ter funil estruturado?\n\nSe a conta não fechar, sem problema. Mas se fechar, vamos começar?"
+    }
+  },
+
+  "quality_checklist": {
+    "before_publishing": [
+      "Does this sound like Oitavo Café, or like any agency?",
+      "Is irreverence targeting industry problems, not the client?",
+      "Is the tone appropriate for the situation?",
+      "Would Carolina trust this, or roll her eyes?",
+      "Is there a clear, single action/takeaway?",
+      "Am I being authentic, or performing?",
+      "Did I avoid corporate jargon?",
+      "Is this specific and concrete, or vague?",
+      "Does this respect the reader's intelligence?",
+      "Would I send this to a smart friend?"
+    ]
+  },
+
+  "anti_patterns": {
+    "avoid_these": [
+      {
+        "pattern": "Over-apologizing",
+        "why": "Undermines confidence and authority",
+        "instead": "Take ownership clearly, then move to solution"
+      },
+      {
+        "pattern": "Being irreverent during crisis",
+        "why": "Reads as insensitive and inappropriate",
+        "instead": "Dial down to formality 2, irreverence 1, be serious"
+      },
+      {
+        "pattern": "Making jokes in bad news",
+        "why": "Seems dismissive and unserious",
+        "instead": "Be direct, transparent, respectful"
+      },
+      {
+        "pattern": "Corporate euphemisms",
+        "why": "Breaks authentic voice, creates distance",
+        "instead": "Say it directly in plain language"
+      },
+      {
+        "pattern": "Attacking client's past choices",
+        "why": "Makes them defensive, breaks trust",
+        "instead": "Validate their experience, attack industry that failed them"
+      },
+      {
+        "pattern": "Empty hype without proof",
+        "why": "Sounds like every other agency",
+        "instead": "Use specific numbers, examples, evidence"
+      },
+      {
+        "pattern": "Being defensive when questioned",
+        "why": "Shows insecurity, damages credibility",
+        "instead": "Validate skepticism, provide transparent evidence"
+      },
+      {
+        "pattern": "Overselling during onboarding",
+        "why": "Sets unrealistic expectations",
+        "instead": "Set clear, realistic expectations with confidence"
+      }
+    ]
+  }
+}
