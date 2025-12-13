@@ -42,27 +42,27 @@ Diagnóstico Gratuito → Identificar necessidades → Selecionar ofertas → Mo
 
 ### Descrição
 
-Estratégia completa de redes sociais focada em CONVERSÃO (vendas), não métricas de vaidade. Inclui planejamento estratégico, calendário editorial diário, e execução parcial — com a cliente complementando o volume necessário para alta frequência.
+Sistema integrado de vendas via redes sociais com ROI mensurável. Não entregamos "posts bonitos" — entregamos uma máquina de geração de leads e vendas com métricas claras de retorno. Você vai saber exatamente quanto cada real investido está retornando.
 
 ### Transformação Prometida
 
 | ANTES | DEPOIS |
 |-------|--------|
-| Posta quando lembra, sem estratégia | Calendário editorial claro para cada dia |
-| Não sabe o que postar | Sabe exatamente o que fazer quando acorda |
-| Métricas de vaidade (likes, alcance) | Foco em conversão (leads, vendas) |
-| Inconsistência na frequência | Alta frequência (1-2 posts/dia + stories) |
-| Marketing que não gera resultado | Redes transformadas em máquina de vendas |
+| Investe em marketing sem saber o ROI | Dashboard com leads, vendas e ROI mensuráveis |
+| Estratégias fragmentadas (pontas soltas) | Sistema integrado onde tudo se conecta |
+| Métricas de vaidade (likes, alcance) | Foco em conversão (leads, vendas, faturamento) |
+| Gasta dinheiro sem ver retorno | Cada real rastreado até a venda |
+| Marketing que é custo | Marketing que é investimento com ROI |
 
 ### O Que Está Incluso
 
 **Oitavo Café entrega:**
-- Estratégia completa (posicionamento, público, tom de voz, pilares)
-- Calendário editorial diário com ideias de post
+- Sistema de vendas completo (estratégia + funil + métricas)
+- Dashboard de resultados (leads, conversões, ROI)
 - X posts/mês profissionais (arte + copy) — quantidade conforme proposta
-- Direção criativa para conteúdo da cliente
-- Análise mensal de resultados
-- Reunião de alinhamento mensal
+- Calendário editorial integrado à estratégia de vendas
+- Relatório mensal de ROI e otimização
+- Reunião mensal de análise de resultados
 
 **Cliente complementa:**
 - Stories diários (backstage, dia a dia)
@@ -85,14 +85,14 @@ Estratégia completa de redes sociais focada em CONVERSÃO (vendas), não métri
 
 ### Por Que Esse Modelo?
 
-**Frequência é a chave.** Postar 2-3x por semana não transforma redes em máquina de vendas. Precisa de:
-- 1-2 posts por dia
-- Stories diários
-- Presença constante
+**Sistema integrado é a chave.** Marketing fragmentado (post aqui, anúncio ali) não gera ROI. O que funciona:
+- Todas as peças conectadas em um funil de vendas
+- Métricas de VENDA, não de vaidade
+- Otimização baseada em dados, não achismo
 
-**A cliente não tem orçamento para 100% terceirizado** com essa frequência (seria R$ 15-20k+/mês). Mas tem tempo para complementar SE tiver direção clara.
+**O diferencial é o ROI MENSURÁVEL** — Dashboard mostrando leads, vendas e retorno de cada real investido.
 
-**O diferencial é a CLAREZA** — Ela acorda sabendo exatamente o que fazer.
+**Ciência do lucro, não promessas** — Cada ação tem objetivo claro de conversão e é medida.
 
 ### Investimento
 
@@ -106,35 +106,35 @@ Estratégia completa de redes sociais focada em CONVERSÃO (vendas), não métri
 
 **Perguntas para validar fit:**
 
-1. "Quem cuida do marketing hoje?"
-   - ✅ Ideal: "Eu mesma quando dá" / "Ninguém direito"
-   - ❌ Red flag: Já tem agência e está satisfeita
+1. "Quanto você investe em marketing hoje? E qual o retorno que você consegue medir?"
+   - ✅ Ideal: "Invisto X mas não sei o retorno" / "Não consigo medir ROI"
+   - ❌ Red flag: "Já tenho ROI claro e estou satisfeita"
 
-2. "Qual a frequência de posts atual?"
-   - ✅ Ideal: "2-3x por semana quando lembro"
-   - ❌ Red flag: Já posta 1-2x/dia consistentemente
+2. "Qual sua maior frustração com marketing?"
+   - ✅ Ideal: "Não sei o ROI", "Pontas soltas", "Gasto sem ver voltar"
+   - ❌ Red flag: "Quero mais seguidores", "Quero viralizar" (foco em vaidade)
 
-3. "Você tem disponibilidade para participar (gravar vídeos, fazer stories)?"
-   - ✅ Essencial: "Sim, consigo dedicar tempo"
-   - ❌ Eliminatório: "Não, quero que vocês façam tudo"
+3. "Como você mediria sucesso do marketing em 6 meses?"
+   - ✅ Ideal: "Mais vendas", "ROI positivo", "Faturamento maior"
+   - ❌ Red flag: "Mais seguidores", "Marca mais conhecida" (métricas de vaidade)
 
-4. "Você entende que resultado vem de alta frequência (1-2 posts/dia + stories diários)?"
-   - ✅ Ideal: "Sim, faz sentido"
-   - ❌ Red flag: "Acho que 3 posts/semana é suficiente"
+4. "Você tem disponibilidade para aparecer em conteúdos-chave (autoridade)?"
+   - ✅ Essencial: "Sim, consigo dedicar tempo para o que for necessário"
+   - ⚠️ Atenção: "Só se for essencial" (gerenciar expectativas)
 
 ### Objeções Comuns
 
 **"R$ 5.000 é muito caro"**
-> "Entendo. Me conta: quanto você perde por mês por não ter marketing que funciona? Se a gente te ajudar a aumentar vendas em 15%, quanto isso representa? O investimento se paga no primeiro mês — e você ainda ganha tempo de volta."
+> "Entendo. Me conta: quanto você investe hoje em marketing sem saber o retorno? Se nosso sistema te gerar 20% a mais de faturamento, quanto isso representa? Investimento de R$5k com retorno de R$16k = ROI de 220%. O caro é continuar jogando dinheiro em marketing sem medir."
 
 **"Já tive experiência ruim com agência"**
-> "O que exatamente não funcionou? [ESCUTA] O problema é que a maioria das agências posta 3x/semana e entrega métricas de vaidade. A gente é diferente: foco em CONVERSÃO e alta frequência. E você participa — não é 'contrata e esquece'."
+> "O que exatamente não funcionou? [ESCUTA] O problema é que a maioria das agências entrega SERVIÇO (posts), não SISTEMA (vendas). Entregam relatório de alcance, não de faturamento. A gente é diferente: você vai ter dashboard com leads, vendas e ROI. Se não vender mais, a gente não está fazendo nosso trabalho."
 
-**"Não tenho tempo de participar"**
-> "Quanto tempo você gasta HOJE pensando 'preciso fazer um post' e não fazendo? Com a gente, você vai ter 30-60min/dia de execução clara — não mais energia mental perdida. Se quiser menos trabalho, pode comprar mais execução."
+**"Como sei que vai funcionar?"**
+> "Por isso a gente mede TUDO. Você vai ter dashboard mostrando: quantos leads entraram, quantos viraram venda, qual o ROI. Não é achismo, é número. E a gente otimiza baseado em dados, não em feeling."
 
 **"6 meses é muito tempo"**
-> "Marketing de verdade precisa de consistência. Uma agência que promete resultado em 30 dias está mentindo. Os 6 meses garantem tempo de construir a máquina direito. Você vai ver resultado antes, mas a consistência é o que transforma em vendas de verdade."
+> "Sistema de vendas precisa de tempo para otimizar. Os primeiros 60-90 dias são de construção e teste. A partir do mês 3-4 você começa a ver ROI consistente. Por isso 6 meses — dá tempo da máquina funcionar. E cada mês que passa sem sistema é ROI negativo."
 
 ### Upsell Natural
 
@@ -144,14 +144,15 @@ Se a cliente não consegue complementar o volume:
 - +8 reels simples/mês: +R$ 1.000
 - +8 reels médios/mês: +R$ 1.600
 
-### Métricas de Sucesso
+### Métricas de Sucesso (Dashboard)
 
-| Métrica | Como Medir |
-|---------|------------|
-| Leads gerados | Mensagens recebidas, formulários, WhatsApp |
-| Conversões | Vendas atribuídas ao marketing |
-| Frequência | Posts/semana vs. meta |
-| Engajamento qualificado | Comentários de potenciais clientes |
+| Métrica | Como Medir | Meta |
+|---------|------------|------|
+| **Leads gerados** | Mensagens, formulários, WhatsApp rastreados | Crescimento mensal |
+| **Taxa de conversão** | Leads → Vendas | Otimizar mês a mês |
+| **Vendas atribuídas** | Vendas originadas do marketing | Rastrear origem |
+| **ROI** | (Faturamento atribuído - Investimento) / Investimento | Positivo a partir do mês 3 |
+| **Custo por lead** | Investimento / Leads gerados | Reduzir ao longo do tempo |
 
 ---
 
@@ -168,16 +169,16 @@ Se a cliente não consegue complementar o volume:
 
 ### Descrição
 
-Gestão profissional de campanhas de anúncios pagos focada em gerar leads qualificados e vendas. Inclui setup, otimização contínua, criativos básicos e relatórios de performance.
+Sistema de aquisição paga com ROI rastreável. Cada real de verba é monitorado até a conversão. Não é "fazer anúncio" — é construir uma máquina de geração de leads com custo por aquisição otimizado.
 
 ### Transformação Prometida
 
 | ANTES | DEPOIS |
 |-------|--------|
-| "Queimei dinheiro em anúncios" | Campanhas otimizadas que geram retorno |
-| Não sabe configurar | Setup profissional e estratégico |
-| Métricas confusas | Relatórios claros de ROI |
-| Tráfego que não converte | Leads qualificados entrando |
+| "Queimei dinheiro em anúncios sem saber" | Cada real rastreado até a venda |
+| Não sabe se anúncio funciona | Dashboard com custo por lead e ROI |
+| Métricas confusas | Relatórios claros: investiu X, retornou Y |
+| Tráfego que não converte | Funil otimizado para conversão |
 
 ### O Que Está Incluso
 
@@ -648,10 +649,17 @@ Para clientes de Social Media que querem mais execução.
 
 # METADADOS
 
-**Versão:** 1.0.0
+**Versão:** 1.1.0
 **Criado em:** 2025-12-03
-**Atualizado em:** 2025-12-03
+**Atualizado em:** 2025-12-12
 **Autor:** Daniel / Oitavo Café
-**Baseado em:** Avatar Carolina v2.0.0
+**Baseado em:** Avatar Carolina v3.0.0
+
+**Changelog v1.1.0:**
+- Alinhado com persona Carolina v3.0 (foco em ROI e sistema de vendas)
+- Atualizado descrições para enfatizar ROI mensurável
+- Reformulado transformações prometidas com foco em retorno financeiro
+- Adicionado dashboard de métricas
+- Atualizado objeções e qualificação para novo posicionamento
 
 **Próxima revisão:** Trimestral ou quando houver mudança de preços

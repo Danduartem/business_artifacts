@@ -107,82 +107,82 @@ Entender estrutura, faturamento, momento do negócio. Validar se é Carolina.
 ## FASE 3: DESCOBERTA DO MARKETING (8-10 min)
 
 ### Objetivo
-Entender situação atual, frustrações, o que já tentou.
+Entender investimento atual, frustrações com ROI, o que já tentou.
 
 ### Perguntas
 
-**P5: Responsável pelo Marketing**
-> "Quem cuida do marketing da empresa hoje?"
+**P5: Investimento Atual**
+> "Quanto você investe em marketing hoje? Pode ser tempo, dinheiro, agência, tráfego..."
 
-- [ ] Quem faz
-- ✅ Ideal: "Eu mesma quando dá" / "Ninguém direito"
-- ⚠️ Atenção: "Tenho uma pessoa/agência" (por que está procurando outro?)
+- [ ] Quanto investe (tempo e/ou dinheiro)
+- ✅ Ideal: Investe algo mas não sabe o retorno
+- ⚠️ Atenção: "Invisto R$X e tenho ROI de Y" (já resolveu)
 
-**P6: Frequência Atual**
-> "Com que frequência você posta nas redes sociais?"
+**P6: ROI Atual** ⚠️ PERGUNTA-CHAVE
+> "E desse investimento, você consegue medir o retorno? Sabe quanto voltou em vendas?"
 
-- [ ] Frequência atual
-- ✅ Ideal: "2-3x por semana quando lembro" / "Irregular"
-- ❌ Nota: Se já posta 1-2x/dia consistente, pode não precisar de Social Media
+- [ ] Consegue medir ROI?
+- ✅ Ideal: "Não faço ideia" / "Não consigo medir" / "Acho que não está dando retorno"
+- ❌ Sinal: Já tem ROI claro e está satisfeita
 
-**P7: Resultado Atual**
-> "E esse marketing que você faz hoje, tá gerando resultado? Tá vindo cliente das redes?"
+**P7: Frustração com Retorno**
+> "Você sente que o dinheiro investido em marketing está voltando em vendas?"
 
-- [ ] Resultado percebido
-- [ ] De onde vêm os clientes hoje
+- [ ] Percepção de retorno
+- [ ] Nível de frustração com ROI
 
 **P8: Experiências Anteriores**
-> "Você já trabalhou com agência ou freelancer de marketing antes?"
+> "Você já trabalhou com agência ou profissional de marketing antes?"
 
 *Se sim:*
-> "Como foi a experiência? O que funcionou e o que não funcionou?"
+> "O que faltou? Por que não funcionou?"
 
 - [ ] Experiência anterior
-- [ ] O que deu errado (importante para posicionar Oitavo Café como diferente)
+- [ ] O que faltou (importante: métricas de vaidade? falta de resultado? pontas soltas?)
+- ✅ Ideal: "Entregavam relatório bonito mas não vi venda" / "Não sabia o ROI"
 
-**P9: Maior Frustração**
+**P9: Maior Frustração** ⚠️ PERGUNTA-CHAVE
 > "Qual sua maior frustração com marketing hoje?"
 
-*Deixa ela desabafar. Isso é ouro para a proposta.*
+*Deixa ela desabafar. Escuta se menciona: ROI, dinheiro jogado fora, pontas soltas, não saber o que funciona.*
 
 - [ ] Frustração principal
 - [ ] Palavras exatas que ela usou (usar na proposta)
+- ✅ Ideal: Frustração financeira/estratégica (não saber ROI, gastar sem ver voltar)
 
 ---
 
 ## FASE 4: QUALIFICAÇÃO (5-7 min)
 
 ### Objetivo
-Validar se é fit. Perguntas eliminatórias.
+Validar se é fit. Foco em expectativa de resultado e capacidade de investimento.
 
 ### Perguntas Críticas
 
-**P10: Disponibilidade para Participar** ⚠️ CRÍTICA
-> "Uma coisa importante sobre como a gente trabalha: a Oitavo Café não é uma agência que faz tudo por você. A gente cria a estratégia, faz parte da execução, e você complementa com volume — stories diários, posts extras seguindo nosso calendário.
->
-> Você teria disponibilidade de dedicar 30-60 minutos por dia pro marketing?"
+**P10: Expectativa de Resultado** ⚠️ CRÍTICA
+> "Se a gente começasse a trabalhar juntos, como você mediria sucesso daqui a 6 meses?"
 
-- ✅ Ideal: "Sim, se eu souber o que fazer" / "Consigo me organizar pra isso"
-- ❌ Eliminatório: "Não, quero que vocês façam tudo" / "Não tenho tempo nenhum"
+- ✅ Ideal: "Mais vendas", "ROI positivo", "Faturamento maior", "Saber quanto cada real retorna"
+- ❌ Eliminatório: "Mais seguidores", "Marca mais conhecida", "Viralizar" (foco em vaidade)
 
-*Se resposta negativa:*
-> "Entendo. O nosso modelo base funciona assim porque resultado de verdade em redes sociais precisa de alta frequência — 1-2 posts por dia, stories diários. Se você não tiver tempo de participar, a gente pode fazer mais execução, mas o investimento sobe bastante. Isso faria sentido pra você?"
+*Se resposta focada em vaidade:*
+> "Entendo. Mas deixa eu te perguntar: no final do dia, o que você quer é seguidores ou vendas? Porque a Oitavo Café foca em CONVERSÃO — métricas de vaidade não pagam as contas."
 
-**P11: Expectativa de Frequência**
-> "Você sabe que pra ter resultado de verdade em redes sociais, precisa de volume alto — 1-2 posts por dia, stories diários. Você está preparada pra isso?"
+**P11: Entendimento do Sistema**
+> "A Oitavo Café não é agência que faz posts bonitos. A gente entrega um sistema de vendas: funil integrado, métricas de ROI, dashboard de resultados. Você participaria acompanhando os números e aparecendo em conteúdos-chave. Faz sentido pra você?"
 
-- ✅ Ideal: "Sim, entendo que precisa de volume"
-- ❌ Eliminatório: "Acho que 3 posts por semana é suficiente" (expectativa errada)
+- ✅ Ideal: "Sim, quero saber o retorno de cada real"
+- ⚠️ Atenção: "Só quero que alguém cuide do Instagram" (pode não ser fit)
 
 **P12: Investimento**
-> "O investimento mínimo pra Social Media é R$ 5.000 por mês, com contrato de 6 meses. Isso está dentro do que você tinha em mente?"
+> "O investimento mínimo pro sistema de vendas é R$ 5.000 por mês, com contrato de 6 meses. Se o ROI justificar, isso está dentro do que você pode investir?"
 
-- ✅ Ideal: "Sim" / "Tá dentro do orçamento"
-- ⚠️ Atenção: "É mais do que eu pensava, mas posso considerar"
+- ✅ Ideal: "Sim" / "Se o retorno vier, sim"
+- ⚠️ Atenção: "Preciso ver ROI primeiro pra justificar"
 - ❌ Red flag: "Nossa, muito caro" / "Pensei em R$ 1.000-2.000"
 
 *Se objeção de preço:*
-> "Entendo. Me conta: quanto você acha que perde por mês por não ter marketing que funciona? Se a gente te ajudar a aumentar vendas em 15%, quanto isso representa?"
+> "Entendo. Me conta: quanto você gasta hoje em marketing sem saber o retorno? Se nosso sistema te gerar 20% a mais de faturamento, quanto isso representa? O caro é continuar investindo sem medir."
 
 ---
 
@@ -207,16 +207,16 @@ Mostrar que você entendeu, dar valor, posicionar a solução.
 
 ### Posicionamento da Oitavo Café
 
-> "Olha, pelo que você me contou, eu acho que a gente pode te ajudar. Deixa eu te explicar como a Oitavo Café funciona, porque é diferente do que você provavelmente já viu:
+> "Olha, pelo que você me contou, eu acho que a gente pode te ajudar. Deixa eu te explicar como a Oitavo Café funciona, porque é bem diferente do que você provavelmente já viu:
 >
-> 1. **A gente não é agência que posta 3x por semana e te manda relatório bonito.** A gente foca em CONVERSÃO — vendas, não likes.
+> 1. **A gente não é agência que entrega posts bonitos.** A gente entrega SISTEMA DE VENDAS. Funil integrado, métricas de ROI, dashboard de resultados. Você vai saber exatamente quanto cada real investido está retornando.
 >
-> 2. **A gente trabalha em parceria.** Eu crio a estratégia, o calendário editorial com o que postar cada dia, faço parte dos posts profissionais. Você complementa com stories e volume. Assim você acorda sabendo exatamente o que fazer.
+> 2. **A gente mede o que importa.** Não relatório de alcance e engajamento. Relatório de VENDAS: quantos leads entraram, quantos viraram cliente, qual o ROI. Se não vender mais, a gente não está fazendo nosso trabalho.
 >
-> 3. **Contrato de 6 meses** porque marketing de verdade precisa de consistência. Você vai ver resultado antes, mas os 6 meses garantem que a máquina funciona.
+> 3. **Contrato de 6 meses** porque sistema de vendas precisa de tempo para otimizar. Os primeiros 60-90 dias são de construção. A partir do mês 3-4 você começa a ver ROI consistente.
 >
-> [Se ela mencionou experiência ruim]:
-> O que aconteceu com a outra agência [PROBLEMA ESPECÍFICO] não vai acontecer aqui porque [DIFERENCIAL ESPECÍFICO].
+> [Se ela mencionou experiência ruim com ROI]:
+> O que aconteceu com a outra agência — entregar relatório bonito sem resultado — não vai acontecer aqui porque você vai ter dashboard mostrando leads, vendas e ROI. Número, não promessa.
 >
 > Faz sentido pra você?"
 
@@ -298,18 +298,19 @@ Coletar durante a call:
 - Aceitar cliente que não é fit só pelo dinheiro
 
 ### Sinais de que é Carolina ideal:
-- Frustrada com marketing atual
-- Sabe que precisa de ajuda mas não sabe em quem confiar
+- Frustrada com falta de ROI (investe mas não sabe o retorno)
+- Menciona "pontas soltas", "não sei o que funciona", "jogo dinheiro fora"
 - Faturamento R$ 80k+ (ou R$ 50k+ em crescimento)
-- Disposta a participar do processo
-- Entende que resultado leva tempo
+- Quer medir resultado em VENDAS, não em seguidores
+- Cética com promessas — quer ver números
 
 ### Red flags:
-- Quer milagre em 30 dias
-- Não quer participar de nada
-- Faturamento muito baixo
-- Espera resultado com baixa frequência
-- Barganha muito no preço antes de entender o valor
+- Foco em métricas de vaidade ("quero mais seguidores", "quero viralizar")
+- Não menciona ROI ou retorno financeiro
+- Quer "contratar e esquecer" sem acompanhar resultados
+- Faturamento muito baixo (< R$ 50k)
+- Espera resultado mágico em 30 dias
+- Já tem sistema funcionando e está satisfeita
 
 ---
 
@@ -337,6 +338,14 @@ Coletar durante a call:
 
 # METADADOS
 
-**Versão:** 1.0.0
+**Versão:** 1.1.0
 **Criado em:** 2025-12-03
-**Baseado em:** Avatar Carolina v2.0.0, Catálogo de Ofertas v1.0.0
+**Atualizado em:** 2025-12-12
+**Baseado em:** Avatar Carolina v3.0.0, Catálogo de Ofertas v1.1.0
+
+**Changelog v1.1.0:**
+- Alinhado com persona Carolina v3.0 (foco em ROI e sistema de vendas)
+- Reformulado perguntas de descoberta para focar em investimento e ROI
+- Atualizado qualificação para identificar foco em vaidade vs conversão
+- Reformulado posicionamento de "parceria" para "sistema de vendas"
+- Atualizado red flags e sinais ideais

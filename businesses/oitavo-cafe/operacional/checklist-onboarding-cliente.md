@@ -39,28 +39,29 @@ Oi [NOME]! 🎉
 
 Seja muito bem-vinda à Oitavo Café!
 
-Estou muito feliz em começar essa parceria. Agora vamos transformar o marketing do [NEGÓCIO] em uma máquina de vendas!
+Agora vamos construir seu sistema de vendas com ROI mensurável. Chega de investir em marketing sem saber o retorno!
 
 Próximos passos:
 1. Vou te enviar um email com algumas informações que preciso de você
 2. Vamos agendar nossa reunião de Kickoff para [DATA/HORA]
-3. A partir daí, começamos a trabalhar!
+3. Vou te mostrar como vai funcionar o dashboard de resultados
+4. A partir daí, começamos a construir sua máquina de vendas!
 
 Qualquer dúvida, me chama aqui.
 
-Vamos juntos! 💪
+Vamos! 💪
 ```
 
 ### Email de Boas-Vindas
 
 ```
-Assunto: Bem-vinda à Oitavo Café! Próximos passos 🚀
+Assunto: Bem-vinda à Oitavo Café! Seu sistema de vendas começa aqui 🚀
 
 Oi [NOME],
 
 Seja muito bem-vinda à Oitavo Café!
 
-Estou animado em começar essa parceria e transformar o marketing do [NEGÓCIO].
+Agora vamos construir seu sistema de vendas com ROI mensurável. Chega de investir em marketing sem saber o retorno!
 
 PRÓXIMOS PASSOS:
 
@@ -79,20 +80,20 @@ PRÓXIMOS PASSOS:
    □ Cores da marca (códigos hex se tiver)
    □ Fontes da marca (se tiver)
    □ Fotos do negócio (mínimo 10-20 fotos boas)
-   □ Fotos suas (para posts que você aparece)
+   □ Fotos suas (para conteúdos de autoridade)
    □ 3-5 concorrentes que você admira ou quer superar
-   □ O que você NÃO quer que a gente faça (algo que não combina com a marca)
+   □ Quanto você fatura mensalmente (para calibrar metas de ROI)
 
 3. NA REUNIÃO DE KICKOFF VAMOS:
-   - Alinhar estratégia e posicionamento
-   - Definir pilares de conteúdo
-   - Criar calendário editorial do primeiro mês
-   - Tirar todas as dúvidas
-   - Definir rotina de trabalho
+   - Estruturar seu sistema de vendas
+   - Definir métricas de sucesso (leads, conversões, ROI)
+   - Configurar seu dashboard de resultados
+   - Criar o funil de conversão do primeiro mês
+   - Alinhar como você vai acompanhar os números
 
 Se tiver qualquer dúvida antes da reunião, me chama no WhatsApp.
 
-Vamos juntos!
+Vamos construir sua máquina de vendas!
 
 [SEU NOME]
 Oitavo Café
@@ -125,83 +126,80 @@ Oitavo Café
 
 ## Agenda da Reunião (1-2 horas)
 
-### Parte 1: Alinhamento (20 min)
-- [ ] Apresentar como vai funcionar o trabalho
-- [ ] Explicar divisão de responsabilidades
-- [ ] Definir canais de comunicação
-- [ ] Definir frequência de reuniões (mensal)
+### Parte 1: Sistema de Vendas (30 min)
+- [ ] Apresentar como funciona o sistema integrado
+- [ ] Explicar o funil de conversão
+- [ ] Mostrar o dashboard de resultados (leads, vendas, ROI)
+- [ ] Definir metas de ROI para os primeiros 6 meses
 
-### Parte 2: Estratégia (30 min)
-- [ ] Revisar/definir posicionamento
-- [ ] Definir tom de voz
-- [ ] Definir 3-5 pilares de conteúdo
-- [ ] Alinhar público-alvo
+### Parte 2: Métricas e Acompanhamento (20 min)
+- [ ] Definir KPIs principais (leads, conversões, ROI)
+- [ ] Explicar como ela vai acompanhar os números
+- [ ] Configurar acesso ao dashboard
+- [ ] Alinhar reunião mensal de análise
 
-### Parte 3: Conteúdo (30 min)
-- [ ] Apresentar calendário editorial do mês 1
-- [ ] Explicar tipos de post (feed, carrossel, reels, stories)
-- [ ] Definir o que ela precisa fazer (stories, vídeos)
-- [ ] Alinhar frequência (1-2 posts/dia + stories diários)
+### Parte 3: Estratégia de Conversão (30 min)
+- [ ] Revisar posicionamento focado em vendas
+- [ ] Definir pilares de conteúdo que convertem
+- [ ] Apresentar calendário do mês 1
+- [ ] Explicar como cada peça alimenta o funil
 
-### Parte 4: Operacional (20 min)
-- [ ] Definir processo de aprovação (se houver)
-- [ ] Definir prazo de entrega dos posts
-- [ ] Definir como ela envia conteúdo bruto
-- [ ] Agendar próxima reunião (mensal)
+### Parte 4: Operacional (15 min)
+- [ ] Definir processo de comunicação
+- [ ] Definir quando ela precisa aparecer (conteúdos de autoridade)
+- [ ] Agendar primeira reunião de análise (fim do mês 1)
 
-### Parte 5: Dúvidas (20 min)
+### Parte 5: Expectativas e Dúvidas (15 min)
+- [ ] Alinhar expectativa de ROI (mês 3-4 para consistência)
 - [ ] Responder todas as dúvidas
-- [ ] Confirmar próximos passos
-- [ ] Confirmar que ela tem tudo que precisa
+- [ ] Confirmar que ela entendeu como acompanhar resultados
 
 ## Checklist Pós-Kickoff
 - [ ] Enviar resumo da reunião por email
-- [ ] Enviar calendário editorial do mês 1
+- [ ] Compartilhar acesso ao dashboard de resultados
+- [ ] Enviar calendário/funil do mês 1
 - [ ] Confirmar acesso a todas as contas
-- [ ] Agendar reunião mensal recorrente
+- [ ] Agendar reunião mensal de análise
 
 ### Email Pós-Kickoff
 
 ```
-Assunto: Resumo do Kickoff + Próximos Passos
+Assunto: Seu Sistema de Vendas está configurado! Próximos Passos
 
 Oi [NOME],
 
-Foi ótimo nosso kickoff! Aqui está o resumo do que alinhamos:
+Excelente kickoff! Seu sistema de vendas está estruturado. Aqui está o resumo:
 
-ESTRATÉGIA DEFINIDA:
-- Posicionamento: [RESUMO]
-- Tom de voz: [RESUMO]
-- Pilares de conteúdo:
-  1. [PILAR 1]
-  2. [PILAR 2]
-  3. [PILAR 3]
+SISTEMA CONFIGURADO:
+- Funil de conversão: [RESUMO]
+- Metas de ROI: [METAS PARA 6 MESES]
+- Dashboard: [LINK DO DASHBOARD]
 
-DIVISÃO DE RESPONSABILIDADES:
-Oitavo Café:
-- [X] posts/mês profissionais
-- Calendário editorial diário
-- Direção criativa
-- Análise mensal
+MÉTRICAS QUE VAMOS ACOMPANHAR:
+- Leads gerados (por canal)
+- Taxa de conversão (leads → vendas)
+- ROI (retorno sobre investimento)
+- Custo por lead
 
-Você:
-- Stories diários
-- Posts complementares seguindo calendário
-- Gravação de vídeos/reels
-- Interação com seguidores
+SEU PAPEL:
+- Acompanhar o dashboard (5 min por dia)
+- Aparecer em conteúdos de autoridade quando solicitado
+- Participar da reunião mensal de análise
+- Nos dar feedback sobre qualidade dos leads
 
-CALENDÁRIO DO MÊS 1:
-[Anexar ou linkar o calendário]
+CALENDÁRIO/FUNIL DO MÊS 1:
+[Anexar ou linkar]
 
 PRÓXIMOS PASSOS:
-1. Vou começar a criar os primeiros posts
-2. Te envio para aprovação até [DATA]
-3. Começamos a postar em [DATA]
-4. Próxima reunião: [DATA]
+1. Sistema entra em operação em [DATA]
+2. Primeira análise de métricas: [DATA - 2 semanas]
+3. Reunião de análise do mês 1: [DATA]
+
+A partir de agora, você vai ver exatamente onde cada real está indo e voltando.
 
 Dúvidas? Me chama no WhatsApp.
 
-Vamos! 🚀
+Vamos construir sua máquina de vendas! 🚀
 
 [SEU NOME]
 ```
@@ -230,11 +228,17 @@ Vamos! 🚀
 - [ ] Criar públicos iniciais
 - [ ] Configurar formas de pagamento
 
+### Dashboard e Métricas
+- [ ] Configurar dashboard de resultados
+- [ ] Definir rastreamento de leads (UTMs, pixels)
+- [ ] Configurar relatório de ROI
+- [ ] Testar que métricas estão sendo capturadas
+
 ### Ferramentas Internas
 - [ ] Criar board/pasta para o cliente
 - [ ] Configurar ferramenta de agendamento
 - [ ] Criar templates de arte base
-- [ ] Configurar calendário de conteúdo
+- [ ] Configurar funil de conversão
 
 ## Criação Inicial
 
@@ -310,26 +314,29 @@ Me conta como está se sentindo com o novo processo.
 - [ ] Planejar próximo mês
 - [ ] Coletar feedback
 
-## Reunião Mensal - Agenda (30-45 min)
+## Reunião Mensal de Análise - Agenda (30-45 min)
 
-1. **Resultados do mês** (10 min)
-   - Métricas principais
-   - O que funcionou
-   - O que ajustar
+1. **Análise de ROI** (15 min)
+   - Leads gerados no mês
+   - Taxa de conversão (leads → vendas)
+   - ROI calculado (investimento vs retorno)
+   - Custo por lead
 
-2. **Feedback da cliente** (10 min)
-   - Como ela está se sentindo
+2. **Otimização** (10 min)
+   - O que está convertendo melhor
+   - O que precisa ajustar
+   - Testes para o próximo mês
+
+3. **Feedback da cliente** (10 min)
+   - Qualidade dos leads
    - Dificuldades
-   - Sugestões
+   - Percepção de resultado
 
-3. **Planejamento próximo mês** (10 min)
-   - Temas/campanhas
-   - Datas importantes
-   - Ajustes na estratégia
-
-4. **Próximos passos** (5 min)
-   - Confirmar ações
-   - Agendar próxima reunião
+4. **Metas do próximo mês** (10 min)
+   - Meta de leads
+   - Meta de conversão
+   - Ajustes no funil
+   - Próxima reunião
 
 ---
 
@@ -371,28 +378,39 @@ Me conta como está se sentindo com o novo processo.
 
 ## Cliente Bem Onboardado
 
-- [ ] Entende como funciona o modelo de trabalho
-- [ ] Sabe exatamente o que precisa fazer
-- [ ] Tem acesso ao calendário editorial
-- [ ] Está fazendo stories diários
-- [ ] Está complementando posts conforme calendário
+- [ ] Entende como funciona o sistema de vendas
+- [ ] Tem acesso ao dashboard de resultados
+- [ ] Sabe quais métricas acompanhar (leads, conversões, ROI)
+- [ ] Entende o funil de conversão
+- [ ] Sabe quando precisa aparecer em conteúdos
 - [ ] Sabe como se comunicar com a Oitavo Café
-- [ ] Não tem dúvidas pendentes
+- [ ] Está alinhada com expectativa de ROI (mês 3-4)
 
 ## Red Flags no Onboarding
 
 ⚠️ **Atenção se:**
 - Cliente não responde mensagens em 48h+
 - Cliente não enviou os acessos/materiais
-- Cliente não está fazendo a parte dela
-- Cliente reclama de não entender o processo
+- Cliente não está acompanhando o dashboard
+- Cliente pergunta sobre seguidores/likes (foco em vaidade)
+- Cliente espera resultado imediato (expectativa errada)
 
-**Ação:** Conversa direta para realinhar expectativas
+**Ação:** Conversa direta para realinhar sobre ROI e sistema de vendas
 
 ---
 
 # METADADOS
 
-**Versão:** 1.0.0
+**Versão:** 1.1.0
 **Criado em:** 2025-12-03
-**Baseado em:** Modelo de trabalho Oitavo Café
+**Atualizado em:** 2025-12-12
+**Baseado em:** Avatar Carolina v3.0.0, Modelo de trabalho Oitavo Café
+
+**Changelog v1.1.0:**
+- Alinhado com persona Carolina v3.0 (foco em ROI e sistema de vendas)
+- Reformulado mensagens de boas-vindas com foco em ROI
+- Atualizado agenda de kickoff para incluir dashboard e métricas
+- Reformulado email pós-kickoff com foco em sistema de vendas
+- Adicionado setup de dashboard e métricas
+- Atualizado reunião mensal para foco em análise de ROI
+- Reformulado métricas de sucesso do onboarding

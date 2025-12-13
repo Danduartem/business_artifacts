@@ -46,31 +46,30 @@ Com base no nosso diagnóstico, preparei esta proposta personalizada para transf
 
 ## A Solução Proposta
 
-### Como Vamos Trabalhar Juntos
+### O Sistema de Vendas Oitavo Café
 
-A Oitavo Café não é uma agência tradicional que posta 3x por semana e te manda relatório bonito.
+A Oitavo Café não é uma agência tradicional que posta 3x por semana e te manda relatório de alcance.
 
-Somos uma **Growth Marketing Boutique focada em CONVERSÃO** — vendas, não likes.
+Somos uma **Growth Marketing Boutique focada em ROI MENSURÁVEL** — ciência do lucro, não métricas de vaidade.
 
-**Nosso modelo:**
+**O que você recebe:**
 
 ```
-Oitavo Café                          Você
-────────────────────                 ────────────────────
-Estratégia completa                  Gravar vídeos/aparecer
-Calendário editorial diário          Stories diários
-Posts profissionais                  Posts complementares
-Arte + Copy                          Fotos do dia a dia
-Direção criativa                     Interação com seguidores
-Análise e ajustes                    Feedback sobre resultados
+SISTEMA INTEGRADO DE VENDAS
+────────────────────────────
+✓ Funil completo conectando todas as peças
+✓ Dashboard com leads, vendas e ROI
+✓ Métricas de VENDA, não de vaidade
+✓ Otimização baseada em dados
+✓ Cada real rastreado até a conversão
 ```
 
 **Por que esse modelo funciona:**
 
-1. **Frequência alta** — Resultado em redes sociais vem de 1-2 posts/dia + stories diários
-2. **Você sabe o que fazer** — Acorda com clareza, não fica perdida
-3. **Foco em conversão** — Tudo que fazemos é pensado para gerar vendas
-4. **Parceria, não terceirização** — Trabalhamos juntos para o resultado
+1. **ROI mensurável** — Você vai saber exatamente quanto cada real investido está retornando
+2. **Sistema integrado** — Todas as peças conectadas em um funil de vendas (não pontas soltas)
+3. **Foco em conversão** — Medimos sucesso em vendas, não em likes ou seguidores
+4. **Ciência do lucro** — Otimização baseada em dados, não em achismo
 
 ---
 
@@ -78,16 +77,16 @@ Análise e ajustes                    Feedback sobre resultados
 
 [SELECIONAR OS SERVIÇOS RELEVANTES - APAGAR OS QUE NÃO SE APLICAM]
 
-### Serviço Principal: Gestão Estratégica de Redes Sociais
+### Serviço Principal: Sistema de Vendas via Redes Sociais
 
 | Item | Detalhes |
 |------|----------|
-| **Estratégia completa** | Posicionamento, público, tom de voz, pilares de conteúdo |
-| **Calendário editorial** | Ideias de post para cada dia do mês |
+| **Sistema de vendas** | Estratégia + funil + métricas integradas |
+| **Dashboard de resultados** | Leads, conversões e ROI em tempo real |
 | **Posts profissionais** | [X] posts/mês com arte + copy estratégica |
-| **Direção criativa** | Orientação do que você precisa fazer |
-| **Análise mensal** | Relatório de resultados + ajustes |
-| **Reunião de alinhamento** | 1x por mês (online) |
+| **Calendário de conversão** | Conteúdo estratégico focado em vendas |
+| **Relatório de ROI mensal** | Quanto investiu, quanto retornou |
+| **Reunião de análise** | 1x por mês (online) — foco em resultados |
 
 **Investimento:** R$ [VALOR]/mês
 
@@ -193,28 +192,31 @@ Se em algum momento você sentir que não está funcionando, conversamos e ajust
 
 **O que nos diferencia:**
 
-✅ **Foco em conversão** — Medimos sucesso em vendas, não em likes
+✅ **ROI mensurável** — Dashboard com leads, vendas e retorno de cada real investido
 
-✅ **Modelo de parceria** — Você participa e sabe o que fazer cada dia
+✅ **Sistema, não serviço** — Funil integrado onde todas as peças se conectam
 
-✅ **Alta frequência** — Resultado vem de consistência, não de posts esporádicos
+✅ **Foco em conversão** — Medimos sucesso em VENDAS, não em likes ou seguidores
 
-✅ **Boutique premium** — Poucos clientes, atenção total
+✅ **Ciência do lucro** — Otimização baseada em dados, não em achismo
 
-✅ **Sem métricas de vaidade** — Relatórios focados no que importa
+✅ **Boutique premium** — Poucos clientes, atenção total aos resultados
 
 ---
 
 ## Dúvidas Frequentes
 
-**"E se não der resultado?"**
-Resultado leva tempo. Os primeiros 2-3 meses são de construção. A partir do mês 3-4 você começa a ver a máquina funcionando. Por isso o contrato de 6 meses — dá tempo de construir direito.
+**"Como vou saber se está funcionando?"**
+Você vai ter dashboard com métricas claras: quantos leads entraram, quantos viraram venda, qual o ROI. Não é achismo — é número. Na reunião mensal, analisamos os dados juntos e otimizamos.
 
-**"Quanto tempo vou ter que dedicar?"**
-30-60 minutos por dia para stories, posts complementares, e interação. A diferença é que você vai saber EXATAMENTE o que fazer — não vai perder tempo pensando.
+**"E se não der ROI?"**
+Sistema de vendas precisa de tempo para otimizar. Os primeiros 60-90 dias são de construção e teste. A partir do mês 3-4 você começa a ver ROI consistente. Por isso 6 meses — dá tempo da máquina funcionar.
 
-**"Posso comprar mais execução depois?"**
-Sim! Se você perceber que não está conseguindo complementar o volume, podemos adicionar mais posts, reels, etc. O investimento aumenta, mas seu trabalho diminui.
+**"Quanto tempo vou precisar dedicar?"**
+Sua principal contribuição é aparecer em conteúdos-chave (autoridade) e acompanhar o dashboard de resultados. A diferença é que você vai ver EXATAMENTE o retorno — não mais jogar dinheiro sem saber.
+
+**"Vocês garantem resultado?"**
+Garantimos total transparência: você vai ver cada métrica, cada lead, cada conversão. Se não estiver performando, ajustamos estratégia baseado em dados. Nosso sucesso depende do seu ROI.
 
 ---
 
@@ -241,7 +243,7 @@ Oitavo Café
 
 ---
 
-*"Transformando presença digital em máquina de vendas"*
+*"Sistema de vendas com ROI mensurável — ciência do lucro, não promessas"*
 
 ---
 
@@ -268,5 +270,22 @@ Oitavo Café
 ## Dicas:
 - Use as palavras exatas que ela usou no diagnóstico
 - Personalize o máximo possível
-- Se ela mencionou experiência ruim com agência, reforce os diferenciais
-- Não exagere nas promessas
+- Se ela mencionou frustração com ROI, reforce o dashboard e métricas
+- Foque em retorno financeiro, não em métricas de vaidade
+- Não exagere nas promessas — fale em sistema, não em milagre
+
+---
+
+# METADADOS
+
+**Versão:** 1.1.0
+**Criado em:** 2025-12-03
+**Atualizado em:** 2025-12-12
+**Baseado em:** Avatar Carolina v3.0.0
+
+**Changelog v1.1.0:**
+- Alinhado com persona Carolina v3.0 (foco em ROI e sistema de vendas)
+- Reformulado "Como Vamos Trabalhar Juntos" para foco em sistema
+- Atualizado serviços para incluir dashboard de ROI
+- Reformulado diferenciais para enfatizar ROI mensurável
+- Atualizado FAQ para abordar transparência de resultados
