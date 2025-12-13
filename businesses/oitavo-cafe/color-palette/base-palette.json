@@ -1,0 +1,346 @@
+{
+  "metadata": {
+    "brand": "Oitavo Café",
+    "generated": "2025-12-12",
+    "colorSpace": "OKLCH",
+    "version": "1.0",
+    "description": "Coffee-inspired warm palette with perceptually uniform OKLCH color space",
+    "principles": [
+      "Perceptual uniformity across all grades",
+      "WCAG accessibility compliance (Magic Numbers)",
+      "Coffee-heritage warm color temperature",
+      "Professional yet approachable tone"
+    ]
+  },
+  "colors": {
+    "primary": {
+      "name": "Coffee Maroon",
+      "description": "Rich coffee brown representing warmth, trust, and the brand's coffee heritage. Primary brand color derived from #4E130D.",
+      "baseHue": 27,
+      "scale": {
+        "50": {
+          "oklch": "oklch(97% 0.010 27)",
+          "hex": "#FCF3F1"
+        },
+        "100": {
+          "oklch": "oklch(93% 0.020 27)",
+          "hex": "#F5E3E1"
+        },
+        "200": {
+          "oklch": "oklch(85% 0.040 27)",
+          "hex": "#E7C4C0"
+        },
+        "300": {
+          "oklch": "oklch(73% 0.070 27)",
+          "hex": "#D09790"
+        },
+        "400": {
+          "oklch": "oklch(64% 0.100 27)",
+          "hex": "#C2746B"
+        },
+        "500": {
+          "oklch": "oklch(58% 0.120 27)",
+          "hex": "#B75B53"
+        },
+        "600": {
+          "oklch": "oklch(48% 0.130 27)",
+          "hex": "#993A33"
+        },
+        "700": {
+          "oklch": "oklch(38% 0.120 27)",
+          "hex": "#75201C"
+        },
+        "800": {
+          "oklch": "oklch(27% 0.100 27)",
+          "hex": "#4C0707"
+        },
+        "900": {
+          "oklch": "oklch(18% 0.080 27)",
+          "hex": "#2C0000"
+        }
+      }
+    },
+    "secondary": {
+      "name": "Terracotta",
+      "description": "Warm terracotta copper tone for secondary elements, derived from #A1523C. Represents earth, authenticity, and human connection.",
+      "baseHue": 42,
+      "scale": {
+        "50": {
+          "oklch": "oklch(97% 0.010 42)",
+          "hex": "#FBF3F0"
+        },
+        "100": {
+          "oklch": "oklch(93% 0.020 42)",
+          "hex": "#F4E4DE"
+        },
+        "200": {
+          "oklch": "oklch(85% 0.040 42)",
+          "hex": "#E6C6BA"
+        },
+        "300": {
+          "oklch": "oklch(73% 0.070 42)",
+          "hex": "#CE9A85"
+        },
+        "400": {
+          "oklch": "oklch(64% 0.100 42)",
+          "hex": "#BF775B"
+        },
+        "500": {
+          "oklch": "oklch(58% 0.120 42)",
+          "hex": "#B45F3D"
+        },
+        "600": {
+          "oklch": "oklch(48% 0.130 42)",
+          "hex": "#973E16"
+        },
+        "700": {
+          "oklch": "oklch(38% 0.120 42)",
+          "hex": "#742400"
+        },
+        "800": {
+          "oklch": "oklch(27% 0.100 42)",
+          "hex": "#4B0C00"
+        },
+        "900": {
+          "oklch": "oklch(18% 0.080 42)",
+          "hex": "#2B0000"
+        }
+      }
+    },
+    "accent": {
+      "name": "Golden Amber",
+      "description": "Warm golden amber for highlighting results, growth, and energy. Adds vibrancy while maintaining warmth.",
+      "baseHue": 78,
+      "scale": {
+        "50": {
+          "oklch": "oklch(97% 0.015 78)",
+          "hex": "#FBF4EA"
+        },
+        "100": {
+          "oklch": "oklch(93% 0.030 78)",
+          "hex": "#F3E6D2"
+        },
+        "200": {
+          "oklch": "oklch(85% 0.050 78)",
+          "hex": "#E0CAAA"
+        },
+        "300": {
+          "oklch": "oklch(73% 0.080 78)",
+          "hex": "#C4A26D"
+        },
+        "400": {
+          "oklch": "oklch(64% 0.120 78)",
+          "hex": "#B48226"
+        },
+        "500": {
+          "oklch": "oklch(58% 0.150 78)",
+          "hex": "#AA6B00"
+        },
+        "600": {
+          "oklch": "oklch(48% 0.160 78)",
+          "hex": "#8D4C00"
+        },
+        "700": {
+          "oklch": "oklch(38% 0.150 78)",
+          "hex": "#6B3100"
+        },
+        "800": {
+          "oklch": "oklch(27% 0.120 78)",
+          "hex": "#441800"
+        },
+        "900": {
+          "oklch": "oklch(18% 0.100 78)",
+          "hex": "#270500"
+        }
+      }
+    },
+    "neutral": {
+      "name": "Warm Gray",
+      "description": "Subtly warm gray tinted with coffee undertones. Professional and clean while maintaining brand warmth.",
+      "baseHue": 35,
+      "scale": {
+        "50": {
+          "oklch": "oklch(97% 0.003 35)",
+          "hex": "#F7F4F4"
+        },
+        "100": {
+          "oklch": "oklch(93% 0.005 35)",
+          "hex": "#EBE7E6"
+        },
+        "200": {
+          "oklch": "oklch(85% 0.008 35)",
+          "hex": "#D3CCCA"
+        },
+        "300": {
+          "oklch": "oklch(73% 0.010 35)",
+          "hex": "#AEA6A3"
+        },
+        "400": {
+          "oklch": "oklch(64% 0.015 35)",
+          "hex": "#958986"
+        },
+        "500": {
+          "oklch": "oklch(58% 0.020 35)",
+          "hex": "#867672"
+        },
+        "600": {
+          "oklch": "oklch(48% 0.020 35)",
+          "hex": "#685A56"
+        },
+        "700": {
+          "oklch": "oklch(38% 0.015 35)",
+          "hex": "#4A403D"
+        },
+        "800": {
+          "oklch": "oklch(27% 0.010 35)",
+          "hex": "#2B2523"
+        },
+        "900": {
+          "oklch": "oklch(18% 0.008 35)",
+          "hex": "#15100F"
+        }
+      }
+    },
+    "support": {
+      "name": "Cream",
+      "description": "Warm cream and ivory tones for backgrounds and breathing room. Creates welcoming, comfortable spaces.",
+      "baseHue": 65,
+      "scale": {
+        "50": {
+          "oklch": "oklch(97% 0.005 65)",
+          "hex": "#F8F4F2"
+        },
+        "100": {
+          "oklch": "oklch(93% 0.010 65)",
+          "hex": "#EDE7E1"
+        },
+        "200": {
+          "oklch": "oklch(85% 0.020 65)",
+          "hex": "#D7CBC1"
+        },
+        "300": {
+          "oklch": "oklch(73% 0.040 65)",
+          "hex": "#BAA38E"
+        },
+        "400": {
+          "oklch": "oklch(64% 0.060 65)",
+          "hex": "#A68566"
+        },
+        "500": {
+          "oklch": "oklch(58% 0.080 65)",
+          "hex": "#9B7045"
+        },
+        "600": {
+          "oklch": "oklch(48% 0.090 65)",
+          "hex": "#80521F"
+        },
+        "700": {
+          "oklch": "oklch(38% 0.080 65)",
+          "hex": "#5F3808"
+        },
+        "800": {
+          "oklch": "oklch(27% 0.060 65)",
+          "hex": "#3A1F00"
+        },
+        "900": {
+          "oklch": "oklch(18% 0.050 65)",
+          "hex": "#200B00"
+        }
+      }
+    }
+  },
+  "harmony": {
+    "type": "Analogous with warm accent",
+    "hueRange": "27° - 78° (warm spectrum)",
+    "rationale": "Coffee-inspired warm palette using analogous harmony (27°-42°) with a warm golden accent (78°). All colors stay within the warm spectrum to reinforce the coffee heritage and approachable brand personality.",
+    "colorRelationships": {
+      "primary": "Base hue at 27° (warm red-brown, coffee maroon)",
+      "secondary": "15° offset at 42° (orange-brown, terracotta)",
+      "accent": "51° offset at 78° (yellow-orange, golden amber)",
+      "neutral": "Minimal chroma at 35° (warm gray between primary and secondary)",
+      "support": "Low chroma at 65° (warm cream, between secondary and accent)"
+    }
+  },
+  "accessibility": {
+    "magicNumbers": {
+      "textOnWhite": "Use 700+ for AAA, 500-600 for AA",
+      "textOnCream": "Use 600+ for AAA, 500 for AA (on support-50 to support-100)",
+      "textOnDark": "Use 50-200 for light text on 800-900 backgrounds",
+      "largeText": "Use 600+ for AA Large (18pt+/14pt+ bold)"
+    },
+    "contrastPairs": [
+      {
+        "fg": "primary-700",
+        "bg": "white",
+        "ratio": "~9:1 (AAA)"
+      },
+      {
+        "fg": "primary-600",
+        "bg": "white",
+        "ratio": "~6:1 (AA)"
+      },
+      {
+        "fg": "accent-700",
+        "bg": "support-50",
+        "ratio": "~8:1 (AAA)"
+      },
+      {
+        "fg": "neutral-800",
+        "bg": "support-100",
+        "ratio": "~10:1 (AAA)"
+      }
+    ]
+  },
+  "usage": {
+    "primary": {
+      "grades": {
+        "900": "Deep accents, maximum contrast",
+        "50-200": "Subtle backgrounds, hover states, light accents",
+        "300-400": "Borders, disabled states, secondary UI",
+        "500-600": "Interactive elements, links, medium emphasis",
+        "700-800": "Primary text, headings, high emphasis (derived from #4E130D)"
+      }
+    },
+    "secondary": {
+      "grades": {
+        "900": "Deep accents",
+        "50-200": "Warm backgrounds, cards, panels",
+        "300-500": "Buttons, badges, highlights (derived from #A1523C at ~600 level)",
+        "600-800": "Strong CTAs, important text"
+      }
+    },
+    "accent": {
+      "grades": {
+        "900": "Maximum vibrancy",
+        "50-200": "Success states, light highlights",
+        "300-500": "Attention grabbers, growth metrics, ROI highlights",
+        "600-800": "Strong accents, energetic CTAs"
+      }
+    },
+    "neutral": {
+      "grades": {
+        "50-100": "Page backgrounds (alternative to support)",
+        "200-400": "Borders, dividers, input fields",
+        "500-700": "Body text, secondary text",
+        "800-900": "Headings, high-contrast text"
+      }
+    },
+    "support": {
+      "grades": {
+        "50-100": "Page backgrounds, cards (derived from #F8E8D8)",
+        "200-300": "Subtle highlights, warm accents",
+        "400-600": "Warm UI elements",
+        "700-900": "Rarely used, deep warm tones"
+      }
+    }
+  },
+  "originalColors": {
+    "reference": {
+      "#4E130D": "Primary Dark - Maps to primary-800 region",
+      "#7A1307": "Primary Medium - Maps to primary-700 region",
+      "#A1523C": "Secondary - Maps to secondary-500/600 region",
+      "#F8E8D8": "Background Cream - Maps to support-50/100 region",
+      "#ECECEC": "Neutral Gray - Maps to neutral-100 region"
+    }
+  }
+}
