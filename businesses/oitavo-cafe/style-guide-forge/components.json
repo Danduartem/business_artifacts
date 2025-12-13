@@ -1,0 +1,3189 @@
+{
+  "section": "components",
+  "agent": "component-designer",
+  "timestamp": "2025-12-12",
+  "brand": "Oitavo Café",
+  "philosophy": "Components are the vocabulary of interaction",
+  "approach": "Usage-First",
+  "design_depth": "comprehensive",
+  "total_components": 22,
+
+  "components": {
+    "button": {
+      "description": "Primary interactive element for user actions. Buttons communicate clear, actionable choices that drive results.",
+      "usage": "Use buttons for primary actions, form submissions, CTAs. Limit to 1-2 buttons per section to maintain hierarchy.",
+
+      "variants": [
+        {
+          "name": "Primary",
+          "purpose": "Main actions that drive business results",
+          "specs": {
+            "background": "primary-700 (#75201C)",
+            "text": "support-50 (#F8F4F2)",
+            "padding": "12px 24px (1.5 × 3 grid units)",
+            "border_radius": "6px",
+            "font_size": "16px (base)",
+            "font_weight": "600 (Hartwell Medium)",
+            "min_height": "48px",
+            "min_width": "120px",
+            "box_shadow": "0 2px 4px rgba(75, 7, 7, 0.15)",
+            "transition": "all 150ms ease-out"
+          }
+        },
+        {
+          "name": "Secondary",
+          "purpose": "Supporting actions, alternative paths",
+          "specs": {
+            "background": "transparent",
+            "text": "primary-700 (#75201C)",
+            "border": "2px solid primary-700",
+            "padding": "10px 24px (account for border)",
+            "border_radius": "6px",
+            "font_size": "16px (base)",
+            "font_weight": "600 (Hartwell Medium)",
+            "min_height": "48px",
+            "min_width": "120px"
+          }
+        },
+        {
+          "name": "Tertiary",
+          "purpose": "Low-emphasis actions, navigation",
+          "specs": {
+            "background": "transparent",
+            "text": "primary-600 (#993A33)",
+            "border": "none",
+            "padding": "12px 16px",
+            "border_radius": "6px",
+            "font_size": "16px (base)",
+            "font_weight": "500 (Hartwell Regular)",
+            "underline": "on hover"
+          }
+        },
+        {
+          "name": "CTA (Call-to-Action)",
+          "purpose": "High-impact conversion actions (limited use)",
+          "specs": {
+            "background": "accent-600 (#8D4C00)",
+            "text": "support-50 (#F8F4F2)",
+            "padding": "16px 32px (2 × 4 grid units)",
+            "border_radius": "8px",
+            "font_size": "18px (1.125rem - scale step up)",
+            "font_weight": "700 (Hartwell Bold)",
+            "min_height": "56px",
+            "box_shadow": "0 4px 8px rgba(141, 76, 0, 0.2)",
+            "icon": "optional arrow/chevron right"
+          }
+        }
+      ],
+
+      "sizes": [
+        {
+          "name": "Small",
+          "specs": {
+            "padding": "8px 16px",
+            "font_size": "14px (0.875rem)",
+            "min_height": "36px",
+            "min_width": "80px"
+          }
+        },
+        {
+          "name": "Medium (Default)",
+          "specs": {
+            "padding": "12px 24px",
+            "font_size": "16px (1rem)",
+            "min_height": "48px",
+            "min_width": "120px"
+          }
+        },
+        {
+          "name": "Large",
+          "specs": {
+            "padding": "16px 32px",
+            "font_size": "18px (1.125rem)",
+            "min_height": "56px",
+            "min_width": "160px"
+          }
+        }
+      ],
+
+      "states": [
+        {
+          "name": "Default",
+          "specs": "As defined in variants"
+        },
+        {
+          "name": "Hover",
+          "primary": {
+            "background": "primary-600 (#993A33)",
+            "box_shadow": "0 4px 8px rgba(75, 7, 7, 0.2)",
+            "transform": "translateY(-1px)"
+          },
+          "secondary": {
+            "background": "primary-50 (#FCF3F1)",
+            "border": "2px solid primary-600"
+          },
+          "tertiary": {
+            "text_decoration": "underline",
+            "text": "primary-700"
+          },
+          "cta": {
+            "background": "accent-500 (#AA6B00)",
+            "box_shadow": "0 6px 12px rgba(141, 76, 0, 0.3)"
+          }
+        },
+        {
+          "name": "Active/Pressed",
+          "primary": {
+            "background": "primary-800 (#4C0707)",
+            "box_shadow": "inset 0 2px 4px rgba(0, 0, 0, 0.2)",
+            "transform": "translateY(0)"
+          },
+          "secondary": {
+            "background": "primary-100 (#F5E3E1)",
+            "border": "2px solid primary-800"
+          }
+        },
+        {
+          "name": "Focus",
+          "specs": {
+            "outline": "3px solid accent-400 (#B48226)",
+            "outline_offset": "2px",
+            "note": "Visible focus indicator for keyboard navigation"
+          }
+        },
+        {
+          "name": "Disabled",
+          "specs": {
+            "background": "neutral-200 (#D3CCCA)",
+            "text": "neutral-400 (#958986)",
+            "border": "2px solid neutral-300 (secondary only)",
+            "cursor": "not-allowed",
+            "opacity": "0.6",
+            "box_shadow": "none"
+          }
+        },
+        {
+          "name": "Loading",
+          "specs": {
+            "cursor": "wait",
+            "opacity": "0.7",
+            "content": "Replace text with spinner + 'Carregando...'",
+            "spinner": "neutral-600 animated rotation"
+          }
+        }
+      ],
+
+      "accessibility": [
+        "Minimum touch target: 48×48px (WCAG 2.5.5 Level AAA)",
+        "Color contrast: 4.5:1 minimum for all states (WCAG AA)",
+        "Focus indicator: 3px outline with 2px offset (WCAG 2.4.7)",
+        "Use semantic <button> element, not <div> or <a>",
+        "Include aria-label for icon-only buttons",
+        "aria-disabled='true' for disabled state (maintain in tab order)",
+        "Loading state: aria-busy='true' + aria-live='polite'",
+        "Never rely on color alone - use text/icons for meaning"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use primary buttons for main conversion actions",
+          "rationale": "Clear hierarchy drives decision-making"
+        },
+        {
+          "do": "Use action verbs (Começar, Agendar, Baixar)",
+          "rationale": "Clear, results-focused language matches brand voice"
+        },
+        {
+          "do": "Limit to 1 primary button per section",
+          "rationale": "Prevents decision paralysis, focuses user intent"
+        },
+        {
+          "do": "Use full-width buttons on mobile (<640px)",
+          "rationale": "Easier touch target, better mobile UX"
+        },
+        {
+          "dont": "Use all caps for button text",
+          "rationale": "Reduces readability, feels aggressive (not friendly brand voice)"
+        },
+        {
+          "dont": "Make buttons smaller than 36px height",
+          "rationale": "Fails accessibility and usability standards"
+        },
+        {
+          "dont": "Use more than 2 CTA buttons on a page",
+          "rationale": "Golden amber should be reserved for highest-value actions"
+        },
+        {
+          "dont": "Disable buttons without explanation",
+          "rationale": "Users need to understand why action is unavailable"
+        }
+      ]
+    },
+
+    "input": {
+      "description": "Text input fields for collecting user data. Designed for clarity and ease of completion.",
+      "usage": "Use for single-line text entry: names, emails, phone numbers, search queries.",
+
+      "variants": [
+        {
+          "name": "Text",
+          "type": "text",
+          "specs": {
+            "height": "48px",
+            "padding": "12px 16px",
+            "border": "2px solid neutral-300 (#AEA6A3)",
+            "border_radius": "6px",
+            "background": "white",
+            "font_size": "16px",
+            "font_family": "Hartwell Regular",
+            "color": "neutral-800 (#2B2523)"
+          }
+        },
+        {
+          "name": "Email",
+          "type": "email",
+          "autocomplete": "email",
+          "note": "Triggers email keyboard on mobile"
+        },
+        {
+          "name": "Tel",
+          "type": "tel",
+          "autocomplete": "tel",
+          "note": "Triggers numeric keyboard on mobile"
+        },
+        {
+          "name": "Search",
+          "type": "search",
+          "icon": "search icon left (neutral-500)",
+          "specs": {
+            "padding_left": "44px (accommodate icon)",
+            "border_radius": "24px (pill shape)",
+            "background": "neutral-50 (#F7F4F4)"
+          }
+        },
+        {
+          "name": "With Icon",
+          "icon_position": "left or right",
+          "icon_size": "20px",
+          "icon_color": "neutral-500",
+          "padding_adjustment": "Add 36px to side with icon"
+        }
+      ],
+
+      "states": [
+        {
+          "name": "Default",
+          "specs": "As defined above"
+        },
+        {
+          "name": "Hover",
+          "specs": {
+            "border": "2px solid neutral-400 (#958986)",
+            "cursor": "text"
+          }
+        },
+        {
+          "name": "Focus",
+          "specs": {
+            "border": "2px solid primary-600 (#993A33)",
+            "outline": "3px solid primary-200 (#E7C4C0)",
+            "outline_offset": "0",
+            "box_shadow": "0 0 0 3px rgba(183, 91, 83, 0.1)"
+          }
+        },
+        {
+          "name": "Filled",
+          "specs": {
+            "background": "support-50 (#F8F4F2)"
+          }
+        },
+        {
+          "name": "Error",
+          "specs": {
+            "border": "2px solid primary-800 (#4C0707)",
+            "background": "primary-50 (#FCF3F1)",
+            "icon": "error icon right (primary-800)"
+          }
+        },
+        {
+          "name": "Success",
+          "specs": {
+            "border": "2px solid accent-600 (#8D4C00)",
+            "background": "accent-50 (#FBF4EA)",
+            "icon": "checkmark icon right (accent-600)"
+          }
+        },
+        {
+          "name": "Disabled",
+          "specs": {
+            "background": "neutral-100 (#EBE7E6)",
+            "border": "2px solid neutral-200 (#D3CCCA)",
+            "color": "neutral-400 (#958986)",
+            "cursor": "not-allowed"
+          }
+        },
+        {
+          "name": "Read-only",
+          "specs": {
+            "background": "neutral-50 (#F7F4F4)",
+            "border": "1px solid neutral-200",
+            "cursor": "default"
+          }
+        }
+      ],
+
+      "label_specs": {
+        "position": "above input",
+        "margin_bottom": "6px",
+        "font_size": "14px (0.875rem)",
+        "font_weight": "600 (Hartwell Medium)",
+        "color": "neutral-700 (#4A403D)",
+        "required_indicator": "* (primary-700)"
+      },
+
+      "helper_text": {
+        "position": "below input",
+        "margin_top": "6px",
+        "font_size": "13px (0.8125rem)",
+        "color": "neutral-600 (#685A56)",
+        "icon": "optional info icon"
+      },
+
+      "error_message": {
+        "position": "below input",
+        "margin_top": "6px",
+        "font_size": "13px (0.8125rem)",
+        "color": "primary-800 (#4C0707)",
+        "icon": "error icon (16px)",
+        "display": "Show immediately on blur if invalid"
+      },
+
+      "placeholder": {
+        "color": "neutral-400 (#958986)",
+        "font_style": "italic",
+        "example": "nome@empresa.com.br"
+      },
+
+      "accessibility": [
+        "Always pair input with <label> using for/id attributes",
+        "Use aria-describedby for helper text and errors",
+        "aria-invalid='true' for error state",
+        "aria-required='true' for required fields",
+        "Use autocomplete attributes for better UX and accessibility",
+        "Minimum 16px font size to prevent zoom on iOS",
+        "Error messages must be programmatically associated",
+        "Color contrast: 4.5:1 for all text (WCAG AA)"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use clear, specific labels (not placeholders alone)",
+          "rationale": "Labels remain visible when typing - better usability"
+        },
+        {
+          "do": "Show validation on blur, not while typing",
+          "rationale": "Reduces cognitive load, feels less aggressive"
+        },
+        {
+          "do": "Use autocomplete attributes",
+          "rationale": "Faster form completion, better accessibility"
+        },
+        {
+          "do": "Provide specific error messages with solutions",
+          "rationale": "Example: 'Email must include @' vs 'Invalid input'"
+        },
+        {
+          "dont": "Use placeholder as the only label",
+          "rationale": "Disappears on focus, bad for accessibility and memory"
+        },
+        {
+          "dont": "Validate while user is still typing",
+          "rationale": "Feels aggressive, interrupts thought process"
+        },
+        {
+          "dont": "Use red for anything except errors",
+          "rationale": "Creates false urgency, confuses meaning"
+        },
+        {
+          "dont": "Make inputs shorter than 40 characters wide",
+          "rationale": "Users can't review what they typed - causes errors"
+        }
+      ]
+    },
+
+    "textarea": {
+      "description": "Multi-line text input for longer content like messages, descriptions, feedback.",
+      "usage": "Use when user needs to enter 2+ sentences. Avoid for single-line data.",
+
+      "specs": {
+        "min_height": "96px (6 × 16px grid)",
+        "padding": "12px 16px",
+        "border": "2px solid neutral-300 (#AEA6A3)",
+        "border_radius": "6px",
+        "background": "white",
+        "font_size": "16px",
+        "font_family": "Hartwell Regular",
+        "color": "neutral-800 (#2B2523)",
+        "resize": "vertical",
+        "line_height": "1.5"
+      },
+
+      "states": [
+        {
+          "name": "Default",
+          "specs": "As above"
+        },
+        {
+          "name": "Hover",
+          "border": "2px solid neutral-400"
+        },
+        {
+          "name": "Focus",
+          "border": "2px solid primary-600",
+          "box_shadow": "0 0 0 3px rgba(183, 91, 83, 0.1)"
+        },
+        {
+          "name": "Error",
+          "border": "2px solid primary-800",
+          "background": "primary-50"
+        },
+        {
+          "name": "Disabled",
+          "background": "neutral-100",
+          "color": "neutral-400",
+          "cursor": "not-allowed"
+        }
+      ],
+
+      "character_count": {
+        "position": "bottom-right corner",
+        "font_size": "13px",
+        "color": "neutral-500",
+        "format": "150/500 caracteres",
+        "warning_threshold": "90% (color: accent-700)",
+        "error_threshold": "100% (color: primary-800)"
+      },
+
+      "accessibility": [
+        "Use <label> with for/id attributes",
+        "aria-describedby for character count and helper text",
+        "Minimum height: 96px (WCAG 2.5.5)",
+        "Allow vertical resize only (prevent layout breaks)",
+        "Auto-grow option: expand as user types (max-height: 400px)"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Show character count for limited fields",
+          "rationale": "Helps users self-correct before submission"
+        },
+        {
+          "do": "Set appropriate min-height based on expected content",
+          "rationale": "200px for feedback, 96px for short descriptions"
+        },
+        {
+          "do": "Allow vertical resize",
+          "rationale": "Users can adjust to their comfort level"
+        },
+        {
+          "dont": "Allow horizontal resize",
+          "rationale": "Breaks responsive layouts"
+        },
+        {
+          "dont": "Use for single-line input",
+          "rationale": "Regular input field is more appropriate"
+        },
+        {
+          "dont": "Set max-height below 300px if resizable",
+          "rationale": "Defeats purpose of resize functionality"
+        }
+      ]
+    },
+
+    "select": {
+      "description": "Dropdown menu for selecting one option from a list of choices.",
+      "usage": "Use for 5-15 options. For <5 options use radio buttons, for >15 use autocomplete.",
+
+      "specs": {
+        "height": "48px",
+        "padding": "12px 40px 12px 16px (room for icon)",
+        "border": "2px solid neutral-300",
+        "border_radius": "6px",
+        "background": "white",
+        "font_size": "16px",
+        "font_family": "Hartwell Regular",
+        "color": "neutral-800",
+        "icon": "chevron-down 20px (neutral-600)",
+        "icon_position": "right 12px center"
+      },
+
+      "states": [
+        {
+          "name": "Default",
+          "specs": "As above"
+        },
+        {
+          "name": "Hover",
+          "border": "2px solid neutral-400",
+          "cursor": "pointer"
+        },
+        {
+          "name": "Focus",
+          "border": "2px solid primary-600",
+          "box_shadow": "0 0 0 3px rgba(183, 91, 83, 0.1)"
+        },
+        {
+          "name": "Open",
+          "border": "2px solid primary-600",
+          "icon": "chevron-up (rotated 180deg)",
+          "dropdown_shadow": "0 4px 16px rgba(43, 37, 35, 0.15)"
+        },
+        {
+          "name": "Disabled",
+          "background": "neutral-100",
+          "color": "neutral-400",
+          "cursor": "not-allowed"
+        }
+      ],
+
+      "dropdown_menu": {
+        "background": "white",
+        "border": "2px solid primary-600",
+        "border_radius": "6px",
+        "box_shadow": "0 4px 16px rgba(43, 37, 35, 0.15)",
+        "max_height": "280px (7 options × 40px)",
+        "overflow": "auto",
+        "z_index": "1000"
+      },
+
+      "option_specs": {
+        "height": "40px",
+        "padding": "10px 16px",
+        "font_size": "16px",
+        "color": "neutral-800",
+        "hover_background": "primary-50",
+        "selected_background": "primary-100",
+        "selected_indicator": "checkmark icon (primary-700)"
+      },
+
+      "accessibility": [
+        "Use semantic <select> or ARIA-compliant custom select",
+        "aria-expanded state for custom dropdowns",
+        "Arrow keys for navigation",
+        "Type-ahead search (type 'A' jumps to first 'A' option)",
+        "aria-activedescendant for highlighted option",
+        "Minimum option height: 40px for touch targets"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use for 5-15 options",
+          "rationale": "Optimal range for dropdown pattern"
+        },
+        {
+          "do": "Sort options logically (alphabetical or by frequency)",
+          "rationale": "Reduces search time"
+        },
+        {
+          "do": "Include a default 'Selecione...' option",
+          "rationale": "Makes selection explicit, prevents accidental submission"
+        },
+        {
+          "dont": "Use for <5 options",
+          "rationale": "Radio buttons show all options at once - better UX"
+        },
+        {
+          "dont": "Use for >15 options",
+          "rationale": "Autocomplete/search is more efficient"
+        },
+        {
+          "dont": "Auto-select first option",
+          "rationale": "Users may not notice, causes form errors"
+        }
+      ]
+    },
+
+    "checkbox": {
+      "description": "Toggle control for binary choices or multiple selections from a list.",
+      "usage": "Use for opt-ins, multi-select lists, or enabling/disabling features.",
+
+      "specs": {
+        "size": "20px × 20px",
+        "border": "2px solid neutral-400 (#958986)",
+        "border_radius": "4px",
+        "background": "white",
+        "checkmark_color": "support-50 (#F8F4F2)",
+        "checkmark_size": "14px",
+        "touch_target": "44px × 44px (padding around)"
+      },
+
+      "label_specs": {
+        "position": "right of checkbox",
+        "margin_left": "12px",
+        "font_size": "16px",
+        "color": "neutral-800",
+        "cursor": "pointer",
+        "vertical_align": "center"
+      },
+
+      "states": [
+        {
+          "name": "Unchecked",
+          "background": "white",
+          "border": "2px solid neutral-400"
+        },
+        {
+          "name": "Checked",
+          "background": "primary-700 (#75201C)",
+          "border": "2px solid primary-700",
+          "checkmark": "visible (support-50)"
+        },
+        {
+          "name": "Indeterminate",
+          "background": "primary-700",
+          "border": "2px solid primary-700",
+          "icon": "horizontal line (support-50)",
+          "use_case": "Parent checkbox when some children selected"
+        },
+        {
+          "name": "Hover (unchecked)",
+          "border": "2px solid neutral-600",
+          "cursor": "pointer"
+        },
+        {
+          "name": "Hover (checked)",
+          "background": "primary-600",
+          "border": "2px solid primary-600"
+        },
+        {
+          "name": "Focus",
+          "outline": "3px solid primary-200",
+          "outline_offset": "2px"
+        },
+        {
+          "name": "Disabled (unchecked)",
+          "background": "neutral-100",
+          "border": "2px solid neutral-300",
+          "cursor": "not-allowed"
+        },
+        {
+          "name": "Disabled (checked)",
+          "background": "neutral-400",
+          "border": "2px solid neutral-400",
+          "checkmark": "neutral-100",
+          "cursor": "not-allowed"
+        }
+      ],
+
+      "accessibility": [
+        "Use semantic <input type='checkbox'>",
+        "Associate label with for/id attributes",
+        "aria-checked state for custom checkboxes",
+        "Minimum touch target: 44×44px (WCAG 2.5.5 AAA)",
+        "Group related checkboxes in <fieldset> with <legend>",
+        "aria-describedby for group helper text",
+        "Space key to toggle checkbox when focused"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use for multiple independent choices",
+          "rationale": "Each checkbox operates independently"
+        },
+        {
+          "do": "Make the entire label clickable",
+          "rationale": "Larger target = easier interaction"
+        },
+        {
+          "do": "Use positive language (Receive updates, not Don't send updates)",
+          "rationale": "Checked state should mean yes/enabled"
+        },
+        {
+          "do": "Stack checkboxes vertically for 3+ options",
+          "rationale": "Easier to scan and select"
+        },
+        {
+          "dont": "Use for mutually exclusive choices",
+          "rationale": "Use radio buttons instead"
+        },
+        {
+          "dont": "Use checkbox for on/off toggles",
+          "rationale": "Toggle switch is clearer for state changes"
+        },
+        {
+          "dont": "Use negative language",
+          "rationale": "Creates confusion (unchecked = don't not send?)"
+        }
+      ]
+    },
+
+    "radio": {
+      "description": "Mutually exclusive selection from a group of options. Only one can be selected at a time.",
+      "usage": "Use for 2-5 mutually exclusive choices. For more options, use select dropdown.",
+
+      "specs": {
+        "size": "20px × 20px",
+        "border": "2px solid neutral-400",
+        "border_radius": "50% (circle)",
+        "background": "white",
+        "dot_size": "10px",
+        "dot_color": "support-50",
+        "touch_target": "44px × 44px"
+      },
+
+      "states": [
+        {
+          "name": "Unselected",
+          "background": "white",
+          "border": "2px solid neutral-400"
+        },
+        {
+          "name": "Selected",
+          "background": "primary-700 (#75201C)",
+          "border": "2px solid primary-700",
+          "dot": "visible, centered"
+        },
+        {
+          "name": "Hover (unselected)",
+          "border": "2px solid neutral-600"
+        },
+        {
+          "name": "Hover (selected)",
+          "background": "primary-600",
+          "border": "2px solid primary-600"
+        },
+        {
+          "name": "Focus",
+          "outline": "3px solid primary-200",
+          "outline_offset": "2px"
+        },
+        {
+          "name": "Disabled (unselected)",
+          "background": "neutral-100",
+          "border": "2px solid neutral-300",
+          "cursor": "not-allowed"
+        },
+        {
+          "name": "Disabled (selected)",
+          "background": "neutral-400",
+          "border": "2px solid neutral-400",
+          "dot": "neutral-100"
+        }
+      ],
+
+      "group_layout": {
+        "direction": "vertical (default for 2+ options)",
+        "spacing": "16px between options",
+        "horizontal_option": "Use for 2 short options (Sim/Não)",
+        "horizontal_spacing": "32px between options"
+      },
+
+      "accessibility": [
+        "Use semantic <input type='radio'> with same name attribute",
+        "Wrap group in <fieldset> with <legend>",
+        "Only one radio in group can be selected",
+        "Arrow keys navigate between radios in group",
+        "Space key selects focused radio",
+        "One radio should be selected by default or none",
+        "Minimum touch target: 44×44px"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use for mutually exclusive choices",
+          "rationale": "Radio buttons communicate exclusivity"
+        },
+        {
+          "do": "Pre-select the most common or recommended option",
+          "rationale": "Reduces decision time, shows best practice"
+        },
+        {
+          "do": "Keep options to 2-5 choices",
+          "rationale": "Beyond 5, dropdown is more scannable"
+        },
+        {
+          "do": "Stack vertically for easier scanning",
+          "rationale": "Vertical = faster to scan and compare"
+        },
+        {
+          "dont": "Use for multiple selections",
+          "rationale": "Use checkboxes instead"
+        },
+        {
+          "dont": "Use for on/off binary choice",
+          "rationale": "Single checkbox or toggle is clearer"
+        },
+        {
+          "dont": "Have more than 7 radio options",
+          "rationale": "Overwhelming - use select dropdown"
+        },
+        {
+          "dont": "Allow deselection of all radios after selection",
+          "rationale": "Breaks expected behavior - confuses users"
+        }
+      ]
+    },
+
+    "toggle": {
+      "description": "On/off switch for binary state changes. Visually communicates immediate state.",
+      "usage": "Use for settings, feature toggles, preferences that take effect immediately.",
+
+      "specs": {
+        "width": "48px",
+        "height": "24px",
+        "border_radius": "12px (pill shape)",
+        "toggle_circle": "20px diameter",
+        "circle_padding": "2px",
+        "transition": "all 200ms ease-out"
+      },
+
+      "states": [
+        {
+          "name": "Off",
+          "background": "neutral-300 (#AEA6A3)",
+          "circle_background": "white",
+          "circle_position": "left (2px from edge)",
+          "box_shadow": "0 1px 3px rgba(0, 0, 0, 0.2)"
+        },
+        {
+          "name": "On",
+          "background": "accent-600 (#8D4C00)",
+          "circle_background": "white",
+          "circle_position": "right (2px from edge)",
+          "box_shadow": "0 1px 3px rgba(0, 0, 0, 0.2)"
+        },
+        {
+          "name": "Hover (off)",
+          "background": "neutral-400"
+        },
+        {
+          "name": "Hover (on)",
+          "background": "accent-500"
+        },
+        {
+          "name": "Focus",
+          "outline": "3px solid accent-200",
+          "outline_offset": "2px"
+        },
+        {
+          "name": "Disabled (off)",
+          "background": "neutral-200",
+          "circle_background": "neutral-100",
+          "opacity": "0.5",
+          "cursor": "not-allowed"
+        },
+        {
+          "name": "Disabled (on)",
+          "background": "neutral-400",
+          "circle_background": "neutral-100",
+          "opacity": "0.5",
+          "cursor": "not-allowed"
+        }
+      ],
+
+      "label_specs": {
+        "position": "right of toggle",
+        "margin_left": "12px",
+        "font_size": "16px",
+        "color": "neutral-800"
+      },
+
+      "accessibility": [
+        "Use <input type='checkbox' role='switch'>",
+        "aria-checked='true/false' for screen readers",
+        "aria-label or associated label via for/id",
+        "Space or Enter to toggle",
+        "Minimum touch target: 44×44px (add padding)",
+        "Visual state must be clear without color alone"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use for immediate state changes",
+          "rationale": "Toggle communicates instant effect"
+        },
+        {
+          "do": "Provide clear labels for both states",
+          "rationale": "Example: 'Notificações ativadas' vs just 'Notificações'"
+        },
+        {
+          "do": "Use success color (accent) for on state",
+          "rationale": "Green = enabled, positive action"
+        },
+        {
+          "do": "Show feedback when state changes",
+          "rationale": "Toast or status message confirms action"
+        },
+        {
+          "dont": "Use for actions that require confirmation",
+          "rationale": "Use checkbox + save button instead"
+        },
+        {
+          "dont": "Use if change takes time to process",
+          "rationale": "Loading state isn't clear in toggle"
+        },
+        {
+          "dont": "Use red for off state",
+          "rationale": "Off ≠ error. Use neutral colors"
+        },
+        {
+          "dont": "Require save button after toggle",
+          "rationale": "Toggle implies immediate action"
+        }
+      ]
+    },
+
+    "card": {
+      "description": "Container for grouping related content and actions. Foundation of content organization.",
+      "usage": "Use for blog posts, products, features, team members, case studies.",
+
+      "variants": [
+        {
+          "name": "Basic",
+          "specs": {
+            "background": "white",
+            "border": "1px solid neutral-200 (#D3CCCA)",
+            "border_radius": "8px",
+            "padding": "24px",
+            "box_shadow": "0 1px 3px rgba(43, 37, 35, 0.08)"
+          }
+        },
+        {
+          "name": "Elevated",
+          "specs": {
+            "background": "white",
+            "border": "none",
+            "border_radius": "12px",
+            "padding": "24px",
+            "box_shadow": "0 4px 12px rgba(43, 37, 35, 0.12)"
+          }
+        },
+        {
+          "name": "Interactive",
+          "specs": {
+            "background": "white",
+            "border": "2px solid neutral-200",
+            "border_radius": "8px",
+            "padding": "24px",
+            "cursor": "pointer",
+            "transition": "all 200ms ease-out"
+          }
+        },
+        {
+          "name": "Tinted",
+          "specs": {
+            "background": "support-50 (#F8F4F2)",
+            "border": "1px solid support-200",
+            "border_radius": "8px",
+            "padding": "24px"
+          }
+        }
+      ],
+
+      "states": [
+        {
+          "name": "Default",
+          "specs": "As defined in variants"
+        },
+        {
+          "name": "Hover (interactive only)",
+          "specs": {
+            "border": "2px solid primary-600",
+            "box_shadow": "0 6px 16px rgba(43, 37, 35, 0.15)",
+            "transform": "translateY(-2px)"
+          }
+        },
+        {
+          "name": "Active/Pressed",
+          "specs": {
+            "transform": "translateY(0)",
+            "box_shadow": "0 2px 8px rgba(43, 37, 35, 0.1)"
+          }
+        },
+        {
+          "name": "Focus (interactive)",
+          "outline": "3px solid primary-200",
+          "outline_offset": "2px"
+        },
+        {
+          "name": "Selected",
+          "border": "2px solid accent-600",
+          "background": "accent-50"
+        }
+      ],
+
+      "content_structure": {
+        "header": {
+          "position": "top",
+          "margin_bottom": "16px",
+          "title_size": "20px (1.25rem)",
+          "title_weight": "700 (Hartwell Bold)",
+          "title_color": "neutral-800"
+        },
+        "body": {
+          "font_size": "16px",
+          "line_height": "1.6",
+          "color": "neutral-700",
+          "margin_bottom": "16px"
+        },
+        "footer": {
+          "position": "bottom",
+          "margin_top": "auto",
+          "padding_top": "16px",
+          "border_top": "1px solid neutral-200"
+        },
+        "image": {
+          "aspect_ratio": "16:9 or 4:3",
+          "border_radius": "6px (if inside card) or 8px 8px 0 0 (if at top)",
+          "margin_bottom": "16px"
+        }
+      },
+
+      "spacing_guidelines": {
+        "compact": "16px padding for dense layouts",
+        "default": "24px padding for standard content",
+        "comfortable": "32px padding for featured content",
+        "gap_between_cards": "24px (grid layouts)"
+      },
+
+      "accessibility": [
+        "Use semantic HTML: <article> for content, <div> for UI cards",
+        "Interactive cards: tabindex='0' + keyboard enter/space handlers",
+        "aria-label or heading for context",
+        "Focus indicator on interactive cards",
+        "Don't nest interactive elements (buttons inside clickable card)"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use consistent card heights in grid layouts",
+          "rationale": "Creates visual rhythm and order"
+        },
+        {
+          "do": "Limit actions to 1-2 buttons per card",
+          "rationale": "Too many choices = decision paralysis"
+        },
+        {
+          "do": "Use aspect ratio containers for images",
+          "rationale": "Prevents layout shift during load"
+        },
+        {
+          "do": "Make entire card clickable for single-action cards",
+          "rationale": "Larger target = easier interaction"
+        },
+        {
+          "dont": "Make entire card clickable if it has multiple actions",
+          "rationale": "Confusing interaction - where does click go?"
+        },
+        {
+          "dont": "Nest cards inside cards",
+          "rationale": "Creates visual confusion and hierarchy issues"
+        },
+        {
+          "dont": "Use more than 2 box-shadow levels on page",
+          "rationale": "Too much depth flattens the hierarchy"
+        },
+        {
+          "dont": "Exceed 400px width for text-heavy cards",
+          "rationale": "Line length becomes difficult to read"
+        }
+      ]
+    },
+
+    "badge": {
+      "description": "Small label for status, categories, counts, or quick visual classification.",
+      "usage": "Use for statuses, tags, counts, new features, notifications.",
+
+      "variants": [
+        {
+          "name": "Default",
+          "specs": {
+            "padding": "4px 12px",
+            "border_radius": "12px (pill)",
+            "font_size": "13px (0.8125rem)",
+            "font_weight": "600 (Hartwell Medium)",
+            "background": "neutral-200",
+            "color": "neutral-800",
+            "text_transform": "none"
+          }
+        },
+        {
+          "name": "Primary",
+          "background": "primary-100",
+          "color": "primary-800",
+          "border": "1px solid primary-300"
+        },
+        {
+          "name": "Success",
+          "background": "accent-100",
+          "color": "accent-800",
+          "border": "1px solid accent-300"
+        },
+        {
+          "name": "Warning",
+          "background": "accent-50",
+          "color": "accent-700",
+          "border": "1px solid accent-200"
+        },
+        {
+          "name": "Error",
+          "background": "primary-50",
+          "color": "primary-800",
+          "border": "1px solid primary-200"
+        },
+        {
+          "name": "Info",
+          "background": "secondary-100",
+          "color": "secondary-800",
+          "border": "1px solid secondary-300"
+        },
+        {
+          "name": "Solid Primary",
+          "background": "primary-700",
+          "color": "support-50",
+          "border": "none"
+        },
+        {
+          "name": "Solid Success",
+          "background": "accent-600",
+          "color": "support-50"
+        },
+        {
+          "name": "Count",
+          "specs": {
+            "size": "20px × 20px (circle)",
+            "padding": "0",
+            "font_size": "11px",
+            "font_weight": "700",
+            "background": "primary-700",
+            "color": "support-50",
+            "display": "inline-flex",
+            "align_items": "center",
+            "justify_content": "center"
+          }
+        }
+      ],
+
+      "sizes": [
+        {
+          "name": "Small",
+          "padding": "2px 8px",
+          "font_size": "11px",
+          "height": "20px"
+        },
+        {
+          "name": "Medium (default)",
+          "padding": "4px 12px",
+          "font_size": "13px",
+          "height": "24px"
+        },
+        {
+          "name": "Large",
+          "padding": "6px 16px",
+          "font_size": "14px",
+          "height": "32px"
+        }
+      ],
+
+      "states": [
+        {
+          "name": "Default",
+          "specs": "As defined above"
+        },
+        {
+          "name": "Interactive (hover)",
+          "opacity": "0.8",
+          "cursor": "pointer",
+          "note": "Only for clickable/removable badges"
+        },
+        {
+          "name": "With close icon",
+          "padding_right": "8px",
+          "icon_size": "14px",
+          "icon_position": "right",
+          "icon_color": "inherit",
+          "icon_hover": "opacity 0.7"
+        }
+      ],
+
+      "accessibility": [
+        "Use semantic meaning: <span> for static, <button> for interactive",
+        "aria-label for icon-only badges (count badges)",
+        "Sufficient contrast: 4.5:1 minimum",
+        "Don't rely on color alone - use text/icons",
+        "For status badges, include aria-live='polite' if they update"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use for at-a-glance information",
+          "rationale": "Badges should be instantly scannable"
+        },
+        {
+          "do": "Keep text short (1-2 words maximum)",
+          "rationale": "Long text defeats purpose of quick scanning"
+        },
+        {
+          "do": "Use consistent semantic colors",
+          "rationale": "Success = accent, Error = primary-red, etc."
+        },
+        {
+          "do": "Position badges near related content",
+          "rationale": "Clear association = better understanding"
+        },
+        {
+          "dont": "Use for long descriptive text",
+          "rationale": "Use helper text or tooltips instead"
+        },
+        {
+          "dont": "Use more than 3 badge colors per page",
+          "rationale": "Too many colors = visual noise"
+        },
+        {
+          "dont": "Make badges the primary CTA",
+          "rationale": "Badges are informational, not action-focused"
+        },
+        {
+          "dont": "Use all caps",
+          "rationale": "Harder to read, feels aggressive"
+        }
+      ]
+    },
+
+    "alert": {
+      "description": "Prominent messages for important information, success confirmations, warnings, or errors.",
+      "usage": "Use for system messages, validation feedback, important announcements.",
+
+      "variants": [
+        {
+          "name": "Success",
+          "purpose": "Confirm successful actions",
+          "specs": {
+            "background": "accent-50 (#FBF4EA)",
+            "border": "1px solid accent-600",
+            "border_left": "4px solid accent-600",
+            "color": "accent-800",
+            "icon": "checkmark-circle (accent-600)"
+          }
+        },
+        {
+          "name": "Error",
+          "purpose": "Critical errors requiring attention",
+          "specs": {
+            "background": "primary-50 (#FCF3F1)",
+            "border": "1px solid primary-700",
+            "border_left": "4px solid primary-700",
+            "color": "primary-800",
+            "icon": "alert-circle (primary-700)"
+          }
+        },
+        {
+          "name": "Warning",
+          "purpose": "Cautions or important notices",
+          "specs": {
+            "background": "accent-50",
+            "border": "1px solid accent-700",
+            "border_left": "4px solid accent-700",
+            "color": "accent-800",
+            "icon": "alert-triangle (accent-700)"
+          }
+        },
+        {
+          "name": "Info",
+          "purpose": "Helpful information or tips",
+          "specs": {
+            "background": "secondary-50 (#FBF3F0)",
+            "border": "1px solid secondary-600",
+            "border_left": "4px solid secondary-600",
+            "color": "secondary-800",
+            "icon": "info-circle (secondary-600)"
+          }
+        }
+      ],
+
+      "specs": {
+        "padding": "16px",
+        "border_radius": "6px",
+        "display": "flex",
+        "align_items": "flex-start",
+        "gap": "12px",
+        "margin_bottom": "16px"
+      },
+
+      "content_structure": {
+        "icon": {
+          "size": "20px",
+          "flex_shrink": "0",
+          "margin_top": "2px (align with text)"
+        },
+        "content": {
+          "flex": "1"
+        },
+        "title": {
+          "font_size": "16px",
+          "font_weight": "700 (Hartwell Bold)",
+          "margin_bottom": "4px",
+          "color": "inherit"
+        },
+        "message": {
+          "font_size": "14px",
+          "line_height": "1.5",
+          "color": "inherit"
+        },
+        "actions": {
+          "margin_top": "12px",
+          "display": "flex",
+          "gap": "12px"
+        },
+        "close_button": {
+          "size": "20px",
+          "flex_shrink": "0",
+          "color": "inherit",
+          "opacity": "0.7",
+          "hover_opacity": "1"
+        }
+      },
+
+      "states": [
+        {
+          "name": "Default",
+          "specs": "As defined above"
+        },
+        {
+          "name": "Dismissible",
+          "has_close_button": true,
+          "padding_right": "40px (room for close button)"
+        }
+      ],
+
+      "accessibility": [
+        "Use role='alert' for important/urgent messages",
+        "Use aria-live='polite' for non-urgent updates",
+        "aria-live='assertive' only for critical errors",
+        "Close button: aria-label='Fechar alerta'",
+        "Icon is decorative: aria-hidden='true'",
+        "Focus close button when alert appears (if dismissible)",
+        "Color contrast: 4.5:1 minimum for text"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Keep messages concise and actionable",
+          "rationale": "Users scan alerts quickly - be direct"
+        },
+        {
+          "do": "Include specific actions or next steps",
+          "rationale": "Example: 'Email enviado. Verifique sua caixa de entrada.'"
+        },
+        {
+          "do": "Auto-dismiss success alerts after 5-7 seconds",
+          "rationale": "Reduces clutter, confirms action without lingering"
+        },
+        {
+          "do": "Keep errors visible until user dismisses",
+          "rationale": "User may need to reference while fixing"
+        },
+        {
+          "dont": "Use for every minor interaction",
+          "rationale": "Alert fatigue reduces effectiveness"
+        },
+        {
+          "dont": "Stack more than 3 alerts at once",
+          "rationale": "Overwhelming - queue or prioritize instead"
+        },
+        {
+          "dont": "Auto-dismiss error or warning alerts",
+          "rationale": "User may miss critical information"
+        },
+        {
+          "dont": "Use technical jargon in error messages",
+          "rationale": "Brand voice: friendly and accessible, not technical"
+        }
+      ]
+    },
+
+    "modal": {
+      "description": "Overlay dialog that focuses user attention on a specific task or decision.",
+      "usage": "Use for confirmations, forms, detailed views. Should be purposeful and concise.",
+
+      "specs": {
+        "max_width": "600px (forms/content) or 800px (media)",
+        "background": "white",
+        "border_radius": "12px",
+        "box_shadow": "0 20px 60px rgba(43, 37, 35, 0.3)",
+        "padding": "32px",
+        "z_index": "1000"
+      },
+
+      "overlay": {
+        "background": "rgba(43, 37, 35, 0.6)",
+        "backdrop_filter": "blur(4px)",
+        "z_index": "999"
+      },
+
+      "structure": {
+        "header": {
+          "padding_bottom": "16px",
+          "border_bottom": "1px solid neutral-200",
+          "margin_bottom": "24px",
+          "title_size": "24px (1.5rem)",
+          "title_weight": "700 (Hartwell Bold)",
+          "title_color": "neutral-800"
+        },
+        "close_button": {
+          "position": "absolute top-right",
+          "top": "24px",
+          "right": "24px",
+          "size": "32px",
+          "icon": "X (20px)",
+          "color": "neutral-600",
+          "hover_background": "neutral-100",
+          "border_radius": "6px"
+        },
+        "body": {
+          "max_height": "60vh",
+          "overflow_y": "auto",
+          "padding_right": "8px (scrollbar space)",
+          "margin_bottom": "24px"
+        },
+        "footer": {
+          "padding_top": "16px",
+          "border_top": "1px solid neutral-200",
+          "display": "flex",
+          "justify_content": "flex-end",
+          "gap": "12px"
+        }
+      },
+
+      "variants": [
+        {
+          "name": "Confirmation",
+          "purpose": "Confirm destructive or important actions",
+          "max_width": "480px",
+          "icon": "warning-triangle (accent-700)",
+          "primary_action": "destructive color (primary-800)"
+        },
+        {
+          "name": "Form",
+          "purpose": "Collect user input",
+          "max_width": "600px",
+          "footer": "Cancel (secondary) + Submit (primary)"
+        },
+        {
+          "name": "Content",
+          "purpose": "Display detailed information",
+          "max_width": "800px",
+          "footer": "optional (Close button in header may suffice)"
+        },
+        {
+          "name": "Full-screen Mobile",
+          "purpose": "Better mobile UX for complex modals",
+          "mobile_breakpoint": "<768px",
+          "specs": {
+            "width": "100vw",
+            "height": "100vh",
+            "border_radius": "0",
+            "max_width": "none"
+          }
+        }
+      ],
+
+      "states": [
+        {
+          "name": "Entering",
+          "animation": "fade-in overlay 200ms, scale-up modal 250ms ease-out",
+          "initial": "opacity 0, scale 0.95"
+        },
+        {
+          "name": "Open",
+          "body_scroll": "locked (overflow: hidden on body)",
+          "focus_trap": "enabled (tab cycles within modal)"
+        },
+        {
+          "name": "Exiting",
+          "animation": "fade-out 200ms, scale-down 200ms ease-in",
+          "final": "opacity 0, scale 0.95"
+        }
+      ],
+
+      "accessibility": [
+        "Use role='dialog' or role='alertdialog' for urgent modals",
+        "aria-modal='true'",
+        "aria-labelledby pointing to modal title",
+        "Focus first interactive element on open",
+        "Trap focus within modal (tab cycles)",
+        "ESC key closes modal",
+        "Clicking overlay closes modal (optional based on context)",
+        "Return focus to trigger element on close",
+        "Prevent body scroll when modal is open"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use for focused tasks that require completion",
+          "rationale": "Modals interrupt flow - make it worthwhile"
+        },
+        {
+          "do": "Provide clear way to close (X button + ESC + overlay click)",
+          "rationale": "Users should never feel trapped"
+        },
+        {
+          "do": "Limit to 1 modal at a time",
+          "rationale": "Stacking modals is confusing"
+        },
+        {
+          "do": "Keep content under 60vh height",
+          "rationale": "Prevents excessive scrolling within modal"
+        },
+        {
+          "dont": "Use for every interaction",
+          "rationale": "Overuse creates frustration - consider inline alternatives"
+        },
+        {
+          "dont": "Auto-open modals on page load",
+          "rationale": "Feels aggressive, blocks content, hurts SEO"
+        },
+        {
+          "dont": "Disable overlay click-to-close without good reason",
+          "rationale": "Users expect this behavior"
+        },
+        {
+          "dont": "Put critical navigation in modals",
+          "rationale": "Modals should be dismissible, not essential"
+        }
+      ]
+    },
+
+    "link": {
+      "description": "Text-based navigation element. Foundation of web navigation and content relationships.",
+      "usage": "Use for navigation, inline text links, and external resources.",
+
+      "variants": [
+        {
+          "name": "Inline",
+          "purpose": "Links within body text",
+          "specs": {
+            "color": "primary-600 (#993A33)",
+            "text_decoration": "underline",
+            "font_weight": "inherit",
+            "cursor": "pointer"
+          }
+        },
+        {
+          "name": "Standalone",
+          "purpose": "Links as independent elements",
+          "specs": {
+            "color": "primary-600",
+            "text_decoration": "none",
+            "font_weight": "600 (Hartwell Medium)",
+            "display": "inline-flex",
+            "align_items": "center",
+            "gap": "6px (if with icon)"
+          }
+        },
+        {
+          "name": "Navigation",
+          "purpose": "Menu and navigation links",
+          "specs": {
+            "color": "neutral-700 (#4A403D)",
+            "text_decoration": "none",
+            "font_weight": "500 (Hartwell Regular)",
+            "padding": "8px 16px"
+          }
+        },
+        {
+          "name": "External",
+          "icon": "external-link or arrow-up-right",
+          "icon_size": "16px",
+          "icon_position": "after text",
+          "aria_label": "abre em nova aba"
+        }
+      ],
+
+      "states": [
+        {
+          "name": "Default",
+          "specs": "As defined in variants"
+        },
+        {
+          "name": "Hover",
+          "inline": {
+            "color": "primary-700 (#75201C)",
+            "text_decoration": "underline"
+          },
+          "standalone": {
+            "color": "primary-700",
+            "text_decoration": "underline"
+          },
+          "navigation": {
+            "color": "primary-600",
+            "background": "primary-50"
+          }
+        },
+        {
+          "name": "Active/Pressed",
+          "color": "primary-800"
+        },
+        {
+          "name": "Focus",
+          "outline": "3px solid primary-200",
+          "outline_offset": "2px",
+          "border_radius": "2px"
+        },
+        {
+          "name": "Visited",
+          "color": "secondary-700 (#742400)",
+          "note": "Use sparingly - may confuse navigation"
+        },
+        {
+          "name": "Current (navigation)",
+          "color": "primary-700",
+          "font_weight": "700 (Hartwell Bold)",
+          "border_bottom": "2px solid primary-700",
+          "aria_current": "page"
+        }
+      ],
+
+      "accessibility": [
+        "Use semantic <a> element with href attribute",
+        "Underline links in body text (WCAG 1.4.1)",
+        "Minimum color contrast: 4.5:1 against background",
+        "Link text must be descriptive (not 'click here')",
+        "External links: target='_blank' rel='noopener noreferrer'",
+        "External links: include aria-label or visible indicator",
+        "Focus indicator: clearly visible 3px outline",
+        "Skip links for keyboard navigation to main content"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Underline links in body text",
+          "rationale": "WCAG requirement - don't rely on color alone"
+        },
+        {
+          "do": "Use descriptive link text",
+          "rationale": "'Baixar guia de vendas' vs 'Clique aqui'"
+        },
+        {
+          "do": "Indicate external links visually",
+          "rationale": "Users should know they're leaving the site"
+        },
+        {
+          "do": "Keep link text concise (2-5 words)",
+          "rationale": "Easier to scan and tap on mobile"
+        },
+        {
+          "dont": "Use 'click here' or 'read more' alone",
+          "rationale": "Not descriptive for screen readers or scanning"
+        },
+        {
+          "dont": "Open external links in same tab without warning",
+          "rationale": "Breaks back button, confuses navigation"
+        },
+        {
+          "dont": "Make long sentences into links",
+          "rationale": "Hard to distinguish link from regular text"
+        },
+        {
+          "dont": "Use links for actions (submit, delete)",
+          "rationale": "Use buttons instead - links are for navigation"
+        }
+      ]
+    },
+
+    "navigation": {
+      "description": "Primary site navigation for moving between major sections and pages.",
+      "usage": "Use for main menu, mobile menu, footer navigation.",
+
+      "variants": [
+        {
+          "name": "Horizontal Desktop",
+          "specs": {
+            "background": "white or support-50",
+            "height": "64px",
+            "padding": "0 24px",
+            "display": "flex",
+            "align_items": "center",
+            "justify_content": "space-between",
+            "border_bottom": "1px solid neutral-200",
+            "position": "sticky",
+            "top": "0",
+            "z_index": "100"
+          }
+        },
+        {
+          "name": "Mobile Hamburger",
+          "trigger_size": "48px",
+          "trigger_icon": "menu (24px)",
+          "menu_width": "280px",
+          "menu_background": "white",
+          "menu_shadow": "0 0 20px rgba(43, 37, 35, 0.2)",
+          "slide_in": "from right, 250ms ease-out"
+        }
+      ],
+
+      "logo": {
+        "height": "40px",
+        "margin_right": "auto",
+        "alt_text": "Oitavo Café - Desperte conexões"
+      },
+
+      "menu_items": {
+        "desktop": {
+          "display": "flex",
+          "gap": "8px",
+          "font_size": "16px",
+          "font_weight": "500 (Hartwell Regular)"
+        },
+        "mobile": {
+          "display": "flex flex-column",
+          "padding": "16px",
+          "font_size": "18px"
+        },
+        "item_specs": {
+          "padding": "8px 16px",
+          "border_radius": "6px",
+          "color": "neutral-700",
+          "hover_background": "primary-50",
+          "hover_color": "primary-600",
+          "active_color": "primary-700",
+          "active_font_weight": "700"
+        }
+      },
+
+      "cta_button": {
+        "position": "right side (desktop) or top (mobile)",
+        "variant": "primary button",
+        "desktop_margin_left": "24px",
+        "mobile_margin_bottom": "16px"
+      },
+
+      "states": [
+        {
+          "name": "Default",
+          "specs": "As above"
+        },
+        {
+          "name": "Scrolled",
+          "box_shadow": "0 2px 8px rgba(43, 37, 35, 0.1)",
+          "note": "Add shadow when user scrolls down"
+        },
+        {
+          "name": "Mobile Menu Open",
+          "overlay": "rgba(43, 37, 35, 0.5)",
+          "body_scroll": "locked",
+          "menu_transform": "translateX(0)"
+        },
+        {
+          "name": "Mobile Menu Closed",
+          "menu_transform": "translateX(100%)"
+        }
+      ],
+
+      "accessibility": [
+        "Use semantic <nav> element",
+        "aria-label='Main navigation'",
+        "Use <ul><li> structure for menu items",
+        "Hamburger button: aria-label='Open menu' / 'Close menu'",
+        "aria-expanded on hamburger button",
+        "Focus visible on all interactive elements",
+        "Skip to main content link (visually hidden, focus visible)",
+        "Keyboard navigation: Tab, Enter, Arrow keys"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Limit main navigation to 5-7 items",
+          "rationale": "Too many choices = decision paralysis"
+        },
+        {
+          "do": "Make navigation sticky on scroll",
+          "rationale": "Always accessible for quick navigation"
+        },
+        {
+          "do": "Use clear, concise labels",
+          "rationale": "Soluções, Sobre, Contato (not vague terms)"
+        },
+        {
+          "do": "Highlight current page in navigation",
+          "rationale": "Helps user orient themselves"
+        },
+        {
+          "dont": "Use mega-menus for simple sites",
+          "rationale": "Over-engineered for 5-7 main sections"
+        },
+        {
+          "dont": "Hide navigation on scroll down",
+          "rationale": "Frustrating pattern - navigation should be accessible"
+        },
+        {
+          "dont": "Use hamburger menu on desktop",
+          "rationale": "Hides navigation unnecessarily - use full menu"
+        },
+        {
+          "dont": "Auto-expand dropdown menus",
+          "rationale": "Accidental hovers create frustration"
+        }
+      ]
+    },
+
+    "breadcrumbs": {
+      "description": "Secondary navigation showing user's location in site hierarchy.",
+      "usage": "Use for multi-level sites with clear hierarchy (3+ levels deep).",
+
+      "specs": {
+        "font_size": "14px (0.875rem)",
+        "color": "neutral-600 (#685A56)",
+        "display": "flex",
+        "align_items": "center",
+        "gap": "8px",
+        "margin_bottom": "24px",
+        "padding": "12px 0"
+      },
+
+      "separator": {
+        "icon": "chevron-right",
+        "size": "14px",
+        "color": "neutral-400",
+        "margin": "0 8px"
+      },
+
+      "item_specs": {
+        "link": {
+          "color": "neutral-600",
+          "text_decoration": "none",
+          "hover_color": "primary-600",
+          "hover_decoration": "underline"
+        },
+        "current": {
+          "color": "neutral-800",
+          "font_weight": "600 (Hartwell Medium)",
+          "pointer_events": "none"
+        }
+      },
+
+      "states": [
+        {
+          "name": "Default",
+          "specs": "As above"
+        },
+        {
+          "name": "Mobile (<640px)",
+          "display": "Show only parent + current",
+          "format": "< Parent / Current",
+          "first_item": "Back arrow instead of Home"
+        }
+      ],
+
+      "accessibility": [
+        "Use <nav aria-label='Breadcrumb'>",
+        "Use <ol> for semantic ordering",
+        "Current page: aria-current='page'",
+        "Don't link current page",
+        "Separators: aria-hidden='true' (decorative)"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Show full path on desktop",
+          "rationale": "Helps users understand where they are"
+        },
+        {
+          "do": "Collapse to parent + current on mobile",
+          "rationale": "Saves space, still provides context"
+        },
+        {
+          "do": "Use for sites 3+ levels deep",
+          "rationale": "Breadcrumbs add value with hierarchy"
+        },
+        {
+          "dont": "Use for flat site structures",
+          "rationale": "Unnecessary - main nav is sufficient"
+        },
+        {
+          "dont": "Link the current page",
+          "rationale": "Confusing and redundant"
+        },
+        {
+          "dont": "Include every level if >5 levels",
+          "rationale": "Truncate middle: Home / ... / Parent / Current"
+        }
+      ]
+    },
+
+    "pagination": {
+      "description": "Navigation for multi-page content sets like blog posts, search results, tables.",
+      "usage": "Use for >25 items. For <25, consider showing all or infinite scroll.",
+
+      "specs": {
+        "display": "flex",
+        "align_items": "center",
+        "justify_content": "center",
+        "gap": "8px",
+        "margin_top": "40px",
+        "font_size": "16px"
+      },
+
+      "button_specs": {
+        "size": "40px × 40px",
+        "border": "2px solid neutral-300",
+        "border_radius": "6px",
+        "background": "white",
+        "color": "neutral-700",
+        "font_weight": "600",
+        "cursor": "pointer"
+      },
+
+      "states": [
+        {
+          "name": "Default",
+          "specs": "As above"
+        },
+        {
+          "name": "Hover",
+          "border": "2px solid primary-600",
+          "color": "primary-600",
+          "background": "primary-50"
+        },
+        {
+          "name": "Active/Current",
+          "background": "primary-700",
+          "color": "support-50",
+          "border": "2px solid primary-700",
+          "cursor": "default",
+          "aria_current": "page"
+        },
+        {
+          "name": "Disabled",
+          "background": "neutral-100",
+          "color": "neutral-400",
+          "border": "2px solid neutral-200",
+          "cursor": "not-allowed",
+          "opacity": "0.5"
+        }
+      ],
+
+      "structure": {
+        "prev_button": {
+          "text": "Anterior",
+          "icon": "chevron-left",
+          "disabled_when": "on page 1"
+        },
+        "page_numbers": {
+          "show_pattern": "1 ... 4 5 [6] 7 8 ... 20",
+          "always_show": "first, last, current, ±2 from current",
+          "ellipsis": "... (not clickable)"
+        },
+        "next_button": {
+          "text": "Próxima",
+          "icon": "chevron-right",
+          "disabled_when": "on last page"
+        }
+      },
+
+      "mobile_variant": {
+        "show": "Prev / Page X of Y / Next",
+        "hide_individual_page_numbers": "Only if >7 pages"
+      },
+
+      "accessibility": [
+        "Use <nav aria-label='Pagination'>",
+        "Buttons use <a> or <button> semantic elements",
+        "Current page: aria-current='page'",
+        "Disabled buttons: aria-disabled='true' (stay in tab order)",
+        "Clear button labels for screen readers",
+        "Focus indicator visible on all buttons"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Show 5-7 page buttons max",
+          "rationale": "Use ellipsis for longer ranges"
+        },
+        {
+          "do": "Always show first and last page",
+          "rationale": "Common jump points for users"
+        },
+        {
+          "do": "Include Previous/Next buttons",
+          "rationale": "Easier than clicking specific numbers"
+        },
+        {
+          "do": "Simplify on mobile (Prev / X of Y / Next)",
+          "rationale": "Limited space, easier to tap"
+        },
+        {
+          "dont": "Show all 100 page numbers",
+          "rationale": "Overwhelming and breaks layout"
+        },
+        {
+          "dont": "Auto-advance to next page",
+          "rationale": "User should control navigation"
+        },
+        {
+          "dont": "Use infinite scroll for critical content",
+          "rationale": "Users can't bookmark or share specific pages"
+        }
+      ]
+    },
+
+    "tooltip": {
+      "description": "Small contextual popup providing additional information on hover or focus.",
+      "usage": "Use for icon explanations, form field hints, feature descriptions.",
+
+      "specs": {
+        "max_width": "240px",
+        "padding": "8px 12px",
+        "background": "neutral-900 (#15100F)",
+        "color": "support-50 (#F8F4F2)",
+        "font_size": "13px (0.8125rem)",
+        "line_height": "1.4",
+        "border_radius": "6px",
+        "box_shadow": "0 4px 12px rgba(0, 0, 0, 0.2)",
+        "z_index": "1001"
+      },
+
+      "arrow": {
+        "size": "8px",
+        "color": "neutral-900",
+        "position": "dynamic (points to trigger)"
+      },
+
+      "positioning": [
+        {
+          "name": "Top (default)",
+          "transform": "bottom-center of trigger",
+          "arrow_position": "bottom-center of tooltip"
+        },
+        {
+          "name": "Bottom",
+          "transform": "top-center of trigger",
+          "arrow_position": "top-center of tooltip"
+        },
+        {
+          "name": "Left",
+          "transform": "right-center of trigger"
+        },
+        {
+          "name": "Right",
+          "transform": "left-center of trigger"
+        },
+        {
+          "note": "Auto-adjust if tooltip would overflow viewport"
+        }
+      ],
+
+      "states": [
+        {
+          "name": "Hidden",
+          "display": "none",
+          "opacity": "0"
+        },
+        {
+          "name": "Showing",
+          "animation": "fade-in 150ms ease-out",
+          "delay": "300ms (prevent accidental triggers)"
+        },
+        {
+          "name": "Hiding",
+          "animation": "fade-out 100ms ease-in"
+        }
+      ],
+
+      "triggers": {
+        "desktop": "hover + focus",
+        "mobile": "tap (show) + tap outside (hide)",
+        "keyboard": "focus (show) + blur (hide)"
+      },
+
+      "accessibility": [
+        "Use role='tooltip'",
+        "Trigger has aria-describedby pointing to tooltip ID",
+        "Tooltip appears on both hover AND focus",
+        "Don't put interactive elements inside tooltip",
+        "Keep text concise (1-2 sentences max)",
+        "Ensure tooltip doesn't obscure important content",
+        "ESC key dismisses tooltip"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use for supplementary information",
+          "rationale": "Tooltips should enhance, not be essential"
+        },
+        {
+          "do": "Keep text under 60 characters",
+          "rationale": "Tooltips are for quick hints, not paragraphs"
+        },
+        {
+          "do": "Show after 300ms delay",
+          "rationale": "Prevents tooltips on accidental hover"
+        },
+        {
+          "do": "Make touch-friendly on mobile (tap to show)",
+          "rationale": "Hover doesn't exist on touch devices"
+        },
+        {
+          "dont": "Use for critical information",
+          "rationale": "Tooltips are hidden by default - may be missed"
+        },
+        {
+          "dont": "Put links or buttons in tooltips",
+          "rationale": "Can't be reached with keyboard, breaks UX"
+        },
+        {
+          "dont": "Use for form validation errors",
+          "rationale": "Errors must be persistent and visible"
+        },
+        {
+          "dont": "Show tooltip immediately (0ms delay)",
+          "rationale": "Creates visual noise on every hover"
+        }
+      ]
+    },
+
+    "popover": {
+      "description": "Larger contextual overlay for richer content, menus, or interactive elements.",
+      "usage": "Use for dropdown menus, color pickers, date pickers, rich tooltips.",
+
+      "specs": {
+        "min_width": "200px",
+        "max_width": "400px",
+        "padding": "16px",
+        "background": "white",
+        "border": "1px solid neutral-200",
+        "border_radius": "8px",
+        "box_shadow": "0 8px 24px rgba(43, 37, 35, 0.15)",
+        "z_index": "1001"
+      },
+
+      "arrow": {
+        "size": "12px",
+        "color": "white",
+        "border_color": "neutral-200"
+      },
+
+      "variants": [
+        {
+          "name": "Menu",
+          "purpose": "Dropdown action menus",
+          "padding": "8px",
+          "item_height": "40px",
+          "item_padding": "10px 16px"
+        },
+        {
+          "name": "Rich Content",
+          "purpose": "Detailed information with formatting",
+          "padding": "16px",
+          "max_width": "400px"
+        },
+        {
+          "name": "Form",
+          "purpose": "Small forms or inputs",
+          "padding": "16px",
+          "width": "300px"
+        }
+      ],
+
+      "states": [
+        {
+          "name": "Hidden",
+          "display": "none",
+          "opacity": "0"
+        },
+        {
+          "name": "Showing",
+          "animation": "fade-in + scale-up 200ms ease-out",
+          "transform_origin": "arrow position"
+        },
+        {
+          "name": "Open",
+          "focus_trap": "optional (for complex popovers)"
+        },
+        {
+          "name": "Hiding",
+          "animation": "fade-out + scale-down 150ms ease-in"
+        }
+      ],
+
+      "triggers": {
+        "click": "Show on click, hide on outside click",
+        "hover": "Show on hover (with delay), hide on mouse leave",
+        "focus": "Show on focus, hide on blur"
+      },
+
+      "accessibility": [
+        "Use role='dialog' for complex popovers",
+        "aria-haspopup='true' on trigger",
+        "aria-expanded on trigger",
+        "Focus first interactive element when opened",
+        "ESC key closes popover",
+        "Click outside closes popover",
+        "Return focus to trigger on close",
+        "Trap focus for modal-like popovers"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use for interactive content",
+          "rationale": "Unlike tooltips, popovers can contain buttons/links"
+        },
+        {
+          "do": "Close on outside click or ESC",
+          "rationale": "Users should never feel trapped"
+        },
+        {
+          "do": "Position intelligently (avoid viewport edges)",
+          "rationale": "Auto-flip to ensure visibility"
+        },
+        {
+          "do": "Show close button for non-obvious popovers",
+          "rationale": "Clear exit path reduces confusion"
+        },
+        {
+          "dont": "Use for simple text hints",
+          "rationale": "Use tooltip instead - lighter weight"
+        },
+        {
+          "dont": "Nest popovers inside popovers",
+          "rationale": "Confusing UX - use modal instead"
+        },
+        {
+          "dont": "Auto-open popovers on page load",
+          "rationale": "Feels intrusive and blocks content"
+        },
+        {
+          "dont": "Put critical navigation in popovers",
+          "rationale": "Navigation should be consistently accessible"
+        }
+      ]
+    },
+
+    "form": {
+      "description": "Structured layout for collecting user input with clear flow and validation.",
+      "usage": "Use for contact forms, signup, checkout, surveys, settings.",
+
+      "layout_specs": {
+        "max_width": "600px",
+        "padding": "32px",
+        "background": "white",
+        "border_radius": "8px"
+      },
+
+      "structure": {
+        "title": {
+          "font_size": "28px (1.75rem)",
+          "font_weight": "700 (Hartwell Bold)",
+          "color": "neutral-800",
+          "margin_bottom": "8px"
+        },
+        "description": {
+          "font_size": "16px",
+          "color": "neutral-600",
+          "margin_bottom": "32px"
+        },
+        "field_group": {
+          "margin_bottom": "24px"
+        },
+        "section_divider": {
+          "border_top": "1px solid neutral-200",
+          "margin": "32px 0",
+          "padding_top": "32px"
+        },
+        "required_indicator": {
+          "text": "* indica campo obrigatório",
+          "font_size": "13px",
+          "color": "neutral-600",
+          "margin_bottom": "24px"
+        }
+      },
+
+      "field_layout": [
+        {
+          "name": "Single Column",
+          "use": "Default for most forms",
+          "max_width": "100%"
+        },
+        {
+          "name": "Two Column",
+          "use": "Related short fields (first name / last name)",
+          "gap": "16px",
+          "breakpoint": "Stack on <640px"
+        },
+        {
+          "name": "Inline",
+          "use": "Very short related fields (currency + amount)",
+          "display": "flex",
+          "gap": "12px"
+        }
+      ],
+
+      "validation": {
+        "timing": "On blur (not while typing)",
+        "success_indicator": "Green checkmark icon",
+        "error_indicator": "Red X icon + error message",
+        "error_summary": {
+          "position": "Top of form",
+          "variant": "Error alert component",
+          "list": "All errors with jump links"
+        },
+        "inline_validation": "Show per-field errors immediately on blur"
+      },
+
+      "buttons": {
+        "submit": {
+          "variant": "Primary or CTA button",
+          "position": "Bottom right",
+          "width": "full on mobile, auto on desktop",
+          "loading_state": "Show spinner + 'Enviando...'"
+        },
+        "cancel": {
+          "variant": "Secondary button",
+          "position": "Left of submit",
+          "action": "Reset form or navigate back"
+        }
+      },
+
+      "accessibility": [
+        "Wrap form in <form> element",
+        "Use <fieldset> + <legend> for grouped fields",
+        "Label every input with <label for='id'>",
+        "Required fields: aria-required='true'",
+        "Error fields: aria-invalid='true' + aria-describedby",
+        "Focus first error field on submit attempt",
+        "Provide error summary with role='alert'",
+        "Disable submit button during processing",
+        "Show success confirmation after submission"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Ask only for essential information",
+          "rationale": "Every field reduces conversion - be ruthless"
+        },
+        {
+          "do": "Use single column layout",
+          "rationale": "Easier to scan, better mobile UX, higher conversion"
+        },
+        {
+          "do": "Show validation on blur, not while typing",
+          "rationale": "Less aggressive, better UX"
+        },
+        {
+          "do": "Provide helpful error messages with solutions",
+          "rationale": "'Email must include @' vs 'Invalid format'"
+        },
+        {
+          "do": "Show loading state on submit",
+          "rationale": "Confirms action is processing"
+        },
+        {
+          "do": "Preserve user data if validation fails",
+          "rationale": "Don't make users re-enter everything"
+        },
+        {
+          "dont": "Use placeholder as label",
+          "rationale": "Disappears on focus - bad accessibility"
+        },
+        {
+          "dont": "Reset form on validation error",
+          "rationale": "Incredibly frustrating user experience"
+        },
+        {
+          "dont": "Use CAPTCHA unless absolutely necessary",
+          "rationale": "Horrible UX - explore alternatives first"
+        },
+        {
+          "dont": "Auto-advance between fields",
+          "rationale": "Feels out of control, causes errors"
+        },
+        {
+          "dont": "Use custom validation without HTML5 validation",
+          "rationale": "HTML5 provides built-in accessibility"
+        }
+      ]
+    },
+
+    "table": {
+      "description": "Structured display of tabular data with rows, columns, and optional sorting/filtering.",
+      "usage": "Use for datasets, pricing comparisons, feature matrices, admin panels.",
+
+      "specs": {
+        "width": "100%",
+        "border_collapse": "collapse",
+        "background": "white",
+        "border": "1px solid neutral-200",
+        "border_radius": "8px"
+      },
+
+      "header": {
+        "background": "neutral-100 (#EBE7E6)",
+        "font_size": "14px (0.875rem)",
+        "font_weight": "700 (Hartwell Bold)",
+        "color": "neutral-800",
+        "text_align": "left",
+        "padding": "12px 16px",
+        "border_bottom": "2px solid neutral-300"
+      },
+
+      "row": {
+        "padding": "16px",
+        "border_bottom": "1px solid neutral-200",
+        "font_size": "16px",
+        "color": "neutral-700"
+      },
+
+      "cell": {
+        "padding": "16px",
+        "vertical_align": "middle",
+        "text_align": "left (text) or right (numbers)"
+      },
+
+      "states": [
+        {
+          "name": "Default Row",
+          "background": "white"
+        },
+        {
+          "name": "Hover Row",
+          "background": "support-50 (#F8F4F2)",
+          "cursor": "pointer (if clickable)"
+        },
+        {
+          "name": "Selected Row",
+          "background": "primary-50",
+          "border_left": "4px solid primary-600"
+        },
+        {
+          "name": "Striped Rows (alternate)",
+          "even": "white",
+          "odd": "neutral-50 (#F7F4F4)"
+        }
+      ],
+
+      "sortable_columns": {
+        "header_cursor": "pointer",
+        "icon": "sort arrows (neutral-500)",
+        "active_icon": "arrow-up or arrow-down (primary-600)",
+        "hover_background": "neutral-200"
+      },
+
+      "mobile_responsive": [
+        {
+          "name": "Horizontal Scroll",
+          "container": "overflow-x: auto",
+          "min_width": "Table maintains width, scrolls horizontally"
+        },
+        {
+          "name": "Card Layout",
+          "transform": "Each row becomes a card",
+          "label": "Show column headers as labels",
+          "breakpoint": "<768px"
+        }
+      ],
+
+      "pagination": {
+        "position": "Bottom of table",
+        "component": "Use pagination component",
+        "rows_per_page": "10, 25, 50, 100 options"
+      },
+
+      "accessibility": [
+        "Use semantic <table>, <thead>, <tbody>, <th>, <td>",
+        "scope='col' on header cells",
+        "scope='row' on row headers (if applicable)",
+        "Sortable columns: aria-sort='ascending/descending/none'",
+        "Caption: <caption> for table purpose",
+        "Complex tables: id + headers attributes",
+        "Keyboard navigation for sortable/interactive tables"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Right-align numeric columns",
+          "rationale": "Easier to compare values"
+        },
+        {
+          "do": "Use monospace font for numeric data",
+          "rationale": "Cleaner alignment, easier scanning"
+        },
+        {
+          "do": "Provide clear column headers",
+          "rationale": "Users need context to understand data"
+        },
+        {
+          "do": "Use pagination for >25 rows",
+          "rationale": "Long tables are overwhelming and slow"
+        },
+        {
+          "do": "Make mobile-friendly (horizontal scroll or cards)",
+          "rationale": "Tables break on small screens without adaptation"
+        },
+        {
+          "dont": "Use tables for layout",
+          "rationale": "Use CSS Grid/Flexbox - tables are for data"
+        },
+        {
+          "dont": "Make every column sortable",
+          "rationale": "Not all data benefits from sorting (actions, icons)"
+        },
+        {
+          "dont": "Use tiny fonts (<14px) for table data",
+          "rationale": "Reduces readability and accessibility"
+        },
+        {
+          "dont": "Truncate important data without expand option",
+          "rationale": "Users need access to full information"
+        }
+      ]
+    },
+
+    "tabs": {
+      "description": "Content organization pattern for switching between related views without navigation.",
+      "usage": "Use for settings sections, product details, multi-step forms (non-linear).",
+
+      "specs": {
+        "tab_list": {
+          "display": "flex",
+          "border_bottom": "2px solid neutral-200",
+          "gap": "8px",
+          "margin_bottom": "24px"
+        },
+        "tab_button": {
+          "padding": "12px 20px",
+          "font_size": "16px",
+          "font_weight": "600 (Hartwell Medium)",
+          "color": "neutral-600",
+          "background": "transparent",
+          "border": "none",
+          "border_bottom": "2px solid transparent",
+          "cursor": "pointer",
+          "position": "relative",
+          "bottom": "-2px"
+        }
+      },
+
+      "states": [
+        {
+          "name": "Default Tab",
+          "color": "neutral-600",
+          "border_bottom": "2px solid transparent"
+        },
+        {
+          "name": "Hover Tab",
+          "color": "neutral-800",
+          "background": "neutral-50"
+        },
+        {
+          "name": "Active Tab",
+          "color": "primary-700",
+          "border_bottom": "2px solid primary-700",
+          "font_weight": "700 (Hartwell Bold)"
+        },
+        {
+          "name": "Focus Tab",
+          "outline": "3px solid primary-200",
+          "outline_offset": "2px"
+        },
+        {
+          "name": "Disabled Tab",
+          "color": "neutral-400",
+          "cursor": "not-allowed",
+          "opacity": "0.5"
+        }
+      ],
+
+      "panel_specs": {
+        "padding": "24px 0",
+        "animation": "fade-in 200ms ease-out",
+        "min_height": "200px (prevent layout shift)"
+      },
+
+      "variants": [
+        {
+          "name": "Underline (Default)",
+          "style": "Border bottom on active tab"
+        },
+        {
+          "name": "Pills",
+          "specs": {
+            "tab_border_radius": "6px",
+            "active_background": "primary-700",
+            "active_color": "support-50",
+            "border_bottom": "none"
+          }
+        },
+        {
+          "name": "Enclosed",
+          "specs": {
+            "tab_border": "2px solid neutral-200",
+            "tab_border_radius": "8px 8px 0 0",
+            "active_background": "white",
+            "active_border_bottom": "2px solid white"
+          }
+        }
+      ],
+
+      "mobile_behavior": {
+        "scrollable": "Horizontal scroll if tabs overflow",
+        "dropdown": "Convert to select dropdown on <480px",
+        "stacked": "Stack tabs vertically with full width"
+      },
+
+      "accessibility": [
+        "Use role='tablist' on container",
+        "role='tab' on each tab button",
+        "role='tabpanel' on each panel",
+        "aria-selected='true' on active tab",
+        "aria-controls linking tab to panel",
+        "id/aria-labelledby linking panel to tab",
+        "Arrow keys navigate between tabs (left/right)",
+        "Tab key moves to panel content",
+        "Home/End keys jump to first/last tab"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use for related content views",
+          "rationale": "Tabs work when content is peer-level"
+        },
+        {
+          "do": "Limit to 3-7 tabs",
+          "rationale": "Too many tabs = consider different pattern"
+        },
+        {
+          "do": "Show all tabs at once (don't hide in overflow)",
+          "rationale": "Users need to see all options"
+        },
+        {
+          "do": "Make mobile-friendly (scroll or dropdown)",
+          "rationale": "Tabs often break on small screens"
+        },
+        {
+          "dont": "Use for sequential processes",
+          "rationale": "Use stepper/wizard instead"
+        },
+        {
+          "dont": "Nest tabs inside tabs",
+          "rationale": "Creates confusion and poor UX"
+        },
+        {
+          "dont": "Auto-rotate tabs",
+          "rationale": "User should control view, not auto-carousel"
+        },
+        {
+          "dont": "Use for primary navigation",
+          "rationale": "Tabs are for content switching, not site navigation"
+        }
+      ]
+    },
+
+    "divider": {
+      "description": "Visual separator for creating sections and hierarchy within content.",
+      "usage": "Use to separate unrelated content, create visual breaks, improve scannability.",
+
+      "variants": [
+        {
+          "name": "Horizontal",
+          "specs": {
+            "border_top": "1px solid neutral-200 (#D3CCCA)",
+            "margin": "32px 0",
+            "width": "100%"
+          }
+        },
+        {
+          "name": "Horizontal Bold",
+          "border_top": "2px solid neutral-300",
+          "margin": "40px 0"
+        },
+        {
+          "name": "Vertical",
+          "specs": {
+            "border_left": "1px solid neutral-200",
+            "height": "100%",
+            "margin": "0 16px"
+          }
+        },
+        {
+          "name": "With Text",
+          "specs": {
+            "position": "relative",
+            "text_align": "center",
+            "text": {
+              "background": "white or support-50",
+              "padding": "0 16px",
+              "font_size": "14px",
+              "color": "neutral-600",
+              "font_weight": "600"
+            }
+          }
+        },
+        {
+          "name": "Gradient",
+          "background": "linear-gradient(to right, transparent, neutral-300, transparent)",
+          "height": "1px",
+          "border": "none"
+        }
+      ],
+
+      "spacing_guidelines": {
+        "tight": "16px margin (dense sections)",
+        "default": "32px margin (standard spacing)",
+        "loose": "48px margin (major sections)"
+      },
+
+      "accessibility": [
+        "Use semantic <hr> element for thematic breaks",
+        "role='separator' for non-semantic dividers",
+        "Decorative dividers: aria-hidden='true'",
+        "Text dividers: ensure sufficient contrast (4.5:1)"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use to separate unrelated content",
+          "rationale": "Creates clear mental breaks"
+        },
+        {
+          "do": "Match spacing to importance",
+          "rationale": "Major sections = more space, minor = less"
+        },
+        {
+          "do": "Use sparingly",
+          "rationale": "Too many dividers create visual clutter"
+        },
+        {
+          "dont": "Use for every paragraph",
+          "rationale": "Whitespace is often sufficient"
+        },
+        {
+          "dont": "Use dividers in place of proper headings",
+          "rationale": "Headings provide semantic meaning and structure"
+        },
+        {
+          "dont": "Make dividers too bold or colorful",
+          "rationale": "Dividers should recede, not dominate"
+        }
+      ]
+    },
+
+    "skeleton": {
+      "description": "Loading placeholder that mimics content structure while data loads.",
+      "usage": "Use during initial page load or lazy loading to reduce perceived wait time.",
+
+      "specs": {
+        "background": "neutral-200 (#D3CCCA)",
+        "border_radius": "4px",
+        "animation": "pulse 1.5s ease-in-out infinite",
+        "opacity": "0.6 to 1 (pulse effect)"
+      },
+
+      "variants": [
+        {
+          "name": "Text Line",
+          "height": "16px",
+          "margin_bottom": "8px",
+          "width": "100% or random (70-100%)"
+        },
+        {
+          "name": "Heading",
+          "height": "24px",
+          "width": "60%",
+          "margin_bottom": "16px"
+        },
+        {
+          "name": "Circle",
+          "shape": "circle",
+          "size": "40px (avatar) or 60px (profile)",
+          "border_radius": "50%"
+        },
+        {
+          "name": "Rectangle",
+          "height": "200px (image) or custom",
+          "width": "100%",
+          "border_radius": "8px"
+        },
+        {
+          "name": "Card",
+          "structure": [
+            "Rectangle (image area)",
+            "Heading (title)",
+            "3 Text Lines (description)"
+          ]
+        }
+      ],
+
+      "animation": {
+        "pulse": {
+          "keyframes": "0%: opacity 0.6, 50%: opacity 1, 100%: opacity 0.6",
+          "duration": "1.5s",
+          "timing": "ease-in-out",
+          "iteration": "infinite"
+        },
+        "shimmer": {
+          "background": "linear-gradient(90deg, neutral-200 0%, neutral-100 50%, neutral-200 100%)",
+          "background_size": "200% 100%",
+          "animation": "shimmer 1.5s infinite"
+        }
+      },
+
+      "accessibility": [
+        "Use aria-busy='true' on container",
+        "aria-live='polite' for status updates",
+        "Provide sr-only text: 'Carregando conteúdo...'",
+        "Remove skeleton and update aria-busy when loaded"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Match skeleton to actual content structure",
+          "rationale": "Reduces layout shift, sets expectations"
+        },
+        {
+          "do": "Use for loading states >500ms",
+          "rationale": "Below 500ms, skeleton can feel jarring"
+        },
+        {
+          "do": "Vary line widths slightly (70-100%)",
+          "rationale": "Looks more natural than uniform lines"
+        },
+        {
+          "do": "Transition smoothly from skeleton to content",
+          "rationale": "Fade-in creates polished feel"
+        },
+        {
+          "dont": "Use for instant (<200ms) loads",
+          "rationale": "Creates unnecessary visual noise"
+        },
+        {
+          "dont": "Animate too quickly (<1s duration)",
+          "rationale": "Feels janky and distracting"
+        },
+        {
+          "dont": "Show skeleton for >10 seconds",
+          "rationale": "Show error message instead"
+        },
+        {
+          "dont": "Make skeleton too different from real content",
+          "rationale": "Causes jarring layout shift"
+        }
+      ]
+    },
+
+    "progress_bar": {
+      "description": "Visual indicator of task completion or loading progress.",
+      "usage": "Use for multi-step processes, file uploads, profile completion, course progress.",
+
+      "specs": {
+        "height": "8px",
+        "background": "neutral-200 (#D3CCCA)",
+        "border_radius": "4px",
+        "overflow": "hidden"
+      },
+
+      "fill": {
+        "background": "primary-700 (#75201C)",
+        "height": "100%",
+        "border_radius": "4px",
+        "transition": "width 300ms ease-out"
+      },
+
+      "variants": [
+        {
+          "name": "Determinate",
+          "purpose": "Known progress (40% complete)",
+          "width": "Dynamic based on percentage"
+        },
+        {
+          "name": "Indeterminate",
+          "purpose": "Unknown duration (processing...)",
+          "animation": "Sliding bar or pulse",
+          "width": "30%",
+          "animation_duration": "1.5s infinite"
+        },
+        {
+          "name": "Success",
+          "fill_background": "accent-600 (#8D4C00)",
+          "show_when": "100% complete"
+        },
+        {
+          "name": "With Label",
+          "label_position": "Above or inside bar",
+          "label_text": "40% completo",
+          "label_size": "13px",
+          "label_color": "neutral-700"
+        }
+      ],
+
+      "sizes": [
+        {
+          "name": "Small",
+          "height": "4px"
+        },
+        {
+          "name": "Medium (default)",
+          "height": "8px"
+        },
+        {
+          "name": "Large",
+          "height": "12px"
+        }
+      ],
+
+      "accessibility": [
+        "Use role='progressbar'",
+        "aria-valuenow for current value (0-100)",
+        "aria-valuemin='0'",
+        "aria-valuemax='100'",
+        "aria-label or aria-labelledby for context",
+        "Update aria-valuenow as progress changes",
+        "Announce completion with aria-live"
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use determinate when progress is calculable",
+          "rationale": "Users appreciate knowing time remaining"
+        },
+        {
+          "do": "Show percentage label for key processes",
+          "rationale": "Reduces anxiety, sets expectations"
+        },
+        {
+          "do": "Animate fill smoothly (300ms transition)",
+          "rationale": "Creates polished, professional feel"
+        },
+        {
+          "do": "Change to success color at 100%",
+          "rationale": "Clear visual confirmation of completion"
+        },
+        {
+          "dont": "Use for instant processes (<1s)",
+          "rationale": "Progress bar won't be noticed"
+        },
+        {
+          "dont": "Fake progress that doesn't reflect reality",
+          "rationale": "Breaks trust when bar stalls at 99%"
+        },
+        {
+          "dont": "Use progress bar for binary states",
+          "rationale": "Use loading spinner or skeleton instead"
+        }
+      ]
+    },
+
+    "avatar": {
+      "description": "Visual representation of a user or entity, typically circular with image or initials.",
+      "usage": "Use for user profiles, comments, team members, testimonials.",
+
+      "specs": {
+        "shape": "circle (border-radius: 50%)",
+        "background": "primary-600 (#993A33)",
+        "color": "support-50 (for initials)",
+        "font_weight": "700 (Hartwell Bold)",
+        "display": "inline-flex",
+        "align_items": "center",
+        "justify_content": "center",
+        "overflow": "hidden"
+      },
+
+      "sizes": [
+        {
+          "name": "XS",
+          "size": "24px",
+          "font_size": "11px",
+          "use": "Inline mentions, compact lists"
+        },
+        {
+          "name": "Small",
+          "size": "32px",
+          "font_size": "13px",
+          "use": "Comments, notifications"
+        },
+        {
+          "name": "Medium (default)",
+          "size": "40px",
+          "font_size": "16px",
+          "use": "Standard profile displays"
+        },
+        {
+          "name": "Large",
+          "size": "64px",
+          "font_size": "24px",
+          "use": "Profile headers, team pages"
+        },
+        {
+          "name": "XL",
+          "size": "96px",
+          "font_size": "36px",
+          "use": "Hero sections, detailed profiles"
+        }
+      ],
+
+      "states": [
+        {
+          "name": "Image",
+          "content": "User uploaded photo",
+          "img_specs": {
+            "width": "100%",
+            "height": "100%",
+            "object_fit": "cover"
+          }
+        },
+        {
+          "name": "Initials",
+          "content": "First + Last initial (CM for Carolina Mendes)",
+          "background": "primary-600 or dynamic based on name hash",
+          "text_transform": "uppercase"
+        },
+        {
+          "name": "Icon",
+          "content": "Generic user icon",
+          "background": "neutral-300",
+          "icon_color": "neutral-600"
+        },
+        {
+          "name": "With Status Badge",
+          "badge_size": "25% of avatar size",
+          "badge_position": "bottom-right corner",
+          "badge_border": "2px solid white",
+          "status_colors": {
+            "online": "accent-600",
+            "busy": "primary-700",
+            "away": "accent-400",
+            "offline": "neutral-400"
+          }
+        }
+      ],
+
+      "accessibility": [
+        "Use alt text for images: 'Photo of [Name]'",
+        "Decorative avatars: alt='' or aria-hidden='true'",
+        "If clickable, provide clear label or context",
+        "Status badges: aria-label='Online' etc."
+      ],
+
+      "dos_donts": [
+        {
+          "do": "Use consistent sizing within context",
+          "rationale": "Mixed sizes create visual chaos"
+        },
+        {
+          "do": "Generate initials from name if no image",
+          "rationale": "More personal than generic icon"
+        },
+        {
+          "do": "Use border on avatars over photos",
+          "rationale": "Creates separation from background"
+        },
+        {
+          "dont": "Use square avatars",
+          "rationale": "Circles are standard for people, clear affordance"
+        },
+        {
+          "dont": "Use busy background patterns",
+          "rationale": "Competes with face/initials"
+        },
+        {
+          "dont": "Distort images to fit",
+          "rationale": "Use object-fit: cover to maintain aspect ratio"
+        }
+      ]
+    }
+  },
+
+  "design_tokens_reference": {
+    "colors": {
+      "note": "Refer to Oitavo Café Color Palette for full color specifications",
+      "primary": "Coffee Maroon (#75201C for primary-700)",
+      "secondary": "Terracotta (#973E16 for secondary-600)",
+      "accent": "Golden Amber (#8D4C00 for accent-600)",
+      "neutral": "Warm Gray (#2B2523 for neutral-800)",
+      "support": "Cream (#F8F4F2 for support-50)"
+    },
+    "typography": {
+      "font_family_primary": "Hartwell (Regular, Medium, Bold, Extra Bold)",
+      "font_family_secondary": "DIN Pro Condensed (for labels, supporting text)",
+      "scale": "1.25 (Major Third)",
+      "base_size": "16px",
+      "sizes": {
+        "xs": "13px (0.8125rem)",
+        "sm": "14px (0.875rem)",
+        "base": "16px (1rem)",
+        "lg": "18px (1.125rem)",
+        "xl": "20px (1.25rem)",
+        "2xl": "24px (1.5rem)",
+        "3xl": "28px (1.75rem)",
+        "4xl": "32px (2rem)"
+      }
+    },
+    "spacing": {
+      "base_unit": "8px",
+      "scale": "4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96",
+      "note": "All spacing should be multiples of 8px"
+    },
+    "shadows": {
+      "sm": "0 1px 3px rgba(43, 37, 35, 0.08)",
+      "md": "0 4px 12px rgba(43, 37, 35, 0.12)",
+      "lg": "0 8px 24px rgba(43, 37, 35, 0.15)",
+      "xl": "0 20px 60px rgba(43, 37, 35, 0.3)"
+    },
+    "border_radius": {
+      "sm": "4px",
+      "md": "6px",
+      "lg": "8px",
+      "xl": "12px",
+      "full": "9999px (pills, circles)"
+    }
+  },
+
+  "implementation_notes": {
+    "developer_handoff": [
+      "All components use design tokens - never hardcode values",
+      "Spacing follows 8px grid system consistently",
+      "Color contrast validated to WCAG AA minimum (AAA preferred)",
+      "Components are mobile-first and responsive",
+      "All interactive elements have focus states for keyboard navigation",
+      "Use semantic HTML elements for proper accessibility",
+      "Test with keyboard-only navigation",
+      "Test with screen reader (VoiceOver/NVDA)",
+      "Implement loading states for async operations",
+      "Provide meaningful error messages in friendly language"
+    ],
+    "brand_voice_in_components": [
+      "Button text: Action verbs, results-focused (Começar, Agendar, Baixar)",
+      "Error messages: Helpful and friendly, not technical ('Email precisa incluir @')",
+      "Success messages: Celebrate wins ('Pronto! Mensagem enviada.')",
+      "Helper text: Concise and practical, like talking to a friend",
+      "Placeholder text: Examples, not instructions ('nome@empresa.com.br')"
+    ],
+    "quality_checklist": [
+      "✓ Component works without JavaScript (progressive enhancement)",
+      "✓ All states documented and implemented",
+      "✓ Keyboard navigation tested",
+      "✓ Screen reader tested",
+      "✓ Color contrast verified (WebAIM checker)",
+      "✓ Touch targets minimum 44×44px (mobile)",
+      "✓ Loading and error states implemented",
+      "✓ Responsive across breakpoints (320px to 1920px)",
+      "✓ Animation respects prefers-reduced-motion",
+      "✓ Focus indicators visible and clear"
+    ]
+  },
+
+  "meta": {
+    "version": "1.0",
+    "created": "2025-12-12",
+    "total_components": 22,
+    "accessibility_level": "WCAG 2.1 Level AA (AAA where possible)",
+    "design_system": "Oitavo Café Style Guide Forge",
+    "brand": "Oitavo Café - Marketing Boutique",
+    "designer": "Component Designer Agent",
+    "approach": "Usage-First, Production-Ready",
+    "files_included": [
+      "components.json - Full component specifications",
+      "See also: Oitavo Café Color Palette (oitavo-cafe-color-palette.md)",
+      "See also: Oitavo Café Branding Guidelines (oitavo-cafe-branding-guidelines.md)"
+    ]
+  }
+}

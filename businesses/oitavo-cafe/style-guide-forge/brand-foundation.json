@@ -1,0 +1,590 @@
+{
+  "section": "brand-foundation",
+  "agent": "brand-translator",
+  "timestamp": "2025-12-12",
+  "brand_name": "Oitavo Café",
+  "brand_tagline": "Desperte conexões",
+  "brand_positioning": "Sistema de vendas com ROI mensurável",
+
+  "brand_personality": {
+    "adjectives": [
+      "Intelligent but accessible",
+      "Confident but not arrogant",
+      "Irreverent with industry, respectful with clients",
+      "Direct about money and results",
+      "Humorous but substantive",
+      "Healthy skeptic who speaks truth",
+      "Energetic and enthusiastic (without exaggeration)"
+    ],
+    "core_values": [
+      "Results over aesthetics - marketing exists to sell, not to look pretty",
+      "Vanity metrics without conversion are irrelevant",
+      "Client skepticism is intelligence, not an obstacle",
+      "Small and medium businesses deserve systems, not fragmented services",
+      "ROI is the only metric that truly matters",
+      "Humor and intelligence make hard truths more palatable",
+      "Transparency about process and expectations builds real trust"
+    ],
+    "visual_translation": {
+      "friendly": {
+        "design_manifestation": "Warm color palette (coffee browns, terracotta, golden amber), approachable typography with soft terminals, generous white space that invites interaction, conversational microcopy that feels human",
+        "interactive_elements": "Welcoming CTAs ('Let's talk' vs 'Submit'), error messages that empathize, success states that celebrate with warmth not fireworks",
+        "tone_in_ui": "Casual-professional language, 'a gente' not 'nós', natural contractions, speak as friend not corporation"
+      },
+      "intelligent": {
+        "design_manifestation": "Clean information hierarchy, data visualization that clarifies not confuses, professional typography that commands respect, structured layouts that guide understanding",
+        "interactive_elements": "Dashboard with clear metrics, transparent ROI calculators, educational tooltips that empower, complex data simplified through smart design",
+        "tone_in_ui": "Precise without being academic, explains jargon in plain language, shows expertise through clarity not vocabulary"
+      },
+      "practical": {
+        "design_manifestation": "Function-first interface design, direct navigation paths, visible value propositions, results-focused content hierarchy, no decorative fluff",
+        "interactive_elements": "Fast-loading pages, mobile-optimized experiences, clear next steps, actionable insights not just data dumps, tools that solve problems",
+        "tone_in_ui": "Lead with outcome ('Increase sales by 3x') not process ('Social media management'), concrete numbers over vague promises"
+      },
+      "inspiring": {
+        "design_manifestation": "Aspirational case study layouts, before/after transformations visualized powerfully, growth metrics displayed with energy (accent color golden amber)",
+        "interactive_elements": "Progress trackers that motivate, milestone celebrations, testimonials that show real transformation, ROI projections that create vision",
+        "tone_in_ui": "Paint the 'after' picture vividly, use client success stories, show the path from chaos to system"
+      },
+      "human": {
+        "design_manifestation": "Real photography over stock images, imperfect authentic visuals, behind-the-scenes content, face-forward brand presence",
+        "interactive_elements": "Personalized dashboard greetings, human-written help text, approachable error states, signatures on emails",
+        "tone_in_ui": "Conversational not corporate, acknowledge frustrations, validate emotions, speak as real person"
+      }
+    }
+  },
+
+  "design_principles": [
+    {
+      "principle": "ROI Transparency is Visual",
+      "description": "Every design decision should make data more accessible, metrics more understandable, and results more visible. The 'Ciência do Lucro' philosophy demands that our interfaces make ROI tracking effortless.",
+      "application": [
+        "Dashboard designs prioritize sales metrics, not vanity metrics (leads/sales/ROI upfront, followers/likes buried)",
+        "Use data visualization that Carolina can screenshot and show her partner: clear charts, big numbers, trend arrows",
+        "Color-code performance: green for positive ROI, amber for neutral, warm red for attention needed",
+        "Always pair actions with expected outcomes: 'This campaign generated R$42k' not just 'Campaign stats'"
+      ],
+      "example": "A dashboard card showing: 'R$8,000 invested → R$24,000 returned = 3x ROI' with golden accent highlighting the multiplier"
+    },
+    {
+      "principle": "System Over Service in Every Interface",
+      "description": "Visual design must communicate integration and connectedness. Carolina's pain is 'pontas soltas' (loose ends) - our design language must visually represent everything working together.",
+      "application": [
+        "Use connecting lines, flow diagrams, integrated layouts that show how pieces connect",
+        "Navigation should reflect the funnel: Social → Landing → Email → Sale",
+        "Avoid siloed sections - show cross-references and relationships between services",
+        "Use consistent visual language across all touchpoints to reinforce 'system' feeling"
+      ],
+      "example": "Service pages show a visual funnel with highlighted current service plus connected services, using connecting lines in primary color"
+    },
+    {
+      "principle": "Warmth Without Weakness",
+      "description": "The coffee-inspired palette creates approachability (friendly, human), but layout and typography must convey confidence and competence. We're warm partners, not soft pushovers.",
+      "application": [
+        "Pair warm colors with strong, confident typography (medium to bold weights for important elements)",
+        "Use generous white space (cream/support tones) to create breathing room, but structure it with clear grid systems",
+        "Combine rounded friendly shapes with structured professional layouts",
+        "Warm colors for backgrounds and accents, sharp clear text for authority"
+      ],
+      "example": "Hero section with warm cream background, but bold structured headline typography and clear value prop hierarchy"
+    },
+    {
+      "principle": "Data Dignity: Numbers Are Heroes",
+      "description": "Carolina respects numbers, not adjectives. Design should elevate metrics, make data beautiful and scannable, and always provide context for interpretation.",
+      "application": [
+        "Large, prominent number displays in professional typography",
+        "Use accent color (golden amber) to highlight growth, results, positive ROI",
+        "Pair every number with clear context: 'R$42k in sales' not just '42k'",
+        "Create visual rhythm with number → label → interpretation",
+        "Use charts and graphs that tell story at a glance"
+      ],
+      "example": "Case study layout with hero number (3.2x ROI) in accent color, medium size, with clear context label below in neutral text"
+    },
+    {
+      "principle": "Skeptic-Proof Visual Hierarchy",
+      "description": "Carolina has been burned before. Design must anticipate objections and provide proof without her having to dig. Lead with evidence, not promises.",
+      "application": [
+        "Case studies and testimonials visually prominent, not buried in footer",
+        "Use structured proof formats: Problem → Solution → Result with clear visual separation",
+        "Screenshots of real dashboards, real numbers, real results",
+        "Quote testimonials should highlight ROI and skepticism overcome: 'I was doubtful but...'",
+        "Pricing transparency upfront, not hidden behind CTAs"
+      ],
+      "example": "Homepage features case study cards above-the-fold with: Client photo + Before/After metrics + Direct quote about ROI"
+    },
+    {
+      "principle": "Intelligent Humor Through Copywriting and Design Pairing",
+      "description": "The Jester archetype comes alive through the interplay of clever copy and understated design. Design shouldn't overpower the wit - it should frame it perfectly.",
+      "application": [
+        "Give humorous/irreverent copy plenty of breathing room - don't clutter",
+        "Use typography hierarchy to set up joke structure (setup → punchline via size/weight)",
+        "Pair ironic statements about industry with clean professional design to create contrast",
+        "Use subtle visual cues (icons, small illustrations) to amplify humor without cartoon-ifying",
+        "Error states and empty states are opportunities for brand voice to shine through design"
+      ],
+      "example": "Empty state illustration (simple line drawing) of a marketing report with '0 sales' highlighted, paired with copy: 'Looks like this campaign is an expensive art project. Let's make it a business instead.'"
+    },
+    {
+      "principle": "Mobile-First for the Always-On Entrepreneur",
+      "description": "Carolina checks metrics on her phone between meetings. Mobile isn't an afterthought - it's where trust is built and decisions are validated.",
+      "application": [
+        "Dashboard designed mobile-first: swipeable metric cards, thumb-friendly CTAs",
+        "Key numbers legible at arm's length (large font sizes for critical metrics)",
+        "Simplified navigation on mobile, prioritizing most-used actions",
+        "Fast loading times (practical personality = no patience for slow sites)",
+        "Touch-friendly interactive elements with appropriate spacing"
+      ],
+      "example": "Mobile dashboard with full-width metric cards (swipe horizontal), primary metric in 48px bold, secondary context in 16px below"
+    }
+  ],
+
+  "voice_tone": {
+    "persona": "Carolina",
+    "persona_description": "Skeptical ambitious entrepreneur, 33-42 years old, frustrated with marketing ROI, seeking proven formula to transform strong brand into predictable sales machine",
+    "communication_style": "Conversational but competent - speak as intelligent friend who's been through it, not as corporate entity or sales-desperate vendor. Lead with ROI and results, validate skepticism, use humor to reveal industry truths.",
+
+    "core_voice_attributes": {
+      "formality": "Casual-Professional (2/5) - 'a gente' not 'nós', natural contractions, conversational flow but maintains credibility",
+      "humor": "Witty-Intelligent (4/5) - Observational humor that reveals truths about industry, auto-ironic, never empty jokes",
+      "irreverence": "Challenging-Questioning (4/5) - Questions status quo, exposes vanity metrics, speaks uncomfortable truths with intelligence",
+      "energy": "Confident-Enthusiastic (4/5) - Conviction from method that works, not desperation or hype"
+    },
+
+    "microcopy_guidelines": [
+      {
+        "element": "Primary CTAs",
+        "approach": "Direct about next step, remove friction, offer value immediately",
+        "examples": [
+          "Ver meu ROI potencial (not 'Submit')",
+          "Agendar diagnóstico gratuito (not 'Contact us')",
+          "Mostrar os números (not 'Learn more')",
+          "Quero o sistema (not 'Get started')"
+        ],
+        "avoid": "Generic corporate language, aggressive urgency, vague promises"
+      },
+      {
+        "element": "Form Labels",
+        "approach": "Conversational questions, explain why you're asking, reduce perceived effort",
+        "examples": [
+          "Qual seu faturamento mensal? (pra saber se fazemos sentido pra você)",
+          "Qual sua maior frustração com marketing hoje?",
+          "Como você mede sucesso no marketing atual? (seja honesta: 'não meço' é resposta válida)"
+        ],
+        "avoid": "Sterile labels ('Revenue'), unexplained requests, corporate jargon"
+      },
+      {
+        "element": "Error Messages",
+        "approach": "Empathetic, helpful, occasionally humorous if appropriate, always provide solution",
+        "examples": [
+          "Ops, esse email não parece válido. Confere de novo?",
+          "Faltou preencher alguns campos - a gente marcou em vermelho pra facilitar",
+          "Algo deu errado (culpa nossa, não sua). Tenta de novo ou manda mensagem no WhatsApp?"
+        ],
+        "avoid": "Technical jargon, blame language, unhelpful messages"
+      },
+      {
+        "element": "Success States",
+        "approach": "Celebrate warmly but professionally, set clear expectation for next step",
+        "examples": [
+          "Pronto! A gente recebeu e vai analisar seu caso. Resposta em até 24h.",
+          "Agendado! Você vai receber confirmação por email. Nos vemos dia X às Yh.",
+          "Mensagem enviada. Vamos olhar e responder até o fim do dia."
+        ],
+        "avoid": "Over-the-top celebration, leaving user wondering what happens next"
+      },
+      {
+        "element": "Empty States",
+        "approach": "Opportunity for brand voice, explain why it's empty, guide to action",
+        "examples": [
+          "Ainda não tem dados aqui - mas vai ter em breve. A gente está montando seu sistema.",
+          "Nenhuma campanha ativa. Bora colocar uma pra rodar?",
+          "Seu dashboard vai aparecer aqui quando tivermos dados pra mostrar (aguenta mais uns dias)"
+        ],
+        "avoid": "Just showing 'No data', technical messages, missed voice opportunity"
+      },
+      {
+        "element": "Loading States",
+        "approach": "Set expectation, occasionally inject personality if appropriate for context",
+        "examples": [
+          "Buscando seus dados...",
+          "Calculando seu ROI... (pode levar uns segundos)",
+          "Carregando... (a gente promete que vale a pena)"
+        ],
+        "avoid": "Silent loading, technical progress bars without context"
+      },
+      {
+        "element": "Navigation Labels",
+        "approach": "Clear outcome-focused language, not industry jargon",
+        "examples": [
+          "Meu ROI (not 'Dashboard')",
+          "Como funciona (not 'About')",
+          "Casos reais (not 'Case studies')",
+          "Investimento (not 'Pricing')",
+          "Falar com a gente (not 'Contact')"
+        ],
+        "avoid": "Corporate speak, vague labels, unexplained acronyms"
+      },
+      {
+        "element": "Tooltips & Helper Text",
+        "approach": "Educational without condescending, explain jargon when unavoidable",
+        "examples": [
+          "ROI = Retorno sobre Investimento. Quanto você ganha pra cada R$1 que coloca.",
+          "Taxa de conversão é quantos leads viram clientes. Quanto maior, melhor.",
+          "CAC (Custo de Aquisição de Cliente) é quanto custa trazer um cliente novo. Ideal: menor que o quanto ele gasta com você."
+        ],
+        "avoid": "Assuming knowledge, using more jargon to explain jargon, academic tone"
+      },
+      {
+        "element": "Confirmation Dialogs",
+        "approach": "Clear about consequence, give easy out, maintain voice even in functional moments",
+        "examples": [
+          "Tem certeza que quer cancelar? Os dados preenchidos vão sumir. (Cancelar / Continuar preenchendo)",
+          "Isso vai apagar a campanha permanentemente. Confirma? (Apagar / Deixa quieto)",
+          "Quer mesmo sair sem salvar? (Sair sem salvar / Voltar e salvar)"
+        ],
+        "avoid": "Unclear consequences, yes/no without context, losing personality"
+      },
+      {
+        "element": "Onboarding Steps",
+        "approach": "Encouraging, show progress clearly, explain value of each step",
+        "examples": [
+          "Passo 1 de 4: Vamos entender seu negócio (leva 2 minutos)",
+          "Quase lá! Última etapa: conectar suas redes sociais",
+          "Só mais isso e a gente pode começar a trabalhar"
+        ],
+        "avoid": "Overwhelming number of steps, unclear progress, no encouragement"
+      }
+    ],
+
+    "tone_by_context": {
+      "first_contact": {
+        "tone": "Empathetic validator - acknowledge frustration, demonstrate understanding",
+        "sample": "A gente sabe que você já ouviu essa promessa antes. 'Vamos revolucionar seu marketing.' Spoiler: não revolucionou nada. A gente entende seu ceticismo - é sinal de experiência, não paranoia."
+      },
+      "objection_handling": {
+        "tone": "Understanding but confident - validate concern, address with logic and evidence",
+        "sample": "Você deve estar pensando: mais uma agência prometendo resultado. A diferença? A gente não promete milagre em 30 dias. Prometemos sistema que funciona em 90 - e mostramos exatamente como."
+      },
+      "educational_content": {
+        "tone": "Smart friend teaching - share knowledge without condescension",
+        "sample": "ROI é quanto você ganha pra cada real que investe. Se você coloca R$1.000 e tira R$3.000, seu ROI é 3x. Simples assim. Agora me diz: você sabe o ROI do seu marketing?"
+      },
+      "sales_conversation": {
+        "tone": "Consultative and direct - focus on mutual fit, transparent about investment",
+        "sample": "Investimento: R$8.000/mês. Expectativa de retorno: 3x a 5x em 90 dias. E se não funcionar? A gente revisa a estratégia sem custo adicional. Faz sentido pra você?"
+      },
+      "reporting_results": {
+        "tone": "Factual and direct - lead with what matters, transparent about challenges",
+        "sample": "Mês 2: R$8.000 investidos, R$24.000 retornados = ROI de 3x. Leads custaram R$67 cada (vs. R$120 mês passado). Próximo mês: vamos testar variação de criativo pra reduzir custo ainda mais."
+      }
+    }
+  },
+
+  "logo_usage": {
+    "primary_logo": {
+      "description": "Coffee cup icon with 'Oitavo Café' wordmark - represents coffee heritage and approachability",
+      "color_variations": [
+        "Full color (primary maroon + accent) - preferred for light backgrounds",
+        "Single color (primary-700) - for limited color applications",
+        "White/reversed - for dark backgrounds (primary-800 or darker)",
+        "Neutral (warm gray) - for subtle applications"
+      ],
+      "minimum_size": "120px width for digital, 1 inch width for print",
+      "clear_space": "Minimum clear space equals the height of the coffee cup icon on all sides"
+    },
+
+    "do": [
+      "Use primary full-color version on cream/white backgrounds for maximum brand impact",
+      "Maintain minimum clear space to ensure legibility and brand presence",
+      "Use reversed/white version on dark photography with sufficient contrast",
+      "Scale proportionally - never stretch or distort",
+      "Place logo where it gets noticed but doesn't compete with critical CTAs",
+      "Pair with tagline 'Sistema de vendas com ROI mensurável' in appropriate contexts"
+    ],
+
+    "dont": [
+      "Don't place logo on busy backgrounds that compromise legibility",
+      "Don't use logo smaller than minimum size specifications",
+      "Don't alter logo colors outside approved variations",
+      "Don't add effects (shadows, glows, gradients) to the logo",
+      "Don't rotate or skew the logo",
+      "Don't separate the icon from wordmark unless specifically approved for icon-only use",
+      "Don't place logo on colors that fail contrast requirements"
+    ],
+
+    "icon_only_usage": {
+      "when_appropriate": "Social media profile pictures, favicons, app icons, very small spaces where wordmark is illegible",
+      "specifications": "Coffee cup icon extracted from main logo, minimum 32px for digital",
+      "color_treatment": "Same color variations as primary logo"
+    },
+
+    "partner_co_branding": {
+      "hierarchy": "Oitavo Café logo should be equal or larger when representing our work/services",
+      "spacing": "Separate partner logos with vertical divider or appropriate spacing",
+      "alignment": "Horizontal alignment preferred, maintain individual clear spaces"
+    }
+  },
+
+  "brand_dos_donts": {
+    "visual_design": {
+      "do": [
+        "Use warm color palette consistently to reinforce coffee heritage and approachability",
+        "Lead with numbers and data visualizations - make ROI visible and beautiful",
+        "Create generous white space using cream/support tones - professional breathing room",
+        "Show real photography of real people, real dashboards, real results",
+        "Design mobile-first for the on-the-go entrepreneur",
+        "Use clean information hierarchy that guides from problem → solution → proof → action",
+        "Pair warm friendly colors with confident professional typography",
+        "Show system integration visually - connecting lines, flow diagrams, cohesive layouts"
+      ],
+      "dont": [
+        "Don't use cool colors (blues, grays) as primary - breaks coffee warmth",
+        "Don't bury metrics or make data hard to interpret",
+        "Don't use cluttered layouts that feel chaotic (contradicts 'system' positioning)",
+        "Don't use generic stock photography - undermines authenticity",
+        "Don't design desktop-first and adapt down",
+        "Don't create visual noise that distracts from conversion path",
+        "Don't use overly decorative or playful design that undermines competence",
+        "Don't show services in isolation - always connect to broader system"
+      ]
+    },
+
+    "typography_and_content": {
+      "do": [
+        "Lead with outcome/result, then explain the how",
+        "Use conversational Portuguese: 'a gente', 'você', natural contractions",
+        "Explain jargon in plain language when first introduced",
+        "Pair every number with clear context: 'R$42k in sales' not just '42k'",
+        "Use short paragraphs (3-4 lines max) for scanability",
+        "Vary sentence length: short for impact, medium for explanation",
+        "Use specific numbers and data instead of vague claims",
+        "Address objections head-on with transparency"
+      ],
+      "dont": [
+        "Don't lead with process before showing result",
+        "Don't use corporate plural: 'prezamos', 'ofertamos', 'vossa empresa'",
+        "Don't use jargon without explaining: 'KPI', 'omnichannel', 'growth hacking'",
+        "Don't present numbers without interpretation",
+        "Don't create walls of text - breaks scanability",
+        "Don't use monotonous sentence structure throughout",
+        "Don't make vague promises: 'incredible results', 'revolutionary approach'",
+        "Don't avoid or dance around objections"
+      ]
+    },
+
+    "brand_voice_application": {
+      "do": [
+        "Ironize industry practices (vanity metrics, pretty reports without ROI)",
+        "Validate client skepticism and frustration - it's earned",
+        "Use humor that teaches or reveals truth about marketing",
+        "Be direct about money, investment, and expected returns",
+        "Show confidence through clear statements, not exclamation marks",
+        "Speak as experienced equal, not guru on pedestal",
+        "Use real client quotes that mention ROI and skepticism overcome"
+      ],
+      "dont": [
+        "Don't attack specific competitors by name",
+        "Don't make client feel stupid for past marketing failures",
+        "Don't use humor that's empty or doesn't serve the message",
+        "Don't be coy or vague about pricing and expectations",
+        "Don't OVERUSE CAPS or multiple exclamation points!!!",
+        "Don't sound like infomercial or desperate salesperson",
+        "Don't manufacture testimonials - authenticity is critical"
+      ]
+    },
+
+    "interaction_and_ux": {
+      "do": [
+        "Make ROI tracking the easiest thing on the dashboard",
+        "Provide immediate feedback on user actions",
+        "Explain why you're asking for information in forms",
+        "Set clear expectations for what happens next",
+        "Use micro-interactions to create moments of delight without distraction",
+        "Design error states that help and empathize",
+        "Create fast-loading experiences - respect user's time"
+      ],
+      "dont": [
+        "Don't bury important metrics behind multiple clicks",
+        "Don't leave users wondering if action was successful",
+        "Don't demand information without context",
+        "Don't leave users in limbo after submission",
+        "Don't add animations or interactions that slow down task completion",
+        "Don't blame user in error messages or be unhelpful",
+        "Don't sacrifice speed for decorative elements"
+      ]
+    },
+
+    "content_formats": {
+      "do": [
+        "Case studies: Problem → Solution → Result with real numbers",
+        "Blog posts: Lead with insight, support with evidence, end with action",
+        "Social media: Mix education (how marketing works) with proof (client results)",
+        "Email: Personal subject lines, conversational body, clear single CTA",
+        "Landing pages: Hero with clear promise, evidence immediately, friction removed from conversion"
+      ],
+      "dont": [
+        "Don't create case studies without specific ROI metrics",
+        "Don't write blog posts that are pure theory without application",
+        "Don't post only self-promotional content - teach valuable things",
+        "Don't send emails that sound like press releases",
+        "Don't create landing pages with unclear value props or hidden friction"
+      ]
+    },
+
+    "client_communications": {
+      "do": [
+        "Dashboard: Lead with ROI card, then drill into supporting metrics",
+        "Reports: Executive summary with key numbers, then details for those who want depth",
+        "Proposals: Transparent about investment, realistic about timeline, specific about deliverables",
+        "Onboarding: Set expectations clearly, explain the process, introduce team personally",
+        "Check-ins: Share wins honestly, discuss challenges transparently, align on next steps"
+      ],
+      "dont": [
+        "Don't lead dashboard with vanity metrics (followers, reach)",
+        "Don't create 40-slide reports that obscure the key findings",
+        "Don't be vague about costs or timeline in proposals",
+        "Don't overwhelm in onboarding or leave client confused about what's happening",
+        "Don't sugarcoat problems or over-promise in check-ins"
+      ]
+    }
+  },
+
+  "brand_archetypes_in_design": {
+    "jester_50_percent": {
+      "visual_expression": "Playful but purposeful illustrations (simple line drawings with wit), unexpected layout breaks that create visual humor, error states and empty states as comedy opportunities",
+      "copy_pairing": "Give clever copy room to breathe - don't overdesign around it",
+      "color_use": "Warm palette prevents humor from feeling cold or sarcastic",
+      "when_to_dial_up": "Social media content, blog posts exposing industry truths, empty states, 404 pages",
+      "when_to_dial_down": "Pricing pages (need confidence), dashboards (need clarity), legal/contract pages"
+    },
+    "sage_30_percent": {
+      "visual_expression": "Clean data visualization, professional typography that commands respect, structured educational content layouts, clear hierarchies that teach",
+      "copy_pairing": "Support educational content with diagrams, charts, step-by-step visuals",
+      "color_use": "Neutral tones for credibility, accent color to highlight key insights",
+      "when_to_dial_up": "Blog educational content, case studies, methodology explanations, dashboards",
+      "when_to_dial_down": "Social media (can feel dry), first-touch marketing (lead with Jester)"
+    },
+    "outlaw_20_percent": {
+      "visual_expression": "Bold typographic treatments for challenging statements, contrasting layouts that show 'typical agency' vs 'Oitavo Café', edgy photography over polished stock",
+      "copy_pairing": "Let provocative statements be bold and large, create visual tension that matches message",
+      "color_use": "Use primary maroon for challenges to status quo, warm palette prevents aggression",
+      "when_to_dial_up": "Positioning content ('We're not an agency'), content criticizing vanity metrics, competitive differentiators",
+      "when_to_dial_down": "Client onboarding (need warmth), reporting (need professionalism), checkout/payment (need trust)"
+    }
+  },
+
+  "accessibility_and_inclusivity": {
+    "color_contrast": [
+      "Always meet WCAG AA minimum (4.5:1 for normal text, 3:1 for large text)",
+      "Aim for AAA when possible (7:1 for normal text) especially for critical content",
+      "Use color palette grades 700+ on white/cream backgrounds for body text",
+      "Use grades 50-200 for text on dark backgrounds (800-900)",
+      "Never rely on color alone to convey information - use icons, labels, or patterns too"
+    ],
+    "typography": [
+      "Minimum 16px for body text (Carolina is 36, may have slight presbyopia beginning)",
+      "Increase to 18px+ for key metrics and important information",
+      "Sufficient line height (1.5-1.6) for readability",
+      "Adequate letter spacing - avoid cramped text",
+      "Avoid all-caps for long-form text (harder to read)"
+    ],
+    "interaction": [
+      "Touch targets minimum 44x44px on mobile (thumb-friendly)",
+      "Keyboard navigation support for all interactive elements",
+      "Clear focus states that are visible",
+      "Enough spacing between interactive elements to prevent mis-taps",
+      "Provide text alternatives for all non-text content"
+    ],
+    "language": [
+      "Use plain language - avoid unnecessarily complex words",
+      "Explain industry terms when first introduced",
+      "Provide context for acronyms on first use",
+      "Write for Brazilian Portuguese audience (both BR and PT understand, but BR is primary)",
+      "Be inclusive in examples - vary business types, genders in case studies"
+    ]
+  },
+
+  "measurement_and_iteration": {
+    "brand_health_metrics": [
+      "Brand recognition: % of target market who recognize Oitavo Café when prompted",
+      "Brand association: What words do people associate with us? (Track: 'ROI', 'results', 'system' = good; 'expensive', 'complicated' = investigate)",
+      "Net Promoter Score from clients (target: 50+)",
+      "Perception of differentiation: 'How different is Oitavo Café from other agencies?' (target: 'very different')",
+      "Trust indicators: % of leads who mention they researched us and felt confident"
+    ],
+    "design_effectiveness_metrics": [
+      "Dashboard engagement: How often do clients check their ROI dashboard?",
+      "Conversion rate of key pages (homepage → consultation booking)",
+      "Mobile vs desktop usage split (should be heavily mobile)",
+      "Time to key metric on dashboard (should be <3 seconds to see ROI)",
+      "Form completion rates (high rate = good UX, low rate = friction)",
+      "Client feedback on clarity: 'I always know what my ROI is' (target: strongly agree)"
+    ],
+    "voice_resonance_metrics": [
+      "Social media engagement on irreverent industry posts vs neutral posts",
+      "Email open rates on humorous subject lines vs straightforward",
+      "Client testimonials mentioning: 'finally someone who speaks my language'",
+      "Objection rate: Are we successfully addressing skepticism upfront?",
+      "Quote-worthiness: How often do clients quote our messaging back to us?"
+    ],
+    "iteration_process": {
+      "quarterly_review": "Assess brand health metrics, gather client feedback on design/messaging, identify what's working vs what needs refinement",
+      "bi_annual_deep_dive": "Full brand audit - are we still differentiated? Is voice still resonating? Do visual assets need refresh?",
+      "continuous_testing": "A/B test messaging approaches, design variations, CTA copy - let data inform evolution",
+      "client_input": "Regular feedback sessions with clients: 'What made you choose us? What do you tell others about us? What confuses you?'"
+    }
+  },
+
+  "evolution_and_flexibility": {
+    "brand_core_unchangeable": [
+      "Coffee heritage and warm color palette (fundamental to identity)",
+      "ROI-first positioning (core differentiator)",
+      "System over service philosophy (existential to business model)",
+      "Voice attributes: intelligent, practical, humorous (personality core)"
+    ],
+    "brand_flexible_adaptable": [
+      "Specific color grades within palette (can adjust as trends evolve)",
+      "Typography choices (can refresh fonts while maintaining professionalism)",
+      "Illustration style (can evolve to stay contemporary)",
+      "Specific humor topics (industry landscape changes, our jokes should too)",
+      "Service offerings and how they're described (business evolution)",
+      "Channel-specific adaptations (TikTok may require different approach than LinkedIn)"
+    ],
+    "growth_considerations": {
+      "if_expanding_internationally": "Palette and core values stay, but humor and references must localize (what's funny in Brazil may not land in Portugal)",
+      "if_adding_services": "New services must fit 'system' narrative - avoid appearing fragmented",
+      "if_market_matures": "May need to dial up Sage (credibility) slightly if target market becomes more sophisticated",
+      "if_competition_copies": "Double down on authentic voice and humor - harder to copy personality than positioning"
+    }
+  },
+
+  "implementation_priorities": {
+    "phase_1_immediate": [
+      "Apply color palette to all existing digital touchpoints (website, social media)",
+      "Update all client-facing dashboards to lead with ROI metrics (design principle #1)",
+      "Audit and rewrite key microcopy (CTAs, form labels, error messages) using voice guidelines",
+      "Create brand-compliant proposal template emphasizing ROI and system",
+      "Redesign email signatures and templates with warm palette and conversational tone"
+    ],
+    "phase_2_short_term": [
+      "Develop comprehensive component library (buttons, cards, forms) following design principles",
+      "Create case study template that showcases Problem → Solution → Result visually",
+      "Redesign onboarding materials to feel systematic and connected",
+      "Develop branded data visualization templates (charts, graphs) for client reporting",
+      "Create social media templates that allow for humor while maintaining professionalism"
+    ],
+    "phase_3_ongoing": [
+      "Continuous refinement of dashboard UX based on client feedback",
+      "Regular content audits to ensure voice consistency across all channels",
+      "Quarterly review of competitor landscape to ensure differentiation holds",
+      "Build library of approved humor/messaging that works across channels",
+      "Train any new team members on brand voice and design principles"
+    ]
+  },
+
+  "brand_promise_statement": {
+    "to_carolina": "We promise to make your marketing investment completely transparent. You'll never wonder 'is this working?' again - you'll see exactly how many leads, how many sales, and what ROI. We'll speak to you like an intelligent equal, validate your skepticism, and build a system (not just do tasks) that transforms your marketing from cost center to profit driver. And we'll do it with enough humanity and humor that working with us doesn't feel like working with another soulless agency.",
+    "to_market": "Oitavo Café translates your brand's strength into a measurable sales system. We're not here to make pretty posts or promise viral magic - we're here to build a connected, data-driven machine that turns your marketing spend into predictable revenue. With warmth, intelligence, and a healthy disrespect for industry BS.",
+    "internal_rallying_cry": "We build sales systems with soul. We make ROI beautiful. We speak truth with warmth. We're the antidote to marketing that looks good but sells nothing."
+  }
+}
