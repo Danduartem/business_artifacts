@@ -375,11 +375,14 @@ prompts:
 
       All sections scored 90%+ across all dimensions.
 
-      **Files Created:**
-      1. voice-documentation.md - Complete Voice Guide
-      2. voice-quick-reference.md - One-Page Summary
-      3. voice-data.json - AI-Ready Format
-      4. voice-scores.json - Quality Report
+      **Final Deliverables:**
+      1. voice-documentation.md - Complete Voice Guide (human-readable)
+      2. voice-quick-reference.md - One-Page Cheat Sheet
+      3. voice-identity.json - Brand archetypes and personality
+      4. tone-matrix.json - Situational tone adjustments
+      5. lexicon.json - Vocabulary and grammar rules
+      6. channel-playbooks.json - Platform-specific guidelines
+      7. content-examples.json - Ready-to-use examples
 
       **Section Scores:**
       - Voice Identity: XX/100
@@ -391,9 +394,9 @@ prompts:
       **Location:** {voice_output_folder}/
 
       **Next Steps:**
-      - Review the documentation
-      - Share with your team
-      - Use voice-data.json for AI content training
+      - Review voice-documentation.md for complete guide
+      - Use voice-quick-reference.md as daily cheat sheet
+      - Reference content-examples.json for inspiration
       ```
 
       **If quality review occurred:**
@@ -408,12 +411,39 @@ prompts:
       **Files Created:**
       [List all files with final scores]
 
-      **Quality Report:** quality-review.json
-
       [If any sections still below 90 after regeneration:]
       ⚠️ Note: X section(s) could not achieve 90+ after regeneration.
-         Review quality-review.json for details and manual fix suggestions.
+         See recommendations in final documentation.
       ```
+
+      ### STEP 13: Cleanup Process Artifacts (MANDATORY)
+
+      **This step is NOT optional - always execute after presenting results.**
+
+      Delete intermediate files that were only needed during generation:
+
+      ```bash
+      rm -f {voice_output_folder}/voice-dna.json
+      rm -f {voice_output_folder}/voice-scores.json
+      rm -f {voice_output_folder}/quality-review.json
+      ```
+
+      **Why cleanup?**
+      - These files are process artifacts, not deliverables
+      - voice-dna.json was used to feed specialist agents (no longer needed)
+      - voice-scores.json was for quality gate check (no longer needed)
+      - quality-review.json was for tracking fixes (no longer needed)
+
+      **Final deliverables that remain:**
+      1. voice-identity.json - WHO the brand is
+      2. tone-matrix.json - HOW to adjust tone by situation
+      3. lexicon.json - WHAT words to use/avoid
+      4. channel-playbooks.json - WHERE to apply the voice
+      5. content-examples.json - EXAMPLES ready to use
+      6. voice-documentation.md - Complete human-readable guide
+      7. voice-quick-reference.md - One-page cheat sheet
+
+      Inform user: "Process artifacts cleaned up. Only final deliverables remain."
 
   analyze_references_only:
     id: "analyze_references_only"
