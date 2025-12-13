@@ -10,6 +10,34 @@ design_system_name: "My Design System"
 tech_stack: "css-only"
 component_scope: "comprehensive"
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# LIGHTWEIGHT MODE - Prevents context overflow in long conversations
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# When enabled, the workflow:
+# - Generates 10 essential components instead of 34
+# - Agents write to disk and return summaries (not full content)
+# - Skips verbose accessibility audit (basic check only)
+# - Creates minimal documentation
+#
+# Recommended: true for most use cases
+# Set to false only if you have a fresh context window
+lightweight_mode: true
+
+# Essential components (when lightweight_mode: true)
+# These 10 cover the core patterns, others can be added later
+essential_components:
+  - button
+  - input
+  - select
+  - checkbox
+  - card
+  - alert
+  - modal
+  - tabs
+  - table
+  - avatar
+
 # Output Settings
 output_folder: "/Users/danielmenezes/coding/business-artifacts/docs"
 

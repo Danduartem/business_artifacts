@@ -16,7 +16,32 @@ This workflow orchestrates the complete creation of a design system from brand i
 <step n="1" goal="Greet user and explain the process">
   <action>Greet {user_name} in {communication_language}</action>
 
-  <action>Explain the design system creation process:
+  <check if="{lightweight_mode} is true">
+    <action>Explain the lightweight design system creation process:
+
+"Welcome to the Design System Forge Pipeline! (Lightweight Mode)
+
+I'll create a focused design system optimized for context efficiency.
+
+**Lightweight Mode Benefits:**
+- 10 essential components (not 34) - covers all core patterns
+- Agents write files directly, return summaries only
+- Quick accessibility check (not full audit)
+- Minimal documentation
+
+**What You'll Get:**
+- Design tokens (JSON + CSS custom properties)
+- 10 component specifications: {essential_components}
+- Basic accessibility check
+- Quick-start documentation
+
+**Estimated Time:** 5-8 minutes
+
+Let's verify your inputs and get started!"</action>
+  </check>
+
+  <check if="{lightweight_mode} is false or not set">
+    <action>Explain the full design system creation process:
 
 "Welcome to the Design System Forge Pipeline!
 
@@ -30,13 +55,17 @@ I'll guide you through creating a comprehensive design system from your brand as
 
 **What You'll Get:**
 - Design tokens (JSON + CSS custom properties)
-- Component specifications (20+ components)
+- Component specifications (34 components)
 - Accessibility audit report
 - Complete documentation
 
 **Estimated Time:** 10-15 minutes
 
+⚠️ **Note:** Full mode may cause context overflow in long conversations.
+Set `lightweight_mode: true` in config.yaml if you experience issues.
+
 Let's verify your inputs and get started!"</action>
+  </check>
 </step>
 
 <step n="2" goal="Validate required inputs">
@@ -244,7 +273,56 @@ CSS custom properties with organized sections and comments.
 <step n="6" goal="Generate component specifications (Component Specifier)">
   <action>Display progress: "## Phase 2: Component Specifications (Component Specifier)"</action>
 
-  <action>Based on {component_scope} = "comprehensive", define component list:
+  <check if="{lightweight_mode} is true">
+    <action>Use essential components list for lightweight mode:
+
+**Essential Components (10):** {essential_components}
+
+These 10 components cover all major UI patterns. Additional components can be generated later.</action>
+
+    <action>Spawn a SINGLE Component Specifier agent (not parallel) with summary-only output:
+
+Create ONE Task with `subagent_type: "general-purpose"`:
+
+```
+You are the **Component Specifier**, creating component specs for {design_system_name}.
+
+**=== CRITICAL: SUMMARY-ONLY MODE ===**
+
+Write files directly to disk. Return ONLY a brief summary like:
+"✅ Created 10 component specs:
+- button.md (423 lines)
+- input.md (512 lines)
+..."
+
+DO NOT return full file contents. This prevents context overflow.
+
+**=== YOUR MISSION ===**
+
+Create specifications for these 10 essential components: {essential_components}
+
+**=== DESIGN TOKENS ===**
+
+Load tokens from: {tokens_output}/tokens.json
+Use ONLY token references. Never hardcode values.
+
+**=== OUTPUT ===**
+
+Save each component to: {components_output}/{component-name}.md
+
+**=== RESPONSE FORMAT ===**
+
+After writing all files, respond with ONLY:
+1. Count of components created
+2. List of filenames with line counts
+3. Any issues encountered
+
+DO NOT include file contents in your response.
+```</action>
+  </check>
+
+  <check if="{lightweight_mode} is false or not set">
+    <action>Based on {component_scope} = "comprehensive", define component list:
 
 **Foundation (3):** Typography, Icon, Divider
 **Actions (3):** Button, IconButton, Link
@@ -254,9 +332,11 @@ CSS custom properties with organized sections and comments.
 **Navigation (5):** Tabs, Breadcrumb, Pagination, Navbar, Sidebar
 **Overlay (4):** Modal, Dropdown, Popover, Drawer
 
-**Total: 34 components**</action>
+**Total: 34 components**
 
-  <action>Spawn multiple Component Specifier agents in PARALLEL (batch by category):
+⚠️ **Warning:** Full component generation may cause context overflow.</action>
+
+    <action>Spawn multiple Component Specifier agents in PARALLEL (batch by category):
 
 For each category, create a Task with `subagent_type: "general-purpose"`:
 
@@ -351,7 +431,43 @@ Save each component to: {components_output}/{component-name}.md
 <step n="7" goal="Audit accessibility (Accessibility Auditor)">
   <action>Display progress: "## Phase 3: Accessibility Audit (Accessibility Auditor)"</action>
 
-  <action>Spawn Accessibility Auditor agent:
+  <check if="{lightweight_mode} is true">
+    <action>Perform quick accessibility check (no agent spawn):
+
+Instead of spawning an agent, directly check:
+1. Load {tokens_output}/tokens.json
+2. Verify text colors have 4.5:1+ contrast with backgrounds
+3. Verify focus ring is defined
+4. Verify minimum touch target size (44px) in spacing scale
+
+Create a brief report at {design_system_output}/accessibility-quick-check.md:
+
+```markdown
+# Accessibility Quick Check
+
+**Date:** {date}
+**Status:** PASS/FAIL
+
+## Color Contrast
+- Primary text on white: [ratio] ✅/❌
+- Secondary text on white: [ratio] ✅/❌
+- Primary text on brand bg: [ratio] ✅/❌
+
+## Focus States
+- Focus ring defined: ✅/❌
+
+## Touch Targets
+- 44px minimum available in spacing: ✅/❌
+
+## Notes
+[Any issues found]
+```
+
+Return summary only.</action>
+  </check>
+
+  <check if="{lightweight_mode} is false or not set">
+    <action>Spawn Accessibility Auditor agent:
 
 ```
 You are the **Accessibility Auditor**, auditing {design_system_name} for WCAG 2.1 AA compliance.
@@ -413,21 +529,71 @@ Include:
   - Warnings: {count}
   - Report: {design_system_output}/accessibility-audit.md"</action>
 
-  <check if="audit has failures">
-    <ask>The audit found {count} accessibility failures. Would you like to:
+    <check if="audit has failures">
+      <ask>The audit found {count} accessibility failures. Would you like to:
 
 1. **See details** - Review failures and recommended fixes
 2. **Continue anyway** - Proceed with documentation (not recommended)
 3. **Fix and re-audit** - I'll help you fix issues first
 
 Enter 1, 2, or 3:</ask>
+    </check>
   </check>
 </step>
 
 <step n="8" goal="Generate documentation (Documentation Writer)">
   <action>Display progress: "## Phase 4: Documentation (Documentation Writer)"</action>
 
-  <action>Spawn Documentation Writer agent:
+  <check if="{lightweight_mode} is true">
+    <action>Create minimal documentation directly (no agent spawn):
+
+Create a single {design_system_output}/README.md with:
+
+```markdown
+# {design_system_name}
+
+**Generated:** {date}
+
+## Quick Start
+
+1. Include the tokens:
+\`\`\`html
+<link rel="stylesheet" href="tokens/tokens.css">
+\`\`\`
+
+2. Use in your CSS:
+\`\`\`css
+.element {
+  color: var(--color-text-primary);
+  padding: var(--spacing-md);
+}
+\`\`\`
+
+## Files
+
+| Folder | Contents |
+|--------|----------|
+| `/tokens` | Design tokens (JSON + CSS) |
+| `/components` | Component specifications |
+
+## Components
+
+[List all .md files in components folder]
+
+## Tokens Reference
+
+[Brief list of token categories from tokens.json]
+
+## Need More?
+
+Run the workflow again with `lightweight_mode: false` for full documentation.
+```
+
+Return summary only.</action>
+  </check>
+
+  <check if="{lightweight_mode} is false or not set">
+    <action>Spawn Documentation Writer agent:
 
 ```
 You are the **Documentation Writer**, creating docs for {design_system_name}.
@@ -495,12 +661,13 @@ Create comprehensive documentation that enables teams to adopt the design system
 - Link between related docs
 ```</action>
 
-  <action>Wait for Documentation Writer to complete</action>
+    <action>Wait for Documentation Writer to complete</action>
 
-  <action>Report to {user_name}:
-  "Documentation complete!
-  - {count} documentation pages generated
-  - Location: {docs_output}/"</action>
+    <action>Report to {user_name}:
+    "Documentation complete!
+    - {count} documentation pages generated
+    - Location: {docs_output}/"</action>
+  </check>
 </step>
 
 <step n="9" goal="Final summary and export options">

@@ -15,6 +15,8 @@ design_system_name: "{config_source}:design_system_name"
 tech_stack: "{config_source}:tech_stack"
 component_scope: "{config_source}:component_scope"
 output_folder: "{config_source}:output_folder"
+lightweight_mode: "{config_source}:lightweight_mode"
+essential_components: "{config_source}:essential_components"
 
 # Input file paths
 brand_guide_path: "{config_source}:brand_guide_path"
