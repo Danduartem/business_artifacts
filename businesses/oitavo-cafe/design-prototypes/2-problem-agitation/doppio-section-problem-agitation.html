@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doppio - Section 2: Problem Agitation</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Font Faces */
+        @font-face {
+            font-family: 'Hartwell';
+            src: url('../businesses/oitavo-cafe/fonts/Hartwell Black.woff2') format('woff2');
+            font-weight: 900;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Hartwell';
+            src: url('../businesses/oitavo-cafe/fonts/Hartwell Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Hartwell';
+            src: url('../businesses/oitavo-cafe/fonts/Hartwell Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'DIN Pro';
+            src: url('../businesses/oitavo-cafe/fonts/DINPro.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'DIN Pro';
+            src: url('../businesses/oitavo-cafe/fonts/DINPro-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        :root {
+            --color-bg: #1A0604;
+            --color-bg-card: #2A0E0A;
+            --color-marrom-dark: #4E130D;
+            --color-marrom-medium: #7A1307;
+            --color-terracotta: #A1523C;
+            --color-caramelo: #F8E8D8;
+            --color-text-primary: #F8E8D8;
+            --color-text-secondary: #B89888;
+            --color-text-muted: #7A5A4A;
+            --font-headline: 'Hartwell', Georgia, serif;
+            --font-body: 'DIN Pro', system-ui, sans-serif;
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Section Container */
+        .section {
+            position: relative;
+            padding: 100px 80px;
+            overflow: hidden;
+        }
+
+        .section__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Background Glow */
+        .section__glow {
+            position: absolute;
+            top: 20%;
+            left: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(
+                circle,
+                rgba(122, 19, 7, 0.4) 0%,
+                rgba(78, 19, 13, 0.15) 40%,
+                transparent 65%
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .section__glow--right {
+            left: auto;
+            right: -25%;
+            top: 60%;
+        }
+
+        /* Opening Block */
+        .opening {
+            max-width: 800px;
+            margin-bottom: 60px;
+        }
+
+        .opening__headline {
+            font-family: var(--font-headline);
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--color-caramelo);
+            margin-bottom: 32px;
+        }
+
+        .opening__text {
+            font-size: 18px;
+            color: #D4B8A8;
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .opening__text--highlight {
+            color: var(--color-caramelo);
+            font-weight: 700;
+        }
+
+        /* The Big Question */
+        .big-question {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin: 60px 0;
+        }
+
+        .big-question__text {
+            flex: 1;
+        }
+
+        .big-question__label {
+            font-family: var(--font-headline);
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            color: var(--color-text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .big-question__headline {
+            font-family: var(--font-headline);
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 900;
+            line-height: 1.05;
+            color: var(--color-caramelo);
+            margin-bottom: 24px;
+        }
+
+        .big-question__headline .light {
+            font-weight: 400;
+            color: var(--color-text-secondary);
+        }
+
+        .big-question__answer {
+            font-family: var(--font-headline);
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 400;
+            color: var(--color-text-muted);
+            font-style: italic;
+        }
+
+        /* Fake Report Card */
+        .report-card {
+            flex: 0 0 420px;
+            background: linear-gradient(145deg, var(--color-bg-card) 0%, #1F0906 100%);
+            border: 1px solid rgba(161, 82, 60, 0.25);
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+            transform: rotate(2deg);
+        }
+
+        .report-card::before {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(161, 82, 60, 0.3) 0%,
+                transparent 70%
+            );
+            z-index: -1;
+            filter: blur(25px);
+        }
+
+        .report-card__header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(161, 82, 60, 0.15);
+        }
+
+        .report-card__icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(161, 82, 60, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-terracotta);
+        }
+
+        .report-card__title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-text-secondary);
+        }
+
+        .report-card__subtitle {
+            font-size: 11px;
+            color: var(--color-text-muted);
+        }
+
+        .report-card__metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(161, 82, 60, 0.08);
+        }
+
+        .report-card__metric:last-child {
+            border-bottom: none;
+        }
+
+        .report-card__metric-label {
+            font-size: 13px;
+            color: var(--color-text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .report-card__metric-label svg {
+            width: 16px;
+            height: 16px;
+            color: var(--color-terracotta);
+            opacity: 0.6;
+        }
+
+        .report-card__metric-value {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--color-caramelo);
+        }
+
+        .report-card__metric-value--muted {
+            color: var(--color-text-muted);
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .report-card__footer {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(161, 82, 60, 0.15);
+            text-align: center;
+        }
+
+        .report-card__footer-text {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            font-style: italic;
+        }
+
+        /* The Frustration */
+        .frustration {
+            max-width: 700px;
+            margin: 60px 0;
+        }
+
+        .frustration__quote {
+            font-family: var(--font-headline);
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 900;
+            line-height: 1.15;
+            color: var(--color-caramelo);
+            margin-bottom: 32px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .frustration__quote::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--color-terracotta);
+            border-radius: 2px;
+        }
+
+        .frustration__text {
+            font-size: 17px;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .frustration__emphasis {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-caramelo);
+            margin-top: 32px;
+        }
+
+        /* The Mirror Section */
+        .mirror {
+            background: linear-gradient(145deg, rgba(42, 14, 10, 0.6) 0%, rgba(26, 6, 4, 0.8) 100%);
+            border: 1px solid rgba(161, 82, 60, 0.15);
+            border-radius: 20px;
+            padding: 60px;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .mirror::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--color-terracotta), transparent);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .mirror__headline {
+            font-family: var(--font-headline);
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            color: var(--color-caramelo);
+            margin-bottom: 40px;
+        }
+
+        .mirror__list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .mirror__item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .mirror__item-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background: rgba(161, 82, 60, 0.15);
+            border: 1px solid rgba(161, 82, 60, 0.25);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-terracotta);
+        }
+
+        .mirror__item-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .mirror__item-content {
+            flex: 1;
+        }
+
+        .mirror__item-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--color-caramelo);
+            margin-bottom: 4px;
+        }
+
+        .mirror__item-desc {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            line-height: 1.5;
+        }
+
+        .mirror__question {
+            font-family: var(--font-headline);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-terracotta);
+            margin-bottom: 32px;
+        }
+
+        .mirror__skeptic {
+            font-size: 17px;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .mirror__response {
+            font-size: 16px;
+            color: var(--color-text-muted);
+        }
+
+        .mirror__response strong {
+            color: var(--color-caramelo);
+        }
+
+        /* Absolution Section */
+        .absolution {
+            max-width: 700px;
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        .absolution__divider {
+            width: 60px;
+            height: 2px;
+            background: var(--color-terracotta);
+            margin: 0 auto 40px;
+        }
+
+        .absolution__headline {
+            font-family: var(--font-headline);
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 900;
+            color: var(--color-caramelo);
+            margin-bottom: 32px;
+        }
+
+        .absolution__text {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .absolution__text strong {
+            color: var(--color-caramelo);
+            font-weight: 700;
+        }
+
+        .absolution__closing {
+            font-family: var(--font-headline);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--color-terracotta);
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .section {
+                padding: 80px 48px;
+            }
+
+            .big-question {
+                flex-direction: column;
+                gap: 48px;
+            }
+
+            .report-card {
+                flex: none;
+                max-width: 100%;
+                transform: rotate(1deg);
+            }
+
+            .mirror__list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 24px;
+            }
+
+            .opening,
+            .frustration,
+            .absolution {
+                margin-bottom: 60px;
+            }
+
+            .mirror {
+                padding: 40px 28px;
+                margin: 60px 0;
+            }
+
+            .big-question {
+                margin: 60px 0;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="section__glow"></div>
+        <div class="section__glow section__glow--right"></div>
+
+        <div class="section__container">
+
+            <!-- Opening -->
+            <div class="opening">
+                <h2 class="opening__headline">Você já sabe como essa história funciona.</h2>
+                <p class="opening__text">
+                    Você investe em marketing. Paga agência. Faz post. Roda anúncio.
+                </p>
+                <p class="opening__text">
+                    O Instagram tá bonito. O feed tá harmonioso. As cores combinando perfeitamente.
+                </p>
+            </div>
+
+            <!-- The Big Question with Report Card -->
+            <div class="big-question">
+                <div class="big-question__text">
+                    <div class="big-question__label">E o caixa?</div>
+                    <h3 class="big-question__headline">
+                        Silêncio.
+                    </h3>
+                    <p class="big-question__answer">
+                        Aquele relatório de 50 slides chega todo mês. Gráficos coloridos. "Alcance de 50 mil!" "Engajamento acima da média!"
+                    </p>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-card__header">
+                        <div class="report-card__icon">
+                            <i data-lucide="bar-chart-2" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <div class="report-card__title">Relatório Mensal</div>
+                            <div class="report-card__subtitle">Métricas de Vaidade</div>
+                        </div>
+                    </div>
+
+                    <div class="report-card__metric">
+                        <span class="report-card__metric-label">
+                            <i data-lucide="eye" aria-hidden="true"></i>
+                            Alcance
+                        </span>
+                        <span class="report-card__metric-value">50.847</span>
+                    </div>
+
+                    <div class="report-card__metric">
+                        <span class="report-card__metric-label">
+                            <i data-lucide="heart" aria-hidden="true"></i>
+                            Curtidas
+                        </span>
+                        <span class="report-card__metric-value">2.341</span>
+                    </div>
+
+                    <div class="report-card__metric">
+                        <span class="report-card__metric-label">
+                            <i data-lucide="message-circle" aria-hidden="true"></i>
+                            Comentários
+                        </span>
+                        <span class="report-card__metric-value">127</span>
+                    </div>
+
+                    <div class="report-card__metric">
+                        <span class="report-card__metric-label">
+                            <i data-lucide="banknote" aria-hidden="true"></i>
+                            Vendas Atribuídas
+                        </span>
+                        <span class="report-card__metric-value report-card__metric-value--muted">???</span>
+                    </div>
+
+                    <div class="report-card__footer">
+                        <span class="report-card__footer-text">"Engajamento acima da média!"</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Frustration -->
+            <div class="frustration">
+                <blockquote class="frustration__quote">
+                    "E daí? Cadê o dinheiro?"
+                </blockquote>
+                <p class="frustration__text">
+                    Curtida não paga conta. Comentário fofo não paga funcionário.
+                </p>
+                <p class="frustration__text">
+                    Você faz a conta mental: já gastou R$ 30, 40, 50 mil em "marketing digital" nos últimos dois anos. E não faz ideia de quantos clientes vieram disso.
+                </p>
+                <p class="frustration__text">
+                    Cada mês é a mesma coisa: gasta, torce, e reza pra dar certo.
+                </p>
+                <p class="frustration__emphasis">
+                    Marketing virou custo. Não investimento.
+                </p>
+            </div>
+
+            <!-- The Mirror -->
+            <div class="mirror">
+                <h3 class="mirror__headline">
+                    Se você já se sentiu assim, você não está sozinha.
+                </h3>
+                <p class="opening__text" style="margin-bottom: 32px; color: var(--color-text-secondary);">
+                    Deixa eu adivinhar a sua história:
+                </p>
+
+                <div class="mirror__list">
+                    <div class="mirror__item">
+                        <div class="mirror__item-icon">
+                            <i data-lucide="presentation" aria-hidden="true"></i>
+                        </div>
+                        <div class="mirror__item-content">
+                            <div class="mirror__item-title">Agência de posts bonitos</div>
+                            <div class="mirror__item-desc">Entregava relatório de "alcance". Muito slide, zero cliente.</div>
+                        </div>
+                    </div>
+
+                    <div class="mirror__item">
+                        <div class="mirror__item-icon">
+                            <i data-lucide="sparkles" aria-hidden="true"></i>
+                        </div>
+                        <div class="mirror__item-content">
+                            <div class="mirror__item-title">Influenciador viral</div>
+                            <div class="mirror__item-desc">Fez publi que bombou. Muita curtida, nenhum PIX.</div>
+                        </div>
+                    </div>
+
+                    <div class="mirror__item">
+                        <div class="mirror__item-icon">
+                            <i data-lucide="graduation-cap" aria-hidden="true"></i>
+                        </div>
+                        <div class="mirror__item-content">
+                            <div class="mirror__item-title">Curso de guru</div>
+                            <div class="mirror__item-desc">Prometia "10x em 30 dias". Spoiler: não deu.</div>
+                        </div>
+                    </div>
+
+                    <div class="mirror__item">
+                        <div class="mirror__item-icon">
+                            <i data-lucide="user" aria-hidden="true"></i>
+                        </div>
+                        <div class="mirror__item-content">
+                            <div class="mirror__item-title">Fase "vou fazer eu mesma"</div>
+                            <div class="mirror__item-desc">Durou até você lembrar que não abriu empresa pra virar social media.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mirror__question">Acertei quantos?</p>
+
+                <p class="mirror__skeptic">
+                    E agora você está aqui, cética, pensando: "Será que esses são diferentes ou é mais do mesmo?"
+                </p>
+
+                <p class="mirror__response">
+                    Boa pergunta. É a pergunta certa. <strong>(A gente gosta de gente desconfiada.)</strong>
+                </p>
+            </div>
+
+            <!-- Absolution -->
+            <div class="absolution">
+                <div class="absolution__divider"></div>
+                <h3 class="absolution__headline">Não é culpa sua.</h3>
+                <p class="absolution__text">
+                    Se você já gastou dinheiro em marketing que não deu retorno, saiba: <strong>você não foi trouxa.</strong> Você foi alvo de um mercado inteiro que é muito bom em vender show de likes.
+                </p>
+                <p class="absolution__text">
+                    (Eles são ótimos em marketing — só não do tipo que vende.)
+                </p>
+                <p class="absolution__text">
+                    O problema nunca foi você. O problema é o que te venderam como "marketing".
+                </p>
+                <p class="absolution__closing">
+                    Seu ceticismo não é paranoia. É currículo.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
