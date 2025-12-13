@@ -1,0 +1,110 @@
+# Design System Forge Module Configuration
+# Design System Creation Engine - Multi-agent system for comprehensive design systems
+
+code: design-system-forge
+name: "Design System Forge"
+default_selected: false
+
+# Welcome message shown during installation
+prompt:
+  - "Welcome to Design System Forge!"
+  - "The Design System Creation Engine that transforms your brand assets into comprehensive, production-ready design systems."
+  - "Powered by 5 specialized agents: Design System Architect, Token Architect, Component Specifier, Accessibility Auditor, and Documentation Writer."
+
+# Core config values are automatically inherited:
+## user_name
+## communication_language
+## document_output_language
+## output_folder
+
+# ============================================================================
+# CONFIGURATION FIELDS
+# ============================================================================
+# Each field can be:
+# 1. INTERACTIVE (has 'prompt' - asks user during installation)
+# 2. STATIC (no 'prompt' - just uses 'result' value)
+# ============================================================================
+
+# INTERACTIVE - Design System Name
+design_system_name:
+  prompt: "What should your design system be called?"
+  default: "My Design System"
+  result: "{value}"
+
+# INTERACTIVE - Tech Stack
+tech_stack:
+  prompt: "What tech stack will consume this design system? (css-only, react-tailwind, react-css-in-js, vue-css)"
+  default: "css-only"
+  result: "{value}"
+  # Options:
+  # css-only: Pure CSS custom properties (works anywhere)
+  # react-tailwind: Tailwind config + React patterns
+  # react-css-in-js: Styled-components/Emotion patterns
+  # vue-css: Vue component patterns with CSS
+
+# INTERACTIVE - Component Scope
+component_scope:
+  prompt: "How many components should the design system include? (core, standard, comprehensive)"
+  default: "comprehensive"
+  result: "{value}"
+  # Options:
+  # core: 5-8 essential components (Button, Input, Card, Typography, Icon)
+  # standard: 12-15 components (Core + Modal, Dropdown, Nav, Form, Badge)
+  # comprehensive: 20+ components (Full library)
+
+# INTERACTIVE - Brand Guide Path
+brand_guide_path:
+  prompt: "Path to your brand guide document (or press Enter to create later):"
+  default: ""
+  result: "{project-root}/{value}"
+  # Should contain: Brand personality, voice, visual identity principles
+
+# INTERACTIVE - Style Guide Path
+style_guide_path:
+  prompt: "Path to your style guide document (or press Enter to create later):"
+  default: ""
+  result: "{project-root}/{value}"
+  # Should contain: Typography, spacing, component styling rules
+
+# INTERACTIVE - Color Palette Path
+color_palette_path:
+  prompt: "Path to your color palette document (or press Enter to create later):"
+  default: ""
+  result: "{project-root}/{value}"
+  # Should contain: All brand colors with hex values and roles
+
+# ============================================================================
+# STATIC CONFIGURATION
+# ============================================================================
+
+# References Path (optional)
+references_path:
+  result: "{project-root}/bmad/design-system-forge/briefs/references.md"
+  # Optional: Inspiration websites, screenshots, competitor examples
+
+# Logo Path (optional)
+logo_path:
+  result: "{project-root}/bmad/design-system-forge/briefs/logo.png"
+  # Optional: Logo file for documentation
+
+# Design System Output Folder
+design_system_output:
+  result: "{output_folder}/design-system"
+  # Where the generated design system will be saved
+
+# Include accessibility audit
+include_accessibility_audit:
+  result: "true"
+  # If true, runs accessibility audit after token generation
+
+# Auto-generate documentation
+auto_generate_docs:
+  result: "true"
+  # If true, generates full documentation automatically
+
+# WCAG compliance level
+wcag_level:
+  result: "AA"
+  # Options: AA | AAA
+  # AA: 4.5:1 normal text, 3:1 large text (recommended)
+  # AAA: 7:1 normal text, 4.5:1 large text (stricter)
