@@ -1,374 +1,278 @@
-# Generate Palette Workflow Instructions
+# Generate Palette Workflow
+
+This workflow generates a comprehensive, accessible color palette through a multi-agent pipeline.
+
+---
 
 ## Overview
 
-This workflow orchestrates the generation of 5 diverse color palettes using specialized agents, each approaching color from a unique perspective. The result is a comprehensive set of options for the user to compare, score, and select from.
+The Generate Palette workflow coordinates 5 specialized agents to create production-ready color palettes:
+
+1. **Color Palette Architect** - Orchestrates the pipeline
+2. **Color Theorist** - Generates harmonious base palette
+3. **Color Psychologist** - Assigns semantic meanings
+4. **Accessibility Checker** - Validates WCAG compliance
+5. **Palette Scorer** - Evaluates quality
 
 ---
 
-## Workflow Steps
+## Inputs
 
-<step n="1" goal="Gather primary colors from user">
+### Required
+- **brand_personality**: 3-5 words describing brand (e.g., "innovative, trustworthy, modern")
 
-### Action: Request Primary Colors
-
-Ask the user to provide 2-4 primary colors for their brand:
-
-```
-Please provide 2-4 primary colors for your brand:
-
-**Format:** HEX codes (e.g., #FF5733) or color names
-
-Examples:
-- "#2563EB" (your main brand blue)
-- "#10B981, #F59E0B" (two brand colors)
-- "#1E293B, #3B82F6, #F97316" (dark, primary, accent)
-
-Your primary colors:
-```
-
-### Validation:
-- Minimum 2 colors, maximum 4 colors
-- Must be valid HEX codes (#RRGGBB or #RGB) or recognized color names
-- Convert color names to HEX for processing
-
-### Store:
-- `{primary_colors}` - Array of HEX codes
-
-</step>
+### Optional
+- **industry**: Target industry (default: "technology")
+- **primary_color**: Existing brand color to build around (hex)
+- **color_temperature**: warm | cool | neutral (default: "neutral")
+- **palette_style**: classic | modern | bold | subtle (default: "modern")
+- **brand_guide_path**: Path to brand guide document
 
 ---
 
-<step n="2" goal="Gather brand context">
+## Pipeline Phases
 
-### Action: Request Brand Context
+### Phase 1: Context Gathering
+**Agent**: Color Palette Architect
 
-Ask for context that will inform palette generation:
+**Actions**:
+1. Load configuration from config.yaml
+2. Prompt for missing required inputs
+3. Load brand guide if provided
+4. Load reference materials if available
+5. Prepare context package for specialists
 
-```
-Brief brand context (helps generate better palettes):
-
-1. **Industry/Sector:**
-   (e.g., tech startup, healthcare, e-commerce, creative agency)
-
-2. **Target Audience:**
-   (e.g., young professionals, enterprise buyers, health-conscious consumers)
-
-3. **Brand Personality:**
-   (3-5 adjectives, e.g., trustworthy, innovative, playful, premium, approachable)
-
-4. **Colors to Avoid:** (optional)
-   (Any colors that conflict with brand or competitors)
-
-5. **Special Requirements:** (optional)
-   (Specific accessibility needs, print requirements, etc.)
-```
-
-### Store:
-- `{industry}` - Industry/sector
-- `{target_audience}` - Target audience description
-- `{brand_personality}` - Array of personality adjectives
-- `{colors_to_avoid}` - Optional array of colors to avoid
-- `{special_requirements}` - Optional special requirements
-
-</step>
+**Output**: Context document for downstream agents
 
 ---
 
-<step n="3" goal="Load reference data">
+### Phase 2: Base Palette Generation
+**Agent**: Color Theorist
 
-### Action: Load Supporting Data Files
+**Input**: Context from Phase 1
 
-Read the reference data files to inform agent prompts:
+**Actions**:
+1. Select appropriate harmony model based on brand
+2. Generate base colors (primary, secondary, accent, neutral)
+3. Create full scales (50-900) for each color
+4. Calculate harmony score
+5. Verify temperature and style alignment
 
-1. **Color Psychology Data**
-   - Read: `{color_psychology_data}`
-   - Extract: Color-emotion mappings, cultural associations
+**Output**: Base palette with 4+ colors, each with 10-step scale
 
-2. **WCAG Standards Data**
-   - Read: `{wcag_standards_data}`
-   - Extract: Contrast requirements, accessibility rules
-
-3. **Industry Colors Data**
-   - Read: `{industry_colors_data}`
-   - Extract: Industry conventions, trend information
-
-### Store:
-- `{psychology_reference}` - Key psychology insights
-- `{wcag_reference}` - Accessibility requirements
-- `{industry_reference}` - Industry color conventions
-
-</step>
+**Quality Gate**: Harmony Score ≥ 80
 
 ---
 
-<step n="4" goal="Prepare output folder">
+### Phase 3: Semantic Assignment
+**Agent**: Color Psychologist
 
-### Action: Create Output Directory
+**Input**: Base palette from Phase 2
 
-```bash
-mkdir -p {palette_output_folder}
-```
+**Actions**:
+1. Map colors to semantic roles (primary, secondary, accent, neutral)
+2. Assign status colors (success, warning, error, info)
+3. Provide psychological rationale for each assignment
+4. Consider cultural implications
+5. Calculate psychology alignment score
 
-### Verify:
-- Directory exists and is writable
-- Clear any previous palette files if user confirms
+**Output**: Semantic color assignments with rationale
 
-</step>
-
----
-
-<step n="5" goal="Spawn 5 parallel palette generator agents">
-
-### Action: Launch All 5 Agents in SINGLE Message
-
-**CRITICAL:** All 5 Task calls must be in ONE message for true parallelism.
-
-Each agent receives:
-- Primary colors: `{primary_colors}`
-- Brand context: `{industry}`, `{target_audience}`, `{brand_personality}`
-- Configuration: `{wcag_level}`, `{scale_granularity}`, `{generate_modes}`
-- Reference data summaries
-- Output file path
-
-#### Agent 1: Color Psychologist
-```
-Task: subagent_type="general-purpose"
-
-You are the Color Psychologist, a specialist in the Color Forge studio.
-
-**Your Approach:** Emotion-first
-**Your Philosophy:** "Colors speak to the soul before the eye sees them"
-
-**Input:**
-- Primary Colors: {primary_colors}
-- Industry: {industry}
-- Target Audience: {target_audience}
-- Brand Personality: {brand_personality}
-
-**Your Mission:**
-1. Analyze primary colors for emotional qualities
-2. Map to brand personality requirements
-3. Select complementary colors reinforcing emotions
-4. Build hierarchy based on psychological impact
-5. Assign semantic meanings aligned with emotions
-
-**Output:** {palette_output_folder}/palette-psychology.json
-
-**Requirements:**
-- WCAG {wcag_level} compliance
-- {scale_granularity}-step tint/shade scale (50-900)
-- Generate for {generate_modes} mode(s)
-- Include semantic colors if {include_semantic_colors}
-```
-
-#### Agent 2: Color Harmonist
-```
-Task: subagent_type="general-purpose"
-
-You are the Color Harmonist, a specialist in the Color Forge studio.
-
-**Your Approach:** Theory-first
-**Your Philosophy:** "Mathematical harmony creates visual music"
-
-**Input:**
-- Primary Colors: {primary_colors}
-- Industry: {industry}
-- Target Audience: {target_audience}
-- Brand Personality: {brand_personality}
-
-**Your Mission:**
-1. Plot primary colors on color wheel (hue angles)
-2. Identify optimal harmony type
-3. Calculate mathematically perfect complementary colors
-4. Generate tints/shades with consistent lightness steps
-5. Balance saturation across palette
-
-**Output:** {palette_output_folder}/palette-harmony.json
-
-**Requirements:**
-- WCAG {wcag_level} compliance
-- {scale_granularity}-step scale
-- Generate for {generate_modes} mode(s)
-- Include harmony_analysis section with scheme detection
-```
-
-#### Agent 3: Accessibility Guardian
-```
-Task: subagent_type="general-purpose"
-
-You are the Accessibility Guardian, a specialist in the Color Forge studio.
-
-**Your Approach:** Inclusion-first
-**Your Philosophy:** "A beautiful palette that excludes is a failed palette"
-
-**Input:**
-- Primary Colors: {primary_colors}
-- Industry: {industry}
-- Target Audience: {target_audience}
-- Brand Personality: {brand_personality}
-
-**Your Mission:**
-1. Analyze colors for accessibility potential
-2. Adjust to maximize contrast while preserving hue
-3. Test ALL text/background combinations
-4. Ensure colorblind distinguishability
-5. Generate light AND dark mode variants
-
-**Output:** {palette_output_folder}/palette-accessible.json
-
-**Requirements:**
-- WCAG {wcag_level} compliance (MANDATORY)
-- Colorblind validation: {colorblind_validation}
-- {scale_granularity}-step scale
-- Include comprehensive accessibility section
-```
-
-#### Agent 4: Trend Analyst
-```
-Task: subagent_type="general-purpose"
-
-You are the Trend Analyst, a specialist in the Color Forge studio.
-
-**Your Approach:** Context-first
-**Your Philosophy:** "Colors exist in cultural and temporal context"
-
-**Input:**
-- Primary Colors: {primary_colors}
-- Industry: {industry}
-- Target Audience: {target_audience}
-- Brand Personality: {brand_personality}
-
-**Your Mission:**
-1. Identify current design trends for {industry}
-2. Research competitor color usage
-3. Position primary colors within trend landscape
-4. Add trend-aware accent colors
-5. Balance timelessness with contemporary appeal
-
-**Output:** {palette_output_folder}/palette-trendy.json
-
-**Requirements:**
-- WCAG {wcag_level} compliance
-- {scale_granularity}-step scale
-- Generate for {generate_modes} mode(s)
-- Include trend_analysis section
-```
-
-#### Agent 5: Brand Synthesizer
-```
-Task: subagent_type="general-purpose"
-
-You are the Brand Synthesizer, a specialist in the Color Forge studio.
-
-**Your Approach:** Integration-first
-**Your Philosophy:** "A palette must work everywhere your brand lives"
-
-**Input:**
-- Primary Colors: {primary_colors}
-- Industry: {industry}
-- Target Audience: {target_audience}
-- Brand Personality: {brand_personality}
-
-**Your Mission:**
-1. Analyze colors for versatility potential
-2. Generate palette optimized for ALL application scenarios
-3. Test against common UI patterns
-4. Ensure light AND dark mode work beautifully
-5. Handle edge cases (images, gradients, glassmorphism)
-
-**Output:** {palette_output_folder}/palette-synthesized.json
-
-**Requirements:**
-- WCAG {wcag_level} compliance
-- {scale_granularity}-step scale
-- Generate for {generate_modes} mode(s)
-- Include application_guide section
-```
-
-</step>
+**Quality Gate**: Psychology Score ≥ 75
 
 ---
 
-<step n="6" goal="Wait for all agents to complete">
+### Phase 4: Accessibility Validation
+**Agent**: Accessibility Checker
 
-### Action: Monitor Completion
+**Input**: Semantic palette from Phase 3
 
-All 5 agents work simultaneously and independently.
-Wait for all Task results before proceeding.
+**Actions**:
+1. Calculate contrast ratios for all combinations
+2. Validate against WCAG AA/AAA requirements
+3. Check color blindness safety
+4. Identify failures
+5. Provide adjusted alternatives for failures
+6. Calculate accessibility score
 
-### Expected Files:
-- `{palette_output_folder}/palette-psychology.json`
-- `{palette_output_folder}/palette-harmony.json`
-- `{palette_output_folder}/palette-accessible.json`
-- `{palette_output_folder}/palette-trendy.json`
-- `{palette_output_folder}/palette-synthesized.json`
+**Output**: Contrast matrix, failures list, recommended fixes
 
-</step>
-
----
-
-<step n="7" goal="Confirm generation complete">
-
-### Action: Notify User
-
-```
-✅ 5 Color Palettes Generated Successfully!
-
-**Files Created:**
-1. palette-psychology.json - Emotion-first approach
-2. palette-harmony.json - Theory-first approach
-3. palette-accessible.json - Inclusion-first approach
-4. palette-trendy.json - Context-first approach
-5. palette-synthesized.json - Integration-first approach
-
-**Location:** {palette_output_folder}/
-
-**Next Steps:**
-- *compare - View palettes side-by-side
-- *score - Get detailed scoring and recommendations
-- *preview - Generate visual HTML preview
-- *export - Export your chosen palette
-```
-
-</step>
+**Quality Gate**: Accessibility Score ≥ 90
 
 ---
 
-<step n="8" goal="Offer immediate scoring">
+### Phase 5: Quality Evaluation
+**Agent**: Palette Scorer
 
-### Action: Ask About Scoring
+**Input**: Complete palette with all metadata
 
-```
-Would you like me to score and rank these palettes now?
+**Actions**:
+1. Score across 5 dimensions (harmony, accessibility, brand, versatility, distinctiveness)
+2. Apply dimension weights
+3. Calculate overall score
+4. Identify strengths and weaknesses
+5. Provide improvement recommendations
 
-This will analyze each palette across 5 dimensions:
-- Harmony (color wheel balance)
-- Accessibility (WCAG compliance)
-- Psychology (emotional coherence)
-- Versatility (real-world usability)
-- Trend Alignment (contemporary relevance)
+**Output**: Quality scores, detailed analysis, recommendations
 
-[Y/N]:
-```
-
-### If Yes:
-Proceed to spawn Palette Scorer agent (see *score command in Color Director)
-
-### If No:
-Workflow complete. User can run *score later.
-
-</step>
+**Quality Gate**: Overall Score ≥ 80
 
 ---
 
-## Validation Checklist
+### Phase 6: Final Delivery
+**Agent**: Color Palette Architect
 
-Before completing workflow, verify:
+**Input**: All outputs from previous phases
 
-- [ ] All 5 palette JSON files exist
-- [ ] Each palette has complete color scales (50-900)
-- [ ] Each palette includes semantic colors
-- [ ] Each palette has distribution recommendations
-- [ ] Each palette has accessibility information
-- [ ] User has been notified of completion
+**Actions**:
+1. Compile comprehensive documentation
+2. Generate JSON data file
+3. Create HTML preview
+4. Package accessibility report
+5. Present summary to user
+
+**Outputs**:
+- `color-palette.md` - Complete documentation
+- `palette-data.json` - Machine-readable data
+- `palette-preview.html` - Visual preview
+- `accessibility-report.md` - Compliance report
+- `quality-scores.json` - Evaluation results
+
+---
+
+## Iteration Handling
+
+If any quality gate fails:
+
+### Harmony Failure (< 80)
+1. Return to Color Theorist
+2. Try different harmony model
+3. Adjust problem colors
+4. Re-evaluate
+
+### Psychology Failure (< 75)
+1. Return to Color Psychologist
+2. Review brand personality interpretation
+3. Consider different color associations
+4. Re-assign semantics
+
+### Accessibility Failure (< 90)
+1. Apply recommended fixes from Accessibility Checker
+2. Re-validate affected combinations
+3. Verify fixes don't break harmony
+4. Re-score
+
+### Overall Failure (< 80)
+1. Identify lowest-scoring dimensions
+2. Address in priority order
+3. Balance improvements across dimensions
+4. Re-run full evaluation
+
+---
+
+## Output Specifications
+
+### color-palette.md
+
+```markdown
+# [Brand Name] Color Palette
+
+## Overview
+[Brief description of palette and design decisions]
+
+## Primary Color
+### [Color Name]
+- **Purpose**: Main brand color
+- **Psychology**: [Emotional impact]
+- **Base**: #HEXCODE
+
+| Scale | Hex | RGB | Usage |
+|-------|-----|-----|-------|
+| 50 | #... | rgb(...) | Light backgrounds |
+| 100 | ... | ... | ... |
+...
+
+## Secondary Color
+[Same format]
+
+## Accent Color
+[Same format]
+
+## Neutral Colors
+[Same format]
+
+## Status Colors
+| Status | Color | Hex | Usage |
+|--------|-------|-----|-------|
+| Success | ... | ... | ... |
+...
+
+## Recommended Combinations
+[Safe color pairings with contrast ratios]
+
+## Accessibility Notes
+[Key accessibility information]
+
+## Usage Guidelines
+[How to apply the palette]
+```
+
+### palette-data.json
+
+```json
+{
+  "metadata": {
+    "brand": "string",
+    "generated": "ISO date",
+    "harmony_model": "string",
+    "version": "1.0"
+  },
+  "palette": {
+    "primary": { "50": "#...", ... "900": "#..." },
+    "secondary": { ... },
+    "accent": { ... },
+    "neutral": { ... }
+  },
+  "semantic": {
+    "success": "#...",
+    "warning": "#...",
+    "error": "#...",
+    "info": "#..."
+  },
+  "contrast": {
+    "[combo]": ratio
+  },
+  "scores": {
+    "harmony": number,
+    "accessibility": number,
+    "psychology": number,
+    "versatility": number,
+    "distinctiveness": number,
+    "overall": number
+  }
+}
+```
+
+---
+
+## Usage
+
+### Start Workflow
+```
+/bmad:color-forge:agents:color-palette-architect
+```
+
+### Generate Palette
+```
+*generate
+```
+
+### Check Status
+```
+*status
+```
+
+### Export Results
+```
+*export
+```

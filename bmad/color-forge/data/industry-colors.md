@@ -1,274 +1,297 @@
-# Industry Color Conventions Reference
+# Industry Color Reference
 
-## Overview
-
-Different industries have established color conventions based on psychology, trust factors, and competitive landscapes. This reference helps inform trend-aware palette generation.
+Reference data for color choices by industry.
 
 ---
 
-## Technology & Software
+## Technology
 
 ### Common Colors
-| Role | Colors | Examples |
-|------|--------|----------|
-| Primary | Blue, Purple, Teal | Stripe, Figma, Notion |
-| Secondary | Gray, Navy | Microsoft, IBM |
-| Accent | Orange, Green, Pink | AWS, Spotify, Dribbble |
+- **Primary**: Blue (trust, innovation)
+- **Secondary**: Purple, teal, or black
+- **Accent**: Orange, green, or neon
+- **Neutral**: Cool grays
 
-### Key Conventions
-- **Blue dominates** (trust, technology, reliability)
-- **Gradients are popular** (innovation, modernity)
-- **Clean neutrals** (white/gray backgrounds)
-- **Bold accents** (CTAs that pop)
+### Examples
+| Company | Primary | Notes |
+|---------|---------|-------|
+| IBM | Blue | Trust, heritage |
+| Microsoft | Multi-color | Diversity, Windows |
+| Google | Multi-color | Playful, diverse |
+| Apple | White/Black | Premium, minimal |
+| Slack | Purple | Creative, modern |
+| Spotify | Green | Fresh, energetic |
 
-### Trend Notes (2024-2025)
-- Purple gaining popularity (Figma, Linear)
-- Vibrant gradients (Vercel, Raycast)
-- Dark mode-first designs
-- Softer, more approachable blues
-
-### Differentiation Opportunities
-- Warm tones (stands out from blue sea)
-- Earth tones (humanizes tech)
-- Unexpected accent colors
+### Color Strategy
+- Blue dominates for trust
+- Bold accents for startups
+- Monochrome for premium
+- Multi-color for platforms
 
 ---
 
 ## Finance & Banking
 
 ### Common Colors
-| Role | Colors | Examples |
-|------|--------|----------|
-| Primary | Navy, Dark Blue, Green | Chase, Capital One, TD |
-| Secondary | Gold, Silver, Gray | Goldman Sachs, Amex |
-| Accent | Teal, Light Blue | PayPal, Venmo |
+- **Primary**: Navy, dark blue
+- **Secondary**: Green (wealth), gold
+- **Accent**: Conservative accents
+- **Neutral**: Warm or cool grays
 
-### Key Conventions
-- **Navy/Dark Blue** (trust, stability, security)
-- **Green** (growth, money, prosperity)
-- **Gold/Metallic** (premium, wealth)
-- **Conservative palettes** (reliability)
+### Examples
+| Company | Primary | Notes |
+|---------|---------|-------|
+| PayPal | Blue | Trust, digital |
+| Chase | Blue | Stability |
+| Visa | Blue/Gold | Trust, premium |
+| AmEx | Blue | Premium, trust |
+| Robinhood | Green | Growth, money |
 
-### Trend Notes (2024-2025)
-- Fintech disrupting with brighter colors
-- Teal becoming more common
-- Gradient accents for digital feel
-- Warmer, more approachable tones
-
-### Differentiation Opportunities
-- Modern fintech: Purple, bright teal
-- Warmer blues for approachability
-- Unexpected accent colors (orange, coral)
+### Color Strategy
+- Blue for trust is essential
+- Green for growth/wealth
+- Gold for premium tiers
+- Conservative palette overall
 
 ---
 
-## Healthcare & Medical
+## Healthcare
 
 ### Common Colors
-| Role | Colors | Examples |
-|------|--------|----------|
-| Primary | Blue, Teal, Green | UnitedHealth, Cigna |
-| Secondary | White, Light Gray | CVS, Walgreens |
-| Accent | Light Blue, Mint | One Medical, Oscar |
+- **Primary**: Blue, teal, green
+- **Secondary**: White, light blue
+- **Accent**: Warm tones for approachability
+- **Neutral**: Clean, light grays
 
-### Key Conventions
-- **Blue/Teal** (trust, calm, healing)
-- **Green** (health, vitality, nature)
-- **White** (cleanliness, purity)
-- **Soft, calming palettes** (reduce anxiety)
+### Examples
+| Company | Primary | Notes |
+|---------|---------|-------|
+| CVS | Red | Retail + health |
+| Kaiser | Blue | Trust, calm |
+| Headspace | Orange | Approachable wellness |
+| Oscar | Black/Pink | Modern, disruptive |
 
-### Trend Notes (2024-2025)
-- Digital health using warmer tones
-- Wellness brands using earth tones
-- Mental health using softer, warmer colors
-- Mint/teal gaining popularity
-
-### Differentiation Opportunities
-- Warmer accent colors
-- Modern gradients
-- Approachable purples
-- Nature-inspired palettes
-
----
-
-## E-commerce & Retail
-
-### Common Colors
-| Role | Colors | Examples |
-|------|--------|----------|
-| Primary | Varies by brand | Amazon (orange), Target (red) |
-| Secondary | White, Light Gray | Clean product focus |
-| Accent | Orange, Red, Green | CTAs, sales, success |
-
-### Key Conventions
-- **Orange/Red CTAs** (urgency, action)
-- **Clean white backgrounds** (product focus)
-- **Green for success** (purchase confirmation)
-- **Brand colors prominent** (recognition)
-
-### Trend Notes (2024-2025)
-- Minimal, clean interfaces
-- Bold brand colors
-- High-contrast CTAs
-- Dark mode options
-
-### Differentiation Opportunities
-- Unique brand color ownership
-- Premium feel with muted tones
-- Sustainable brands using earth tones
+### Color Strategy
+- Blue/green for trust and health
+- White for cleanliness
+- Warm accents humanize
+- Avoid clinical sterility
 
 ---
 
 ## Food & Beverage
 
 ### Common Colors
-| Role | Colors | Examples |
-|------|--------|----------|
-| Primary | Red, Orange, Yellow, Green | McDonald's, Starbucks |
-| Secondary | Brown, Cream, White | Warm, appetizing |
-| Accent | Gold, Red | Premium, action |
+- **Primary**: Red, orange, yellow, green
+- **Secondary**: Complementary warms
+- **Accent**: Fresh greens
+- **Neutral**: Warm browns
 
-### Key Conventions
-- **Red/Orange** (appetite stimulation)
-- **Yellow** (happiness, energy)
-- **Green** (healthy, fresh, organic)
-- **Brown** (coffee, chocolate, comfort)
+### Examples
+| Company | Primary | Notes |
+|---------|---------|-------|
+| McDonald's | Red/Yellow | Energy, appetite |
+| Starbucks | Green | Natural, growth |
+| Coca-Cola | Red | Energy, passion |
+| Whole Foods | Green | Natural, organic |
+| Burger King | Red/Yellow/Brown | Appetite, warmth |
 
-### Trend Notes (2024-2025)
-- Health-focused greens/teals
-- Earthy, organic palettes
-- Craft/artisan aesthetics
-- Less aggressive reds
-
-### Differentiation Opportunities
-- Modern, minimal approaches
-- Unexpected color combinations
-- Premium/luxury positioning
+### Color Strategy
+- Red/yellow stimulate appetite
+- Green for healthy/organic
+- Brown for coffee/chocolate
+- Avoid blue (appetite suppressant)
 
 ---
 
-## Creative & Agency
+## Retail & E-commerce
 
 ### Common Colors
-| Role | Colors | Examples |
-|------|--------|----------|
-| Primary | Bold, unique choices | Varies widely |
-| Secondary | Black, White | Strong contrast |
-| Accent | Neon, vibrant | Stand out |
+- **Primary**: Varies by positioning
+- **Secondary**: High contrast for CTAs
+- **Accent**: Action-oriented colors
+- **Neutral**: Clean backgrounds
 
-### Key Conventions
-- **Unique, memorable palettes** (creativity showcase)
-- **Bold, confident colors** (expertise signal)
-- **High contrast** (visual impact)
-- **Rule-breaking encouraged** (innovation)
+### Examples
+| Company | Primary | Notes |
+|---------|---------|-------|
+| Amazon | Orange/Black | Action, trust |
+| Target | Red | Bold, value |
+| Best Buy | Blue/Yellow | Trust, deals |
+| Etsy | Orange | Creative, warm |
+| Shopify | Green | Growth |
 
-### Trend Notes (2024-2025)
-- Maximalist color use returning
-- Gradients and color transitions
-- Dark backgrounds with vibrant accents
-- Retro color revivals
-
-### Differentiation Opportunities
-- The field is open for uniqueness
-- Cohesive but unexpected combinations
-- Strong brand color ownership
+### Color Strategy
+- High contrast for conversions
+- Orange for action
+- Brand differentiation key
+- Clear visual hierarchy
 
 ---
 
-## Luxury & Premium
+## Fashion & Beauty
 
 ### Common Colors
-| Role | Colors | Examples |
-|------|--------|----------|
-| Primary | Black, Navy, Deep Purple | Chanel, Rolex |
-| Secondary | Gold, Silver, White | Metallic accents |
-| Accent | Deep Red, Emerald | Richness |
+- **Primary**: Black, white, signature color
+- **Secondary**: Neutral foundations
+- **Accent**: Brand signature
+- **Neutral**: Sophisticated tones
 
-### Key Conventions
-- **Black** (sophistication, exclusivity)
-- **Gold** (wealth, premium quality)
-- **Deep, rich colors** (luxurious feel)
-- **Minimal, restrained palettes** (elegance)
+### Examples
+| Company | Primary | Notes |
+|---------|---------|-------|
+| Chanel | Black/White | Timeless elegance |
+| Tiffany | Tiffany Blue | Iconic, ownable |
+| Sephora | Black/White | Premium |
+| MAC | Black | Edgy, professional |
+| Glossier | Pink | Millennial, fresh |
 
-### Trend Notes (2024-2025)
-- Softer luxury aesthetics
-- Warm neutrals gaining ground
-- Subtle gradients
-- Less obvious gold, more refined metallics
-
-### Differentiation Opportunities
-- Modern luxury with unexpected colors
-- Accessible luxury with warmer tones
-- Digital luxury with subtle gradients
+### Color Strategy
+- Black/white as foundation
+- Signature color essential
+- Premium = restrained palette
+- Color often IS the brand
 
 ---
 
-## Education & EdTech
+## Automotive
 
 ### Common Colors
-| Role | Colors | Examples |
-|------|--------|----------|
-| Primary | Blue, Green, Purple | Coursera, Duolingo |
-| Secondary | Yellow, Orange | Friendly, energetic |
-| Accent | Varied, playful | Engagement |
+- **Primary**: Black, silver, blue, red
+- **Secondary**: Chrome, metallic
+- **Accent**: Sport = red, Eco = green
+- **Neutral**: Sophisticated grays
 
-### Key Conventions
-- **Blue** (trust, intelligence)
-- **Green** (growth, progress)
-- **Playful accents** (engagement)
-- **Approachable palettes** (welcoming)
+### Examples
+| Company | Primary | Notes |
+|---------|---------|-------|
+| BMW | Blue/White | Heritage, premium |
+| Tesla | Red/Black | Bold, innovative |
+| Mercedes | Silver/Black | Luxury, engineering |
+| Toyota | Red | Energy, reliability |
 
-### Trend Notes (2024-2025)
-- Gamification colors (vibrant, rewarding)
-- Calming study environments
-- Progress indicators in green
-- Achievement colors (gold, purple)
-
-### Differentiation Opportunities
-- More sophisticated adult learning palettes
-- Unique mascot/brand color ownership
-- Calming focus modes
+### Color Strategy
+- Premium = black, silver, navy
+- Performance = red accents
+- Eco = green, blue
+- Heritage colors matter
 
 ---
 
-## SaaS & B2B
+## Entertainment & Media
 
 ### Common Colors
-| Role | Colors | Examples |
-|------|--------|----------|
-| Primary | Blue, Purple, Teal | Salesforce, HubSpot, Slack |
-| Secondary | Gray, Navy | Professional |
-| Accent | Orange, Green | CTAs, success |
+- **Primary**: Bold, distinctive
+- **Secondary**: High energy
+- **Accent**: Attention-grabbing
+- **Neutral**: Darker backgrounds
 
-### Key Conventions
-- **Blue primary** (trust, professional)
-- **Vibrant accents** (modern, innovative)
-- **Clean interfaces** (productivity focus)
-- **Consistent brand color** (recognition)
+### Examples
+| Company | Primary | Notes |
+|---------|---------|-------|
+| Netflix | Red/Black | Bold, premium |
+| Spotify | Green/Black | Fresh, modern |
+| YouTube | Red | Energy, attention |
+| TikTok | Black/Pink/Cyan | Young, dynamic |
 
-### Trend Notes (2024-2025)
-- More personality in palettes
-- Softer, more approachable blues
-- Bold accent differentiation
-- Dark mode support essential
-
-### Differentiation Opportunities
-- Category-defining unique color
-- Warmer, more human palettes
-- Unexpected accent colors
+### Color Strategy
+- Bold primary colors
+- Dark backgrounds common
+- High contrast for content
+- Distinctive is essential
 
 ---
 
-## Quick Reference: Industry Primary Colors
+## Professional Services
 
-| Industry | Safe Choices | Trending | Risky |
-|----------|--------------|----------|-------|
-| Tech | Blue, Purple | Teal, Coral | Brown, Yellow |
-| Finance | Navy, Green | Teal, Purple | Pink, Orange |
-| Healthcare | Blue, Teal | Mint, Sage | Red, Black |
-| E-commerce | Brand-specific | Clean white | N/A |
-| Food | Red, Orange, Green | Earth tones | Blue |
-| Creative | Any bold | Maximalist | Safe/boring |
-| Luxury | Black, Navy | Warm neutral | Bright colors |
-| Education | Blue, Green | Purple | Gray, Brown |
-| SaaS | Blue, Purple | Bold accents | Muted tones |
+### Common Colors
+- **Primary**: Navy, charcoal, burgundy
+- **Secondary**: Conservative accents
+- **Accent**: Gold for premium
+- **Neutral**: Sophisticated grays
+
+### Examples
+| Company | Primary | Notes |
+|---------|---------|-------|
+| McKinsey | Navy | Authority |
+| Deloitte | Green | Growth |
+| PwC | Orange | Approachable |
+| Accenture | Purple | Innovation |
+
+### Color Strategy
+- Conservative primary
+- Navy for authority
+- Accent for differentiation
+- Avoid trendy colors
+
+---
+
+## Education
+
+### Common Colors
+- **Primary**: Blue, red, green
+- **Secondary**: Traditional accents
+- **Accent**: Energetic for engagement
+- **Neutral**: Academic tones
+
+### Examples
+| Company | Primary | Notes |
+|---------|---------|-------|
+| Coursera | Blue | Trust, learning |
+| Duolingo | Green | Growth, friendly |
+| Khan Academy | Green | Free, accessible |
+| Harvard | Crimson | Heritage |
+
+### Color Strategy
+- Blue for trust/knowledge
+- Green for growth
+- Red for heritage/energy
+- Friendly but credible
+
+---
+
+## Wellness & Fitness
+
+### Common Colors
+- **Primary**: Green, blue, orange
+- **Secondary**: Natural tones
+- **Accent**: Energetic for fitness
+- **Neutral**: Soft, calming
+
+### Examples
+| Company | Primary | Notes |
+|---------|---------|-------|
+| Peloton | Red/Black | Energy, premium |
+| Headspace | Orange | Approachable |
+| Calm | Blue | Peaceful |
+| Nike | Black/Orange | Power, energy |
+
+### Color Strategy
+- Fitness = energetic colors
+- Wellness = calm colors
+- Green for natural/health
+- Orange for approachability
+
+---
+
+## Travel & Hospitality
+
+### Common Colors
+- **Primary**: Blue, teal, orange
+- **Secondary**: Sunset tones
+- **Accent**: Adventure colors
+- **Neutral**: Warm or cool depending on brand
+
+### Examples
+| Company | Primary | Notes |
+|---------|---------|-------|
+| Airbnb | Coral/Pink | Belonging, unique |
+| Booking.com | Blue | Trust, global |
+| Expedia | Yellow | Optimism |
+| Marriott | Burgundy | Premium |
+
+### Color Strategy
+- Blue for trust/sky/ocean
+- Warm tones for hospitality
+- Adventure = bold colors
+- Luxury = rich, dark tones

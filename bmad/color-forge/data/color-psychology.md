@@ -1,353 +1,366 @@
 # Color Psychology Reference
 
-## Overview
-
-Color psychology studies how colors influence human perception, emotion, and behavior. This reference provides mappings between colors and their psychological associations to inform palette generation.
+Reference data for the Color Psychologist agent.
 
 ---
 
-## Primary Color Associations
+## Color Emotions & Associations
 
-### Red (#DC2626 - #EF4444)
+### Red
+**Emotions**: Passion, energy, urgency, excitement, love, danger
+**Positive**: Bold, confident, dynamic, powerful, romantic
+**Negative**: Aggressive, alarming, overwhelming
 
-**Emotional Associations:**
-- Passion, love, romance
-- Urgency, excitement
-- Energy, power, strength
-- Danger, warning
-- Appetite stimulation
+**Industries**:
+- Food & beverage (appetite stimulant)
+- Entertainment
+- Sports
+- Automotive
+- Sales/retail (urgency)
 
-**Best For:**
-- Call-to-action buttons
-- Sale/clearance messaging
-- Food and restaurant brands
-- Entertainment and gaming
-- Sports and fitness
+**Brand Personalities**: Bold, energetic, passionate, confident, action-oriented
 
-**Avoid For:**
-- Healthcare (except emergency)
-- Finance (except warnings)
-- Calming/relaxation contexts
-- Environmental/eco brands
-
-**Usage Tips:**
-- Use sparingly for maximum impact
-- Pair with white/black for high contrast
-- Darker reds feel more sophisticated
-- Lighter reds (coral) feel more playful
+**Cultural Notes**:
+- Western: Love, danger, stop
+- Eastern: Luck, prosperity, celebration
+- Some cultures: Mourning
 
 ---
 
-### Orange (#F97316 - #FB923C)
+### Orange
+**Emotions**: Enthusiasm, creativity, warmth, adventure, friendliness
+**Positive**: Approachable, youthful, optimistic, energetic
+**Negative**: Cheap, frivolous, not serious
 
-**Emotional Associations:**
-- Friendliness, warmth
-- Creativity, enthusiasm
-- Adventure, confidence
-- Affordability, value
-- Energy without aggression
-
-**Best For:**
-- CTAs (less aggressive than red)
-- Youth-focused brands
+**Industries**:
+- Food & beverage
+- Entertainment
+- Youth brands
 - Creative agencies
-- Food and beverage
-- Sports and recreation
+- E-commerce
 
-**Avoid For:**
-- Luxury brands
-- Serious corporate contexts
-- Healthcare
-- Legal/financial services
+**Brand Personalities**: Playful, friendly, adventurous, creative, approachable
 
-**Usage Tips:**
-- Great accent color
-- Combines well with blue (complementary)
-- Darker orange (burnt) feels more sophisticated
-- Bright orange demands attention
+**Cultural Notes**:
+- Generally positive worldwide
+- Netherlands: National color
+- Buddhism: Sacred color
 
 ---
 
-### Yellow (#EAB308 - #FACC15)
+### Yellow
+**Emotions**: Optimism, happiness, warmth, clarity, attention
+**Positive**: Cheerful, youthful, confident, energetic
+**Negative**: Anxiety, caution, cowardice
 
-**Emotional Associations:**
-- Optimism, happiness
-- Warmth, sunshine
-- Caution, attention
-- Creativity, intellect
-- Youth, playfulness
-
-**Best For:**
-- Attention-grabbing accents
-- Warning/caution messages
+**Industries**:
 - Children's products
-- Creative/artistic contexts
-- Food (appetite stimulant)
+- Food (especially fast food)
+- Retail
+- Creative services
+- Warning systems
 
-**Avoid For:**
-- Primary brand color (hard to read)
-- Serious/professional contexts
-- Large background areas
-- Text on white backgrounds
+**Brand Personalities**: Optimistic, cheerful, youthful, confident, innovative
 
-**Usage Tips:**
-- Never use for body text
-- Best as accent/highlight
-- Needs high contrast pairing
-- Muted yellows (gold) work better for luxury
+**Cultural Notes**:
+- Western: Happiness, caution
+- Eastern: Royalty, prosperity
+- Egypt: Mourning
+
+**Usage Note**: Hard to read as text; best for accents
 
 ---
 
-### Green (#22C55E - #4ADE80)
+### Green
+**Emotions**: Growth, nature, health, balance, wealth, calm
+**Positive**: Natural, balanced, prosperous, peaceful, fresh
+**Negative**: Envy, blandness, inexperience
 
-**Emotional Associations:**
-- Nature, growth, renewal
-- Health, wellness
-- Wealth, prosperity
-- Safety, permission (go)
-- Environmental consciousness
-
-**Best For:**
-- Success states/confirmations
-- Health and wellness brands
-- Financial services (growth)
-- Environmental/eco brands
+**Industries**:
+- Health & wellness
+- Environment/sustainability
+- Finance (wealth)
 - Organic/natural products
+- Agriculture
 
-**Avoid For:**
-- Entertainment/excitement contexts
-- Luxury (unless emerald)
-- Technology (can feel dated)
+**Brand Personalities**: Natural, balanced, reliable, healthy, growth-oriented
 
-**Usage Tips:**
-- Perfect for success messages
-- Darker greens feel more trustworthy
-- Bright greens feel more energetic
-- Teal (blue-green) bridges tech and nature
+**Cultural Notes**:
+- Western: Nature, go, money
+- Islam: Sacred color
+- Some cultures: Bad luck
 
 ---
 
-### Blue (#2563EB - #3B82F6)
+### Blue
+**Emotions**: Trust, stability, calm, professionalism, security
+**Positive**: Reliable, competent, secure, peaceful, intelligent
+**Negative**: Cold, impersonal, conservative
 
-**Emotional Associations:**
-- Trust, reliability
-- Calm, serenity
-- Professionalism, competence
-- Security, stability
-- Intelligence, technology
-
-**Best For:**
-- Technology companies
-- Financial services
+**Industries**:
+- Technology
+- Finance/banking
 - Healthcare
 - Corporate/B2B
-- Social media platforms
+- Insurance
 
-**Avoid For:**
-- Food (suppresses appetite)
-- Urgency/action contexts
-- Warm/cozy contexts
+**Brand Personalities**: Trustworthy, reliable, professional, secure, intelligent
 
-**Usage Tips:**
-- Most universally liked color
-- Safe default for professional contexts
-- Darker blues feel more trustworthy
-- Lighter blues feel more friendly
+**Cultural Notes**:
+- Nearly universal positive associations
+- Western: Corporate, trust
+- Middle East: Protection
+
+**Usage Note**: Most universally liked color; safe choice
 
 ---
 
-### Purple (#7C3AED - #A855F7)
+### Purple
+**Emotions**: Luxury, creativity, wisdom, mystery, spirituality
+**Positive**: Premium, imaginative, unique, sophisticated, wise
+**Negative**: Artificial, immature, overly decorative
 
-**Emotional Associations:**
-- Luxury, royalty
-- Creativity, imagination
-- Mystery, spirituality
-- Wisdom, sophistication
-- Innovation, uniqueness
-
-**Best For:**
-- Luxury brands
-- Beauty and cosmetics
+**Industries**:
+- Beauty/cosmetics
+- Luxury goods
 - Creative services
 - Spiritual/wellness
-- Premium products
+- Technology (innovation)
 
-**Avoid For:**
-- Budget/value brands
-- Traditional industries
-- Masculine-targeted products
-- Children's products (dark purple)
+**Brand Personalities**: Premium, creative, unique, wise, mysterious
 
-**Usage Tips:**
-- Light purple (lavender) is calming
-- Dark purple feels luxurious
-- Combines well with gold
-- Can feel artificial if overused
+**Cultural Notes**:
+- Historically: Royalty (rare dye)
+- Western: Luxury, creativity
+- Some Eastern: Mourning
 
 ---
 
-### Pink (#EC4899 - #F472B6)
+### Pink
+**Emotions**: Nurturing, romantic, playful, modern, soft
+**Positive**: Caring, approachable, contemporary, youthful
+**Negative**: Immature, overly sweet, gendered
 
-**Emotional Associations:**
-- Femininity, softness
-- Romance, love
-- Playfulness, youth
-- Sweetness, care
-- Modern, trendy
-
-**Best For:**
-- Beauty and cosmetics
+**Industries**:
+- Beauty/cosmetics
 - Fashion
-- Sweet foods/desserts
-- Children's products (girls)
-- Modern tech (when used boldly)
-
-**Avoid For:**
-- Male-targeted products (traditionally)
-- Serious/professional contexts
-- Heavy industry
-- Traditional finance
-
-**Usage Tips:**
-- Hot pink is energetic and modern
-- Soft pink is gentle and calming
-- Dusty pink is sophisticated
-- Breaking gender associations is increasingly accepted
-
----
-
-### Black (#000000 - #1F2937)
-
-**Emotional Associations:**
-- Sophistication, elegance
-- Power, authority
-- Luxury, exclusivity
-- Mystery, drama
-- Timelessness
-
-**Best For:**
-- Luxury brands
-- Fashion
-- Technology
-- Premium services
-- Editorial/publishing
-
-**Avoid For:**
-- Healthcare (can feel morbid)
+- Food (bakeries, confections)
+- Wellness
 - Children's products
-- Cheerful/playful contexts
-- Budget/value brands
 
-**Usage Tips:**
-- Pure black (#000000) is harsh on screens
-- Use near-black (#0F0F0F) for softer feel
-- Combines with any color
-- Creates strongest contrast
+**Brand Personalities**: Caring, modern, approachable, playful, nurturing
+
+**Cultural Notes**:
+- Gender associations changing rapidly
+- Japan: Good fortune
+- Modern: Disruption (millennial pink)
 
 ---
 
-### White (#FFFFFF - #F9FAFB)
+### Brown
+**Emotions**: Earthiness, reliability, warmth, rustic, organic
+**Positive**: Grounded, dependable, natural, authentic
+**Negative**: Dull, dirty, unsophisticated
 
-**Emotional Associations:**
-- Purity, cleanliness
-- Simplicity, minimalism
-- Space, openness
-- Modern, fresh
-- Peace, calm
+**Industries**:
+- Coffee/chocolate
+- Organic products
+- Outdoor/nature
+- Construction
+- Legal services
 
-**Best For:**
-- Healthcare/medical
+**Brand Personalities**: Authentic, reliable, natural, grounded, traditional
+
+---
+
+### Black
+**Emotions**: Sophistication, power, elegance, mystery, authority
+**Positive**: Premium, sleek, powerful, timeless, bold
+**Negative**: Heavy, oppressive, morbid
+
+**Industries**:
+- Luxury goods
+- Fashion
 - Technology
-- Minimalist brands
-- Clean/hygiene products
-- Modern architecture
-
-**Avoid For:**
-- None (universal neutral)
-
-**Usage Tips:**
-- Essential for breathing room
-- Off-whites feel warmer
-- Pure white can feel clinical
-- Provides maximum contrast
-
----
-
-### Gray (#6B7280 - #9CA3AF)
-
-**Emotional Associations:**
-- Neutrality, balance
-- Professionalism
-- Maturity, sophistication
-- Timelessness
-- Practicality
-
-**Best For:**
-- Text (body copy)
-- Backgrounds
-- Borders and dividers
+- Automotive
 - Professional services
-- Technology
 
-**Avoid For:**
-- CTAs (too passive)
-- Exciting/energetic contexts
+**Brand Personalities**: Premium, powerful, sophisticated, elegant, authoritative
 
-**Usage Tips:**
-- Warm grays feel more inviting
-- Cool grays feel more professional
-- Essential for readable text
-- Multiple gray shades add depth
+**Cultural Notes**:
+- Western: Elegance, death
+- Eastern: Can mean evil or power
+- Fashion: Always sophisticated
 
 ---
 
-## Emotional Combinations
+### White
+**Emotions**: Purity, simplicity, cleanliness, space, honesty
+**Positive**: Clean, modern, honest, fresh, minimal
+**Negative**: Sterile, empty, cold
 
-### Trust + Innovation
-- Blue + Purple
-- Navy + Teal
+**Industries**:
+- Healthcare
+- Technology
+- Weddings
+- Minimalist brands
+- Clean beauty
 
-### Energy + Warmth
-- Orange + Yellow
-- Red + Orange
+**Brand Personalities**: Pure, modern, clean, honest, minimal
 
-### Nature + Growth
-- Green + Brown
-- Teal + Beige
+**Cultural Notes**:
+- Western: Purity, weddings
+- Eastern: Death, mourning
+- Universal: Cleanliness
 
-### Luxury + Sophistication
-- Black + Gold
-- Purple + Silver
+---
 
-### Fresh + Modern
-- White + Teal
-- Mint + Gray
+### Gray
+**Emotions**: Neutral, balanced, professional, sophisticated, calm
+**Positive**: Mature, stable, practical, timeless
+**Negative**: Boring, lifeless, undecided
 
-### Playful + Friendly
-- Yellow + Pink
-- Orange + Purple
+**Industries**:
+- Corporate/B2B
+- Technology
+- Automotive
+- Finance
+- Professional services
+
+**Brand Personalities**: Professional, balanced, mature, sophisticated, neutral
+
+---
+
+## Brand Personality to Color Mapping
+
+### Innovative / Cutting-Edge
+**Primary**: Electric blue, violet, or teal
+**Secondary**: Cool neutrals
+**Accent**: Neon or unexpected bright
+**Avoid**: Earth tones, browns
+
+### Trustworthy / Reliable
+**Primary**: Blue (various shades)
+**Secondary**: Warm gray or navy
+**Accent**: Green or gold
+**Avoid**: Flashy colors, neons
+
+### Playful / Fun
+**Primary**: Orange, yellow, bright pink
+**Secondary**: Complementary brights
+**Accent**: Unexpected pops
+**Avoid**: Dark, muted colors
+
+### Premium / Luxury
+**Primary**: Black, deep purple, gold
+**Secondary**: Rich, saturated tones
+**Accent**: Metallic or jewel
+**Avoid**: Bright, cheap-feeling colors
+
+### Natural / Organic
+**Primary**: Green, earth tones
+**Secondary**: Browns, beiges
+**Accent**: Soft blues or terracotta
+**Avoid**: Artificial, neon colors
+
+### Bold / Confident
+**Primary**: Red, black, electric blue
+**Secondary**: High contrast pairs
+**Accent**: Gold or silver
+**Avoid**: Pastels, muted tones
+
+### Calm / Peaceful
+**Primary**: Soft blue, sage green, lavender
+**Secondary**: Muted, desaturated
+**Accent**: Gentle warm tones
+**Avoid**: High contrast, vibrant
+
+### Professional / Corporate
+**Primary**: Navy, dark blue, charcoal
+**Secondary**: Light grays
+**Accent**: Conservative blue or green
+**Avoid**: Trendy, playful colors
+
+---
+
+## Industry Color Expectations
+
+### Technology
+**Expected**: Blue, purple, black, white
+**Why**: Trust, innovation, sophistication
+**Stand out**: Orange, green (if fits brand)
+
+### Healthcare
+**Expected**: Blue, green, white
+**Why**: Trust, health, cleanliness
+**Stand out**: Warm accents for approachability
+
+### Finance
+**Expected**: Blue, green, gold
+**Why**: Trust, wealth, stability
+**Stand out**: Modern purple or teal
+
+### Food & Beverage
+**Expected**: Red, orange, yellow, green
+**Why**: Appetite, energy, freshness
+**Stand out**: Unexpected for category
+
+### Fashion
+**Expected**: Black, white, gold
+**Why**: Sophistication, timelessness
+**Stand out**: Bold signature color
+
+### Education
+**Expected**: Blue, green, red
+**Why**: Trust, growth, energy
+**Stand out**: Modern palettes
+
+---
+
+## Semantic Color Conventions
+
+### Status Colors (Universal)
+
+| Status | Color | Meaning |
+|--------|-------|---------|
+| Success | Green | Positive, complete, approved |
+| Warning | Yellow/Amber | Caution, attention needed |
+| Error | Red | Problem, danger, stop |
+| Info | Blue | Informational, neutral |
+
+**Important**: These mappings are nearly universal and should not be changed.
+
+### Action Colors
+
+| Action | Typical Color | Notes |
+|--------|---------------|-------|
+| Primary CTA | Brand primary | Most important action |
+| Secondary CTA | Brand secondary or outlined | Alternative action |
+| Destructive | Red | Delete, remove, cancel |
+| Disabled | Gray (40-50%) | Not actionable |
 
 ---
 
 ## Cultural Considerations
 
-### Western Cultures
-- White = purity, weddings
-- Black = death, elegance
-- Red = love, danger
+### Colors to Use Carefully Globally
 
-### Eastern Cultures
-- White = death, mourning
-- Red = luck, prosperity
-- Yellow = royalty (China)
+| Color | Concern | Regions |
+|-------|---------|---------|
+| White | Death/mourning | East Asia |
+| Red | Various | Context-dependent everywhere |
+| Yellow | Various | Germany, Latin America |
+| Purple | Death | Brazil, Italy |
+| Green | Infidelity | China (sometimes) |
 
-### Middle Eastern
-- Green = Islam, fertility
-- Blue = protection
-- Gold = wealth
+### Safest Colors Globally
+- Blue (almost universally positive)
+- Green (mostly positive, nature)
+- Orange (generally positive)
+- Gray (neutral everywhere)
 
-### General Guidelines
-- Research target market cultural associations
-- Test with diverse user groups
-- Avoid color-only meaning conveyance
-- Consider global audience if applicable
+### When in Doubt
+- Research specific target markets
+- Use blue as safe default
+- Test with local audiences
+- Consider regional variations

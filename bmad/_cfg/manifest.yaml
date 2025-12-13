@@ -6,5 +6,8 @@ modules:
   - core
   - bmb
   - color-forge
+  - design-system-forge
+  - style-guide-forge
+  - voice-forge
 ides:
   - claude-code

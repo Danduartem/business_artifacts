@@ -1,54 +1,61 @@
-# Generate Palette Workflow Configuration
-name: "generate-palette"
-description: "Generate 5 diverse color palettes using specialized agents with different approaches"
-author: "Color Forge"
-version: "1.0.0"
+name: generate-palette
+description: Generate a comprehensive, accessible color palette for a brand
+version: "1.0"
+category: design
 
-# Critical variables from config
-config_source: "{project-root}/bmad/color-forge/config.yaml"
-user_name: "{config_source}:user_name"
-communication_language: "{config_source}:communication_language"
-date: system-generated
+entry_agent: color-palette-architect
 
-# Module-specific config variables
-palette_output_folder: "{config_source}:palette_output_folder"
-default_export_formats: "{config_source}:default_export_formats"
-wcag_level: "{config_source}:wcag_level"
-colorblind_validation: "{config_source}:colorblind_validation"
-generate_modes: "{config_source}:generate_modes"
-scale_granularity: "{config_source}:scale_granularity"
-include_semantic_colors: "{config_source}:include_semantic_colors"
+inputs:
+  required:
+    - brand_personality
+  optional:
+    - industry
+    - primary_color
+    - color_temperature
+    - palette_style
+    - brand_guide_path
 
-# Module path and component files
-installed_path: "{project-root}/bmad/color-forge/workflows/generate-palette"
-template: false
-instructions: "{installed_path}/instructions.md"
-checklist: "{installed_path}/checklist.md"
+outputs:
+  - color-palette.md
+  - palette-data.json
+  - palette-preview.html
+  - accessibility-report.md
+  - quality-scores.json
 
-# Reference data files
-color_psychology_data: "{project-root}/bmad/color-forge/data/color-psychology.md"
-wcag_standards_data: "{project-root}/bmad/color-forge/data/wcag-standards.md"
-industry_colors_data: "{project-root}/bmad/color-forge/data/industry-colors.md"
+agents:
+  - color-palette-architect
+  - color-theorist
+  - color-psychologist
+  - accessibility-checker
+  - palette-scorer
 
-# Output files
-palette_files:
-  psychology: "{palette_output_folder}/palette-psychology.json"
-  harmony: "{palette_output_folder}/palette-harmony.json"
-  accessible: "{palette_output_folder}/palette-accessible.json"
-  trendy: "{palette_output_folder}/palette-trendy.json"
-  synthesized: "{palette_output_folder}/palette-synthesized.json"
-  scores: "{palette_output_folder}/palette-scores.json"
+phases:
+  - name: context
+    description: Gather brand and preference context
+    agent: color-palette-architect
 
-standalone: true
+  - name: theory
+    description: Generate base palette using color theory
+    agent: color-theorist
 
-# Web bundle configuration
-web_bundle:
-  workflow: "bmad/color-forge/workflows/generate-palette/workflow.yaml"
-  files:
-    - "bmad/color-forge/workflows/generate-palette/workflow.yaml"
-    - "bmad/color-forge/workflows/generate-palette/instructions.md"
-    - "bmad/color-forge/workflows/generate-palette/checklist.md"
-    - "bmad/color-forge/data/color-psychology.md"
-    - "bmad/color-forge/data/wcag-standards.md"
-    - "bmad/color-forge/data/industry-colors.md"
-  existing_workflows: []
+  - name: psychology
+    description: Apply color psychology for semantic mapping
+    agent: color-psychologist
+
+  - name: accessibility
+    description: Validate WCAG compliance
+    agent: accessibility-checker
+
+  - name: scoring
+    description: Evaluate palette quality
+    agent: palette-scorer
+
+  - name: delivery
+    description: Compile and deliver final outputs
+    agent: color-palette-architect
+
+quality_gates:
+  harmony_score: 80
+  accessibility_score: 90
+  psychology_score: 75
+  overall_score: 80

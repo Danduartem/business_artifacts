@@ -1,37 +1,47 @@
 # Color Forge Configuration
-# This file controls the behavior of the Design System Architect agent
+# This file controls the behavior of the Color Palette Architect agent
 
 # User Settings (inherited from BMAD core)
 user_name: "Daniel"
 communication_language: "English"
 
-# Design System Settings
-design_system_name: "My Design System"
-tech_stack: "css-only"
-component_scope: "comprehensive"
+# Brand Context
+brand_personality: ""
+# Describe your brand in 3-5 words: innovative, trustworthy, playful, etc.
+
+industry: ""
+# Your target industry: technology, healthcare, finance, retail, etc.
+
+# Color Preferences
+primary_color: ""
+# Leave empty for AI suggestion, or provide existing brand color (hex)
+
+color_temperature: "neutral"
+# Options: warm | cool | neutral
+
+palette_style: "modern"
+# Options: classic | modern | bold | subtle
 
 # Output Settings
 output_folder: "/Users/danielmenezes/coding/business-artifacts/docs"
 
-# Input File Paths (update these with your actual file paths)
-# Provide paths to your brand assets:
+# Input File Paths (update with your actual file paths)
 brand_guide_path: ""
-# Should contain: Brand personality, voice, visual identity principles
-
-style_guide_path: ""
-# Should contain: Typography specs, spacing rules, component styling
-
-color_palette_path: ""
-# Should contain: All brand colors with hex values and semantic roles
+# Should contain: Brand personality, values, voice, target audience
 
 references_path: ""
-# Optional: Inspiration websites, screenshots, competitor examples
+# Optional: Inspiration images, competitor examples, mood boards
 
-logo_path: ""
-# Optional: Logo file for documentation
+existing_colors_path: ""
+# Optional: Any existing brand colors that must be incorporated
 
-# Generation Settings
-include_accessibility_audit: true
-auto_generate_docs: true
+# Accessibility
 wcag_level: "AA"
 # Options: AA | AAA
+# AA: 4.5:1 normal text, 3:1 large text (recommended)
+# AAA: 7:1 normal text, 4.5:1 large text (stricter)
+
+# Quality Thresholds
+min_harmony_score: 80
+min_accessibility_score: 90
+min_psychology_score: 75
