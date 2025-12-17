@@ -191,7 +191,46 @@ output_format:
               "reason": "Minimizes their frustration",
               "use_instead": "I'm sorry this happened / I'm sorry this affected your work"
             }
-          ]
+          ],
+          "copywriter_standards": {
+            "description": "Universal copywriter rules - CRITICAL to avoid AI/course-marketing patterns",
+            "prohibited_words": [
+              {
+                "word": "gratuito",
+                "reason": "Associated with cheap course marketing, cheapens brand",
+                "use_instead": "Remove word entirely, or use 'sem compromisso'"
+              },
+              {
+                "word": "grátis",
+                "reason": "Same as gratuito - feels desperate and cheap",
+                "use_instead": "Remove word entirely, or use 'sem compromisso'"
+              },
+              {
+                "word": "Pix",
+                "reason": "Payment method that cheapens brand perception",
+                "use_instead": "Formas de pagamento disponíveis"
+              },
+              {
+                "word": "a única / o único",
+                "reason": "Extremely overused by course sellers, sounds like empty claim",
+                "use_instead": "Use specific evidence: 'método validado com 50+ empresas'"
+              }
+            ],
+            "prohibited_patterns": [
+              {
+                "pattern": "do X à Y / de X para Y",
+                "example": "do burnout à liberdade",
+                "reason": "Sensationalist transformation headlines, overused in predatory courses",
+                "use_instead": "Specific measurable results: 'aumento de 3.2x no faturamento'"
+              },
+              {
+                "pattern": "gender markers (a)/(o)",
+                "example": "empreendedor(a)",
+                "reason": "Looks automated, not human-written",
+                "use_instead": "Choose ONE gender: feminine for female avatar, masculine for male/mixed"
+              }
+            ]
+          }
         },
 
         "jargon_policy": {
@@ -232,6 +271,17 @@ output_format:
           "semicolons": {
             "rule": "Avoid - usually indicates sentence should be split",
             "exception": "Complex lists"
+          },
+          "dashes_and_hyphens": {
+            "rule": "NEVER use em-dashes (—) or decorative hyphens (-) to break up sentences",
+            "why": "Em-dashes are a telltale sign of AI-generated text. Human copywriters use periods, commas, or parentheses.",
+            "examples": {
+              "bad": "Marketing that works — not that wastes money",
+              "good": "Marketing that works. Not that wastes money.",
+              "bad_list": "We connect all channels — social, email, ads — into one system",
+              "good_list": "We connect all channels (social, email, ads) into one system"
+            },
+            "allowed_uses": "Hyphens ONLY for compound words (e.g., 'well-known', 'self-service')"
           }
         },
 
@@ -325,20 +375,42 @@ output_format:
         "principle": "Use language that welcomes everyone and excludes no one",
 
         "gender": {
-          "rule": "Use gender-neutral language by default",
-          "do": [
-            "Use 'they' as singular pronoun",
-            "Use role-based terms (firefighter, not fireman)",
-            "Address groups as 'everyone', 'team', 'folks'"
-          ],
-          "dont": [
-            "Use 'he' as default",
-            "Use 'guys' for mixed groups",
-            "Assume gender based on role"
-          ],
-          "examples": {
-            "good": "When a user logs in, they see their dashboard.",
-            "bad": "When a user logs in, he sees his dashboard."
+          "rule": "Use gender-neutral language by default (English) or choose defined gender (Portuguese/Spanish)",
+          "english": {
+            "do": [
+              "Use 'they' as singular pronoun",
+              "Use role-based terms (firefighter, not fireman)",
+              "Address groups as 'everyone', 'team', 'folks'"
+            ],
+            "dont": [
+              "Use 'he' as default",
+              "Use 'guys' for mixed groups",
+              "Assume gender based on role"
+            ],
+            "examples": {
+              "good": "When a user logs in, they see their dashboard.",
+              "bad": "When a user logs in, he sees his dashboard."
+            }
+          },
+          "portuguese_spanish": {
+            "critical_rule": "NEVER use (a), (o), or parenthetical gender markers",
+            "why": "Gender markers like 'empreendedor(a)' look automated and unnatural, not human-written",
+            "do": [
+              "Choose ONE gender based on brand avatar or primary audience",
+              "Use feminine if brand avatar is female",
+              "Use masculine if brand avatar is male OR audience is mixed",
+              "Be consistent throughout all content"
+            ],
+            "dont": [
+              "Use (a) or (o) to indicate both genders",
+              "Mix genders inconsistently",
+              "Use '@' symbol for gender neutrality (e.g., 'amig@s')"
+            ],
+            "examples": {
+              "bad": "Caro(a) cliente, você está pronto(a)?",
+              "good_female": "Cara cliente, você está pronta?",
+              "good_male": "Caro cliente, você está pronto?"
+            }
           }
         },
 
@@ -435,8 +507,34 @@ spawn_prompt: |
   5. Comprehensive inclusive language guidelines
   6. Say this, not that quick reference
 
+  ## CRITICAL: Universal Copywriter Standards
+  These rules are MANDATORY in all generated content:
+
+  1. **NO EM-DASHES (—)**: Never use em-dashes or decorative hyphens.
+     They signal AI-generated text. Use periods, commas, or parentheses instead.
+     BAD: "Marketing that works — not that wastes money"
+     GOOD: "Marketing that works. Not that wastes money."
+
+  2. **NO GENDER MARKERS (a)/(o)**: Never use parenthetical gender markers.
+     Choose ONE defined gender based on brand avatar or audience.
+     BAD: "empreendedor(a)"
+     GOOD: "empreendedora" (if female avatar) or "empreendedor" (if male/mixed)
+
+  3. **NO PROHIBITED WORDS**: Never use: gratuito, grátis, Pix
+     These cheapen brand perception and signal course marketing.
+
+  4. **NO SENSATIONALIST HEADLINES**: Never use "do X à Y" transformation patterns.
+     BAD: "do burnout à liberdade"
+     GOOD: "Sistema que vende enquanto você dorme"
+
+  5. **NO "ÚNICA/ÚNICO" CLAIMS**: Never use "a única" or "o único" positioning.
+     Use specific evidence instead.
+     BAD: "A única agência que entrega ROI"
+     GOOD: "Agência focada 100% em ROI (sem métricas de vaidade)"
+
   ## Quality Requirements
   - Every word needs context and example
   - Grammar rules need clear rationale
   - Inclusive language section must be comprehensive
   - Content must be immediately usable
+  - ALL examples must comply with copywriter standards above

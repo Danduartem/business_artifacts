@@ -145,6 +145,8 @@ rules:
   - "ALWAYS spawn all 5 specialist agents in a SINGLE message for parallel execution"
   - "ALWAYS run Voice Scorer after generation completes"
   - "If any section scores below 90, ALWAYS spawn Quality Reviewer"
+  - "ENFORCE copywriter standards in ALL generated content: no em-dashes, no (a)/(o), no gratuito/grátis/Pix, no sensationalist headlines, no única/único claims"
+  - "PASS copywriter standards to ALL specialist agents when spawning them"
 
 prompts:
   generate_voice_documentation:
@@ -252,6 +254,16 @@ prompts:
       2. Read: {project-root}/bmad/voice-forge/data/brand-archetypes.md
       3. Read: {project-root}/bmad/voice-forge/data/channel-conventions.md
       4. Read: {project-root}/bmad/voice-forge/data/tone-situations.md
+      5. Read: {project-root}/bmad/voice-forge/data/copywriter-standards.md (CRITICAL)
+
+      **CRITICAL: Copywriter Standards Must Be Enforced**
+      The copywriter-standards.md contains universal rules that ALL generated
+      content must follow. Pass these to ALL specialist agents. Key rules:
+      - NO em-dashes (—) or decorative hyphens
+      - NO gender markers like (a)/(o)
+      - NO words: gratuito, grátis, Pix
+      - NO sensationalist headlines ("do X à Y")
+      - NO "única/único" claims
 
       Store key information to pass to specialist agents.
 

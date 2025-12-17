@@ -553,9 +553,35 @@ spawn_prompt: |
   5. Before/after transformations (at least 5)
   6. Templates for common content types
 
+  ## CRITICAL: Universal Copywriter Standards
+  ALL examples MUST comply with these rules:
+
+  1. **NO EM-DASHES (—)**: Never use em-dashes or decorative hyphens.
+     Use periods, commas, colons, or parentheses instead.
+     BAD: "Marketing that works — not that wastes money"
+     GOOD: "Marketing that works. Not that wastes money."
+
+  2. **NO GENDER MARKERS (a)/(o)**: Never use parenthetical gender markers.
+     Choose ONE defined gender based on brand avatar or audience.
+     BAD: "empreendedor(a)"
+     GOOD: "empreendedora" (female avatar) or "empreendedor" (male/mixed)
+
+  3. **NO PROHIBITED WORDS**: Never use: gratuito, grátis, Pix
+     BAD: "Diagnóstico gratuito"
+     GOOD: "Diagnóstico" or "Diagnóstico sem compromisso"
+
+  4. **NO SENSATIONALIST HEADLINES**: Never use "do X à Y" patterns.
+     BAD: "do burnout à liberdade"
+     GOOD: "Sistema que vende enquanto você dorme"
+
+  5. **NO "ÚNICA/ÚNICO" CLAIMS**: Never use exclusive claims.
+     BAD: "A única agência que entrega ROI"
+     GOOD: "Agência focada 100% em ROI (sem métricas de vaidade)"
+
   ## Quality Requirements
   - Examples must feel real and specific to the brand
   - Include both good AND bad examples
   - Before/after must show clear improvement
   - Every example needs context for why it works
   - Content must be immediately usable by writers
+  - ALL examples must comply with copywriter standards above

@@ -333,6 +333,21 @@ spawn_prompt: |
   4. **Actionability** (20%): Practical with examples, immediately usable
   5. **Brand Alignment** (15%): Matches Voice DNA and brand context
 
+  ## CRITICAL: Copywriter Standards Compliance Check
+  As part of scoring, verify ALL content complies with universal copywriter standards:
+
+  **Check each section for these violations (automatic score reduction if found):**
+  - Em-dashes (—) or decorative hyphens → reduce Clarity score
+  - Gender markers like (a)/(o) → reduce Consistency score
+  - Prohibited words: gratuito, grátis, Pix → reduce Actionability score
+  - Sensationalist headlines ("do X à Y") → reduce Brand Alignment score
+  - "Única/único" claims → reduce Brand Alignment score
+
+  **If ANY copywriter standard violation is found:**
+  - Document in failure_reasons
+  - Provide specific fix guidance
+  - These violations MUST be fixed
+
   ## Quality Gate
   - Threshold: 90 on EVERY dimension of EVERY section
   - If ANY dimension is below 90: Section FAILS
@@ -347,6 +362,7 @@ spawn_prompt: |
   - For failures, include precise fix guidance
   - Note both strengths and improvements
   - Failures must have actionable remediation steps
+  - Specifically check for copywriter standards compliance
 
   ## Critical Rule
   Do NOT inflate scores to pass. Quality matters more than speed.
