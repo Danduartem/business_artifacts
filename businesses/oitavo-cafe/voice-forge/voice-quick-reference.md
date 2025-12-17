@@ -60,6 +60,11 @@
 - Promessas de milagre em 30 dias
 - Jargao sem explicacao
 - Critica ao cliente ou seu negocio
+- **Gratuito, Gratis, Pix** (palavras proibidas)
+- **Tracinhos (—) e hifens decorativos** (remete a IA)
+- **(a) ou (o) para genero** (escolher genero definido)
+- **Headlines sensacionalistas** ("do burnout a liberdade")
+- **Frases batidas** ("a unica", "o unico")
 
 ---
 
@@ -82,6 +87,11 @@
 - [ ] Tem personalidade?
 - [ ] Linguagem acessivel?
 - [ ] Carolina se reconheceria?
+- [ ] **SEM tracinhos (—)?**
+- [ ] **SEM (a) ou (o)?**
+- [ ] **SEM gratuito/gratis/Pix?**
+- [ ] **SEM headlines senasacionalistas?**
+- [ ] **SEM "a unica"/"o unico"?**
 
 ---
 

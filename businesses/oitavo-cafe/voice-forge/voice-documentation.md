@@ -225,6 +225,11 @@ Entende e valida o ceticismo do cliente porque compartilha dele.
 - Pipeline (sem contexto)
 - Viralizar
 - Awareness (como objetivo final)
+- **Gratuito, Gratis, Pix** (palavras proibidas)
+- **Tracinhos (—) e hifens decorativos** (remete a IA)
+- **(a) ou (o) para genero** (sempre escolher genero definido)
+- **Headlines sensacionalistas** ("do burnout a liberdade")
+- **Frases batidas de curso** ("a unica", "o unico")
 
 ---
 
@@ -242,6 +247,11 @@ Before publishing any content, verify:
 - [ ] Evita buzzwords proibidos?
 - [ ] Dados/numeros sustentam as afirmacoes quando relevante?
 - [ ] Respeitoso mesmo quando provocativo?
+- [ ] **SEM tracinhos (—) ou hifens decorativos?** (remete a IA)
+- [ ] **SEM (a) ou (o) para genero?** (escolher genero definido)
+- [ ] **SEM palavras: gratuito, gratis, Pix?**
+- [ ] **SEM headlines sensacionalistas?** ("do burnout a liberdade")
+- [ ] **SEM frases batidas de curso?** ("a unica", "o unico")
 
 ---
 

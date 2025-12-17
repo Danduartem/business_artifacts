@@ -373,7 +373,9 @@
         "Aspas: para destacar jargões ou ironizar expressões do mercado",
         "Interrogação: use para criar diálogo e antecipar pensamentos do leitor",
         "Reticências: evite, prefira ponto final firme",
-        "Emoji: evite completamente em textos longos, use com moderação extrema em redes sociais"
+        "Emoji: evite completamente em textos longos, use com moderação extrema em redes sociais",
+        "TRACINHOS: EVITAR em-dashes (—) e hífens decorativos (-). Remete a texto de IA. Use ponto ou vírgula.",
+        "GÊNERO: NUNCA usar (a) ou (o). Sempre escolher gênero definido (feminino se avatar mulher, masculino se homem/misto)"
       ]
     },
     "word_choice": {
@@ -387,7 +389,10 @@
         "Jargão sem explicação: omnichannel, touchpoint, storytelling",
         "Adjetivos vazios: incrível, fantástico, revolucionário, único",
         "Verbos fracos: realizar, efetuar, processar",
-        "Expressões corporativas: 'prezamos', 'vossa empresa', 'outrossim'"
+        "Expressões corporativas: 'prezamos', 'vossa empresa', 'outrossim'",
+        "Palavras proibidas: gratuito, grátis, Pix",
+        "Frases batidas de curso: 'a única', 'o único', 'do burnout à liberdade'",
+        "Marcadores de gênero: (a), (o), empreendedor(a)"
       ]
     },
     "calls_to_action": {
@@ -401,7 +406,7 @@
         "Responde esse email. Vamos diagnosticar onde seu marketing está travando.",
         "Agenda 20 minutos aqui: [link]. Sem pressão de venda, só queremos entender se faz sentido.",
         "Manda uma mensagem no WhatsApp: [número]. A gente responde em até 2 horas.",
-        "Baixa o diagnóstico gratuito aqui: [link]. Você descobre sozinho onde está o vazamento."
+        "Baixa o diagnóstico aqui: [link]. Você descobre sozinho onde está o vazamento."
       ]
     }
   },
@@ -486,7 +491,12 @@
       "☐ Evitei mais de um ponto de exclamação por parágrafo?",
       "☐ O tom soa como conversa inteligente, não como vendedor desesperado?",
       "☐ Cada elemento do conteúdo serve a um propósito claro?",
-      "☐ Se eu fosse Carolina (nossa persona), isso ressoaria comigo ou soaria como mais uma promessa vazia?"
+      "☐ Se eu fosse Carolina (nossa persona), isso ressoaria comigo ou soaria como mais uma promessa vazia?",
+      "☐ EVITEI tracinhos (—) e hífens decorativos? (remete a IA)",
+      "☐ EVITEI (a) ou (o)? Escolhi gênero definido?",
+      "☐ EVITEI palavras: gratuito, grátis, Pix?",
+      "☐ EVITEI headlines sensacionalistas ('do burnout à liberdade')?",
+      "☐ EVITEI frases batidas de curso ('a única', 'o único')?"
     ]
   },
 

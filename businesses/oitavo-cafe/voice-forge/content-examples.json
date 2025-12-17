@@ -37,9 +37,9 @@
     },
     {
       "type": "cta_button",
-      "before": "Solicite um orçamento gratuito",
+      "before": "Solicite um orçamento",
       "after": "Quero parar de jogar dinheiro fora",
-      "notes": "Voz do cliente, reconhece frustração atual, ação clara"
+      "notes": "Voz do cliente, reconhece frustração atual, ação clara. NOTA: evitar 'gratuito/grátis' em toda comunicação."
     },
     {
       "type": "faq_answer",
@@ -216,7 +216,7 @@
   "website_copy_examples": {
     "homepage_hero": {
       "headline": "Sistema de vendas, não serviço de marketing",
-      "subheadline": "Cansada de pagar por 'visibilidade' que não enche seu caixa? A gente também. Por isso criamos um sistema de marketing que funciona de verdade — tudo integrado, tudo rastreável, tudo focado em R$ na sua conta.",
+      "subheadline": "Cansada de pagar por 'visibilidade' que não enche seu caixa? A gente também. Por isso criamos um sistema de marketing que funciona de verdade. Tudo integrado, tudo rastreável, tudo focado em R$ na sua conta.",
       "primary_cta": "Quero parar de desperdiçar dinheiro",
       "secondary_cta": "Mostrar como funciona",
       "trust_element": "Sistema validado por 50+ empreendedoras que pararam de acreditar em promessa vazia"
@@ -227,10 +227,10 @@
       "body": "Cansamos de ver empreendedoras fodas investindo em marketing e recebendo likes em troca.\n\nLikes não pagam conta. Impressões não pagam fornecedor. 'Alcance orgânico' não paga imposto.\n\nEntão criamos o Oitavo Café: um sistema que conecta TODO o seu marketing (sim, cada pedacinho) e transforma isso em vendas de verdade.\n\nNão em 'engajamento'. Não em 'awareness'. Em R$ na conta.\n\nDesde 2020, ajudamos empreendedoras céticas (como você) a pararem de acreditar em promessa e começarem a acreditar em planilha.\n\nMarketing chato? Talvez.\nMarketing honesto? Sempre.\nMarketing que funciona? Todo dia.",
       "values_intro": "Nossa obsessão:",
       "values": [
-        "Transparência radical — você vê tudo, do clique ao real na conta",
-        "ROI mensurável — se não dá para medir em R$, não fazemos",
-        "Sistema integrado — nada de ações soltas fingindo ser estratégia",
-        "Honestidade bruta — se não pudermos te ajudar, a gente fala"
+        "Transparência radical: você vê tudo, do clique ao real na conta",
+        "ROI mensurável: se não dá para medir em R$, não fazemos",
+        "Sistema integrado: nada de ações soltas fingindo ser estratégia",
+        "Honestidade bruta: se não pudermos te ajudar, a gente fala"
       ]
     }
   },
@@ -275,11 +275,11 @@
       },
       {
         "context": "Pitch formal",
-        "pitch": "Oitavo Café é um sistema integrado de marketing focado em ROI mensurável. Conectamos todos os canais do cliente — redes sociais, ads, email, conteúdo — em uma jornada única orientada a vendas, com transparência total sobre investimento e retorno."
+        "pitch": "Oitavo Café é um sistema integrado de marketing focado em ROI mensurável. Conectamos todos os canais do cliente (redes sociais, ads, email, conteúdo) em uma jornada única orientada a vendas, com transparência total sobre investimento e retorno."
       },
       {
         "context": "Cliente potencial",
-        "pitch": "A gente pega todo o seu marketing que tá solto — Instagram, Google, email, blog — e conecta tudo num sistema único focado em vender. Você vê exatamente quanto cada real investido traz de volta. Sem enrolação, sem métrica de vaidade."
+        "pitch": "A gente pega todo o seu marketing que tá solto (Instagram, Google, email, blog) e conecta tudo num sistema único focado em vender. Você vê exatamente quanto cada real investido traz de volta. Sem enrolação, sem métrica de vaidade."
       }
     ],
 

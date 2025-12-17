@@ -247,7 +247,7 @@
         "ctas": {
           "mid_article": "→ Baixe nosso template de funil de vendas (sem pedir rim em troca)",
           "end_article": "Quer implementar isso no seu negócio? A gente ajuda. Chama no WhatsApp.",
-          "content_upgrade": "Esse artigo tem 2000 palavras. Mas a checklist tem os 12 passos prontos. [Baixar checklist gratuita]"
+          "content_upgrade": "Esse artigo tem 2000 palavras. Mas a checklist tem os 12 passos prontos. [Baixar checklist]"
         }
       },
 
@@ -615,7 +615,7 @@
 
       "integration_notes": {
         "personal_vs_company": "Personal brand do fundador = thought leadership. Company page = case studies, conteúdo educacional, vagas.",
-        "to_website": "Link no perfil para página de consultoria ou diagnóstico gratuito",
+        "to_website": "Link no perfil para página de consultoria ou diagnóstico",
         "to_email": "Posts com framework completo oferecido via PDF em troca de email",
         "from_blog": "Repurpose artigos do blog como carrossel LinkedIn (visual diferente, mesma substância)",
         "cross_promotion": "Post LinkedIn pode virar fio no Twitter (quebrado em tweets curtos) ou carrossel no Instagram (com tom mais casual)"
@@ -775,11 +775,11 @@
       },
 
       "integration_notes": {
-        "to_website": "Link no perfil para landing específica ou ferramenta gratuita",
+        "to_website": "Link no perfil para landing específica ou ferramenta",
         "to_blog": "Thread pode teaser insights do artigo, link na bio pra ler completo",
         "from_linkedin": "Post LinkedIn pode virar thread (quebrado em tweets atômicos)",
         "to_email": "Tweet com framework/template oferecido via DM ou link",
-        "engagement_strategy": "Responder menções de forma que agrega valor = marketing de conteúdo gratuito"
+        "engagement_strategy": "Responder menções de forma que agrega valor = marketing de conteúdo orgânico"
       }
     },
 
@@ -883,7 +883,7 @@
         },
         "newsletter": {
           "subject": "Por que seu marketing não vende (análise de 47 campanhas)",
-          "body": "Oi,\n\nÚltimo trimestre, analisamos 47 campanhas de marketing de pequenas empresas.\n\n3 tiveram ROI positivo no primeiro mês.\n44 queimaram dinheiro.\n\nA diferença não foi criatividade.\nNem budget.\nNem timing.\n\nFoi sistema.\n\nAs 3 que venderam tinham:\n\n1. Oferta clara que resolve dor específica\n2. Funil que qualifica antes de vender\n3. Métrica de conversão em cada etapa\n\nAs 44 que falharam?\n\nTinham conteúdo bonito sem sistema de vendas.\n\nDeixa eu te mostrar a diferença:\n\n[Continua com exemplo detalhado...]\n\n---\n\nSe isso ressoa com seu momento:\n\nA gente abriu 3 vagas pra consultoria de sistema de vendas em Janeiro.\n\n[Link: Agendar diagnóstico gratuito]\n\nAbraço,\n[Nome]\n\nP.S.: Próxima semana eu mando o template completo de funil que essas 3 empresas usaram. Fica de olho."
+          "body": "Oi,\n\nÚltimo trimestre, analisamos 47 campanhas de marketing de pequenas empresas.\n\n3 tiveram ROI positivo no primeiro mês.\n44 queimaram dinheiro.\n\nA diferença não foi criatividade.\nNem budget.\nNem timing.\n\nFoi sistema.\n\nAs 3 que venderam tinham:\n\n1. Oferta clara que resolve dor específica\n2. Funil que qualifica antes de vender\n3. Métrica de conversão em cada etapa\n\nAs 44 que falharam?\n\nTinham conteúdo bonito sem sistema de vendas.\n\nDeixa eu te mostrar a diferença:\n\n[Continua com exemplo detalhado...]\n\n---\n\nSe isso ressoa com seu momento:\n\nA gente abriu 3 vagas pra consultoria de sistema de vendas em Janeiro.\n\n[Link: Agendar diagnóstico]\n\nAbraço,\n[Nome]\n\nP.S.: Próxima semana eu mando o template completo de funil que essas 3 empresas usaram. Fica de olho."
         },
         "promotional": {
           "subject": "Sistema de Vendas: última turma de 2025",
@@ -1158,7 +1158,7 @@
       "voice_examples": {
         "first_contact_lead": {
           "example_1": "Oi Carolina! Tudo bem? 👋\n\nVi que você baixou nosso guia de funil de vendas.\n\nTá conseguindo implementar ou travou em alguma parte?",
-          "example_2": "E aí! Vi que você se inscreveu no diagnóstico gratuito.\n\nPra eu preparar bem nossa conversa: qual seu maior desafio em vendas online agora? 🎯"
+          "example_2": "E aí! Vi que você se inscreveu no diagnóstico.\n\nPra eu preparar bem nossa conversa: qual seu maior desafio em vendas online agora? 🎯"
         },
         "qualification": {
           "example_1": "Entendi!\n\nSó pra eu te ajudar melhor: você já tem audiência (rede social, lista) ou tá começando do zero?",

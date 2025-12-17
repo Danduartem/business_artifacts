@@ -332,6 +332,15 @@
         "DNA da empresa",
         "cultura de inovação",
         "espírito empreendedor"
+      ],
+      "copywriter_rules": [
+        "gratuito",
+        "grátis",
+        "Pix",
+        "a única",
+        "o único",
+        "(a) para gênero - sempre escolher um gênero definido",
+        "headlines sensacionalistas tipo 'do burnout à liberdade'"
       ]
     }
   },
@@ -417,7 +426,7 @@
       "exclamation_points": "Usar estrategicamente para ênfase. Uma por sentença quando necessário. Múltiplas (!!!) apenas para efeito cômico intencional ou para mostrar exagero que estamos criticando.",
       "question_marks": "Perguntas retóricas são amigas. Perguntas que fazem pensar também.",
       "parentheses": "Liberado para comentários auto-irônicos (tipo esse aqui)",
-      "dashes": "Em-dash (—) para quebras dramáticas. Hífen (-) normal para compostos.",
+      "dashes": "EVITAR em-dashes (—) e hífens decorativos (-). Remete a texto gerado por IA, não humano. Preferir ponto final ou vírgula. Hífen (-) APENAS para palavras compostas obrigatórias.",
       "ellipses": "Raramente... Só quando criar suspense proposital... Ou indicar pausa reflexiva.",
       "quotation_marks": "Usar para 'ironizar' ou destacar 'termos da indústria' que criticamos"
     },
@@ -460,7 +469,8 @@
       "brazilian_slang": "Moderado: grana, boleto, papo reto, sem mimimi (autêntico, não forçado)",
       "tech_terms": "Em inglês quando necessário (ROI, dashboard, CRM). Traduzir quando possível sem perder clareza.",
       "self_correction": "Permitido: 'Marketing... desculpa, sistema de vendas.' (mostra pensamento honesto)",
-      "asides": "Usar parênteses ou travessões para comentários laterais que quebram quarta parede"
+      "asides": "Usar parênteses para comentários laterais que quebram quarta parede. EVITAR travessões.",
+      "gendered_language": "NUNCA usar (a) ou (o) para indicar gênero. Sempre escolher um gênero definido: feminino se avatar mulher, masculino se avatar homem, ou masculino se público misto."
     }
   },
   "regional_adaptations": {
@@ -634,7 +644,11 @@
       "método secreto",
       "fórmula mágica",
       "resultados extraordinários",
-      "transformação completa"
+      "transformação completa",
+      "do burnout à liberdade",
+      "de [estado ruim] para [estado bom]",
+      "a única",
+      "o único"
     ],
     "passive_aggressive": [
       "como você deveria saber",
@@ -753,7 +767,12 @@
       "✅ Usou self-awareness em momento apropriado?",
       "✅ O CTA é específico e honesto?",
       "✅ Se criticou a indústria, ofereceu alternativa concreta?",
-      "✅ Carolina (persona) entenderia e se reconheceria nisso?"
+      "✅ Carolina (persona) entenderia e se reconheceria nisso?",
+      "✅ SEM tracinhos decorativos (—) ou hífens desnecessários?",
+      "✅ SEM (a) ou (o) para gênero? Gênero definido escolhido?",
+      "✅ SEM palavras: gratuito, grátis, Pix?",
+      "✅ SEM headlines sensacionalistas tipo 'do burnout à liberdade'?",
+      "✅ SEM frases batidas tipo 'a única' ou 'o único'?"
     ]
   },
   "usage_notes": {

@@ -1027,6 +1027,31 @@
         "pattern": "Overselling during onboarding",
         "why": "Sets unrealistic expectations",
         "instead": "Set clear, realistic expectations with confidence"
+      },
+      {
+        "pattern": "Usar tracinhos (—) e hífens decorativos",
+        "why": "Remete a texto gerado por IA/ChatGPT, não humano",
+        "instead": "Use ponto final ou vírgula. Hífen apenas em palavras compostas obrigatórias."
+      },
+      {
+        "pattern": "Usar (a) ou (o) para indicar gênero",
+        "why": "Parece texto automatizado, não natural",
+        "instead": "Sempre escolha gênero definido: feminino se avatar mulher, masculino se homem/público misto."
+      },
+      {
+        "pattern": "Usar palavras: gratuito, grátis, Pix",
+        "why": "Associadas a marketing de curso barato",
+        "instead": "Remover completamente ou substituir por alternativas mais sofisticadas."
+      },
+      {
+        "pattern": "Headlines sensacionalistas ('do burnout à liberdade')",
+        "why": "Muito batido, parece guru de curso",
+        "instead": "Seja direto e específico. Fale de resultado concreto, não transformação genérica."
+      },
+      {
+        "pattern": "Frases batidas de curso ('a única', 'o único')",
+        "why": "Extremamente clichê e desgastado",
+        "instead": "Use evidências específicas: números, resultados, diferenciais concretos."
       }
     ]
   }
