@@ -1,235 +1,194 @@
-# Voice Forge
+# Voice Forge v2
 
-Multi-agent brand voice documentation system that creates comprehensive, production-ready voice guidelines from user-provided reference materials.
+> Multi-agent quality + Single-file simplicity
+>
+> **Language:** Portuguese BR only
 
-## Overview
+## Philosophy
 
-Voice Forge analyzes reference URLs (competitor websites, social media, brands you admire) using browser-based analysis and generates complete voice documentation through 5 parallel specialist agents. Built-in quality scoring ensures 90% threshold on all dimensions with automatic regeneration for failures.
+Voice Forge v2 combines the best of both worlds:
+- **5 specialist agents** for depth and quality
+- **1 output file** that copywriters actually use
+- **Feedback loop** for continuous improvement
 
-## Features
+## Architecture
 
-- **Browser-Based Analysis:** Uses WebFetch to analyze reference URLs and extract voice characteristics
-- **5 Specialist Agents:** Parallel generation for speed and depth
-- **90% Quality Threshold:** Automatic scoring and regeneration
-- **Complete Documentation:** Full voice guide + one-page summary + AI-ready JSON
-- **Platform Playbooks:** Channel-specific guidelines for website, social, email, and more
-
-## Installation
-
-```bash
-# From the bmad directory
-cd bmad
-./install.sh voice-forge
 ```
+INPUTS (brand context, reference URLs)
+        ↓
+   Voice Director (orchestrates)
+        ↓
+┌─────────────────────────────────────────────────┐
+│  5 SPECIALISTS WORK IN PARALLEL                 │
+│                                                 │
+│  🏛️ Voice Identity Architect                    │
+│     → Voice Snapshot, Voice Dimensions          │
+│                                                 │
+│  🎯 Tone Strategist                             │
+│     → Golden Rules                              │
+│                                                 │
+│  📚 Lexicon Curator                             │
+│     → Say This/Not That, Red Lines              │
+│                                                 │
+│  📱 Channel Specialist                          │
+│     → Channel Quick Reference                   │
+│                                                 │
+│  ✍️ Content Exemplar                            │
+│     → Do/Don't, Before/After Examples           │
+└─────────────────────────────────────────────────┘
+        ↓
+   Director REVIEWS each section
+        ↓
+┌─────────────────────────────────────────────────┐
+│  FEEDBACK LOOP (if needed)                      │
+│  - Director identifies weak sections            │
+│  - Sends targeted feedback to specialist        │
+│  - Specialist regenerates with guidance         │
+│  - Max 3 rounds per specialist                  │
+└─────────────────────────────────────────────────┘
+        ↓
+   Director COMPILES into ONE file
+        ↓
+OUTPUT: voice-guide.md (~3-4 pages)
+```
+
+## Output
+
+**One file:** `voice-guide.md`
+
+Contains 8 sections:
+1. **Voice Snapshot** - 3 words + archetype + "if we were a person"
+2. **Voice Dimensions** - Position on 4 scales with examples
+3. **Golden Rules** - 5 core principles with examples
+4. **Do/Don't** - Quick reference table (8-10 rows)
+5. **Say This/Not That** - Vocabulary guide (8-10 rows)
+6. **Before/After Examples** - 5-7 transformations (most valuable)
+7. **Channel Quick Reference** - One line per platform
+8. **Red Lines** - What to NEVER do
+
+## Why Multi-Agent?
+
+| Single Agent | 5 Specialists |
+|--------------|---------------|
+| One perspective | 5 specialized perspectives |
+| Generalist coverage | Deep expertise per domain |
+| May miss nuances | Each specialist focuses fully |
+| Sequential | Parallel (faster) |
+
+The **Voice Identity Architect** thinks differently than the **Lexicon Curator**. One focuses on WHO the brand is, the other on the ATOMS of language.
 
 ## Quick Start
 
-1. Start the workflow:
+1. Start the agent:
    ```
-   /bmad:voice-forge:workflows:generate-voice
-   ```
-
-2. Provide 3-8 reference URLs:
-   ```
-   https://mailchimp.com/about
-   https://slack.com
-   https://twitter.com/stripe
+   /bmad:voice-forge:agents:voice-director
    ```
 
-3. Answer brand context questions:
+2. Select `*generate`
+
+3. Provide:
    - Brand name
-   - Industry/sector
+   - 3-5 reference URLs
    - Target audience
-   - Personality traits (3-5 adjectives)
+   - 3-5 personality words
+   - Persona name & gender
    - What to avoid
 
-4. Wait for generation (typically 10-15 minutes)
+4. Wait for specialists + review + compilation
 
-5. Review output files:
-   - `voice-documentation.md` - Complete guide
-   - `voice-quick-reference.md` - One-page summary
-   - `voice-data.json` - AI training format
-   - `voice-scores.json` - Quality report
+5. Get ONE file: `voice-guide.md`
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `*generate` | Generate voice guide (full workflow) |
+| `*analyze` | Analyze URLs only (no file output) |
+| `*help` | Show menu |
+| `*exit` | Exit |
 
 ## Module Structure
 
 ```
 voice-forge/
-├── _module-installer/
-│   └── install-config.yaml
+├── config.yaml
+├── README.md
 ├── agents/
-│   ├── voice-director.agent.yaml         # Orchestrator
+│   ├── voice-director.agent.yaml        # Orchestrator
 │   ├── voice-identity-architect.agent.yaml
 │   ├── tone-strategist.agent.yaml
 │   ├── lexicon-curator.agent.yaml
 │   ├── channel-specialist.agent.yaml
-│   ├── content-exemplar.agent.yaml
-│   ├── voice-scorer.agent.yaml           # Quality gate
-│   └── quality-reviewer.agent.yaml       # Regeneration
+│   └── content-exemplar.agent.yaml
 ├── workflows/
 │   └── generate-voice/
 │       ├── workflow.yaml
-│       └── instructions.md
-├── data/
-│   ├── voice-dimensions.md
-│   ├── brand-archetypes.md
-│   ├── channel-conventions.md
-│   └── tone-situations.md
-├── templates/
-│   ├── voice-document.md
-│   └── one-page-summary.md
-├── config.yaml
-└── README.md
+│       ├── instructions.md
+│       └── checklist.md
+└── data/
+    ├── voice-dimensions.md
+    ├── brand-archetypes.md
+    ├── copywriter-standards.md
+    ├── channel-conventions.md
+    └── tone-situations.md
 ```
 
-## Agents
+## Feedback Loop
 
-### Voice Director (Orchestrator)
-Master orchestrator that gathers input, analyzes references via WebFetch, spawns specialist agents, and manages quality gates.
+The Director reviews each specialist's output and can request improvements:
 
-**Commands:**
-- `*generate` - Start full voice documentation flow
-- `*analyze` - Analyze reference URLs only
-- `*score` - Score existing documentation
-- `*export` - Export in different formats
-- `*help` - Show available commands
+```
+Your [section] needs improvement:
 
-### Specialist Agents (5)
+ISSUE: Examples are too generic
+EXAMPLE: "We help businesses grow" could be any company
+FIX: Use specific examples like "We help SaaS founders hit $10k MRR"
 
-| Agent | Focus | Philosophy |
-|-------|-------|------------|
-| Voice Identity Architect | Archetype, personality, dimensions | "Voice is who you are" |
-| Tone Strategist | Situational tone matrix | "Tone flexes to fit the moment" |
-| Lexicon Curator | Vocabulary, grammar, style | "Words are the atoms of voice" |
-| Channel Specialist | Platform-specific playbooks | "Same voice, different venue" |
-| Content Exemplar | Real examples, transformations | "Show, don't just tell" |
+Please regenerate with this guidance.
+```
 
-### Quality Agents (2)
+**Rules:**
+- Maximum 3 feedback rounds per specialist
+- Feedback must be SPECIFIC (not "make it better")
+- If still weak after 3 rounds, use best version
 
-| Agent | Role |
-|-------|------|
-| Voice Scorer | Scores sections across 5 dimensions (90% threshold) |
-| Quality Reviewer | Diagnoses failures, triggers regeneration |
+## Copywriter Standards (Red Lines) - Portuguese BR
 
-## Quality System
-
-### Scoring Dimensions
-
-| Dimension | Weight | Description |
-|-----------|--------|-------------|
-| Clarity | 20% | Clear, unambiguous guidelines |
-| Completeness | 25% | All required elements present |
-| Consistency | 20% | No internal contradictions |
-| Actionability | 20% | Practical with examples |
-| Brand Alignment | 15% | Matches references and context |
-
-### Quality Gate
-
-- **Threshold:** 90% on ALL dimensions
-- **Any failure:** Triggers Quality Reviewer
-- **Severity levels:**
-  - 90-100: PASSED
-  - 85-89: MINOR (specific fixes)
-  - 70-84: MODERATE (regenerate)
-  - <70: CRITICAL (escalate to user)
-- **Max attempts:** 2 regenerations per section
+Built into ALL generated content:
+- **No em-dashes (—)** - signals AI-generated text
+- **No gender markers (a)/(o)** - looks automated (choose one gender consistently)
+- **No: gratuito, grátis, Pix** - cheapens brand perception
+- **No sensationalist headlines** - "do X à Y" transformation patterns
+- **No "única/único" claims** - use specific evidence instead
 
 ## Reference Data
 
 ### Voice Dimensions (NN/g Framework)
-Four dimensions for positioning brand voice:
 - Formal ↔ Casual
 - Serious ↔ Funny
 - Respectful ↔ Irreverent
 - Matter-of-fact ↔ Enthusiastic
 
 ### Brand Archetypes (12 Jungian)
-- Innocent, Explorer, Sage, Hero, Outlaw, Magician
-- Regular Guy, Lover, Jester, Caregiver, Creator, Ruler
+Innocent, Explorer, Sage, Hero, Outlaw, Magician, Regular Guy, Lover, Jester, Caregiver, Creator, Ruler
 
-### Channel Conventions
-Platform-specific norms for:
-- Website, Blog, Instagram, LinkedIn, Twitter, TikTok
-- Email marketing, Customer support
+## v2 Changes
 
-### Tone Situations
-Guidance for common scenarios:
-- Celebrating, Delivering bad news, Educating, Selling
-- Apologizing, Onboarding, Crisis, Re-engaging
+| v1 | v2 |
+|----|-----|
+| 7 output files (~280KB) | 1 output file (~5KB) |
+| JSON + Markdown | Markdown only |
+| Separate scoring agent | Director reviews directly |
+| Generic regeneration | Targeted feedback loop |
+| Files saved during process | In-memory until final |
 
-## Output Files
+## Tips
 
-### voice-documentation.md
-Complete voice guide with:
-- Executive summary
-- Voice identity (archetype, traits, dimensions)
-- Tone matrix (situational, audience states, crisis)
-- Language guidelines (vocabulary, grammar, inclusive)
-- Channel playbooks
-- Content examples
-- AI content guidelines
+1. **Better references = better output.** Pick brands whose voice you genuinely admire.
+2. **Be specific about personality.** "Friendly but expert" > "professional"
+3. **Name your persona.** Creates more targeted examples.
+4. **Use it daily.** Pin it, bookmark it, reference it before publishing.
 
-### voice-quick-reference.md
-One-page summary for daily use with:
-- Voice at a glance
-- Four dimensions
-- Do/Don't quick list
-- Core words
-- Say this, not that
+---
 
-### voice-data.json
-Structured data for:
-- AI content generation
-- Automated content review
-- Integration with other tools
-
-## Configuration
-
-Edit `config.yaml` to customize:
-
-```yaml
-voice_output_folder: "/path/to/output"
-quality_threshold: 90
-max_regeneration_attempts: 2
-channels:
-  - website
-  - blog
-  - instagram
-  - linkedin
-  - twitter
-  - email_marketing
-  - customer_support
-```
-
-## Tips for Best Results
-
-1. **Quality References:** Provide URLs with clear, distinctive voice styles
-2. **Mix Sources:** Include different content types (about pages, social, blog)
-3. **Be Specific:** Clear personality adjectives help guide generation
-4. **Define Avoids:** What you don't want is as important as what you want
-5. **Review & Refine:** Use generated docs as starting point, customize as needed
-
-## Troubleshooting
-
-### URL Analysis Fails
-- Check URL is publicly accessible
-- Try alternative URL from same source
-- Ensure site isn't blocking automated access
-
-### Quality Gate Failures
-- Review specific dimension failures in voice-scores.json
-- System auto-regenerates up to 2 times
-- If escalated, add more/clearer references
-
-### Inconsistent Output
-- Provide more consistent reference URLs
-- Clarify brand personality traits
-- Be specific about what to avoid
-
-## Version History
-
-- **1.0.0** - Initial release with full agent suite and quality system
-
-## License
-
-Part of the BMAD module ecosystem.
+*Voice Forge v2 - Multi-agent quality. Single-file simplicity.*

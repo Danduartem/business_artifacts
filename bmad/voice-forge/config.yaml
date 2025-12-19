@@ -1,36 +1,45 @@
-# Voice Forge Configuration
-# Multi-Agent Brand Voice Documentation System
+# Voice Forge Configuration v2
+# Multi-agent generation → Single-file output
+# Language: Portuguese BR only
 
-# User Settings (from core config)
+# User Settings
 user_name: "Daniel"
-communication_language: "English"
+communication_language: "Portuguese BR"
+
+# Language Settings
+content_language: "pt-BR"
+locale: "Brazil"
 
 # Output Settings
 voice_output_folder: "/Users/danielmenezes/coding/business-artifacts/output/voice-forge"
-
-# Quality Settings
-quality_threshold: 90  # 9/10 minimum score required
-max_regeneration_attempts: 2
-
-# Voice Documentation Settings
-include_ai_guidelines: true
-include_training_exercises: true
-export_formats: "all"  # markdown | json | all
-
-# Channel Coverage
-channels:
-  - website
-  - blog
-  - instagram
-  - linkedin
-  - twitter
-  - email_marketing
-  - customer_support
+output_file: "voice-guide.md"
 
 # Reference Analysis Settings
-max_reference_urls: 8
+max_reference_urls: 5
 min_reference_urls: 3
 
-# Integration
+# Feedback Loop Settings
+max_feedback_rounds: 3
+
+# Specialist Agents (5)
+specialists:
+  - voice-identity-architect
+  - tone-strategist
+  - lexicon-curator
+  - channel-specialist
+  - content-exemplar
+
+# Output Sections (compiled into single file)
+output_sections:
+  - voice_snapshot
+  - voice_dimensions
+  - golden_rules
+  - do_dont
+  - say_this_not_that
+  - before_after_examples
+  - channel_quick_reference
+  - red_lines
+  - quick_check
+
+# Integration (optional)
 design_forge_config: "/Users/danielmenezes/coding/business-artifacts/bmad/design-forge/config.yaml"
-color_forge_config: "/Users/danielmenezes/coding/business-artifacts/bmad/color-forge/config.yaml"

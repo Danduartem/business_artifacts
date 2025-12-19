@@ -1,136 +1,87 @@
-# Voice Documentation Generation Checklist
+# Voice Guide Generation Checklist
 
 Use this checklist to verify completeness of generated voice documentation.
 
 ## Pre-Generation
 
-- [ ] Collected 3-8 reference URLs
-- [ ] URLs are accessible and not behind login walls
+- [ ] Brand name confirmed
+- [ ] 3-5 reference URLs collected
+- [ ] URLs are accessible (not behind login walls)
 - [ ] Mix of content types (about pages, social, blog)
-- [ ] Brand context documented:
-  - [ ] Brand name
-  - [ ] Industry/sector
-  - [ ] Target audience
-  - [ ] Personality traits (3-5 adjectives)
-  - [ ] What to avoid
+- [ ] Target audience defined
+- [ ] 3-5 personality adjectives chosen
+- [ ] Persona name and gender specified
+- [ ] What to avoid documented
 
-## Voice DNA Analysis
+## Reference Analysis
 
-- [ ] All URLs successfully analyzed
+- [ ] All URLs successfully analyzed by Director
 - [ ] Tone indicators extracted
 - [ ] Vocabulary patterns identified
-- [ ] Sentence structure noted
-- [ ] Personality evidence documented
 - [ ] Notable phrases captured
 
-## Voice Identity (voice-identity.json)
+## Specialist Agents
 
-- [ ] Primary archetype identified with rationale
-- [ ] Secondary archetype identified (if applicable)
-- [ ] 3-5 personality traits defined
-- [ ] Each trait has do/don't examples
-- [ ] Four dimensions positioned (1-5):
-  - [ ] Formality
-  - [ ] Humor
-  - [ ] Respect
-  - [ ] Energy
-- [ ] Brand-as-person descriptions included
-- [ ] Voice summary provided
+All 5 specialists spawned in PARALLEL (single message):
 
-## Tone Matrix (tone-matrix.json)
+- [ ] Voice Identity Architect launched
+- [ ] Tone Strategist launched
+- [ ] Lexicon Curator launched
+- [ ] Channel Specialist launched
+- [ ] Content Exemplar launched
 
-- [ ] Tone by situation coverage:
-  - [ ] Celebrating success
-  - [ ] Delivering bad news
-  - [ ] Educating
-  - [ ] Selling
-  - [ ] Apologizing
-  - [ ] Onboarding
-- [ ] Audience state responses:
-  - [ ] Frustrated customer
-  - [ ] Excited new user
-  - [ ] Confused prospect
-  - [ ] Skeptical evaluator
-- [ ] Crisis communication guidelines
-- [ ] Each situation has example copy
+## Section Quality (Director Review)
 
-## Lexicon (lexicon.json)
+Each section reviewed with quality checklist:
 
-- [ ] Always use words with context and examples
-- [ ] Sometimes use words with restrictions
-- [ ] Never use words with reasons
-- [ ] Jargon policy defined
-- [ ] Grammar and style rules:
-  - [ ] Punctuation conventions
-  - [ ] Contraction policy
-  - [ ] Capitalization rules
-  - [ ] Number formatting
-- [ ] Product naming conventions
-- [ ] Inclusive language guidelines:
-  - [ ] Gender
-  - [ ] Ability
-  - [ ] Cultural
-- [ ] Say this, not that list
+- [ ] **Voice Snapshot** - 3 words + archetype + "if we were a person"
+- [ ] **Voice Dimensions** - Position on 4 scales with examples
+- [ ] **Golden Rules** - 5 core principles (brand-specific, not generic)
+- [ ] **Do/Don't** - 8-10 rows, actionable
+- [ ] **Say This/Not That** - 8-10 rows, specific vocabulary
+- [ ] **Before/After Examples** - 5-7 transformations
+- [ ] **Channel Quick Reference** - One line per platform
+- [ ] **Red Lines** - What to NEVER do
 
-## Channel Playbooks (channel-playbooks.json)
+## Feedback Loop (if needed)
 
-- [ ] Website copy guidelines
-- [ ] Blog voice guidelines
-- [ ] Social media per platform:
-  - [ ] Instagram
-  - [ ] LinkedIn
-  - [ ] Twitter/X
-  - [ ] TikTok (if applicable)
-- [ ] Email:
-  - [ ] Marketing
-  - [ ] Transactional
-  - [ ] Support
-- [ ] Customer support guidelines
-- [ ] Each channel has examples
-
-## Content Examples (content-examples.json)
-
-- [ ] Headlines:
-  - [ ] Hero headlines
-  - [ ] Feature headlines
-  - [ ] Blog headlines
-- [ ] Social posts per platform
-- [ ] Email subjects:
-  - [ ] Marketing
-  - [ ] Transactional
-- [ ] Microcopy:
-  - [ ] Buttons
-  - [ ] Error messages
-  - [ ] Success messages
-  - [ ] Empty states
-  - [ ] Loading states
-- [ ] Before/after transformations
-- [ ] Long-form samples
-
-## Quality Scores (voice-scores.json)
-
-- [ ] All sections scored
-- [ ] All dimensions evaluated:
-  - [ ] Clarity (20%)
-  - [ ] Completeness (25%)
-  - [ ] Consistency (20%)
-  - [ ] Actionability (20%)
-  - [ ] Brand Alignment (15%)
-- [ ] All scores >= 90%
-- [ ] No failed dimensions
+- [ ] Weak sections identified
+- [ ] Specific feedback sent to specialist
+- [ ] Specialist regenerated section
+- [ ] Max 3 rounds per specialist respected
 
 ## Final Output
 
-- [ ] voice-documentation.md created
-- [ ] voice-quick-reference.md created
-- [ ] voice-data.json created
-- [ ] All sections properly merged
-- [ ] Templates properly filled
+ONE file generated:
 
-## Post-Generation Review
-
-- [ ] Executive summary accurate
+- [ ] `voice-guide.md` created
+- [ ] All 8 sections present
 - [ ] No contradictions between sections
 - [ ] Examples are realistic and usable
-- [ ] AI guidelines are practical
-- [ ] Documentation is actionable for writers
+- [ ] Copywriter standards respected:
+  - [ ] No em-dashes (—)
+  - [ ] No gender markers (a)/(o)
+  - [ ] No prohibited words (gratuito, grátis, Pix)
+  - [ ] No sensationalist patterns
+
+## Post-Generation
+
+- [ ] Voice guide reviewed by stakeholder
+- [ ] Guide accessible to copywriting team
+- [ ] Bookmarked for daily reference
+
+---
+
+## What's NOT in the Output
+
+v2 simplified output - these are intentionally excluded:
+
+- ❌ JSON files
+- ❌ Multiple output files
+- ❌ Detailed channel playbooks
+- ❌ 8+ situational tone matrices
+- ❌ Scorer reports
+
+---
+
+*Voice Forge v2 - Multi-agent quality. Single-file simplicity.*

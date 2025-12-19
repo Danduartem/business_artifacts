@@ -12,10 +12,25 @@ brand_personality: ""
 industry: ""
 # Your target industry: technology, healthcare, finance, retail, etc.
 
-# Color Preferences
-primary_color: ""
-# Leave empty for AI suggestion, or provide existing brand color (hex)
+# LOCKED Brand Colors (Source of Truth)
+# These colors are IMMUTABLE - they appear exactly at grade 500
+# Leave empty for AI to generate
 
+primary_color: ""
+# Your PRIMARY brand color (hex, e.g., #E63946) - LOCKED
+
+secondary_color: ""
+# Your SECONDARY brand color (hex) - LOCKED
+
+accent_color: ""
+# Your ACCENT brand color (hex), or leave empty to generate complementary
+
+neutral_color: ""
+# Your NEUTRAL/BACKGROUND base color (hex, e.g., #F8E8D8 for cream)
+# Leave empty for standard gray scale
+# Use this for brands that use warm/colored backgrounds instead of white/gray
+
+# Preferences for GENERATED colors only
 color_temperature: "neutral"
 # Options: warm | cool | neutral
 

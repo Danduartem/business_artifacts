@@ -1,0 +1,519 @@
+{
+  "metadata": {
+    "brand": "Oitavo Café",
+    "generated": "2025-12-19T14:30:00Z",
+    "colorSpace": "OKLCH",
+    "version": "2.2",
+    "harmonyModel": "analogous-warm",
+    "scores": {
+      "harmony": 92,
+      "psychology": 88,
+      "accessibility": 94
+    }
+  },
+  "colors": {
+    "primary": {
+      "name": "Coffee",
+      "source": "locked",
+      "originalHex": "#4E130D",
+      "scale": {
+        "50": { "oklch": "oklch(96% 0.015 25)", "hex": "#FAF5F4" },
+        "100": { "oklch": "oklch(92% 0.025 25)", "hex": "#F0E4E2" },
+        "200": { "oklch": "oklch(84% 0.045 25)", "hex": "#DBC5C1" },
+        "300": { "oklch": "oklch(72% 0.075 25)", "hex": "#BF9B94" },
+        "400": { "oklch": "oklch(58% 0.105 25)", "hex": "#8F5D52" },
+        "500": { "oklch": "oklch(32% 0.12 25)", "hex": "#4E130D" },
+        "600": { "oklch": "oklch(28% 0.11 25)", "hex": "#420F0A" },
+        "700": { "oklch": "oklch(24% 0.095 25)", "hex": "#360C08" },
+        "800": { "oklch": "oklch(18% 0.07 25)", "hex": "#280906" },
+        "900": { "oklch": "oklch(12% 0.045 25)", "hex": "#1A0604" }
+      }
+    },
+    "secondary": {
+      "name": "Terracotta",
+      "source": "locked",
+      "originalHex": "#A1523C",
+      "scale": {
+        "50": { "oklch": "oklch(97% 0.015 30)", "hex": "#FBF6F4" },
+        "100": { "oklch": "oklch(93% 0.03 30)", "hex": "#F2E6E1" },
+        "200": { "oklch": "oklch(86% 0.055 30)", "hex": "#E3C9BF" },
+        "300": { "oklch": "oklch(76% 0.085 30)", "hex": "#CDA490" },
+        "400": { "oklch": "oklch(64% 0.115 30)", "hex": "#B87B66" },
+        "500": { "oklch": "oklch(52% 0.13 30)", "hex": "#A1523C" },
+        "600": { "oklch": "oklch(45% 0.115 30)", "hex": "#8A4533" },
+        "700": { "oklch": "oklch(38% 0.10 30)", "hex": "#73392A" },
+        "800": { "oklch": "oklch(30% 0.08 30)", "hex": "#5B2D21" },
+        "900": { "oklch": "oklch(22% 0.055 30)", "hex": "#432118" }
+      }
+    },
+    "accent": {
+      "name": "Burgundy",
+      "source": "locked",
+      "originalHex": "#7A1307",
+      "scale": {
+        "50": { "oklch": "oklch(96% 0.015 20)", "hex": "#FAF4F3" },
+        "100": { "oklch": "oklch(92% 0.03 20)", "hex": "#F0E2E0" },
+        "200": { "oklch": "oklch(84% 0.055 20)", "hex": "#DBC1BC" },
+        "300": { "oklch": "oklch(72% 0.09 20)", "hex": "#BF948B" },
+        "400": { "oklch": "oklch(56% 0.12 20)", "hex": "#945949" },
+        "500": { "oklch": "oklch(38% 0.14 20)", "hex": "#7A1307" },
+        "600": { "oklch": "oklch(33% 0.125 20)", "hex": "#681006" },
+        "700": { "oklch": "oklch(28% 0.105 20)", "hex": "#560D05" },
+        "800": { "oklch": "oklch(22% 0.08 20)", "hex": "#440A04" },
+        "900": { "oklch": "oklch(15% 0.05 20)", "hex": "#2E0702" }
+      }
+    },
+    "neutral": {
+      "name": "Warm Cream",
+      "source": "locked",
+      "originalHex": "#F8E8D8",
+      "tinted": true,
+      "scale": {
+        "50": { "oklch": "oklch(98% 0.01 60)", "hex": "#FFFBF7" },
+        "100": { "oklch": "oklch(94% 0.02 60)", "hex": "#F8E8D8" },
+        "200": { "oklch": "oklch(88% 0.03 50)", "hex": "#E8D5C4" },
+        "300": { "oklch": "oklch(78% 0.04 45)", "hex": "#D4BBA5" },
+        "400": { "oklch": "oklch(66% 0.045 40)", "hex": "#B89A80" },
+        "500": { "oklch": "oklch(54% 0.04 35)", "hex": "#9A7B64" },
+        "600": { "oklch": "oklch(44% 0.035 32)", "hex": "#7D614E" },
+        "700": { "oklch": "oklch(35% 0.03 30)", "hex": "#614A3B" },
+        "800": { "oklch": "oklch(26% 0.025 28)", "hex": "#46352A" },
+        "900": { "oklch": "oklch(18% 0.02 25)", "hex": "#2D211A" }
+      }
+    }
+  },
+  "semantic": {
+    "primary": "primary-500",
+    "secondary": "secondary-500",
+    "accent": "accent-500",
+    "background": "neutral-100",
+    "surface": "neutral-50",
+    "foreground": "neutral-900",
+    "muted": "neutral-500",
+    "success": "success-500",
+    "warning": "warning-500",
+    "error": "error-500",
+    "info": "info-500"
+  },
+  "status": {
+    "success": {
+      "name": "Forest",
+      "source": "generated",
+      "scale": {
+        "50": { "oklch": "oklch(97% 0.02 145)", "hex": "#F0F9F4" },
+        "100": { "oklch": "oklch(94% 0.035 145)", "hex": "#D5F0E2" },
+        "200": { "oklch": "oklch(88% 0.06 145)", "hex": "#A8DFC2" },
+        "300": { "oklch": "oklch(78% 0.09 145)", "hex": "#6DC89A" },
+        "400": { "oklch": "oklch(66% 0.11 145)", "hex": "#40A86F" },
+        "500": { "oklch": "oklch(52% 0.12 145)", "hex": "#2D7A4F" },
+        "600": { "oklch": "oklch(44% 0.10 145)", "hex": "#246340" },
+        "700": { "oklch": "oklch(36% 0.08 145)", "hex": "#1C4D32" },
+        "800": { "oklch": "oklch(28% 0.06 145)", "hex": "#153824" },
+        "900": { "oklch": "oklch(20% 0.04 145)", "hex": "#0E2417" }
+      }
+    },
+    "warning": {
+      "name": "Amber",
+      "source": "generated",
+      "scale": {
+        "50": { "oklch": "oklch(98% 0.025 85)", "hex": "#FFFBEB" },
+        "100": { "oklch": "oklch(95% 0.05 85)", "hex": "#FEF3C7" },
+        "200": { "oklch": "oklch(90% 0.09 85)", "hex": "#FDE68A" },
+        "300": { "oklch": "oklch(83% 0.13 85)", "hex": "#FCD34D" },
+        "400": { "oklch": "oklch(75% 0.15 85)", "hex": "#FBBF24" },
+        "500": { "oklch": "oklch(65% 0.15 85)", "hex": "#F59E0B" },
+        "600": { "oklch": "oklch(55% 0.14 80)", "hex": "#D97706" },
+        "700": { "oklch": "oklch(45% 0.12 75)", "hex": "#B45309" },
+        "800": { "oklch": "oklch(36% 0.10 70)", "hex": "#92400E" },
+        "900": { "oklch": "oklch(28% 0.07 65)", "hex": "#78350F" }
+      }
+    },
+    "error": {
+      "name": "Crimson",
+      "source": "generated",
+      "scale": {
+        "50": { "oklch": "oklch(97% 0.015 15)", "hex": "#FEF2F2" },
+        "100": { "oklch": "oklch(94% 0.03 15)", "hex": "#FEE2E2" },
+        "200": { "oklch": "oklch(88% 0.06 15)", "hex": "#FECACA" },
+        "300": { "oklch": "oklch(78% 0.10 15)", "hex": "#FCA5A5" },
+        "400": { "oklch": "oklch(66% 0.14 15)", "hex": "#F87171" },
+        "500": { "oklch": "oklch(54% 0.18 15)", "hex": "#EF4444" },
+        "600": { "oklch": "oklch(46% 0.18 15)", "hex": "#DC2626" },
+        "700": { "oklch": "oklch(38% 0.15 15)", "hex": "#B91C1C" },
+        "800": { "oklch": "oklch(30% 0.12 15)", "hex": "#991B1B" },
+        "900": { "oklch": "oklch(24% 0.09 15)", "hex": "#7F1D1D" }
+      }
+    },
+    "info": {
+      "name": "Ocean",
+      "source": "generated",
+      "scale": {
+        "50": { "oklch": "oklch(97% 0.015 230)", "hex": "#EFF6FF" },
+        "100": { "oklch": "oklch(94% 0.03 230)", "hex": "#DBEAFE" },
+        "200": { "oklch": "oklch(88% 0.06 230)", "hex": "#BFDBFE" },
+        "300": { "oklch": "oklch(78% 0.10 230)", "hex": "#93C5FD" },
+        "400": { "oklch": "oklch(66% 0.14 230)", "hex": "#60A5FA" },
+        "500": { "oklch": "oklch(54% 0.17 230)", "hex": "#3B82F6" },
+        "600": { "oklch": "oklch(46% 0.17 230)", "hex": "#2563EB" },
+        "700": { "oklch": "oklch(38% 0.15 230)", "hex": "#1D4ED8" },
+        "800": { "oklch": "oklch(30% 0.12 230)", "hex": "#1E40AF" },
+        "900": { "oklch": "oklch(24% 0.09 230)", "hex": "#1E3A8A" }
+      }
+    }
+  },
+  "accessibility": {
+    "magicNumbers": {
+      "bodyText": {
+        "description": "Body text on light backgrounds",
+        "foreground": "neutral-700",
+        "background": "neutral-100",
+        "gradeDiff": 60,
+        "wcag": "AAA"
+      },
+      "headings": {
+        "description": "Headings on light backgrounds",
+        "foreground": "neutral-900",
+        "background": "neutral-100",
+        "gradeDiff": 80,
+        "wcag": "AAA"
+      },
+      "primaryButton": {
+        "description": "White text on primary button",
+        "foreground": "white",
+        "background": "primary-500",
+        "contrastRatio": "8.2:1",
+        "wcag": "AAA"
+      },
+      "secondaryButton": {
+        "description": "White text on secondary button",
+        "foreground": "white",
+        "background": "secondary-500",
+        "contrastRatio": "5.1:1",
+        "wcag": "AA"
+      },
+      "accentButton": {
+        "description": "White text on accent button",
+        "foreground": "white",
+        "background": "accent-500",
+        "contrastRatio": "7.8:1",
+        "wcag": "AAA"
+      },
+      "links": {
+        "description": "Primary links on light backgrounds",
+        "foreground": "primary-500",
+        "background": "neutral-100",
+        "contrastRatio": "9.5:1",
+        "wcag": "AAA"
+      },
+      "mutedText": {
+        "description": "Muted/secondary text",
+        "foreground": "neutral-500",
+        "background": "neutral-100",
+        "gradeDiff": 40,
+        "wcag": "AA"
+      }
+    },
+    "colorBlindness": {
+      "protanopia": "safe",
+      "deuteranopia": "safe",
+      "tritanopia": "safe",
+      "notes": "Primary (red-brown) and secondary (terracotta) maintain sufficient contrast in all color blindness types. Status colors use distinct hue ranges."
+    }
+  },
+  "darkMode": {
+    "background": "neutral-900",
+    "surface": "neutral-800",
+    "foreground": "neutral-100",
+    "muted": "neutral-400",
+    "primary": "primary-400",
+    "secondary": "secondary-400",
+    "accent": "accent-400",
+    "notes": "Use 400-grade colors for primary elements on dark backgrounds to maintain readability."
+  },
+  "shadows": {
+    "_note": "Warm-tinted shadows using neutral-800 hue (NOT cold gray)",
+    "color": {
+      "oklch": "oklch(26% 0.025 28)",
+      "hex": "#46352A",
+      "description": "Derived from neutral-800 for warm shadow tint"
+    },
+    "sm": {
+      "value": "0 1px 2px 0 oklch(26% 0.025 28 / 0.12)",
+      "usage": "Subtle elevation, buttons"
+    },
+    "md": {
+      "value": "0 4px 6px -1px oklch(26% 0.025 28 / 0.15)",
+      "usage": "Cards, dropdowns"
+    },
+    "lg": {
+      "value": "0 10px 15px -3px oklch(26% 0.025 28 / 0.18)",
+      "usage": "Modals, popovers"
+    },
+    "xl": {
+      "value": "0 20px 25px -5px oklch(26% 0.025 28 / 0.22)",
+      "usage": "High emphasis, hero elements"
+    }
+  },
+  "surfaces": {
+    "_note": "Elevation hierarchy using neutral scale",
+    "base": {
+      "token": "neutral-100",
+      "hex": "#F8E8D8",
+      "usage": "Page background"
+    },
+    "raised": {
+      "token": "neutral-50",
+      "hex": "#FFFBF7",
+      "shadow": "sm",
+      "usage": "Cards, elevated content"
+    },
+    "overlay": {
+      "token": "neutral-50",
+      "hex": "#FFFBF7",
+      "shadow": "lg",
+      "usage": "Modals, dropdowns, popovers"
+    },
+    "sunken": {
+      "token": "neutral-200",
+      "hex": "#E8D5C4",
+      "usage": "Inset areas, input backgrounds, wells"
+    }
+  },
+  "focus": {
+    "_note": "Branded focus states for accessibility",
+    "ring": {
+      "token": "primary-400",
+      "hex": "#8F5D52",
+      "width": "3px"
+    },
+    "offset": {
+      "token": "neutral-50",
+      "hex": "#FFFBF7",
+      "width": "2px"
+    },
+    "style": "0 0 0 2px #FFFBF7, 0 0 0 5px #8F5D52",
+    "cssVariable": "0 0 0 2px var(--color-neutral-50), 0 0 0 5px var(--color-primary-400)"
+  },
+  "overlays": {
+    "_note": "Semi-transparent layers for modals and interactions",
+    "scrim": {
+      "value": "oklch(18% 0.02 25 / 0.6)",
+      "hex": "#2D211A99",
+      "usage": "Modal backdrop, overlay background"
+    },
+    "hover": {
+      "value": "oklch(32% 0.12 25 / 0.08)",
+      "hex": "#4E130D14",
+      "usage": "Subtle hover tint on interactive elements"
+    },
+    "disabled": {
+      "value": "oklch(98% 0.01 60 / 0.6)",
+      "hex": "#FFFBF799",
+      "usage": "Disabled state overlay"
+    }
+  },
+  "interactions": {
+    "_note": "Polish and micro-interactions",
+    "hoverLift": {
+      "transform": "translateY(-2px)",
+      "shadow": "md",
+      "transition": "transform 150ms ease, box-shadow 150ms ease",
+      "usage": "Cards, buttons that lift on hover"
+    },
+    "cardHover": {
+      "borderColor": { "token": "neutral-400", "hex": "#B89A80" },
+      "background": { "token": "neutral-50", "hex": "#FFFBF7" },
+      "usage": "Card hover state"
+    },
+    "listItemHover": {
+      "background": { "token": "primary-50", "hex": "#FAF5F4" },
+      "usage": "Menu items, list selections"
+    },
+    "buttonHover": {
+      "filter": "brightness(0.92)",
+      "usage": "Darken buttons on hover"
+    },
+    "linkHover": {
+      "textDecoration": "underline",
+      "color": { "token": "primary-600", "hex": "#420F0A" }
+    }
+  },
+  "usage": {
+    "rule60_30_10": {
+      "dominant": {
+        "percentage": 60,
+        "colors": ["neutral-100", "neutral-50"],
+        "usage": "Page backgrounds, large surfaces"
+      },
+      "secondary": {
+        "percentage": 30,
+        "colors": ["secondary-500", "secondary-100", "neutral-200"],
+        "usage": "Cards, sections, secondary elements"
+      },
+      "accent": {
+        "percentage": 10,
+        "colors": ["primary-500", "accent-500"],
+        "usage": "CTAs, highlights, key actions"
+      }
+    }
+  },
+  "recipes": {
+    "_note": "Copy-paste these exact assignments. Don't improvise.",
+    "page": {
+      "background": { "token": "neutral-100", "hex": "#F8E8D8" },
+      "cardBackground": { "token": "neutral-50", "hex": "#FFFBF7" },
+      "cardBorder": { "token": "neutral-300", "hex": "#D4BBA5" },
+      "divider": { "token": "neutral-200", "hex": "#E8D5C4" }
+    },
+    "typography": {
+      "heading": { "token": "neutral-900", "hex": "#2D211A" },
+      "body": { "token": "neutral-700", "hex": "#614A3B" },
+      "muted": { "token": "neutral-500", "hex": "#9A7B64" },
+      "placeholder": { "token": "neutral-400", "hex": "#B89A80" },
+      "link": { "token": "primary-500", "hex": "#4E130D" },
+      "linkHover": { "token": "primary-600", "hex": "#420F0A" }
+    },
+    "buttons": {
+      "primary": {
+        "background": { "token": "primary-500", "hex": "#4E130D" },
+        "text": { "token": "white", "hex": "#FFFFFF" },
+        "hover": { "token": "primary-600", "hex": "#420F0A" },
+        "useFor": "Main actions: Order Now, Subscribe"
+      },
+      "secondary": {
+        "background": { "token": "secondary-500", "hex": "#A1523C" },
+        "text": { "token": "white", "hex": "#FFFFFF" },
+        "hover": { "token": "secondary-600", "hex": "#8A4533" },
+        "useFor": "Supporting actions: Learn More"
+      },
+      "accent": {
+        "background": { "token": "accent-500", "hex": "#7A1307" },
+        "text": { "token": "white", "hex": "#FFFFFF" },
+        "hover": { "token": "accent-600", "hex": "#681006" },
+        "useFor": "Special emphasis: Limited Offer"
+      },
+      "ghost": {
+        "background": { "token": "transparent", "hex": "transparent" },
+        "text": { "token": "primary-500", "hex": "#4E130D" },
+        "hover": { "token": "primary-50", "hex": "#FAF5F4" },
+        "useFor": "Tertiary: Cancel, Back"
+      },
+      "disabled": {
+        "background": { "token": "neutral-300", "hex": "#D4BBA5" },
+        "text": { "token": "neutral-500", "hex": "#9A7B64" }
+      }
+    },
+    "navigation": {
+      "background": { "token": "secondary-500", "hex": "#A1523C" },
+      "text": { "token": "white", "hex": "#FFFFFF" },
+      "hover": { "token": "secondary-600", "hex": "#8A4533" },
+      "activeIndicator": { "token": "primary-500", "hex": "#4E130D" },
+      "mobileMenuBg": { "token": "neutral-50", "hex": "#FFFBF7" }
+    },
+    "forms": {
+      "inputBackground": { "token": "neutral-50", "hex": "#FFFBF7" },
+      "inputBorder": { "token": "neutral-300", "hex": "#D4BBA5" },
+      "inputBorderFocus": { "token": "primary-500", "hex": "#4E130D" },
+      "inputText": { "token": "neutral-800", "hex": "#46352A" },
+      "label": { "token": "neutral-700", "hex": "#614A3B" },
+      "helperText": { "token": "neutral-500", "hex": "#9A7B64" },
+      "errorBorder": { "token": "error-500", "hex": "#EF4444" },
+      "errorText": { "token": "error-600", "hex": "#DC2626" }
+    },
+    "alerts": {
+      "success": {
+        "background": { "token": "success-50", "hex": "#F0F9F4" },
+        "border": { "token": "success-500", "hex": "#2D7A4F" },
+        "text": { "token": "success-700", "hex": "#1C4D32" }
+      },
+      "warning": {
+        "background": { "token": "warning-50", "hex": "#FFFBEB" },
+        "border": { "token": "warning-500", "hex": "#F59E0B" },
+        "text": { "token": "warning-700", "hex": "#B45309" }
+      },
+      "error": {
+        "background": { "token": "error-50", "hex": "#FEF2F2" },
+        "border": { "token": "error-500", "hex": "#EF4444" },
+        "text": { "token": "error-700", "hex": "#B91C1C" }
+      },
+      "info": {
+        "background": { "token": "info-50", "hex": "#EFF6FF" },
+        "border": { "token": "info-500", "hex": "#3B82F6" },
+        "text": { "token": "info-700", "hex": "#1D4ED8" }
+      }
+    },
+    "footer": {
+      "background": { "token": "primary-500", "hex": "#4E130D" },
+      "text": { "token": "neutral-100", "hex": "#F8E8D8" },
+      "link": { "token": "neutral-200", "hex": "#E8D5C4" },
+      "linkHover": { "token": "white", "hex": "#FFFFFF" }
+    }
+  },
+  "selection": {
+    "_note": "Text selection colors for ::selection pseudo-element",
+    "background": { "token": "primary-200", "hex": "#DBC5C1" },
+    "text": { "token": "neutral-900", "hex": "#2D211A" },
+    "css": "::selection { background: #DBC5C1; color: #2D211A; }"
+  },
+  "gradients": {
+    "_note": "Brand-appropriate gradients using palette colors",
+    "primary": {
+      "value": "linear-gradient(135deg, var(--primary-400) 0%, var(--primary-600) 100%)",
+      "fallback": "linear-gradient(135deg, #8F5D52 0%, #420F0A 100%)",
+      "usage": "Hero sections, prominent CTAs"
+    },
+    "secondary": {
+      "value": "linear-gradient(135deg, var(--secondary-400) 0%, var(--secondary-600) 100%)",
+      "fallback": "linear-gradient(135deg, #B87B66 0%, #8A4533 100%)",
+      "usage": "Cards, featured sections"
+    },
+    "accent": {
+      "value": "linear-gradient(135deg, var(--accent-400) 0%, var(--accent-600) 100%)",
+      "fallback": "linear-gradient(135deg, #945949 0%, #681006 100%)",
+      "usage": "Special emphasis, limited offers"
+    },
+    "warm": {
+      "value": "linear-gradient(180deg, var(--neutral-50) 0%, var(--neutral-100) 100%)",
+      "fallback": "linear-gradient(180deg, #FFFBF7 0%, #F8E8D8 100%)",
+      "usage": "Subtle backgrounds, page sections"
+    },
+    "coffee": {
+      "value": "linear-gradient(135deg, var(--secondary-500) 0%, var(--primary-500) 100%)",
+      "fallback": "linear-gradient(135deg, #A1523C 0%, #4E130D 100%)",
+      "usage": "Brand signature gradient"
+    },
+    "sunset": {
+      "value": "linear-gradient(135deg, var(--secondary-300) 0%, var(--accent-400) 100%)",
+      "fallback": "linear-gradient(135deg, #CDA490 0%, #945949 100%)",
+      "usage": "Warm decorative backgrounds"
+    }
+  },
+  "avoid": {
+    "_note": "Common mistakes that break the brand",
+    "coldWhiteBackground": {
+      "wrong": "#FFFFFF",
+      "correct": "#F8E8D8",
+      "reason": "Clashes with warm palette"
+    },
+    "pureBlackText": {
+      "wrong": "#000000",
+      "correct": "#2D211A",
+      "reason": "Too harsh, not brand"
+    },
+    "coldGray": {
+      "wrong": "#808080",
+      "correct": "#9A7B64",
+      "reason": "Breaks warm aesthetic"
+    },
+    "darkTextOnPrimaryButton": {
+      "wrong": "dark text on primary-500",
+      "correct": "white text on primary-500",
+      "reason": "Poor contrast"
+    },
+    "redForDecoration": {
+      "wrong": "red for decorative elements",
+      "correct": "reserve red only for errors",
+      "reason": "Confuses with error states"
+    }
+  }
+}

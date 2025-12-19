@@ -1,88 +1,139 @@
-# Color Forge Module Configuration
-# Color Palette Generator - Multi-agent system for brand color palettes
+# Color Forge Module Installation Configuration v2
+# Multi-agent color palette generation → 2 file output
+# Uses OKLCH color space and Magic Number system
 
-code: color-forge
-name: "Color Forge"
-default_selected: false
+module:
+  name: color-forge
+  version: "2.0.0"
+  description: "Multi-agent color palette with OKLCH and feedback loop → 2 file output"
+  author: "BMAD"
+  requires:
+    - core
 
-# Welcome message shown during installation
-prompt:
-  - "Welcome to Color Forge!"
-  - "The Color Palette Generator that creates comprehensive, accessible color palettes for your brand."
-  - "Powered by 5 specialized agents: Color Palette Architect, Color Theorist, Color Psychologist, Accessibility Checker, and Palette Scorer."
+welcome: |
+  Welcome to Color Forge v2!
 
-# Core config values are automatically inherited:
-## user_name
-## communication_language
-## document_output_language
-## output_folder
+  This module generates comprehensive, accessible color palettes using 4 specialized
+  agents in a sequential pipeline with feedback loop.
 
-# ============================================================================
-# CONFIGURATION FIELDS
-# ============================================================================
+  Output:
+  - color-palette.json (for design-system-forge)
+  - color-palette.md (designer reference)
 
-# INTERACTIVE - Brand Personality
-brand_personality:
-  prompt: "Describe your brand personality in 3-5 words (e.g., innovative, trustworthy, playful):"
-  default: ""
-  result: "{value}"
+  Features:
+  - OKLCH color space (perceptual uniformity)
+  - Magic Number system (predictable accessibility)
+  - Quality feedback loop (max 3 rounds per specialist)
 
-# INTERACTIVE - Industry
-industry:
-  prompt: "What industry is your brand in? (technology, healthcare, finance, retail, etc.)"
-  default: "technology"
-  result: "{value}"
+# Interactive Configuration Fields
+fields:
+  brand_personality:
+    prompt: "Describe your brand personality in 3-5 words (e.g., innovative, trustworthy, playful):"
+    default: ""
+    type: string
+    result: "{value}"
 
-# INTERACTIVE - Primary Color
-primary_color:
-  prompt: "Do you have an existing brand color? (Enter hex code or leave empty for AI suggestion):"
-  default: ""
-  result: "{value}"
+  industry:
+    prompt: "What industry is your brand in? (technology, healthcare, finance, retail, etc.)"
+    default: "technology"
+    type: string
+    result: "{value}"
 
-# INTERACTIVE - Color Temperature
-color_temperature:
-  prompt: "Preferred color temperature? (warm, cool, neutral)"
-  default: "neutral"
-  result: "{value}"
+  # BRAND COLORS - These are LOCKED as source of truth
+  primary_color:
+    prompt: "PRIMARY brand color (hex code, e.g., #E63946) - this will be LOCKED:"
+    default: ""
+    type: string
+    result: "{value}"
 
-# INTERACTIVE - Palette Style
-palette_style:
-  prompt: "Preferred palette style? (classic, modern, bold, subtle)"
-  default: "modern"
-  result: "{value}"
+  secondary_color:
+    prompt: "SECONDARY brand color (hex code, or leave empty to generate):"
+    default: ""
+    type: string
+    result: "{value}"
 
-# INTERACTIVE - Brand Guide Path
-brand_guide_path:
-  prompt: "Path to your brand guide document (or press Enter to skip):"
-  default: ""
-  result: "{project-root}/{value}"
+  accent_color:
+    prompt: "ACCENT brand color (hex code, or leave empty to generate complementary):"
+    default: ""
+    type: string
+    result: "{value}"
 
-# ============================================================================
-# STATIC CONFIGURATION
-# ============================================================================
+  neutral_color:
+    prompt: "NEUTRAL/BACKGROUND base color (hex code, e.g., #F8E8D8 for cream, or leave empty for standard gray):"
+    default: ""
+    type: string
+    result: "{value}"
 
-# References Path (optional)
-references_path:
-  result: "{project-root}/bmad/color-forge/briefs/references/"
+  color_temperature:
+    prompt: "Preferred color temperature for GENERATED colors? (warm, cool, neutral)"
+    default: "neutral"
+    type: string
+    result: "{value}"
 
-# Existing Colors Path (optional)
-existing_colors_path:
-  result: "{project-root}/bmad/color-forge/briefs/existing-colors.md"
+  palette_style:
+    prompt: "Preferred palette style for GENERATED colors? (classic, modern, bold, subtle)"
+    default: "modern"
+    type: string
+    result: "{value}"
 
-# Color Palette Output Folder
-color_palette_output:
-  result: "{output_folder}/color-palette"
+  color_palette_output:
+    prompt: "Where should Color Forge save generated files?"
+    default: "{output_folder}/color-palette"
+    type: path
+    result: "{value}"
 
-# WCAG compliance level
-wcag_level:
-  result: "AA"
+  brand_guide_path:
+    prompt: "Path to your brand guide document (or press Enter to skip):"
+    default: ""
+    type: path
+    result: "{value}"
 
-# Quality thresholds
-min_harmony_score:
-  result: "80"
+# Static Configuration
+static:
+  max_feedback_rounds:
+    result: "3"
 
-min_accessibility_score:
-  result: "90"
+  wcag_level:
+    result: "AA"
 
-min_psychology_score:
-  result: "75"
+  min_harmony_score:
+    result: "80"
+
+  min_psychology_score:
+    result: "75"
+
+  min_accessibility_score:
+    result: "90"
+
+# Files to copy during installation
+files:
+  agents:
+    - color-palette-architect.agent.yaml
+    - color-theorist.agent.yaml
+    - color-psychologist.agent.yaml
+    - accessibility-checker.agent.yaml
+
+  workflows:
+    - generate-palette/workflow.yaml
+    - generate-palette/instructions.md
+    - generate-palette/checklist.md
+
+# Post-install message
+complete: |
+  Color Forge v2 installed successfully!
+
+  To get started:
+  1. Launch: /bmad:color-forge:agents:color-palette-architect
+  2. Use *generate to create your color palette
+  3. Provide brand personality when prompted
+
+  Output:
+  - color-palette.json → Feed into design-system-forge
+  - color-palette.md → Designer reference
+
+  Features:
+  - OKLCH perceptual uniformity
+  - Magic Number accessibility system
+  - Quality feedback loop
+
+  Multi-agent quality. 2-file simplicity.

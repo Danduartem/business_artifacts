@@ -1,169 +1,86 @@
-# Generate Style Guide - Completion Checklist
+# Style Guide Generation Checklist
+
+Use this checklist to verify completeness of generated style guide.
 
 ## Pre-Generation
 
-- [ ] Brand guide document located
-- [ ] Color palette JSON available (from Color Forge or custom)
+- [ ] Brand guide document located (PDF or MD)
+- [ ] Color palette JSON available (from Color Forge)
 - [ ] Reference site URLs collected (1-5)
-- [ ] Logo file path confirmed (optional)
-- [ ] Brand assets folder identified (optional)
-- [ ] Brand context gathered (if brand guide is sparse)
-  - [ ] Brand personality adjectives
+- [ ] Brand context gathered:
+  - [ ] Brand personality adjectives (3-5)
   - [ ] Target audience defined
   - [ ] Industry/sector noted
   - [ ] Design goals specified
-  - [ ] Constraints documented
 
-## Preparation
-
-- [ ] All input files validated and accessible
-- [ ] Color palette JSON parsed successfully
-- [ ] Reference URLs tested for accessibility
-- [ ] Output directories created
-- [ ] Reference data files loaded
-
-## Screenshot Capture
+## Reference Screenshots (Optional)
 
 - [ ] Desktop screenshots captured (1440px)
 - [ ] Mobile screenshots captured (375px)
-- [ ] All screenshots saved to reference-screenshots folder
-- [ ] Screenshots named correctly (site-N-viewport.png)
+- [ ] Screenshots saved to reference-screenshots folder
 
-## Specialist Agents Spawned
+## Specialist Agents
+
+All 5 specialists spawned in PARALLEL (single message):
 
 - [ ] Brand Translator launched
 - [ ] Reference Analyzer launched
 - [ ] Foundations Architect launched
 - [ ] Component Designer launched
 - [ ] Interaction Designer launched
-- [ ] All 5 agents spawned in parallel (single message)
 
-## Agent Outputs Generated
+## Section Quality (Director Review)
 
-- [ ] brand-foundation.json created
-  - [ ] Design principles defined (5-7)
-  - [ ] Personality mapping included
-  - [ ] Voice/tone guidelines present
-  - [ ] Logo usage rules documented
-  - [ ] Brand do's/don'ts specified
+Each section reviewed with quality checklist:
 
-- [ ] reference-analysis.json created
-  - [ ] All sites analyzed
-  - [ ] Typography observations documented
-  - [ ] Spacing patterns noted
-  - [ ] Component patterns identified
-  - [ ] Synthesis recommendations provided
+- [ ] **Design Principles** - 5-7 principles with applications (brand-specific)
+- [ ] **Brand Foundation** - Personality mapping, voice/tone for UI, logo usage
+- [ ] **Visual Direction** - Patterns to adopt/avoid from references
+- [ ] **Color Guidelines** - Color hierarchy with usage guidance
+- [ ] **Typography Guidelines** - Type scale with use cases
+- [ ] **Spacing & Layout** - Spacing scale, grid, breakpoints
+- [ ] **Component Principles** - When-to-use guidelines
+- [ ] **Motion Principles** - Animation philosophy, timing, easing
+- [ ] **Accessibility Checklist** - WCAG compliance items
 
-- [ ] foundations.json created
-  - [ ] Typography scale complete
-  - [ ] Font families specified
-  - [ ] Spacing scale defined
-  - [ ] Breakpoints established
-  - [ ] Color semantic mapping done
-  - [ ] Shadow tokens defined
-  - [ ] Border radius tokens present
-  - [ ] Grid system documented
+## Feedback Loop (if needed)
 
-- [ ] components.json created
-  - [ ] All component types documented
-  - [ ] All states defined per component
-  - [ ] Variants specified
-  - [ ] Accessibility requirements included
-  - [ ] Do's/don'ts provided
+- [ ] Weak sections identified
+- [ ] Specific feedback sent to specialist
+- [ ] Specialist regenerated section
+- [ ] Max 3 rounds per specialist respected
 
-- [ ] interactions.json created
-  - [ ] Animation principles stated
-  - [ ] Duration scale defined
-  - [ ] Easing curves specified
-  - [ ] Microinteractions documented
-  - [ ] Component animations detailed
-  - [ ] Loading patterns included
-  - [ ] Reduced motion addressed
+## Final Output
 
-## Quality Validation
+ONE file generated:
 
-- [ ] Style Guide Scorer executed
-- [ ] style-guide-scores.json generated
-- [ ] Overall score reviewed
-- [ ] Dimension scores examined:
-  - [ ] Completeness (target: 80+)
-  - [ ] Consistency (target: 80+)
-  - [ ] Accessibility (target: 80+)
-  - [ ] Brand Alignment (target: 75+)
-  - [ ] Usability (target: 75+)
-- [ ] Gaps identified and addressed
-- [ ] Improvement recommendations reviewed
+- [ ] `style-guide.md` created
+- [ ] All 9 sections present
+- [ ] No contradictions between sections
+- [ ] Guidelines are actionable for designers
+- [ ] Values are specific (not placeholders)
 
-## Assembly
-
-- [ ] style-guide.md assembled
-- [ ] design-tokens.json created
-- [ ] design-principles.md extracted
-- [ ] component-specs.md compiled
-
-## Exports
-
-- [ ] tokens.css generated (CSS custom properties)
-- [ ] tailwind.config.js generated (if using Tailwind)
-- [ ] Exports validated for correctness
-
-## Integration (Optional)
-
-- [ ] Design Forge config updated
-- [ ] style_guide_path set
-- [ ] design_principles_path set
-- [ ] Integration verified
-
-## Final Verification
-
-- [ ] All output files present in output folder
-- [ ] Quality score meets target (70+ minimum)
-- [ ] No critical gaps in documentation
-- [ ] Exports are syntactically valid
-- [ ] Style guide is comprehensive and usable
-
----
-
-## Quality Thresholds
-
-| Metric | Minimum | Target | Excellent |
-|--------|---------|--------|-----------|
-| Overall Score | 60 | 80 | 90+ |
-| Completeness | 70 | 85 | 95+ |
-| Consistency | 70 | 85 | 95+ |
-| Accessibility | 75 | 85 | 95+ |
-| Brand Alignment | 65 | 80 | 90+ |
-| Usability | 65 | 80 | 90+ |
-
----
-
-## Troubleshooting
-
-### Screenshot Capture Failed
-- Check URL accessibility
-- Verify Playwright/browser tools available
-- Try manual screenshot capture
-
-### Agent Timeout
-- Check input file sizes
-- Retry individual agent
-- Simplify inputs if too complex
-
-### Low Quality Score
-- Review gaps identified
-- Regenerate weak sections
-- Add missing content manually
-
-### Export Errors
-- Validate source JSON files
-- Check token naming consistency
-- Review syntax in generated files
-
----
-
-## Sign-Off
+## Post-Generation
 
 - [ ] Style guide reviewed by stakeholder
-- [ ] Exports tested in target framework
-- [ ] Documentation accessible to team
-- [ ] Design Forge integration confirmed working
+- [ ] Guide accessible to design team
+- [ ] Bookmarked for daily reference
+- [ ] Ready to feed into design-system-forge
+
+---
+
+## What's NOT in the Output
+
+v2 simplified output - these are intentionally excluded:
+
+- ❌ JSON files
+- ❌ Multiple output files
+- ❌ Code exports (tokens.css, tailwind.config.js)
+- ❌ Individual component specs
+- ❌ Scorer reports
+
+**Note:** Code exports are handled by **design-system-forge**.
+
+---
+
+*Style Guide Forge v2 - Multi-agent quality. Single-file simplicity.*

@@ -1,317 +1,126 @@
-# Generate Style Guide - Workflow Instructions
+# Generate Style Guide - Instructions
 
 ## Overview
 
-This workflow orchestrates the creation of a comprehensive web design style guide using 5 specialist agents working in parallel. The result is a production-ready design system documentation with design tokens, component specifications, and export files.
+Creates a comprehensive design style guide using 5 specialist agents, with Director review and feedback loop, compiled into ONE actionable file.
 
----
+**Architecture:** Multi-agent depth + Single-file simplicity
 
-## Prerequisites
+**Note:** Code exports (tokens.css, tailwind.config.js) are handled by **design-system-forge**. This module creates design guidelines only.
 
-Before starting, ensure you have:
+## What You'll Get
 
-1. **Brand Guide** - Your existing brand guidelines document (PDF or Markdown)
-2. **Color Palette** - Output from Color Forge (JSON) or custom color JSON
-3. **Reference Sites** - 1-5 URLs of websites that inspire your design direction
-4. **Logo** (optional but recommended) - SVG or PNG of your brand logo
-5. **Brand Assets** (optional) - Folder containing brand imagery, icons, patterns
+ONE file: `style-guide.md`
 
----
+Contains 9 sections:
+1. **Design Principles** - 5-7 core principles with applications
+2. **Brand Foundation** - Personality mapping, voice/tone for UI, logo usage
+3. **Visual Direction** - Patterns to adopt/avoid from references
+4. **Color Guidelines** - Color hierarchy with usage guidance
+5. **Typography Guidelines** - Type scale with use cases
+6. **Spacing & Layout** - Spacing scale, grid, breakpoints
+7. **Component Principles** - When-to-use guidelines for UI components
+8. **Motion Principles** - Animation philosophy, timing, easing
+9. **Accessibility Checklist** - WCAG compliance checklist
 
-## Workflow Steps
+## What You Need
 
-### Phase 1: Input Collection
+1. **Brand Guide Path** - Path to brand guidelines document (PDF or MD)
+2. **Color Palette Path** - Path to Color Forge output JSON
+3. **Reference URLs** - 1-5 websites that inspire your design
+4. **Brand Personality** - 3-5 adjectives (e.g., professional, innovative, approachable)
+5. **Target Audience** - Who are you designing for?
+6. **Industry** - What sector? (e.g., SaaS, healthcare, fintech)
+7. **Design Goals** - What feeling should design evoke?
 
-**Step 1.1: Gather Required Files**
-
-Collect file paths for:
-- Brand guide document
-- Color palette JSON
-- Logo file
-- Brand assets folder
-
-**Step 1.2: Collect Reference URLs**
-
-List 1-5 website URLs that represent your design inspiration:
-- Consider sites that match your target aesthetic
-- Include competitors or industry leaders
-- Mix different styles for diversity
-
-**Step 1.3: Brand Context Questions**
-
-If brand guide is sparse, gather:
-- Brand personality (3-5 adjectives)
-- Target audience description
-- Industry/sector
-- Design goals (feelings to evoke)
-- Constraints (things to avoid)
-
----
-
-### Phase 2: Preparation
-
-**Step 2.1: Validate Inputs**
-
-- Verify all file paths exist
-- Parse and validate color JSON
-- Test reference URLs are accessible
-
-**Step 2.2: Create Output Directories**
-
-```bash
-mkdir -p {style_guide_output_folder}
-mkdir -p {style_guide_output_folder}/reference-screenshots
-mkdir -p {style_guide_output_folder}/exports
-```
-
-**Step 2.3: Load Reference Data**
-
-Read all data files to inform agent prompts:
-- typography-best-practices.md
-- spacing-systems.md
-- component-patterns.md
-- accessibility-checklist.md
-- motion-guidelines.md
-- design-token-spec.md
-
----
-
-### Phase 3: Screenshot Capture
-
-**Step 3.1: Capture Reference Site Screenshots**
-
-For each reference URL, capture:
-- Desktop viewport (1440px width)
-- Mobile viewport (375px width)
-
-Use Playwright or similar browser automation:
-
-```javascript
-// Example capture command structure
-// playwright screenshot {url} --viewport-width=1440 --output=site-1-desktop.png
-// playwright screenshot {url} --viewport-width=375 --output=site-1-mobile.png
-```
-
-**Step 3.2: Save Screenshots**
-
-Save to: `{style_guide_output_folder}/reference-screenshots/`
-
-Naming convention:
-- `site-1-desktop.png`
-- `site-1-mobile.png`
-- `site-2-desktop.png`
-- etc.
-
----
-
-### Phase 4: Parallel Agent Execution
-
-**CRITICAL: Launch all 5 agents in a SINGLE message for true parallelism.**
-
-**Step 4.1: Spawn Brand Translator**
-
-Input:
-- Brand guide content
-- Logo path
-- Brand context
-
-Output: `brand-foundation.json`
-
-**Step 4.2: Spawn Reference Analyzer**
-
-Input:
-- Screenshot file paths
-- Brand context
-
-Output: `reference-analysis.json`
-
-**Step 4.3: Spawn Foundations Architect**
-
-Input:
-- Color palette JSON
-- Typography settings (base_size, scale_ratio)
-- Spacing settings (base_unit)
-
-Output: `foundations.json`
-
-**Step 4.4: Spawn Component Designer**
-
-Input:
-- References to foundations patterns
-- Component depth setting (comprehensive)
-
-Output: `components.json`
-
-**Step 4.5: Spawn Interaction Designer**
-
-Input:
-- Brand personality
-- Reference patterns
-
-Output: `interactions.json`
-
----
-
-### Phase 5: Quality Validation
-
-**Step 5.1: Wait for All Agents**
-
-Monitor completion of all 5 specialist agents.
-
-**Step 5.2: Spawn Style Guide Scorer**
-
-Input:
-- Paths to all 5 generated JSON files
-
-Output: `style-guide-scores.json`
-
-Scoring dimensions:
-- Completeness (25%)
-- Consistency (25%)
-- Accessibility (20%)
-- Brand Alignment (15%)
-- Usability (15%)
-
-**Step 5.3: Review Scores**
-
-Present scores to user with:
-- Overall grade
-- Dimension breakdown
-- Gaps identified
-- Improvement recommendations
-
----
-
-### Phase 6: Assembly
-
-**Step 6.1: Merge JSON Outputs**
-
-Combine all agent outputs into unified documents:
-
-1. **style-guide.md** - Human-readable comprehensive guide
-2. **design-tokens.json** - Structured token file for tools
-3. **design-principles.md** - Standalone principles document
-4. **component-specs.md** - Detailed component documentation
-
-**Step 6.2: Generate Exports**
-
-Based on export_formats setting:
-
-**CSS Custom Properties:**
-```css
-:root {
-  /* Colors */
-  --color-primary: #...;
-  /* Typography */
-  --font-family-sans: '...';
-  --font-size-base: 1rem;
-  /* Spacing */
-  --spacing-4: 1rem;
-  /* etc. */
-}
-```
-
-**Tailwind Configuration:**
-```javascript
-module.exports = {
-  theme: {
-    extend: {
-      colors: { /* from palette */ },
-      fontFamily: { /* from foundations */ },
-      fontSize: { /* from scale */ },
-      spacing: { /* from grid */ },
-      // etc.
-    }
-  }
-}
-```
-
----
-
-### Phase 7: Integration
-
-**Step 7.1: Offer Design Forge Integration**
-
-If user accepts, update Design Forge config:
-- Set `style_guide_path` to generated style-guide.md
-- Set `design_principles_path` to generated design-principles.md
-
-**Step 7.2: Confirm Completion**
-
-Present summary:
-- Files created
-- Quality score
-- Next steps
-
----
-
-## Agent Responsibilities
-
-| Agent | Focus | Output |
-|-------|-------|--------|
-| Brand Translator | Brand essence → digital principles | brand-foundation.json |
-| Reference Analyzer | Visual pattern extraction | reference-analysis.json |
-| Foundations Architect | Typography, spacing, tokens | foundations.json |
-| Component Designer | UI component specs | components.json |
-| Interaction Designer | Motion guidelines | interactions.json |
-| Style Guide Scorer | Quality validation | style-guide-scores.json |
-
----
-
-## Output Files Summary
+## How It Works
 
 ```
-{output_folder}/
-├── brand-foundation.json       # Brand principles, voice, logo rules
-├── reference-analysis.json     # Visual pattern analysis
-├── foundations.json            # Typography, spacing, color tokens
-├── components.json             # Component specifications
-├── interactions.json           # Motion guidelines
-├── style-guide-scores.json     # Quality validation
-├── style-guide.md              # Complete human-readable guide
-├── design-tokens.json          # Unified token file
-├── design-principles.md        # Standalone principles
-├── component-specs.md          # Component documentation
-├── reference-screenshots/      # Captured screenshots
-│   ├── site-1-desktop.png
-│   ├── site-1-mobile.png
-│   └── ...
-└── exports/
-    ├── tokens.css              # CSS custom properties
-    └── tailwind.config.js      # Tailwind configuration
+1. You provide inputs
+        ↓
+2. Director captures reference screenshots (optional)
+        ↓
+3. 5 specialists work in PARALLEL:
+   - Brand Translator → Design Principles + Brand Foundation
+   - Reference Analyzer → Visual Direction
+   - Foundations Architect → Color, Typography, Spacing
+   - Component Designer → Component Principles
+   - Interaction Designer → Motion + Accessibility
+        ↓
+4. Director REVIEWS each section
+        ↓
+5. FEEDBACK LOOP (if needed):
+   - Director sends specific feedback
+   - Specialist regenerates
+   - Max 3 rounds
+        ↓
+6. Director COMPILES into one file
+        ↓
+7. You get: style-guide.md
 ```
 
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `*generate` | Full workflow with specialists |
+| `*analyze` | Analyze URLs only (no file output) |
+| `*help` | Show menu |
+| `*exit` | Exit |
+
+## Why Multi-Agent?
+
+Each specialist brings unique expertise:
+
+| Specialist | Focus |
+|------------|-------|
+| Brand Translator | Brand essence → design principles |
+| Reference Analyzer | Visual patterns from inspiration |
+| Foundations Architect | Typography, spacing, color systems |
+| Component Designer | UI component principles |
+| Interaction Designer | Motion and accessibility |
+
+A single agent doing all of this would be shallower on each area.
+
+## The Feedback Loop
+
+If a section is weak, the Director sends targeted feedback:
+
+```
+Your Typography Guidelines section needs improvement:
+
+ISSUE: Missing usage context for each size
+EXAMPLE: "xl - 1.25rem" doesn't tell designers when to use it
+FIX: Add usage like "xl - 1.25rem - Card titles, section headers"
+
+Please regenerate with this guidance.
+```
+
+**Rules:**
+- Maximum 3 rounds per specialist
+- Feedback must be SPECIFIC
+- If still weak after 3 rounds, use best version
+
+## Tips
+
+- **Better references = better output.** Pick sites whose design language you admire.
+- **Be specific about personality.** "Modern but warm" > "professional"
+- **Provide a color palette.** Run Color Forge first for best results.
+
+## What's NOT in the Output
+
+- JSON files (designers don't need JSON)
+- Code exports (handled by design-system-forge)
+- tokens.css / tailwind.config.js (handled by design-system-forge)
+- Individual component specs (handled by design-system-forge)
+- Intermediate process files (all in memory)
+
+## Next Steps After Generation
+
+1. **Review** - Open style-guide.md and verify it matches your brand
+2. **Share** - Give to designers as their daily reference
+3. **Generate Code** - Run design-system-forge to create tokens.css and tokens.json
+
 ---
 
-## Error Handling
-
-### File Not Found
-If required files are missing, prompt user to provide correct paths.
-
-### URL Inaccessible
-If reference URLs fail, offer to:
-- Skip that reference
-- Use cached/manual screenshot
-- Continue without that site
-
-### Agent Failure
-If an agent fails:
-1. Log the error
-2. Offer to retry that agent
-3. Continue with partial results if non-critical
-
-### Low Quality Score
-If score < 60:
-1. Present specific gaps
-2. Offer to regenerate weak sections
-3. Allow manual review and editing
-
----
-
-## Tips for Best Results
-
-1. **Brand Guide Quality** - The richer your brand guide, the better the output
-2. **Reference Diversity** - Include varied inspiration for comprehensive patterns
-3. **Color Palette** - Use Color Forge for best color system integration
-4. **Review Scores** - Address any gaps before using in production
-5. **Iterate** - Use `*update` command to refine specific sections
+*Style Guide Forge v2 - Multi-agent quality. Single-file simplicity.*

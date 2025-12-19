@@ -1,6 +1,6 @@
 name: generate-palette
-description: Generate a comprehensive, accessible color palette for a brand
-version: "1.0"
+description: Generate accessible OKLCH color palette with feedback loop
+version: "2.0"
 category: design
 
 entry_agent: color-palette-architect
@@ -16,18 +16,20 @@ inputs:
     - brand_guide_path
 
 outputs:
+  - color-palette.json
   - color-palette.md
-  - palette-data.json
-  - palette-preview.html
-  - accessibility-report.md
-  - quality-scores.json
 
 agents:
   - color-palette-architect
   - color-theorist
   - color-psychologist
   - accessibility-checker
-  - palette-scorer
+
+pipeline:
+  type: sequential
+  feedback_loop:
+    enabled: true
+    max_rounds: 3
 
 phases:
   - name: context
@@ -35,27 +37,35 @@ phases:
     agent: color-palette-architect
 
   - name: theory
-    description: Generate base palette using color theory
+    description: Generate OKLCH base palette using color theory
     agent: color-theorist
+    quality_gate:
+      metric: harmony_score
+      minimum: 80
+      feedback_enabled: true
 
   - name: psychology
     description: Apply color psychology for semantic mapping
     agent: color-psychologist
+    quality_gate:
+      metric: psychology_score
+      minimum: 75
+      feedback_enabled: true
 
   - name: accessibility
-    description: Validate WCAG compliance
+    description: Validate WCAG using Magic Number system
     agent: accessibility-checker
+    quality_gate:
+      metric: accessibility_score
+      minimum: 90
+      blocking: true
+      feedback_enabled: true
 
-  - name: scoring
-    description: Evaluate palette quality
-    agent: palette-scorer
-
-  - name: delivery
-    description: Compile and deliver final outputs
+  - name: compile
+    description: Compile final outputs
     agent: color-palette-architect
 
 quality_gates:
   harmony_score: 80
-  accessibility_score: 90
   psychology_score: 75
-  overall_score: 80
+  accessibility_score: 90

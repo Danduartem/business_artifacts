@@ -1,14 +1,16 @@
-# Generate Voice Documentation Workflow
-# Multi-agent voice documentation system with quality gates
+# Generate Voice Documentation Workflow v2
+# Multi-agent generation with feedback loop → single file output
 
 workflow:
   name: "Generate Voice Documentation"
-  version: "1.0.0"
+  version: "2.0.0"
   module: voice-forge
   description: |
-    Creates comprehensive brand voice documentation by analyzing reference URLs
-    and generating detailed guidelines through parallel specialist agents.
-    Includes automatic quality scoring with 90% threshold and regeneration.
+    Creates comprehensive brand voice documentation using 5 specialist agents
+    working in parallel, with Director review and feedback loop, compiled into
+    a single actionable voice-guide.md file.
+
+    Architecture: Multi-agent depth + Single-file simplicity
 
 trigger:
   command: "*generate"
@@ -18,13 +20,9 @@ inputs:
   required:
     - name: reference_urls
       type: array
-      description: "3-8 URLs of websites/social media with desired voice style"
+      description: "3-5 URLs of websites/social media with desired voice style"
       min_items: 3
-      max_items: 8
-      example:
-        - "https://mailchimp.com/about"
-        - "https://slack.com"
-        - "https://twitter.com/stripe"
+      max_items: 5
 
     - name: brand_name
       type: string
@@ -33,223 +31,181 @@ inputs:
   optional:
     - name: industry
       type: string
-      description: "Industry/sector (e.g., SaaS, e-commerce, healthcare)"
       default: "Technology"
 
     - name: target_audience
       type: string
-      description: "Primary audience (e.g., small business owners, developers)"
       default: "General business audience"
 
     - name: brand_personality
       type: array
       description: "3-5 adjectives describing desired personality"
-      example: ["friendly", "knowledgeable", "approachable"]
+
+    - name: persona_name
+      type: string
+      description: "Name of brand avatar/ideal customer"
+
+    - name: persona_gender
+      type: string
+      description: "Gender for consistent copy (feminine/masculine)"
+      default: "feminine"
 
     - name: avoid
       type: array
       description: "Voice styles or tones to avoid"
-      example: ["corporate", "stuffy", "overly casual"]
-
-    - name: channels
-      type: array
-      description: "Channels to include in playbooks"
-      default: ["website", "blog", "instagram", "linkedin", "twitter", "email_marketing", "customer_support"]
 
 outputs:
   primary:
-    - voice-documentation.md
-    - voice-quick-reference.md
-    - voice-data.json
+    - voice-guide.md
 
-  intermediate:
-    - voice-dna.json
-    - voice-identity.json
-    - tone-matrix.json
-    - lexicon.json
-    - channel-playbooks.json
-    - content-examples.json
-    - voice-scores.json
+  # No JSON files - all content compiled into single markdown
 
-  on_regeneration:
-    - quality-review.json
+agents:
+  orchestrator: voice-director
 
-quality_gate:
-  threshold: 90
-  dimensions:
-    - clarity
-    - completeness
-    - consistency
-    - actionability
-    - brand_alignment
-  max_regeneration_attempts: 2
-  escalation_action: "prompt_user"
+  specialists:
+    - name: voice-identity-architect
+      sections: ["Voice Snapshot", "Voice Dimensions"]
+      focus: "WHO the brand is"
+
+    - name: tone-strategist
+      sections: ["Golden Rules"]
+      focus: "Core principles that define the voice"
+
+    - name: lexicon-curator
+      sections: ["Say This/Not That", "Red Lines"]
+      focus: "Word choices and prohibitions"
+
+    - name: channel-specialist
+      sections: ["Channel Quick Reference"]
+      focus: "Platform-specific adaptations"
+
+    - name: content-exemplar
+      sections: ["Do/Don't", "Before/After Examples"]
+      focus: "Show voice in action"
 
 steps:
   - step: 1
-    name: "Gather Reference URLs"
+    name: "Gather Inputs"
     action: prompt_user
     prompt: |
-      Please provide reference URLs for voice analysis.
+      Quick inputs for your voice guide:
 
-      **Examples of voices you want to emulate:**
-      - Competitor websites (e.g., https://competitor.com/about)
-      - Social media accounts (e.g., https://twitter.com/brandname)
-      - Brands you admire (e.g., https://mailchimp.com)
-
-      Provide 3-8 URLs for best results.
+      1. **Brand Name**
+      2. **3-5 Reference URLs** (brands with voices you admire)
+      3. **Target Audience**
+      4. **3-5 Personality Words**
+      5. **Persona Name** (e.g., "Carolina")
+      6. **Persona Gender** (for consistent copy)
+      7. **What to AVOID**
 
   - step: 2
-    name: "Gather Brand Context"
-    action: prompt_user
-    prompt: |
-      Brief brand context:
-
-      1. **Brand Name:** Your brand name
-      2. **Industry/Sector:** (e.g., SaaS, e-commerce, healthcare)
-      3. **Target Audience:** (e.g., small business owners, developers)
-      4. **Brand Personality:** (3-5 adjectives describing desired voice)
-      5. **What to AVOID:** (voices/tones that don't fit your brand)
-
-  - step: 3
-    name: "Analyze References via WebFetch"
+    name: "Analyze References"
     action: webfetch_analysis
     tool: WebFetch
     foreach: reference_urls
     extract:
-      - tone_indicators
-      - vocabulary_patterns
-      - sentence_structure
+      - tone_patterns
+      - vocabulary
       - personality_evidence
       - notable_phrases
-    output: voice-dna.json
+    output: voice_dna_summary  # In memory, not file
 
-  - step: 4
+  - step: 3
     name: "Load Reference Data"
     action: read_files
     files:
       - data/voice-dimensions.md
       - data/brand-archetypes.md
-      - data/channel-conventions.md
-      - data/tone-situations.md
+      - data/copywriter-standards.md
+
+  - step: 4
+    name: "Spawn 5 Specialists in Parallel"
+    action: spawn_parallel
+    critical: "All 5 Task calls MUST be in ONE message"
+    agents:
+      - voice-identity-architect
+      - tone-strategist
+      - lexicon-curator
+      - channel-specialist
+      - content-exemplar
+    input_to_all:
+      - voice_dna_summary
+      - brand_context
+      - copywriter_standards
+    output: markdown_sections  # Each returns markdown
 
   - step: 5
-    name: "Spawn Parallel Specialist Agents"
-    action: spawn_parallel
-    critical: "All 5 Task calls in ONE message for true parallelism"
-    agents:
-      - agent: voice-identity-architect
-        input:
-          - voice_dna
-          - brand_context
-          - brand_archetypes_reference
-        output: voice-identity.json
-
-      - agent: tone-strategist
-        input:
-          - voice_dna
-          - voice_dimensions_reference
-          - tone_situations_reference
-        output: tone-matrix.json
-
-      - agent: lexicon-curator
-        input:
-          - voice_dna
-          - brand_context
-        output: lexicon.json
-
-      - agent: channel-specialist
-        input:
-          - voice_dna
-          - brand_context
-          - channel_conventions_reference
-        output: channel-playbooks.json
-
-      - agent: content-exemplar
-        input:
-          - voice_dna
-          - brand_context
-        output: content-examples.json
-
-  - step: 6
-    name: "Wait for Completion"
+    name: "Wait for Specialists"
     action: wait_all
     timeout: 300000
 
+  - step: 6
+    name: "Review & Feedback Loop"
+    action: review_sections
+    criteria:
+      - brand_specific_not_generic
+      - concrete_examples_included
+      - actionable_for_copywriters
+      - complies_with_copywriter_standards
+      - consistent_across_sections
+    feedback_loop:
+      max_rounds: 3
+      on_weak_section: |
+        Send targeted feedback to specialist:
+        - ISSUE: [specific problem]
+        - EXAMPLE: [what's wrong]
+        - FIX: [how to fix]
+        Specialist regenerates with guidance.
+
   - step: 7
-    name: "Quality Scoring"
-    action: spawn_agent
-    mandatory: true
-    agent: voice-scorer
-    input:
-      - voice-identity.json
-      - tone-matrix.json
-      - lexicon.json
-      - channel-playbooks.json
-      - content-examples.json
-      - voice-dna.json
-    output: voice-scores.json
+    name: "Compile Final Document"
+    action: compile_document
+    template: templates/voice-guide.md
+    sections_order:
+      - voice_snapshot
+      - voice_dimensions
+      - golden_rules
+      - do_dont
+      - say_this_not_that
+      - before_after_examples
+      - channel_quick_reference
+      - red_lines
+      - quick_check
+    output: voice-guide.md
 
   - step: 8
-    name: "Quality Gate Check"
-    action: evaluate_scores
-    condition: |
-      for each section in scores:
-        for each dimension in section:
-          if dimension.score < 90:
-            trigger_quality_review = true
-    on_pass: goto_step_10
-    on_fail: goto_step_9
-
-  - step: 9
-    name: "Quality Review & Regeneration"
-    action: spawn_agent
-    agent: quality-reviewer
-    input:
-      - voice-scores.json
-      - all_section_files
-      - voice-dna.json
-    max_iterations: 2
-    on_success: goto_step_7
-    on_escalation: prompt_user_for_guidance
-
-  - step: 10
-    name: "Compile Final Documentation"
-    action: merge_outputs
-    template: templates/voice-document.md
-    outputs:
-      - voice-documentation.md
-      - voice-quick-reference.md
-      - voice-data.json
-
-  - step: 11
     name: "Present Results"
     action: display_results
     format: |
-      Voice Documentation Generated Successfully!
+      ✅ Voice Guide Generated!
 
-      **Quality Status:** {quality_status}
+      **Architecture Used:**
+      - 5 specialist agents worked in parallel
+      - Director reviewed and refined each section
+      - Compiled into single actionable file
 
-      **Files Created:**
-      1. voice-documentation.md (Complete Guide)
-      2. voice-quick-reference.md (One-Page Summary)
-      3. voice-data.json (AI-Ready Format)
-      4. voice-scores.json (Quality Report)
-
-      **Section Scores:**
-      {section_scores}
-
+      **File:** voice-guide.md (~3-4 pages)
       **Location:** {output_folder}/
+
+      **Sections:**
+      1. Voice Snapshot - who you are
+      2. Voice Dimensions - position on 4 scales
+      3. Golden Rules - 5 core principles
+      4. Do/Don't - quick reference
+      5. Say This/Not That - vocabulary
+      6. Before/After - learn by example
+      7. Channel Reference - adapt by platform
+      8. Red Lines - never do this
+
+      Multi-agent quality. Single-file simplicity.
 
 error_handling:
   webfetch_failure:
     action: "Skip URL, warn user, continue if 3+ URLs remain"
 
-  agent_timeout:
-    action: "Retry once, then report partial results"
+  specialist_timeout:
+    action: "Retry once, then proceed with available sections"
 
-  quality_gate_escalation:
-    action: "Present diagnostic to user, ask for guidance"
-
-  all_failures:
-    action: "Save intermediate files, report status, suggest next steps"
+  feedback_loop_exhausted:
+    action: "Use best available version, note in output"

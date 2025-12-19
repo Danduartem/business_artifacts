@@ -1,287 +1,204 @@
-# Design System Forge
+# Design System Forge v2
 
-**Design System Creation Engine** - Multi-Agent System for Comprehensive Design Systems
+> Multi-agent quality + Production-ready output
 
-Version: 1.0.0
+## Philosophy
 
----
+Design System Forge v2 combines the best of both worlds:
+- **3 specialist agents** for depth and quality
+- **Code exports** that developers actually import
+- **1 documentation file** for quick reference
+- **Feedback loop** for continuous improvement
 
-## Overview
+## Architecture
 
-Design System Forge is a BMAD module that transforms your brand assets into comprehensive, production-ready design systems. Powered by 5 specialized AI agents, it creates complete design tokens, component specifications, accessibility audits, and documentation from your brand guide, style guide, and color palette.
+```
+INPUTS (style guide, color palette)
+        ↓
+   Design System Architect (orchestrates)
+        ↓
+┌─────────────────────────────────────────────────┐
+│  3 SPECIALISTS WORK IN PARALLEL                 │
+│                                                 │
+│  🔮 Token Architect                             │
+│     → tokens.css, tokens.json                   │
+│                                                 │
+│  🧩 Component Specifier                         │
+│     → Component Guidelines                      │
+│                                                 │
+│  ♿ Accessibility Auditor                       │
+│     → WCAG Validation                           │
+└─────────────────────────────────────────────────┘
+        ↓
+   Architect REVIEWS each output
+        ↓
+┌─────────────────────────────────────────────────┐
+│  FEEDBACK LOOP (if needed)                      │
+│  - Architect identifies issues                  │
+│  - Sends targeted feedback to specialist        │
+│  - Specialist regenerates with guidance         │
+│  - Max 3 rounds per specialist                  │
+└─────────────────────────────────────────────────┘
+        ↓
+   Architect COMPILES documentation
+        ↓
+OUTPUT:
+├── tokens.css        (import this)
+├── tokens.json       (for build tools)
+└── design-system.md  (documentation)
+```
 
----
+## Output
 
-## Key Features
+**Three files:**
 
-- **5 Specialized Agents** - Each expert in a specific domain
-- **3-Tier Token Architecture** - Global → Semantic → Component tokens
-- **Comprehensive Components** - 30+ component specifications with all states
-- **WCAG 2.1 AA Compliant** - Full accessibility audit with actionable recommendations
-- **Framework Agnostic** - CSS custom properties work anywhere
-- **Production Ready** - Copy-paste code examples for every component
+### tokens.css
+CSS custom properties ready to import:
+```css
+@import 'tokens.css';
 
----
+.my-component {
+  color: var(--color-text-primary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+}
+```
 
-## Agents
+### tokens.json
+Style Dictionary format for build tools:
+```json
+{
+  "color": {
+    "primary": { "value": "#2196F3" }
+  }
+}
+```
 
-| Agent | Role | Output |
-|-------|------|--------|
-| **Design System Architect** | Orchestrates the entire pipeline | Coordination & quality assurance |
-| **Token Architect** | Extracts and structures design tokens | `tokens.json`, `tokens.css` |
-| **Component Specifier** | Creates detailed component specifications | Component markdown docs |
-| **Accessibility Auditor** | Validates WCAG compliance | Audit report with fixes |
-| **Documentation Writer** | Produces adoption documentation | Getting started, guides |
+### design-system.md
+Single documentation file with:
+1. **Quick Reference** - Key values at a glance
+2. **Token Reference** - All tokens organized by category
+3. **Component Guidelines** - Usage principles with code snippets
+4. **Accessibility** - WCAG validation results
 
----
+## Why Multi-Agent?
+
+| Single Agent | 3 Specialists |
+|--------------|---------------|
+| One perspective | 3 specialized perspectives |
+| May miss edge cases | Token expert + Component expert + A11y expert |
+| No validation | Built-in accessibility audit |
+| Sequential | Parallel (faster) |
 
 ## Quick Start
 
-### 1. Prepare Your Inputs
+1. Start the agent:
+   ```
+   /bmad:design-system-forge:agents:design-system-architect
+   ```
 
-You need 3 key documents:
-- **Brand Guide** - Brand personality, voice, visual identity
-- **Style Guide** - Typography, spacing, component rules
-- **Color Palette** - All brand colors with roles
+2. Select `*create`
 
-Use templates in `/templates/` if needed.
+3. Provide:
+   - Style guide path (from style-guide-forge or manual)
+   - Color palette path (from color-forge JSON)
+   - Design system name
+   - Brand personality
 
-### 2. Configure Paths
+4. Wait for specialists + review + compilation
 
-Edit `config.yaml`:
-
-```yaml
-brand_guide_path: "/path/to/brand-guide.md"
-style_guide_path: "/path/to/style-guide.md"
-color_palette_path: "/path/to/color-palette.md"
-```
-
-### 3. Launch Design System Architect
-
-```bash
-/bmad:design-system-forge:agents:design-system-architect
-```
-
-### 4. Create Design System
-
-Use `*create` for the full pipeline, or individual commands:
-- `*tokens` - Generate design tokens only
-- `*components` - Specify components only
-- `*audit` - Run accessibility audit
-- `*docs` - Generate documentation
-
----
+5. Get THREE files:
+   - `tokens.css` - Import this in your CSS
+   - `tokens.json` - For Style Dictionary / build tools
+   - `design-system.md` - Documentation
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `*create` | Full design system pipeline (recommended) |
-| `*tokens` | Generate design tokens only |
-| `*components` | Specify components only |
-| `*audit` | Run accessibility audit |
-| `*docs` | Generate documentation |
-| `*load` | Load/update brand inputs |
-| `*preview` | View current system state |
-| `*export` | Package for distribution |
-| `*help` | Show all commands |
-| `*exit` | Exit Design System Forge |
+| `*create` | Create design system (full workflow) |
+| `*preview` | Preview current system state |
+| `*help` | Show menu |
+| `*exit` | Exit |
 
----
-
-## Output Structure
-
-The full pipeline produces this structure:
+## Module Structure
 
 ```
-{output_folder}/design-system/
-├── README.md                    # Design system overview
-├── accessibility-audit.md       # WCAG compliance report
-├── tokens/
-│   ├── tokens.json             # Style Dictionary format
-│   └── tokens.css              # CSS custom properties
-├── components/
-│   ├── README.md               # Component library overview
-│   ├── button.md               # Button specification
-│   ├── input.md                # Input specification
-│   └── ...                     # 30+ component specs
-└── docs/
-    ├── README.md               # Getting started
-    ├── installation.md         # Setup guide
-    ├── tokens.md               # Token documentation
-    ├── components.md           # Component overview
-    ├── accessibility.md        # A11y guidelines
-    └── contributing.md         # Contribution guide
-```
-
----
-
-## Output Formats
-
-### tokens.json (Style Dictionary)
-
-```json
-{
-  "color": {
-    "palette": {
-      "blue": {
-        "500": { "value": "#2196F3" }
-      }
-    },
-    "primary": { "value": "{color.palette.blue.500}" },
-    "text": {
-      "primary": { "value": "{color.palette.gray.900}" }
-    }
-  },
-  "spacing": {
-    "md": { "value": "1rem" }
-  }
-}
-```
-
-### tokens.css (CSS Custom Properties)
-
-```css
-:root {
-  /* Colors: Palette */
-  --color-palette-blue-500: #2196F3;
-
-  /* Colors: Semantic */
-  --color-primary: var(--color-palette-blue-500);
-  --color-text-primary: var(--color-palette-gray-900);
-
-  /* Spacing */
-  --spacing-md: 1rem;
-}
-```
-
-### Component Spec (Markdown)
-
-Each component includes:
-- Overview & use cases
-- Anatomy diagram
-- Variants & sizes
-- State matrix
-- Props/API
-- Accessibility (keyboard, ARIA)
-- Code examples
-
----
-
-## Configuration
-
-### config.yaml
-
-```yaml
-# User Settings
-user_name: "Your Name"
-communication_language: "English"
-
-# Design System Settings
-design_system_name: "My Design System"
-tech_stack: "css-only"  # css-only | react-tailwind | react-css-in-js | vue-css
-component_scope: "comprehensive"  # core | standard | comprehensive
-
-# Output Settings
-output_folder: "/path/to/output"
-
-# Input File Paths
-brand_guide_path: "/path/to/brand-guide.md"
-style_guide_path: "/path/to/style-guide.md"
-color_palette_path: "/path/to/color-palette.md"
-
-# Accessibility
-wcag_level: "AA"  # AA | AAA
-include_accessibility_audit: true
-auto_generate_docs: true
-```
-
----
-
-## Component Scope
-
-| Scope | Components | Description |
-|-------|------------|-------------|
-| **core** | 8 | Button, Input, Card, Typography, Icon, Link, Badge, Alert |
-| **standard** | 15 | Core + Modal, Dropdown, Nav, Form, Tabs, Toast |
-| **comprehensive** | 30+ | Full library including Table, Sidebar, Drawer, etc. |
-
----
-
-## File Structure
-
-```
-bmad/design-system-forge/
-├── _module-installer/
-│   └── install-config.yaml
+design-system-forge/
+├── config.yaml
+├── README.md
 ├── agents/
-│   ├── design-system-architect.md   # Primary orchestrator
-│   ├── token-architect.md           # Token specialist
-│   ├── component-specifier.md       # Component expert
-│   ├── accessibility-auditor.md     # WCAG specialist
-│   └── documentation-writer.md      # Documentation expert
+│   ├── design-system-architect.agent.yaml  # Orchestrator
+│   ├── token-architect.agent.yaml
+│   ├── component-specifier.agent.yaml
+│   └── accessibility-auditor.agent.yaml
 ├── workflows/
 │   └── create-design-system/
 │       ├── workflow.yaml
 │       └── instructions.md
-├── templates/
-│   ├── brand-guide-template.md
-│   ├── style-guide-template.md
-│   └── color-palette-template.md
-├── briefs/                          # User inputs stored here
-├── config.yaml
-└── README.md
+├── data/
+│   └── wcag-standards.md
+└── templates/
+    ├── brand-guide-template.md
+    ├── style-guide-template.md
+    └── color-palette-template.md
 ```
 
+## Feedback Loop
+
+The Architect reviews each specialist's output and can request improvements:
+
+```
+Your tokens.css needs improvement:
+
+ISSUE: Missing semantic color tokens
+EXAMPLE: Only palette colors defined, no --color-text-primary
+FIX: Add semantic tokens that reference palette values
+
+Please regenerate with this guidance.
+```
+
+**Rules:**
+- Maximum 3 feedback rounds per specialist
+- Feedback must be SPECIFIC (not "make it better")
+- If still weak after 3 rounds, use best version
+
+## Token Architecture (3-Tier)
+
+```
+TIER 1: Global/Reference (raw values)
+        --color-palette-blue-500: #2196F3
+                    ↓
+TIER 2: Semantic/Alias (purpose-based)
+        --color-primary: var(--color-palette-blue-500)
+                    ↓
+TIER 3: Component (component-specific)
+        --button-primary-bg: var(--color-primary)
+```
+
+## Related Modules
+
+- **Color Forge** - Generates color palettes (input for Design System Forge)
+- **Style Guide Forge** - Creates design guidelines (input for Design System Forge)
+- **Voice Forge** - Creates brand voice documentation
+
+## v2 Changes
+
+| v1 | v2 |
+|----|-----|
+| 5 agents | 4 agents (removed documentation-writer) |
+| Multiple output folders | Single folder with 3 files |
+| 7+ doc files | 1 doc file (design-system.md) |
+| Individual component specs | Component guidelines only |
+| Sequential agents | Parallel with feedback loop |
+
+## Tips
+
+1. **Run Color Forge first.** The color palette JSON is essential input.
+2. **Run Style Guide Forge second.** Gives you typography, spacing guidelines.
+3. **Import tokens.css early.** Use it from day one of development.
+4. **Check accessibility results.** Fix any contrast failures before shipping.
+
 ---
 
-## Best Practices
-
-### Preparing Inputs
-- Use the templates in `/templates/` as starting points
-- Be specific about typography (exact font names, weights, sizes)
-- Include full color scales (50-900) when possible
-- Document spacing as a scale, not individual values
-
-### Token Architecture
-- Let semantic tokens reference global tokens (not hardcoded)
-- Use consistent naming throughout
-- Keep component tokens minimal - override only when needed
-
-### Component Specifications
-- Include ALL states (default, hover, focus, active, disabled)
-- Document keyboard interactions completely
-- Provide copy-paste ready code examples
-
----
-
-## Troubleshooting
-
-### Missing input files
-Run `*load` to see current input status and provide missing files.
-
-### Accessibility failures
-The audit provides specific fixes. Address high-severity issues before deploying.
-
-### Token naming conflicts
-Use a unique prefix in your design system name to avoid CSS variable collisions.
-
----
-
-## Version History
-
-### 1.0.0 (Initial Release)
-- Design System Creation Engine with 5 specialized agents
-- 3-tier token architecture (Global → Semantic → Component)
-- 30+ component specifications with all states
-- WCAG 2.1 AA accessibility audit
-- Full documentation generation
-- Takes Color Forge palette output as input
-
----
-
-## Credits
-
-Built with the BMAD Framework.
-
-Follows the proven multi-agent pattern for generating comprehensive, high-quality outputs.
+*Design System Forge v2 - Multi-agent quality. Production-ready output.*

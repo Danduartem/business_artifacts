@@ -1,129 +1,182 @@
-# Style Guide Forge
+# Style Guide Forge v2
 
-A multi-agent BMAD module that generates comprehensive web design style guides from brand inputs. Creates the foundational design system that integrates directly with Design Forge for consistent design generation.
+> Multi-agent quality + Single-file simplicity
 
-## Overview
+## Philosophy
 
-Style Guide Forge uses **7 specialized agents** to create production-ready style guides:
+Style Guide Forge v2 combines the best of both worlds:
+- **5 specialist agents** for depth and quality
+- **1 output file** that designers actually use
+- **Feedback loop** for continuous improvement
 
-| Agent | Approach | Focus |
-|-------|----------|-------|
-| **Style Guide Director** | Orchestrator | Gathers inputs, spawns agents, assembles output |
-| **Brand Translator** | Brand-First | Converts brand guide to digital design principles |
-| **Reference Analyzer** | Inspiration-First | Captures screenshots and analyzes design patterns |
-| **Foundations Architect** | System-First | Typography, spacing, tokens, grid systems |
-| **Component Designer** | Usage-First | 18+ UI components with all states |
-| **Interaction Designer** | Feel-First | Motion, timing, microinteractions |
-| **Style Guide Scorer** | Quality | Validates completeness and consistency |
+**Note:** Code exports (tokens.css, tailwind.config.js) are handled by **design-system-forge**. This module creates design guidelines only.
+
+## Architecture
+
+```
+INPUTS (brand guide, colors, reference URLs)
+        ↓
+   Style Guide Director (orchestrates)
+        ↓
+┌─────────────────────────────────────────────────┐
+│  5 SPECIALISTS WORK IN PARALLEL                 │
+│                                                 │
+│  🎯 Brand Translator                            │
+│     → Design Principles, Brand Foundation       │
+│                                                 │
+│  🔍 Reference Analyzer                          │
+│     → Visual Direction                          │
+│                                                 │
+│  🏗️ Foundations Architect                       │
+│     → Color, Typography, Spacing Guidelines     │
+│                                                 │
+│  🧩 Component Designer                          │
+│     → Component Principles                      │
+│                                                 │
+│  ✨ Interaction Designer                        │
+│     → Motion Principles, Accessibility          │
+└─────────────────────────────────────────────────┘
+        ↓
+   Director REVIEWS each section
+        ↓
+┌─────────────────────────────────────────────────┐
+│  FEEDBACK LOOP (if needed)                      │
+│  - Director identifies weak sections            │
+│  - Sends targeted feedback to specialist        │
+│  - Specialist regenerates with guidance         │
+│  - Max 3 rounds per specialist                  │
+└─────────────────────────────────────────────────┘
+        ↓
+   Director COMPILES into ONE file
+        ↓
+OUTPUT: style-guide.md
+```
+
+## Output
+
+**One file:** `style-guide.md`
+
+Contains 9 sections:
+1. **Design Principles** - 5-7 core principles with applications
+2. **Brand Foundation** - Personality mapping, voice/tone for UI, logo usage
+3. **Visual Direction** - Patterns to adopt/avoid from references
+4. **Color Guidelines** - Color hierarchy with usage guidance
+5. **Typography Guidelines** - Type scale with use cases
+6. **Spacing & Layout** - Spacing scale, grid, breakpoints
+7. **Component Principles** - When-to-use guidelines for UI components
+8. **Motion Principles** - Animation philosophy, timing, easing
+9. **Accessibility Checklist** - WCAG compliance checklist
+
+## Why Multi-Agent?
+
+| Single Agent | 5 Specialists |
+|--------------|---------------|
+| One perspective | 5 specialized perspectives |
+| Generalist coverage | Deep expertise per domain |
+| May miss nuances | Each specialist focuses fully |
+| Sequential | Parallel (faster) |
+
+The **Brand Translator** thinks differently than the **Foundations Architect**. One focuses on brand essence, the other on systematic scales.
 
 ## Quick Start
 
-1. **Start the Director:**
+1. Start the agent:
    ```
    /bmad:style-guide-forge:agents:style-guide-director
    ```
 
-2. **Generate a Style Guide:**
-   - Select `*generate` from the menu
-   - Provide your brand guide, colors, reference sites, logo, and assets
-   - Wait for 5 specialist agents to work in parallel
-   - Review scored results
+2. Select `*generate`
 
-## Inputs Required
+3. Provide:
+   - Brand guide path (PDF or MD)
+   - Color palette path (from Color Forge)
+   - 1-5 reference URLs
+   - Brand personality (3-5 adjectives)
+   - Target audience
+   - Industry
+   - Design goals
 
-| Input | Description | Format |
-|-------|-------------|--------|
-| Brand Guide | Your existing brand guidelines | PDF or Markdown |
-| Colors | Color palette from Color Forge | JSON |
-| Reference Sites | Inspiration website URLs | 1-5 URLs |
-| Logo | Brand logo file(s) | SVG, PNG |
-| Brand Assets | Icons, imagery, patterns | Folder path |
+4. Wait for specialists + review + compilation
 
-## Outputs Generated
+5. Get ONE file: `style-guide.md`
 
-```
-{output_folder}/
-├── style-guide.md              # Complete human-readable guide
-├── design-tokens.json          # All tokens in standard format
-├── design-principles.md        # Design principles document
-├── component-specs.md          # Comprehensive component documentation
-├── style-guide-scores.json     # Quality validation scores
-├── reference-screenshots/      # Captured reference site screenshots
-└── exports/
-    ├── tokens.css              # CSS custom properties
-    └── tailwind.config.js      # Tailwind configuration
-```
-
-## Agent Philosophies
-
-### Brand Translator
-> "Digital design is brand made interactive"
-
-Extracts brand essence and translates it to digital design language: principles, visual mapping, voice guidelines, and logo usage rules.
-
-### Reference Analyzer
-> "Learn from the best, create something unique"
-
-Uses Playwright to capture screenshots of inspiration sites, then visually analyzes them using Claude's multimodal capabilities to extract design patterns.
-
-### Foundations Architect
-> "Strong foundations create scalable systems"
-
-Creates the token architecture: typography scales, spacing systems (8pt grid), breakpoints, shadows, border radius, and color token mapping.
-
-### Component Designer
-> "Components are the vocabulary of interaction"
-
-Documents 18+ component types with all states, variants, accessibility requirements, and visual do's/don'ts.
-
-### Interaction Designer
-> "Motion gives interfaces soul"
-
-Defines animation principles, timing tokens, easing curves, microinteractions, and reduced-motion alternatives.
-
-## Menu Commands
+## Commands
 
 | Command | Description |
 |---------|-------------|
-| `*generate` | Create complete style guide (main workflow) |
-| `*analyze` | Analyze existing style guide for gaps |
-| `*update` | Update specific sections |
-| `*export` | Export in various formats |
-| `*apply` | Apply to Design Forge config |
-| `*help` | Show help menu |
+| `*generate` | Generate style guide (full workflow) |
+| `*analyze` | Analyze reference URLs only (no file output) |
+| `*help` | Show menu |
+| `*exit` | Exit |
 
-## Design Forge Integration
+## Module Structure
 
-After generation, Style Guide Forge can:
-1. Export `style-guide.md` to Design Forge's expected path
-2. Export `design-principles.md` to principles path
-3. Update Design Forge `config.yaml` with new paths
-4. Generate `design-system.json` compatible format
+```
+style-guide-forge/
+├── config.yaml
+├── README.md
+├── agents/
+│   ├── style-guide-director.agent.yaml    # Orchestrator
+│   ├── brand-translator.agent.yaml
+│   ├── reference-analyzer.agent.yaml
+│   ├── foundations-architect.agent.yaml
+│   ├── component-designer.agent.yaml
+│   └── interaction-designer.agent.yaml
+├── workflows/
+│   └── generate-style-guide/
+│       ├── workflow.yaml
+│       ├── instructions.md
+│       └── checklist.md
+└── data/
+    ├── typography-best-practices.md
+    ├── spacing-systems.md
+    ├── component-patterns.md
+    ├── accessibility-checklist.md
+    └── motion-guidelines.md
+```
 
-## Quality Scoring
+## Feedback Loop
 
-The Style Guide Scorer validates across 5 dimensions:
+The Director reviews each specialist's output and can request improvements:
 
-| Dimension | Weight | Criteria |
-|-----------|--------|----------|
-| Completeness | 25% | All required sections present |
-| Consistency | 25% | Tokens and values align |
-| Accessibility | 20% | WCAG compliance built-in |
-| Brand Alignment | 15% | Matches brand personality |
-| Usability | 15% | Clear, actionable documentation |
+```
+Your [section] needs improvement:
 
-## Configuration
+ISSUE: Values are too generic
+EXAMPLE: "Use appropriate spacing" doesn't help designers
+FIX: Use specific values like "24px section gaps, 16px card padding"
 
-See `config.yaml` for all available settings:
-- Output folder location
-- Export formats (CSS, Tailwind)
-- Typography scale settings
-- Spacing base unit
-- Screenshot viewports
-- WCAG level requirements
+Please regenerate with this guidance.
+```
+
+**Rules:**
+- Maximum 3 feedback rounds per specialist
+- Feedback must be SPECIFIC (not "make it better")
+- If still weak after 3 rounds, use best version
 
 ## Related Modules
 
-- **Color Forge**: Generates color palettes (input for Style Guide Forge)
-- **Design Forge**: Uses style guides to generate consistent designs
-- **Persona Forge**: Creates user personas for design context
+- **Color Forge** - Generates color palettes (input for Style Guide Forge)
+- **Design System Forge** - Creates code exports (tokens.css, tailwind.config.js)
+- **Voice Forge** - Creates brand voice documentation
+
+## v2 Changes
+
+| v1 | v2 |
+|----|-----|
+| 7 agents | 5 agents (removed scorer) |
+| Multiple JSON files | 1 markdown file |
+| Code exports included | Code exports in design-system-forge |
+| Separate scoring | Director reviews directly |
+| Generic regeneration | Targeted feedback loop |
+
+## Tips
+
+1. **Better references = better output.** Pick sites whose design language you admire.
+2. **Be specific about personality.** "Modern but warm" > "professional"
+3. **Provide a color palette.** Run Color Forge first for best results.
+4. **Use it daily.** Pin it, bookmark it, reference it before designing.
+
+---
+
+*Style Guide Forge v2 - Multi-agent quality. Single-file simplicity.*

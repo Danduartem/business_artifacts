@@ -1,106 +1,94 @@
-# Style Guide Forge Module Configuration
-# Multi-agent web design style guide generation system
+# Style Guide Forge Module Installation Configuration v2
+# Multi-agent design style guide → Single file output
+# Code exports handled by design-system-forge
 
-code: style-guide-forge
-name: "Style Guide Forge"
-default_selected: false
+module:
+  name: style-guide-forge
+  version: "2.0.0"
+  description: "Multi-agent design style guide with feedback loop → single file output"
+  author: "BMAD"
+  requires:
+    - core
 
-# Welcome message shown during installation
-prompt:
-  - "Welcome to Style Guide Forge!"
-  - "A multi-agent system that generates comprehensive web design style guides from your brand inputs."
-  - "5 specialized agents create your style guide from different perspectives:"
-  - "  - Brand Translator: Converts brand guide to digital design principles"
-  - "  - Reference Analyzer: Captures and analyzes inspiration websites visually"
-  - "  - Foundations Architect: Creates typography, spacing, and token systems"
-  - "  - Component Designer: Documents 18+ UI components with all states"
-  - "  - Interaction Designer: Defines motion, timing, and microinteractions"
-  - "Integrates directly with Design Forge for consistent design generation."
+welcome: |
+  Welcome to Style Guide Forge v2!
 
-# Core config values are automatically inherited:
-## user_name
-## communication_language
-## document_output_language
-## output_folder
+  This module generates comprehensive design style guides using 5 specialized
+  agents working in parallel, with a feedback loop for quality control.
 
-# ============================================================================
-# CONFIGURATION FIELDS
-# ============================================================================
+  Output: ONE file (style-guide.md) that designers reference daily.
 
-# INTERACTIVE - Where to save generated style guides
-style_guide_output_folder:
-  prompt: "Where should Style Guide Forge save generated files?"
-  default: "output/style-guide-forge"
-  result: "{project-root}/{value}"
+  Note: Code exports (tokens.css, tailwind.config.js) are handled by design-system-forge.
 
-# INTERACTIVE - Export formats
-export_formats:
-  prompt: "Which export formats should be generated?"
-  default: "css-tailwind"
-  result: "{value}"
-  single-select:
-    - value: "json-only"
-      label: "JSON only - Design tokens in JSON format"
-    - value: "css-tailwind"
-      label: "CSS + Tailwind - CSS custom properties and Tailwind config (Recommended)"
-    - value: "all"
-      label: "All formats - JSON, CSS, Tailwind, and SCSS"
+# Interactive Configuration Fields
+fields:
+  style_guide_output_folder:
+    prompt: "Where should Style Guide Forge save the generated style guide?"
+    default: "{output_folder}/style-guide-forge"
+    type: path
+    result: "{value}"
 
-# INTERACTIVE - Component documentation depth
-component_depth:
-  prompt: "How detailed should component documentation be?"
-  default: "comprehensive"
-  result: "{value}"
-  single-select:
-    - value: "guidelines-only"
-      label: "Guidelines only - General component principles"
-    - value: "essential"
-      label: "Essential - Core components (buttons, inputs, cards, navigation)"
-    - value: "comprehensive"
-      label: "Comprehensive - 18+ component types with all states (Recommended)"
+# Static Configuration
+static:
+  max_feedback_rounds:
+    result: "3"
 
-# ============================================================================
-# STATIC CONFIGURATION
-# ============================================================================
+  min_reference_urls:
+    result: "1"
 
-# Screenshot viewports for reference site capture
-screenshot_viewports:
-  result:
-    desktop: 1440
-    tablet: 768
-    mobile: 375
+  max_reference_urls:
+    result: "5"
 
-# Typography base size (in pixels)
-typography_base_size:
-  result: "16"
+  # Screenshot viewports for reference site capture
+  screenshot_viewports:
+    result:
+      desktop: 1440
+      mobile: 375
 
-# Typography scale ratio
-typography_scale_ratio:
-  result: "1.25"
-  # Common ratios:
-  # 1.125 (minor second) - subtle variation
-  # 1.2 (minor third) - calm, professional
-  # 1.25 (major third) - balanced (recommended)
-  # 1.333 (perfect fourth) - more dramatic
-  # 1.5 (perfect fifth) - bold hierarchy
+  # Typography settings
+  typography_base_size:
+    result: "16"
 
-# Spacing base unit (8pt grid)
-spacing_base_unit:
-  result: "8"
+  typography_scale_ratio:
+    result: "1.25"
 
-# WCAG accessibility level
-wcag_level:
-  result: "AA"
-  # Options: AA | AAA
+  # Spacing base unit (8pt grid)
+  spacing_base_unit:
+    result: "8"
 
-# Include motion/animation guidelines
-include_motion_guidelines:
-  result: "true"
+# Files to copy during installation
+files:
+  agents:
+    - style-guide-director.agent.yaml
+    - brand-translator.agent.yaml
+    - reference-analyzer.agent.yaml
+    - foundations-architect.agent.yaml
+    - component-designer.agent.yaml
+    - interaction-designer.agent.yaml
 
-# Design Forge integration path
-design_forge_config:
-  result: "{project-root}/bmad/design-forge/config.yaml"
+  workflows:
+    - generate-style-guide/workflow.yaml
+    - generate-style-guide/instructions.md
+    - generate-style-guide/checklist.md
 
-# Color Forge integration path
-color_forge_config:
-  result: "{project-root}/bmad/color-forge/config.yaml"
+  data:
+    - typography-best-practices.md
+    - spacing-systems.md
+    - component-patterns.md
+    - accessibility-checklist.md
+    - motion-guidelines.md
+
+# Post-install message
+complete: |
+  Style Guide Forge v2 installed successfully!
+
+  To get started:
+  1. Launch the Style Guide Director: /bmad:style-guide-forge:agents:style-guide-director
+  2. Use *generate to create your style guide
+  3. Provide brand guide, color palette, and reference URLs
+
+  Output: ONE file → style-guide.md
+
+  For code exports (tokens.css), use design-system-forge.
+
+  Multi-agent quality. Single-file simplicity.

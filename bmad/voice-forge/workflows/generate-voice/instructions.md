@@ -1,151 +1,116 @@
-# Generate Voice Documentation - Workflow Instructions
+# Generate Voice Guide - Instructions
 
 ## Overview
 
-This workflow creates comprehensive brand voice documentation by analyzing reference URLs you provide and generating detailed guidelines through parallel specialist agents.
+Creates a comprehensive brand voice guide using 5 specialist agents, with Director review and feedback loop, compiled into ONE actionable file.
 
-## Prerequisites
+**Architecture:** Multi-agent depth + Single-file simplicity
 
-- At least 3 reference URLs (websites, social media, or brands with voice styles you admire)
-- Basic brand context (name, industry, target audience)
-- Desired personality traits (3-5 adjectives)
+## What You'll Get
 
-## Workflow Steps
+ONE file: `voice-guide.md` (~3-4 pages)
 
-### Step 1: Provide Reference URLs
+Contains 8 sections:
+1. **Voice Snapshot** - Who you are in 3 words + archetype
+2. **Voice Dimensions** - Position on 4 scales with examples
+3. **Golden Rules** - 5 core principles
+4. **Do/Don't** - Quick reference table
+5. **Say This/Not That** - Vocabulary guide
+6. **Before/After Examples** - Learn by example
+7. **Channel Quick Reference** - One line per platform
+8. **Red Lines** - What to NEVER do
 
-When prompted, share 3-8 URLs of content with voice styles you want to emulate or analyze:
+## What You Need
 
-**Good reference types:**
-- Company about pages (e.g., `https://mailchimp.com/about`)
-- Social media profiles (e.g., `https://twitter.com/stripe`)
-- Blog posts that exemplify desired tone
-- Competitor websites
-- Brands you admire
+1. **Brand Name** - As it appears in copy
+2. **3-5 Reference URLs** - Brands with voices you admire
+3. **Target Audience** - Who you're talking to
+4. **3-5 Personality Words** - How you want to sound
+5. **Persona Name** - Your ideal customer's name (e.g., "Carolina")
+6. **Persona Gender** - For consistent gender in copy
+7. **What to AVOID** - Tones that don't fit
 
-**Tips:**
-- More URLs = better voice DNA analysis
-- Mix different content types for comprehensive analysis
-- Include both direct competitors and aspirational brands
+## How It Works
 
-### Step 2: Provide Brand Context
-
-Answer these questions:
-
-1. **Brand Name:** Your brand's name (for documentation headers)
-2. **Industry/Sector:** What industry you operate in
-3. **Target Audience:** Who you're primarily speaking to
-4. **Brand Personality:** 3-5 adjectives (e.g., "friendly, knowledgeable, approachable")
-5. **What to AVOID:** Voice styles that don't fit (e.g., "corporate, stuffy, overly salesy")
-
-### Step 3: Reference Analysis (Automatic)
-
-The system uses WebFetch to analyze each URL and extract:
-- Tone indicators (formal/casual, serious/funny, etc.)
-- Vocabulary patterns (commonly used words and phrases)
-- Sentence structure (length, complexity)
-- Personality evidence (traits expressed in writing)
-- Notable phrases (distinctive language patterns)
-
-**Output:** `voice-dna.json` - consolidated voice analysis
-
-### Step 4: Parallel Agent Generation (Automatic)
-
-Five specialist agents work simultaneously:
-
-| Agent | Focus | Output |
-|-------|-------|--------|
-| Voice Identity Architect | Archetype, personality, dimensions | voice-identity.json |
-| Tone Strategist | Situational tone matrix | tone-matrix.json |
-| Lexicon Curator | Vocabulary, grammar, style rules | lexicon.json |
-| Channel Specialist | Platform-specific playbooks | channel-playbooks.json |
-| Content Exemplar | Real examples and transformations | content-examples.json |
-
-### Step 5: Quality Scoring (Automatic)
-
-Voice Scorer evaluates all sections across 5 dimensions:
-
-| Dimension | Weight | What It Measures |
-|-----------|--------|------------------|
-| Clarity | 20% | Clear, unambiguous guidelines |
-| Completeness | 25% | All required elements present |
-| Consistency | 20% | No internal contradictions |
-| Actionability | 20% | Practical with examples |
-| Brand Alignment | 15% | Matches your references and context |
-
-**Threshold:** 90% minimum on ALL dimensions
-
-### Step 6: Quality Gate (Automatic)
-
-- **All Pass (90+):** Proceeds to final compilation
-- **Any Fail (<90):** Triggers Quality Reviewer
-
-### Step 7: Regeneration (If Needed)
-
-Quality Reviewer handles failures:
-
-| Score | Severity | Action |
-|-------|----------|--------|
-| 90-100 | PASSED | No action |
-| 85-89 | MINOR | Specific fixes |
-| 70-84 | MODERATE | Regenerate section |
-| <70 | CRITICAL | Ask for your guidance |
-
-Maximum 2 regeneration attempts per section.
-
-### Step 8: Final Output
-
-Upon successful completion, you receive:
-
-1. **voice-documentation.md** - Complete voice guide (main deliverable)
-2. **voice-quick-reference.md** - One-page summary for quick reference
-3. **voice-data.json** - Structured data for AI training
-4. **voice-scores.json** - Quality assessment report
+```
+1. You provide inputs
+        ↓
+2. Director analyzes reference URLs
+        ↓
+3. 5 specialists work in PARALLEL:
+   - Voice Identity Architect → Snapshot + Dimensions
+   - Tone Strategist → Golden Rules
+   - Lexicon Curator → Vocabulary + Red Lines
+   - Channel Specialist → Channel Reference
+   - Content Exemplar → Do/Don't + Before/After
+        ↓
+4. Director REVIEWS each section
+        ↓
+5. FEEDBACK LOOP (if needed):
+   - Director sends specific feedback
+   - Specialist regenerates
+   - Max 3 rounds
+        ↓
+6. Director COMPILES into one file
+        ↓
+7. You get: voice-guide.md
+```
 
 ## Commands
 
 | Command | Description |
 |---------|-------------|
-| `*generate` | Start full voice documentation flow |
-| `*analyze` | Analyze reference URLs only (no full generation) |
-| `*score` | Score existing documentation |
-| `*export` | Export in different formats |
-| `*help` | Show available commands |
-| `*exit` | Exit with confirmation |
+| `*generate` | Full workflow with specialists |
+| `*analyze` | Analyze URLs only (no file output) |
+| `*help` | Show menu |
+| `*exit` | Exit |
 
-## Troubleshooting
+## Why Multi-Agent?
 
-### "URL analysis failed"
+Each specialist brings unique expertise:
 
-- Check URL is accessible
-- Ensure it's not behind a login wall
-- Try alternative URL from same source
+| Specialist | Focus |
+|------------|-------|
+| Voice Identity Architect | WHO the brand is (archetype, personality) |
+| Tone Strategist | Core principles that define the voice |
+| Lexicon Curator | Word choices, grammar, prohibitions |
+| Channel Specialist | Platform-specific adaptations |
+| Content Exemplar | Real examples showing voice in action |
 
-### "Section failed quality gate"
+A single agent doing all of this would be shallower on each area.
 
-- Review the specific dimension failures in voice-scores.json
-- System will attempt regeneration automatically (up to 2 times)
-- If escalated, consider providing more reference URLs or clearer brand context
+## The Feedback Loop
 
-### "Regeneration attempts exhausted"
+If a section is weak, the Director sends targeted feedback:
 
-- Review diagnostic in quality-review.json
-- Consider adding more/different reference URLs
-- Clarify brand personality or avoid list
-- Manual editing of generated content may be needed
+```
+Your Golden Rules section needs improvement:
 
-## Best Practices
+ISSUE: Rules are too generic
+EXAMPLE: "Be authentic" could apply to any brand
+FIX: Make rules specific like "Always lead with ROI numbers"
 
-1. **Quality References:** Better input URLs = better output
-2. **Clear Context:** Be specific about personality and what to avoid
-3. **Review Scores:** Check voice-scores.json even for passing sections
-4. **Iterate:** Use the documentation as a starting point, refine as needed
+Please regenerate with this guidance.
+```
 
-## Time Estimate
+**Rules:**
+- Maximum 3 rounds per specialist
+- Feedback must be SPECIFIC
+- If still weak after 3 rounds, use best version
 
-- Reference analysis: 1-2 minutes per URL
-- Agent generation: 2-5 minutes (parallel)
-- Scoring: 1 minute
-- Regeneration (if needed): 2-3 minutes per section
+## Tips
 
-**Total:** Typically 10-15 minutes for complete documentation
+- **Better references = better output.** Include about pages, blog posts, social profiles.
+- **Be specific about personality.** "Friendly but expert" > "professional"
+- **Name your persona.** It helps create targeted examples.
+
+## What's NOT in the Output
+
+- JSON files (copywriters don't read JSON)
+- Detailed channel playbooks (one line is enough)
+- 8+ situational tone matrices (too granular)
+- Intermediate process files (all in memory)
+
+---
+
+*Voice Forge v2 - Multi-agent quality. Single-file simplicity.*

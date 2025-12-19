@@ -1,8 +1,9 @@
-# Create Design System Workflow Configuration
+# Create Design System Workflow Configuration v2
+# Multi-agent generation → Code exports + Single doc
 name: "create-design-system"
-description: "Full pipeline to create a comprehensive design system from brand inputs"
+description: "Create design system using 3 specialist agents with feedback loop"
 author: "Design System Forge"
-version: "1.0.0"
+version: "2.0.0"
 
 # Critical variables from config
 config_source: "{project-root}/bmad/design-system-forge/config.yaml"
@@ -12,29 +13,24 @@ date: system-generated
 
 # Module-specific config variables
 design_system_name: "{config_source}:design_system_name"
-tech_stack: "{config_source}:tech_stack"
-component_scope: "{config_source}:component_scope"
 output_folder: "{config_source}:output_folder"
-lightweight_mode: "{config_source}:lightweight_mode"
-essential_components: "{config_source}:essential_components"
+max_feedback_rounds: "{config_source}:max_feedback_rounds"
 
 # Input file paths
-brand_guide_path: "{config_source}:brand_guide_path"
 style_guide_path: "{config_source}:style_guide_path"
 color_palette_path: "{config_source}:color_palette_path"
-references_path: "{config_source}:references_path"
-logo_path: "{config_source}:logo_path"
 
 # Module path and component files
 installed_path: "{project-root}/bmad/design-system-forge/workflows/create-design-system"
 template: false
 instructions: "{installed_path}/instructions.md"
 
-# Output paths
-design_system_output: "{output_folder}/design-system"
-tokens_output: "{design_system_output}/tokens"
-components_output: "{design_system_output}/components"
-docs_output: "{design_system_output}/docs"
+# Output - Single folder with 3 files
+output_path: "{output_folder}/design-system"
+output_files:
+  tokens_css: "{output_path}/tokens.css"
+  tokens_json: "{output_path}/tokens.json"
+  documentation: "{output_path}/design-system.md"
 
 standalone: true
 
@@ -44,4 +40,12 @@ web_bundle:
   files:
     - "bmad/design-system-forge/workflows/create-design-system/workflow.yaml"
     - "bmad/design-system-forge/workflows/create-design-system/instructions.md"
+    - "bmad/design-system-forge/data/wcag-standards.md"
   existing_workflows: []
+
+# Architecture note
+# v2 changes:
+# - 3 specialists work in parallel (removed documentation-writer)
+# - Director reviews each output with feedback loop (max 3 rounds)
+# - Output: tokens.css, tokens.json, design-system.md
+# - Removed: individual component specs, multiple doc files

@@ -1,6 +1,10 @@
 # Design Token Specification
 
-Reference guide for creating and organizing design tokens across the style guide.
+Reference guide for understanding design token architecture and naming conventions.
+
+> **Note:** This is educational reference material. Style Guide Forge v2 outputs
+> design guidelines only (`style-guide.md`). For actual code exports (`tokens.css`,
+> `tokens.json`), use **design-system-forge**.
 
 ---
 

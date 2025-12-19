@@ -1,68 +1,49 @@
-# Voice Forge Module Installation Configuration
-# Interactive setup for brand voice documentation system
+# Voice Forge Module Installation Configuration v2
+# Multi-agent brand voice documentation → Single file output
+# Language: Portuguese BR only
 
 module:
   name: voice-forge
-  version: "1.0.0"
-  description: "Multi-agent brand voice documentation system with quality control"
+  version: "2.0.0"
+  description: "Multi-agent brand voice documentation with feedback loop → single file output"
   author: "BMAD"
   requires:
     - core
 
 welcome: |
-  Welcome to Voice Forge!
+  Welcome to Voice Forge v2!
 
   This module generates comprehensive brand voice documentation using 5 specialized
-  agents, each focusing on a different aspect of your voice guidelines.
+  agents working in parallel, with a feedback loop for quality control.
 
-  You'll provide reference URLs (competitors, brands you admire) and Voice Forge
-  will analyze them to create production-ready voice documentation.
+  Output: ONE file (voice-guide.md) that copywriters actually use daily.
+
+  Language: Portuguese BR only.
 
 # Interactive Configuration Fields
 fields:
   voice_output_folder:
-    prompt: "Where should Voice Forge save generated documentation?"
+    prompt: "Where should Voice Forge save the generated voice guide?"
     default: "{output_folder}/voice-forge"
     type: path
     result: "{value}"
 
-  quality_threshold:
-    prompt: "Minimum quality score required (0-100, recommended: 90)"
-    default: "90"
-    type: number
-    result: "{value}"
-
-  export_formats:
-    prompt: "Which export formats do you need?"
-    default: "all"
-    options:
-      - markdown
-      - json
-      - all
-    result: "{value}"
-
-  include_ai_guidelines:
-    prompt: "Include AI content generation guidelines?"
-    default: "true"
-    type: boolean
-    result: "{value}"
-
-  channels:
-    prompt: "Which channels should be covered? (comma-separated)"
-    default: "website,blog,instagram,linkedin,twitter,email_marketing,customer_support"
-    type: list
-    result: "{value}"
-
 # Static Configuration
 static:
-  max_regeneration_attempts:
-    result: "2"
+  max_feedback_rounds:
+    result: "3"
 
   min_reference_urls:
     result: "3"
 
   max_reference_urls:
-    result: "8"
+    result: "5"
+
+  content_language:
+    result: "pt-BR"
+
+  locale:
+    result: "Brazil"
 
 # Files to copy during installation
 files:
@@ -73,8 +54,6 @@ files:
     - lexicon-curator.agent.yaml
     - channel-specialist.agent.yaml
     - content-exemplar.agent.yaml
-    - voice-scorer.agent.yaml
-    - quality-reviewer.agent.yaml
 
   workflows:
     - generate-voice/workflow.yaml
@@ -86,19 +65,17 @@ files:
     - brand-archetypes.md
     - channel-conventions.md
     - tone-situations.md
-
-  templates:
-    - voice-document.md
-    - one-page-summary.md
+    - copywriter-standards.md
 
 # Post-install message
 complete: |
-  Voice Forge installed successfully!
+  Voice Forge v2 installed successfully!
 
   To get started:
   1. Launch the Voice Director: /bmad:voice-forge:agents:voice-director
   2. Use *generate to create voice documentation
-  3. Provide 3-8 reference URLs when prompted
+  3. Provide 3-5 reference URLs when prompted
 
-  The system will analyze your references and generate comprehensive
-  voice guidelines with a minimum 90% quality score.
+  Output: ONE file → voice-guide.md
+
+  Multi-agent quality. Single-file simplicity.

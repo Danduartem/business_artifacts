@@ -1,54 +1,60 @@
-# Style Guide Forge Configuration
-# This file controls the behavior of the Style Guide Director agent
+# Style Guide Forge Configuration v2
+# Multi-agent generation → Single-file output
+# Code exports (tokens.css, tailwind) handled by design-system-forge
 
-# User Settings (inherited from BMAD core)
+# User Settings
 user_name: "Daniel"
 communication_language: "English"
 
 # Output Settings
 style_guide_output_folder: "/Users/danielmenezes/coding/business-artifacts/output/style-guide-forge"
+output_file: "style-guide.md"
 
-# Export Settings
-export_formats: "css-tailwind"
-# Options: json-only | css-tailwind | all
+# Feedback Loop Settings
+max_feedback_rounds: 3
 
 # Input Paths (set during workflow or pre-configured)
 brand_guide_path: "/Users/danielmenezes/coding/business-artifacts/docs/context/design/oitavo-cafe-branding-guidelines.md"
 color_forge_palette_path: "/Users/danielmenezes/coding/business-artifacts/output/color-forge/palette-synthesized.json"
-# logo_path: "/path/to/logo.svg"
-# brand_assets_folder: "/path/to/brand-assets/"
 
 # Reference Sites (populated during workflow)
-# reference_sites:
-#   - "https://example1.com"
-#   - "https://example2.com"
+max_reference_urls: 5
+min_reference_urls: 1
 
 # Screenshot Settings
 screenshot_viewports:
   desktop: 1440
-  tablet: 768
   mobile: 375
 
 # Typography Settings
 typography_base_size: 16
 typography_scale_ratio: 1.25
-# Common ratios: 1.125 (minor second), 1.2 (minor third), 1.25 (major third), 1.333 (perfect fourth), 1.5 (perfect fifth)
+# Common ratios: 1.125 (minor second), 1.2 (minor third), 1.25 (major third), 1.333 (perfect fourth)
 
 # Spacing Settings
 spacing_base_unit: 8
 # 8pt grid system - all spacing values are multiples of this
 
-# Accessibility Settings
-wcag_level: "AA"
-# Options: AA | AAA
+# Specialist Agents (5)
+specialists:
+  - brand-translator
+  - reference-analyzer
+  - foundations-architect
+  - component-designer
+  - interaction-designer
 
-# Component Documentation Depth
-component_depth: "comprehensive"
-# Options: guidelines-only | essential | comprehensive
+# Output Sections (compiled into single file)
+output_sections:
+  - design_principles
+  - brand_foundation
+  - visual_direction
+  - color_guidelines
+  - typography_guidelines
+  - spacing_layout
+  - component_principles
+  - motion_principles
+  - accessibility_checklist
 
-# Motion/Interaction
-include_motion_guidelines: true
-
-# Design Forge Integration
-design_forge_config: "/Users/danielmenezes/coding/business-artifacts/bmad/design-forge/config.yaml"
+# Integration (for design-system-forge)
+design_system_forge_config: "/Users/danielmenezes/coding/business-artifacts/bmad/design-system-forge/config.yaml"
 color_forge_config: "/Users/danielmenezes/coding/business-artifacts/bmad/color-forge/config.yaml"
