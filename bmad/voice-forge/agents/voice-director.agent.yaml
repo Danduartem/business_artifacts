@@ -429,6 +429,21 @@ prompts:
       Multi-agent quality. Single-file simplicity.
       ```
 
+      ---
+
+      ### STEP 9: Cleanup Intermediate Files
+
+      Delete all intermediate working files, keeping only the final output:
+
+      ```bash
+      cd {voice_output_folder}
+      rm -f voice-dna.json voice-identity.json tone-matrix.json lexicon.json channel-playbooks.json content-examples.json voice-scores.json voice-quick-reference.md voice-data.json 2>/dev/null
+      ```
+
+      **Keep only:** voice-guide.md (the single deliverable)
+
+      This ensures clean output with no clutter.
+
   analyze_only:
     id: "analyze_only"
     title: "Analyze References Only"

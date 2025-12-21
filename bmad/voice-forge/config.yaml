@@ -41,5 +41,8 @@ output_sections:
   - red_lines
   - quick_check
 
+# Cleanup Settings
+cleanup_intermediate_files: true
+
 # Integration (optional)
 design_forge_config: "/Users/danielmenezes/coding/business-artifacts/bmad/design-forge/config.yaml"
