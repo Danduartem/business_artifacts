@@ -1,0 +1,221 @@
+<task id="bmad/institutional-architect/tasks/credibility-validation-framework.xml" name="Credibility Validation Framework" standalone="false">
+  <objective>Run two-layer validation on institutional architecture blueprints (internal agent review + user confirmation)</objective>
+
+  <llm critical="true">
+    <mandate>Execute both validation layers systematically - credibility quality AND contextual accuracy</mandate>
+    <mandate>Flag issues clearly and provide specific recommendations</mandate>
+    <mandate>Validate against Stanford Credibility Guidelines and Trust Signal Framework</mandate>
+  </llm>
+
+  <inputs>
+    <input name="architecture_blueprint" required="true">The complete architecture with all sections</input>
+    <input name="organizational_context" required="true">Original organization context from intake</input>
+    <input name="matrix_analysis" required="true">3D Trust Matrix position and requirements</input>
+    <input name="stakeholder_analysis" required="true">Stakeholder insights from The Audience Oracle</input>
+    <input name="sector_research" required="true">Research findings from Sector Cipher</input>
+  </inputs>
+
+  <layer-1 title="Internal Agent Validation - Credibility Quality">
+    <description>Simulate each specialist agent reviewing the blueprint against their expertise area</description>
+
+    <agent name="The Audience Oracle" role="Stakeholder Resonance Validator">
+      <check priority="critical">Does architecture serve all primary stakeholders?</check>
+      <check priority="critical">Are stakeholder conflicts appropriately resolved?</check>
+      <check priority="critical">Will each key audience find what they need?</check>
+      <check priority="high">Are stakeholder pathways clear and accessible?</check>
+      <check priority="high">Is information depth appropriate for each audience?</check>
+      <check priority="medium">Are secondary stakeholders adequately served?</check>
+
+      <validation-criteria>
+        <pass>All primary stakeholders have clear pathways</pass>
+        <pass>Stakeholder conflicts resolved with appropriate trade-offs</pass>
+        <pass>No audience inadvertently alienated</pass>
+        <flag>Missing stakeholder considerations</flag>
+        <flag>Unclear audience pathways</flag>
+        <flag>Conflicting messages for different audiences</flag>
+      </validation-criteria>
+    </agent>
+
+    <agent name="Trust Guardian" role="Credibility Science Validator">
+      <check priority="critical">Are Stanford Web Credibility Guidelines addressed?</check>
+      <check priority="critical">Is trust signal density appropriate for trust level?</check>
+      <check priority="critical">Is credibility built progressively through the page?</check>
+      <check priority="high">Are all 6 trust signal categories considered?</check>
+      <check priority="high">Is proof appropriate for claims made?</check>
+      <check priority="medium">Are potential trust-breakers avoided?</check>
+
+      <stanford-guidelines-check>
+        <guideline n="1">Accuracy verifiable (citations, sources)?</guideline>
+        <guideline n="2">Real organization shown (address, photos)?</guideline>
+        <guideline n="3">Expertise highlighted?</guideline>
+        <guideline n="4">Trustworthy people visible?</guideline>
+        <guideline n="5">Contact easy to find?</guideline>
+        <guideline n="6">Design professional?</guideline>
+        <guideline n="7">Useful and easy to use?</guideline>
+        <guideline n="8">Content appears updated?</guideline>
+        <guideline n="9">Promotional restraint shown?</guideline>
+        <guideline n="10">Error-free appearance?</guideline>
+      </stanford-guidelines-check>
+
+      <validation-criteria>
+        <pass>Stanford guidelines appropriately addressed for trust level</pass>
+        <pass>Trust signals match matrix requirements</pass>
+        <pass>Progressive credibility building evident</pass>
+        <flag>Stanford guideline violations</flag>
+        <flag>Insufficient trust signals for trust level</flag>
+        <flag>Claims without adequate proof</flag>
+      </validation-criteria>
+    </agent>
+
+    <agent name="Sector Cipher" role="Sector Credibility Validator">
+      <check priority="critical">Does architecture match sector credibility expectations?</check>
+      <check priority="high">Are sector best practices incorporated?</check>
+      <check priority="high">Is credibility differentiation clear?</check>
+      <check priority="medium">Are identified gaps leveraged for advantage?</check>
+
+      <validation-criteria>
+        <pass>Sector credibility patterns incorporated</pass>
+        <pass>Differentiation strategy evident</pass>
+        <pass>Competitive gaps addressed</pass>
+        <flag>Architecture below sector standards</flag>
+        <flag>Missing opportunities to stand out on credibility</flag>
+        <flag>Too similar to sector generic approach</flag>
+      </validation-criteria>
+    </agent>
+
+    <agent name="Narrative Architect" role="Trust Journey Validator">
+      <check priority="critical">Does narrative flow create cohesive trust journey?</check>
+      <check priority="critical">Does each section build on previous sections?</check>
+      <check priority="high">Is progressive revelation respected?</check>
+      <check priority="high">Is the trust arc clear and intentional?</check>
+      <check priority="medium">Are transitions between sections smooth?</check>
+
+      <validation-criteria>
+        <pass>Clear trust journey from start to finish</pass>
+        <pass>Progressive trust building maintains engagement</pass>
+        <pass>Logical connections between sections</pass>
+        <pass>Each section strengthens overall credibility</pass>
+        <flag>Narrative gaps or disconnects</flag>
+        <flag>Trust momentum loss at any point</flag>
+        <flag>Sections feel disjointed or random</flag>
+      </validation-criteria>
+    </agent>
+
+    <agent name="Content Compass" role="Content Strategy Validator">
+      <check priority="high">Does content hierarchy serve both users and SEO?</check>
+      <check priority="high">Is page connected to broader content ecosystem?</check>
+      <check priority="medium">Are internal linking opportunities identified?</check>
+      <check priority="medium">Is content depth appropriate for page type?</check>
+
+      <validation-criteria>
+        <pass>Content hierarchy clear and logical</pass>
+        <pass>SEO structure sound</pass>
+        <pass>Connection to content ecosystem evident</pass>
+        <flag>Missed SEO opportunities</flag>
+        <flag>Isolated page without ecosystem connection</flag>
+      </validation-criteria>
+    </agent>
+
+    <synthesis>
+      <action>Compile all agent feedback</action>
+      <action>Identify critical issues requiring immediate fix</action>
+      <action>Identify high-priority recommendations</action>
+      <action>If critical issues exist, refine blueprint before Layer 2</action>
+      <action>If all clear, proceed to user validation</action>
+    </synthesis>
+  </layer-1>
+
+  <layer-2 title="User Confirmation Checkpoints - Contextual Accuracy">
+    <description>Present architecture to user with strategic validation questions</description>
+
+    <checkpoint n="1" focus="Strategic Approach Alignment">
+      <question>Present the overall strategic approach and lead section:
+
+"This architecture leads with [APPROACH] because [STRATEGIC REASON based on matrix/stakeholders/research].
+
+Does this feel right for how you want your organization perceived?"
+      </question>
+
+      <listen-for>
+        <signal type="green">Enthusiastic agreement or "that's exactly right"</signal>
+        <signal type="yellow">Hesitation or "maybe" responses</signal>
+        <signal type="red">Strong disagreement or "that won't work because..."</signal>
+      </listen-for>
+
+      <action>If yellow or red signal, probe deeper:
+- "What feels off about this approach?"
+- "What do you know about your organization that we might be missing?"
+- "How would you prefer to lead?"
+      </action>
+    </checkpoint>
+
+    <checkpoint n="2" focus="Stakeholder Priority Validation">
+      <question>Validate stakeholder prioritization:
+
+"We've prioritized [PRIMARY STAKEHOLDER] for this page because [RATIONALE from The Audience Oracle].
+
+Does this match your audience priority for this page?"
+      </question>
+
+      <listen-for>
+        <signal type="green">"Yes, that's exactly who this page is for"</signal>
+        <signal type="yellow">"Sort of, but we also need to serve..."</signal>
+        <signal type="red">"No, the primary audience is actually..."</signal>
+      </listen-for>
+
+      <action>If misalignment detected:
+- Capture the real stakeholder priority
+- Adjust architecture to reflect true audience focus
+- Re-validate with The Audience Oracle logic
+      </action>
+    </checkpoint>
+
+    <checkpoint n="3" focus="Trust Signal Approach">
+      <question>Confirm trust signal strategy:
+
+"The trust-building strategy emphasizes [SIGNALS] because [SECTOR RESEARCH and MATRIX POSITION].
+
+Does this align with your credibility assets and positioning goals?"
+      </question>
+
+      <listen-for>
+        <signal type="green">"Perfect, that's our strength"</signal>
+        <signal type="yellow">"Maybe, but I'm not sure we have..."</signal>
+        <signal type="red">"Actually, our credibility comes from..."</signal>
+      </listen-for>
+
+      <action>If concerns raised:
+- Understand their actual credibility assets better
+- Adjust trust signal approach accordingly
+- Ensure we're building on real strengths, not assumed ones
+      </action>
+    </checkpoint>
+
+    <iteration>
+      <rule>If user identifies misalignments in any checkpoint:</rule>
+      <action>Discuss the concern to understand context</action>
+      <action>Capture insights they have that agents didn't</action>
+      <action>Refine blueprint to incorporate new understanding</action>
+      <action>Re-run Layer 1 validation on changes</action>
+      <action>Present refined version to user</action>
+      <action>Iterate until user confirms alignment</action>
+    </iteration>
+  </layer-2>
+
+  <outputs>
+    <output name="validation_results">Complete validation report from both layers</output>
+    <output name="layer_1_feedback">Individual agent feedback and checks</output>
+    <output name="layer_2_confirmations">User checkpoint responses</output>
+    <output name="flagged_issues">Any critical or high-priority issues found</output>
+    <output name="recommendations">Specific improvements suggested</output>
+    <output name="final_status">Pass | Pass with recommendations | Needs revision</output>
+  </outputs>
+
+  <validation>
+    <check>Both layers executed completely</check>
+    <check>All agent validations documented</check>
+    <check>All user checkpoints addressed</check>
+    <check>Any issues either resolved or documented</check>
+    <check>Final architecture approved by user</check>
+  </validation>
+</task>

@@ -1,0 +1,215 @@
+<task id="bmad/institutional-architect/tasks/sector-research-protocol.xml" name="Sector Research Protocol" standalone="false">
+  <objective>Structured research methodology for Sector Cipher to analyze sector credibility patterns and institutional benchmarks</objective>
+
+  <llm critical="true">
+    <mandate>Research must be specific, tactical, and actionable - not vague observations</mandate>
+    <mandate>Focus on what builds CREDIBILITY in this sector, not conversion</mandate>
+    <mandate>Identify both what to emulate AND what to differentiate from</mandate>
+  </llm>
+
+  <inputs>
+    <input name="organization_type" required="true">B2B | B2C | Nonprofit | Government | Hybrid</input>
+    <input name="industry_sector" required="true">Specific industry/sector (e.g., healthcare, tech, finance)</input>
+    <input name="page_type" required="true">Which institutional page is being designed</input>
+    <input name="known_competitors" required="false">Any specific organizations user mentioned</input>
+    <input name="research_depth" required="false">Quick (top 3-5) | Standard (top 10) | Comprehensive (top 20)</input>
+  </inputs>
+
+  <research-protocol>
+    <phase n="1" title="Identify Top Credibility Performers">
+      <action>Based on sector and organization type, identify top-credibility organizations:
+
+- If user provided organizations, analyze those plus identify additional benchmarks
+- Look for organizations with strong reputation and trust indicators
+- Mix of direct competitors and aspirational credibility benchmarks
+- Aim for diversity: different sizes, approaches, trust strategies
+      </action>
+
+      <research-depth-guide>
+        <quick>Analyze top 3-5 organizations (15-20 minutes)</quick>
+        <standard>Analyze top 10 organizations (30-40 minutes) - RECOMMENDED</standard>
+        <comprehensive>Analyze top 20 organizations (60+ minutes)</comprehensive>
+      </research-depth-guide>
+
+      <output>List of organizations being analyzed for credibility patterns</output>
+    </phase>
+
+    <phase n="2" title="Institutional Page Architecture Analysis">
+      <action>For each organization, document their institutional page architecture:
+
+**Section Analysis:**
+- What sections do they include on this page type?
+- What order/sequence?
+- What comes first (identity, mission, proof)?
+- Where do they place trust signals?
+- How do they humanize the organization?
+- How many sections total?
+
+**Credibility Pattern Identification:**
+- What patterns appear across multiple organizations?
+- What seems to be "table stakes" for credibility in this sector?
+- What unique approaches stand out?
+- What sections are universally present?
+- What varies most between organizations?
+      </action>
+
+      <specific-elements-to-note>
+        <element>Hero/identity approach (mission-focused, story-focused, impact-focused)</element>
+        <element>Trust signal placement and format (certifications, logos, testimonials)</element>
+        <element>Team/leadership presentation style</element>
+        <element>Contact accessibility approach</element>
+        <element>Values communication method</element>
+        <element>Stakeholder pathway clarity</element>
+      </specific-elements-to-note>
+
+      <output>Architecture pattern summary by section type</output>
+    </phase>
+
+    <phase n="3" title="What Builds Credibility in This Sector">
+      <action>Synthesize patterns to identify sector-specific credibility practices:
+
+**High-Confidence Patterns** (appear in 70%+ of high-credibility orgs):
+- These are likely required for sector credibility
+- Recommend including unless there's strategic reason not to
+
+**Common Patterns** (appear in 40-70% of high-credibility orgs):
+- These are standard but not universal
+- Consider for inclusion based on strategy
+
+**Unique Approaches** (appear in &lt;40% but from highest credibility orgs):
+- These might be differentiation opportunities
+- Evaluate for strategic fit
+      </action>
+
+      <sector-characteristics>
+        <identify>What trust signals matter most in this sector?</identify>
+        <identify>What's the typical depth of organizational transparency?</identify>
+        <identify>How technical vs. accessible is the typical approach?</identify>
+        <identify>What proof types matter most (certifications, awards, testimonials)?</identify>
+        <identify>How do high-credibility orgs present their teams?</identify>
+      </sector-characteristics>
+
+      <output>Sector-specific credibility patterns and best practices</output>
+    </phase>
+
+    <phase n="4" title="Credibility Differentiation Gap Analysis">
+      <action>Identify what organizations are NOT doing well or consistently:
+
+**Common Weaknesses:**
+- What do most organizations do poorly on their institutional pages?
+- Where are there obvious credibility gaps?
+- What stakeholder needs go unaddressed?
+- What sections feel weak, generic, or inauthentic?
+
+**Saturation Points:**
+- What approaches are so common they no longer build trust?
+- What messaging is so overused it feels hollow?
+- Where does everyone look the same?
+
+**Opportunities:**
+- Where can the user's organization stand out on credibility?
+- What gaps can be filled for trust advantage?
+- What approaches are underutilized despite being effective?
+      </action>
+
+      <specific-gaps-to-identify>
+        <gap-type>Missing humanization (faceless organization)</gap-type>
+        <gap-type>Weak contact accessibility</gap-type>
+        <gap-type>Generic mission/values (sounds like everyone)</gap-type>
+        <gap-type>Poor stakeholder pathways (unclear who page is for)</gap-type>
+        <gap-type>Insufficient proof for claims made</gap-type>
+        <gap-type>Outdated content (signals neglect)</gap-type>
+      </specific-gaps-to-identify>
+
+      <output>Differentiation opportunities and credibility gaps</output>
+    </phase>
+
+    <phase n="5" title="Sector Benchmark Data">
+      <action>Provide credibility context for this sector:
+
+**Credibility Benchmarks:**
+- Typical content depth for institutional pages in this sector
+- What high-credibility organizations include that others don't
+- What factors separate high from average credibility perception
+
+**Success Indicators:**
+- What signals strong institutional credibility in this sector?
+- What metrics matter for page effectiveness?
+- What should user track post-launch?
+      </action>
+
+      <benchmark-areas>
+        <area>Content depth expectations (word count, section count)</area>
+        <area>Trust signal density norms (how many certifications, testimonials)</area>
+        <area>Team presentation expectations (full bios, photos, credentials)</area>
+        <area>Contact accessibility standards (response time, channels)</area>
+        <area>Update frequency expectations (how often content refreshed)</area>
+      </benchmark-areas>
+
+      <output>Sector-specific credibility benchmarks and expectations</output>
+    </phase>
+
+    <phase n="6" title="Strategic Intelligence Briefing">
+      <action>Compile findings into actionable intelligence report:
+
+**Executive Summary:**
+- [3-5 key insights about credibility in this sector]
+
+**Architecture Intelligence:**
+- Must-have sections for sector credibility
+- Common patterns to consider
+- Unique approaches to evaluate
+
+**Differentiation Strategy:**
+- Where competitors are weak on credibility
+- What's oversaturated (avoid copying)
+- Where to stand out on trust
+
+**Benchmarks:**
+- Expected content depth and signals
+- Key credibility indicators
+
+**Tactical Recommendations:**
+- Specific architecture suggestions based on research
+- What to emulate from high-credibility organizations
+- What to do differently for credibility advantage
+      </action>
+
+      <presentation-style>
+Present findings in Sector Cipher's voice:
+- "I've decoded the credibility patterns in [sector]..."
+- "Your competitors all [pattern], but here's the gap..."
+- "Based on analyzing [X] high-credibility organizations, here's what builds trust..."
+- Tactical, confident, intelligence-focused
+      </presentation-style>
+
+      <output>Complete sector credibility intelligence briefing</output>
+    </phase>
+  </research-protocol>
+
+  <outputs>
+    <output name="organizations_analyzed">List of organizations researched</output>
+    <output name="architecture_patterns">Section patterns across organizations</output>
+    <output name="sector_best_practices">What builds credibility in this sector</output>
+    <output name="differentiation_opportunities">Credibility gaps and opportunities</output>
+    <output name="benchmark_data">Sector expectations and metrics</output>
+    <output name="intelligence_briefing">Complete tactical intelligence report</output>
+  </outputs>
+
+  <quality-standards>
+    <standard>Every insight must be specific and actionable</standard>
+    <standard>Patterns must be documented with frequency data</standard>
+    <standard>Differentiation opportunities must be concrete</standard>
+    <standard>Benchmarks must include ranges and context</standard>
+    <standard>Recommendations must connect research to credibility outcomes</standard>
+  </quality-standards>
+
+  <validation>
+    <check>Minimum organization count met for research depth</check>
+    <check>All phases executed completely</check>
+    <check>Patterns identified with specificity (not vague)</check>
+    <check>Differentiation strategy is actionable</check>
+    <check>Benchmarks provided with context</check>
+    <check>Intelligence briefing is tactical and credibility-focused</check>
+  </validation>
+</task>

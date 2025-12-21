@@ -1,0 +1,317 @@
+<task id="bmad/institutional-architect/tasks/trust-matrix-calculator.xml" name="Trust Matrix Calculator" standalone="false">
+  <objective>Calculate architecture requirements based on 3D Trust Matrix position (Organization Type × Maturity Stage × Trust Requirements)</objective>
+
+  <llm critical="true">
+    <mandate>Apply the 3D Trust Matrix logic systematically to determine optimal institutional page architecture</mandate>
+    <mandate>Section count and trust signal emphasis must match the matrix position exactly</mandate>
+    <mandate>Unlike landing pages, institutional pages build TRUST, not conversion urgency</mandate>
+  </llm>
+
+  <inputs>
+    <input name="organization_type" required="true">B2B | B2C | Nonprofit | Government | Hybrid</input>
+    <input name="maturity_stage" required="true">Startup | Growth | Established | Enterprise | Heritage</input>
+    <input name="trust_requirements" required="true">Low | Medium | High | Regulated</input>
+    <input name="page_type" required="true">homepage | about | team | contact | mission-values | careers | faq | partners | blog</input>
+  </inputs>
+
+  <logic>
+    <step n="1" title="Determine Page Tier">
+      <rule>Classify page type into tiers for baseline requirements:</rule>
+      <mapping>
+        <tier level="1" name="Core">homepage, about, contact, team (fundamental trust pages)</tier>
+        <tier level="2" name="Common">mission-values, careers, faq, partners (extended trust pages)</tier>
+        <tier level="3" name="Content">blog (authority-building content pages)</tier>
+      </mapping>
+    </step>
+
+    <step n="2" title="Calculate Base Section Count by Page Type">
+      <rule>Start with baseline section count based on page type:</rule>
+      <mapping>
+        <page type="homepage">Base: 5-8 sections (hero/identity, value proposition, services overview, trust signals, about teaser, team teaser, CTA, contact preview)</page>
+        <page type="about">Base: 6-10 sections (story, mission, team teaser, values, proof, contact)</page>
+        <page type="team">Base: 4-7 sections (intro, team grid, leadership, culture, join us)</page>
+        <page type="contact">Base: 3-5 sections (intro, methods, locations, FAQ, form)</page>
+        <page type="mission-values">Base: 5-8 sections (mission statement, values, story, impact, commitment)</page>
+        <page type="careers">Base: 6-9 sections (culture, openings, benefits, process, team, testimonials)</page>
+        <page type="faq">Base: 4-6 sections (categories, questions, contact, resources)</page>
+        <page type="partners">Base: 4-6 sections (intro, logo grid, testimonials, become partner)</page>
+        <page type="blog">Base: 5-7 sections (header, content, author, related, CTA, comments)</page>
+      </mapping>
+    </step>
+
+    <step n="3" title="Adjust for Trust Requirements">
+      <rule>Trust level affects depth and verification requirements:</rule>
+      <adjustment>
+        <trust level="low">-1 to -2 sections (lighter touch, known brand)</trust>
+        <trust level="medium">Standard counts (baseline proof needed)</trust>
+        <trust level="high">+2 to +3 sections (extensive verification, compliance)</trust>
+        <trust level="regulated">+3 to +5 sections (mandatory disclosures, governance)</trust>
+      </adjustment>
+    </step>
+
+    <step n="4" title="Adjust for Maturity Stage">
+      <rule>Maturity affects available proof and story focus:</rule>
+      <adjustment>
+        <maturity stage="startup">Focus: Founder credibility, vision, early wins. +1-2 founder/vision sections</maturity>
+        <maturity stage="growth">Focus: Traction, team expansion, customer success. Standard with growth proof</maturity>
+        <maturity stage="established">Focus: Track record, innovation, market leadership. +1 legacy/awards section</maturity>
+        <maturity stage="enterprise">Focus: Governance, stability, social responsibility. +2 governance/compliance sections</maturity>
+        <maturity stage="heritage">Focus: Legacy + modernity, evolution story. +2 history/evolution sections</maturity>
+      </adjustment>
+    </step>
+
+    <step n="5" title="Determine Required Section Types by Matrix Position">
+      <action>Based on matrix position, specify which section types are required:</action>
+
+      <organization-type-sections>
+        <if condition="B2B">
+          <required>Expertise Signals</required>
+          <required>Case Studies / Client Results</required>
+          <required>Industry Authority</required>
+        </if>
+        <if condition="B2C">
+          <required>Values Alignment</required>
+          <required>Social Proof (reviews, testimonials)</required>
+          <required>Relatable Story</required>
+        </if>
+        <if condition="Nonprofit">
+          <required>Impact Metrics</required>
+          <required>Transparency Report</required>
+          <required>Mission Clarity</required>
+        </if>
+        <if condition="Government">
+          <required>Accessibility Statement</required>
+          <required>Compliance Information</required>
+          <required>Service Directory</required>
+        </if>
+        <if condition="Hybrid">
+          <required>Segmented Messaging</required>
+          <required>Multiple Stakeholder Paths</required>
+        </if>
+      </organization-type-sections>
+
+      <trust-level-sections>
+        <if condition="high">
+          <required>Verification/Certification Badges</required>
+          <required>Third-Party Validation</required>
+          <required>Detailed Contact/Location</required>
+          <required>Leadership Credentials</required>
+        </if>
+        <if condition="regulated">
+          <required>Compliance Statements</required>
+          <required>Governance Documentation</required>
+          <required>Audit/Accreditation Info</required>
+          <required>Legal Disclosures</required>
+        </if>
+        <if condition="medium">
+          <required>Contact Information</required>
+          <required>Social Proof</required>
+        </if>
+        <if condition="low">
+          <optional>Light Social Proof</optional>
+        </if>
+      </trust-level-sections>
+
+      <maturity-based-sections>
+        <if condition="startup">
+          <required>Founder Story</required>
+          <required>Vision Statement</required>
+          <optional>Early Wins / Beta Success</optional>
+        </if>
+        <if condition="growth">
+          <required>Growth Metrics</required>
+          <required>Team Expansion Story</required>
+        </if>
+        <if condition="established">
+          <required>Track Record</required>
+          <required>Awards / Recognition</required>
+        </if>
+        <if condition="enterprise">
+          <required>Leadership Team</required>
+          <required>Governance Structure</required>
+        </if>
+        <if condition="heritage">
+          <required>History Timeline</required>
+          <required>Evolution Story</required>
+          <required>Modern Relevance</required>
+        </if>
+      </maturity-based-sections>
+
+      <universal-sections>
+        <required>Clear Identity Statement</required>
+        <required>Contact Accessibility</required>
+        <required>Professional Design Signals</required>
+      </universal-sections>
+
+      <page-type-specific-sections>
+        <if condition="homepage">
+          <above-the-fold-requirements critical="true">
+            <requirement>Hero with Identity + Value Prop + Single Primary CTA</requirement>
+            <requirement>5-SECOND CLARITY: Visitor must understand who you are and what you do</requirement>
+            <requirement>Trust signals visible WITHOUT scrolling (logos, numbers, badges)</requirement>
+            <requirement>Single primary CTA in hero (not multiple competing CTAs)</requirement>
+            <requirement>Headline must be SPECIFIC to your business (not generic)</requirement>
+            <timing>First impression forms in 50 milliseconds; value prop must be clear in 5 seconds</timing>
+          </above-the-fold-requirements>
+
+          <required-sections>
+            <section priority="1">Hero: Identity + Specific Value Prop + Primary CTA</section>
+            <section priority="2">Trust Signals (logos, numbers, results - ABOVE FOLD)</section>
+            <section priority="3">Services/Offerings Overview (what you offer)</section>
+            <section priority="4">Social Proof (testimonials with SPECIFIC results)</section>
+            <section priority="5">Stakeholder Pathways (clear navigation for different audiences)</section>
+          </required-sections>
+
+          <optional-sections>
+            <section>About Teaser (brief story, links to full About)</section>
+            <section>Team Teaser (faces, human element)</section>
+            <section>Process/How It Works (if complex offering)</section>
+            <section>Secondary CTA (after scroll, for those not ready for primary)</section>
+          </optional-sections>
+
+          <anti-patterns critical="true">
+            <avoid reason="Research shows this is #1 B2B mistake">Self-focused messaging ("We do X" instead of "You get Y")</avoid>
+            <avoid reason="Generic headlines could apply to any company">Vague headlines: "Innovative solutions for your success"</avoid>
+            <avoid reason="Confuses visitors, reduces conversion">Multiple competing CTAs in hero section</avoid>
+            <avoid reason="Leads to high bounce rate">Content overload - too much text above fold</avoid>
+            <avoid reason="Says nothing specific">Corporate jargon: "synergy", "leverage", "holistic solutions"</avoid>
+            <avoid reason="Buries key information">Important trust signals below the fold</avoid>
+            <avoid reason="58%+ of B2B searches start mobile">Ignoring mobile experience</avoid>
+            <avoid reason="1 second delay = 7-20% conversion drop">Slow page load (must be under 3 seconds)</avoid>
+          </anti-patterns>
+
+          <homepage-principles>
+            <principle>BREADTH not DEPTH - tease what other pages explore fully</principle>
+            <principle>Benefit-focused language over feature lists</principle>
+            <principle>Headline: 6-10 words maximum for clarity</principle>
+            <principle>One crystal-clear primary CTA in hero</principle>
+            <principle>Trust signals as supporting proof, not main show</principle>
+            <principle>Mobile-first design (60%+ of B2B searches start mobile)</principle>
+            <principle>Speed matters: optimize for Core Web Vitals</principle>
+          </homepage-principles>
+
+          <challenger-brand-considerations>
+            <note>For challenger/irreverent brands (like Oatly-style positioning):</note>
+            <guideline>Challenge the INDUSTRY, never the customer</guideline>
+            <guideline>Use smart humor, not gimmicks</guideline>
+            <guideline>Provocative headlines that differentiate from bland competitors</guideline>
+            <guideline>Back up irreverence with real proof and results</guideline>
+            <guideline>The "enemy" is the status quo, not specific competitors</guideline>
+          </challenger-brand-considerations>
+        </if>
+      </page-type-specific-sections>
+    </step>
+
+    <step n="6" title="Define Trust Signal Emphasis">
+      <action>Determine what trust signals should be emphasized based on matrix:</action>
+
+      <organization-type-emphasis>
+        <if condition="B2B">Emphasize: Expertise, capability, stability, results</if>
+        <if condition="B2C">Emphasize: Relatability, values alignment, social proof, accessibility</if>
+        <if condition="Nonprofit">Emphasize: Impact, transparency, mission alignment, accountability</if>
+        <if condition="Government">Emphasize: Compliance, accessibility, service clarity, accountability</if>
+        <if condition="Hybrid">Emphasize: Segmented trust signals for each audience</if>
+      </organization-type-emphasis>
+
+      <trust-level-emphasis>
+        <if condition="regulated">Emphasize: Compliance, verification, documentation, accountability</if>
+        <if condition="high">Emphasize: Third-party validation, credentials, detailed proof</if>
+        <if condition="medium">Emphasize: Social proof, contact accessibility, professionalism</if>
+        <if condition="low">Emphasize: Clean design, basic professionalism, easy contact</if>
+      </trust-level-emphasis>
+
+      <maturity-emphasis>
+        <if condition="startup">Emphasize: Founder credibility, vision, early validation</if>
+        <if condition="growth">Emphasize: Traction, team strength, customer success</if>
+        <if condition="established">Emphasize: Track record, innovation, market position</if>
+        <if condition="enterprise">Emphasize: Governance, stability, scale, responsibility</if>
+        <if condition="heritage">Emphasize: Legacy + evolution, enduring relevance</if>
+      </maturity-emphasis>
+    </step>
+
+    <step n="7" title="Sequence Principles for Institutional Pages">
+      <action>Define how sections should be ordered for trust-building:</action>
+
+      <sequencing-rules>
+        <rule>Start with immediate organizational clarity (Who we are)</rule>
+        <rule>Establish human presence early (People behind the organization)</rule>
+        <rule>Progressive trust deepening (General → Specific)</rule>
+        <rule>Values before proof (Why we exist → Evidence we deliver)</rule>
+        <rule>Stakeholder pathways clear (Multiple audiences can self-select)</rule>
+        <rule>Contact accessibility throughout (Never hide it)</rule>
+        <rule>Trust signals woven in, not bolted on (Integrated, not sections)</rule>
+      </sequencing-rules>
+
+      <homepage-specific-sequencing>
+        <rule priority="critical">Hero must establish identity in 5 seconds (who + what + for whom)</rule>
+        <rule priority="critical">Trust signals visible above the fold (don't make them scroll for credibility)</rule>
+        <rule priority="critical">Single primary CTA in hero - ONE clear action</rule>
+        <rule>Value proposition before services (why before what)</rule>
+        <rule>Benefit-focused language ("You get X") not feature-focused ("We do X")</rule>
+        <rule>Clear pathways for each stakeholder type (navigation as trust signal)</rule>
+        <rule>Tease depth, don't replicate it (link to About, Team, etc.)</rule>
+        <rule>Social proof with SPECIFIC results (not generic praise)</rule>
+        <rule>End with clear next steps (not dead end)</rule>
+        <rule>Contact always accessible (header, footer, or floating)</rule>
+        <rule>Mobile-first: design for thumb navigation and smaller screens first</rule>
+      </homepage-specific-sequencing>
+
+      <homepage-cta-hierarchy>
+        <primary location="hero">Single, clear CTA above fold - the ONE thing you want them to do</primary>
+        <secondary location="after-scroll">For visitors not ready for primary - lower commitment option</secondary>
+        <tertiary location="footer">Contact, navigation to other pages</tertiary>
+        <anti-pattern>Never put multiple competing CTAs in the hero section</anti-pattern>
+      </homepage-cta-hierarchy>
+
+      <mobile-first-requirements>
+        <requirement>60%+ of B2B searches start on mobile - design mobile-first</requirement>
+        <requirement>Touch-friendly buttons (minimum 44x44px tap targets)</requirement>
+        <requirement>Readable without zooming (16px minimum font)</requirement>
+        <requirement>Critical content visible without horizontal scroll</requirement>
+        <requirement>Fast load time (under 3 seconds on 3G)</requirement>
+        <requirement>Core Web Vitals optimized (LCP, FID, CLS)</requirement>
+      </mobile-first-requirements>
+    </step>
+
+    <step n="8" title="Stanford Credibility Guidelines Mapping">
+      <action>Map which Stanford guidelines are most critical for this matrix position:</action>
+
+      <guideline-priority>
+        <for trust-level="high|regulated">
+          <priority-1>Make accuracy verifiable (citations, evidence)</priority-1>
+          <priority-1>Show real organization (address, photos, people)</priority-1>
+          <priority-1>Highlight expertise (credentials, experience)</priority-1>
+          <priority-2>Make contact easy (multiple channels)</priority-2>
+        </for>
+        <for trust-level="medium">
+          <priority-1>Design professionally (visual credibility)</priority-1>
+          <priority-1>Show real organization</priority-1>
+          <priority-2>Make contact easy</priority-2>
+        </for>
+        <for trust-level="low">
+          <priority-1>Design professionally</priority-1>
+          <priority-2>Be useful and easy to use</priority-2>
+        </for>
+      </guideline-priority>
+    </step>
+  </logic>
+
+  <outputs>
+    <output name="page_tier">Page tier classification (1, 2, or 3)</output>
+    <output name="section_count_range">Final calculated section count (e.g., "7-9 sections")</output>
+    <output name="required_sections">List of specific section types needed for this matrix position</output>
+    <output name="trust_signal_emphasis">What trust signals should be prioritized</output>
+    <output name="sequence_principles">Ordering guidelines specific to this matrix position</output>
+    <output name="stanford_priorities">Which Stanford guidelines are most critical</output>
+    <output name="matrix_summary">Clear explanation of how this matrix position determines architecture</output>
+  </outputs>
+
+  <validation>
+    <check>Section count is appropriate for page type and trust level</check>
+    <check>All universal sections included</check>
+    <check>Organization-type-specific sections present</check>
+    <check>Trust-level-appropriate verification specified</check>
+    <check>Maturity-appropriate proof types defined</check>
+    <check>Stanford guidelines priority mapped</check>
+  </validation>
+</task>

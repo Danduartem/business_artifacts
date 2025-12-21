@@ -1,0 +1,37 @@
+# Generate Institutional Architecture Workflow Configuration
+name: generate-institutional-architecture
+description: "Generate research-backed institutional page architecture blueprints using 6-agent collaboration, 3D Trust Matrix analysis, and Stanford credibility science"
+author: "Institutional Page Architect Team"
+
+# Paths
+installed_path: "{project-root}/bmad/institutional-architect/workflows/generate-institutional-architecture"
+template: "{installed_path}/template.md"
+instructions: "{installed_path}/instructions.md"
+validation: "{installed_path}/checklist.md"
+
+# Critical variables from config
+config_source: "{project-root}/bmad/institutional-architect/config.yaml"
+output_folder: "{config_source}:output_folder"
+blueprint_output_folder: "{config_source}:blueprint_output_folder"
+user_name: "{config_source}:user_name"
+communication_language: "{config_source}:communication_language"
+date: system-generated
+
+# Output configuration
+default_output_file: "{blueprint_output_folder}/institutional-architecture-blueprint-{{date}}.md"
+
+# Invocation control
+standalone: true
+
+# Module context
+module: institutional-architect
+
+# Web bundle configuration
+web_bundle:
+  web_bundle_files:
+    - "bmad/institutional-architect/workflows/generate-institutional-architecture/instructions.md"
+    - "bmad/institutional-architect/workflows/generate-institutional-architecture/template.md"
+    - "bmad/institutional-architect/workflows/generate-institutional-architecture/checklist.md"
+    - "bmad/institutional-architect/tasks/trust-matrix-calculator.xml"
+    - "bmad/institutional-architect/tasks/credibility-validation-framework.xml"
+    - "bmad/institutional-architect/tasks/sector-research-protocol.xml"

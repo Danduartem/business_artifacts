@@ -1,0 +1,97 @@
+# Institutional Page Architect Module Manifest
+# Auto-generated: 2025-12-20
+# Version: 1.0.0
+
+module:
+  code: institutional-architect
+  name: "Institutional Page Architect"
+  version: "1.0.0"
+  type: standard
+  status: ready-for-installation
+
+components:
+  agents:
+    count: 6
+    files:
+      - agents/trust-director.agent.yaml
+      - agents/trust-guardian.agent.yaml
+      - agents/sector-cipher.agent.yaml
+      - agents/audience-oracle.agent.yaml
+      - agents/narrative-architect.agent.yaml
+      - agents/content-compass.agent.yaml
+    compiled_to:
+      - agents/trust-director.md (generated at install)
+      - agents/trust-guardian.md (generated at install)
+      - agents/sector-cipher.md (generated at install)
+      - agents/audience-oracle.md (generated at install)
+      - agents/narrative-architect.md (generated at install)
+      - agents/content-compass.md (generated at install)
+
+  workflows:
+    count: 1
+    files:
+      - workflows/generate-institutional-architecture/workflow.yaml
+      - workflows/generate-institutional-architecture/instructions.md
+      - workflows/generate-institutional-architecture/template.md
+      - workflows/generate-institutional-architecture/checklist.md
+      - workflows/generate-institutional-architecture/README.md
+
+  tasks:
+    count: 3
+    files:
+      - tasks/trust-matrix-calculator.xml
+      - tasks/sector-research-protocol.xml
+      - tasks/credibility-validation-framework.xml
+
+  documentation:
+    - README.md
+    - workflows/generate-institutional-architecture/README.md
+
+  resources:
+    count: 1
+    files:
+      - resources/homepage-research-2025.md
+
+  installation:
+    - _module-installer/install-config.yaml
+
+dependencies:
+  required_modules:
+    - bmad-core: ">=1.0.0"
+
+  required_tools:
+    - Node.js for installer
+    - BMAD project initialized
+
+installation:
+  method: npm_installer
+  command: "npm run install-bmad"
+  steps:
+    1: "Select 'Institutional Page Architect' from module list"
+    2: "Configure blueprint output location"
+    3: "Select detail level preference"
+    4: "Select research depth preference"
+    5: "Installer compiles agents to .md format"
+    6: "Installer generates config.yaml"
+    7: "Module registered with BMAD"
+
+verification:
+  post_install_checks:
+    - "Verify agents compiled: ls bmad/institutional-architect/agents/*.md"
+    - "Verify workflow available: /generate-institutional-architecture"
+    - "Verify config created: bmad/institutional-architect/config.yaml"
+
+usage:
+  primary_workflow: "/generate-institutional-architecture"
+  standalone_agents:
+    - "bmad/institutional-architect/agents/trust-director.md"
+    - "bmad/institutional-architect/agents/trust-guardian.md"
+    - "bmad/institutional-architect/agents/sector-cipher.md"
+    - "bmad/institutional-architect/agents/audience-oracle.md"
+    - "bmad/institutional-architect/agents/narrative-architect.md"
+    - "bmad/institutional-architect/agents/content-compass.md"
+
+meta:
+  created: "2025-12-20"
+  author: "Institutional Architect Team"
+  license: "BMAD Ecosystem License"

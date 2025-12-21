@@ -1,0 +1,64 @@
+# Institutional Page Architect Module Installation Configuration
+# Version: 1.0.0
+
+# Module metadata
+code: institutional-architect
+name: 'Institutional Page Architect'
+default_selected: false
+
+# Welcome message during installation
+prompt:
+  - 'Welcome to Institutional Page Architect!'
+  - 'This module provides intelligent, research-backed institutional page architecture'
+  - 'through 6-agent collaboration and 3D Trust Matrix analysis.'
+  - ''
+  - 'Unlike landing pages focused on conversion, institutional pages build TRUST.'
+  - 'The installation will configure output locations and preferences.'
+
+# Core values automatically inherited from installer:
+## user_name
+## communication_language
+## document_output_language
+## output_folder
+
+# INTERACTIVE fields (ask user during install)
+
+blueprint_output_folder:
+  prompt: 'Where should Institutional Architect save architecture blueprints?'
+  default: '{output_folder}/institutional-blueprints'
+  result: '{project-root}/{value}'
+
+detail_level:
+  prompt: 'How detailed should architecture blueprints be?'
+  default: 'standard'
+  result: '{value}'
+  single-select:
+    - value: 'standard'
+      label: 'Standard - Balanced detail with strategic rationale (Recommended)'
+    - value: 'detailed'
+      label: 'Detailed - Comprehensive with extended research and examples'
+    - value: 'concise'
+      label: 'Concise - Core recommendations only'
+
+research_depth:
+  prompt: 'How deep should Sector Cipher''s sector research go?'
+  default: 'standard'
+  result: '{value}'
+  single-select:
+    - value: 'quick'
+      label: 'Quick - Top 3-5 organizations, key patterns (15-20 min)'
+    - value: 'standard'
+      label: 'Standard - Top 10 organizations, detailed analysis (Recommended)'
+    - value: 'comprehensive'
+      label: 'Comprehensive - Top 20 organizations, extensive benchmarking (60+ min)'
+
+# STATIC fields (no prompt, just hardcoded values)
+
+module_version:
+  result: '1.0.0'
+
+# Module description for manifest
+description: 'Intelligent institutional page architecture advisor using 6-agent collaboration, 3D Trust Matrix analysis, and credibility science'
+
+# Module author
+author: 'Institutional Architect Team'
