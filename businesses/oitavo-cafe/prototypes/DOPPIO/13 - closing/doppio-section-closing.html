@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doppio - Section 12: Closing</title>
+    <style>
+        /* Font Faces */
+        @font-face {
+            font-family: 'Hartwell';
+            src: url('../businesses/oitavo-cafe/fonts/Hartwell Black.woff2') format('woff2');
+            font-weight: 900;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Hartwell';
+            src: url('../businesses/oitavo-cafe/fonts/Hartwell Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Hartwell';
+            src: url('../businesses/oitavo-cafe/fonts/Hartwell Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'DIN Pro';
+            src: url('../businesses/oitavo-cafe/fonts/DINPro.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'DIN Pro';
+            src: url('../businesses/oitavo-cafe/fonts/DINPro-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        :root {
+            --color-bg: #1A0604;
+            --color-bg-card: #2A0E0A;
+            --color-marrom-dark: #4E130D;
+            --color-marrom-medium: #7A1307;
+            --color-terracotta: #A1523C;
+            --color-caramelo: #F8E8D8;
+            --color-text-primary: #F8E8D8;
+            --color-text-secondary: #D4B8A8;
+            --color-text-muted: #7A5A4A;
+            --font-headline: 'Hartwell', Georgia, serif;
+            --font-body: 'DIN Pro', system-ui, sans-serif;
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Section Container */
+        .section {
+            position: relative;
+            padding: 120px 80px 80px;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section__container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* Background Glow */
+        .section__glow {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 800px;
+            background: radial-gradient(
+                ellipse,
+                rgba(161, 82, 60, 0.25) 0%,
+                rgba(122, 19, 7, 0.12) 30%,
+                transparent 55%
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Logo */
+        .logo {
+            height: 80px;
+            width: auto;
+            margin-bottom: 48px;
+            opacity: 0.9;
+        }
+
+        /* Brand Name */
+        .brand {
+            font-family: var(--font-headline);
+            font-size: clamp(56px, 8vw, 96px);
+            font-weight: 900;
+            color: var(--color-caramelo);
+            letter-spacing: 0.02em;
+            margin-bottom: 24px;
+        }
+
+        /* Tagline */
+        .tagline {
+            font-size: clamp(20px, 2.5vw, 28px);
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
+
+        /* Statement */
+        .statement {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-caramelo);
+            margin-bottom: 64px;
+        }
+
+        /* Divider */
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: var(--color-terracotta);
+            margin: 0 auto 48px;
+            border-radius: 2px;
+        }
+
+        /* Company */
+        .company {
+            margin-bottom: 24px;
+        }
+
+        .company__name {
+            font-family: var(--font-headline);
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--color-caramelo);
+            margin-bottom: 10px;
+        }
+
+        .company__slogan {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+            font-style: italic;
+        }
+
+        /* Final Punchline */
+        .punchline {
+            margin-top: 48px;
+            padding: 24px 40px;
+            background: rgba(161, 82, 60, 0.1);
+            border: 1px solid rgba(161, 82, 60, 0.2);
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .punchline__text {
+            font-size: 20px;
+            color: var(--color-text-secondary);
+            font-style: italic;
+        }
+
+        .punchline__highlight {
+            color: var(--color-caramelo);
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(161, 82, 60, 0.1);
+        }
+
+        .footer__text {
+            font-size: 13px;
+            color: var(--color-text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .section {
+                padding: 80px 48px 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 24px 40px;
+                min-height: auto;
+            }
+
+            .logo {
+                height: 60px;
+                margin-bottom: 32px;
+            }
+
+            .statement {
+                margin-bottom: 48px;
+            }
+
+            .punchline {
+                padding: 20px 28px;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="section__glow"></div>
+
+        <div class="section__container">
+
+            <!-- Logo -->
+            <img src="../businesses/oitavo-cafe/logos/marca-15.png" alt="Oitavo Café" class="logo">
+
+            <!-- Brand Name -->
+            <h1 class="brand">DOPPIO</h1>
+
+            <!-- Tagline -->
+            <p class="tagline">A forma mais concentrada e potente de fazer seu Instagram vender.</p>
+
+            <!-- Statement -->
+            <p class="statement">Sistema de vendas, não serviço de marketing.</p>
+
+            <!-- Divider -->
+            <div class="divider"></div>
+
+            <!-- Company -->
+            <div class="company">
+                <p class="company__name">Oitavo Café</p>
+                <p class="company__slogan">Desperte conexões.</p>
+            </div>
+
+            <!-- Final Punchline -->
+            <div class="punchline">
+                <p class="punchline__text">Curtida não paga conta. <span class="punchline__highlight">ROI, sim.</span></p>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p class="footer__text">© 2025 Oitavo Café. Todos os direitos reservados.</p>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>
