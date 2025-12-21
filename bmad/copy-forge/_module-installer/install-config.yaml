@@ -1,29 +1,18 @@
-# Copy Forge Module Configuration
-# This file defines installation questions and module configuration values
+# Copy Forge Module Installation
+# Version: 2.0.0
 
 code: copy-forge
 name: "Copy Forge"
 default_selected: false
 
-# Welcome message shown during installation
 prompt:
-  - "Welcome to Copy Forge - Where brand authenticity meets conversion science!"
-  - "This module creates landing page copy validated for both authentic brand-audience alignment and conversion effectiveness."
-  - "Your professional creative studio of master craftspeople, forging copy that converts through genuine connection."
+  - "Copy Forge - Landing Page Copy Generator"
+  - "Generates validated copy through sequential pipeline: Copywriters → Brand Voice Guardian → Avatar Advocate → User"
+  - "Outputs 2 files: landing-page.md + validation-report.md"
 
-# Core config values are automatically inherited:
-## user_name
-## communication_language
-## document_output_language
-## output_folder
-
-# ============================================================================
-# CONFIGURATION FIELDS
-# ============================================================================
-
-# STATIC VALUES (No user prompt - just set the value)
+# Static values
 module_version:
-  result: "1.0.0-alpha"
+  result: "2.0.0"
 
 data_path:
   result: "{project-root}/bmad/copy-forge/data"
@@ -34,27 +23,8 @@ brand_voice_path:
 avatars_path:
   result: "{project-root}/bmad/copy-forge/data/avatars"
 
-# INTERACTIVE VALUE - Copy output location
+# Interactive - output location
 copy_output_folder:
-  prompt: "Where should Copy Forge save generated landing page copy?"
+  prompt: "Where should Copy Forge save generated copy?"
   default: "output/copy-forge"
   result: "{project-root}/{value}"
-
-# INTERACTIVE VALUE - Validation detail level (for future use)
-validation_detail_level:
-  prompt: "How detailed should validation feedback be?"
-  default: "standard"
-  result: "{value}"
-  single-select:
-    - value: "summary"
-      label: "Summary - Quick scores and key issues only"
-    - value: "standard"
-      label: "Standard - Balanced detail with actionable feedback"
-    - value: "comprehensive"
-      label: "Comprehensive - Full multi-format feedback with explanations"
-
-# INTERACTIVE VALUE - Default avatar (if user has multiple)
-default_avatar_profile:
-  prompt: "Which avatar profile should be used by default? (You can change per-generation)"
-  default: "primary"
-  result: "{value}"

@@ -1,48 +1,74 @@
-# Forge Complete Landing Page Workflow Configuration
-name: "forge-complete-lp"
-description: "Master workflow - Generate complete landing page copy from LP Architect blueprint with sequential validation and cohesion review"
-author: "Daniel"
+name: forge-complete-lp
+description: Generate complete landing page copy with sequential validation
+version: "2.0"
+category: copywriting
 
-# Critical variables load from config_source
-config_source: "{project-root}/bmad/copy-forge/config.yaml"
-copy_output_folder: "{config_source}:copy_output_folder"
-validation_reports_folder: "{config_source}:validation_reports_folder"
-brand_voice_folder: "{config_source}:brand_voice_folder"
-avatars_folder: "{config_source}:avatars_folder"
-default_avatar_profile: "{config_source}:default_avatar_profile"
-lp_architect_blueprint_folder: "{config_source}:lp_architect:blueprint_folder"
-user_name: "{config_source}:user_name"
-communication_language: "{config_source}:communication_language"
-date: system-generated
+entry_agent: blueprint-coordinator
 
+inputs:
+  required:
+    - lp_blueprint
+    - brand_voice_document
+    - avatar_profile
+  optional:
+    - urgency_level
+    - word_count_tolerance
 
-# Module path and component files
-installed_path: "{project-root}/bmad/copy-forge/workflows/forge-complete-lp"
-template: "{installed_path}/template.md"
-instructions: "{installed_path}/instructions.md"
+outputs:
+  - "{brand}-landing-page.md"
+  - "{brand}-validation-report.md"
 
-# Output configuration
-complete_lp_output_file: "{copy_output_folder}/complete-lp-{{date}}.md"
-validation_report_file: "{validation_reports_folder}/complete-lp-validation-{{date}}.md"
-cohesion_report_file: "{validation_reports_folder}/cohesion-review-{{date}}.md"
+agents:
+  - blueprint-coordinator
+  - hero-writer
+  - cta-specialist
+  - brand-voice-guardian
+  - avatar-advocate
 
-# Workflow settings
-settings:
-  auto_validation: true  # Automatically validate each section
-  cohesion_review: true  # Review complete LP for flow and transitions
-  max_refinement_iterations: 5  # Per section
-  auto_save_output: true  # Save complete LP to file
-  generate_validation_report: true  # Comprehensive validation report
+pipeline:
+  type: sequential
+  feedback_loop:
+    enabled: true
+    max_rounds: 3
 
-standalone: false  # Typically invoked through Blueprint Coordinator
+phases:
+  - name: context
+    description: Gather blueprint, brand voice, and avatar inputs
+    agent: blueprint-coordinator
 
-web_bundle:
-  name: "forge-complete-lp"
-  description: "Master workflow - Generate complete landing page copy from LP Architect blueprint with sequential validation and cohesion review"
-  author: "Daniel"
-  template: "bmad/copy-forge/workflows/forge-complete-lp/template.md"
-  instructions: "bmad/copy-forge/workflows/forge-complete-lp/instructions.md"
-  use_advanced_elicitation: true
-  web_bundle_files:
-    - "bmad/copy-forge/workflows/forge-complete-lp/instructions.md"
-    - "bmad/copy-forge/workflows/forge-complete-lp/template.md"
+  - name: creation
+    description: Create copy for each section using specialist copywriters
+    agents:
+      - hero-writer
+      - cta-specialist
+
+  - name: voice-validation
+    description: Validate brand voice alignment (7 criteria)
+    agent: brand-voice-guardian
+    quality_gate:
+      metric: voice_alignment
+      minimum: 100
+      blocking: true
+      feedback_enabled: true
+
+  - name: audience-validation
+    description: Validate audience resonance (8 criteria)
+    agent: avatar-advocate
+    quality_gate:
+      metric: audience_resonance
+      minimum: 100
+      blocking: true
+      feedback_enabled: true
+
+  - name: cohesion
+    description: Review complete LP for flow and consistency
+    agent: blueprint-coordinator
+
+  - name: compile
+    description: Compile final outputs and present to user
+    agent: blueprint-coordinator
+
+quality_gates:
+  voice_alignment: 100
+  audience_resonance: 100
+  word_count_tolerance: 10

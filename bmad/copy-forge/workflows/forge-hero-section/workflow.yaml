@@ -1,45 +1,62 @@
-# Forge Hero Section Workflow Configuration
-name: "forge-hero-section"
-description: "Generate or regenerate hero section copy (headline, subheadline, opening hook) with sequential brand voice and audience validation"
-author: "Daniel"
+name: forge-hero-section
+description: Generate or regenerate hero section with validation
+version: "2.0"
+category: copywriting
 
-# Critical variables load from config_source
-config_source: "{project-root}/bmad/copy-forge/config.yaml"
-copy_output_folder: "{config_source}:copy_output_folder"
-validation_reports_folder: "{config_source}:validation_reports_folder"
-brand_voice_folder: "{config_source}:brand_voice_folder"
-avatars_folder: "{config_source}:avatars_folder"
-default_avatar_profile: "{config_source}:default_avatar_profile"
-user_name: "{config_source}:user_name"
-communication_language: "{config_source}:communication_language"
-date: system-generated
+entry_agent: blueprint-coordinator
 
+inputs:
+  required:
+    - brand_voice_document
+    - avatar_profile
+  optional:
+    - word_count_target
+    - headline_framework
 
-# Module path and component files
-installed_path: "{project-root}/bmad/copy-forge/workflows/forge-hero-section"
-template: "{installed_path}/template.md"
-instructions: "{installed_path}/instructions.md"
+outputs:
+  - hero-section.md
 
-# Output configuration
-hero_output_file: "{copy_output_folder}/hero-section-{{date}}.md"
-validation_report_file: "{validation_reports_folder}/hero-validation-{{date}}.md"
+agents:
+  - blueprint-coordinator
+  - hero-writer
+  - brand-voice-guardian
+  - avatar-advocate
 
-# Workflow settings
-settings:
-  auto_validation: true  # Automatically run validators vs manual trigger
-  max_refinement_iterations: 5  # Maximum refinement loops
-  auto_save_output: true  # Save generated copy to file
-  generate_validation_report: true  # Create validation scorecard
+pipeline:
+  type: sequential
+  feedback_loop:
+    enabled: true
+    max_rounds: 3
 
-standalone: true
+phases:
+  - name: context
+    description: Gather brand voice and avatar inputs
+    agent: blueprint-coordinator
 
-web_bundle:
-  name: "forge-hero-section"
-  description: "Generate or regenerate hero section copy (headline, subheadline, opening hook) with sequential brand voice and audience validation"
-  author: "Daniel"
-  template: "bmad/copy-forge/workflows/forge-hero-section/template.md"
-  instructions: "bmad/copy-forge/workflows/forge-hero-section/instructions.md"
-  use_advanced_elicitation: true
-  web_bundle_files:
-    - "bmad/copy-forge/workflows/forge-hero-section/instructions.md"
-    - "bmad/copy-forge/workflows/forge-hero-section/template.md"
+  - name: creation
+    description: Create hero section copy
+    agent: hero-writer
+
+  - name: voice-validation
+    description: Validate brand voice alignment
+    agent: brand-voice-guardian
+    quality_gate:
+      metric: voice_alignment
+      minimum: 100
+      blocking: true
+
+  - name: audience-validation
+    description: Validate audience resonance
+    agent: avatar-advocate
+    quality_gate:
+      metric: audience_resonance
+      minimum: 100
+      blocking: true
+
+  - name: present
+    description: Present validated hero section
+    agent: blueprint-coordinator
+
+quality_gates:
+  voice_alignment: 100
+  audience_resonance: 100
