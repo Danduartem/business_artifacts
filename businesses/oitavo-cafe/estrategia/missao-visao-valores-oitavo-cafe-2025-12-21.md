@@ -11,7 +11,7 @@
 | Elemento | Definição |
 |----------|-----------|
 | **Missão** | Gerar prosperidade real para empresas através de marketing que vende, não que enfeita. |
-| **Visão** | Um mundo onde todo empresário sabe exatamente o retorno de cada real investido em marketing. |
+| **Visão** | Acabar com o marketing de vaidade. |
 | **Valores** | ROI ou Nada · Honestidade Que Dói · Sistema, Não Sorte · Transparência Radical · Menos, Melhor · Prosperidade É o Jogo |
 
 ---
@@ -41,24 +41,30 @@
 
 ## Visão
 
-> ## Um mundo onde todo empresário sabe exatamente o retorno de cada real investido em marketing.
+> ## Acabar com o marketing de vaidade.
 
 ### O Que Significa
 
 | Palavra | Significado |
 |---------|-------------|
-| **Um mundo** | Aspiração maior que a empresa — queremos mudar o mercado |
-| **Todo empresário** | Não só nossos clientes — queremos impactar o ecossistema |
-| **Sabe exatamente** | Clareza total, sem achismo, sem caixa preta |
-| **Retorno de cada real** | ROI mensurável, rastreável, transparente |
+| **Acabar** | Não reduzir, não competir — extinguir |
+| **Marketing de vaidade** | Métricas que não pagam conta: likes, seguidores, alcance, engajamento sem conversão |
+
+### Por Que Esta Visão
+
+- **5 palavras.** Impossível esquecer.
+- **Guerra declarada.** Perfeito pro arquétipo rebelde.
+- **É o manifesto condensado.** O inimigo está no nome.
+- **Audaciosa mas clara.** Você sabe exatamente o que queremos.
+- **Carolina lê e pensa:** "É isso que eu quero."
 
 ### Como Inspira
 
 | Público | Como a Visão Inspira |
 |---------|---------------------|
-| **Equipe** | "Estamos construindo algo maior — mudando como o mercado funciona" |
-| **Clientes** | "Vocês fazem parte de um movimento por transparência" |
-| **Mercado** | "Existe uma alternativa ao marketing de vaidade" |
+| **Equipe** | "Estamos numa cruzada. Cada cliente com ROI é uma vitória contra a vaidade." |
+| **Clientes** | "Vocês fazem parte de um movimento. Cada venda é um golpe no marketing que não funciona." |
+| **Mercado** | "Existe uma agência que declarou guerra ao que vocês odeiam." |
 
 ---
 
@@ -186,12 +192,12 @@
 ## Como Tudo Se Conecta
 
 ```
-                    VISÃO (O mundo que queremos)
-    "Todo empresário sabe o retorno de cada real em marketing"
+                    VISÃO (A guerra que travamos)
+               "Acabar com o marketing de vaidade"
                               ↑
                         guiado por
                               ↑
-                    VALORES (Como agimos)
+                    VALORES (Como lutamos)
           ROI ou Nada · Honestidade · Sistema
         Transparência · Menos, Melhor · Prosperidade
                               ↑
@@ -252,7 +258,7 @@
 > Gerar prosperidade real para empresas através de marketing que vende, não que enfeita.
 
 **Nossa Visão**
-> Um mundo onde todo empresário sabe exatamente o retorno de cada real investido em marketing.
+> Acabar com o marketing de vaidade.
 
 **Nossos Valores**
 > 1. **ROI ou Nada** — Se não dá pra medir, não fazemos
