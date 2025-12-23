@@ -105,19 +105,24 @@
   stroke: currentColor;
 }
 
-/* Navy for structure/navigation */
+/* Café Escuro - Primary brand color for structure/navigation */
 .icon-structure {
-  color: #191F3A;
+  color: #4E130D;
 }
 
-/* Borgonha for actions/CTAs */
+/* Café Intenso - Secondary for actions/CTAs */
 .icon-action {
-  color: #81171F;
+  color: #7A1307;
 }
 
-/* Gold for achievements/highlights */
+/* Terracotta - Accent for highlights */
 .icon-highlight {
-  color: #C9A227;
+  color: #A1523C;
+}
+
+/* On dark backgrounds - use Caramelo */
+.icon-inverse {
+  color: #F8E8D8;
 }
 ```
 
@@ -157,7 +162,7 @@
 ### **Focus States:**
 ```css
 .icon-button:focus {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--color-accent-500, #A1523C);
   outline-offset: 2px;
 }
 ```
@@ -261,7 +266,7 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.75rem 1.5rem;
-      background: #81171F;
+      background: #7A1307;
       color: white;
       border: none;
       border-radius: 0.5rem;
@@ -270,11 +275,11 @@
     }
 
     .icon-button:hover {
-      background: #A01F29;
+      background: #4E130D;
     }
 
     .icon-button:focus {
-      outline: 2px solid #C9A227;
+      outline: 2px solid #A1523C;
       outline-offset: 2px;
     }
 
