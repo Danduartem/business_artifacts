@@ -1,0 +1,401 @@
+/**
+ * Oitavo Café - Color System
+ * Version: 1.0.0
+ * Generated: 2025-12-23
+ * Color Space: OKLCH (with HEX fallbacks)
+ * WCAG Level: AA Compliant
+ *
+ * Usage:
+ * - Use CSS variables directly: var(--color-primary-500)
+ * - Semantic tokens: var(--bg-default), var(--text-default)
+ * - Dark mode: Add .dark class to root element
+ */
+
+:root {
+  /* ========================================
+     PRIMARY - Café Escuro (Deep Burgundy)
+     Brand color: Trust, warmth, premium
+     ======================================== */
+  --color-primary-50: #FCF5F4;
+  --color-primary-100: #F5E3E1;
+  --color-primary-200: #E8C5C0;
+  --color-primary-300: #D49D94;
+  --color-primary-400: #B86D5F;
+  --color-primary-500: #9A4A3B;
+  --color-primary-600: #7A2E21;
+  --color-primary-700: #4E130D;  /* LOCKED - Brand Primary */
+  --color-primary-800: #380B07;
+  --color-primary-900: #240504;
+
+  /* ========================================
+     SECONDARY - Café Intenso (Red-Brown)
+     Gradients and emphasis
+     ======================================== */
+  --color-secondary-50: #FDF5F3;
+  --color-secondary-100: #F7E2DD;
+  --color-secondary-200: #ECC2B8;
+  --color-secondary-300: #D99585;
+  --color-secondary-400: #C0614D;
+  --color-secondary-500: #9E3A25;
+  --color-secondary-600: #7A1307;  /* LOCKED - Brand Secondary */
+  --color-secondary-700: #5E0E05;
+  --color-secondary-800: #430904;
+  --color-secondary-900: #2B0502;
+
+  /* ========================================
+     ACCENT - Terracotta (Copper Brown)
+     Warm accents, 2025 trend aligned
+     ======================================== */
+  --color-accent-50: #FBF6F4;
+  --color-accent-100: #F4E6E0;
+  --color-accent-200: #E5C9BD;
+  --color-accent-300: #CFA28F;
+  --color-accent-400: #B87A62;
+  --color-accent-500: #A1523C;  /* LOCKED - Brand Accent */
+  --color-accent-600: #844231;
+  --color-accent-700: #663325;
+  --color-accent-800: #4A251B;
+  --color-accent-900: #301812;
+
+  /* ========================================
+     NEUTRAL - Caramelo (Warm Cream)
+     Backgrounds, softens identity
+     ======================================== */
+  --color-neutral-50: #FFFCF9;
+  --color-neutral-100: #F8E8D8;  /* LOCKED - Brand Neutral */
+  --color-neutral-200: #EDD5C0;
+  --color-neutral-300: #D9BBA0;
+  --color-neutral-400: #C4A080;
+  --color-neutral-500: #AD8665;
+  --color-neutral-600: #8E6D50;
+  --color-neutral-700: #6E543D;
+  --color-neutral-800: #4F3C2B;
+  --color-neutral-900: #32261C;
+
+  /* ========================================
+     GRAY - Cinza (Neutral Gray)
+     Text and UI elements
+     ======================================== */
+  --color-gray-50: #FAFAFA;
+  --color-gray-100: #ECECEC;  /* LOCKED - Brand Gray */
+  --color-gray-200: #D9D9D9;
+  --color-gray-300: #BFBFBF;
+  --color-gray-400: #A3A3A3;
+  --color-gray-500: #878787;
+  --color-gray-600: #6B6B6B;
+  --color-gray-700: #525252;
+  --color-gray-800: #3B3B3B;
+  --color-gray-900: #262626;
+
+  /* ========================================
+     SEMANTIC - Success (Green)
+     ======================================== */
+  --color-success-50: #F0FDF4;
+  --color-success-100: #DCFCE7;
+  --color-success-200: #BBF7D0;
+  --color-success-300: #86EFAC;
+  --color-success-400: #4ADE80;
+  --color-success-500: #22C55E;
+  --color-success-600: #16A34A;
+  --color-success-700: #15803D;
+  --color-success-800: #166534;
+  --color-success-900: #14532D;
+
+  /* ========================================
+     SEMANTIC - Warning (Amber)
+     ======================================== */
+  --color-warning-50: #FFFBEB;
+  --color-warning-100: #FEF3C7;
+  --color-warning-200: #FDE68A;
+  --color-warning-300: #FCD34D;
+  --color-warning-400: #FBBF24;
+  --color-warning-500: #F59E0B;
+  --color-warning-600: #D97706;
+  --color-warning-700: #B45309;
+  --color-warning-800: #92400E;
+  --color-warning-900: #78350F;
+
+  /* ========================================
+     SEMANTIC - Error (Red)
+     ======================================== */
+  --color-error-50: #FEF2F2;
+  --color-error-100: #FEE2E2;
+  --color-error-200: #FECACA;
+  --color-error-300: #FCA5A5;
+  --color-error-400: #F87171;
+  --color-error-500: #EF4444;
+  --color-error-600: #DC2626;
+  --color-error-700: #B91C1C;
+  --color-error-800: #991B1B;
+  --color-error-900: #7F1D1D;
+
+  /* ========================================
+     SEMANTIC - Info (Blue)
+     ======================================== */
+  --color-info-50: #EFF6FF;
+  --color-info-100: #DBEAFE;
+  --color-info-200: #BFDBFE;
+  --color-info-300: #93C5FD;
+  --color-info-400: #60A5FA;
+  --color-info-500: #3B82F6;
+  --color-info-600: #2563EB;
+  --color-info-700: #1D4ED8;
+  --color-info-800: #1E40AF;
+  --color-info-900: #1E3A8A;
+
+  /* ========================================
+     GRADIENTS
+     ======================================== */
+  --gradient-brand: linear-gradient(135deg, #4E130D 0%, #7A1307 50%, #A1523C 100%);
+  --gradient-brand-vertical: linear-gradient(180deg, #4E130D 0%, #7A1307 50%, #A1523C 100%);
+  --gradient-subtle: linear-gradient(180deg, #FFFCF9 0%, #F8E8D8 100%);
+  --gradient-dark: linear-gradient(135deg, #4E130D 0%, #240504 100%);
+  --gradient-warm: linear-gradient(135deg, #F8E8D8 0%, #E5C9BD 50%, #CFA28F 100%);
+
+  /* ========================================
+     SEMANTIC TOKENS - Light Mode
+     ======================================== */
+
+  /* Backgrounds */
+  --bg-default: var(--color-neutral-50);
+  --bg-subtle: var(--color-neutral-100);
+  --bg-muted: var(--color-neutral-200);
+  --bg-emphasis: var(--color-gray-100);
+  --bg-inverse: var(--color-primary-900);
+  --bg-brand: var(--color-primary-700);
+  --bg-brand-subtle: var(--color-primary-100);
+
+  /* Foreground/Text */
+  --text-default: var(--color-gray-900);
+  --text-muted: var(--color-gray-600);
+  --text-subtle: var(--color-gray-500);
+  --text-inverse: var(--color-neutral-50);
+  --text-brand: var(--color-primary-700);
+  --text-link: var(--color-primary-600);
+  --text-link-hover: var(--color-primary-700);
+
+  /* Borders */
+  --border-default: var(--color-gray-200);
+  --border-muted: var(--color-gray-100);
+  --border-emphasis: var(--color-gray-300);
+  --border-brand: var(--color-primary-400);
+  --border-focus: var(--color-accent-500);
+
+  /* Interactive */
+  --interactive-default: var(--color-primary-600);
+  --interactive-hover: var(--color-primary-700);
+  --interactive-active: var(--color-primary-800);
+  --interactive-focus: var(--color-accent-500);
+  --interactive-disabled: var(--color-gray-400);
+
+  /* Semantic States */
+  --status-success: var(--color-success-500);
+  --status-success-bg: var(--color-success-50);
+  --status-warning: var(--color-warning-500);
+  --status-warning-bg: var(--color-warning-50);
+  --status-error: var(--color-error-500);
+  --status-error-bg: var(--color-error-50);
+  --status-info: var(--color-info-500);
+  --status-info-bg: var(--color-info-50);
+
+  /* Shadows (using brand colors for warmth) */
+  --shadow-sm: 0 1px 2px 0 rgba(78, 19, 13, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(78, 19, 13, 0.1), 0 2px 4px -2px rgba(78, 19, 13, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(78, 19, 13, 0.1), 0 4px 6px -4px rgba(78, 19, 13, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(78, 19, 13, 0.1), 0 8px 10px -6px rgba(78, 19, 13, 0.1);
+
+  /* Focus Ring */
+  --ring-color: var(--color-accent-500);
+  --ring-offset: var(--color-neutral-50);
+}
+
+/* ========================================
+   DARK MODE
+   ======================================== */
+.dark,
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-default: var(--color-primary-900);
+  --bg-subtle: var(--color-primary-800);
+  --bg-muted: var(--color-primary-700);
+  --bg-emphasis: var(--color-gray-800);
+  --bg-inverse: var(--color-neutral-50);
+  --bg-brand: var(--color-accent-500);
+  --bg-brand-subtle: var(--color-primary-800);
+
+  /* Foreground/Text */
+  --text-default: var(--color-neutral-100);
+  --text-muted: var(--color-neutral-300);
+  --text-subtle: var(--color-neutral-400);
+  --text-inverse: var(--color-primary-900);
+  --text-brand: var(--color-accent-400);
+  --text-link: var(--color-accent-400);
+  --text-link-hover: var(--color-accent-300);
+
+  /* Borders */
+  --border-default: var(--color-gray-700);
+  --border-muted: var(--color-gray-800);
+  --border-emphasis: var(--color-gray-600);
+  --border-brand: var(--color-accent-500);
+  --border-focus: var(--color-accent-400);
+
+  /* Interactive */
+  --interactive-default: var(--color-accent-500);
+  --interactive-hover: var(--color-accent-400);
+  --interactive-active: var(--color-accent-600);
+  --interactive-focus: var(--color-accent-300);
+  --interactive-disabled: var(--color-gray-600);
+
+  /* Semantic States (slightly adjusted for dark) */
+  --status-success: var(--color-success-400);
+  --status-success-bg: var(--color-success-900);
+  --status-warning: var(--color-warning-400);
+  --status-warning-bg: var(--color-warning-900);
+  --status-error: var(--color-error-400);
+  --status-error-bg: var(--color-error-900);
+  --status-info: var(--color-info-400);
+  --status-info-bg: var(--color-info-900);
+
+  /* Shadows (lighter for dark mode) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+
+  /* Focus Ring */
+  --ring-color: var(--color-accent-400);
+  --ring-offset: var(--color-primary-900);
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Background Colors */
+.bg-primary { background-color: var(--color-primary-700); }
+.bg-secondary { background-color: var(--color-secondary-600); }
+.bg-accent { background-color: var(--color-accent-500); }
+.bg-neutral { background-color: var(--color-neutral-100); }
+.bg-brand-gradient { background: var(--gradient-brand); }
+
+/* Text Colors */
+.text-primary { color: var(--color-primary-700); }
+.text-secondary { color: var(--color-secondary-600); }
+.text-accent { color: var(--color-accent-500); }
+.text-brand { color: var(--text-brand); }
+
+/* Focus States */
+.focus-ring:focus {
+  outline: 2px solid var(--ring-color);
+  outline-offset: 2px;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--ring-color);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   COMPONENT EXAMPLES
+   ======================================== */
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--interactive-default);
+  color: var(--text-inverse);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--interactive-hover);
+}
+
+.btn-primary:active {
+  background-color: var(--interactive-active);
+}
+
+.btn-primary:disabled {
+  background-color: var(--interactive-disabled);
+  cursor: not-allowed;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--interactive-default);
+  border: 2px solid var(--border-brand);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-50);
+  border-color: var(--interactive-hover);
+  color: var(--interactive-hover);
+}
+
+/* Card */
+.card {
+  background-color: var(--bg-default);
+  border: 1px solid var(--border-default);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+/* Input */
+.input {
+  background-color: var(--bg-default);
+  border: 1px solid var(--border-default);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--text-default);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(161, 82, 60, 0.2);
+}
+
+/* Alert States */
+.alert-success {
+  background-color: var(--status-success-bg);
+  border-left: 4px solid var(--status-success);
+  color: var(--color-success-800);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.alert-warning {
+  background-color: var(--status-warning-bg);
+  border-left: 4px solid var(--status-warning);
+  color: var(--color-warning-800);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.alert-error {
+  background-color: var(--status-error-bg);
+  border-left: 4px solid var(--status-error);
+  color: var(--color-error-800);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.alert-info {
+  background-color: var(--status-info-bg);
+  border-left: 4px solid var(--status-info);
+  color: var(--color-info-800);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
