@@ -478,9 +478,12 @@ module.exports = {
 | Color Palette Docs | `/design-system/color-palette/oitavo-cafe-color-palette.md` |
 | Color CSS | `/design-system/color-palette/oitavo-cafe-colors.css` |
 | Color Preview | `/design-system/color-palette/palette-preview.html` |
+| Icon System | `/design/icon-system.md` |
 | Style Guide | `/style-guide/oitavo-cafe-style-guide.md` |
 | Voice Guide | `/estrategia/voice-guide.md` |
 | Fonts | `/fonts/` (Hartwell, DIN Pro) |
+| Tailwind Config | `/design-system/tailwind.config.js` |
+| Visual Preview | `/design-system/design-system-preview.html` |
 
 ---
 
