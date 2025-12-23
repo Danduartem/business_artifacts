@@ -27,3 +27,18 @@ export type { CardProps } from "./ui/Card";
 // Alert
 export { Alert, alertVariants } from "./ui/Alert";
 export type { AlertProps } from "./ui/Alert";
+
+// Badge
+export { Badge, badgeVariants } from "./ui/Badge";
+export type { BadgeProps } from "./ui/Badge";
+
+// Modal
+export {
+  Modal,
+  ModalHeader,
+  ModalTitle,
+  ModalDescription,
+  ModalBody,
+  ModalFooter,
+} from "./ui/Modal";
+export type { ModalProps } from "./ui/Modal";

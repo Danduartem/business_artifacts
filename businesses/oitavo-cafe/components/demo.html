@@ -149,6 +149,8 @@
       <a href="#inputs" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Inputs</a>
       <a href="#cards" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Cards</a>
       <a href="#alerts" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Alerts</a>
+      <a href="#badges" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Badges</a>
+      <a href="#modal" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Modal</a>
       <a href="#form-example" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Form Example</a>
     </div>
   </nav>
@@ -425,6 +427,245 @@
       </div>
     </section>
 
+    <!-- Badges Section -->
+    <section id="badges" class="mb-16">
+      <h2 class="font-display text-3xl font-bold text-primary-700 mb-2">Badge</h2>
+      <p class="text-gray-600 mb-8">Labels, tags, and status indicators</p>
+
+      <!-- Variants -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold mb-4">Variants</h3>
+        <div class="flex flex-wrap gap-3 items-center">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700">Default</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-100 text-primary-700">Primary</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-secondary-100 text-secondary-600">Secondary</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent-100 text-accent-600">Accent</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-success-50 text-success-700">Success</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-warning-50 text-warning-700">Warning</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-error-50 text-error-700">Error</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-info-50 text-info-700">Info</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-transparent text-gray-700 border border-gray-300">Outline</span>
+        </div>
+      </div>
+
+      <!-- Sizes -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold mb-4">Sizes</h3>
+        <div class="flex flex-wrap gap-3 items-center">
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-primary-100 text-primary-700">Small</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-100 text-primary-700">Medium</span>
+          <span class="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-semibold bg-primary-100 text-primary-700">Large</span>
+        </div>
+      </div>
+
+      <!-- With Icons -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold mb-4">With Icons</h3>
+        <div class="flex flex-wrap gap-3 items-center">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-success-50 text-success-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Ativo
+          </span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-warning-50 text-warning-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            Pendente
+          </span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent-100 text-accent-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Novo
+          </span>
+        </div>
+      </div>
+
+      <!-- Use Cases -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Common Use Cases</h3>
+        <div class="flex flex-wrap gap-3 items-center">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-100 text-primary-700">Marketing</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-secondary-100 text-secondary-600">Vendas</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-accent-100 text-accent-600">CRM</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-info-50 text-info-700">Beta</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-error-50 text-error-700">Urgente</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Section -->
+    <section id="modal" class="mb-16">
+      <h2 class="font-display text-3xl font-bold text-primary-700 mb-2">Modal</h2>
+      <p class="text-gray-600 mb-8">Dialog overlays for focused interactions</p>
+
+      <!-- Trigger buttons -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold mb-4">Open Modal</h3>
+        <div class="flex flex-wrap gap-4">
+          <button onclick="openModal('modal-default')" class="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:ring-offset-2 bg-primary-600 text-neutral-50 hover:bg-primary-700 h-11 px-6">
+            Default Modal
+          </button>
+          <button onclick="openModal('modal-confirm')" class="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:ring-offset-2 bg-accent-500 text-neutral-50 hover:bg-accent-600 h-11 px-6">
+            Confirmation Modal
+          </button>
+          <button onclick="openModal('modal-form')" class="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:ring-offset-2 bg-transparent text-primary-600 border-2 border-primary-400 hover:text-primary-700 hover:border-primary-600 h-11 px-6">
+            Form Modal
+          </button>
+        </div>
+      </div>
+
+      <!-- Size examples -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Sizes</h3>
+        <div class="flex flex-wrap gap-4">
+          <button onclick="openModal('modal-sm')" class="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-200 ease-out bg-gray-100 text-gray-700 hover:bg-gray-200 h-8 px-4 text-sm">
+            Small
+          </button>
+          <button onclick="openModal('modal-default')" class="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-200 ease-out bg-gray-100 text-gray-700 hover:bg-gray-200 h-8 px-4 text-sm">
+            Medium (default)
+          </button>
+          <button onclick="openModal('modal-lg')" class="inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all duration-200 ease-out bg-gray-100 text-gray-700 hover:bg-gray-200 h-8 px-4 text-sm">
+            Large
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Default Modal -->
+    <div id="modal-default" class="fixed inset-0 z-[1050] hidden" aria-modal="true" role="dialog">
+      <div class="fixed inset-0 bg-primary-900/75" onclick="closeModal('modal-default')"></div>
+      <div class="fixed inset-0 flex items-center justify-center p-4" onclick="closeModal('modal-default')">
+        <div class="relative w-full max-w-md bg-neutral-50 rounded-xl shadow-xl" onclick="event.stopPropagation()">
+          <div class="flex items-start justify-between p-6 pb-0">
+            <div>
+              <h2 class="font-display text-xl font-semibold text-primary-700">Título do Modal</h2>
+              <p class="text-sm text-gray-600 mt-1">Descrição breve do conteúdo</p>
+            </div>
+            <button onclick="closeModal('modal-default')" class="p-1 -m-1 rounded-md text-gray-500 hover:text-gray-700 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+            </button>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-700">Este é o conteúdo do modal. Você pode colocar qualquer coisa aqui: texto, formulários, imagens, etc.</p>
+          </div>
+          <div class="flex items-center justify-end gap-3 p-6 pt-0">
+            <button onclick="closeModal('modal-default')" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-200 bg-transparent text-primary-600 hover:bg-neutral-100 h-11 px-6">
+              Cancelar
+            </button>
+            <button onclick="closeModal('modal-default')" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-200 bg-primary-600 text-neutral-50 hover:bg-primary-700 h-11 px-6">
+              Confirmar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="modal-confirm" class="fixed inset-0 z-[1050] hidden" aria-modal="true" role="dialog">
+      <div class="fixed inset-0 bg-primary-900/75" onclick="closeModal('modal-confirm')"></div>
+      <div class="fixed inset-0 flex items-center justify-center p-4" onclick="closeModal('modal-confirm')">
+        <div class="relative w-full max-w-sm bg-neutral-50 rounded-xl shadow-xl text-center" onclick="event.stopPropagation()">
+          <div class="p-6">
+            <div class="mx-auto w-12 h-12 rounded-full bg-error-50 flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-error-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+            </div>
+            <h2 class="font-display text-xl font-semibold text-primary-700 mb-2">Tem certeza?</h2>
+            <p class="text-sm text-gray-600">Esta ação não pode ser desfeita. Todos os dados serão perdidos permanentemente.</p>
+          </div>
+          <div class="flex items-center justify-center gap-3 p-6 pt-0">
+            <button onclick="closeModal('modal-confirm')" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-200 bg-transparent text-primary-600 border-2 border-primary-400 hover:border-primary-600 h-11 px-6">
+              Cancelar
+            </button>
+            <button onclick="closeModal('modal-confirm')" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-200 bg-error-500 text-white hover:bg-error-700 h-11 px-6">
+              Excluir
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Modal -->
+    <div id="modal-form" class="fixed inset-0 z-[1050] hidden" aria-modal="true" role="dialog">
+      <div class="fixed inset-0 bg-primary-900/75" onclick="closeModal('modal-form')"></div>
+      <div class="fixed inset-0 flex items-center justify-center p-4" onclick="closeModal('modal-form')">
+        <div class="relative w-full max-w-md bg-neutral-50 rounded-xl shadow-xl" onclick="event.stopPropagation()">
+          <div class="flex items-start justify-between p-6 pb-0">
+            <div>
+              <h2 class="font-display text-xl font-semibold text-primary-700">Agendar reunião</h2>
+              <p class="text-sm text-gray-600 mt-1">Preencha os dados abaixo</p>
+            </div>
+            <button onclick="closeModal('modal-form')" class="p-1 -m-1 rounded-md text-gray-500 hover:text-gray-700 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+            </button>
+          </div>
+          <div class="p-6 space-y-4">
+            <div>
+              <label class="block text-sm font-medium mb-2 text-gray-900">Nome</label>
+              <input type="text" placeholder="Seu nome" class="w-full min-h-[44px] px-4 py-3 text-base bg-neutral-50 border border-gray-200 rounded-md placeholder:text-gray-500 hover:border-gray-300 focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2 text-gray-900">Email</label>
+              <input type="email" placeholder="seu@email.com" class="w-full min-h-[44px] px-4 py-3 text-base bg-neutral-50 border border-gray-200 rounded-md placeholder:text-gray-500 hover:border-gray-300 focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2 text-gray-900">Data preferida</label>
+              <input type="date" class="w-full min-h-[44px] px-4 py-3 text-base bg-neutral-50 border border-gray-200 rounded-md placeholder:text-gray-500 hover:border-gray-300 focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20">
+            </div>
+          </div>
+          <div class="flex items-center justify-end gap-3 p-6 pt-0">
+            <button onclick="closeModal('modal-form')" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-200 bg-transparent text-primary-600 hover:bg-neutral-100 h-11 px-6">
+              Cancelar
+            </button>
+            <button onclick="closeModal('modal-form')" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-200 bg-accent-500 text-neutral-50 hover:bg-accent-600 h-11 px-6">
+              Agendar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Small Modal -->
+    <div id="modal-sm" class="fixed inset-0 z-[1050] hidden" aria-modal="true" role="dialog">
+      <div class="fixed inset-0 bg-primary-900/75" onclick="closeModal('modal-sm')"></div>
+      <div class="fixed inset-0 flex items-center justify-center p-4" onclick="closeModal('modal-sm')">
+        <div class="relative w-full max-w-sm bg-neutral-50 rounded-xl shadow-xl" onclick="event.stopPropagation()">
+          <div class="p-6 text-center">
+            <h2 class="font-display text-xl font-semibold text-primary-700 mb-2">Modal Pequeno</h2>
+            <p class="text-sm text-gray-600">max-w-sm (384px)</p>
+          </div>
+          <div class="flex justify-center p-6 pt-0">
+            <button onclick="closeModal('modal-sm')" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-200 bg-primary-600 text-neutral-50 hover:bg-primary-700 h-11 px-6">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Large Modal -->
+    <div id="modal-lg" class="fixed inset-0 z-[1050] hidden" aria-modal="true" role="dialog">
+      <div class="fixed inset-0 bg-primary-900/75" onclick="closeModal('modal-lg')"></div>
+      <div class="fixed inset-0 flex items-center justify-center p-4" onclick="closeModal('modal-lg')">
+        <div class="relative w-full max-w-lg bg-neutral-50 rounded-xl shadow-xl" onclick="event.stopPropagation()">
+          <div class="flex items-start justify-between p-6 pb-0">
+            <div>
+              <h2 class="font-display text-xl font-semibold text-primary-700">Modal Grande</h2>
+              <p class="text-sm text-gray-600 mt-1">max-w-lg (512px)</p>
+            </div>
+            <button onclick="closeModal('modal-lg')" class="p-1 -m-1 rounded-md text-gray-500 hover:text-gray-700 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg>
+            </button>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-700 mb-4">Este é um modal maior, ideal para conteúdo mais extenso ou formulários complexos.</p>
+            <p class="text-gray-700">Você pode adicionar mais conteúdo aqui sem que fique muito apertado.</p>
+          </div>
+          <div class="flex items-center justify-end gap-3 p-6 pt-0">
+            <button onclick="closeModal('modal-lg')" class="inline-flex items-center justify-center font-semibold rounded-md transition-all duration-200 bg-primary-600 text-neutral-50 hover:bg-primary-700 h-11 px-6">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Form Example Section -->
     <section id="form-example" class="mb-16">
       <h2 class="font-display text-3xl font-bold text-primary-700 mb-2">Form Example</h2>
@@ -498,5 +739,25 @@ export function ContactForm() {
     <p class="text-neutral-300">Oitavo Café Component Library v1.0.0</p>
   </footer>
 
+  <!-- Modal JavaScript -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const modals = document.querySelectorAll('[id^="modal-"]:not(.hidden)');
+        modals.forEach(modal => closeModal(modal.id));
+      }
+    });
+  </script>
 </body>
 </html>

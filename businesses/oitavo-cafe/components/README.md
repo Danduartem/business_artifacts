@@ -40,7 +40,7 @@ export default {
 ### 2. Import Components
 
 ```tsx
-import { Button, Card, Input, Alert } from '@/components';
+import { Button, Card, Input, Alert, Badge, Modal } from '@/components';
 ```
 
 ---
@@ -181,6 +181,81 @@ import { Alert } from '@/components';
 </Alert>
 ```
 
+### Badge
+
+```tsx
+import { Badge } from '@/components';
+
+// Variants
+<Badge>Default</Badge>
+<Badge variant="primary">Primary</Badge>
+<Badge variant="secondary">Secondary</Badge>
+<Badge variant="accent">Accent</Badge>
+<Badge variant="success">Ativo</Badge>
+<Badge variant="warning">Pendente</Badge>
+<Badge variant="error">Urgente</Badge>
+<Badge variant="info">Beta</Badge>
+<Badge variant="outline">Outline</Badge>
+
+// Sizes
+<Badge size="sm">Small</Badge>
+<Badge size="md">Medium</Badge>
+<Badge size="lg">Large</Badge>
+
+// With icon
+<Badge variant="success" icon={<CheckIcon />}>Ativo</Badge>
+```
+
+### Modal
+
+```tsx
+import {
+  Modal,
+  ModalHeader,
+  ModalTitle,
+  ModalDescription,
+  ModalBody,
+  ModalFooter,
+} from '@/components';
+
+const [isOpen, setIsOpen] = useState(false);
+
+// Basic modal
+<Button onClick={() => setIsOpen(true)}>Abrir Modal</Button>
+
+<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+  <ModalHeader onClose={() => setIsOpen(false)}>
+    <ModalTitle>Título do Modal</ModalTitle>
+    <ModalDescription>Descrição breve</ModalDescription>
+  </ModalHeader>
+  <ModalBody>
+    <p>Conteúdo do modal aqui.</p>
+  </ModalBody>
+  <ModalFooter>
+    <Button variant="ghost" onClick={() => setIsOpen(false)}>
+      Cancelar
+    </Button>
+    <Button onClick={() => setIsOpen(false)}>
+      Confirmar
+    </Button>
+  </ModalFooter>
+</Modal>
+
+// Sizes
+<Modal size="sm" ... />  // 384px
+<Modal size="md" ... />  // 448px (default)
+<Modal size="lg" ... />  // 512px
+<Modal size="xl" ... />  // 576px
+<Modal size="full" ... />  // Full width minus padding
+
+// Options
+<Modal
+  closeOnBackdropClick={false}  // Disable backdrop click close
+  closeOnEscape={false}         // Disable escape key close
+  ...
+/>
+```
+
 ---
 
 ## Styling
@@ -250,14 +325,17 @@ Alert messages should follow brand voice:
 ```
 components/
 ├── ui/
+│   ├── Alert.tsx
+│   ├── Badge.tsx
 │   ├── Button.tsx
-│   ├── Input.tsx
 │   ├── Card.tsx
-│   └── Alert.tsx
+│   ├── Input.tsx
+│   └── Modal.tsx
 ├── utils/
 │   └── cn.ts
 ├── index.ts
 ├── package.json
+├── demo.html
 └── README.md
 ```
 
