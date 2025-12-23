@@ -258,6 +258,150 @@ const [isOpen, setIsOpen] = useState(false);
 
 ---
 
+## Dashboard Components
+
+### StatCard
+
+```tsx
+import { StatCard, StatCardGrid, LiveBadge } from '@/components';
+
+// Basic usage
+<StatCard label="Leads" value="127" change="+23%" changeType="positive" />
+
+// Highlighted (for ROI, key metrics)
+<StatCard
+  label="ROI"
+  value="3.2x"
+  change="Retorno"
+  variant="highlight"
+/>
+
+// Grid layout
+<StatCardGrid columns={4}>
+  <StatCard label="Leads" value="127" change="+23%" changeType="positive" />
+  <StatCard label="Conversas" value="43" change="+12%" changeType="positive" />
+  <StatCard label="Vendas" value="12" change="+8%" changeType="positive" />
+  <StatCard label="ROI" value="3.2x" variant="highlight" />
+</StatCardGrid>
+
+// Live badge
+<LiveBadge />
+<LiveBadge status="syncing" />
+```
+
+### Table
+
+```tsx
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+  TableCheck,
+  TableX,
+} from '@/components';
+
+// Basic table
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Fase</TableHead>
+      <TableHead>O Que Acontece</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell emphasis>Mês 1-2</TableCell>
+      <TableCell>Sistema construído. Primeiros leads.</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+// Comparison table
+<Table striped>
+  <TableBody>
+    <TableRow>
+      <TableCell>ROI Mensurado</TableCell>
+      <TableCell><TableCheck /></TableCell>
+      <TableCell><TableX /></TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+### Avatar
+
+```tsx
+import { Avatar, AvatarGroup } from '@/components';
+
+// From name (auto-generates initials)
+<Avatar name="Marina Costa" />
+
+// With initials
+<Avatar initials="MC" size="lg" />
+
+// Different shapes
+<Avatar name="John" shape="square" />
+
+// With status
+<Avatar name="John" status="online" />
+
+// Avatar group
+<AvatarGroup max={3}>
+  <Avatar name="Alice" />
+  <Avatar name="Bob" />
+  <Avatar name="Charlie" />
+  <Avatar name="Diana" />
+</AvatarGroup>
+```
+
+### Progress
+
+```tsx
+import { Progress, CircularProgress, FunnelProgress } from '@/components';
+
+// Linear progress
+<Progress value={75} showLabel />
+<Progress value={50} color="gradient" size="lg" />
+
+// Circular progress
+<CircularProgress value={90} showLabel />
+
+// Funnel visualization
+<FunnelProgress
+  steps={[
+    { label: "Visitantes", value: 1247 },
+    { label: "Leads", value: 127 },
+    { label: "Vendas", value: 12 },
+  ]}
+/>
+```
+
+### Skeleton
+
+```tsx
+import {
+  Skeleton,
+  SkeletonText,
+  SkeletonCard,
+  SkeletonStatCard,
+  SkeletonTable,
+} from '@/components';
+
+// Basic skeleton
+<Skeleton variant="text" width="80%" />
+<Skeleton variant="circular" width={40} height={40} />
+
+// Preset skeletons
+<SkeletonStatCard />
+<SkeletonCard hasHeader hasFooter />
+<SkeletonTable rows={5} columns={4} />
+```
+
+---
+
 ## Styling
 
 All components use Tailwind CSS classes from the Oitavo Café design system:
@@ -325,12 +469,17 @@ Alert messages should follow brand voice:
 ```
 components/
 ├── ui/
-│   ├── Alert.tsx
-│   ├── Badge.tsx
-│   ├── Button.tsx
-│   ├── Card.tsx
-│   ├── Input.tsx
-│   └── Modal.tsx
+│   ├── Alert.tsx        # Feedback messages
+│   ├── Avatar.tsx       # User avatars with initials/images
+│   ├── Badge.tsx        # Labels and status indicators
+│   ├── Button.tsx       # Action buttons
+│   ├── Card.tsx         # Content containers
+│   ├── Input.tsx        # Form inputs
+│   ├── Modal.tsx        # Dialog overlays
+│   ├── Progress.tsx     # Progress bars and funnels
+│   ├── Skeleton.tsx     # Loading placeholders
+│   ├── StatCard.tsx     # Dashboard metric cards
+│   └── Table.tsx        # Data tables
 ├── utils/
 │   └── cn.ts
 ├── index.ts
@@ -338,6 +487,29 @@ components/
 ├── demo.html
 └── README.md
 ```
+
+---
+
+## Dark Mode (Doppio)
+
+All dashboard components support dark mode with the Doppio aesthetic:
+
+```tsx
+// Wrap your dashboard in dark mode
+<div className="dark" style={{ background: '#1A0604' }}>
+  <StatCardGrid>
+    <StatCard label="Leads" value="127" change="+23%" changeType="positive" />
+    <StatCard label="ROI" value="3.2x" variant="highlight" />
+  </StatCardGrid>
+</div>
+```
+
+Dark mode uses the Doppio color palette:
+- Background: `#1A0604` (deep maroon)
+- Card: `rgba(0,0,0,0.3)`
+- Text: `#F8E8D8` (cream)
+- Accent: `#A1523C` (terracotta)
+- Glow effects on highlight variants
 
 ---
 

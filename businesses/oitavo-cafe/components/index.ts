@@ -1,5 +1,5 @@
 // Oitavo Café UI Components
-// Design System v1.0.0
+// Design System v2.0.0
 
 // Utilities
 export { cn } from "./utils/cn";
@@ -42,3 +42,43 @@ export {
   ModalFooter,
 } from "./ui/Modal";
 export type { ModalProps } from "./ui/Modal";
+
+// StatCard (Dashboard Metrics)
+export { StatCard, StatCardGrid, LiveBadge, statCardVariants } from "./ui/StatCard";
+export type { StatCardProps } from "./ui/StatCard";
+
+// Table
+export {
+  Table,
+  TableHeader,
+  TableBody,
+  TableFooter,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableCaption,
+  TableEmpty,
+  TableCheck,
+  TableX,
+  tableVariants,
+} from "./ui/Table";
+export type { TableProps } from "./ui/Table";
+
+// Avatar
+export { Avatar, AvatarGroup, avatarVariants } from "./ui/Avatar";
+export type { AvatarProps } from "./ui/Avatar";
+
+// Progress
+export { Progress, CircularProgress, FunnelProgress, progressVariants } from "./ui/Progress";
+export type { ProgressProps, CircularProgressProps, FunnelProgressProps, FunnelStep } from "./ui/Progress";
+
+// Skeleton
+export {
+  Skeleton,
+  SkeletonText,
+  SkeletonCard,
+  SkeletonTable,
+  SkeletonStatCard,
+  SkeletonAvatar,
+} from "./ui/Skeleton";
+export type { SkeletonProps } from "./ui/Skeleton";
