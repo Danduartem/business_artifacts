@@ -1,7 +1,7 @@
 # Catálogo de Ofertas - Oitavo Café
 
-**Versão:** 2.3.0
-**Data:** 2025-12-21
+**Versão:** 2.4.0
+**Data:** 2025-12-23
 **Status:** Premium - Venda Consultiva
 
 ---
@@ -18,7 +18,7 @@
 
 ---
 
-# 1. DOPPIO - Sistema de Vendas para Instagram
+# 1. DOPPIO - Gestão de Redes Sociais + Sistema de Vendas
 
 ## O Problema que Resolve
 
@@ -26,7 +26,7 @@ Você tem Instagram. Posta todo dia. Tem seguidor, tem curtida, tem comentário.
 
 Mas cadê a venda?
 
-O DOPPIO transforma seu Instagram de vitrine bonita em máquina de fazer dinheiro. Não é gestão de redes. É sistema de vendas.
+O DOPPIO transforma seu Instagram de vitrine bonita em máquina de fazer dinheiro. É gestão de redes sociais com um diferencial: foco em vendas, não em vaidade.
 
 ---
 
@@ -34,7 +34,7 @@ O DOPPIO transforma seu Instagram de vitrine bonita em máquina de fazer dinheir
 
 **DOPPIO** é um espresso duplo: intenso, direto, sem enrolação. Sem água extra pra "fazer render".
 
-Um sistema completo que conecta 8 ingredientes:
+Gestão completa de redes sociais com sistema de vendas integrado. 8 ingredientes que conectam:
 
 **Post → Stories → DM → WhatsApp → Venda**
 
@@ -709,7 +709,7 @@ Podemos avaliar e migrar. Diagnóstico gratuito.
 
 | Serviço | Resolve | Pra Quem | Modelo |
 |---------|---------|----------|--------|
-| **DOPPIO** | Instagram que não vende | Fatura R$ 50k+, quer sistema de vendas | Recorrente |
+| **DOPPIO** | Redes sociais sem resultado | Fatura R$ 50k+, quer gestão + vendas | Recorrente |
 | **Branding/Rebranding** | Marca amadora ou desatualizada | Quer cobrar premium, parecer premium | Projeto |
 | **Gestão de Ads** | Tráfego que não converte | Tem produto validado, quer escalar | Recorrente |
 | **Criação de Site** | Site ruim ou inexistente | Precisa de presença que converte | Projeto |
@@ -938,8 +938,8 @@ Zero compromisso. Zero pressão. Só clareza.
 
 | Campo | Valor |
 |-------|-------|
-| **Versão** | 2.3.0 |
-| **Data** | 2025-12-21 |
+| **Versão** | 2.4.0 |
+| **Data** | 2025-12-23 |
 | **Autor** | Oitavo Café |
 | **Modelo de Vendas** | Consultivo (sem preço no site) |
 | **CTA Padrão** | Diagnóstico Gratuito |
@@ -947,6 +947,11 @@ Zero compromisso. Zero pressão. Só clareza.
 ---
 
 ## Changelog
+
+### v2.4.0 (2025-12-23)
+- Atualizado: DOPPIO agora posicionado como "Gestão de Redes Sociais + Sistema de Vendas"
+- Atualizado: Descrição do DOPPIO inclui gestão completa de redes sociais
+- Atualizado: Resumo de Ofertas reflete novo posicionamento
 
 ### v2.3.0 (2025-12-21)
 - Adicionado: Responsabilidades do Cliente (o que o cliente precisa fazer/entregar)
