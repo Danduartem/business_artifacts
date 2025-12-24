@@ -1,6 +1,6 @@
 {
   "name": "@oitavo-cafe/ui",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Oitavo Café Design System - React Component Library",
   "main": "index.ts",
   "types": "index.ts",
