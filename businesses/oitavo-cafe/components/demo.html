@@ -86,17 +86,48 @@
     }
   </script>
   <style>
+    /* Hartwell fonts */
     @font-face {
       font-family: 'Hartwell';
-      src: url('../fonts/Hartwell%20Regular.woff2') format('woff2');
+      src: url('../fonts/Hartwell Regular.woff2') format('woff2');
       font-weight: 400;
       font-style: normal;
       font-display: swap;
     }
     @font-face {
       font-family: 'Hartwell';
-      src: url('../fonts/Hartwell%20Bold.woff2') format('woff2');
+      src: url('../fonts/Hartwell Medium.woff2') format('woff2');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Hartwell';
+      src: url('../fonts/Hartwell Semibold.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Hartwell';
+      src: url('../fonts/Hartwell Bold.woff2') format('woff2');
       font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Hartwell';
+      src: url('../fonts/Hartwell Black.woff2') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* DIN Pro fonts */
+    @font-face {
+      font-family: 'DIN Pro';
+      src: url('../fonts/DINPro-Light.woff2') format('woff2');
+      font-weight: 300;
       font-style: normal;
       font-display: swap;
     }
@@ -114,6 +145,13 @@
       font-style: normal;
       font-display: swap;
     }
+    @font-face {
+      font-family: 'DIN Pro';
+      src: url('../fonts/DINPro-Black.woff2') format('woff2');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
 
     body {
       font-family: 'DIN Pro', system-ui, sans-serif;
@@ -126,6 +164,10 @@
     /* Loading spinner animation */
     @keyframes spin {
       to { transform: rotate(360deg); }
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
     }
     .animate-spin {
       animation: spin 1s linear infinite;
