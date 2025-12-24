@@ -160,6 +160,37 @@ background: linear-gradient(135deg, #4E130D 0%, #7A1307 50%, #A1523C 100%);
 
 **Note:** Error red (#EF4444) is intentionally distinct from brand burgundy (#4E130D) to avoid confusion.
 
+### Data Visualization Colors
+
+Extended palette for charts, graphs, and heatmaps. These colors complement the brand palette while providing sufficient differentiation for data clarity.
+
+| Name | HEX | Usage |
+|------|-----|-------|
+| **Teal-400** | #2DD4BF | Heatmaps, geographic data, positive trends |
+| **Teal-600** | #0D9488 | Darker teal for emphasis in charts |
+| **Coral-400** | #FB7185 | Secondary data series, contrast elements |
+| **Amber-400** | #FBBF24 | Highlights, attention areas in visualizations |
+
+**Heatmap Gradient:**
+```css
+/* Low to High intensity */
+--heatmap-low: #F0FDFA;    /* Teal-50 */
+--heatmap-mid: #5EEAD4;    /* Teal-300 */
+--heatmap-high: #0D9488;   /* Teal-600 */
+```
+
+**Chart Series Colors (in order):**
+1. Primary-600 (#7A2E21) - Primary series
+2. Accent-500 (#A1523C) - Secondary series
+3. Teal-500 (#14B8A6) - Tertiary series
+4. Neutral-400 (#C4A080) - Quaternary series
+
+**Usage Guidelines:**
+- Use brand colors (Primary, Accent) for the most important data series
+- Use Teal for geographic/location data and heatmaps
+- Maintain 3:1 contrast ratio between adjacent chart elements
+- Always provide legends for color-coded data
+
 ### Dark Mode
 
 Dark mode inverts the relationship while maintaining warmth:
@@ -196,7 +227,7 @@ Custom typography developed specifically for Oitavo Cafe.
 
 **Usage:** Headlines, logo, featured text, display typography
 
-#### Secondary: DIN Pro Condensed
+#### Secondary: DIN Pro
 
 Supporting font for extended reading and UI elements.
 
@@ -204,6 +235,7 @@ Supporting font for extended reading and UI elements.
 - Light (300)
 - Regular (400)
 - Bold (700)
+- Black (900)
 
 **Usage:** Body text, UI elements, forms, long-form content
 
@@ -211,7 +243,7 @@ Supporting font for extended reading and UI elements.
 
 ```css
 --font-display: "Hartwell", system-ui, -apple-system, sans-serif;
---font-body: "DIN Pro Condensed", "Inter", system-ui, sans-serif;
+--font-body: "DIN Pro", system-ui, sans-serif;
 --font-mono: "JetBrains Mono", "Fira Code", monospace;
 ```
 
@@ -240,7 +272,7 @@ Based on 16px base size with 1.25 (Major Third) ratio:
 - Keep headlines short and punchy (5-10 words ideal)
 - Color: Primary-700 (#4E130D) on light, Neutral-100 on dark
 
-#### Body Text (DIN Pro Condensed)
+#### Body Text (DIN Pro)
 
 - Regular (400) for body copy
 - Maximum line width: 65-75 characters
@@ -873,7 +905,7 @@ Pills:      9999px
 
 - Initial style guide generation
 - 12 sections covering complete design system
-- Typography: Hartwell + DIN Pro Condensed
+- Typography: Hartwell + DIN Pro
 - Color integration from Color Forge palette
 - Voice integration from Voice Guide
 - Component principles documented
