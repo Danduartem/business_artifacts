@@ -1,5 +1,5 @@
 {
-  "$schema": "component-manifest-v1",
+  "manifestVersion": "1.0",
   "version": "2.0.0",
   "brand": "Oitavo Café",
   "description": "Premium UI component library for Oitavo Café - Brazilian marketing agency with coffee theme. Warm terracotta/burgundy palette, supports light/dark modes.",

@@ -137,7 +137,7 @@ export {
   DAYS_EN,
   DEFAULT_TIME_SLOTS,
   contentTypeTabs,
-  locationTabs,
+  locationTabs as heatmapLocationTabs,
   generateSampleHeatmapData,
   findPeakTime,
 } from "./ui/EngagementHeatmap";
@@ -300,7 +300,7 @@ export {
   contentTypeBadgeVariants,
   rankBadgeVariants,
   contentTypeIcons,
-  metricIcons,
+  metricIcons as contentMetricIcons,
   formatContentNumber,
   getContentTypeLabel,
   createContentItem,
