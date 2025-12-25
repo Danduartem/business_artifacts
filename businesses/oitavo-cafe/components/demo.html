@@ -17660,72 +17660,76 @@ const sampleItems = createSampleContent(6);
           <h3 class="text-sm font-semibold text-gray-900">Performance por Dia da Semana</h3>
         </div>
 
-        <div class="relative h-56">
+        <div class="relative" style="padding-left: 40px;">
           <!-- Y-axis labels -->
-          <div class="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-right pr-2">
-            <span class="text-[10px] text-gray-400 tabular-nums">800</span>
-            <span class="text-[10px] text-gray-400 tabular-nums">600</span>
-            <span class="text-[10px] text-gray-400 tabular-nums">400</span>
-            <span class="text-[10px] text-gray-400 tabular-nums">200</span>
-            <span class="text-[10px] text-gray-400 tabular-nums">0</span>
+          <div class="absolute left-0 top-0 w-10 flex flex-col justify-between text-right pr-3" style="height: 160px;">
+            <span class="text-[10px] text-gray-400 tabular-nums leading-none">800</span>
+            <span class="text-[10px] text-gray-400 tabular-nums leading-none">600</span>
+            <span class="text-[10px] text-gray-400 tabular-nums leading-none">400</span>
+            <span class="text-[10px] text-gray-400 tabular-nums leading-none">200</span>
+            <span class="text-[10px] text-gray-400 tabular-nums leading-none">0</span>
           </div>
 
-          <!-- Grid and bars -->
-          <div class="ml-10 h-full">
+          <!-- Chart area -->
+          <div class="relative" style="height: 160px;">
             <!-- Grid lines -->
-            <div class="absolute left-10 right-0 top-0 bottom-8 flex flex-col justify-between">
-              <div class="border-t border-gray-100"></div>
-              <div class="border-t border-gray-100 border-dashed"></div>
-              <div class="border-t border-gray-100 border-dashed"></div>
-              <div class="border-t border-gray-100 border-dashed"></div>
+            <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
               <div class="border-t border-gray-200"></div>
+              <div class="border-t border-gray-100 border-dashed"></div>
+              <div class="border-t border-gray-100 border-dashed"></div>
+              <div class="border-t border-gray-100 border-dashed"></div>
+              <div class="border-t border-gray-300"></div>
             </div>
 
-            <!-- Bars -->
-            <div class="relative flex items-end justify-around gap-2" style="height: calc(100% - 32px);">
-              <!-- Segunda -->
-              <div class="flex flex-col items-center flex-1">
+            <!-- Bars container - positioned at bottom -->
+            <div class="absolute bottom-0 left-0 right-0 flex justify-around items-end px-4">
+              <!-- Segunda: 520/800 * 160 = 104px -->
+              <div class="relative flex flex-col items-center" style="width: 40px;">
                 <span class="text-xs font-semibold text-gray-600 tabular-nums mb-1">520</span>
-                <div class="w-full max-w-10 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 104px;"></div>
-                <span class="text-xs text-gray-500 mt-2">Seg</span>
+                <div class="w-8 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-md" style="height: 104px;"></div>
               </div>
-              <!-- Terça -->
-              <div class="flex flex-col items-center flex-1">
+              <!-- Terça: 380/800 * 160 = 76px -->
+              <div class="relative flex flex-col items-center" style="width: 40px;">
                 <span class="text-xs font-semibold text-gray-600 tabular-nums mb-1">380</span>
-                <div class="w-full max-w-10 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 76px;"></div>
-                <span class="text-xs text-gray-500 mt-2">Ter</span>
+                <div class="w-8 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-md" style="height: 76px;"></div>
               </div>
-              <!-- Quarta -->
-              <div class="flex flex-col items-center flex-1">
+              <!-- Quarta: 450/800 * 160 = 90px -->
+              <div class="relative flex flex-col items-center" style="width: 40px;">
                 <span class="text-xs font-semibold text-gray-600 tabular-nums mb-1">450</span>
-                <div class="w-full max-w-10 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 90px;"></div>
-                <span class="text-xs text-gray-500 mt-2">Qua</span>
+                <div class="w-8 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-md" style="height: 90px;"></div>
               </div>
-              <!-- Quinta (highlighted) -->
-              <div class="flex flex-col items-center flex-1">
+              <!-- Quinta (highlighted): 780/800 * 160 = 156px -->
+              <div class="relative flex flex-col items-center" style="width: 40px;">
                 <span class="text-xs font-semibold text-accent-600 tabular-nums mb-1">780</span>
-                <div class="w-full max-w-10 bg-gradient-to-t from-accent-500 to-accent-400 rounded-t-lg shadow-lg shadow-accent-500/30" style="height: 156px;"></div>
-                <span class="text-xs font-semibold text-gray-900 mt-2">Qui</span>
+                <div class="w-8 bg-gradient-to-t from-accent-500 to-accent-400 rounded-t-md shadow-lg shadow-accent-500/30" style="height: 156px;"></div>
               </div>
-              <!-- Sexta -->
-              <div class="flex flex-col items-center flex-1">
+              <!-- Sexta: 490/800 * 160 = 98px -->
+              <div class="relative flex flex-col items-center" style="width: 40px;">
                 <span class="text-xs font-semibold text-gray-600 tabular-nums mb-1">490</span>
-                <div class="w-full max-w-10 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 98px;"></div>
-                <span class="text-xs text-gray-500 mt-2">Sex</span>
+                <div class="w-8 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-md" style="height: 98px;"></div>
               </div>
-              <!-- Sábado -->
-              <div class="flex flex-col items-center flex-1">
+              <!-- Sábado: 320/800 * 160 = 64px -->
+              <div class="relative flex flex-col items-center" style="width: 40px;">
                 <span class="text-xs font-semibold text-gray-600 tabular-nums mb-1">320</span>
-                <div class="w-full max-w-10 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 64px;"></div>
-                <span class="text-xs text-gray-500 mt-2">Sáb</span>
+                <div class="w-8 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-md" style="height: 64px;"></div>
               </div>
-              <!-- Domingo -->
-              <div class="flex flex-col items-center flex-1">
+              <!-- Domingo: 210/800 * 160 = 42px -->
+              <div class="relative flex flex-col items-center" style="width: 40px;">
                 <span class="text-xs font-semibold text-gray-600 tabular-nums mb-1">210</span>
-                <div class="w-full max-w-10 bg-gradient-to-t from-gray-400 to-gray-300 rounded-t-lg" style="height: 42px;"></div>
-                <span class="text-xs text-gray-500 mt-2">Dom</span>
+                <div class="w-8 bg-gradient-to-t from-gray-400 to-gray-300 rounded-t-md" style="height: 42px;"></div>
               </div>
             </div>
+          </div>
+
+          <!-- X-axis labels -->
+          <div class="flex justify-around px-4 mt-2">
+            <span class="text-xs text-gray-500" style="width: 40px; text-align: center;">Seg</span>
+            <span class="text-xs text-gray-500" style="width: 40px; text-align: center;">Ter</span>
+            <span class="text-xs text-gray-500" style="width: 40px; text-align: center;">Qua</span>
+            <span class="text-xs font-semibold text-gray-900" style="width: 40px; text-align: center;">Qui</span>
+            <span class="text-xs text-gray-500" style="width: 40px; text-align: center;">Sex</span>
+            <span class="text-xs text-gray-500" style="width: 40px; text-align: center;">Sáb</span>
+            <span class="text-xs text-gray-500" style="width: 40px; text-align: center;">Dom</span>
           </div>
         </div>
 
