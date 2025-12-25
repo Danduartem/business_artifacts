@@ -43,7 +43,7 @@ const tableContainerVariants = cva(
         ],
         bordered: [
           "bg-white border-gray-300",
-          "dark:bg-[#1A0604] dark:border-[rgba(161,82,60,0.3)]",
+          "dark:bg-[#240504] dark:border-[rgba(161,82,60,0.3)]",
         ],
         minimal: [
           "bg-transparent border-transparent rounded-none",

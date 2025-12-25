@@ -68,7 +68,7 @@ const statusVariants = cva(
   [
     "absolute",
     "rounded-full",
-    "ring-2 ring-white dark:ring-[#1A0604]",
+    "ring-2 ring-white dark:ring-[#240504]",
   ],
   {
     variants: {
@@ -255,7 +255,7 @@ const AvatarGroup = React.forwardRef<
       {visibleChildren.map((child, index) => (
         <div
           key={index}
-          className="ring-2 ring-white dark:ring-[#1A0604] rounded-full"
+          className="ring-2 ring-white dark:ring-[#240504] rounded-full"
           style={{ zIndex: visibleChildren.length - index }}
         >
           {React.isValidElement(child)
@@ -270,7 +270,7 @@ const AvatarGroup = React.forwardRef<
         <div
           className={cn(
             avatarVariants({ size, shape: "circle", variant: "neutral" }),
-            "ring-2 ring-white dark:ring-[#1A0604]"
+            "ring-2 ring-white dark:ring-[#240504]"
           )}
           style={{ zIndex: 0 }}
         >

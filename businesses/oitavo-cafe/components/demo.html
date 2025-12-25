@@ -341,7 +341,7 @@
     [data-theme="dark"] a:focus-visible,
     [data-theme="dark"] [role="button"]:focus-visible {
       box-shadow:
-        0 0 0 2px #1A0604,
+        0 0 0 2px #240504,
         0 0 0 4px rgba(212, 165, 116, 0.4);
     }
 
@@ -362,7 +362,7 @@
       border-color: #D4A574 !important;
       box-shadow:
         0 0 0 3px rgba(212, 165, 116, 0.15),
-        0 0 0 2px #1A0604,
+        0 0 0 2px #240504,
         0 0 0 4px rgba(212, 165, 116, 0.3) !important;
     }
 
@@ -1058,7 +1058,7 @@
     /* Gradient border for dark mode (Doppio) */
     .gradient-border-dark {
       position: relative;
-      background: #1A0604;
+      background: #240504;
       border: none !important;
     }
 
@@ -1539,14 +1539,14 @@
     }
 
     /* Info button in dark mode */
-    [style*="background: #1A0604"] .info-button,
-    [style*="background: #1A0604"] button[data-tooltip],
+    [style*="background: #240504"] .info-button,
+    [style*="background: #240504"] button[data-tooltip],
     .info-button-dark {
       color: #7A5A4A;
     }
 
-    [style*="background: #1A0604"] .info-button:hover,
-    [style*="background: #1A0604"] button[data-tooltip]:hover,
+    [style*="background: #240504"] .info-button:hover,
+    [style*="background: #240504"] button[data-tooltip]:hover,
     .info-button-dark:hover {
       color: #D4B8A8;
       background: rgba(161, 82, 60, 0.2);
@@ -1598,7 +1598,7 @@
 
     /*
      * Doppio uses layered transparency to create depth.
-     * Base: #1A0604 (deep coffee brown)
+     * Base: #240504 (deep coffee brown)
      * Each layer adds subtle brightness through transparency.
      *
      * Usage: Apply .doppio class to container, then use
@@ -2277,11 +2277,11 @@
     .doppio textarea:focus-visible,
     .doppio select:focus-visible,
     .doppio [tabindex]:focus-visible,
-    [style*="background: #1A0604"] button:focus-visible,
-    [style*="background: #1A0604"] a:focus-visible,
-    [style*="background: #1A0604"] input:focus-visible {
+    [style*="background: #240504"] button:focus-visible,
+    [style*="background: #240504"] a:focus-visible,
+    [style*="background: #240504"] input:focus-visible {
       box-shadow:
-        0 0 0 2px #1A0604,           /* Dark offset */
+        0 0 0 2px #240504,           /* Dark offset */
         0 0 0 4px rgba(161, 82, 60, 0.8); /* Brighter accent */
     }
 
@@ -2483,13 +2483,13 @@
 
     .doppio .icon-button:hover,
     .doppio button[class*="p-2"]:not([class*="px-"]):hover,
-    [style*="background: #1A0604"] button:hover {
+    [style*="background: #240504"] button:hover {
       background: rgba(161, 82, 60, 0.2);
       color: #D4B8A8;
     }
 
     .doppio .icon-button:active,
-    [style*="background: #1A0604"] button:active {
+    [style*="background: #240504"] button:active {
       background: rgba(161, 82, 60, 0.3);
     }
 
@@ -6783,24 +6783,24 @@
     /* -------- Doppio Chart Overrides -------- */
 
     .doppio .chart-primary,
-    [style*="background: #1A0604"] .chart-primary {
+    [style*="background: #240504"] .chart-primary {
       background-color: var(--chart-primary-doppio);
       color: var(--chart-primary-doppio);
     }
 
     .doppio .chart-secondary,
-    [style*="background: #1A0604"] .chart-secondary {
+    [style*="background: #240504"] .chart-secondary {
       background-color: var(--chart-secondary-doppio);
       color: var(--chart-secondary-doppio);
     }
 
     .doppio .trend-up,
-    [style*="background: #1A0604"] .trend-up {
+    [style*="background: #240504"] .trend-up {
       color: var(--chart-positive-doppio);
     }
 
     .doppio .trend-down,
-    [style*="background: #1A0604"] .trend-down {
+    [style*="background: #240504"] .trend-down {
       color: var(--chart-negative-doppio);
     }
 
@@ -6986,7 +6986,7 @@
     }
 
     /* Doppio dark mode - same spacing with adjusted borders */
-    [style*="background: #1A0604"] [class*="rounded-xl"][class*="p-4"],
+    [style*="background: #240504"] [class*="rounded-xl"][class*="p-4"],
     [style*="background: rgba(0,0,0"] {
       padding: var(--card-padding-md);
     }
@@ -7362,7 +7362,7 @@
     }
 
     /* Doppio skeleton (dark mode) */
-    [style*="background: #1A0604"] .skeleton,
+    [style*="background: #240504"] .skeleton,
     [style*="background: rgba(0,0,0"] .skeleton {
       background: linear-gradient(
         90deg,
@@ -7374,7 +7374,7 @@
       animation: skeleton-shimmer 2s infinite;
     }
 
-    [style*="background: #1A0604"] .skeleton-card,
+    [style*="background: #240504"] .skeleton-card,
     [style*="background: rgba(0,0,0"] .skeleton-card {
       background: rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(248, 232, 216, 0.05);
@@ -7541,40 +7541,40 @@
     }
 
     /* Doppio empty state */
-    [style*="background: #1A0604"] .empty-state,
+    [style*="background: #240504"] .empty-state,
     [style*="background: rgba(0,0,0"] .empty-state {
       background: linear-gradient(135deg, rgba(160,140,130,0.08), rgba(160,140,130,0.04));
     }
 
-    [style*="background: #1A0604"] .empty-state-icon,
+    [style*="background: #240504"] .empty-state-icon,
     [style*="background: rgba(0,0,0"] .empty-state-icon {
       background: rgba(160, 140, 130, 0.1);
       color: rgba(248, 232, 216, 0.3);
     }
 
-    [style*="background: #1A0604"] .empty-state-title,
+    [style*="background: #240504"] .empty-state-title,
     [style*="background: rgba(0,0,0"] .empty-state-title {
       color: #F8E8D8;
     }
 
-    [style*="background: #1A0604"] .empty-state-description,
+    [style*="background: #240504"] .empty-state-description,
     [style*="background: rgba(0,0,0"] .empty-state-description {
       color: #A89080;
     }
 
-    [style*="background: #1A0604"] .empty-state-card,
+    [style*="background: #240504"] .empty-state-card,
     [style*="background: rgba(0,0,0"] .empty-state-card {
       background: rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(248, 232, 216, 0.05);
     }
 
-    [style*="background: #1A0604"] .empty-state-action,
+    [style*="background: #240504"] .empty-state-action,
     [style*="background: rgba(0,0,0"] .empty-state-action {
       background: #A1523C;
       color: white;
     }
 
-    [style*="background: #1A0604"] .empty-state-action:hover,
+    [style*="background: #240504"] .empty-state-action:hover,
     [style*="background: rgba(0,0,0"] .empty-state-action:hover {
       background: #B86D5F;
     }
@@ -7713,14 +7713,14 @@
     }
 
     /* Doppio info button */
-    [style*="background: #1A0604"] .info-btn:hover,
+    [style*="background: #240504"] .info-btn:hover,
     [style*="background: rgba(0,0,0"] .info-btn:hover {
       background: rgba(248, 232, 216, 0.1);
     }
 
-    [style*="background: #1A0604"] .info-btn:focus,
+    [style*="background: #240504"] .info-btn:focus,
     [style*="background: rgba(0,0,0"] .info-btn:focus {
-      box-shadow: 0 0 0 2px #1A0604, 0 0 0 4px rgba(161, 82, 60, 0.6);
+      box-shadow: 0 0 0 2px #240504, 0 0 0 4px rgba(161, 82, 60, 0.6);
     }
 
     /* Live region for dynamic content updates */
@@ -8344,7 +8344,7 @@
 
         <!-- Dark Mode Example -->
         <h3 class="text-lg font-semibold mb-4">Dark Mode (Doppio)</h3>
-        <div class="rounded-xl p-6" style="background: #1A0604;">
+        <div class="rounded-xl p-6" style="background: #240504;">
           <div class="flex flex-wrap items-center gap-6">
             <div class="flex items-center gap-2">
               <span class="text-sm font-medium" style="color: #D4B8A8;">Métrica</span>
@@ -8580,7 +8580,7 @@
       <p class="text-gray-600 mb-8">Metrics, tables, avatars, and progress indicators with Doppio dark mode styling</p>
 
       <!-- Dark Mode Dashboard Preview -->
-      <div class="rounded-2xl overflow-hidden" style="background: #1A0604;">
+      <div class="rounded-2xl overflow-hidden" style="background: #240504;">
         <div class="p-8">
           <!-- Dashboard Header -->
           <div class="flex items-center justify-between mb-8">
@@ -8666,10 +8666,10 @@
               <div class="rounded-xl p-5" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(248,232,216,0.05);">
                 <div class="text-xs font-bold uppercase tracking-widest mb-4" style="color: #7A5A4A;">Clientes Ativos</div>
                 <div class="flex -space-x-3">
-                  <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ring-2" style="background: linear-gradient(135deg, #A1523C 0%, #D4A574 100%); color: #F8E8D8; ring-color: #1A0604;">MC</div>
-                  <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ring-2" style="background: linear-gradient(135deg, #7A1307 0%, #A1523C 100%); color: #F8E8D8; ring-color: #1A0604;">FS</div>
-                  <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ring-2" style="background: linear-gradient(135deg, #A1523C 0%, #D4A574 100%); color: #F8E8D8; ring-color: #1A0604;">AP</div>
-                  <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ring-2" style="background: rgba(248,232,216,0.1); color: #F8E8D8; ring-color: #1A0604;">+5</div>
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ring-2" style="background: linear-gradient(135deg, #A1523C 0%, #D4A574 100%); color: #F8E8D8; ring-color: #240504;">MC</div>
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ring-2" style="background: linear-gradient(135deg, #7A1307 0%, #A1523C 100%); color: #F8E8D8; ring-color: #240504;">FS</div>
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ring-2" style="background: linear-gradient(135deg, #A1523C 0%, #D4A574 100%); color: #F8E8D8; ring-color: #240504;">AP</div>
+                  <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ring-2" style="background: rgba(248,232,216,0.1); color: #F8E8D8; ring-color: #240504;">+5</div>
                 </div>
               </div>
 
@@ -8989,7 +8989,7 @@
       </div>
 
       <!-- Doppio Skeletons -->
-      <div class="rounded-2xl p-8" style="background: #1A0604;">
+      <div class="rounded-2xl p-8" style="background: #240504;">
         <h3 class="text-xl font-bold mb-6 pb-4 border-b" style="color: #F8E8D8; border-color: rgba(248,232,216,0.1);">
           Doppio Dark Mode Skeletons
         </h3>
@@ -9172,7 +9172,7 @@ function MetricCardWithLoading() {
       </div>
 
       <!-- Doppio Dark Mode Empty States -->
-      <div class="rounded-2xl p-8" style="background: #1A0604;">
+      <div class="rounded-2xl p-8" style="background: #240504;">
         <h3 class="text-xl font-bold mb-6 pb-4 border-b" style="color: #F8E8D8; border-color: rgba(248,232,216,0.1);">
           Doppio Dark Mode Empty States
         </h3>
@@ -13374,7 +13374,7 @@ export function ContactForm() {
         <h4 class="font-semibold text-gray-700 mb-3">CSS Custom Properties</h4>
         <div class="bg-gray-900 rounded-lg p-6 overflow-x-auto">
           <pre class="text-sm text-gray-100"><code>/* Available CSS Variables */
---doppio-base: #1A0604;
+--doppio-base: #240504;
 --doppio-surface-{0-4}: /* progressively lighter surfaces */
 --doppio-text-{primary|secondary|tertiary|muted}
 --doppio-border-{subtle|default|strong|accent}
@@ -13732,7 +13732,7 @@ export function ContactForm() {
       </div>
 
       <!-- Dark Mode Version (Doppio) -->
-      <div class="rounded-2xl p-8" style="background: #1A0604;">
+      <div class="rounded-2xl p-8" style="background: #240504;">
         <h3 class="text-xl font-bold mb-6 pb-4 border-b" style="color: #F8E8D8; border-color: rgba(248,232,216,0.1);">
           Dados analíticos de Instagram <span class="text-sm font-normal opacity-60">(Doppio Dark Mode)</span>
         </h3>
@@ -14131,7 +14131,7 @@ const reelsData = createInstagramMetrics("reels", 65, {
       </div>
 
       <!-- Dark Mode Version (Doppio) -->
-      <div class="rounded-2xl p-8" style="background: #1A0604;">
+      <div class="rounded-2xl p-8" style="background: #240504;">
         <h3 class="text-xl font-bold mb-6 pb-4 border-b" style="color: #F8E8D8; border-color: rgba(248,232,216,0.1);">
           Público do Instagram <span class="text-sm font-normal opacity-60">(Doppio Dark Mode)</span>
         </h3>
@@ -14481,7 +14481,7 @@ const reelsData = createInstagramMetrics("reels", 65, {
       </div>
 
       <!-- Dark Mode Version (Doppio) -->
-      <div class="rounded-2xl p-8" style="background: #1A0604;">
+      <div class="rounded-2xl p-8" style="background: #240504;">
         <h3 class="text-xl font-bold mb-6 pb-4 border-b" style="color: #F8E8D8; border-color: rgba(248,232,216,0.1);">
           Horários de maior atividade <span class="text-sm font-normal opacity-60">(Doppio Dark Mode)</span>
         </h3>
@@ -14859,7 +14859,7 @@ const peak = findPeakTime(data);
       </div>
 
       <!-- Dark Mode Version (Doppio) -->
-      <div class="rounded-2xl p-8" style="background: #1A0604;">
+      <div class="rounded-2xl p-8" style="background: #240504;">
         <h3 class="text-xl font-bold mb-6 pb-4 border-b" style="color: #F8E8D8; border-color: rgba(248,232,216,0.1);">
           Métricas de Performance <span class="text-sm font-normal opacity-60">(Doppio Dark Mode)</span>
         </h3>
@@ -15147,7 +15147,7 @@ const engagementData = createEngagementIndicators({
       </div>
 
       <!-- Dark Mode Version (Doppio) -->
-      <div class="rounded-2xl p-8" style="background: #1A0604;">
+      <div class="rounded-2xl p-8" style="background: #240504;">
         <h3 class="text-xl font-bold mb-6 pb-4 border-b" style="color: #F8E8D8; border-color: rgba(248,232,216,0.1);">
           Taxas de Engajamento <span class="text-sm font-normal opacity-60">(Doppio Dark Mode)</span>
         </h3>
@@ -15502,14 +15502,14 @@ const rates = createEngagementRates({
       <!-- Dark Mode (Doppio) -->
       <div class="mb-8">
         <h3 class="text-lg font-semibold mb-4">Dark Mode (Doppio)</h3>
-        <div class="rounded-2xl p-8" style="background: #1A0604;">
+        <div class="rounded-2xl p-8" style="background: #240504;">
 
           <div class="rounded-2xl p-8 text-center max-w-lg mx-auto" style="background: rgba(0,0,0,0.2); border: 1px solid rgba(248,232,216,0.05);">
             <!-- Avatar -->
             <div class="flex justify-center mb-4">
               <div class="relative inline-flex items-center justify-center h-28 w-28 rounded-full font-display font-bold text-3xl select-none" style="background: linear-gradient(135deg, #A1523C, #7A1307); color: #F8E8D8; box-shadow: 0 0 0 4px rgba(161,82,60,0.5);">
                 OC
-                <span class="absolute bottom-1 right-1 rounded-full p-0.5" style="background: #1A0604;">
+                <span class="absolute bottom-1 right-1 rounded-full p-0.5" style="background: #240504;">
                   <svg class="w-5 h-5" style="color: #60A5FA;" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z" />
                   </svg>
@@ -15804,7 +15804,7 @@ import { createCustomStats } from '@/components';
       <!-- Dark Mode (Doppio) -->
       <div class="mb-8">
         <h3 class="text-lg font-semibold mb-4">Dark Mode (Doppio)</h3>
-        <div class="rounded-2xl p-8" style="background: #1A0604;">
+        <div class="rounded-2xl p-8" style="background: #240504;">
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
@@ -16242,7 +16242,7 @@ const data = createComparison("followers", 15506, 13800, "month");
       <!-- Dark Mode (Doppio) -->
       <div class="mb-8">
         <h3 class="text-lg font-semibold mb-4">Dark Mode (Doppio)</h3>
-        <div class="rounded-2xl p-8" style="background: #1A0604;">
+        <div class="rounded-2xl p-8" style="background: #240504;">
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
@@ -16629,7 +16629,7 @@ const contentData = createContentTypeChart(55, 30, 15);
       <!-- Dark Mode (Doppio) -->
       <div class="mb-8">
         <h3 class="text-lg font-semibold mb-4">Dark Mode (Doppio)</h3>
-        <div class="rounded-2xl p-8" style="background: #1A0604;">
+        <div class="rounded-2xl p-8" style="background: #240504;">
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
@@ -16682,11 +16682,11 @@ const contentData = createContentTypeChart(55, 30, 15);
                   <path d="M 60 155 Q 100 130 140 100 Q 180 70 220 55 Q 260 40 300 35 L 380 25" fill="none" stroke="#A1523C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
 
                   <!-- Data points -->
-                  <circle cx="60" cy="155" r="4" fill="#1A0604" stroke="#A1523C" stroke-width="2" />
-                  <circle cx="140" cy="100" r="4" fill="#1A0604" stroke="#A1523C" stroke-width="2" />
-                  <circle cx="220" cy="55" r="4" fill="#1A0604" stroke="#A1523C" stroke-width="2" />
-                  <circle cx="300" cy="35" r="4" fill="#1A0604" stroke="#A1523C" stroke-width="2" />
-                  <circle cx="380" cy="25" r="4" fill="#1A0604" stroke="#A1523C" stroke-width="2" />
+                  <circle cx="60" cy="155" r="4" fill="#240504" stroke="#A1523C" stroke-width="2" />
+                  <circle cx="140" cy="100" r="4" fill="#240504" stroke="#A1523C" stroke-width="2" />
+                  <circle cx="220" cy="55" r="4" fill="#240504" stroke="#A1523C" stroke-width="2" />
+                  <circle cx="300" cy="35" r="4" fill="#240504" stroke="#A1523C" stroke-width="2" />
+                  <circle cx="380" cy="25" r="4" fill="#240504" stroke="#A1523C" stroke-width="2" />
                 </svg>
               </div>
             </div>
@@ -16729,9 +16729,9 @@ const contentData = createContentTypeChart(55, 30, 15);
                   <path d="M 60 140 Q 100 130 140 110 Q 180 90 220 85 Q 260 80 300 70 L 380 60" fill="none" stroke="#A1523C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
 
                   <!-- Data points -->
-                  <circle cx="380" cy="30" r="4" fill="#1A0604" stroke="#7A2E21" stroke-width="2" />
-                  <circle cx="380" cy="55" r="4" fill="#1A0604" stroke="#2D8B8B" stroke-width="2" />
-                  <circle cx="380" cy="60" r="4" fill="#1A0604" stroke="#A1523C" stroke-width="2" />
+                  <circle cx="380" cy="30" r="4" fill="#240504" stroke="#7A2E21" stroke-width="2" />
+                  <circle cx="380" cy="55" r="4" fill="#240504" stroke="#2D8B8B" stroke-width="2" />
+                  <circle cx="380" cy="60" r="4" fill="#240504" stroke="#A1523C" stroke-width="2" />
                 </svg>
               </div>
               <!-- Legend -->
@@ -17118,7 +17118,7 @@ const growthData = generateGrowthData(7, 10000, 15500, 0.1);
       <!-- Dark Mode (Doppio) -->
       <div class="mb-8">
         <h3 class="text-lg font-semibold mb-4">Dark Mode (Doppio)</h3>
-        <div class="rounded-2xl p-8" style="background: #1A0604;">
+        <div class="rounded-2xl p-8" style="background: #240504;">
 
           <div class="rounded-xl p-5" style="background: rgba(0,0,0,0.2); border: 1px solid rgba(248,232,216,0.05);">
             <div class="flex items-start justify-between mb-4">
@@ -17363,7 +17363,7 @@ const sampleItems = createSampleContent(6);
       </div>
 
       <!-- Dark Mode -->
-      <div class="mt-8 rounded-2xl p-8" style="background: #1A0604;">
+      <div class="mt-8 rounded-2xl p-8" style="background: #240504;">
         <h3 class="text-lg font-semibold mb-4" style="color: #F8E8D8;">Dark Mode (Doppio)</h3>
         <div class="flex items-center justify-around gap-4">
           <div class="flex flex-col items-center gap-2">
@@ -17488,7 +17488,7 @@ const sampleItems = createSampleContent(6);
       </div>
 
       <!-- Dark Mode Score Ring -->
-      <div class="mt-8 rounded-2xl p-8" style="background: #1A0604;">
+      <div class="mt-8 rounded-2xl p-8" style="background: #240504;">
         <h3 class="text-lg font-semibold mb-6" style="color: #F8E8D8;">Dark Mode Score Ring</h3>
         <div class="flex justify-center">
           <div class="rounded-2xl p-6" style="background: rgba(0,0,0,0.2); border: 1px solid rgba(248,232,216,0.05);">
@@ -17597,7 +17597,7 @@ const sampleItems = createSampleContent(6);
         </div>
 
         <!-- Dark Mode -->
-        <div class="rounded-2xl p-6" style="background: #1A0604; border: 1px solid rgba(248,232,216,0.05);">
+        <div class="rounded-2xl p-6" style="background: #240504; border: 1px solid rgba(248,232,216,0.05);">
           <div class="flex items-start justify-between mb-2">
             <div>
               <h3 class="text-sm font-semibold" style="color: #F8E8D8;">Saúde do Algoritmo</h3>
@@ -17627,12 +17627,12 @@ const sampleItems = createSampleContent(6);
               <!-- Data polygon - better scores -->
               <polygon points="100,44 149,68 149,132 100,156 51,132 51,68" fill="url(#radar-fill-2)" stroke="#14B8A6" stroke-width="2" stroke-linejoin="round" style="filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.4));"/>
               <!-- Data dots -->
-              <circle cx="100" cy="44" r="4" fill="#14B8A6" stroke="#1A0604" stroke-width="2"/>
-              <circle cx="149" cy="68" r="4" fill="#14B8A6" stroke="#1A0604" stroke-width="2"/>
-              <circle cx="149" cy="132" r="4" fill="#14B8A6" stroke="#1A0604" stroke-width="2"/>
-              <circle cx="100" cy="156" r="4" fill="#14B8A6" stroke="#1A0604" stroke-width="2"/>
-              <circle cx="51" cy="132" r="4" fill="#14B8A6" stroke="#1A0604" stroke-width="2"/>
-              <circle cx="51" cy="68" r="4" fill="#14B8A6" stroke="#1A0604" stroke-width="2"/>
+              <circle cx="100" cy="44" r="4" fill="#14B8A6" stroke="#240504" stroke-width="2"/>
+              <circle cx="149" cy="68" r="4" fill="#14B8A6" stroke="#240504" stroke-width="2"/>
+              <circle cx="149" cy="132" r="4" fill="#14B8A6" stroke="#240504" stroke-width="2"/>
+              <circle cx="100" cy="156" r="4" fill="#14B8A6" stroke="#240504" stroke-width="2"/>
+              <circle cx="51" cy="132" r="4" fill="#14B8A6" stroke="#240504" stroke-width="2"/>
+              <circle cx="51" cy="68" r="4" fill="#14B8A6" stroke="#240504" stroke-width="2"/>
               <!-- Labels -->
               <text x="100" y="15" text-anchor="middle" class="text-[11px] font-medium" style="fill: #D4B8A8;">Watch Time</text>
               <text x="178" y="62" text-anchor="start" class="text-[11px] font-medium" style="fill: #D4B8A8;">Shares</text>

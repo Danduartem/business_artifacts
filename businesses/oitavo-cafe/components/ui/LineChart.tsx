@@ -525,7 +525,7 @@ const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(
                     x={tooltipX}
                     y={tooltipY + 4}
                     textAnchor="middle"
-                    className="text-[11px] font-semibold fill-white dark:fill-[#1A0604]"
+                    className="text-[11px] font-semibold fill-white dark:fill-[#240504]"
                   >
                     {tooltipText}
                   </text>

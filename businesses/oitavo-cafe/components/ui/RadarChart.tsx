@@ -316,7 +316,7 @@ const RadarChart = React.forwardRef<HTMLDivElement, RadarChartProps>(
                     fill={colors.dot}
                     stroke="white"
                     strokeWidth="2"
-                    className="dark:stroke-[#1A0604]"
+                    className="dark:stroke-[#240504]"
                   />
                 );
               })}

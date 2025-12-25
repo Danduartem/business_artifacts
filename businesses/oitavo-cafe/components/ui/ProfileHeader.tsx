@@ -115,7 +115,7 @@ const profileAvatarVariants = cva(
       },
       ring: {
         none: "",
-        default: "ring-4 ring-white dark:ring-[#1A0604]",
+        default: "ring-4 ring-white dark:ring-[#240504]",
         gradient: [
           "ring-4",
           "ring-gradient-to-br from-accent-400 to-primary-600",
@@ -208,7 +208,7 @@ const ProfileAvatar = React.forwardRef<HTMLDivElement, ProfileAvatarProps>(
             className={cn(
               "absolute",
               badgePosition[size],
-              "bg-white dark:bg-[#1A0604] rounded-full p-0.5"
+              "bg-white dark:bg-[#240504] rounded-full p-0.5"
             )}
           >
             <VerifiedBadge size={badgeSize} />

@@ -1322,7 +1322,7 @@ All dashboard components support dark mode with the Doppio aesthetic:
 
 ```tsx
 // Wrap your dashboard in dark mode
-<div className="dark" style={{ background: '#1A0604' }}>
+<div className="dark" style={{ background: '#240504' }}>
   <StatCardGrid>
     <StatCard label="Leads" value="127" change="+23%" changeType="positive" />
     <StatCard label="ROI" value="3.2x" variant="highlight" />
@@ -1331,7 +1331,7 @@ All dashboard components support dark mode with the Doppio aesthetic:
 ```
 
 Dark mode uses the Doppio color palette:
-- Background: `#1A0604` (deep maroon)
+- Background: `#240504` (primary-900)
 - Card: `rgba(0,0,0,0.3)`
 - Text: `#F8E8D8` (cream)
 - Accent: `#A1523C` (terracotta)
