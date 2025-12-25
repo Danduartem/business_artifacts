@@ -17660,7 +17660,7 @@ const sampleItems = createSampleContent(6);
           <h3 class="text-sm font-semibold text-gray-900">Performance por Dia da Semana</h3>
         </div>
 
-        <div class="relative h-48">
+        <div class="relative h-56">
           <!-- Y-axis labels -->
           <div class="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-right pr-2">
             <span class="text-[10px] text-gray-400 tabular-nums">800</span>
@@ -17682,48 +17682,48 @@ const sampleItems = createSampleContent(6);
             </div>
 
             <!-- Bars -->
-            <div class="relative h-full flex items-end justify-around pb-8 gap-2">
+            <div class="relative flex items-end justify-around gap-2" style="height: calc(100% - 32px);">
               <!-- Segunda -->
-              <div class="flex flex-col items-center gap-2 flex-1">
-                <span class="text-xs font-semibold text-gray-600 tabular-nums">520</span>
-                <div class="w-full max-w-12 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 65%;"></div>
-                <span class="text-xs text-gray-500">Seg</span>
+              <div class="flex flex-col items-center flex-1">
+                <span class="text-xs font-semibold text-gray-600 tabular-nums mb-1">520</span>
+                <div class="w-full max-w-10 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 104px;"></div>
+                <span class="text-xs text-gray-500 mt-2">Seg</span>
               </div>
               <!-- Terça -->
-              <div class="flex flex-col items-center gap-2 flex-1">
-                <span class="text-xs font-semibold text-gray-600 tabular-nums">380</span>
-                <div class="w-full max-w-12 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 47.5%;"></div>
-                <span class="text-xs text-gray-500">Ter</span>
+              <div class="flex flex-col items-center flex-1">
+                <span class="text-xs font-semibold text-gray-600 tabular-nums mb-1">380</span>
+                <div class="w-full max-w-10 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 76px;"></div>
+                <span class="text-xs text-gray-500 mt-2">Ter</span>
               </div>
               <!-- Quarta -->
-              <div class="flex flex-col items-center gap-2 flex-1">
-                <span class="text-xs font-semibold text-gray-600 tabular-nums">450</span>
-                <div class="w-full max-w-12 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 56.25%;"></div>
-                <span class="text-xs text-gray-500">Qua</span>
+              <div class="flex flex-col items-center flex-1">
+                <span class="text-xs font-semibold text-gray-600 tabular-nums mb-1">450</span>
+                <div class="w-full max-w-10 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 90px;"></div>
+                <span class="text-xs text-gray-500 mt-2">Qua</span>
               </div>
               <!-- Quinta (highlighted) -->
-              <div class="flex flex-col items-center gap-2 flex-1">
-                <span class="text-xs font-semibold text-accent-600 tabular-nums">780</span>
-                <div class="w-full max-w-12 bg-gradient-to-t from-accent-500 to-accent-400 rounded-t-lg shadow-lg shadow-accent-500/30" style="height: 97.5%;"></div>
-                <span class="text-xs font-semibold text-gray-900">Qui</span>
+              <div class="flex flex-col items-center flex-1">
+                <span class="text-xs font-semibold text-accent-600 tabular-nums mb-1">780</span>
+                <div class="w-full max-w-10 bg-gradient-to-t from-accent-500 to-accent-400 rounded-t-lg shadow-lg shadow-accent-500/30" style="height: 156px;"></div>
+                <span class="text-xs font-semibold text-gray-900 mt-2">Qui</span>
               </div>
               <!-- Sexta -->
-              <div class="flex flex-col items-center gap-2 flex-1">
-                <span class="text-xs font-semibold text-gray-600 tabular-nums">490</span>
-                <div class="w-full max-w-12 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 61.25%;"></div>
-                <span class="text-xs text-gray-500">Sex</span>
+              <div class="flex flex-col items-center flex-1">
+                <span class="text-xs font-semibold text-gray-600 tabular-nums mb-1">490</span>
+                <div class="w-full max-w-10 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 98px;"></div>
+                <span class="text-xs text-gray-500 mt-2">Sex</span>
               </div>
               <!-- Sábado -->
-              <div class="flex flex-col items-center gap-2 flex-1">
-                <span class="text-xs font-semibold text-gray-600 tabular-nums">320</span>
-                <div class="w-full max-w-12 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 40%;"></div>
-                <span class="text-xs text-gray-500">Sáb</span>
+              <div class="flex flex-col items-center flex-1">
+                <span class="text-xs font-semibold text-gray-600 tabular-nums mb-1">320</span>
+                <div class="w-full max-w-10 bg-gradient-to-t from-primary-700 to-accent-500 rounded-t-lg" style="height: 64px;"></div>
+                <span class="text-xs text-gray-500 mt-2">Sáb</span>
               </div>
               <!-- Domingo -->
-              <div class="flex flex-col items-center gap-2 flex-1">
-                <span class="text-xs font-semibold text-gray-600 tabular-nums">210</span>
-                <div class="w-full max-w-12 bg-gradient-to-t from-gray-400 to-gray-300 rounded-t-lg" style="height: 26.25%;"></div>
-                <span class="text-xs text-gray-500">Dom</span>
+              <div class="flex flex-col items-center flex-1">
+                <span class="text-xs font-semibold text-gray-600 tabular-nums mb-1">210</span>
+                <div class="w-full max-w-10 bg-gradient-to-t from-gray-400 to-gray-300 rounded-t-lg" style="height: 42px;"></div>
+                <span class="text-xs text-gray-500 mt-2">Dom</span>
               </div>
             </div>
           </div>
