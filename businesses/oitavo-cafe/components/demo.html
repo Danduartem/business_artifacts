@@ -7835,6 +7835,387 @@
         animation-duration: 0.01ms !important;
       }
     }
+
+    /* ============================================
+       SIDEBAR NAVIGATION
+       Sticky sidebar with categorized components
+       ============================================ */
+
+    .demo-layout {
+      display: block;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .demo-sidebar {
+      width: 260px;
+      background: white;
+      border-right: 1px solid #E8C5C0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      z-index: 100;
+    }
+
+    .demo-sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .demo-sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .demo-sidebar::-webkit-scrollbar-thumb {
+      background: #D49D94;
+      border-radius: 3px;
+    }
+
+    .demo-sidebar::-webkit-scrollbar-thumb:hover {
+      background: #A1523C;
+    }
+
+    .sidebar-header {
+      padding: 20px 16px;
+      border-bottom: 1px solid #E8C5C0;
+      background: linear-gradient(135deg, #4E130D 0%, #7A1307 100%);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #F8E8D8;
+      text-decoration: none;
+    }
+
+    .sidebar-logo-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(248, 232, 216, 0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .sidebar-logo-text {
+      font-family: 'Hartwell', system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .sidebar-version {
+      font-size: 11px;
+      opacity: 0.7;
+      margin-top: 2px;
+    }
+
+    .sidebar-search {
+      padding: 12px 16px;
+      border-bottom: 1px solid #F5E3E1;
+    }
+
+    .sidebar-search input {
+      width: 100%;
+      padding: 8px 12px 8px 36px;
+      border: 1px solid #E8C5C0;
+      border-radius: 8px;
+      font-size: 13px;
+      background: #FFFCF9 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23A89080' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") 10px center no-repeat;
+      transition: border-color 150ms, box-shadow 150ms;
+    }
+
+    .sidebar-search input:focus {
+      outline: none;
+      border-color: #A1523C;
+      box-shadow: 0 0 0 3px rgba(161, 82, 60, 0.1);
+    }
+
+    .sidebar-search input::placeholder {
+      color: #A89080;
+    }
+
+    .sidebar-nav {
+      padding: 12px 0;
+    }
+
+    .sidebar-category {
+      margin-bottom: 4px;
+    }
+
+    .sidebar-category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #7A5A4A;
+      cursor: pointer;
+      user-select: none;
+      transition: color 150ms;
+    }
+
+    .sidebar-category-header:hover {
+      color: #4E130D;
+    }
+
+    .sidebar-category-header svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 200ms;
+    }
+
+    .sidebar-category.collapsed .sidebar-category-header svg {
+      transform: rotate(-90deg);
+    }
+
+    .sidebar-category.collapsed .sidebar-category-items {
+      display: none;
+    }
+
+    .sidebar-category-items {
+      padding: 0;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px 7px 24px;
+      font-size: 13px;
+      color: #525252;
+      text-decoration: none;
+      transition: background 150ms, color 150ms, padding-left 150ms;
+      border-left: 2px solid transparent;
+    }
+
+    .sidebar-link:hover {
+      background: #FBF6F4;
+      color: #4E130D;
+    }
+
+    .sidebar-link.active {
+      background: #F5E3E1;
+      color: #4E130D;
+      font-weight: 600;
+      border-left-color: #A1523C;
+      padding-left: 22px;
+    }
+
+    .sidebar-link-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+    }
+
+    .sidebar-link.active .sidebar-link-icon {
+      opacity: 1;
+    }
+
+    .demo-content {
+      margin-left: 261px; /* 260px sidebar + 1px border */
+      min-height: 100vh;
+      background: #FFFCF9;
+      display: block;
+      position: relative;
+    }
+
+    .demo-topbar {
+      background: linear-gradient(135deg, #4E130D 0%, #7A1307 50%, #A1523C 100%);
+      color: #F8E8D8;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+
+    .demo-topbar h1 {
+      font-family: 'Hartwell', system-ui, sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .demo-topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: rgba(248, 232, 216, 0.15);
+      border: 1px solid rgba(248, 232, 216, 0.2);
+      border-radius: 8px;
+      color: #F8E8D8;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 150ms, border-color 150ms;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(248, 232, 216, 0.25);
+      border-color: rgba(248, 232, 216, 0.3);
+    }
+
+    .theme-toggle svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .demo-main {
+      display: block;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 32px 32px 48px;
+    }
+
+    .demo-main > section {
+      display: block !important;
+      width: 100% !important;
+      margin-bottom: 64px;
+      position: relative !important;
+      float: none !important;
+      columns: unset !important;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 1024px) {
+      .demo-sidebar {
+        left: -280px;
+        width: 280px;
+        transition: left 300ms ease-out;
+        box-shadow: none;
+      }
+
+      .demo-sidebar.open {
+        left: 0;
+        box-shadow: 0 0 40px rgba(78, 19, 13, 0.2);
+      }
+
+      .demo-content {
+        margin-left: 0;
+      }
+
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(36, 5, 4, 0.5);
+        z-index: 35;
+      }
+
+      .sidebar-overlay.visible {
+        display: block;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .demo-main {
+        padding: 20px;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .mobile-menu-btn,
+      .sidebar-overlay {
+        display: none !important;
+      }
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(248, 232, 216, 0.15);
+      border: 1px solid rgba(248, 232, 216, 0.2);
+      border-radius: 8px;
+      color: #F8E8D8;
+      cursor: pointer;
+    }
+
+    .mobile-menu-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Section scroll offset for sticky header */
+    section[id] {
+      scroll-margin-top: 100px;
+    }
+
+    /* Dark mode sidebar */
+    [data-theme="dark"] .demo-sidebar {
+      background: #240504;
+      border-right-color: rgba(161, 82, 60, 0.2);
+    }
+
+    [data-theme="dark"] .sidebar-header {
+      border-bottom-color: rgba(161, 82, 60, 0.2);
+    }
+
+    [data-theme="dark"] .sidebar-search {
+      border-bottom-color: rgba(161, 82, 60, 0.15);
+    }
+
+    [data-theme="dark"] .sidebar-search input {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-color: rgba(161, 82, 60, 0.2);
+      color: #F8E8D8;
+    }
+
+    [data-theme="dark"] .sidebar-search input::placeholder {
+      color: #7A5A4A;
+    }
+
+    [data-theme="dark"] .sidebar-category-header {
+      color: #A89080;
+    }
+
+    [data-theme="dark"] .sidebar-category-header:hover {
+      color: #D4A574;
+    }
+
+    [data-theme="dark"] .sidebar-link {
+      color: #D4B8A8;
+    }
+
+    [data-theme="dark"] .sidebar-link:hover {
+      background: rgba(161, 82, 60, 0.1);
+      color: #F8E8D8;
+    }
+
+    [data-theme="dark"] .sidebar-link.active {
+      background: rgba(161, 82, 60, 0.2);
+      color: #F8E8D8;
+      border-left-color: #D4A574;
+    }
+
+    [data-theme="dark"] .demo-content {
+      background: #240504;
+    }
   </style>
 </head>
 <body class="bg-neutral-50 text-gray-900">
@@ -7844,69 +8225,184 @@
   <!-- Live region for screen reader announcements -->
   <div aria-live="polite" aria-atomic="true" class="live-region" id="announcements"></div>
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-primary-700 via-secondary-600 to-accent-500 text-neutral-50 py-16 px-6">
-    <div class="max-w-5xl mx-auto text-center">
-      <h1 class="font-display text-5xl font-bold mb-4">Component Library</h1>
-      <p class="text-xl opacity-90">Oitavo Café Design System</p>
-      <span class="inline-block mt-4 px-4 py-1 bg-white/20 rounded-full text-sm font-semibold">v1.0.0</span>
-    </div>
-  </header>
+  <!-- Mobile overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
 
-  <!-- Navigation -->
-  <nav class="bg-primary-700 sticky top-0 z-50 py-3 px-6">
-    <div class="max-w-5xl mx-auto flex gap-4 flex-wrap justify-center">
-      <a href="#buttons" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Buttons</a>
-      <a href="#inputs" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Inputs</a>
-      <a href="#cards" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Cards</a>
-      <a href="#alerts" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Alerts</a>
-      <a href="#badges" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Badges</a>
-      <a href="#tooltips" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Tooltips</a>
-      <a href="#modal" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Modal</a>
-      <a href="#dashboard" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Dashboard</a>
-      <a href="#doppio-elevation" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Doppio</a>
-      <a href="#typography" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Typography</a>
-      <a href="#media-kit" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Media Kit</a>
-      <a href="#audience" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Audience</a>
-      <a href="#heatmap" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Heatmap</a>
-      <a href="#indicators" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Indicators</a>
-      <a href="#rates" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Rates</a>
-      <a href="#profile" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Profile</a>
-      <a href="#comparison" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Comparison</a>
-      <a href="#donut" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Donut</a>
-      <a href="#line" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Line</a>
-      <a href="#content" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Content</a>
-      <a href="#loading" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Skeletons</a>
-      <a href="#empty-states" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Empty States</a>
-      <a href="#accessibility" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Accessibility</a>
-      <a href="#select" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Select</a>
-      <a href="#tabs" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Tabs</a>
-      <a href="#date-picker" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Date Picker</a>
-      <a href="#tooltips" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Tooltips</a>
-      <a href="#pagination" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Pagination</a>
-      <a href="#toggle" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Toggle</a>
-      <a href="#avatar" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Avatar</a>
-      <a href="#breadcrumbs" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Breadcrumbs</a>
-      <a href="#checkbox" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Checkbox</a>
-      <a href="#progress" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Progress</a>
-      <a href="#alerts" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Alerts</a>
-      <a href="#toasts" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Toasts</a>
-      <a href="#radio" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Radio</a>
-      <a href="#accordion" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Accordion</a>
-      <a href="#slider" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Slider</a>
-      <a href="#tags" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Tags</a>
-      <a href="#search" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Search</a>
-      <a href="#timeline" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Timeline</a>
-      <a href="#upload" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Upload</a>
-      <a href="#stats" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Stats</a>
-      <a href="#kbd" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Kbd</a>
-      <a href="#code" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Code</a>
-      <a href="#error-states" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Errors</a>
-      <a href="#form-example" class="text-neutral-50 hover:text-accent-300 px-3 py-1 rounded text-sm font-medium transition-colors">Form Example</a>
-    </div>
-  </nav>
+  <div class="demo-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="demo-sidebar" id="sidebar" role="navigation" aria-label="Component navigation">
+      <div class="sidebar-header">
+        <a href="#" class="sidebar-logo">
+          <span class="sidebar-logo-icon">8</span>
+          <div>
+            <div class="sidebar-logo-text">Oitavo Café</div>
+            <div class="sidebar-version">Components v2.0.0</div>
+          </div>
+        </a>
+      </div>
 
-  <main id="main-content" class="max-w-5xl mx-auto px-6 py-12" role="main">
+      <div class="sidebar-search">
+        <input type="text" id="component-search" placeholder="Search components..." aria-label="Search components">
+      </div>
+
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <!-- Foundation -->
+        <div class="sidebar-category" data-category="foundation">
+          <div class="sidebar-category-header" onclick="toggleCategory(this)">
+            <span>Foundation</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="sidebar-category-items">
+            <a href="#typography" class="sidebar-link" data-section="typography">Typography</a>
+            <a href="#doppio-elevation" class="sidebar-link" data-section="doppio-elevation">Doppio Colors</a>
+          </div>
+        </div>
+
+        <!-- Forms -->
+        <div class="sidebar-category" data-category="forms">
+          <div class="sidebar-category-header" onclick="toggleCategory(this)">
+            <span>Forms</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="sidebar-category-items">
+            <a href="#buttons" class="sidebar-link" data-section="buttons">Button</a>
+            <a href="#inputs" class="sidebar-link" data-section="inputs">Input</a>
+            <a href="#select" class="sidebar-link" data-section="select">Select</a>
+            <a href="#checkbox" class="sidebar-link" data-section="checkbox">Checkbox</a>
+            <a href="#radio" class="sidebar-link" data-section="radio">Radio</a>
+            <a href="#toggle" class="sidebar-link" data-section="toggle">Toggle</a>
+            <a href="#slider" class="sidebar-link" data-section="slider">Slider</a>
+            <a href="#date-picker" class="sidebar-link" data-section="date-picker">Date Picker</a>
+            <a href="#search" class="sidebar-link" data-section="search">Search</a>
+            <a href="#upload" class="sidebar-link" data-section="upload">Upload</a>
+            <a href="#form-example" class="sidebar-link" data-section="form-example">Form Example</a>
+          </div>
+        </div>
+
+        <!-- Data Display -->
+        <div class="sidebar-category" data-category="display">
+          <div class="sidebar-category-header" onclick="toggleCategory(this)">
+            <span>Data Display</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="sidebar-category-items">
+            <a href="#cards" class="sidebar-link" data-section="cards">Card</a>
+            <a href="#badges" class="sidebar-link" data-section="badges">Badge</a>
+            <a href="#avatar" class="sidebar-link" data-section="avatar">Avatar</a>
+            <a href="#tags" class="sidebar-link" data-section="tags">Tags</a>
+            <a href="#timeline" class="sidebar-link" data-section="timeline">Timeline</a>
+            <a href="#stats" class="sidebar-link" data-section="stats">Stats</a>
+            <a href="#kbd" class="sidebar-link" data-section="kbd">Keyboard</a>
+            <a href="#code" class="sidebar-link" data-section="code">Code</a>
+          </div>
+        </div>
+
+        <!-- Feedback -->
+        <div class="sidebar-category" data-category="feedback">
+          <div class="sidebar-category-header" onclick="toggleCategory(this)">
+            <span>Feedback</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="sidebar-category-items">
+            <a href="#alerts" class="sidebar-link" data-section="alerts">Alert</a>
+            <a href="#modal" class="sidebar-link" data-section="modal">Modal</a>
+            <a href="#toasts" class="sidebar-link" data-section="toasts">Toast</a>
+            <a href="#tooltips" class="sidebar-link" data-section="tooltips">Tooltip</a>
+            <a href="#progress" class="sidebar-link" data-section="progress">Progress</a>
+            <a href="#loading" class="sidebar-link" data-section="loading">Skeleton</a>
+            <a href="#empty-states" class="sidebar-link" data-section="empty-states">Empty States</a>
+            <a href="#error-states" class="sidebar-link" data-section="error-states">Error States</a>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="sidebar-category" data-category="navigation">
+          <div class="sidebar-category-header" onclick="toggleCategory(this)">
+            <span>Navigation</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="sidebar-category-items">
+            <a href="#tabs" class="sidebar-link" data-section="tabs">Tabs</a>
+            <a href="#pagination" class="sidebar-link" data-section="pagination">Pagination</a>
+            <a href="#breadcrumbs" class="sidebar-link" data-section="breadcrumbs">Breadcrumbs</a>
+            <a href="#accordion" class="sidebar-link" data-section="accordion">Accordion</a>
+          </div>
+        </div>
+
+        <!-- Dashboard & Charts -->
+        <div class="sidebar-category" data-category="analytics">
+          <div class="sidebar-category-header" onclick="toggleCategory(this)">
+            <span>Analytics & Charts</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="sidebar-category-items">
+            <a href="#dashboard" class="sidebar-link" data-section="dashboard">Dashboard</a>
+            <a href="#media-kit" class="sidebar-link" data-section="media-kit">Metric Column</a>
+            <a href="#audience" class="sidebar-link" data-section="audience">Bar Charts</a>
+            <a href="#heatmap" class="sidebar-link" data-section="heatmap">Heatmap</a>
+            <a href="#indicators" class="sidebar-link" data-section="indicators">Indicators</a>
+            <a href="#rates" class="sidebar-link" data-section="rates">Engagement Rates</a>
+            <a href="#profile" class="sidebar-link" data-section="profile">Profile Header</a>
+            <a href="#comparison" class="sidebar-link" data-section="comparison">Comparison</a>
+            <a href="#donut" class="sidebar-link" data-section="donut">Donut Chart</a>
+            <a href="#line" class="sidebar-link" data-section="line">Line Chart</a>
+            <a href="#content" class="sidebar-link" data-section="content">Top Content</a>
+            <a href="#grade-badges" class="sidebar-link" data-section="grade-badges">Grade Badge</a>
+            <a href="#score-ring" class="sidebar-link" data-section="score-ring">Score Ring</a>
+            <a href="#radar-chart" class="sidebar-link" data-section="radar-chart">Radar Chart</a>
+            <a href="#tooltips-metrics" class="sidebar-link" data-section="tooltips-metrics">Metrics Tooltips</a>
+            <a href="#alerts-dashboard" class="sidebar-link" data-section="alerts-dashboard">Dashboard Alerts</a>
+          </div>
+        </div>
+
+        <!-- Accessibility -->
+        <div class="sidebar-category" data-category="a11y">
+          <div class="sidebar-category-header" onclick="toggleCategory(this)">
+            <span>Accessibility</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="sidebar-category-items">
+            <a href="#accessibility" class="sidebar-link" data-section="accessibility">A11y Patterns</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="demo-content">
+      <header class="demo-topbar">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <button class="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Toggle menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <line x1="3" y1="12" x2="21" y2="12"/>
+              <line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+          </button>
+          <h1>Component Library</h1>
+        </div>
+        <div class="demo-topbar-actions">
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+            <svg id="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg id="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <span id="theme-label">Light</span>
+          </button>
+        </div>
+      </header>
+
+      <main id="main-content" class="demo-main" role="main">
 
     <!-- Buttons Section -->
     <section id="buttons" class="mb-16">
@@ -10213,9 +10709,9 @@ export function Tabs({ tabs, activeTab, onChange, variant = 'underline' }: TabsP
       </div>
     </section>
 
-    <!-- Tooltips Section -->
-    <section id="tooltips" class="mb-16">
-      <h2 class="font-display text-3xl font-bold text-primary-700 mb-2">Tooltips</h2>
+    <!-- Metrics Tooltips Section -->
+    <section id="tooltips-metrics" class="mb-16">
+      <h2 class="font-display text-3xl font-bold text-primary-700 mb-2">Metrics Tooltips</h2>
       <p class="text-gray-600 mb-8">Contextual information on hover for metrics and data points</p>
 
       <div class="space-y-12">
@@ -11366,10 +11862,10 @@ export function SettingToggle({ title, description, checked, onChange }: Setting
       </div>
     </section>
 
-    <!-- Alerts Section -->
-    <section id="alerts" class="mb-16">
-      <h2 class="font-display text-3xl font-bold text-primary-700 mb-2">Alerts & Banners</h2>
-      <p class="text-gray-600 mb-8">Contextual feedback and announcement messages</p>
+    <!-- Dashboard Alerts Section -->
+    <section id="alerts-dashboard" class="mb-16">
+      <h2 class="font-display text-3xl font-bold text-primary-700 mb-2">Dashboard Alerts</h2>
+      <p class="text-gray-600 mb-8">Contextual feedback and announcement messages for dashboards</p>
 
       <div class="space-y-12">
         <!-- Basic Alerts -->
@@ -18008,13 +18504,156 @@ const sampleItems = createSampleContent(6);
       </div>
     </section>
 
-  </main>
+      </main>
 
-  <!-- Footer -->
-  <footer class="bg-gradient-to-r from-primary-700 to-primary-900 text-neutral-50 py-16 px-6 text-center">
-    <p class="font-display text-2xl font-bold mb-2">Sem açúcar. Feito pra vender.</p>
-    <p class="text-neutral-300">Oitavo Café Component Library v2.0.0</p>
-  </footer>
+      <!-- Footer -->
+      <footer class="bg-gradient-to-r from-primary-700 to-primary-900 text-neutral-50 py-16 px-6 text-center">
+        <p class="font-display text-2xl font-bold mb-2">Sem açúcar. Feito pra vender.</p>
+        <p class="text-neutral-300">Oitavo Café Component Library v2.0.0</p>
+      </footer>
+    </div><!-- /.demo-content -->
+  </div><!-- /.demo-layout -->
+
+  <!-- Sidebar Overlay for Mobile -->
+  <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <!-- Sidebar Navigation JavaScript -->
+  <script>
+    // Sidebar toggle for mobile
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.demo-sidebar');
+      const overlay = document.querySelector('.sidebar-overlay');
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('visible');
+      document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+    }
+
+    // Category toggle in sidebar
+    function toggleCategory(header) {
+      const category = header.closest('.sidebar-category');
+      category.classList.toggle('collapsed');
+    }
+
+    // Active section tracking with Intersection Observer
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('section[id]');
+      const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+
+            // Remove active class from all links
+            sidebarLinks.forEach(link => link.classList.remove('active'));
+
+            // Add active class to matching link
+            const activeLink = document.querySelector(`.sidebar-link[href="#${id}"]`);
+            if (activeLink) {
+              activeLink.classList.add('active');
+
+              // Expand parent category if collapsed
+              const category = activeLink.closest('.sidebar-category');
+              if (category && category.classList.contains('collapsed')) {
+                category.classList.remove('collapsed');
+              }
+            }
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+    });
+
+    // Sidebar search functionality
+    function filterSidebar(searchTerm) {
+      const term = searchTerm.toLowerCase().trim();
+      const categories = document.querySelectorAll('.sidebar-category');
+      const links = document.querySelectorAll('.sidebar-link');
+
+      if (!term) {
+        // Show all when search is empty
+        categories.forEach(cat => cat.style.display = '');
+        links.forEach(link => link.style.display = '');
+        return;
+      }
+
+      links.forEach(link => {
+        const text = link.textContent.toLowerCase();
+        const matches = text.includes(term);
+        link.style.display = matches ? '' : 'none';
+      });
+
+      // Hide empty categories
+      categories.forEach(cat => {
+        const visibleLinks = cat.querySelectorAll('.sidebar-link:not([style*="display: none"])');
+        cat.style.display = visibleLinks.length > 0 ? '' : 'none';
+      });
+    }
+
+    // Theme toggle functionality
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle('doppio');
+
+      // Update button appearance
+      const lightIcon = document.getElementById('theme-icon-light');
+      const darkIcon = document.getElementById('theme-icon-dark');
+      const themeLabel = document.getElementById('theme-label');
+
+      if (isDark) {
+        lightIcon.style.display = 'none';
+        darkIcon.style.display = 'block';
+        themeLabel.textContent = 'Dark';
+      } else {
+        lightIcon.style.display = 'block';
+        darkIcon.style.display = 'none';
+        themeLabel.textContent = 'Light';
+      }
+
+      // Persist preference
+      localStorage.setItem('theme', isDark ? 'doppio' : 'light');
+    }
+
+    // Load saved theme on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'doppio') {
+        document.documentElement.classList.add('doppio');
+        const lightIcon = document.getElementById('theme-icon-light');
+        const darkIcon = document.getElementById('theme-icon-dark');
+        const themeLabel = document.getElementById('theme-label');
+        if (lightIcon) lightIcon.style.display = 'none';
+        if (darkIcon) darkIcon.style.display = 'block';
+        if (themeLabel) themeLabel.textContent = 'Dark';
+      }
+    });
+
+    // Close sidebar on link click (mobile)
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth < 1024) {
+          toggleSidebar();
+        }
+      });
+    });
+
+    // Close sidebar on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const sidebar = document.querySelector('.demo-sidebar');
+        if (sidebar && sidebar.classList.contains('open')) {
+          toggleSidebar();
+        }
+      }
+    });
+  </script>
 
   <!-- Modal JavaScript -->
   <script>
