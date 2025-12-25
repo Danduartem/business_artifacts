@@ -1280,10 +1280,30 @@ Alert messages should follow brand voice:
 
 ---
 
+## AI Component Selection
+
+For AI agents and LLM-powered tools, use the **Component Manifest** for structured component lookup:
+
+```
+components/component-manifest.json
+```
+
+The manifest provides machine-readable metadata including:
+- Props with types, options, and defaults
+- Usage examples with code snippets
+- Use when / don't use when guidelines
+- Utility functions and presets
+- Related components and patterns
+
+This follows the [Storybook MCP](https://tympanus.net/codrops/2025/12/09/supercharge-your-design-system-with-llms-and-storybook-mcp/) approach for AI-friendly design systems.
+
+---
+
 ## Files
 
 ```
 components/
+├── component-manifest.json  # AI-optimized component metadata
 ├── ui/
 │   ├── Alert.tsx        # Feedback messages
 │   ├── Avatar.tsx       # User avatars with initials/images

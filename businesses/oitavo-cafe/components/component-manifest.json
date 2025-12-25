@@ -1,0 +1,1082 @@
+{
+  "$schema": "component-manifest-v1",
+  "version": "2.0.0",
+  "brand": "Oitavo Café",
+  "description": "Premium UI component library for Oitavo Café - Brazilian marketing agency with coffee theme. Warm terracotta/burgundy palette, supports light/dark modes.",
+  "designTokens": {
+    "colors": {
+      "primary": "#4E130D (Coffee/Burgundy)",
+      "secondary": "#7A1307 (Dark Red-Brown)",
+      "accent": "#A1523C (Terracotta)",
+      "neutral": "#F8E8D8 (Warm Cream)"
+    },
+    "fonts": {
+      "display": "Hartwell",
+      "body": "DIN Pro"
+    }
+  },
+  "categories": {
+    "core": ["Button", "Input", "Textarea", "Card", "Alert", "Badge", "Modal", "Avatar", "Table"],
+    "feedback": ["Progress", "CircularProgress", "FunnelProgress", "Skeleton"],
+    "data-display": ["StatCard", "DashboardKPICard", "GradeBadge", "ScoreRing", "InsightCard"],
+    "charts": ["DonutChart", "LineChart", "VerticalBarChart", "HorizontalBarChart", "RadarChart", "EngagementHeatmap"],
+    "analytics": ["MetricColumn", "IndicatorTable", "EngagementRateCard", "ComparisonCard", "TopContentGrid", "ViralDistribution", "ProfileHeader", "AccountCard"]
+  },
+  "components": {
+    "Button": {
+      "path": "ui/Button.tsx",
+      "description": "Primary action trigger with loading states and icon support",
+      "category": "core",
+      "props": {
+        "variant": {
+          "type": "enum",
+          "options": ["primary", "secondary", "accent", "ghost", "destructive"],
+          "default": "primary",
+          "description": "Visual style - primary for CTAs, secondary for outline, ghost for minimal, destructive for dangerous actions"
+        },
+        "size": {
+          "type": "enum",
+          "options": ["sm", "md", "lg"],
+          "default": "md"
+        },
+        "isLoading": {
+          "type": "boolean",
+          "default": false,
+          "description": "Shows spinner and disables button"
+        },
+        "loadingText": {
+          "type": "string",
+          "description": "Text while loading (optional, defaults to children)"
+        },
+        "leftIcon": {
+          "type": "ReactNode",
+          "description": "Icon before text"
+        },
+        "rightIcon": {
+          "type": "ReactNode",
+          "description": "Icon after text"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "examples": [
+        {
+          "name": "Primary CTA",
+          "code": "<Button variant=\"primary\">Quero agendar</Button>",
+          "useCase": "Main form submissions, primary page actions"
+        },
+        {
+          "name": "Secondary outline",
+          "code": "<Button variant=\"secondary\" size=\"sm\">Saiba mais</Button>",
+          "useCase": "Secondary actions, cancel buttons"
+        },
+        {
+          "name": "Loading state",
+          "code": "<Button isLoading loadingText=\"Processando...\">Enviar</Button>",
+          "useCase": "Async operations"
+        },
+        {
+          "name": "With icon",
+          "code": "<Button leftIcon={<PlusIcon />}>Adicionar</Button>",
+          "useCase": "Actions with visual reinforcement"
+        },
+        {
+          "name": "Destructive",
+          "code": "<Button variant=\"destructive\">Excluir conta</Button>",
+          "useCase": "Dangerous/irreversible actions"
+        }
+      ],
+      "useWhen": ["Form submissions", "CTAs", "Primary page actions", "Confirmations"],
+      "dontUseWhen": ["Navigation (use Link)", "Toggle states (use Switch)", "Icon-only actions (use IconButton)"],
+      "accessibility": "Includes focus ring, disabled states, loading announces to screen readers"
+    },
+
+    "Input": {
+      "path": "ui/Input.tsx",
+      "description": "Text input with label, hint, error states, and icon support",
+      "category": "core",
+      "props": {
+        "label": {
+          "type": "string",
+          "description": "Label text above input"
+        },
+        "hint": {
+          "type": "string",
+          "description": "Helper text below input"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message - shows error styling when set"
+        },
+        "leftIcon": {
+          "type": "ReactNode",
+          "description": "Icon at start of input"
+        },
+        "rightIcon": {
+          "type": "ReactNode",
+          "description": "Icon at end of input"
+        },
+        "type": {
+          "type": "string",
+          "default": "text",
+          "description": "HTML input type"
+        }
+      },
+      "examples": [
+        {
+          "name": "Basic with label",
+          "code": "<Input label=\"Email\" type=\"email\" placeholder=\"seu@email.com\" />"
+        },
+        {
+          "name": "With error",
+          "code": "<Input label=\"Telefone\" error=\"Formato inválido\" />"
+        },
+        {
+          "name": "With hint",
+          "code": "<Input label=\"Email\" hint=\"Nunca compartilhamos seu email.\" />"
+        },
+        {
+          "name": "With icon",
+          "code": "<Input leftIcon={<SearchIcon />} placeholder=\"Buscar...\" />"
+        }
+      ],
+      "useWhen": ["Forms", "Search fields", "Single-line text entry"],
+      "dontUseWhen": ["Multi-line text (use Textarea)", "Selections (use Select)"],
+      "accessibility": "Auto-generates IDs, aria-describedby for hints/errors, aria-invalid for errors"
+    },
+
+    "Textarea": {
+      "path": "ui/Input.tsx",
+      "description": "Multi-line text input with same styling as Input",
+      "category": "core",
+      "props": {
+        "label": { "type": "string" },
+        "hint": { "type": "string" },
+        "error": { "type": "string" }
+      },
+      "examples": [
+        {
+          "name": "Message field",
+          "code": "<Textarea label=\"Mensagem\" placeholder=\"Conte-nos sobre seu projeto...\" />"
+        }
+      ],
+      "useWhen": ["Comments", "Messages", "Long-form text"],
+      "dontUseWhen": ["Single-line text (use Input)"]
+    },
+
+    "Card": {
+      "path": "ui/Card.tsx",
+      "description": "Content container with header, body, footer sections",
+      "category": "core",
+      "subComponents": ["CardHeader", "CardTitle", "CardDescription", "CardContent", "CardFooter"],
+      "props": {
+        "variant": {
+          "type": "enum",
+          "options": ["default", "featured", "interactive"],
+          "default": "default",
+          "description": "default=standard, featured=gradient+larger shadow, interactive=hover lift effect"
+        }
+      },
+      "examples": [
+        {
+          "name": "Basic card",
+          "code": "<Card>\n  <CardHeader>\n    <CardTitle>Título</CardTitle>\n    <CardDescription>Descrição</CardDescription>\n  </CardHeader>\n  <CardContent>\n    <p>Conteúdo do card</p>\n  </CardContent>\n  <CardFooter>\n    <Button>Ação</Button>\n  </CardFooter>\n</Card>"
+        },
+        {
+          "name": "Featured pricing card",
+          "code": "<Card variant=\"featured\">...</Card>"
+        },
+        {
+          "name": "Clickable card",
+          "code": "<Card variant=\"interactive\" onClick={handleClick}>...</Card>"
+        }
+      ],
+      "useWhen": ["Content grouping", "Pricing tables", "Feature highlights", "Dashboard widgets"],
+      "dontUseWhen": ["Metrics display (use StatCard)", "Alerts/notifications (use Alert)"]
+    },
+
+    "Alert": {
+      "path": "ui/Alert.tsx",
+      "description": "Notification banners with semantic variants and dismiss",
+      "category": "core",
+      "props": {
+        "variant": {
+          "type": "enum",
+          "options": ["success", "warning", "error", "info"],
+          "default": "info"
+        },
+        "title": {
+          "type": "string",
+          "description": "Optional bold header"
+        },
+        "showIcon": {
+          "type": "boolean",
+          "default": true
+        },
+        "dismissible": {
+          "type": "boolean",
+          "default": false
+        },
+        "onDismiss": {
+          "type": "function"
+        }
+      },
+      "examples": [
+        {
+          "name": "Success",
+          "code": "<Alert variant=\"success\" title=\"Feito. Sem enrolação.\">\n  Sua mensagem foi enviada com sucesso.\n</Alert>"
+        },
+        {
+          "name": "Error dismissible",
+          "code": "<Alert variant=\"error\" dismissible onDismiss={() => setShow(false)}>\n  Algo deu errado. Já estamos vendo.\n</Alert>"
+        }
+      ],
+      "useWhen": ["Form feedback", "System notifications", "Validation errors", "Success confirmations"],
+      "dontUseWhen": ["Inline tips (use InsightCard)", "Toast notifications (use toast)"]
+    },
+
+    "Badge": {
+      "path": "ui/Badge.tsx",
+      "description": "Labels, tags, and status indicators",
+      "category": "core",
+      "props": {
+        "variant": {
+          "type": "enum",
+          "options": ["default", "primary", "secondary", "accent", "success", "warning", "error", "info", "outline"],
+          "default": "default"
+        },
+        "size": {
+          "type": "enum",
+          "options": ["sm", "md", "lg"],
+          "default": "md"
+        },
+        "icon": {
+          "type": "ReactNode",
+          "description": "Icon before text"
+        }
+      },
+      "examples": [
+        {
+          "name": "Status badges",
+          "code": "<Badge variant=\"success\">Ativo</Badge>\n<Badge variant=\"error\">Urgente</Badge>\n<Badge variant=\"accent\" size=\"lg\">Novo</Badge>"
+        }
+      ],
+      "useWhen": ["Status indicators", "Tags/categories", "Labels", "Counts"],
+      "dontUseWhen": ["Grades (use GradeBadge)", "Buttons (use Button)"]
+    },
+
+    "Modal": {
+      "path": "ui/Modal.tsx",
+      "description": "Dialog overlay with header, body, footer sections",
+      "category": "core",
+      "subComponents": ["ModalHeader", "ModalTitle", "ModalDescription", "ModalBody", "ModalFooter"],
+      "props": {
+        "isOpen": {
+          "type": "boolean",
+          "required": true
+        },
+        "onClose": {
+          "type": "function",
+          "required": true
+        },
+        "size": {
+          "type": "enum",
+          "options": ["sm", "md", "lg", "xl", "full"],
+          "default": "md"
+        },
+        "closeOnBackdropClick": {
+          "type": "boolean",
+          "default": true
+        },
+        "closeOnEscape": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "examples": [
+        {
+          "name": "Confirmation modal",
+          "code": "<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>\n  <ModalHeader onClose={() => setIsOpen(false)}>\n    <ModalTitle>Confirmar ação</ModalTitle>\n  </ModalHeader>\n  <ModalBody>\n    <p>Tem certeza?</p>\n  </ModalBody>\n  <ModalFooter>\n    <Button variant=\"ghost\" onClick={() => setIsOpen(false)}>Cancelar</Button>\n    <Button variant=\"primary\">Confirmar</Button>\n  </ModalFooter>\n</Modal>"
+        }
+      ],
+      "useWhen": ["Confirmations", "Forms in context", "Detail views", "Settings"],
+      "dontUseWhen": ["Simple alerts (use Alert)", "Side panels (use Drawer)"],
+      "accessibility": "Traps focus, closes on Escape, prevents body scroll"
+    },
+
+    "Avatar": {
+      "path": "ui/Avatar.tsx",
+      "description": "User profile image/initials with status indicator",
+      "category": "core",
+      "subComponents": ["AvatarGroup"],
+      "props": {
+        "src": {
+          "type": "string",
+          "description": "Image URL"
+        },
+        "alt": {
+          "type": "string"
+        },
+        "initials": {
+          "type": "string",
+          "description": "Fallback initials (e.g., 'MC')"
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name - auto-generates initials"
+        },
+        "size": {
+          "type": "enum",
+          "options": ["xs", "sm", "md", "lg", "xl", "2xl"],
+          "default": "md"
+        },
+        "shape": {
+          "type": "enum",
+          "options": ["circle", "square"],
+          "default": "circle"
+        },
+        "variant": {
+          "type": "enum",
+          "options": ["default", "primary", "secondary", "neutral", "outline"],
+          "default": "default"
+        },
+        "status": {
+          "type": "enum",
+          "options": ["online", "offline", "busy", "away"],
+          "description": "Shows colored dot indicator"
+        },
+        "interactive": {
+          "type": "boolean",
+          "default": false,
+          "description": "Makes avatar clickable with hover ring"
+        }
+      },
+      "examples": [
+        {
+          "name": "With image",
+          "code": "<Avatar src=\"/user.jpg\" alt=\"John Doe\" />"
+        },
+        {
+          "name": "From name",
+          "code": "<Avatar name=\"Marina Costa\" />"
+        },
+        {
+          "name": "With status",
+          "code": "<Avatar name=\"John\" status=\"online\" />"
+        },
+        {
+          "name": "Avatar group",
+          "code": "<AvatarGroup max={3}>\n  <Avatar name=\"Alice\" />\n  <Avatar name=\"Bob\" />\n  <Avatar name=\"Charlie\" />\n  <Avatar name=\"Diana\" />\n</AvatarGroup>"
+        }
+      ],
+      "useWhen": ["User profiles", "Comments", "Team lists", "Account menus"],
+      "dontUseWhen": ["Logo display", "Generic images"]
+    },
+
+    "Table": {
+      "path": "ui/Table.tsx",
+      "description": "Data table with sorting, striping, hover states",
+      "category": "core",
+      "subComponents": ["TableHeader", "TableBody", "TableFooter", "TableRow", "TableHead", "TableCell", "TableCaption", "TableEmpty", "TableCheck", "TableX"],
+      "props": {
+        "variant": {
+          "type": "enum",
+          "options": ["default", "bordered", "minimal"],
+          "default": "default"
+        },
+        "striped": {
+          "type": "boolean",
+          "default": false
+        },
+        "hoverable": {
+          "type": "boolean",
+          "default": true
+        },
+        "compact": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "examples": [
+        {
+          "name": "Basic table",
+          "code": "<Table>\n  <TableHeader>\n    <TableRow>\n      <TableHead>Name</TableHead>\n      <TableHead>Status</TableHead>\n    </TableRow>\n  </TableHeader>\n  <TableBody>\n    <TableRow>\n      <TableCell>John Doe</TableCell>\n      <TableCell>Active</TableCell>\n    </TableRow>\n  </TableBody>\n</Table>"
+        },
+        {
+          "name": "Comparison table",
+          "code": "<TableCell><TableCheck /></TableCell>\n<TableCell><TableX /></TableCell>"
+        }
+      ],
+      "useWhen": ["Data listings", "Comparison tables", "Admin interfaces"],
+      "dontUseWhen": ["Metrics (use IndicatorTable)", "Simple lists (use ul/ol)"]
+    },
+
+    "StatCard": {
+      "path": "ui/StatCard.tsx",
+      "description": "Dashboard metric card with value, trend, and optional icon",
+      "category": "data-display",
+      "subComponents": ["StatCardGrid", "LiveBadge"],
+      "props": {
+        "label": {
+          "type": "string",
+          "required": true,
+          "description": "Metric name (e.g., 'Leads', 'Revenue')"
+        },
+        "value": {
+          "type": "string | number",
+          "required": true
+        },
+        "change": {
+          "type": "string",
+          "description": "Change indicator (e.g., '+23%')"
+        },
+        "changeType": {
+          "type": "enum",
+          "options": ["positive", "negative", "neutral"],
+          "default": "neutral"
+        },
+        "showTrend": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show trend arrow icon"
+        },
+        "variant": {
+          "type": "enum",
+          "options": ["default", "highlight", "outline", "ghost"],
+          "default": "default"
+        },
+        "size": {
+          "type": "enum",
+          "options": ["sm", "md", "lg"],
+          "default": "md"
+        },
+        "icon": {
+          "type": "ReactNode"
+        },
+        "loading": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "examples": [
+        {
+          "name": "Basic metric",
+          "code": "<StatCard label=\"Leads\" value=\"127\" change=\"+23%\" changeType=\"positive\" />"
+        },
+        {
+          "name": "Highlighted ROI",
+          "code": "<StatCard label=\"ROI\" value=\"3.2x\" change=\"Retorno\" variant=\"highlight\" />"
+        },
+        {
+          "name": "Grid layout",
+          "code": "<StatCardGrid columns={4}>\n  <StatCard label=\"Leads\" value=\"127\" />\n  <StatCard label=\"Vendas\" value=\"12\" />\n  <StatCard label=\"ROI\" value=\"3.2x\" variant=\"highlight\" />\n</StatCardGrid>"
+        }
+      ],
+      "utilities": {
+        "LiveBadge": "Pulsing indicator for real-time data - <LiveBadge status=\"live\" />"
+      },
+      "useWhen": ["Dashboards", "KPI displays", "Summary metrics"],
+      "dontUseWhen": ["Detailed data (use Table)", "Charts"]
+    },
+
+    "Progress": {
+      "path": "ui/Progress.tsx",
+      "description": "Linear progress bar with color and animation options",
+      "category": "feedback",
+      "props": {
+        "value": {
+          "type": "number",
+          "required": true,
+          "description": "Progress value (0-100)"
+        },
+        "max": {
+          "type": "number",
+          "default": 100
+        },
+        "size": {
+          "type": "enum",
+          "options": ["xs", "sm", "md", "lg", "xl"],
+          "default": "md"
+        },
+        "color": {
+          "type": "enum",
+          "options": ["primary", "secondary", "accent", "success", "warning", "error", "gradient"],
+          "default": "accent"
+        },
+        "animated": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show shimmer animation"
+        },
+        "showLabel": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "examples": [
+        {
+          "name": "Basic",
+          "code": "<Progress value={60} />"
+        },
+        {
+          "name": "With label",
+          "code": "<Progress value={75} showLabel />"
+        },
+        {
+          "name": "Gradient animated",
+          "code": "<Progress value={65} color=\"gradient\" size=\"lg\" animated />"
+        }
+      ],
+      "useWhen": ["Loading states", "Completion tracking", "Upload progress"],
+      "dontUseWhen": ["Scores (use ScoreRing)", "Funnels (use FunnelProgress)"]
+    },
+
+    "CircularProgress": {
+      "path": "ui/Progress.tsx",
+      "description": "Circular/radial progress indicator",
+      "category": "feedback",
+      "props": {
+        "value": { "type": "number", "required": true },
+        "size": {
+          "type": "enum",
+          "options": ["sm", "md", "lg", "xl"],
+          "default": "md"
+        },
+        "color": {
+          "type": "enum",
+          "options": ["primary", "secondary", "accent", "success", "warning", "error"],
+          "default": "accent"
+        },
+        "showLabel": { "type": "boolean", "default": false },
+        "label": { "type": "ReactNode" }
+      },
+      "examples": [
+        {
+          "name": "With percentage",
+          "code": "<CircularProgress value={75} showLabel />"
+        }
+      ],
+      "useWhen": ["Compact progress display", "Loading indicators"],
+      "dontUseWhen": ["Scores (use ScoreRing)"]
+    },
+
+    "FunnelProgress": {
+      "path": "ui/Progress.tsx",
+      "description": "Funnel visualization for conversion tracking",
+      "category": "feedback",
+      "props": {
+        "steps": {
+          "type": "FunnelStep[]",
+          "required": true,
+          "description": "Array of { label, value, color? }"
+        },
+        "showConversion": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show conversion rate between steps"
+        }
+      },
+      "examples": [
+        {
+          "name": "Sales funnel",
+          "code": "<FunnelProgress\n  steps={[\n    { label: \"Visitantes\", value: 1000 },\n    { label: \"Leads\", value: 250 },\n    { label: \"Conversas\", value: 80 },\n    { label: \"Vendas\", value: 25 },\n  ]}\n/>"
+        }
+      ],
+      "useWhen": ["Conversion tracking", "Pipeline stages", "Step completion"]
+    },
+
+    "Skeleton": {
+      "path": "ui/Skeleton.tsx",
+      "description": "Loading placeholder with variants for different content",
+      "category": "feedback",
+      "subComponents": ["SkeletonText", "SkeletonCard", "SkeletonTable", "SkeletonStatCard", "SkeletonAvatar"],
+      "props": {
+        "variant": {
+          "type": "enum",
+          "options": ["text", "circular", "rectangular", "rounded"],
+          "default": "text"
+        },
+        "animation": {
+          "type": "enum",
+          "options": ["pulse", "wave", "none"],
+          "default": "pulse"
+        },
+        "width": { "type": "string | number" },
+        "height": { "type": "string | number" }
+      },
+      "examples": [
+        {
+          "name": "Text lines",
+          "code": "<SkeletonText lines={3} />"
+        },
+        {
+          "name": "Avatar",
+          "code": "<SkeletonAvatar size=\"lg\" />"
+        },
+        {
+          "name": "Card",
+          "code": "<SkeletonCard hasHeader hasFooter />"
+        }
+      ],
+      "useWhen": ["Loading states", "Content placeholders", "Async data loading"]
+    },
+
+    "GradeBadge": {
+      "path": "ui/GradeBadge.tsx",
+      "description": "Letter grade indicator (A-F) with semantic colors",
+      "category": "data-display",
+      "subComponents": ["GradeBadgeWithLabel", "GradeScalePreview"],
+      "props": {
+        "grade": {
+          "type": "enum",
+          "options": ["A", "B", "C", "D", "F"],
+          "required": true
+        },
+        "size": {
+          "type": "enum",
+          "options": ["xs", "sm", "md", "lg", "xl", "2xl"],
+          "default": "md"
+        },
+        "shape": {
+          "type": "enum",
+          "options": ["circle", "rounded", "square"],
+          "default": "circle"
+        },
+        "variant": {
+          "type": "enum",
+          "options": ["solid", "ring", "glow", "glossy"],
+          "default": "solid"
+        },
+        "pulse": {
+          "type": "boolean",
+          "default": false,
+          "description": "Pulse animation for critical grades (D, F)"
+        }
+      },
+      "utilities": {
+        "scoreToGrade": "scoreToGrade(85) → 'A' - Convert 0-100 score to grade",
+        "getGradeInfo": "getGradeInfo('A') → { bg, text, label } - Get grade styling info"
+      },
+      "examples": [
+        {
+          "name": "Grade badges",
+          "code": "<GradeBadge grade=\"A\" />\n<GradeBadge grade=\"C\" variant=\"glow\" />\n<GradeBadge grade=\"F\" pulse />"
+        },
+        {
+          "name": "With label",
+          "code": "<GradeBadgeWithLabel grade=\"B\" label=\"Bom\" description=\"Acima da média\" />"
+        }
+      ],
+      "useWhen": ["Performance scores", "Quality ratings", "Health indicators"]
+    },
+
+    "ScoreRing": {
+      "path": "ui/ScoreRing.tsx",
+      "description": "Circular gauge for displaying scores (0-100) with animated fill",
+      "category": "data-display",
+      "subComponents": ["ScoreRingCard"],
+      "props": {
+        "score": {
+          "type": "number",
+          "required": true,
+          "description": "Score value (0-100)"
+        },
+        "maxScore": { "type": "number", "default": 100 },
+        "size": {
+          "type": "enum",
+          "options": ["sm", "md", "lg", "xl", "2xl"],
+          "default": "lg"
+        },
+        "showValue": { "type": "boolean", "default": true },
+        "showMax": { "type": "boolean", "default": true },
+        "showGrade": { "type": "boolean", "default": false },
+        "color": {
+          "type": "enum",
+          "options": ["critical", "warning", "attention", "good", "excellent", "brand"],
+          "description": "Force color (auto-calculated from score if not set)"
+        },
+        "glow": { "type": "boolean", "default": true },
+        "animated": { "type": "boolean", "default": true },
+        "subtitle": { "type": "string" }
+      },
+      "examples": [
+        {
+          "name": "Growth score",
+          "code": "<ScoreRing score={72} showGrade subtitle=\"Instagram Growth\" />"
+        },
+        {
+          "name": "In card",
+          "code": "<ScoreRingCard\n  score={85}\n  title=\"Growth Score\"\n  showGrade\n  footer={<p>12.5K seguidores</p>}\n/>"
+        }
+      ],
+      "useWhen": ["Growth scores", "Health metrics", "Performance gauges"],
+      "dontUseWhen": ["Progress (use Progress)", "Simple percentages"]
+    },
+
+    "InsightCard": {
+      "path": "ui/InsightCard.tsx",
+      "description": "Tips, recommendations, and actionable insights",
+      "category": "data-display",
+      "subComponents": ["InsightList", "QuickTip", "ComparisonInsights"],
+      "props": {
+        "type": {
+          "type": "enum",
+          "options": ["tip", "positive", "negative", "warning", "neutral", "action"],
+          "default": "tip"
+        },
+        "message": {
+          "type": "string",
+          "required": true
+        },
+        "title": { "type": "string" },
+        "icon": {
+          "type": "enum | ReactNode",
+          "options": ["lightbulb", "trendUp", "trendDown", "calendar", "clock", "target", "star", "zap", "alert", "check"]
+        },
+        "action": {
+          "type": "{ label: string, onClick: () => void }",
+          "description": "Optional action button"
+        },
+        "dismissable": { "type": "boolean", "default": false }
+      },
+      "utilities": {
+        "createBestDayInsight": "createBestDayInsight('Quinta', '+45%') → InsightCardProps",
+        "createEngagementTip": "createEngagementTip(3.5) → InsightCardProps based on rate",
+        "createGrowthInsight": "createGrowthInsight(72) → InsightCardProps based on score"
+      },
+      "examples": [
+        {
+          "name": "Tip",
+          "code": "<InsightCard type=\"tip\" message=\"Poste mais nos horários de pico para aumentar engajamento.\" />"
+        },
+        {
+          "name": "Positive trend",
+          "code": "<InsightCard type=\"positive\" icon=\"trendUp\" message=\"Crescimento de 23% vs mês anterior.\" />"
+        },
+        {
+          "name": "With action",
+          "code": "<InsightCard\n  type=\"action\"\n  title=\"Ação recomendada\"\n  message=\"Agende posts para quinta-feira.\"\n  action={{ label: \"Agendar agora\", onClick: handleSchedule }}\n/>"
+        }
+      ],
+      "useWhen": ["Tips and recommendations", "Data insights", "Actionable suggestions"]
+    },
+
+    "DashboardKPICard": {
+      "path": "ui/DashboardKPICard.tsx",
+      "description": "Top-row KPI metric card with icon and change indicator",
+      "category": "data-display",
+      "subComponents": ["DashboardKPIGrid"],
+      "props": {
+        "title": { "type": "string", "required": true },
+        "value": { "type": "number | string", "required": true },
+        "subtitle": { "type": "string" },
+        "icon": {
+          "type": "enum | ReactNode",
+          "options": ["instagram", "users", "trendUp", "barChart", "heart", "eye", "zap", "target", "award", "activity"]
+        },
+        "format": {
+          "type": "enum",
+          "options": ["number", "percentage", "compact", "currency", "raw"],
+          "default": "number"
+        },
+        "change": {
+          "type": "{ value: number, direction: 'up' | 'down' | 'neutral', label?: string }"
+        },
+        "variant": {
+          "type": "enum",
+          "options": ["default", "elevated", "gradient", "accent", "flat"],
+          "default": "default"
+        },
+        "iconPosition": {
+          "type": "enum",
+          "options": ["top-right", "left", "none"],
+          "default": "top-right"
+        },
+        "loading": { "type": "boolean", "default": false }
+      },
+      "presets": {
+        "totalContas": "{ title: 'Total Contas', icon: 'instagram', format: 'number' }",
+        "totalSeguidores": "{ title: 'Total Seguidores', icon: 'users', format: 'compact' }",
+        "scoreMedio": "{ title: 'Score Médio', icon: 'trendUp', format: 'number' }",
+        "engajamentoMedio": "{ title: 'Engajamento Médio', icon: 'barChart', format: 'percentage' }"
+      },
+      "examples": [
+        {
+          "name": "KPI grid",
+          "code": "<DashboardKPIGrid columns={4}>\n  <DashboardKPICard title=\"Contas\" value={12} icon=\"instagram\" />\n  <DashboardKPICard title=\"Seguidores\" value={125000} format=\"compact\" icon=\"users\" />\n  <DashboardKPICard title=\"Engajamento\" value={3.45} format=\"percentage\" change={{ value: 12, direction: 'up' }} />\n</DashboardKPIGrid>"
+        }
+      ],
+      "useWhen": ["Dashboard headers", "Overview metrics", "Quick stats"]
+    },
+
+    "DonutChart": {
+      "path": "ui/DonutChart.tsx",
+      "description": "Pie/donut chart for distribution visualization",
+      "category": "charts",
+      "subComponents": ["DonutChartLegend", "DonutChartCard", "DonutCenter"],
+      "props": {
+        "segments": {
+          "type": "DonutSegment[]",
+          "required": true,
+          "description": "Array of { label, value, color, percentage? }"
+        },
+        "size": {
+          "type": "enum",
+          "options": ["sm", "md", "lg", "xl"],
+          "default": "md"
+        },
+        "thickness": { "type": "number", "default": 35 },
+        "showLabels": { "type": "boolean", "default": false },
+        "animated": { "type": "boolean", "default": true }
+      },
+      "presets": {
+        "genderPreset": "Male/Female/Other segments",
+        "contentTypePreset": "Reels/Carousels/Images/Stories",
+        "agePreset": "Age range distribution"
+      },
+      "examples": [
+        {
+          "name": "Gender distribution",
+          "code": "<DonutChartCard\n  title=\"Gênero\"\n  segments={[\n    { label: 'Mulheres', value: 65, color: '#A1523C' },\n    { label: 'Homens', value: 35, color: '#4E130D' }\n  ]}\n/>"
+        }
+      ],
+      "useWhen": ["Distribution data", "Proportions", "Demographics"]
+    },
+
+    "LineChart": {
+      "path": "ui/LineChart.tsx",
+      "description": "Line/area chart for time series and trends",
+      "category": "charts",
+      "subComponents": ["LineChartLegend", "LineChartCard"],
+      "props": {
+        "series": {
+          "type": "DataSeries[]",
+          "required": true,
+          "description": "Array of { name, data: DataPoint[], color }"
+        },
+        "labels": {
+          "type": "string[]",
+          "required": true,
+          "description": "X-axis labels"
+        },
+        "height": { "type": "number", "default": 200 },
+        "showArea": { "type": "boolean", "default": true },
+        "showDots": { "type": "boolean", "default": true },
+        "showGrid": { "type": "boolean", "default": true },
+        "animated": { "type": "boolean", "default": true }
+      },
+      "utilities": {
+        "createFollowerGrowthSeries": "Generate follower growth data series",
+        "createEngagementSeries": "Generate engagement trend series",
+        "MONTHS_PT": "Portuguese month labels",
+        "MONTHS_EN": "English month labels"
+      },
+      "useWhen": ["Trends over time", "Growth charts", "Comparisons"]
+    },
+
+    "VerticalBarChart": {
+      "path": "ui/VerticalBarChart.tsx",
+      "description": "Vertical bar chart for day-of-week or hourly performance",
+      "category": "charts",
+      "subComponents": ["VerticalBarChartCard"],
+      "props": {
+        "data": {
+          "type": "VerticalBarData[]",
+          "required": true,
+          "description": "Array of { label, value, highlight? }"
+        },
+        "height": { "type": "number", "default": 180 },
+        "showValues": { "type": "boolean", "default": true },
+        "colorPreset": {
+          "type": "enum",
+          "options": ["accent", "gradient", "rainbow"]
+        }
+      },
+      "utilities": {
+        "createDayOfWeekData": "Generate day-of-week performance data",
+        "createHourlyData": "Generate hourly performance data",
+        "dayOfWeekLabels": "{ pt: [...], en: [...] }"
+      },
+      "useWhen": ["Day performance", "Hourly distribution", "Category comparison"]
+    },
+
+    "HorizontalBarChart": {
+      "path": "ui/HorizontalBarChart.tsx",
+      "description": "Horizontal bar chart for demographics and distribution",
+      "category": "charts",
+      "subComponents": ["BarChartCard", "BigStat", "AudienceGrid"],
+      "useWhen": ["Demographics", "Location data", "Ranked lists"]
+    },
+
+    "RadarChart": {
+      "path": "ui/RadarChart.tsx",
+      "description": "Spider/radar chart for algorithm health and multi-dimension scores",
+      "category": "charts",
+      "subComponents": ["RadarChartCard"],
+      "presets": {
+        "instagramAlgorithmPreset": "Instagram algorithm health metrics",
+        "contentPerformancePreset": "Content performance dimensions"
+      },
+      "useWhen": ["Algorithm health", "Multi-metric comparison", "Balanced scorecards"]
+    },
+
+    "EngagementHeatmap": {
+      "path": "ui/EngagementHeatmap.tsx",
+      "description": "Heatmap grid showing engagement by day/time",
+      "category": "charts",
+      "subComponents": ["HeatmapCard", "TabFilter", "HeatmapCell"],
+      "props": {
+        "data": {
+          "type": "HeatmapData",
+          "required": true,
+          "description": "2D array of engagement values by day/time"
+        },
+        "days": { "type": "string[]", "default": "DAYS_PT" },
+        "timeSlots": { "type": "string[]", "default": "DEFAULT_TIME_SLOTS" }
+      },
+      "utilities": {
+        "generateSampleHeatmapData": "Generate sample heatmap data",
+        "findPeakTime": "findPeakTime(data) → { day, time, value }",
+        "DAYS_PT": "Portuguese day labels",
+        "DAYS_EN": "English day labels"
+      },
+      "useWhen": ["Best posting times", "Activity patterns", "Time-based analysis"]
+    },
+
+    "MetricColumn": {
+      "path": "ui/MetricColumn.tsx",
+      "description": "Instagram-style metric column with icons and values",
+      "category": "analytics",
+      "subComponents": ["MetricColumnGroup", "MetricRow", "MetricIcon"],
+      "utilities": {
+        "instagramMetricPresets": "Pre-configured Instagram metrics",
+        "createInstagramMetrics": "Create metrics from raw data",
+        "formatMetricValue": "Format large numbers (1K, 1M)"
+      },
+      "useWhen": ["Instagram metrics display", "Reach/impressions breakdown"]
+    },
+
+    "IndicatorTable": {
+      "path": "ui/IndicatorTable.tsx",
+      "description": "Performance and engagement metrics table",
+      "category": "analytics",
+      "subComponents": ["IndicatorRow", "InlineTabFilter"],
+      "utilities": {
+        "performanceIndicators": "Pre-defined performance metrics",
+        "engagementIndicators": "Pre-defined engagement metrics"
+      },
+      "useWhen": ["Detailed metrics", "KPI breakdown", "Performance analysis"]
+    },
+
+    "EngagementRateCard": {
+      "path": "ui/EngagementRateCard.tsx",
+      "description": "Percentage metric cards for engagement rates",
+      "category": "analytics",
+      "subComponents": ["RateCardGroup", "RateTabFilter"],
+      "utilities": {
+        "engagementRateTypes": "Types of engagement rates",
+        "createEngagementRates": "Calculate rates from raw data",
+        "calculateTrend": "Calculate period-over-period trend"
+      },
+      "useWhen": ["Engagement rate display", "Rate comparison"]
+    },
+
+    "ComparisonCard": {
+      "path": "ui/ComparisonCard.tsx",
+      "description": "Month-over-month comparison metrics",
+      "category": "analytics",
+      "subComponents": ["ComparisonCardGroup", "MiniSparkline"],
+      "utilities": {
+        "calculateChange": "Calculate percentage change",
+        "calculateDifference": "Calculate absolute difference",
+        "periodLabels": "Labels for comparison periods"
+      },
+      "useWhen": ["Period comparisons", "MoM/YoY metrics", "Trend analysis"]
+    },
+
+    "TopContentGrid": {
+      "path": "ui/TopContentGrid.tsx",
+      "description": "Best performing content display grid",
+      "category": "analytics",
+      "subComponents": ["ContentCard", "ContentList", "ContentTypeBadge", "RankBadge"],
+      "utilities": {
+        "createContentItem": "Create content item from data",
+        "sortContentByMetric": "Sort content by specific metric",
+        "getContentTypeLabel": "Get label for content type"
+      },
+      "useWhen": ["Top posts display", "Content performance ranking"]
+    },
+
+    "ViralDistribution": {
+      "path": "ui/ViralDistribution.tsx",
+      "description": "Content performance distribution chart",
+      "category": "analytics",
+      "subComponents": ["ViralDistributionCard", "TierBlock", "HighPerformersList"],
+      "utilities": {
+        "createViralTiers": "Create viral tier distribution",
+        "createPerformanceTiers": "Create performance tier data"
+      },
+      "useWhen": ["Content virality analysis", "Performance distribution"]
+    },
+
+    "ProfileHeader": {
+      "path": "ui/ProfileHeader.tsx",
+      "description": "Media kit hero section with profile info and stats",
+      "category": "analytics",
+      "subComponents": ["ProfileAvatar", "ProfileStatsRow", "ProfileTags", "VerifiedBadge"],
+      "utilities": {
+        "createProfileStats": "Create stats from follower data",
+        "formatNumber": "Format large numbers",
+        "platformTags": "Platform-specific tags"
+      },
+      "useWhen": ["Media kit headers", "Profile overviews", "Influencer cards"]
+    },
+
+    "AccountCard": {
+      "path": "ui/AccountCard.tsx",
+      "description": "Dashboard account profile cards",
+      "category": "analytics",
+      "subComponents": ["AccountCardGrid", "AccountCardCompact", "AccountAvatar", "MetricItem"],
+      "useWhen": ["Multi-account dashboards", "Account listings", "Team views"]
+    }
+  },
+
+  "patterns": {
+    "forms": {
+      "description": "Standard form pattern",
+      "components": ["Input", "Textarea", "Button"],
+      "example": "<form>\n  <Input label=\"Nome\" required />\n  <Input label=\"Email\" type=\"email\" required />\n  <Textarea label=\"Mensagem\" />\n  <Button type=\"submit\">Enviar</Button>\n</form>"
+    },
+    "confirmModal": {
+      "description": "Confirmation dialog pattern",
+      "components": ["Modal", "Button"],
+      "example": "<Modal isOpen={isOpen} onClose={onClose}>\n  <ModalHeader onClose={onClose}>\n    <ModalTitle>Confirmar exclusão</ModalTitle>\n  </ModalHeader>\n  <ModalBody>Tem certeza que deseja excluir?</ModalBody>\n  <ModalFooter>\n    <Button variant=\"ghost\" onClick={onClose}>Cancelar</Button>\n    <Button variant=\"destructive\" onClick={onConfirm}>Excluir</Button>\n  </ModalFooter>\n</Modal>"
+    },
+    "dashboardKPIs": {
+      "description": "Dashboard KPI row",
+      "components": ["DashboardKPICard", "DashboardKPIGrid"],
+      "example": "<DashboardKPIGrid columns={4}>\n  <DashboardKPICard title=\"Contas\" value={12} icon=\"instagram\" />\n  <DashboardKPICard title=\"Seguidores\" value={125000} format=\"compact\" />\n  <DashboardKPICard title=\"Engajamento\" value={3.45} format=\"percentage\" />\n  <DashboardKPICard title=\"Score\" value={72} icon=\"trendUp\" />\n</DashboardKPIGrid>"
+    },
+    "analyticsCard": {
+      "description": "Analytics visualization in card",
+      "components": ["Card", "ScoreRing", "InsightCard"],
+      "example": "<Card>\n  <CardHeader>\n    <CardTitle>Growth Score</CardTitle>\n  </CardHeader>\n  <CardContent>\n    <ScoreRing score={72} showGrade />\n    <InsightCard type=\"tip\" message=\"Continue postando às quintas para manter o crescimento.\" />\n  </CardContent>\n</Card>"
+    }
+  },
+
+  "guidelines": {
+    "semanticColors": {
+      "success": "Positive outcomes, confirmations, growth",
+      "warning": "Caution, needs attention",
+      "error": "Errors, destructive actions, decline",
+      "info": "Informational, neutral updates"
+    },
+    "spacing": {
+      "cards": "p-4 (sm), p-5 (md), p-6 (lg)",
+      "grid-gaps": "gap-3 (sm), gap-4 (md), gap-6 (lg)"
+    },
+    "darkMode": "All components support dark mode via dark: classes. Primary bg is #240504 (deep coffee)."
+  }
+}
