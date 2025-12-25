@@ -45,7 +45,7 @@ const tabButtonVariants = cva(
       active: {
         true: [
           "bg-white text-gray-900 shadow-sm",
-          "dark:bg-[#2D8B8B] dark:text-white",
+          "dark:bg-[#A1523C] dark:text-white",
         ],
         false: [
           "text-gray-500 hover:text-gray-700",
@@ -148,7 +148,7 @@ const HeatmapCell = React.forwardRef<HTMLDivElement, HeatmapCellProps>(
     // Color mapping
     const colorMap = {
       blue: { light: "59, 130, 246", dark: "100, 181, 246" }, // blue-500 / lighter
-      teal: { light: "45, 139, 139", dark: "58, 165, 165" }, // #2D8B8B / #3AA5A5
+      teal: { light: "161, 82, 60", dark: "184, 109, 95" }, // #A1523C / lighter shade
       accent: { light: "161, 82, 60", dark: "161, 82, 60" }, // #A1523C
       primary: { light: "122, 19, 7", dark: "161, 82, 60" }, // #7A1307 / #A1523C
     };
