@@ -1,8 +1,9 @@
-# Generate Palette Workflow v2.2
+# Generate Palette Workflow v2.3
 
 This workflow generates accessible, production-ready color palettes through a
-sequential multi-agent pipeline with feedback loop.
+sequential multi-agent pipeline with feedback loop and locked color validation.
 
+**v2.3 Additions**: Natural grade placement, hex validation gate, dark color support.
 **v2.2 Additions**: Text selection colors, brand gradients.
 **v2.1 Additions**: Warm shadows, surfaces, focus rings, overlays, interactions.
 
@@ -35,14 +36,24 @@ Color Forge v2 coordinates 4 specialized agents:
 - **brand_personality**: 3-5 words describing brand (e.g., "innovative, trustworthy, modern")
 
 ### LOCKED Brand Colors (Source of Truth)
-These colors are **IMMUTABLE**:
-- **primary_color**: Your PRIMARY brand color (hex) - LOCKED at grade 500
-- **secondary_color**: Your SECONDARY brand color (hex) - LOCKED at grade 500
-- **accent_color**: Your ACCENT brand color (hex) - LOCKED at grade 500 or generate
+These colors are **IMMUTABLE** - the EXACT hex MUST appear in output:
+- **primary_color**: Your PRIMARY brand color (hex) - LOCKED at NATURAL grade
+- **secondary_color**: Your SECONDARY brand color (hex) - LOCKED at NATURAL grade
+- **accent_color**: Your ACCENT brand color (hex) - LOCKED at NATURAL grade or generate
 - **neutral_color**: Your BACKGROUND base color (hex) - LOCKED at grade 100
 
 **CRITICAL**: When provided, these colors are NOT suggestions - they ARE the answer.
 Color Forge builds scales AROUND them, never replaces them.
+
+**v2.3 Natural Grade Placement**: Brand colors are placed at their NATURAL OKLCH
+lightness grade, not forced to grade 500. This preserves Magic Number reliability.
+
+| OKLCH Lightness | Natural Grade | Example |
+|-----------------|---------------|---------|
+| ~25% | 800 | #191F3A (dark navy) |
+| ~40% | 700 | #81171F (burgundy) |
+| ~55% | 500 | #E63946 (bright red) |
+| ~93% | 100 | #ECECEC (light gray) |
 
 **Custom Neutral**: If your brand uses warm backgrounds (cream, beige) instead of
 cold gray/white, provide the neutral_color. Color Forge will build a warm/tinted
@@ -75,23 +86,52 @@ neutral scale that matches your brand feel.
 **Input**: Context + LOCKED brand colors from Phase 1
 
 **Actions**:
-1. **LOCKED colors → Grade 500 EXACTLY** (no modification)
-2. Build 50-900 scales around each locked color (preserve hue)
-3. Only GENERATE new colors for roles not provided
-4. Use harmony model for generated colors
-5. Calculate harmony score
-6. **Generate warm shadows** (using neutral-800 hue)
-7. **Define surfaces** (base, raised, overlay, sunken)
-8. **Define focus ring** (primary-400 with neutral-50 offset)
-9. **Define overlays** (scrim, hover)
-10. **Define text selection** (primary-200 background) - v2.2
-11. **Generate gradients** (6 brand gradients) - v2.2
+1. **Calculate NATURAL GRADE** for each locked color based on OKLCH lightness
+2. **LOCKED colors → EXACT hex at NATURAL grade** (no modification)
+3. Build 50-900 scales around each locked color (preserve hue)
+4. Only GENERATE new colors for roles not provided
+5. Use harmony model for generated colors
+6. Calculate harmony score
+7. **Generate warm shadows** (using neutral-800 hue)
+8. **Define surfaces** (base, raised, overlay, sunken)
+9. **Define focus ring** (primary-400 with neutral-50 offset)
+10. **Define overlays** (scrim, hover)
+11. **Define text selection** (primary-200 background) - v2.2
+12. **Generate gradients** (6 brand gradients) - v2.2
 
 **CRITICAL**: If locked colors are modified → REJECT immediately
 
 **Quality Gate**: Harmony Score ≥ 80
 
 **Feedback Loop**: If < 80 OR locked colors modified, request revision
+
+---
+
+### Phase 2.5: VALIDATION GATE (v2.3 - MANDATORY)
+**Agent**: Color Palette Architect
+
+**This step is BLOCKING. Do NOT proceed until it passes.**
+
+**Actions**:
+1. **Read the output JSON** (base-palette.json)
+2. **Search for EXACT hex strings**:
+   ```
+   For each locked color:
+     - grep for "hex": "#XXXXXX" (exact match)
+     - Example: grep '"hex": "#191F3A"' base-palette.json
+   ```
+3. **Evaluate**:
+   - **PASS**: All locked colors found verbatim → proceed to Phase 3
+   - **FAIL**: Any locked color missing → REJECT output
+
+4. **If FAIL**:
+   - Log: "VALIDATION FAILED: {color} not found in output"
+   - Provide feedback: "Locked color {hex} must appear VERBATIM. Do NOT recalculate from OKLCH."
+   - Retry (max 3 attempts)
+
+5. **If still failing after 3 attempts**:
+   - Escalate to user with diagnostic info
+   - Show expected vs actual hex values
 
 ---
 
@@ -243,12 +283,20 @@ When a specialist's output fails quality gate:
 | Metric | Minimum | Blocking? |
 |--------|---------|-----------|
 | **Brand Color Preservation** | **100%** | **Yes** |
+| **Hex Validation (v2.3)** | **PASS** | **Yes** |
 | Harmony Score | 80 | No |
 | Psychology Score | 75 | No |
 | Accessibility Score | 90 | **Yes** |
 
-**Brand Color Preservation**: Locked colors must appear EXACTLY at grade 500.
-Any modification = automatic rejection.
+**Brand Color Preservation (v2.3)**: Locked colors must appear EXACTLY at their
+NATURAL grade with the VERBATIM hex value. Validation is performed by searching
+the output JSON for the exact hex string. Any modification = automatic rejection.
+
+**Hex Validation**: After Color Theorist completes, grep for exact hex strings:
+```bash
+grep -q '"hex": "#191F3A"' base-palette.json || echo "FAIL: Primary not locked"
+grep -q '"hex": "#81171F"' base-palette.json || echo "FAIL: Secondary not locked"
+```
 
 ---
 

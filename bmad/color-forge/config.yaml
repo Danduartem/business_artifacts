@@ -6,29 +6,53 @@ user_name: "Daniel"
 communication_language: "English"
 
 # Brand Context
-brand_personality: ""
+brand_personality: "professional, transformative, free, passionate, authentic, light"
 # Describe your brand in 3-5 words: innovative, trustworthy, playful, etc.
 
-industry: ""
+industry: "strategic mentorship"
 # Your target industry: technology, healthcare, finance, retail, etc.
 
+# =============================================================================
 # LOCKED Brand Colors (Source of Truth)
-# These colors are IMMUTABLE - they appear exactly at grade 500
-# Leave empty for AI to generate
+# =============================================================================
+# These colors are IMMUTABLE - the EXACT hex value MUST appear in output.
+#
+# NATURAL GRADE PLACEMENT (v2.3):
+# Colors are placed at their NATURAL lightness grade, not forced to grade 500.
+# This preserves OKLCH uniformity and Magic Number reliability.
+#
+# How it works:
+# 1. Convert brand hex to OKLCH
+# 2. Calculate which grade matches its lightness (within ±3%)
+# 3. Lock the EXACT hex at that grade
+# 4. Build scale around it
+#
+# Example:
+#   #191F3A (navy) → OKLCH L~25% → natural grade 800
+#   #E63946 (red)  → OKLCH L~52% → natural grade 500
+#
+# VERIFICATION: After generation, grep for exact hex in output JSON.
+# If not found verbatim, the output is REJECTED.
+# =============================================================================
 
-primary_color: ""
-# Your PRIMARY brand color (hex, e.g., #E63946) - LOCKED
+primary_color: "#191F3A"
+# Your PRIMARY brand color (hex) - LOCKED at natural grade
+# Navy Profundo - Pantone 5255 C
+# OKLCH: ~25% lightness → will appear at grade 800
 
-secondary_color: ""
-# Your SECONDARY brand color (hex) - LOCKED
+secondary_color: "#81171F"
+# Your SECONDARY brand color (hex) - LOCKED at natural grade
+# Borgonha - Pantone 1955 C
+# OKLCH: ~40% lightness → will appear at grade 700
 
 accent_color: ""
 # Your ACCENT brand color (hex), or leave empty to generate complementary
+# Will generate a gold/amber accent to represent "freedom" and "lightness"
 
-neutral_color: ""
-# Your NEUTRAL/BACKGROUND base color (hex, e.g., #F8E8D8 for cream)
-# Leave empty for standard gray scale
-# Use this for brands that use warm/colored backgrounds instead of white/gray
+neutral_color: "#ECECEC"
+# Your NEUTRAL/BACKGROUND base color (hex)
+# Cinza Claro - light gray with subtle warmth
+# Will be placed at grade 100, scale built with navy undertone for brand cohesion
 
 # Preferences for GENERATED colors only
 color_temperature: "neutral"
@@ -41,7 +65,7 @@ palette_style: "modern"
 output_folder: "/Users/danielmenezes/coding/business-artifacts/docs"
 
 # Input File Paths (update with your actual file paths)
-brand_guide_path: ""
+brand_guide_path: "/Users/danielmenezes/coding/business-artifacts/businesses/seja-livre-v3/manual de marca"
 # Should contain: Brand personality, values, voice, target audience
 
 references_path: ""
@@ -60,3 +84,17 @@ wcag_level: "AA"
 min_harmony_score: 80
 min_accessibility_score: 90
 min_psychology_score: 75
+
+# =============================================================================
+# VALIDATION (v2.3)
+# =============================================================================
+# After Color Theorist completes, the Architect MUST run this validation:
+#
+# 1. Read base-palette.json
+# 2. Search for EXACT hex strings:
+#    - grep -q '"hex": "#191F3A"' → must find primary
+#    - grep -q '"hex": "#81171F"' → must find secondary
+# 3. If ANY locked color is missing verbatim → REJECT and retry
+#
+# This is a BLOCKING gate. Do not proceed until validation passes.
+# =============================================================================

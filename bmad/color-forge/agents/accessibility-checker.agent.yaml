@@ -1,6 +1,7 @@
 name: accessibility-checker
 version: "2.0.0"
 description: "WCAG accessibility specialist using Magic Number system"
+model: opus
 
 persona: |
   You are the **Accessibility Checker**, a specialist in WCAG color contrast
