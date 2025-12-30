@@ -1,0 +1,3177 @@
+{
+  "section": "components",
+  "agent": "component-designer",
+  "generated": "2025-12-30",
+  "brandContext": {
+    "personality": "Libertadora (60%) + Mentora Sabia (40%)",
+    "tone": "Warm but direct, premium but accessible, anti-hustle pro-freedom",
+    "signatureClosings": ["VAMOS?", "Do meu coracao para o seu"],
+    "colors": {
+      "primary": "#191F3A",
+      "secondary": "#81171F",
+      "accent": "#E0B83D",
+      "background": "#F8F8FA",
+      "surface": "#FFFFFF"
+    }
+  },
+  "designTokens": {
+    "borderRadius": {
+      "none": "0px",
+      "sm": "4px",
+      "md": "8px",
+      "lg": "12px",
+      "xl": "16px",
+      "2xl": "24px",
+      "full": "9999px"
+    },
+    "spacing": {
+      "xs": "4px",
+      "sm": "8px",
+      "md": "12px",
+      "lg": "16px",
+      "xl": "20px",
+      "2xl": "24px",
+      "3xl": "32px",
+      "4xl": "48px"
+    },
+    "transitions": {
+      "fast": "150ms ease-in-out",
+      "normal": "200ms ease-in-out",
+      "slow": "300ms ease-in-out",
+      "bounce": "300ms cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+    },
+    "typography": {
+      "fontFamily": {
+        "heading": "'Century Gothic', 'CenturyGothic', sans-serif",
+        "body": "'Lora', Georgia, serif"
+      },
+      "fontSize": {
+        "xs": "12px",
+        "sm": "14px",
+        "md": "16px",
+        "lg": "18px",
+        "xl": "20px",
+        "2xl": "24px",
+        "3xl": "30px",
+        "4xl": "36px"
+      },
+      "fontWeight": {
+        "regular": "400",
+        "medium": "500",
+        "semibold": "600",
+        "bold": "700"
+      },
+      "lineHeight": {
+        "tight": "1.25",
+        "normal": "1.5",
+        "relaxed": "1.75"
+      }
+    }
+  },
+  "components": {
+    "button": {
+      "description": "Interactive element that triggers actions. Seja Livre buttons use warm, inviting language that empowers rather than commands.",
+      "brandNotes": "Use 'VAMOS?' style text for primary CTAs. Never use generic 'Submit' or 'Clique aqui'. Buttons should feel like an invitation from a friend, not a corporate command.",
+      "anatomy": {
+        "required": ["label"],
+        "optional": ["iconLeading", "iconTrailing", "loadingSpinner"]
+      },
+      "variants": {
+        "hierarchy": {
+          "primary": {
+            "description": "Main call-to-action, use sparingly (1-2 per viewport)",
+            "usage": "Primary conversions: 'VAMOS?', 'Quero minha liberdade', 'Comece agora'"
+          },
+          "secondary": {
+            "description": "Supporting actions with emotional warmth",
+            "usage": "Secondary CTAs: 'Saiba mais', 'Conheça o método'"
+          },
+          "accent": {
+            "description": "Highlight special moments and celebrations",
+            "usage": "Special offers, milestone celebrations, golden moments"
+          },
+          "ghost": {
+            "description": "Tertiary actions that don't compete with primary CTAs",
+            "usage": "Navigation, filters, low-priority actions"
+          },
+          "destructive": {
+            "description": "Irreversible or dangerous actions",
+            "usage": "Cancel subscription, delete account (rare, supportive messaging)"
+          }
+        },
+        "sizes": {
+          "sm": {
+            "height": "32px",
+            "paddingX": "12px",
+            "paddingY": "6px",
+            "fontSize": "14px",
+            "iconSize": "16px",
+            "gap": "6px"
+          },
+          "md": {
+            "height": "40px",
+            "paddingX": "20px",
+            "paddingY": "10px",
+            "fontSize": "16px",
+            "iconSize": "20px",
+            "gap": "8px"
+          },
+          "lg": {
+            "height": "48px",
+            "paddingX": "24px",
+            "paddingY": "12px",
+            "fontSize": "18px",
+            "iconSize": "24px",
+            "gap": "10px"
+          },
+          "xl": {
+            "height": "56px",
+            "paddingX": "32px",
+            "paddingY": "16px",
+            "fontSize": "20px",
+            "iconSize": "24px",
+            "gap": "12px"
+          }
+        }
+      },
+      "states": {
+        "primary": {
+          "default": {
+            "background": "#191F3A",
+            "text": "#F8F8FA",
+            "border": "none",
+            "shadow": "0 1px 2px 0 rgba(50, 50, 62, 0.05)"
+          },
+          "hover": {
+            "background": "#363D62",
+            "text": "#F8F8FA",
+            "border": "none",
+            "shadow": "0 4px 6px -1px rgba(50, 50, 62, 0.1)",
+            "transform": "translateY(-1px)"
+          },
+          "active": {
+            "background": "#0D1022",
+            "text": "#F8F8FA",
+            "border": "none",
+            "shadow": "inset 0 2px 4px 0 rgba(50, 50, 62, 0.05)",
+            "transform": "translateY(0)"
+          },
+          "focus": {
+            "background": "#191F3A",
+            "text": "#F8F8FA",
+            "border": "none",
+            "outline": "none",
+            "boxShadow": "0 0 0 2px #F8F8FA, 0 0 0 4px #191F3A"
+          },
+          "disabled": {
+            "background": "#DCDCE4",
+            "text": "#A5A5B5",
+            "border": "none",
+            "cursor": "not-allowed",
+            "opacity": "1"
+          },
+          "loading": {
+            "background": "#191F3A",
+            "text": "transparent",
+            "spinnerColor": "#F8F8FA",
+            "cursor": "wait"
+          }
+        },
+        "secondary": {
+          "default": {
+            "background": "#81171F",
+            "text": "#F8F8FA",
+            "border": "none",
+            "shadow": "0 1px 2px 0 rgba(50, 50, 62, 0.05)"
+          },
+          "hover": {
+            "background": "#9E2A35",
+            "text": "#F8F8FA",
+            "border": "none",
+            "shadow": "0 4px 6px -1px rgba(50, 50, 62, 0.1)",
+            "transform": "translateY(-1px)"
+          },
+          "active": {
+            "background": "#5E1118",
+            "text": "#F8F8FA",
+            "border": "none",
+            "shadow": "inset 0 2px 4px 0 rgba(50, 50, 62, 0.05)"
+          },
+          "focus": {
+            "background": "#81171F",
+            "text": "#F8F8FA",
+            "boxShadow": "0 0 0 2px #F8F8FA, 0 0 0 4px #81171F"
+          },
+          "disabled": {
+            "background": "#DCDCE4",
+            "text": "#A5A5B5",
+            "cursor": "not-allowed"
+          },
+          "loading": {
+            "background": "#81171F",
+            "text": "transparent",
+            "spinnerColor": "#F8F8FA"
+          }
+        },
+        "accent": {
+          "default": {
+            "background": "#E0B83D",
+            "text": "#191F3A",
+            "border": "none",
+            "shadow": "0 1px 2px 0 rgba(50, 50, 62, 0.05)"
+          },
+          "hover": {
+            "background": "#C99B1F",
+            "text": "#191F3A",
+            "shadow": "0 4px 6px -1px rgba(50, 50, 62, 0.1), 0 0 20px rgba(224, 184, 61, 0.3)",
+            "transform": "translateY(-1px)"
+          },
+          "active": {
+            "background": "#A67E15",
+            "text": "#191F3A",
+            "shadow": "inset 0 2px 4px 0 rgba(50, 50, 62, 0.05)"
+          },
+          "focus": {
+            "background": "#E0B83D",
+            "text": "#191F3A",
+            "boxShadow": "0 0 0 2px #F8F8FA, 0 0 0 4px #E0B83D"
+          },
+          "disabled": {
+            "background": "#DCDCE4",
+            "text": "#A5A5B5",
+            "cursor": "not-allowed"
+          },
+          "loading": {
+            "background": "#E0B83D",
+            "text": "transparent",
+            "spinnerColor": "#191F3A"
+          }
+        },
+        "ghost": {
+          "default": {
+            "background": "transparent",
+            "text": "#191F3A",
+            "border": "1px solid #DCDCE4"
+          },
+          "hover": {
+            "background": "#F4F5FA",
+            "text": "#191F3A",
+            "border": "1px solid #B3B9D6"
+          },
+          "active": {
+            "background": "#E8EAF4",
+            "text": "#191F3A",
+            "border": "1px solid #191F3A"
+          },
+          "focus": {
+            "background": "transparent",
+            "text": "#191F3A",
+            "border": "1px solid #DCDCE4",
+            "boxShadow": "0 0 0 2px #F8F8FA, 0 0 0 4px #6A74A3"
+          },
+          "disabled": {
+            "background": "transparent",
+            "text": "#A5A5B5",
+            "border": "1px solid #ECECF0",
+            "cursor": "not-allowed"
+          },
+          "loading": {
+            "background": "transparent",
+            "spinnerColor": "#191F3A"
+          }
+        },
+        "destructive": {
+          "default": {
+            "background": "#D93830",
+            "text": "#FFFFFF",
+            "border": "none"
+          },
+          "hover": {
+            "background": "#8E2520",
+            "text": "#FFFFFF"
+          },
+          "active": {
+            "background": "#5E1118",
+            "text": "#FFFFFF"
+          },
+          "focus": {
+            "background": "#D93830",
+            "text": "#FFFFFF",
+            "boxShadow": "0 0 0 2px #F8F8FA, 0 0 0 4px #D93830"
+          },
+          "disabled": {
+            "background": "#DCDCE4",
+            "text": "#A5A5B5",
+            "cursor": "not-allowed"
+          }
+        }
+      },
+      "specs": {
+        "borderRadius": "8px",
+        "fontFamily": "'Century Gothic', 'CenturyGothic', sans-serif",
+        "fontWeight": "600",
+        "letterSpacing": "0.02em",
+        "textTransform": "none",
+        "transition": "all 200ms ease-in-out",
+        "minWidth": "120px"
+      },
+      "accessibility": {
+        "role": "button",
+        "ariaAttributes": {
+          "ariaDisabled": "Set to true when disabled",
+          "ariaBusy": "Set to true when loading",
+          "ariaLabel": "Required if icon-only button"
+        },
+        "keyboardNavigation": {
+          "enter": "Activates button",
+          "space": "Activates button",
+          "tab": "Moves focus to next element"
+        },
+        "focusManagement": "Focus ring visible on keyboard navigation, hidden on mouse click",
+        "contrastRatio": {
+          "primaryOnWhite": "13.5:1 (AAA)",
+          "secondaryOnWhite": "8.2:1 (AAA)",
+          "accentTextOnAccent": "8.8:1 (AAA)"
+        },
+        "touchTarget": {
+          "minimum": "44px x 44px",
+          "recommended": "48px x 48px"
+        }
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use warm, inviting language like 'VAMOS?' or 'Quero minha liberdade'",
+            "rationale": "Aligns with brand's Libertadora personality and creates emotional connection"
+          },
+          {
+            "rule": "Limit primary buttons to 1-2 per viewport",
+            "rationale": "Maintains visual hierarchy and prevents decision fatigue"
+          },
+          {
+            "rule": "Include loading states for async actions",
+            "rationale": "Provides feedback and prevents double-clicks"
+          },
+          {
+            "rule": "Use accent buttons for celebratory moments",
+            "rationale": "Gold color represents freedom and transformation achievements"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use generic text like 'Clique aqui' or 'Submit'",
+            "rationale": "Misses opportunity to reinforce brand voice and create connection"
+          },
+          {
+            "rule": "Don't disable buttons without explanation",
+            "rationale": "Brand is supportive, not blaming; show why action is blocked"
+          },
+          {
+            "rule": "Don't use destructive styling for non-destructive actions",
+            "rationale": "Preserves meaning of visual hierarchy"
+          },
+          {
+            "rule": "Don't stack multiple buttons of same hierarchy",
+            "rationale": "Creates confusion about primary action"
+          }
+        ]
+      }
+    },
+    "input": {
+      "description": "Text input fields for forms. Seja Livre inputs feel approachable and guide users gently through data entry.",
+      "brandNotes": "Use supportive placeholder text that guides rather than demands. Error messages should be helpful, never blaming. Consider the user is likely busy and stressed.",
+      "anatomy": {
+        "required": ["inputField"],
+        "optional": ["label", "placeholder", "helperText", "errorText", "successText", "iconLeading", "iconTrailing", "characterCount"]
+      },
+      "variants": {
+        "types": ["text", "email", "password", "tel", "url", "search", "number"],
+        "sizes": {
+          "sm": {
+            "height": "36px",
+            "paddingX": "12px",
+            "fontSize": "14px",
+            "labelSize": "12px",
+            "iconSize": "16px"
+          },
+          "md": {
+            "height": "44px",
+            "paddingX": "16px",
+            "fontSize": "16px",
+            "labelSize": "14px",
+            "iconSize": "20px"
+          },
+          "lg": {
+            "height": "52px",
+            "paddingX": "20px",
+            "fontSize": "18px",
+            "labelSize": "16px",
+            "iconSize": "24px"
+          }
+        }
+      },
+      "states": {
+        "default": {
+          "background": "#FFFFFF",
+          "text": "#1D1D26",
+          "placeholder": "#85859A",
+          "border": "1px solid #DCDCE4",
+          "borderRadius": "8px"
+        },
+        "hover": {
+          "background": "#FFFFFF",
+          "text": "#1D1D26",
+          "border": "1px solid #B3B9D6"
+        },
+        "focus": {
+          "background": "#FFFFFF",
+          "text": "#1D1D26",
+          "border": "2px solid #191F3A",
+          "boxShadow": "0 0 0 3px rgba(25, 31, 58, 0.1)",
+          "outline": "none"
+        },
+        "filled": {
+          "background": "#FFFFFF",
+          "text": "#1D1D26",
+          "border": "1px solid #C4C4D0"
+        },
+        "disabled": {
+          "background": "#ECECF0",
+          "text": "#A5A5B5",
+          "border": "1px solid #DCDCE4",
+          "cursor": "not-allowed"
+        },
+        "error": {
+          "background": "#FFFFFF",
+          "text": "#1D1D26",
+          "border": "2px solid #D93830",
+          "boxShadow": "0 0 0 3px rgba(217, 56, 48, 0.1)",
+          "helperText": "#D93830",
+          "icon": "#D93830"
+        },
+        "success": {
+          "background": "#FFFFFF",
+          "text": "#1D1D26",
+          "border": "2px solid #2DA55D",
+          "boxShadow": "0 0 0 3px rgba(45, 165, 93, 0.1)",
+          "helperText": "#2DA55D",
+          "icon": "#2DA55D"
+        }
+      },
+      "specs": {
+        "borderRadius": "8px",
+        "fontFamily": "'Lora', Georgia, serif",
+        "fontWeight": "400",
+        "transition": "all 200ms ease-in-out",
+        "label": {
+          "fontFamily": "'Century Gothic', 'CenturyGothic', sans-serif",
+          "fontWeight": "600",
+          "color": "#1D1D26",
+          "marginBottom": "6px"
+        },
+        "helperText": {
+          "fontSize": "12px",
+          "marginTop": "4px",
+          "color": "#656578"
+        }
+      },
+      "accessibility": {
+        "role": "textbox",
+        "ariaAttributes": {
+          "ariaLabel": "Required if no visible label",
+          "ariaDescribedby": "Links to helper/error text",
+          "ariaInvalid": "Set to true on error",
+          "ariaRequired": "Set when field is required"
+        },
+        "keyboardNavigation": {
+          "tab": "Moves focus into/out of field",
+          "escape": "Clears field in search inputs"
+        },
+        "autocomplete": "Use appropriate autocomplete values (email, name, tel, etc.)",
+        "contrastRatio": {
+          "textOnWhite": "15.2:1 (AAA)",
+          "placeholderOnWhite": "4.6:1 (AA)"
+        },
+        "touchTarget": "44px minimum height"
+      },
+      "errorMessages": {
+        "brandTone": "Supportive and helpful, never blaming",
+        "examples": {
+          "required": "Esse campo e importante pra gente te conhecer melhor",
+          "email": "Hmm, esse email nao parece completo. Pode verificar?",
+          "password": "A senha precisa de pelo menos 8 caracteres pra te proteger",
+          "mismatch": "As senhas nao estao iguais ainda. Sem pressa!",
+          "invalid": "Algo nao ficou certo aqui. Vamos tentar de novo?"
+        }
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use clear, descriptive labels above inputs",
+            "rationale": "Labels remain visible when typing, improving usability"
+          },
+          {
+            "rule": "Show validation feedback immediately after field loses focus",
+            "rationale": "Helps users correct errors before submission"
+          },
+          {
+            "rule": "Use supportive error messages",
+            "rationale": "Brand voice is supportive, not blaming"
+          },
+          {
+            "rule": "Provide helper text for complex requirements",
+            "rationale": "Guides users proactively rather than reactively"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use placeholder as the only label",
+            "rationale": "Disappears when typing, causing confusion"
+          },
+          {
+            "rule": "Don't use red for all error styling",
+            "rationale": "Combine with icons and text for accessibility"
+          },
+          {
+            "rule": "Don't blame the user in error messages",
+            "rationale": "Misaligns with warm, supportive brand voice"
+          },
+          {
+            "rule": "Don't auto-focus inputs without user action",
+            "rationale": "Can disorient users, especially with screen readers"
+          }
+        ]
+      }
+    },
+    "textarea": {
+      "description": "Multi-line text input for longer content like messages, descriptions, or feedback.",
+      "brandNotes": "Perfect for personal messages. Use encouraging placeholders that invite sharing.",
+      "anatomy": {
+        "required": ["textareaField"],
+        "optional": ["label", "placeholder", "helperText", "characterCount", "resizeHandle"]
+      },
+      "variants": {
+        "sizes": {
+          "sm": {
+            "minHeight": "80px",
+            "paddingX": "12px",
+            "paddingY": "8px",
+            "fontSize": "14px"
+          },
+          "md": {
+            "minHeight": "120px",
+            "paddingX": "16px",
+            "paddingY": "12px",
+            "fontSize": "16px"
+          },
+          "lg": {
+            "minHeight": "160px",
+            "paddingX": "20px",
+            "paddingY": "16px",
+            "fontSize": "18px"
+          }
+        },
+        "resize": ["none", "vertical", "horizontal", "both"]
+      },
+      "states": {
+        "default": {
+          "background": "#FFFFFF",
+          "text": "#1D1D26",
+          "placeholder": "#85859A",
+          "border": "1px solid #DCDCE4",
+          "borderRadius": "8px"
+        },
+        "hover": {
+          "border": "1px solid #B3B9D6"
+        },
+        "focus": {
+          "border": "2px solid #191F3A",
+          "boxShadow": "0 0 0 3px rgba(25, 31, 58, 0.1)"
+        },
+        "disabled": {
+          "background": "#ECECF0",
+          "text": "#A5A5B5",
+          "border": "1px solid #DCDCE4",
+          "cursor": "not-allowed"
+        },
+        "error": {
+          "border": "2px solid #D93830",
+          "boxShadow": "0 0 0 3px rgba(217, 56, 48, 0.1)"
+        },
+        "success": {
+          "border": "2px solid #2DA55D",
+          "boxShadow": "0 0 0 3px rgba(45, 165, 93, 0.1)"
+        }
+      },
+      "specs": {
+        "borderRadius": "8px",
+        "fontFamily": "'Lora', Georgia, serif",
+        "lineHeight": "1.5",
+        "resize": "vertical",
+        "maxHeight": "400px",
+        "transition": "border-color 200ms ease-in-out, box-shadow 200ms ease-in-out"
+      },
+      "accessibility": {
+        "role": "textbox",
+        "ariaMultiline": "true",
+        "characterCount": {
+          "ariaLive": "polite",
+          "format": "{current} de {max} caracteres"
+        }
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Show character count for limited fields",
+            "rationale": "Helps users stay within limits"
+          },
+          {
+            "rule": "Allow vertical resize by default",
+            "rationale": "Users can expand for comfort"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't make minimum height too small",
+            "rationale": "Should indicate multi-line capability"
+          },
+          {
+            "rule": "Don't hide overflow without indication",
+            "rationale": "Users may not realize content is cut off"
+          }
+        ]
+      }
+    },
+    "select": {
+      "description": "Dropdown selection component for choosing from predefined options.",
+      "brandNotes": "Keep options concise and clear. Use natural language for option labels.",
+      "anatomy": {
+        "required": ["trigger", "optionsList"],
+        "optional": ["label", "placeholder", "helperText", "searchInput", "clearButton", "optionGroups"]
+      },
+      "variants": {
+        "sizes": {
+          "sm": {
+            "height": "36px",
+            "paddingX": "12px",
+            "fontSize": "14px"
+          },
+          "md": {
+            "height": "44px",
+            "paddingX": "16px",
+            "fontSize": "16px"
+          },
+          "lg": {
+            "height": "52px",
+            "paddingX": "20px",
+            "fontSize": "18px"
+          }
+        },
+        "types": {
+          "single": "Select one option",
+          "multi": "Select multiple options with chips",
+          "searchable": "Filterable options list"
+        }
+      },
+      "states": {
+        "trigger": {
+          "default": {
+            "background": "#FFFFFF",
+            "text": "#1D1D26",
+            "placeholder": "#85859A",
+            "border": "1px solid #DCDCE4",
+            "iconColor": "#656578"
+          },
+          "hover": {
+            "border": "1px solid #B3B9D6",
+            "iconColor": "#191F3A"
+          },
+          "open": {
+            "border": "2px solid #191F3A",
+            "boxShadow": "0 0 0 3px rgba(25, 31, 58, 0.1)",
+            "iconTransform": "rotate(180deg)"
+          },
+          "focus": {
+            "border": "2px solid #191F3A",
+            "boxShadow": "0 0 0 3px rgba(25, 31, 58, 0.1)"
+          },
+          "disabled": {
+            "background": "#ECECF0",
+            "text": "#A5A5B5",
+            "border": "1px solid #DCDCE4"
+          },
+          "error": {
+            "border": "2px solid #D93830",
+            "boxShadow": "0 0 0 3px rgba(217, 56, 48, 0.1)"
+          }
+        },
+        "option": {
+          "default": {
+            "background": "transparent",
+            "text": "#1D1D26",
+            "paddingX": "16px",
+            "paddingY": "10px"
+          },
+          "hover": {
+            "background": "#F4F5FA",
+            "text": "#191F3A"
+          },
+          "selected": {
+            "background": "#E8EAF4",
+            "text": "#191F3A",
+            "fontWeight": "600",
+            "checkIcon": "#191F3A"
+          },
+          "disabled": {
+            "background": "transparent",
+            "text": "#A5A5B5",
+            "cursor": "not-allowed"
+          }
+        },
+        "dropdown": {
+          "background": "#FFFFFF",
+          "border": "1px solid #DCDCE4",
+          "borderRadius": "8px",
+          "shadow": "0 10px 15px -3px rgba(50, 50, 62, 0.1), 0 4px 6px -4px rgba(50, 50, 62, 0.1)",
+          "maxHeight": "280px"
+        }
+      },
+      "specs": {
+        "borderRadius": "8px",
+        "fontFamily": "'Lora', Georgia, serif",
+        "dropdownOffset": "4px",
+        "transition": "all 200ms ease-in-out",
+        "chevronSize": "20px",
+        "optionHeight": "40px"
+      },
+      "accessibility": {
+        "role": "listbox",
+        "triggerRole": "combobox",
+        "ariaAttributes": {
+          "ariaExpanded": "Toggle on open",
+          "ariaHaspopup": "listbox",
+          "ariaActivedescendant": "ID of focused option"
+        },
+        "keyboardNavigation": {
+          "enter": "Select focused option",
+          "space": "Open dropdown / Select option",
+          "escape": "Close dropdown",
+          "arrowDown": "Move to next option",
+          "arrowUp": "Move to previous option",
+          "home": "Move to first option",
+          "end": "Move to last option",
+          "typeAhead": "Jump to matching option"
+        }
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use clear, descriptive option labels",
+            "rationale": "Users scan quickly; clarity helps"
+          },
+          {
+            "rule": "Show selected option in trigger",
+            "rationale": "Confirms selection without reopening"
+          },
+          {
+            "rule": "Add search for lists with 10+ options",
+            "rationale": "Improves findability"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use select for fewer than 4 options",
+            "rationale": "Radio buttons are more efficient"
+          },
+          {
+            "rule": "Don't nest dropdowns",
+            "rationale": "Creates confusing interaction patterns"
+          }
+        ]
+      }
+    },
+    "checkbox": {
+      "description": "Binary selection control for independent choices or list items.",
+      "brandNotes": "Use for terms acceptance, preferences, and multi-select lists. Keep labels conversational.",
+      "anatomy": {
+        "required": ["box", "label"],
+        "optional": ["description", "errorText"]
+      },
+      "variants": {
+        "sizes": {
+          "sm": {
+            "boxSize": "16px",
+            "labelSize": "14px",
+            "gap": "8px"
+          },
+          "md": {
+            "boxSize": "20px",
+            "labelSize": "16px",
+            "gap": "10px"
+          },
+          "lg": {
+            "boxSize": "24px",
+            "labelSize": "18px",
+            "gap": "12px"
+          }
+        }
+      },
+      "states": {
+        "unchecked": {
+          "default": {
+            "background": "#FFFFFF",
+            "border": "2px solid #DCDCE4",
+            "borderRadius": "4px"
+          },
+          "hover": {
+            "background": "#FFFFFF",
+            "border": "2px solid #191F3A"
+          },
+          "focus": {
+            "background": "#FFFFFF",
+            "border": "2px solid #191F3A",
+            "boxShadow": "0 0 0 3px rgba(25, 31, 58, 0.1)"
+          },
+          "disabled": {
+            "background": "#ECECF0",
+            "border": "2px solid #DCDCE4"
+          }
+        },
+        "checked": {
+          "default": {
+            "background": "#191F3A",
+            "border": "2px solid #191F3A",
+            "checkmarkColor": "#FFFFFF"
+          },
+          "hover": {
+            "background": "#363D62",
+            "border": "2px solid #363D62"
+          },
+          "focus": {
+            "background": "#191F3A",
+            "border": "2px solid #191F3A",
+            "boxShadow": "0 0 0 3px rgba(25, 31, 58, 0.1)"
+          },
+          "disabled": {
+            "background": "#A5A5B5",
+            "border": "2px solid #A5A5B5"
+          }
+        },
+        "indeterminate": {
+          "background": "#191F3A",
+          "border": "2px solid #191F3A",
+          "dashColor": "#FFFFFF"
+        },
+        "error": {
+          "border": "2px solid #D93830",
+          "labelColor": "#D93830"
+        }
+      },
+      "specs": {
+        "borderRadius": "4px",
+        "transition": "all 150ms ease-in-out",
+        "checkmarkStrokeWidth": "2px",
+        "labelFontFamily": "'Lora', Georgia, serif"
+      },
+      "accessibility": {
+        "role": "checkbox",
+        "ariaAttributes": {
+          "ariaChecked": "true | false | mixed",
+          "ariaDescribedby": "Links to description text"
+        },
+        "keyboardNavigation": {
+          "space": "Toggle checked state",
+          "tab": "Move focus"
+        },
+        "touchTarget": "44px minimum"
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use for independent, non-mutually-exclusive choices",
+            "rationale": "Distinguishes from radio buttons"
+          },
+          {
+            "rule": "Position checkbox before label",
+            "rationale": "Standard convention for LTR languages"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use for mutually exclusive options",
+            "rationale": "Use radio buttons instead"
+          },
+          {
+            "rule": "Don't default to checked without clear reason",
+            "rationale": "Dark pattern that erodes trust"
+          }
+        ]
+      }
+    },
+    "radio": {
+      "description": "Selection control for mutually exclusive choices within a group.",
+      "brandNotes": "Use for single-choice selections like payment methods, delivery options. Keep groups to 5 or fewer options.",
+      "anatomy": {
+        "required": ["circle", "label"],
+        "optional": ["description", "groupLabel"]
+      },
+      "variants": {
+        "sizes": {
+          "sm": {
+            "circleSize": "16px",
+            "dotSize": "6px",
+            "labelSize": "14px",
+            "gap": "8px"
+          },
+          "md": {
+            "circleSize": "20px",
+            "dotSize": "8px",
+            "labelSize": "16px",
+            "gap": "10px"
+          },
+          "lg": {
+            "circleSize": "24px",
+            "dotSize": "10px",
+            "labelSize": "18px",
+            "gap": "12px"
+          }
+        },
+        "layout": ["vertical", "horizontal"]
+      },
+      "states": {
+        "unselected": {
+          "default": {
+            "background": "#FFFFFF",
+            "border": "2px solid #DCDCE4"
+          },
+          "hover": {
+            "border": "2px solid #191F3A"
+          },
+          "focus": {
+            "border": "2px solid #191F3A",
+            "boxShadow": "0 0 0 3px rgba(25, 31, 58, 0.1)"
+          },
+          "disabled": {
+            "background": "#ECECF0",
+            "border": "2px solid #DCDCE4"
+          }
+        },
+        "selected": {
+          "default": {
+            "background": "#FFFFFF",
+            "border": "2px solid #191F3A",
+            "dotColor": "#191F3A"
+          },
+          "hover": {
+            "border": "2px solid #363D62",
+            "dotColor": "#363D62"
+          },
+          "focus": {
+            "border": "2px solid #191F3A",
+            "boxShadow": "0 0 0 3px rgba(25, 31, 58, 0.1)"
+          },
+          "disabled": {
+            "background": "#ECECF0",
+            "border": "2px solid #A5A5B5",
+            "dotColor": "#A5A5B5"
+          }
+        },
+        "error": {
+          "border": "2px solid #D93830"
+        }
+      },
+      "specs": {
+        "transition": "all 150ms ease-in-out",
+        "groupGap": "12px",
+        "labelFontFamily": "'Lora', Georgia, serif"
+      },
+      "accessibility": {
+        "role": "radio",
+        "groupRole": "radiogroup",
+        "ariaAttributes": {
+          "ariaChecked": "true | false",
+          "ariaLabelledby": "Links to group label"
+        },
+        "keyboardNavigation": {
+          "arrowDown": "Select next option",
+          "arrowUp": "Select previous option",
+          "arrowRight": "Select next option",
+          "arrowLeft": "Select previous option",
+          "tab": "Move focus out of group"
+        }
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Always provide a group label",
+            "rationale": "Context helps users understand choices"
+          },
+          {
+            "rule": "Pre-select a default when appropriate",
+            "rationale": "Reduces cognitive load"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use for more than 5-7 options",
+            "rationale": "Consider dropdown for longer lists"
+          },
+          {
+            "rule": "Don't mix with checkboxes in same context",
+            "rationale": "Confuses exclusive vs. non-exclusive selection"
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "description": "Binary switch for instant on/off settings that take effect immediately.",
+      "brandNotes": "Use for settings and preferences. Toggle should feel satisfying with smooth animation.",
+      "anatomy": {
+        "required": ["track", "thumb"],
+        "optional": ["label", "onLabel", "offLabel"]
+      },
+      "variants": {
+        "sizes": {
+          "sm": {
+            "trackWidth": "36px",
+            "trackHeight": "20px",
+            "thumbSize": "16px"
+          },
+          "md": {
+            "trackWidth": "44px",
+            "trackHeight": "24px",
+            "thumbSize": "20px"
+          },
+          "lg": {
+            "trackWidth": "52px",
+            "trackHeight": "28px",
+            "thumbSize": "24px"
+          }
+        }
+      },
+      "states": {
+        "off": {
+          "default": {
+            "trackBackground": "#DCDCE4",
+            "thumbBackground": "#FFFFFF",
+            "thumbPosition": "2px",
+            "thumbShadow": "0 1px 2px rgba(0, 0, 0, 0.1)"
+          },
+          "hover": {
+            "trackBackground": "#C4C4D0"
+          },
+          "focus": {
+            "trackBackground": "#DCDCE4",
+            "boxShadow": "0 0 0 3px rgba(25, 31, 58, 0.1)"
+          },
+          "disabled": {
+            "trackBackground": "#ECECF0",
+            "thumbBackground": "#F8F8FA"
+          }
+        },
+        "on": {
+          "default": {
+            "trackBackground": "#191F3A",
+            "thumbBackground": "#FFFFFF",
+            "thumbPosition": "calc(100% - 18px)",
+            "thumbShadow": "0 1px 2px rgba(0, 0, 0, 0.1)"
+          },
+          "hover": {
+            "trackBackground": "#363D62"
+          },
+          "focus": {
+            "trackBackground": "#191F3A",
+            "boxShadow": "0 0 0 3px rgba(25, 31, 58, 0.1)"
+          },
+          "disabled": {
+            "trackBackground": "#A5A5B5",
+            "thumbBackground": "#F8F8FA"
+          }
+        }
+      },
+      "specs": {
+        "borderRadius": "9999px",
+        "transition": "all 200ms ease-in-out",
+        "thumbTransition": "transform 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+      },
+      "accessibility": {
+        "role": "switch",
+        "ariaAttributes": {
+          "ariaChecked": "true | false",
+          "ariaLabel": "Required descriptive label"
+        },
+        "keyboardNavigation": {
+          "space": "Toggle state",
+          "enter": "Toggle state"
+        },
+        "touchTarget": "44px minimum"
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use for settings that take effect immediately",
+            "rationale": "Toggle implies instant action"
+          },
+          {
+            "rule": "Position label before toggle (LTR)",
+            "rationale": "Standard convention"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use for form submissions",
+            "rationale": "Use checkbox for deferred actions"
+          },
+          {
+            "rule": "Don't use confusing labels like 'Don't show again'",
+            "rationale": "Double negatives confuse users"
+          }
+        ]
+      }
+    },
+    "card": {
+      "description": "Container for grouping related content and actions. Cards create visual hierarchy and chunking.",
+      "brandNotes": "Cards should feel like warm invitations, not cold containers. Use rounded corners for approachability. Background is pure white on cream page background.",
+      "anatomy": {
+        "required": ["container"],
+        "optional": ["header", "media", "body", "footer", "actions", "badge"]
+      },
+      "variants": {
+        "types": {
+          "standard": {
+            "description": "Basic content container",
+            "usage": "General content grouping"
+          },
+          "interactive": {
+            "description": "Clickable card with hover state",
+            "usage": "Links to detail pages, articles"
+          },
+          "media": {
+            "description": "Card with prominent image/video",
+            "usage": "Blog posts, course modules"
+          },
+          "testimonial": {
+            "description": "Customer quote with avatar",
+            "usage": "Social proof, success stories"
+          },
+          "pricing": {
+            "description": "Plan/package presentation",
+            "usage": "Pricing pages, upsells"
+          }
+        },
+        "sizes": {
+          "sm": {
+            "padding": "16px",
+            "borderRadius": "8px"
+          },
+          "md": {
+            "padding": "24px",
+            "borderRadius": "12px"
+          },
+          "lg": {
+            "padding": "32px",
+            "borderRadius": "16px"
+          }
+        }
+      },
+      "states": {
+        "standard": {
+          "default": {
+            "background": "#FFFFFF",
+            "border": "1px solid #ECECF0",
+            "borderRadius": "12px",
+            "shadow": "0 1px 2px 0 rgba(50, 50, 62, 0.05)"
+          }
+        },
+        "interactive": {
+          "default": {
+            "background": "#FFFFFF",
+            "border": "1px solid #ECECF0",
+            "shadow": "0 1px 2px 0 rgba(50, 50, 62, 0.05)",
+            "cursor": "pointer"
+          },
+          "hover": {
+            "background": "#FFFFFF",
+            "border": "1px solid #DCDCE4",
+            "shadow": "0 4px 6px -1px rgba(50, 50, 62, 0.1), 0 2px 4px -2px rgba(50, 50, 62, 0.1)",
+            "transform": "translateY(-2px)"
+          },
+          "active": {
+            "shadow": "0 1px 2px 0 rgba(50, 50, 62, 0.05)",
+            "transform": "translateY(0)"
+          },
+          "focus": {
+            "border": "2px solid #191F3A",
+            "boxShadow": "0 0 0 3px rgba(25, 31, 58, 0.1)"
+          }
+        },
+        "selected": {
+          "background": "#FFFFFF",
+          "border": "2px solid #191F3A",
+          "shadow": "0 4px 6px -1px rgba(50, 50, 62, 0.1)"
+        }
+      },
+      "specs": {
+        "background": "#FFFFFF",
+        "borderRadius": "12px",
+        "padding": {
+          "sm": "16px",
+          "md": "24px",
+          "lg": "32px"
+        },
+        "shadow": "0 1px 2px 0 rgba(50, 50, 62, 0.05)",
+        "transition": "all 200ms ease-in-out",
+        "mediaAspectRatio": "16/9",
+        "headerGap": "16px",
+        "bodyGap": "12px",
+        "footerGap": "16px"
+      },
+      "accessibility": {
+        "interactiveRole": "article or link",
+        "ariaAttributes": {
+          "ariaLabel": "Descriptive label for interactive cards"
+        },
+        "keyboardNavigation": {
+          "tab": "Focus on interactive elements within",
+          "enter": "Activate if interactive card"
+        },
+        "focusManagement": "Focus ring on card when interactive"
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use consistent padding within card types",
+            "rationale": "Creates visual rhythm across page"
+          },
+          {
+            "rule": "Include clear visual hierarchy in card content",
+            "rationale": "Helps scanning and comprehension"
+          },
+          {
+            "rule": "Use white background on cream page background",
+            "rationale": "Creates subtle elevation without heavy shadows"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't nest cards within cards",
+            "rationale": "Creates confusing depth perception"
+          },
+          {
+            "rule": "Don't make entire card clickable if it has multiple actions",
+            "rationale": "Conflicting click targets confuse users"
+          },
+          {
+            "rule": "Don't use heavy shadows",
+            "rationale": "Brand prefers subtle, warm elevation"
+          }
+        ]
+      }
+    },
+    "modal": {
+      "description": "Overlay dialog that focuses attention and requires user action. Blocks page interaction.",
+      "brandNotes": "Modals interrupt flow, use sparingly. Content should feel like a conversation, not a transaction. Include warm closings.",
+      "anatomy": {
+        "required": ["overlay", "container", "content"],
+        "optional": ["header", "closeButton", "footer", "actions"]
+      },
+      "variants": {
+        "sizes": {
+          "sm": {
+            "width": "400px",
+            "maxHeight": "80vh"
+          },
+          "md": {
+            "width": "560px",
+            "maxHeight": "85vh"
+          },
+          "lg": {
+            "width": "720px",
+            "maxHeight": "90vh"
+          },
+          "xl": {
+            "width": "900px",
+            "maxHeight": "90vh"
+          },
+          "full": {
+            "width": "calc(100vw - 48px)",
+            "maxHeight": "calc(100vh - 48px)"
+          }
+        },
+        "types": {
+          "alert": "Simple message with action",
+          "confirmation": "Yes/no decision",
+          "form": "Data entry",
+          "content": "Rich content display"
+        }
+      },
+      "states": {
+        "overlay": {
+          "background": "rgba(29, 29, 38, 0.6)",
+          "backdropFilter": "blur(4px)"
+        },
+        "container": {
+          "default": {
+            "background": "#FFFFFF",
+            "borderRadius": "16px",
+            "shadow": "0 25px 50px -12px rgba(50, 50, 62, 0.25)",
+            "padding": "24px"
+          }
+        },
+        "animation": {
+          "enter": {
+            "overlay": "fade-in 200ms ease-out",
+            "container": "slide-up 300ms ease-out"
+          },
+          "exit": {
+            "overlay": "fade-out 150ms ease-in",
+            "container": "slide-down 200ms ease-in"
+          }
+        }
+      },
+      "specs": {
+        "borderRadius": "16px",
+        "padding": {
+          "header": "24px 24px 0",
+          "body": "24px",
+          "footer": "0 24px 24px"
+        },
+        "headerBorder": "1px solid #ECECF0",
+        "footerBorder": "1px solid #ECECF0",
+        "closeButtonSize": "32px",
+        "closeButtonPosition": "top: 16px, right: 16px",
+        "zIndex": "1000"
+      },
+      "accessibility": {
+        "role": "dialog",
+        "ariaAttributes": {
+          "ariaModal": "true",
+          "ariaLabelledby": "Links to header",
+          "ariaDescribedby": "Links to body content"
+        },
+        "keyboardNavigation": {
+          "escape": "Close modal",
+          "tab": "Trap focus within modal"
+        },
+        "focusManagement": {
+          "onOpen": "Focus first focusable element or close button",
+          "onClose": "Return focus to triggering element"
+        }
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Include clear close affordance",
+            "rationale": "Users should never feel trapped"
+          },
+          {
+            "rule": "Trap focus within modal",
+            "rationale": "Prevents confusing background interaction"
+          },
+          {
+            "rule": "Use supportive action labels",
+            "rationale": "Brand voice should persist in modals"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't open modals on page load",
+            "rationale": "Interrupts user intent"
+          },
+          {
+            "rule": "Don't nest modals",
+            "rationale": "Creates disorienting experience"
+          },
+          {
+            "rule": "Don't use for simple messages",
+            "rationale": "Toast or inline alerts are less disruptive"
+          }
+        ]
+      }
+    },
+    "alert": {
+      "description": "Inline message banners for system feedback, warnings, or important information.",
+      "brandNotes": "Alerts should feel supportive, not alarming. Error messages guide rather than blame. Success celebrates achievements warmly.",
+      "anatomy": {
+        "required": ["container", "message"],
+        "optional": ["icon", "title", "actions", "dismissButton"]
+      },
+      "variants": {
+        "types": {
+          "success": {
+            "description": "Positive feedback, achievement",
+            "icon": "checkCircle",
+            "brandNote": "Celebrate warmly: 'Maravilha! Tudo certo.'"
+          },
+          "warning": {
+            "description": "Caution, potential issue",
+            "icon": "alertTriangle",
+            "brandNote": "Supportive concern: 'Ei, so um detalhe...'"
+          },
+          "error": {
+            "description": "Problem requiring attention",
+            "icon": "alertCircle",
+            "brandNote": "Never blame: 'Hmm, algo nao deu certo. Vamos resolver?'"
+          },
+          "info": {
+            "description": "Neutral information",
+            "icon": "infoCircle",
+            "brandNote": "Helpful guidance: 'Bom saber:'"
+          }
+        },
+        "variants": {
+          "filled": "Solid background color",
+          "light": "Subtle background tint",
+          "outlined": "Border only, transparent background"
+        }
+      },
+      "states": {
+        "success": {
+          "filled": {
+            "background": "#2DA55D",
+            "text": "#FFFFFF",
+            "icon": "#FFFFFF"
+          },
+          "light": {
+            "background": "#E8F7EE",
+            "text": "#1A6B3A",
+            "icon": "#2DA55D",
+            "border": "1px solid #2DA55D"
+          },
+          "outlined": {
+            "background": "transparent",
+            "text": "#1A6B3A",
+            "border": "1px solid #2DA55D"
+          }
+        },
+        "warning": {
+          "filled": {
+            "background": "#D4A017",
+            "text": "#FFFFFF",
+            "icon": "#FFFFFF"
+          },
+          "light": {
+            "background": "#FEF7E6",
+            "text": "#8B6914",
+            "icon": "#D4A017",
+            "border": "1px solid #D4A017"
+          },
+          "outlined": {
+            "background": "transparent",
+            "text": "#8B6914",
+            "border": "1px solid #D4A017"
+          }
+        },
+        "error": {
+          "filled": {
+            "background": "#D93830",
+            "text": "#FFFFFF",
+            "icon": "#FFFFFF"
+          },
+          "light": {
+            "background": "#FEF0EE",
+            "text": "#8E2520",
+            "icon": "#D93830",
+            "border": "1px solid #D93830"
+          },
+          "outlined": {
+            "background": "transparent",
+            "text": "#8E2520",
+            "border": "1px solid #D93830"
+          }
+        },
+        "info": {
+          "filled": {
+            "background": "#3B5ED9",
+            "text": "#FFFFFF",
+            "icon": "#FFFFFF"
+          },
+          "light": {
+            "background": "#EEF2FD",
+            "text": "#283D8E",
+            "icon": "#3B5ED9",
+            "border": "1px solid #3B5ED9"
+          },
+          "outlined": {
+            "background": "transparent",
+            "text": "#283D8E",
+            "border": "1px solid #3B5ED9"
+          }
+        }
+      },
+      "specs": {
+        "borderRadius": "8px",
+        "padding": "12px 16px",
+        "iconSize": "20px",
+        "gap": "12px",
+        "fontFamily": "'Lora', Georgia, serif",
+        "fontSize": "14px",
+        "lineHeight": "1.5",
+        "titleFontFamily": "'Century Gothic', 'CenturyGothic', sans-serif",
+        "titleFontWeight": "600"
+      },
+      "accessibility": {
+        "role": "alert",
+        "ariaLive": {
+          "error": "assertive",
+          "warning": "polite",
+          "success": "polite",
+          "info": "polite"
+        },
+        "ariaAtomic": "true"
+      },
+      "messageExamples": {
+        "success": [
+          "Maravilha! Suas alteracoes foram salvas.",
+          "Pronto! Voce esta inscrita.",
+          "Perfeito! Mensagem enviada com sucesso."
+        ],
+        "warning": [
+          "Ei, so um detalhe: sua sessao vai expirar em 5 minutos.",
+          "Atencao: algumas informacoes estao incompletas."
+        ],
+        "error": [
+          "Hmm, algo nao deu certo. Vamos tentar de novo?",
+          "Ops! Parece que houve um problema. Estamos trabalhando nisso.",
+          "Nao conseguimos processar isso agora. Pode tentar novamente?"
+        ],
+        "info": [
+          "Bom saber: voce pode editar isso a qualquer momento.",
+          "Dica: clique aqui pra ver mais opcoes."
+        ]
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use appropriate variant for message type",
+            "rationale": "Color coding aids quick comprehension"
+          },
+          {
+            "rule": "Keep messages concise and actionable",
+            "rationale": "Users scan alerts quickly"
+          },
+          {
+            "rule": "Include dismiss option for non-critical alerts",
+            "rationale": "Respects user control"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use error styling for non-errors",
+            "rationale": "Dilutes meaning of visual cues"
+          },
+          {
+            "rule": "Don't blame the user in error messages",
+            "rationale": "Brand is supportive, not accusatory"
+          },
+          {
+            "rule": "Don't stack multiple alerts",
+            "rationale": "Creates overwhelming experience"
+          }
+        ]
+      }
+    },
+    "tabs": {
+      "description": "Navigation component for switching between related content sections.",
+      "brandNotes": "Tabs should feel like natural conversation sections, not rigid categories. Active state uses primary navy.",
+      "anatomy": {
+        "required": ["tabList", "tabPanels"],
+        "optional": ["icons", "badges", "overflow"]
+      },
+      "variants": {
+        "styles": {
+          "underline": "Active tab indicated by bottom border",
+          "pills": "Active tab has filled background",
+          "enclosed": "Tab container with border"
+        },
+        "sizes": {
+          "sm": {
+            "height": "36px",
+            "paddingX": "12px",
+            "fontSize": "14px"
+          },
+          "md": {
+            "height": "44px",
+            "paddingX": "16px",
+            "fontSize": "16px"
+          },
+          "lg": {
+            "height": "52px",
+            "paddingX": "20px",
+            "fontSize": "18px"
+          }
+        }
+      },
+      "states": {
+        "underline": {
+          "tab": {
+            "default": {
+              "background": "transparent",
+              "text": "#656578",
+              "borderBottom": "2px solid transparent"
+            },
+            "hover": {
+              "text": "#191F3A",
+              "borderBottom": "2px solid #DCDCE4"
+            },
+            "active": {
+              "text": "#191F3A",
+              "fontWeight": "600",
+              "borderBottom": "2px solid #191F3A"
+            },
+            "focus": {
+              "boxShadow": "0 0 0 2px #F8F8FA, 0 0 0 4px #6A74A3",
+              "borderRadius": "4px"
+            },
+            "disabled": {
+              "text": "#A5A5B5",
+              "cursor": "not-allowed"
+            }
+          },
+          "list": {
+            "borderBottom": "1px solid #ECECF0"
+          }
+        },
+        "pills": {
+          "tab": {
+            "default": {
+              "background": "transparent",
+              "text": "#656578",
+              "borderRadius": "8px"
+            },
+            "hover": {
+              "background": "#F4F5FA",
+              "text": "#191F3A"
+            },
+            "active": {
+              "background": "#191F3A",
+              "text": "#F8F8FA",
+              "fontWeight": "600"
+            },
+            "focus": {
+              "boxShadow": "0 0 0 2px #F8F8FA, 0 0 0 4px #6A74A3"
+            },
+            "disabled": {
+              "text": "#A5A5B5"
+            }
+          }
+        }
+      },
+      "specs": {
+        "gap": "4px",
+        "transition": "all 200ms ease-in-out",
+        "fontFamily": "'Century Gothic', 'CenturyGothic', sans-serif",
+        "panelPadding": "24px 0"
+      },
+      "accessibility": {
+        "tabListRole": "tablist",
+        "tabRole": "tab",
+        "panelRole": "tabpanel",
+        "ariaAttributes": {
+          "ariaSelected": "true on active tab",
+          "ariaControls": "Links tab to panel",
+          "ariaLabelledby": "Links panel to tab"
+        },
+        "keyboardNavigation": {
+          "arrowLeft": "Focus previous tab",
+          "arrowRight": "Focus next tab",
+          "home": "Focus first tab",
+          "end": "Focus last tab",
+          "enter": "Activate focused tab",
+          "space": "Activate focused tab"
+        }
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use concise, descriptive tab labels",
+            "rationale": "Users scan tabs to find content"
+          },
+          {
+            "rule": "Keep tab count to 2-7",
+            "rationale": "Too many tabs overwhelm"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use tabs for sequential steps",
+            "rationale": "Use stepper instead"
+          },
+          {
+            "rule": "Don't hide critical content in tabs",
+            "rationale": "Users may not discover it"
+          }
+        ]
+      }
+    },
+    "navigation": {
+      "description": "Primary site navigation including navbar and mobile menu.",
+      "brandNotes": "Navigation should feel guiding, not overwhelming. Logo links home. Keep nav items minimal. Include CTA button prominently.",
+      "anatomy": {
+        "navbar": {
+          "required": ["logo", "navItems"],
+          "optional": ["ctaButton", "searchToggle", "userMenu", "mobileMenuToggle"]
+        },
+        "mobileMenu": {
+          "required": ["navItems", "closeButton"],
+          "optional": ["ctaButton", "socialLinks"]
+        }
+      },
+      "variants": {
+        "styles": {
+          "transparent": "For hero sections, becomes solid on scroll",
+          "solid": "Standard solid background",
+          "minimal": "Reduced visual weight"
+        },
+        "positions": {
+          "fixed": "Stays at top during scroll",
+          "sticky": "Sticks after scrolling past",
+          "static": "Normal document flow"
+        }
+      },
+      "states": {
+        "navbar": {
+          "default": {
+            "background": "#FFFFFF",
+            "borderBottom": "1px solid #ECECF0",
+            "shadow": "0 1px 2px 0 rgba(50, 50, 62, 0.05)",
+            "height": "72px",
+            "paddingX": "24px"
+          },
+          "scrolled": {
+            "shadow": "0 4px 6px -1px rgba(50, 50, 62, 0.1)"
+          },
+          "transparent": {
+            "background": "transparent",
+            "borderBottom": "none",
+            "shadow": "none"
+          }
+        },
+        "navItem": {
+          "default": {
+            "color": "#656578",
+            "fontWeight": "500"
+          },
+          "hover": {
+            "color": "#191F3A"
+          },
+          "active": {
+            "color": "#191F3A",
+            "fontWeight": "600"
+          },
+          "focus": {
+            "boxShadow": "0 0 0 2px rgba(25, 31, 58, 0.1)",
+            "borderRadius": "4px"
+          }
+        },
+        "mobileMenu": {
+          "overlay": {
+            "background": "rgba(29, 29, 38, 0.6)"
+          },
+          "panel": {
+            "background": "#FFFFFF",
+            "width": "280px",
+            "shadow": "-4px 0 20px rgba(50, 50, 62, 0.15)"
+          },
+          "animation": {
+            "enter": "slide-in-right 300ms ease-out",
+            "exit": "slide-out-right 200ms ease-in"
+          }
+        }
+      },
+      "specs": {
+        "navbar": {
+          "height": "72px",
+          "paddingX": "24px",
+          "logoHeight": "40px",
+          "navItemGap": "32px",
+          "fontFamily": "'Century Gothic', 'CenturyGothic', sans-serif",
+          "fontSize": "16px",
+          "zIndex": "100"
+        },
+        "mobileMenu": {
+          "width": "280px",
+          "padding": "24px",
+          "itemHeight": "48px",
+          "zIndex": "200"
+        },
+        "breakpoints": {
+          "showMobileMenu": "768px"
+        }
+      },
+      "accessibility": {
+        "navRole": "navigation",
+        "ariaAttributes": {
+          "ariaLabel": "Main navigation",
+          "ariaCurrent": "page on current page link",
+          "ariaExpanded": "For mobile menu toggle"
+        },
+        "keyboardNavigation": {
+          "tab": "Move through nav items",
+          "escape": "Close mobile menu"
+        },
+        "skipLink": {
+          "text": "Pular para o conteudo principal",
+          "href": "#main-content"
+        }
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Include skip navigation link",
+            "rationale": "Essential for keyboard/screen reader users"
+          },
+          {
+            "rule": "Indicate current page in navigation",
+            "rationale": "Helps orientation"
+          },
+          {
+            "rule": "Include prominent CTA in navigation",
+            "rationale": "Primary conversion path"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use more than 7 top-level nav items",
+            "rationale": "Overwhelms and reduces scannability"
+          },
+          {
+            "rule": "Don't hide mobile menu trigger",
+            "rationale": "Essential navigation affordance"
+          }
+        ]
+      }
+    },
+    "footer": {
+      "description": "Site footer with navigation, contact info, and legal links.",
+      "brandNotes": "Footer should feel like a warm goodbye. Include signature closing phrase. Navy background creates visual anchor.",
+      "anatomy": {
+        "required": ["container"],
+        "optional": ["logo", "navColumns", "socialLinks", "newsletter", "copyright", "legalLinks"]
+      },
+      "variants": {
+        "styles": {
+          "full": "Complete footer with all sections",
+          "minimal": "Simple copyright and links only",
+          "centered": "Centered layout for simple sites"
+        }
+      },
+      "states": {
+        "container": {
+          "background": "#191F3A",
+          "paddingY": "48px",
+          "paddingX": "24px"
+        },
+        "text": {
+          "primary": "#F8F8FA",
+          "secondary": "#B3B9D6",
+          "muted": "#8E96BE"
+        },
+        "link": {
+          "default": {
+            "color": "#B3B9D6"
+          },
+          "hover": {
+            "color": "#F8F8FA"
+          },
+          "focus": {
+            "boxShadow": "0 0 0 2px rgba(184, 189, 214, 0.3)",
+            "borderRadius": "4px"
+          }
+        },
+        "divider": {
+          "color": "#363D62"
+        }
+      },
+      "specs": {
+        "background": "#191F3A",
+        "paddingY": "48px",
+        "paddingX": "24px",
+        "maxWidth": "1200px",
+        "logoHeight": "32px",
+        "columnGap": "48px",
+        "itemGap": "12px",
+        "socialIconSize": "24px",
+        "fontFamily": "'Lora', Georgia, serif",
+        "headingFontFamily": "'Century Gothic', 'CenturyGothic', sans-serif",
+        "fontSize": "14px",
+        "headingSize": "16px"
+      },
+      "brandElements": {
+        "signatureClosing": "Do meu coracao para o seu",
+        "signatureEmojis": "heart-blue heart-red",
+        "tagline": "Empreenda com leveza, cresca com liberdade"
+      },
+      "accessibility": {
+        "role": "contentinfo",
+        "ariaLabel": "Site footer",
+        "navigationAriaLabel": "Footer navigation"
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Include brand signature closing",
+            "rationale": "Reinforces warm brand voice"
+          },
+          {
+            "rule": "Group links logically into columns",
+            "rationale": "Aids navigation and scanning"
+          },
+          {
+            "rule": "Include essential contact information",
+            "rationale": "Users often look in footer for contact"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't overload with too many links",
+            "rationale": "Footer should be scannable, not exhaustive"
+          },
+          {
+            "rule": "Don't use tiny text for legal links",
+            "rationale": "Still needs to be readable"
+          }
+        ]
+      }
+    },
+    "breadcrumbs": {
+      "description": "Navigation showing current location in site hierarchy.",
+      "brandNotes": "Keep labels short and clear. Use forward arrow as separator for warmth.",
+      "anatomy": {
+        "required": ["items", "separators"],
+        "optional": ["homeIcon"]
+      },
+      "variants": {
+        "styles": {
+          "text": "Text labels with separators",
+          "withIcons": "Home icon for first item"
+        }
+      },
+      "states": {
+        "item": {
+          "default": {
+            "color": "#656578",
+            "fontSize": "14px"
+          },
+          "hover": {
+            "color": "#191F3A",
+            "textDecoration": "underline"
+          },
+          "current": {
+            "color": "#191F3A",
+            "fontWeight": "600"
+          },
+          "focus": {
+            "boxShadow": "0 0 0 2px rgba(25, 31, 58, 0.1)",
+            "borderRadius": "4px"
+          }
+        },
+        "separator": {
+          "color": "#A5A5B5",
+          "icon": "chevronRight",
+          "size": "16px"
+        }
+      },
+      "specs": {
+        "gap": "8px",
+        "fontFamily": "'Lora', Georgia, serif",
+        "fontSize": "14px",
+        "separatorSize": "16px"
+      },
+      "accessibility": {
+        "navRole": "navigation",
+        "ariaLabel": "Breadcrumb",
+        "listRole": "list",
+        "currentAriaLabel": "ariaCurrent: page"
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Start with home/root page",
+            "rationale": "Establishes hierarchy context"
+          },
+          {
+            "rule": "Make all but current item clickable",
+            "rationale": "Current page doesn't need link"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't show breadcrumbs on homepage",
+            "rationale": "No hierarchy to show"
+          },
+          {
+            "rule": "Don't truncate middle items without indication",
+            "rationale": "Losing context confuses users"
+          }
+        ]
+      }
+    },
+    "pagination": {
+      "description": "Navigation for multi-page content like blog listings or search results.",
+      "brandNotes": "Keep pagination simple and approachable. Use clear labels for previous/next.",
+      "anatomy": {
+        "required": ["pageNumbers"],
+        "optional": ["previous", "next", "first", "last", "ellipsis", "pageInfo"]
+      },
+      "variants": {
+        "styles": {
+          "numbered": "Show page numbers",
+          "simple": "Previous/next only",
+          "loadMore": "Single load more button"
+        }
+      },
+      "states": {
+        "item": {
+          "default": {
+            "background": "transparent",
+            "color": "#656578",
+            "border": "1px solid #DCDCE4",
+            "width": "40px",
+            "height": "40px",
+            "borderRadius": "8px"
+          },
+          "hover": {
+            "background": "#F4F5FA",
+            "color": "#191F3A",
+            "border": "1px solid #B3B9D6"
+          },
+          "active": {
+            "background": "#191F3A",
+            "color": "#F8F8FA",
+            "border": "1px solid #191F3A"
+          },
+          "focus": {
+            "boxShadow": "0 0 0 2px #F8F8FA, 0 0 0 4px #6A74A3"
+          },
+          "disabled": {
+            "background": "transparent",
+            "color": "#A5A5B5",
+            "border": "1px solid #ECECF0",
+            "cursor": "not-allowed"
+          }
+        }
+      },
+      "specs": {
+        "gap": "8px",
+        "itemSize": "40px",
+        "borderRadius": "8px",
+        "fontFamily": "'Century Gothic', 'CenturyGothic', sans-serif",
+        "fontSize": "14px",
+        "fontWeight": "500"
+      },
+      "accessibility": {
+        "navRole": "navigation",
+        "ariaLabel": "Pagination",
+        "currentAriaLabel": "Current page, page X",
+        "pageAriaLabel": "Go to page X"
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Show current page clearly",
+            "rationale": "Indicates position in content"
+          },
+          {
+            "rule": "Use ellipsis for large page counts",
+            "rationale": "Prevents overwhelming number list"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't show pagination for single page",
+            "rationale": "Unnecessary UI element"
+          }
+        ]
+      }
+    },
+    "toast": {
+      "description": "Temporary notification that appears and auto-dismisses. Non-blocking feedback.",
+      "brandNotes": "Toasts should feel like friendly updates, not interruptions. Use brand voice for messages. Auto-dismiss after appropriate duration.",
+      "anatomy": {
+        "required": ["message"],
+        "optional": ["icon", "title", "action", "dismissButton", "progressBar"]
+      },
+      "variants": {
+        "types": {
+          "success": {
+            "icon": "checkCircle",
+            "defaultDuration": "4000ms"
+          },
+          "warning": {
+            "icon": "alertTriangle",
+            "defaultDuration": "6000ms"
+          },
+          "error": {
+            "icon": "alertCircle",
+            "defaultDuration": "8000ms"
+          },
+          "info": {
+            "icon": "infoCircle",
+            "defaultDuration": "4000ms"
+          }
+        },
+        "positions": ["topRight", "topCenter", "topLeft", "bottomRight", "bottomCenter", "bottomLeft"]
+      },
+      "states": {
+        "success": {
+          "background": "#FFFFFF",
+          "border": "1px solid #2DA55D",
+          "borderLeft": "4px solid #2DA55D",
+          "iconColor": "#2DA55D"
+        },
+        "warning": {
+          "background": "#FFFFFF",
+          "border": "1px solid #D4A017",
+          "borderLeft": "4px solid #D4A017",
+          "iconColor": "#D4A017"
+        },
+        "error": {
+          "background": "#FFFFFF",
+          "border": "1px solid #D93830",
+          "borderLeft": "4px solid #D93830",
+          "iconColor": "#D93830"
+        },
+        "info": {
+          "background": "#FFFFFF",
+          "border": "1px solid #3B5ED9",
+          "borderLeft": "4px solid #3B5ED9",
+          "iconColor": "#3B5ED9"
+        },
+        "animation": {
+          "enter": "slide-in 300ms ease-out",
+          "exit": "fade-out 200ms ease-in"
+        }
+      },
+      "specs": {
+        "width": "360px",
+        "maxWidth": "calc(100vw - 32px)",
+        "padding": "16px",
+        "borderRadius": "8px",
+        "shadow": "0 10px 15px -3px rgba(50, 50, 62, 0.1), 0 4px 6px -4px rgba(50, 50, 62, 0.1)",
+        "gap": "12px",
+        "iconSize": "20px",
+        "stackGap": "8px",
+        "zIndex": "1100",
+        "fontFamily": "'Lora', Georgia, serif",
+        "fontSize": "14px"
+      },
+      "accessibility": {
+        "role": "status",
+        "ariaLive": {
+          "error": "assertive",
+          "default": "polite"
+        },
+        "ariaAtomic": "true",
+        "pauseOnHover": true,
+        "keyboardDismiss": "Escape key closes"
+      },
+      "messageExamples": {
+        "success": [
+          "Pronto! Tudo salvo.",
+          "Feito! Voce ta no caminho certo."
+        ],
+        "error": [
+          "Ops! Algo deu errado. Vamos tentar de novo?",
+          "Nao conseguimos fazer isso agora. Tenta mais tarde?"
+        ],
+        "info": [
+          "So pra voce saber: suas alteracoes foram salvas automaticamente."
+        ]
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use appropriate duration for message importance",
+            "rationale": "Errors need more time to read"
+          },
+          {
+            "rule": "Pause auto-dismiss on hover",
+            "rationale": "Gives users time to read"
+          },
+          {
+            "rule": "Stack multiple toasts cleanly",
+            "rationale": "Prevents overlap and confusion"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use toasts for critical actions requiring confirmation",
+            "rationale": "Too easy to miss; use modal instead"
+          },
+          {
+            "rule": "Don't show too many toasts at once",
+            "rationale": "Overwhelming; limit to 3 visible"
+          }
+        ]
+      }
+    },
+    "progressIndicator": {
+      "description": "Visual feedback showing progress through a process or loading state.",
+      "brandNotes": "Progress should feel encouraging, not anxiety-inducing. Use warm colors and supportive messaging.",
+      "anatomy": {
+        "bar": {
+          "required": ["track", "fill"],
+          "optional": ["label", "percentage"]
+        },
+        "spinner": {
+          "required": ["circle"]
+        },
+        "steps": {
+          "required": ["stepIndicators", "stepLabels"],
+          "optional": ["connector"]
+        }
+      },
+      "variants": {
+        "types": {
+          "bar": "Linear progress for determinate progress",
+          "spinner": "Circular for indeterminate loading",
+          "steps": "Multi-step process indicator"
+        },
+        "sizes": {
+          "sm": {
+            "barHeight": "4px",
+            "spinnerSize": "20px"
+          },
+          "md": {
+            "barHeight": "8px",
+            "spinnerSize": "32px"
+          },
+          "lg": {
+            "barHeight": "12px",
+            "spinnerSize": "48px"
+          }
+        }
+      },
+      "states": {
+        "bar": {
+          "track": {
+            "background": "#ECECF0",
+            "borderRadius": "9999px"
+          },
+          "fill": {
+            "background": "#191F3A",
+            "borderRadius": "9999px",
+            "transition": "width 300ms ease-out"
+          },
+          "success": {
+            "fillBackground": "#2DA55D"
+          },
+          "error": {
+            "fillBackground": "#D93830"
+          }
+        },
+        "spinner": {
+          "trackColor": "#ECECF0",
+          "fillColor": "#191F3A",
+          "animation": "spin 1s linear infinite"
+        },
+        "steps": {
+          "incomplete": {
+            "circleBackground": "#ECECF0",
+            "circleBorder": "2px solid #DCDCE4",
+            "labelColor": "#656578",
+            "connectorColor": "#DCDCE4"
+          },
+          "current": {
+            "circleBackground": "#191F3A",
+            "circleBorder": "2px solid #191F3A",
+            "circleContent": "white",
+            "labelColor": "#191F3A",
+            "labelWeight": "600"
+          },
+          "complete": {
+            "circleBackground": "#2DA55D",
+            "circleBorder": "2px solid #2DA55D",
+            "checkColor": "#FFFFFF",
+            "labelColor": "#1A6B3A",
+            "connectorColor": "#2DA55D"
+          }
+        }
+      },
+      "specs": {
+        "bar": {
+          "borderRadius": "9999px",
+          "height": {
+            "sm": "4px",
+            "md": "8px",
+            "lg": "12px"
+          }
+        },
+        "spinner": {
+          "strokeWidth": "3px",
+          "sizes": {
+            "sm": "20px",
+            "md": "32px",
+            "lg": "48px"
+          }
+        },
+        "steps": {
+          "circleSize": "32px",
+          "connectorHeight": "2px",
+          "gap": "16px",
+          "labelFontSize": "14px"
+        }
+      },
+      "accessibility": {
+        "barRole": "progressbar",
+        "ariaAttributes": {
+          "ariaValuemin": "0",
+          "ariaValuemax": "100",
+          "ariaValuenow": "Current percentage",
+          "ariaLabel": "Descriptive label"
+        },
+        "spinnerAriaLabel": "Carregando...",
+        "announcements": {
+          "start": "Carregando conteudo",
+          "complete": "Pronto!"
+        }
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Show percentage for long processes",
+            "rationale": "Helps users estimate wait time"
+          },
+          {
+            "rule": "Use spinner for unknown duration",
+            "rationale": "Progress bar needs actual progress"
+          },
+          {
+            "rule": "Add encouraging copy for longer waits",
+            "rationale": "Brand voice should persist: 'So mais um momento...'"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't show fake progress",
+            "rationale": "Users notice and lose trust"
+          },
+          {
+            "rule": "Don't use progress bar for indeterminate waits",
+            "rationale": "Misleading; use spinner"
+          }
+        ]
+      }
+    },
+    "badge": {
+      "description": "Small visual label for status, category, or count information.",
+      "brandNotes": "Badges should be informative, not shouty. Use accent gold for special/premium indicators.",
+      "anatomy": {
+        "required": ["label"],
+        "optional": ["icon", "dot", "dismissButton"]
+      },
+      "variants": {
+        "types": {
+          "status": "Indicates state (active, pending, etc.)",
+          "category": "Content classification",
+          "count": "Numerical indicator",
+          "dot": "Simple status dot"
+        },
+        "sizes": {
+          "sm": {
+            "height": "20px",
+            "paddingX": "6px",
+            "fontSize": "11px"
+          },
+          "md": {
+            "height": "24px",
+            "paddingX": "8px",
+            "fontSize": "12px"
+          },
+          "lg": {
+            "height": "28px",
+            "paddingX": "10px",
+            "fontSize": "14px"
+          }
+        }
+      },
+      "states": {
+        "primary": {
+          "background": "#E8EAF4",
+          "text": "#191F3A",
+          "border": "none"
+        },
+        "secondary": {
+          "background": "#FAEAEA",
+          "text": "#81171F",
+          "border": "none"
+        },
+        "accent": {
+          "background": "#FDF8E4",
+          "text": "#A67E15",
+          "border": "none"
+        },
+        "success": {
+          "background": "#E8F7EE",
+          "text": "#1A6B3A",
+          "border": "none"
+        },
+        "warning": {
+          "background": "#FEF7E6",
+          "text": "#8B6914",
+          "border": "none"
+        },
+        "error": {
+          "background": "#FEF0EE",
+          "text": "#8E2520",
+          "border": "none"
+        },
+        "neutral": {
+          "background": "#ECECF0",
+          "text": "#4A4A5A",
+          "border": "none"
+        },
+        "outline": {
+          "background": "transparent",
+          "text": "#656578",
+          "border": "1px solid #DCDCE4"
+        }
+      },
+      "specs": {
+        "borderRadius": "9999px",
+        "fontFamily": "'Century Gothic', 'CenturyGothic', sans-serif",
+        "fontWeight": "600",
+        "letterSpacing": "0.02em",
+        "textTransform": "uppercase",
+        "dotSize": "8px"
+      },
+      "accessibility": {
+        "useAriaLabel": "When badge is icon-only or count",
+        "colorContrast": "All badge text meets WCAG AA"
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use consistent colors for same status types",
+            "rationale": "Builds visual language"
+          },
+          {
+            "rule": "Keep badge text very short",
+            "rationale": "Badges are meant for quick scanning"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use too many badges in one area",
+            "rationale": "Dilutes their impact"
+          },
+          {
+            "rule": "Don't use badges for long text",
+            "rationale": "Use tags or chips instead"
+          }
+        ]
+      }
+    },
+    "avatar": {
+      "description": "Visual representation of a user, typically showing image or initials.",
+      "brandNotes": "Avatars humanize the experience. Use warm fallback colors. Support for Jucana's signature look.",
+      "anatomy": {
+        "required": ["container"],
+        "optional": ["image", "initials", "statusIndicator", "badge"]
+      },
+      "variants": {
+        "sizes": {
+          "xs": {
+            "size": "24px",
+            "fontSize": "10px"
+          },
+          "sm": {
+            "size": "32px",
+            "fontSize": "12px"
+          },
+          "md": {
+            "size": "40px",
+            "fontSize": "14px"
+          },
+          "lg": {
+            "size": "48px",
+            "fontSize": "16px"
+          },
+          "xl": {
+            "size": "64px",
+            "fontSize": "20px"
+          },
+          "2xl": {
+            "size": "96px",
+            "fontSize": "28px"
+          }
+        },
+        "shapes": ["circle", "rounded"]
+      },
+      "states": {
+        "withImage": {
+          "objectFit": "cover",
+          "objectPosition": "center"
+        },
+        "withInitials": {
+          "backgrounds": ["#E8EAF4", "#FAEAEA", "#FDF8E4", "#E8F7EE"],
+          "textColor": "#191F3A",
+          "fontWeight": "600"
+        },
+        "fallback": {
+          "background": "#ECECF0",
+          "iconColor": "#656578",
+          "icon": "user"
+        },
+        "statusIndicator": {
+          "online": {
+            "color": "#2DA55D",
+            "size": "25%",
+            "position": "bottom-right"
+          },
+          "offline": {
+            "color": "#A5A5B5"
+          },
+          "busy": {
+            "color": "#D93830"
+          },
+          "away": {
+            "color": "#D4A017"
+          }
+        }
+      },
+      "specs": {
+        "borderRadius": {
+          "circle": "50%",
+          "rounded": "20%"
+        },
+        "border": "2px solid #FFFFFF",
+        "fontFamily": "'Century Gothic', 'CenturyGothic', sans-serif",
+        "groupOverlap": "-8px"
+      },
+      "accessibility": {
+        "imageAlt": "Required for images, use person's name",
+        "decorative": "If purely decorative, use alt=''",
+        "statusAriaLabel": "Online status of [name]"
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Always provide alt text for images",
+            "rationale": "Screen reader accessibility"
+          },
+          {
+            "rule": "Use consistent sizes within context",
+            "rationale": "Creates visual rhythm"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use generic stock photos",
+            "rationale": "Feels impersonal"
+          },
+          {
+            "rule": "Don't crop faces awkwardly",
+            "rationale": "Ensure face is centered"
+          }
+        ]
+      }
+    },
+    "tooltip": {
+      "description": "Contextual help text that appears on hover/focus.",
+      "brandNotes": "Tooltips should be helpful and conversational. Keep text brief but warm.",
+      "anatomy": {
+        "required": ["trigger", "content"],
+        "optional": ["arrow"]
+      },
+      "variants": {
+        "positions": ["top", "right", "bottom", "left"],
+        "types": {
+          "simple": "Text only",
+          "rich": "With title and/or action"
+        }
+      },
+      "states": {
+        "container": {
+          "background": "#191F3A",
+          "text": "#F8F8FA",
+          "padding": "8px 12px",
+          "borderRadius": "6px",
+          "shadow": "0 4px 6px -1px rgba(50, 50, 62, 0.1)",
+          "maxWidth": "240px"
+        },
+        "arrow": {
+          "size": "6px",
+          "color": "#191F3A"
+        },
+        "animation": {
+          "enter": "fade-in 150ms ease-out",
+          "exit": "fade-out 100ms ease-in"
+        }
+      },
+      "specs": {
+        "offset": "8px",
+        "delayShow": "300ms",
+        "delayHide": "100ms",
+        "fontSize": "13px",
+        "lineHeight": "1.4",
+        "fontFamily": "'Lora', Georgia, serif",
+        "zIndex": "1200"
+      },
+      "accessibility": {
+        "role": "tooltip",
+        "ariaDescribedby": "Links trigger to tooltip",
+        "keyboardTrigger": "Focus shows tooltip",
+        "touchDevice": "Tap to show, tap elsewhere to hide"
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Keep tooltip text brief (1-2 sentences max)",
+            "rationale": "Tooltips are for quick help"
+          },
+          {
+            "rule": "Make tooltips accessible via keyboard focus",
+            "rationale": "Not just hover-dependent"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't put essential info in tooltips only",
+            "rationale": "Mobile users can't hover"
+          },
+          {
+            "rule": "Don't use tooltips for complex content",
+            "rationale": "Use popover or modal instead"
+          }
+        ]
+      }
+    },
+    "ctaSection": {
+      "description": "Hero call-to-action blocks for driving primary conversions. Brand-specific component for Seja Livre.",
+      "brandNotes": "CTA sections are where brand voice shines brightest. Use provocative questions, warm invitations, and signature closings. Gold accent for premium moments.",
+      "anatomy": {
+        "required": ["headline", "ctaButton"],
+        "optional": ["subheadline", "supportingText", "secondaryButton", "image", "backgroundGradient", "trustIndicators"]
+      },
+      "variants": {
+        "types": {
+          "hero": {
+            "description": "Full-width primary page CTA",
+            "maxWidth": "1200px",
+            "padding": "80px 24px"
+          },
+          "inline": {
+            "description": "Mid-page conversion block",
+            "maxWidth": "800px",
+            "padding": "48px 32px"
+          },
+          "floating": {
+            "description": "Sticky bottom or floating CTA",
+            "padding": "16px 24px"
+          }
+        },
+        "styles": {
+          "light": "Cream background, dark text",
+          "dark": "Navy background, light text",
+          "gradient": "Brand gradient background",
+          "accent": "Gold accent background"
+        }
+      },
+      "states": {
+        "light": {
+          "background": "#F8F8FA",
+          "headlineColor": "#191F3A",
+          "textColor": "#4A4A5A",
+          "buttonVariant": "primary"
+        },
+        "dark": {
+          "background": "#191F3A",
+          "headlineColor": "#F8F8FA",
+          "textColor": "#B3B9D6",
+          "buttonVariant": "accent"
+        },
+        "gradient": {
+          "background": "linear-gradient(135deg, #191F3A 0%, #81171F 100%)",
+          "headlineColor": "#F8F8FA",
+          "textColor": "#E8EAF4",
+          "buttonVariant": "accent"
+        },
+        "accent": {
+          "background": "#FDF8E4",
+          "headlineColor": "#191F3A",
+          "textColor": "#4A4A5A",
+          "accentBorder": "4px solid #E0B83D",
+          "buttonVariant": "primary"
+        }
+      },
+      "specs": {
+        "headline": {
+          "fontFamily": "'Century Gothic', 'CenturyGothic', sans-serif",
+          "fontSize": {
+            "mobile": "28px",
+            "tablet": "36px",
+            "desktop": "48px"
+          },
+          "fontWeight": "700",
+          "lineHeight": "1.2",
+          "maxWidth": "800px"
+        },
+        "subheadline": {
+          "fontFamily": "'Lora', Georgia, serif",
+          "fontSize": {
+            "mobile": "16px",
+            "tablet": "18px",
+            "desktop": "20px"
+          },
+          "lineHeight": "1.6",
+          "maxWidth": "600px",
+          "marginTop": "16px"
+        },
+        "button": {
+          "marginTop": "32px",
+          "size": "lg"
+        },
+        "spacing": {
+          "textAlign": "center",
+          "gap": "24px"
+        }
+      },
+      "copyGuidelines": {
+        "headlines": [
+          "Voce esta pronta pra parar de carregar a empresa nas costas?",
+          "E se voce pudesse trabalhar menos e crescer mais?",
+          "Liberdade nao e sonho. E metodo."
+        ],
+        "subheadlines": [
+          "10x mais resultados com 10x menos esforco. Nao e magia. E processo.",
+          "Eu tambem ja chorei no banheiro da empresa. Hoje, meu negocio roda sem mim."
+        ],
+        "ctaText": ["VAMOS?", "Quero minha liberdade", "Comece agora", "Me mostra o caminho"],
+        "closings": ["Do meu coracao para o seu", "Existe um caminho mais facil"]
+      },
+      "accessibility": {
+        "headingLevel": "Use appropriate h1-h3",
+        "buttonRole": "Ensure CTA is focusable",
+        "contrastRatio": "All text meets WCAG AA minimum"
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use provocative questions that resonate with target audience",
+            "rationale": "Brand voice hooks through identification with pain"
+          },
+          {
+            "rule": "Include signature closing phrase",
+            "rationale": "Reinforces brand warmth"
+          },
+          {
+            "rule": "Limit to one primary CTA",
+            "rationale": "Clear single action"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use generic CTA text like 'Clique aqui'",
+            "rationale": "Misses brand voice opportunity"
+          },
+          {
+            "rule": "Don't overload with multiple CTAs",
+            "rationale": "Dilutes conversion focus"
+          },
+          {
+            "rule": "Don't use hustle/grind language",
+            "rationale": "Against brand anti-hustle philosophy"
+          }
+        ]
+      }
+    },
+    "testimonialCard": {
+      "description": "Social proof component featuring customer quotes, optionally with video overlay capability.",
+      "brandNotes": "Testimonials are powerful proof points. Feature real names and specific results. Video testimonials are premium. Use warm framing.",
+      "anatomy": {
+        "required": ["quote", "authorName"],
+        "optional": ["authorTitle", "authorAvatar", "companyLogo", "videoOverlay", "resultHighlight", "rating"]
+      },
+      "variants": {
+        "types": {
+          "simple": "Quote with attribution only",
+          "featured": "Large quote with avatar and details",
+          "video": "Thumbnail with play overlay",
+          "result": "Focused on specific outcome/metric"
+        },
+        "sizes": {
+          "sm": {
+            "padding": "20px",
+            "quoteSize": "14px"
+          },
+          "md": {
+            "padding": "28px",
+            "quoteSize": "16px"
+          },
+          "lg": {
+            "padding": "36px",
+            "quoteSize": "18px"
+          }
+        }
+      },
+      "states": {
+        "default": {
+          "background": "#FFFFFF",
+          "border": "1px solid #ECECF0",
+          "borderRadius": "16px",
+          "shadow": "0 1px 2px 0 rgba(50, 50, 62, 0.05)"
+        },
+        "featured": {
+          "background": "#FFFFFF",
+          "borderLeft": "4px solid #E0B83D",
+          "shadow": "0 4px 6px -1px rgba(50, 50, 62, 0.1)"
+        },
+        "video": {
+          "thumbnailOverlay": "rgba(25, 31, 58, 0.4)",
+          "playButtonBackground": "rgba(255, 255, 255, 0.9)",
+          "playButtonSize": "64px",
+          "playIconColor": "#191F3A"
+        },
+        "videoHover": {
+          "thumbnailOverlay": "rgba(25, 31, 58, 0.6)",
+          "playButtonBackground": "#FFFFFF",
+          "playButtonScale": "1.1"
+        }
+      },
+      "specs": {
+        "quote": {
+          "fontFamily": "'Lora', Georgia, serif",
+          "fontStyle": "italic",
+          "lineHeight": "1.6",
+          "color": "#1D1D26",
+          "quoteMarkColor": "#E0B83D",
+          "quoteMarkSize": "48px"
+        },
+        "author": {
+          "nameFont": "'Century Gothic', 'CenturyGothic', sans-serif",
+          "nameWeight": "600",
+          "nameSize": "14px",
+          "nameColor": "#191F3A",
+          "titleFont": "'Lora', Georgia, serif",
+          "titleSize": "13px",
+          "titleColor": "#656578"
+        },
+        "resultHighlight": {
+          "background": "#FDF8E4",
+          "border": "1px solid #E0B83D",
+          "borderRadius": "8px",
+          "padding": "12px 16px",
+          "fontWeight": "600"
+        },
+        "avatar": {
+          "size": "48px",
+          "marginRight": "16px"
+        },
+        "videoThumbnail": {
+          "aspectRatio": "16/9",
+          "borderRadius": "12px"
+        }
+      },
+      "copyGuidelines": {
+        "introFraming": [
+          "A [Nome] achava que liberdade era coisa de coach motivacional. Ate o dia que ela tirou 30 dias de ferias e o faturamento SUBIU:",
+          "Quando a [Nome] chegou, trabalhava 16 horas por dia. Hoje:"
+        ],
+        "resultFormats": [
+          "De 16h/dia para 4h/semana",
+          "Faturamento 3x maior trabalhando 70% menos",
+          "Primeiras ferias de verdade em 8 anos"
+        ]
+      },
+      "accessibility": {
+        "quoteRole": "blockquote",
+        "citeElement": "Use cite for attribution",
+        "videoPlayButton": {
+          "ariaLabel": "Assistir depoimento de [Nome]",
+          "role": "button"
+        }
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use real names and specific results",
+            "rationale": "Authenticity builds trust"
+          },
+          {
+            "rule": "Highlight transformation metrics",
+            "rationale": "Concrete proof is compelling"
+          },
+          {
+            "rule": "Include video when available",
+            "rationale": "Video testimonials are most credible"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't use stock photos for avatars",
+            "rationale": "Immediately destroys credibility"
+          },
+          {
+            "rule": "Don't fabricate or exaggerate results",
+            "rationale": "Brand integrity depends on authenticity"
+          },
+          {
+            "rule": "Don't use testimonials without permission",
+            "rationale": "Legal and ethical requirement"
+          }
+        ]
+      }
+    },
+    "whatsappButton": {
+      "description": "Floating action button for WhatsApp contact. Key conversion element for Seja Livre.",
+      "brandNotes": "WhatsApp is primary contact channel. Button should be prominent but not obstructive. Use brand green for WhatsApp, not generic green.",
+      "anatomy": {
+        "required": ["icon", "container"],
+        "optional": ["label", "unreadBadge", "tooltip"]
+      },
+      "variants": {
+        "types": {
+          "icon": "Icon only FAB",
+          "labeled": "Icon with text label",
+          "expanded": "Full button with message preview"
+        },
+        "positions": {
+          "bottomRight": {
+            "bottom": "24px",
+            "right": "24px"
+          },
+          "bottomLeft": {
+            "bottom": "24px",
+            "left": "24px"
+          }
+        }
+      },
+      "states": {
+        "default": {
+          "background": "#25D366",
+          "iconColor": "#FFFFFF",
+          "size": "56px",
+          "borderRadius": "50%",
+          "shadow": "0 4px 12px rgba(37, 211, 102, 0.4)"
+        },
+        "hover": {
+          "background": "#22c55e",
+          "transform": "scale(1.05)",
+          "shadow": "0 6px 16px rgba(37, 211, 102, 0.5)"
+        },
+        "active": {
+          "background": "#16a34a",
+          "transform": "scale(0.98)"
+        },
+        "focus": {
+          "boxShadow": "0 0 0 3px rgba(37, 211, 102, 0.3), 0 4px 12px rgba(37, 211, 102, 0.4)"
+        },
+        "expanded": {
+          "width": "auto",
+          "paddingX": "20px",
+          "paddingY": "12px",
+          "borderRadius": "28px",
+          "gap": "10px"
+        },
+        "pulse": {
+          "animation": "pulse 2s ease-in-out infinite",
+          "keyframes": "0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4) } 70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0) } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0) }"
+        }
+      },
+      "specs": {
+        "iconSize": "28px",
+        "labelFont": "'Century Gothic', 'CenturyGothic', sans-serif",
+        "labelSize": "14px",
+        "labelWeight": "600",
+        "transition": "all 200ms ease-in-out",
+        "zIndex": "999",
+        "mobileSize": "52px",
+        "mobilePosition": {
+          "bottom": "16px",
+          "right": "16px"
+        }
+      },
+      "behavior": {
+        "href": "https://wa.me/PHONE_NUMBER?text=MESSAGE",
+        "target": "_blank",
+        "defaultMessage": "Oi! Vi o site e quero saber mais sobre o metodo Seja Livre.",
+        "showAfterScroll": "300px",
+        "hideOnFooter": true
+      },
+      "accessibility": {
+        "ariaLabel": "Fale conosco pelo WhatsApp",
+        "role": "link",
+        "focusVisible": true
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use official WhatsApp green (#25D366)",
+            "rationale": "Brand recognition"
+          },
+          {
+            "rule": "Pre-fill message with context",
+            "rationale": "Reduces friction for user"
+          },
+          {
+            "rule": "Show pulse animation to draw attention",
+            "rationale": "Increases visibility without being annoying"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't cover important content",
+            "rationale": "Hide or reposition near footer CTAs"
+          },
+          {
+            "rule": "Don't make button too small on mobile",
+            "rationale": "Touch target needs to be 44px+"
+          },
+          {
+            "rule": "Don't use for non-WhatsApp contact",
+            "rationale": "Misleading to users"
+          }
+        ]
+      }
+    },
+    "sectionDivider": {
+      "description": "Visual separator between content sections with optional dandelion motif.",
+      "brandNotes": "Dandelion seeds are core brand symbol representing freedom and transformation. Use subtly, not overly decorative.",
+      "anatomy": {
+        "required": ["line"],
+        "optional": ["dandelionMotif", "icon", "text"]
+      },
+      "variants": {
+        "types": {
+          "simple": "Clean horizontal line",
+          "dandelion": "Line with dandelion seed illustration",
+          "gradient": "Line with brand gradient",
+          "spacing": "Invisible divider for spacing only"
+        },
+        "alignments": ["left", "center", "right"]
+      },
+      "states": {
+        "simple": {
+          "height": "1px",
+          "background": "#ECECF0",
+          "width": "100%",
+          "marginY": "48px"
+        },
+        "dandelion": {
+          "lineHeight": "1px",
+          "lineColor": "#ECECF0",
+          "motifSize": "80px",
+          "motifOpacity": "0.6",
+          "motifColor": "#E0B83D"
+        },
+        "gradient": {
+          "height": "2px",
+          "background": "linear-gradient(90deg, transparent 0%, #E0B83D 50%, transparent 100%)",
+          "width": "60%"
+        },
+        "spacing": {
+          "height": "0",
+          "marginY": "64px"
+        }
+      },
+      "specs": {
+        "marginY": {
+          "sm": "32px",
+          "md": "48px",
+          "lg": "64px"
+        },
+        "maxWidth": "1200px",
+        "dandelionAnimation": {
+          "seeds": "float-away 8s ease-in-out infinite",
+          "stem": "sway 4s ease-in-out infinite"
+        }
+      },
+      "accessibility": {
+        "role": "separator",
+        "ariaHidden": "true for purely decorative",
+        "ariaLabel": "Section divider"
+      },
+      "dosAndDonts": {
+        "do": [
+          {
+            "rule": "Use dandelion motif sparingly for key transitions",
+            "rationale": "Preserves symbol meaning"
+          },
+          {
+            "rule": "Match divider style to section importance",
+            "rationale": "Visual hierarchy"
+          }
+        ],
+        "dont": [
+          {
+            "rule": "Don't overuse dandelion motif",
+            "rationale": "Dilutes brand symbolism"
+          },
+          {
+            "rule": "Don't use heavy borders",
+            "rationale": "Brand aesthetic is light and airy"
+          }
+        ]
+      }
+    }
+  },
+  "patterns": {
+    "formLayout": {
+      "description": "Standard form field arrangement",
+      "specs": {
+        "fieldGap": "20px",
+        "groupGap": "32px",
+        "labelPosition": "above",
+        "requiredIndicator": "*",
+        "maxWidth": "480px"
+      }
+    },
+    "loadingStates": {
+      "description": "Consistent loading patterns across components",
+      "skeletonColor": "#ECECF0",
+      "skeletonAnimation": "pulse 1.5s ease-in-out infinite",
+      "spinnerColor": "#191F3A"
+    },
+    "emptyStates": {
+      "description": "When no content is available",
+      "illustration": "Optional brand illustration",
+      "headline": "Use supportive, not empty language",
+      "example": {
+        "headline": "Nada aqui ainda",
+        "subtext": "Mas nao se preocupe, vamos construir isso juntas!"
+      }
+    },
+    "errorRecovery": {
+      "description": "How to handle and recover from errors",
+      "tone": "Supportive, never blaming",
+      "example": {
+        "message": "Algo deu errado, mas vamos resolver!",
+        "action": "Tente novamente"
+      }
+    }
+  },
+  "responsiveBreakpoints": {
+    "sm": "640px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "1280px",
+    "2xl": "1536px"
+  },
+  "animationGuidelines": {
+    "principles": [
+      "Motion should feel natural and organic",
+      "Prefer ease-out for elements entering",
+      "Prefer ease-in for elements exiting",
+      "Keep durations under 400ms for micro-interactions"
+    ],
+    "durations": {
+      "instant": "0ms",
+      "fast": "150ms",
+      "normal": "200ms",
+      "slow": "300ms",
+      "emphasis": "400ms"
+    },
+    "easings": {
+      "easeOut": "cubic-bezier(0, 0, 0.2, 1)",
+      "easeIn": "cubic-bezier(0.4, 0, 1, 1)",
+      "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+    },
+    "reducedMotion": {
+      "mediaQuery": "@media (prefers-reduced-motion: reduce)",
+      "behavior": "Disable non-essential animations, keep functional transitions"
+    }
+  }
+}

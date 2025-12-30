@@ -1,0 +1,895 @@
+{
+  "section": "brand-foundation",
+  "agent": "brand-translator",
+  "generated": "2025-12-30",
+  "brand_context": {
+    "name": "Seja Livre",
+    "tagline": "Empreenda com leveza, cresça com liberdade",
+    "symbol": "Dente-de-leão (Dandelion)",
+    "core_duality": {
+      "rational": {
+        "color": "Navy Profundo (#191F3A)",
+        "attributes": ["Confiança", "Profissionalismo", "Base estratégica", "Clareza de método"]
+      },
+      "emotional": {
+        "color": "Borgonha (#81171F)",
+        "attributes": ["Força", "Paixão", "Transformação interior", "Alma e coragem"]
+      }
+    },
+    "archetype_formula": "Libertadora (60%) + Mentora Sábia (40%)",
+    "core_promise": "10x mais resultados com 10x menos esforço"
+  },
+
+  "design_principles": [
+    {
+      "name": "Leveza com Substância",
+      "description": "Every interface element should feel light and breathable while communicating real value. Like the dandelion seeds, our designs disperse freely but carry the weight of transformation. Ample whitespace is not emptiness - it's room to breathe.",
+      "brand_connection": "Reflects the core promise of achieving more with less effort. Connects to the 'leveza e mudança' symbolism of the dandelion.",
+      "duality_alignment": "RATIONAL: Clean, structured layouts | EMOTIONAL: Generous breathing room feels welcoming",
+      "do": {
+        "description": "Use generous padding and margins. Let content breathe with neutral-50 backgrounds. Cards float with subtle shadows.",
+        "example": "A testimonial card with 32px internal padding, soft shadow-md, surrounded by 48px of neutral-50 space"
+      },
+      "dont": {
+        "description": "Pack information tightly. Use heavy borders or cramped layouts that feel suffocating.",
+        "example": "A dense grid of testimonials with 8px gaps, heavy 2px borders, and aggressive drop shadows"
+      }
+    },
+    {
+      "name": "Provocação Visual",
+      "description": "Design should challenge assumptions before offering solutions, mirroring the brand voice of 'provoque primeiro, acolha depois.' Use visual hierarchy and contrast to create moments of disruption that lead to clarity.",
+      "brand_connection": "Translates the voice dimension 'Respectful ↔ Irreverent (3.5/5)' into visual form. Reflects Juçanã's approach of 'cutucar com carinho.'",
+      "duality_alignment": "RATIONAL: Strategic placement of disruptive elements | EMOTIONAL: Bold burgundy moments that command attention",
+      "do": {
+        "description": "Lead with a provocative visual element (burgundy accent, bold question, asymmetric layout) before revealing the comfortable solution.",
+        "example": "A hero section with burgundy accent bar and bold question 'Você tá trabalhando 12h por dia?' followed by calm navy text offering the path forward"
+      },
+      "dont": {
+        "description": "Start with generic welcome messages or stock imagery. Be visually predictable or overly polished in ways that feel corporate.",
+        "example": "A hero with 'Bem-vinda ao nosso site' and a generic handshake image"
+      }
+    },
+    {
+      "name": "Transformação Progressiva",
+      "description": "Use the Navy → Burgundy → Gold gradient metaphor throughout interactions. Users should feel visual movement from strategic foundation (navy) through passionate action (burgundy) to golden freedom. This is not just decoration - it's the brand story in color.",
+      "brand_connection": "Embodies the complete brand journey from the 5 pillars methodology. Represents the transformation from 'prisão do fundador' to 'liberdade.'",
+      "duality_alignment": "RATIONAL: Navy entry points and foundations | EMOTIONAL: Burgundy transformation moments | FREEDOM: Gold achievement states",
+      "do": {
+        "description": "Apply the gradient metaphor to user journeys. Entry points in navy, engagement moments in burgundy, completion states in gold accents.",
+        "example": "Form progress: Step 1 has navy heading, Step 2 introduces burgundy accents, Completion screen features gold celebration elements"
+      },
+      "dont": {
+        "description": "Use random color assignments without meaning. Apply the transformation gradient as pure decoration without purpose.",
+        "example": "Random burgundy buttons mixed with navy buttons with no semantic difference"
+      }
+    },
+    {
+      "name": "Autoridade Acessível",
+      "description": "Balance professional credibility with approachable warmth. Typography should convey expertise (serif Lora for body) while remaining conversational. Never cold, never flippant. Like 'uma mistura de Brené Brown com sua amiga empresária.'",
+      "brand_connection": "Translates the voice dimension 'Formal ↔ Casual (4/5)' - professional substance without corporate formality.",
+      "duality_alignment": "RATIONAL: Serif typography conveys expertise | EMOTIONAL: Generous spacing and warm neutrals feel personal",
+      "do": {
+        "description": "Use Lora for body text to establish credibility. Pair with Century Gothic for headlines that feel modern yet grounded. Use navy-700/800 for text, not pure black.",
+        "example": "Body text in Lora Regular at 18px, line-height 1.6, color neutral-700, with Century Gothic Bold headings in primary-800"
+      },
+      "dont": {
+        "description": "Use pure black text (#000000) or clinical sans-serif for body. Create cold, corporate-feeling interfaces.",
+        "example": "Arial body text in pure black on stark white, tight 1.3 line-height"
+      }
+    },
+    {
+      "name": "Convite, Não Pressão",
+      "description": "All interactive elements should feel like an extended hand, not a sales push. CTAs invite participation rather than demanding action. Reflects the premium positioning - we don't need to pressure because the value speaks.",
+      "brand_connection": "Embodies the red line against 'guru language' and cheap tactics. Premium brands invite; they don't chase.",
+      "duality_alignment": "RATIONAL: Clear, honest value propositions | EMOTIONAL: Warm, personal invitation language",
+      "do": {
+        "description": "Use inviting button language ('VAMOS?', 'Quero conhecer', 'Me conta mais'). Provide clear exit paths. Let users explore at their pace.",
+        "example": "Primary CTA: 'VAMOS?' in burgundy-700 | Secondary: 'Ver detalhes primeiro' in navy outline"
+      },
+      "dont": {
+        "description": "Use pressure tactics (countdown timers, fake scarcity, aggressive pop-ups). Make users feel trapped.",
+        "example": "'ÚLTIMA CHANCE! Compre AGORA antes que acabe!' with flashing countdown timer"
+      }
+    },
+    {
+      "name": "Sementes em Movimento",
+      "description": "Incorporate subtle motion that echoes the dandelion seeds dispersing freely. Movement should feel natural, organic, and effortless - never jarring or attention-seeking. Motion represents possibility and gentle progress.",
+      "brand_connection": "Direct translation of the brand symbol - dente-de-leão seeds flying represent freedom, movement, and organic growth.",
+      "duality_alignment": "RATIONAL: Motion with purpose and restraint | EMOTIONAL: Organic, breath-like rhythms that feel alive",
+      "do": {
+        "description": "Use gentle fade-ins, soft float animations, and organic easing curves. Elements should feel like they drift into place naturally.",
+        "example": "Cards animate in with 400ms ease-out, slight upward drift (8px), opacity fade from 0 to 1"
+      },
+      "dont": {
+        "description": "Use aggressive animations, bounces, shakes, or attention-grabbing motion. No spinning, pulsing, or urgent indicators.",
+        "example": "Buttons that pulse repeatedly, modals that bounce into view, shake animations on form errors"
+      }
+    },
+    {
+      "name": "Espaço para Respirar",
+      "description": "Honor the philosophy of 'leveza' by treating whitespace as a design element, not empty space. Every interface should feel like it has room to breathe, reflecting the promise of less overwhelm and more clarity.",
+      "brand_connection": "Cinza Claro (#ECECEC) represents 'equilíbrio, leveza e espaço - fundo neutro para que as ideias respirem.'",
+      "duality_alignment": "RATIONAL: Structured, intentional negative space | EMOTIONAL: Relief from the visual overwhelm Carolina experiences daily",
+      "do": {
+        "description": "Use 60% neutral backgrounds (neutral-50, accent-50). Apply 48-64px section padding. Let hero sections breathe with 80-120px vertical space.",
+        "example": "Section padding: 80px vertical, content max-width 720px centered, surrounded by neutral-50"
+      },
+      "dont": {
+        "description": "Fill every pixel with content. Stack sections without breathing room. Use backgrounds that compete for attention.",
+        "example": "Full-bleed sections back-to-back with 16px padding, multiple colored backgrounds competing"
+      }
+    }
+  ],
+
+  "personality_mapping": {
+    "libertadora": {
+      "description": "The Liberator archetype (60% of brand) - freeing entrepreneurs from the 'founder's prison'",
+      "visual_elements": {
+        "imagery": [
+          "Dandelion seeds dispersing into open sky",
+          "Open doors, windows, horizons",
+          "Birds in flight (subtle, not cliché)",
+          "Paths leading outward, not inward"
+        ],
+        "layout": [
+          "Generous whitespace that feels expansive",
+          "Asymmetric compositions that break from rigid grids",
+          "Content that flows freely, not boxed in",
+          "Exit paths always visible (never trap the user)"
+        ],
+        "motion": [
+          "Elements that float upward and outward",
+          "Gentle dispersal animations",
+          "Transitions that open rather than close",
+          "Parallax that creates depth and openness"
+        ],
+        "icons": [
+          "Open padlock (not closed)",
+          "Arrows pointing outward/upward",
+          "Simplified dandelion seed shapes",
+          "Minimalist bird/wing motifs"
+        ]
+      },
+      "color_application": "Gold accents (Ouro da Liberdade) for freedom moments. Gradient from navy to gold represents the liberation journey."
+    },
+    "direta": {
+      "description": "Directness without harshness - 'cutuca com carinho'",
+      "visual_elements": {
+        "typography": [
+          "Bold, clear headlines in Century Gothic",
+          "Short, scannable paragraphs",
+          "Strong visual hierarchy with clear entry points",
+          "Questions as headlines that cut to the point"
+        ],
+        "layout": [
+          "Single-column layouts for focus",
+          "Clear visual hierarchy with obvious entry points",
+          "No decorative clutter that obscures the message",
+          "Information in order of importance, not buried"
+        ],
+        "ui_patterns": [
+          "Direct CTAs without hedging ('VAMOS?' not 'Talvez queira saber mais')",
+          "Progress indicators that tell truth about where you are",
+          "Honest pricing (no hidden fees or unclear structures)",
+          "Forms that ask only what's needed"
+        ],
+        "contrast": [
+          "High contrast for important elements (12.8:1 for primary text)",
+          "Clear distinction between sections",
+          "Bold burgundy for emphasis moments",
+          "No muddy middle-ground colors that feel indecisive"
+        ]
+      },
+      "color_application": "Navy-800 for authoritative statements. Burgundy-700 for emphasis on truths that need to land."
+    },
+    "acolhedora": {
+      "description": "Warmth that embraces without coddling - 'te abraça e te chacoalha no mesmo parágrafo'",
+      "visual_elements": {
+        "color_temperature": [
+          "Warm neutrals with navy undertone (not cold grays)",
+          "Burgundy accents that feel like warmth, not aggression",
+          "Gold highlights that feel like sunlight",
+          "Avoid cold blues or clinical whites"
+        ],
+        "shapes": [
+          "Rounded corners (8-16px radius) on cards and buttons",
+          "Soft shadows (not hard drop shadows)",
+          "Organic curves in decorative elements",
+          "No sharp, aggressive angles"
+        ],
+        "imagery_tone": [
+          "Real people, not polished stock photos",
+          "Warm natural lighting",
+          "Genuine expressions (tired, hopeful, relieved)",
+          "Intimate settings (coffee conversations, not boardrooms)"
+        ],
+        "microinteractions": [
+          "Hover states that feel like acknowledgment",
+          "Form focus states with soft glow, not harsh outlines",
+          "Success states that feel like a warm celebration",
+          "Loading states that reassure rather than create anxiety"
+        ]
+      },
+      "color_application": "Secondary-100 through secondary-300 for warm backgrounds. Gold-100 for highlight moments that feel like sunshine."
+    },
+    "mentora_sabia": {
+      "description": "Wisdom without pedestal - 'mentora que já passou por isso'",
+      "visual_elements": {
+        "typography": [
+          "Serif body text (Lora) conveys depth and expertise",
+          "Pull quotes that share hard-won insights",
+          "Testimonials that show transformation, not just praise",
+          "Numbered lists for methodical guidance"
+        ],
+        "structure": [
+          "Clear step progressions (the 5 pillars journey)",
+          "Before/after comparisons that prove transformation",
+          "Logical information architecture",
+          "Breadcrumbs and progress indicators that orient"
+        ],
+        "visual_credibility": [
+          "Proof points with real numbers (not vague claims)",
+          "Client journey visualizations",
+          "Method diagrams that show 'how', not just 'what'",
+          "Timeline progressions showing the path"
+        ],
+        "trust_signals": [
+          "Real testimonials with faces and names",
+          "Transparent methodology explanation",
+          "Clear expectation setting",
+          "No 'secret sauce' mystery - show the method"
+        ]
+      },
+      "color_application": "Navy-800 as the foundation color for wisdom and authority. Navy gradients (professional gradient) for structural/methodological sections."
+    }
+  },
+
+  "voice_to_ui": {
+    "button_text_patterns": {
+      "philosophy": "Buttons should feel like personal invitations, not commands. Use first person ('Quero...') or inclusive prompts ('VAMOS?'). Never generic ('Submit', 'Click here').",
+      "primary_ctas": {
+        "transformation_moment": ["VAMOS?", "Quero minha liberdade", "Me mostra o caminho"],
+        "information_seeking": ["Quero conhecer mais", "Me conta", "Ver como funciona"],
+        "commitment": ["Quero participar", "Conta comigo", "Tô pronta"]
+      },
+      "secondary_ctas": {
+        "exploration": ["Ver detalhes primeiro", "Conhecer o método", "Saber mais"],
+        "hesitation_acknowledgment": ["Ainda tenho dúvidas", "Preciso pensar", "Me manda mais informação"],
+        "alternative_paths": ["Prefiro conversar antes", "Quero tirar dúvidas"]
+      },
+      "avoid": {
+        "generic": ["Submit", "Click here", "Saiba mais", "Inscreva-se"],
+        "pressure": ["Compre agora", "Última chance", "Não perca", "Garanta sua vaga"],
+        "corporate": ["Solicitar contato", "Agendar demonstração", "Falar com consultor"]
+      },
+      "examples": {
+        "newsletter_signup": {
+          "do": "Quero receber",
+          "dont": "Cadastre-se na newsletter"
+        },
+        "application_form": {
+          "do": "Quero fazer parte",
+          "dont": "Enviar aplicação"
+        },
+        "testimonials_page": {
+          "do": "Ver histórias reais",
+          "dont": "Ver depoimentos"
+        }
+      }
+    },
+    "error_messages": {
+      "philosophy": "Errors should never blame the user. The system failed to help, not the user failed to comply. Use the brand voice of understanding without enabling - acknowledge the problem, offer clear next step.",
+      "tone": "Supportive, solution-focused, never condescending",
+      "patterns": {
+        "form_validation": {
+          "email_invalid": {
+            "do": "Ops, esse e-mail não chegou direito. Pode conferir?",
+            "dont": "E-mail inválido"
+          },
+          "required_field": {
+            "do": "Preciso dessa informação pra te ajudar melhor",
+            "dont": "Campo obrigatório"
+          },
+          "password_weak": {
+            "do": "Vamos deixar sua conta mais segura? Tenta uma senha com mais caracteres",
+            "dont": "Senha fraca. Use letras maiúsculas, números e símbolos."
+          }
+        },
+        "system_errors": {
+          "general_error": {
+            "do": "Algo deu errado do nosso lado. Pode tentar de novo?",
+            "dont": "Erro 500: Internal Server Error"
+          },
+          "network_error": {
+            "do": "Parece que a conexão oscilou. Tenta mais uma vez?",
+            "dont": "Falha de conexão"
+          },
+          "timeout": {
+            "do": "Tá demorando mais que o esperado. Aguenta mais um pouquinho ou tenta novamente?",
+            "dont": "Request timeout"
+          }
+        },
+        "payment_errors": {
+          "card_declined": {
+            "do": "O pagamento não foi autorizado. Quer tentar outro cartão ou forma de pagamento?",
+            "dont": "Cartão recusado"
+          },
+          "processing_failed": {
+            "do": "Não consegui processar agora. Pode ser temporário - tenta de novo em alguns minutos?",
+            "dont": "Erro no processamento do pagamento"
+          }
+        }
+      }
+    },
+    "success_messages": {
+      "philosophy": "Celebrate genuinely but stay grounded. No over-the-top enthusiasm ('INCRÍVEL!!!') but also not cold confirmation. Reflect the 'entusiasmo contido e genuíno' voice dimension.",
+      "tone": "Warm, acknowledging, forward-looking",
+      "patterns": {
+        "form_submission": {
+          "contact_form": {
+            "do": "Recebi sua mensagem. Te respondo em até 24 horas. Do meu coração para o seu.",
+            "dont": "Formulário enviado com sucesso!"
+          },
+          "newsletter_signup": {
+            "do": "Bem-vinda! Você acabou de dar o primeiro passo. Olha sua caixa de entrada.",
+            "dont": "Cadastro realizado com sucesso!"
+          },
+          "application_complete": {
+            "do": "Pronto! Sua aplicação chegou. Agora é minha vez de analisar com carinho. Te aviso em breve.",
+            "dont": "Aplicação enviada. Aguarde nosso contato."
+          }
+        },
+        "payment_success": {
+          "do": "VAMOS! Você tá dentro. Olha seu e-mail - te mandei tudo que precisa pra começar.",
+          "dont": "Pagamento aprovado. Você receberá um e-mail de confirmação."
+        },
+        "account_created": {
+          "do": "Sua conta tá pronta. Bem-vinda à comunidade. O próximo passo é...",
+          "dont": "Conta criada com sucesso!"
+        }
+      },
+      "signature_closings": [
+        "Do meu coração para o seu.",
+        "VAMOS?",
+        "Agora é com você.",
+        "O próximo passo é seu."
+      ]
+    },
+    "form_fields": {
+      "philosophy": "Labels should feel like conversation, not bureaucracy. Helper text should anticipate concerns and provide reassurance. Avoid technical jargon.",
+      "labels": {
+        "name": {
+          "label": "Como posso te chamar?",
+          "placeholder": "Seu nome",
+          "helper": null
+        },
+        "email": {
+          "label": "Seu melhor e-mail",
+          "placeholder": "email@exemplo.com",
+          "helper": "Prometo: só mando o que vale a pena"
+        },
+        "phone": {
+          "label": "WhatsApp (se quiser)",
+          "placeholder": "(11) 99999-9999",
+          "helper": "Pra gente conversar de um jeito mais direto"
+        },
+        "business_name": {
+          "label": "Nome da sua empresa",
+          "placeholder": "Ex: Studio Maria Design",
+          "helper": null
+        },
+        "business_stage": {
+          "label": "Há quanto tempo você empreende?",
+          "options": ["Menos de 1 ano", "1-3 anos", "3-5 anos", "Mais de 5 anos"],
+          "helper": null
+        },
+        "biggest_challenge": {
+          "label": "Qual sua maior dor hoje?",
+          "placeholder": "Me conta o que tá mais difícil no seu negócio agora...",
+          "helper": "Quanto mais você compartilhar, melhor posso te ajudar"
+        },
+        "revenue_range": {
+          "label": "Faturamento mensal aproximado",
+          "helper": "Essa informação ajuda a entender seu momento",
+          "note": "Use ranges, never ask for exact numbers - respects privacy"
+        }
+      },
+      "optional_field_indicator": "(se quiser compartilhar)",
+      "required_field_indicator": null,
+      "note": "Assume fields are required by default. Only mark optional fields explicitly."
+    },
+    "empty_states": {
+      "philosophy": "Empty states are opportunities to guide, not dead ends. Use the mentor voice to point the way forward with warmth.",
+      "patterns": {
+        "no_results_search": {
+          "headline": "Não encontrei o que você procura",
+          "body": "Mas posso te ajudar de outro jeito. Que tal explorar essas opções?",
+          "cta": "Ver sugestões"
+        },
+        "no_content_yet": {
+          "headline": "Esse espaço é seu",
+          "body": "Aqui vai aparecer [content type] assim que você [action]. Bora começar?",
+          "cta": "Dar o primeiro passo"
+        },
+        "inbox_empty": {
+          "headline": "Tudo certo por aqui",
+          "body": "Nenhuma mensagem nova. Aproveita pra respirar.",
+          "cta": null
+        },
+        "no_testimonials_filter": {
+          "headline": "Nenhuma história com esses filtros",
+          "body": "Tenta ajustar os filtros ou vê todas as histórias de transformação",
+          "cta": "Ver todas"
+        }
+      }
+    },
+    "loading_states": {
+      "philosophy": "Loading should reassure, not create anxiety. Reference the brand promise of ease and method, not hustle.",
+      "patterns": {
+        "page_loading": "Preparando tudo pra você...",
+        "form_submitting": "Enviando com carinho...",
+        "payment_processing": "Processando. Quase lá...",
+        "content_loading": "Buscando...",
+        "file_uploading": "Subindo seu arquivo..."
+      },
+      "extended_loading": {
+        "threshold": "5 seconds",
+        "message": "Tá demorando um pouquinho mais que o normal. Aguenta firme ou tenta de novo em alguns minutos.",
+        "show_retry_option": true
+      },
+      "avoid": [
+        "Aguarde...",
+        "Carregando...",
+        "Por favor, aguarde",
+        "Loading..."
+      ]
+    },
+    "tooltips_and_hints": {
+      "philosophy": "Tooltips should feel like a friend leaning over to explain, not a manual entry.",
+      "tone": "Conversational, brief, helpful",
+      "examples": {
+        "feature_explanation": {
+          "do": "Aqui você acompanha seu progresso nos 5 pilares",
+          "dont": "Dashboard de métricas do programa"
+        },
+        "security_info": {
+          "do": "Seus dados ficam seguros. Só eu tenho acesso.",
+          "dont": "Informações protegidas por criptografia SSL"
+        },
+        "pricing_clarification": {
+          "do": "Esse valor pode ser parcelado sem juros",
+          "dont": "Opções de parcelamento disponíveis"
+        }
+      }
+    }
+  },
+
+  "logo_usage": {
+    "primary_logo": {
+      "description": "The 'J' initial stylized as dandelion with seeds dispersing - represents the full Seja Livre brand experience",
+      "recommended_contexts": [
+        "Website header",
+        "Landing page hero",
+        "Email signature",
+        "Document headers"
+      ]
+    },
+    "minimum_sizes": {
+      "digital_full_logo": {
+        "minimum_width": "120px",
+        "comfortable_width": "160px",
+        "context": "Full logo with wordmark for desktop headers"
+      },
+      "digital_symbol_only": {
+        "minimum_width": "32px",
+        "comfortable_width": "48px",
+        "context": "Symbol (dandelion J) alone for favicons, app icons, mobile headers"
+      },
+      "mobile_header": {
+        "minimum_height": "40px",
+        "comfortable_height": "48px",
+        "context": "Mobile navigation headers"
+      },
+      "favicon": {
+        "sizes": ["16x16", "32x32", "180x180 (Apple touch)"],
+        "format": "Symbol only at these sizes"
+      },
+      "social_media_avatar": {
+        "size": "400x400px minimum",
+        "format": "Symbol with adequate padding"
+      }
+    },
+    "clear_space": {
+      "rule": "Minimum clear space equals the height of the 'J' on all sides",
+      "rationale": "Allows the dandelion seeds to 'breathe' visually - they need space to feel like they're dispersing",
+      "digital_minimum": "24px on all sides at standard sizes"
+    },
+    "acceptable_backgrounds": {
+      "preferred": [
+        {
+          "background": "neutral-50 (#F8F8FA)",
+          "logo_color": "Navy (#191F3A)",
+          "usage": "Default, most common"
+        },
+        {
+          "background": "White (#FFFFFF)",
+          "logo_color": "Navy (#191F3A)",
+          "usage": "Cards, clean sections"
+        },
+        {
+          "background": "primary-800 (#191F3A)",
+          "logo_color": "White or Gold accent",
+          "usage": "Footer, inverse sections"
+        }
+      ],
+      "acceptable": [
+        {
+          "background": "accent-50 (#FEFCF3)",
+          "logo_color": "Navy (#191F3A)",
+          "usage": "Special sections, celebrations"
+        },
+        {
+          "background": "Transformation gradient",
+          "logo_color": "White",
+          "usage": "Hero sections, feature areas"
+        }
+      ],
+      "avoid": [
+        {
+          "background": "Burgundy (#81171F)",
+          "reason": "Reduces readability, creates too much red"
+        },
+        {
+          "background": "Busy patterns or photos",
+          "reason": "Competes with the delicate dandelion seed details"
+        },
+        {
+          "background": "Low contrast combinations",
+          "reason": "Navy logo on dark navy backgrounds, etc."
+        }
+      ]
+    },
+    "usage_contexts": {
+      "full_logo_with_wordmark": [
+        "Primary website header",
+        "Landing pages",
+        "Email headers",
+        "Documents and proposals",
+        "Video intros/outros"
+      ],
+      "symbol_only": [
+        "Favicon",
+        "Mobile app icon",
+        "Social media avatars",
+        "Loading animations",
+        "Watermarks",
+        "Mobile header (space constrained)"
+      ],
+      "wordmark_only": [
+        "Not recommended - always pair with symbol or use full logo",
+        "Exception: Very wide horizontal spaces where symbol would be too small"
+      ]
+    },
+    "animation_guidelines": {
+      "permitted_animations": [
+        {
+          "type": "Fade in",
+          "duration": "400-600ms",
+          "easing": "ease-out",
+          "context": "Page load, section reveal"
+        },
+        {
+          "type": "Seed dispersal",
+          "description": "Seeds gently floating away from the J",
+          "duration": "2-3 seconds",
+          "easing": "ease-in-out",
+          "context": "Loading states, hero moments, transitions"
+        },
+        {
+          "type": "Subtle float",
+          "description": "Gentle up-down motion",
+          "duration": "3-4 seconds loop",
+          "amplitude": "4-8px",
+          "context": "Ambient animation on static pages"
+        }
+      ],
+      "prohibited_animations": [
+        "Spinning or rotation",
+        "Bouncing or elastic effects",
+        "Rapid blinking or pulsing",
+        "Morphing into other shapes",
+        "Aggressive attention-seeking motion"
+      ],
+      "loading_animation_spec": {
+        "description": "Seeds gently disperse and reform, suggesting transformation in progress",
+        "loop_duration": "2-3 seconds",
+        "style": "Organic, breath-like rhythm",
+        "fallback": "Static logo with subtle opacity pulse"
+      }
+    },
+    "do_not": [
+      "Stretch or distort proportions",
+      "Add drop shadows or effects not in original",
+      "Change the brand colors",
+      "Place on backgrounds with insufficient contrast",
+      "Rotate the logo",
+      "Crop the dispersing seeds",
+      "Add additional elements to the logo",
+      "Use the logo smaller than minimum sizes"
+    ]
+  },
+
+  "brand_dos_donts": {
+    "visual_elements": {
+      "embrace": [
+        {
+          "element": "Generous whitespace",
+          "rationale": "Embodies 'leveza' philosophy - ideas need room to breathe"
+        },
+        {
+          "element": "Warm neutrals with navy undertone",
+          "rationale": "Creates cohesive warmth while maintaining brand connection"
+        },
+        {
+          "element": "Serif typography for body (Lora)",
+          "rationale": "Conveys expertise and authority of the 'Mentora Sábia' archetype"
+        },
+        {
+          "element": "Rounded corners (8-16px radius)",
+          "rationale": "Soft, approachable feel aligned with 'Acolhedora' personality"
+        },
+        {
+          "element": "Soft, organic shadows",
+          "rationale": "Natural, not artificial or harsh"
+        },
+        {
+          "element": "Transformation gradient (Navy → Burgundy → Gold)",
+          "rationale": "Core brand story in visual form"
+        },
+        {
+          "element": "Real photography over stock",
+          "rationale": "Authenticity central to brand - 'não é show'"
+        },
+        {
+          "element": "Dandelion seed motifs",
+          "rationale": "Core brand symbol representing freedom and transformation"
+        },
+        {
+          "element": "Questions as headlines",
+          "rationale": "Mirrors 'Pergunta que Espelha' voice rule"
+        },
+        {
+          "element": "Progress indicators showing the journey",
+          "rationale": "Method and structure are key differentiators"
+        }
+      ],
+      "avoid": [
+        {
+          "element": "Pure black text (#000000)",
+          "rationale": "Too harsh, breaks warmth - use navy-700/800 instead"
+        },
+        {
+          "element": "Cold, clinical grays",
+          "rationale": "Brand neutrals have navy undertone for cohesion"
+        },
+        {
+          "element": "Aggressive gradients or neon colors",
+          "rationale": "Not aligned with professional, grounded positioning"
+        },
+        {
+          "element": "Stock photos of 'business success' clichés",
+          "rationale": "Handshakes, skyscrapers, suits - opposite of brand authenticity"
+        },
+        {
+          "element": "Sharp geometric patterns",
+          "rationale": "Feel corporate, not human"
+        },
+        {
+          "element": "Heavy drop shadows",
+          "rationale": "Feel dated and heavy, opposite of 'leveza'"
+        },
+        {
+          "element": "Dense, cramped layouts",
+          "rationale": "Creates overwhelm Carolina already experiences daily"
+        },
+        {
+          "element": "Generic icons from free packs",
+          "rationale": "Dilutes premium brand positioning"
+        },
+        {
+          "element": "Em-dashes in content",
+          "rationale": "Red line - signals AI-generated content"
+        },
+        {
+          "element": "Countdown timers or scarcity indicators",
+          "rationale": "Pressure tactics contradict premium, invitational approach"
+        }
+      ]
+    },
+    "interaction_patterns": {
+      "embrace": [
+        {
+          "pattern": "Progressive disclosure",
+          "description": "Reveal information gradually, not all at once",
+          "rationale": "Respects user attention, mirrors 'method over overwhelm' philosophy"
+        },
+        {
+          "pattern": "Soft hover states",
+          "description": "Gentle background color shift, slight elevation",
+          "rationale": "Acknowledging without demanding"
+        },
+        {
+          "pattern": "Forgiving form validation",
+          "description": "Validate on blur, not keystroke. Show errors helpfully, not punitively",
+          "rationale": "Never blame the user - the model is the problem, not her"
+        },
+        {
+          "pattern": "Clear navigation with escape routes",
+          "description": "Always show where user is, always provide way back",
+          "rationale": "'Libertadora' never traps users"
+        },
+        {
+          "pattern": "Meaningful transitions",
+          "description": "Page transitions that feel like progression, not just decoration",
+          "rationale": "Every interaction should feel like moving toward freedom"
+        },
+        {
+          "pattern": "Personal acknowledgment",
+          "description": "Success states that feel like personal recognition, not system confirmation",
+          "rationale": "'Do meu coração para o seu' energy in digital form"
+        },
+        {
+          "pattern": "Scroll-triggered reveals",
+          "description": "Content that gently appears as user scrolls, feeling discovered",
+          "rationale": "Organic, seed-dispersal rhythm"
+        },
+        {
+          "pattern": "Multi-step forms with progress",
+          "description": "Break long forms into digestible steps with clear progress",
+          "rationale": "Mirrors the 5 Pillars methodology structure"
+        }
+      ],
+      "avoid": [
+        {
+          "pattern": "Pop-up modals on entry",
+          "description": "Modals that appear before user has engaged with content",
+          "rationale": "Aggressive, trapping - opposite of liberation"
+        },
+        {
+          "pattern": "Exit-intent pop-ups",
+          "description": "Capturing users trying to leave",
+          "rationale": "Pressure tactic, breaks 'Convite, Não Pressão' principle"
+        },
+        {
+          "pattern": "Infinite scroll without anchor",
+          "description": "Endless content with no sense of progress or completion",
+          "rationale": "Creates overwhelm, no 'leveza'"
+        },
+        {
+          "pattern": "Dark patterns in forms",
+          "description": "Pre-checked boxes, hidden options, confusing unsubscribe",
+          "rationale": "Breaks trust, antithetical to 'Direta' personality"
+        },
+        {
+          "pattern": "Shake animations on errors",
+          "description": "Aggressive motion that feels like scolding",
+          "rationale": "Never blame, never scold"
+        },
+        {
+          "pattern": "Disabled buttons without explanation",
+          "description": "Grayed out CTAs with no indication why",
+          "rationale": "'Direta' demands clarity about what's happening"
+        },
+        {
+          "pattern": "Auto-playing video with sound",
+          "description": "Video that plays without consent",
+          "rationale": "Removes user control - opposite of liberation"
+        },
+        {
+          "pattern": "Sticky elements that crowd mobile",
+          "description": "Multiple fixed elements reducing content space",
+          "rationale": "Claustrophobic, removes breathing room"
+        },
+        {
+          "pattern": "FOMO messaging",
+          "description": "'X people looking at this', 'Only 3 left'",
+          "rationale": "Guru tactics, pressure - forbidden territory"
+        },
+        {
+          "pattern": "Generic chat bots with scripted responses",
+          "description": "Impersonal automated interactions",
+          "rationale": "Brand is deeply personal - 'amiga empresária' not corporate bot"
+        }
+      ]
+    },
+    "content_presentation": {
+      "embrace": [
+        {
+          "approach": "Questions before answers",
+          "description": "Lead with provocative questions that create recognition",
+          "example": "'Você acorda pensando na empresa?' before explaining the solution"
+        },
+        {
+          "approach": "Real numbers over vague claims",
+          "description": "Specific results, real timelines, actual testimonials",
+          "example": "'A Fernanda tirou 30 dias de férias e o faturamento SUBIU'"
+        },
+        {
+          "approach": "Before/after transformations",
+          "description": "Show the journey, not just the destination",
+          "example": "Visual journey from 'founder's prison' to freedom"
+        },
+        {
+          "approach": "Method visibility",
+          "description": "Show how things work, not mystery or 'secrets'",
+          "example": "Clear 5 Pillars breakdown, transparent process"
+        },
+        {
+          "approach": "Personal pronouns",
+          "description": "'Eu', 'você', 'a gente' - never formal third person",
+          "example": "'Eu criei esse método depois de quase quebrar'"
+        }
+      ],
+      "avoid": [
+        {
+          "approach": "Superlative claims",
+          "description": "'The best', 'unique', 'revolutionary'",
+          "reason": "Empty promises, guru language territory"
+        },
+        {
+          "approach": "Formal corporate language",
+          "description": "'Prezada', 'venho por meio desta', 'sinergia'",
+          "reason": "Explicit red line in voice guide"
+        },
+        {
+          "approach": "Motivational fluff",
+          "description": "'Acredite em você', 'o céu é o limite'",
+          "reason": "Always connect to action, never empty motivation"
+        },
+        {
+          "approach": "Time-bound promises",
+          "description": "'Em 7 dias', 'em 30 dias você vai...'",
+          "reason": "Sounds like infoproduto, undermines premium positioning"
+        },
+        {
+          "approach": "Blame or shame",
+          "description": "Implying user's exhaustion is their fault",
+          "reason": "Core philosophy: the model is the problem, not her"
+        }
+      ]
+    },
+    "emoji_usage": {
+      "signature_emojis": {
+        "primary": ["💙", "❤️"],
+        "usage": "Used together as closing signature - represents brand colors navy and burgundy",
+        "context": "Personal messages, email sign-offs, special moments"
+      },
+      "energy_emoji": {
+        "primary": ["🔥"],
+        "usage": "Sparingly for high-energy moments",
+        "context": "Excitement, achievement, calls to action"
+      },
+      "guidelines": [
+        "Never use in formal UI elements (buttons, labels, errors)",
+        "Reserved for personal communication moments",
+        "Use sparingly - one signature closing per message max",
+        "Never use generic business emojis (📈, 💰, 🚀, 💪)"
+      ]
+    }
+  },
+
+  "implementation_notes": {
+    "css_variables": "All color values available in seja-livre-colors.css as CSS custom properties",
+    "typography_files": "Century Gothic fonts available in /fonts/CenturyGothic/",
+    "lora_font": "Use Google Fonts for Lora: https://fonts.google.com/specimen/Lora",
+    "accessibility_target": "WCAG AA minimum, AAA preferred for text contrast",
+    "language": "All microcopy in Brazilian Portuguese, addressed to 'Carolina' persona",
+    "testing_checklist": [
+      "Does this feel like talking to 'uma amiga empresária mais sincera'?",
+      "Does the design have room to breathe (leveza)?",
+      "Does the interaction invite rather than pressure?",
+      "Are we showing method over mystery?",
+      "Would Carolina recognize her pain in the first 3 seconds?"
+    ]
+  }
+}

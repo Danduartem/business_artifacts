@@ -1,0 +1,1084 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * SEJA LIVRE DESIGN SYSTEM - DESIGN TOKENS
+ * ═══════════════════════════════════════════════════════════════════════════════
+ *
+ * Brand: Seja Livre (Be Free)
+ * Tagline: "Empreenda com leveza, cresça com liberdade"
+ * Symbol: Dandelion - seeds flying freely (freedom, transformation)
+ * Core Duality: RATIONAL (Navy) ↔ EMOTIONAL (Burgundy)
+ *
+ * Generated: 2025-12-30
+ * Version: 1.0.0
+ *
+ * Architecture: 3-Tier Token System
+ *   Tier 1: Global/Reference Tokens (raw values)
+ *   Tier 2: Semantic Tokens (purpose-based, references Tier 1)
+ *   Tier 3: Component Tokens (component-specific, references Tier 2)
+ *
+ * ═══════════════════════════════════════════════════════════════════════════════
+ */
+
+:root {
+  /* ═══════════════════════════════════════════════════════════════════════════
+     TIER 1: GLOBAL/REFERENCE TOKENS (Raw Values)
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COLOR PALETTE - PRIMARY (Navy Profundo)
+     Hue: 270 | Locked: Grade 800 (#191F3A) - Pantone 5255 C
+     ───────────────────────────────────────────────────────────────────────────── */
+  --color-primary-50: #F4F5FA;
+  --color-primary-100: #E8EAF4;
+  --color-primary-200: #D0D4E8;
+  --color-primary-300: #B3B9D6;
+  --color-primary-400: #8E96BE;
+  --color-primary-500: #6A74A3;
+  --color-primary-600: #4F5785;
+  --color-primary-700: #363D62;
+  --color-primary-800: #191F3A; /* LOCKED - Brand Primary */
+  --color-primary-900: #0D1022;
+
+  /* Primary OKLCH Values (for advanced color manipulation) */
+  --color-primary-50-oklch: oklch(97% 0.012 270);
+  --color-primary-100-oklch: oklch(93% 0.024 270);
+  --color-primary-200-oklch: oklch(86% 0.04 270);
+  --color-primary-300-oklch: oklch(77% 0.055 270);
+  --color-primary-400-oklch: oklch(66% 0.07 270);
+  --color-primary-500-oklch: oklch(54% 0.085 270);
+  --color-primary-600-oklch: oklch(44% 0.09 270);
+  --color-primary-700-oklch: oklch(34% 0.085 270);
+  --color-primary-800-oklch: oklch(25% 0.065 270);
+  --color-primary-900-oklch: oklch(15% 0.05 270);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COLOR PALETTE - SECONDARY (Borgonha)
+     Hue: 25 | Locked: Grade 700 (#81171F) - Pantone 1955 C
+     ───────────────────────────────────────────────────────────────────────────── */
+  --color-secondary-50: #FDF5F5;
+  --color-secondary-100: #FAEAEA;
+  --color-secondary-200: #F4D2D4;
+  --color-secondary-300: #E8A9AE;
+  --color-secondary-400: #D67680;
+  --color-secondary-500: #BE4652;
+  --color-secondary-600: #9E2A35;
+  --color-secondary-700: #81171F; /* LOCKED - Brand Secondary */
+  --color-secondary-800: #5E1118;
+  --color-secondary-900: #3D0B10;
+
+  /* Secondary OKLCH Values */
+  --color-secondary-50-oklch: oklch(97% 0.012 25);
+  --color-secondary-100-oklch: oklch(94% 0.025 25);
+  --color-secondary-200-oklch: oklch(88% 0.045 25);
+  --color-secondary-300-oklch: oklch(78% 0.075 25);
+  --color-secondary-400-oklch: oklch(65% 0.11 25);
+  --color-secondary-500-oklch: oklch(52% 0.14 25);
+  --color-secondary-600-oklch: oklch(44% 0.145 25);
+  --color-secondary-700-oklch: oklch(38% 0.135 25);
+  --color-secondary-800-oklch: oklch(28% 0.1 25);
+  --color-secondary-900-oklch: oklch(18% 0.07 25);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COLOR PALETTE - ACCENT (Ouro da Liberdade)
+     Hue: 90 | Gold representing freedom and transformation
+     ───────────────────────────────────────────────────────────────────────────── */
+  --color-accent-50: #FEFCF3;
+  --color-accent-100: #FDF8E4;
+  --color-accent-200: #FAEFC5;
+  --color-accent-300: #F5E29E;
+  --color-accent-400: #EDD06F;
+  --color-accent-500: #E0B83D;
+  --color-accent-600: #C99B1F;
+  --color-accent-700: #A67E15;
+  --color-accent-800: #7D5F10;
+  --color-accent-900: #54400B;
+
+  /* Accent OKLCH Values */
+  --color-accent-50-oklch: oklch(99% 0.015 90);
+  --color-accent-100-oklch: oklch(97% 0.035 90);
+  --color-accent-200-oklch: oklch(94% 0.065 90);
+  --color-accent-300-oklch: oklch(90% 0.1 90);
+  --color-accent-400-oklch: oklch(84% 0.135 90);
+  --color-accent-500-oklch: oklch(77% 0.155 90);
+  --color-accent-600-oklch: oklch(68% 0.155 90);
+  --color-accent-700-oklch: oklch(58% 0.135 90);
+  --color-accent-800-oklch: oklch(46% 0.11 90);
+  --color-accent-900-oklch: oklch(34% 0.08 90);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COLOR PALETTE - NEUTRAL (Cinza Azulado)
+     Hue: 265 | Navy-tinted grays for cohesive feel
+     ───────────────────────────────────────────────────────────────────────────── */
+  --color-neutral-50: #F8F8FA;
+  --color-neutral-100: #ECECF0;
+  --color-neutral-200: #DCDCE4;
+  --color-neutral-300: #C4C4D0;
+  --color-neutral-400: #A5A5B5;
+  --color-neutral-500: #85859A;
+  --color-neutral-600: #656578;
+  --color-neutral-700: #4A4A5A;
+  --color-neutral-800: #32323E;
+  --color-neutral-900: #1D1D26;
+
+  /* Neutral OKLCH Values */
+  --color-neutral-50-oklch: oklch(98% 0.004 265);
+  --color-neutral-100-oklch: oklch(93% 0.008 265);
+  --color-neutral-200-oklch: oklch(88% 0.012 265);
+  --color-neutral-300-oklch: oklch(80% 0.016 265);
+  --color-neutral-400-oklch: oklch(70% 0.02 265);
+  --color-neutral-500-oklch: oklch(60% 0.024 265);
+  --color-neutral-600-oklch: oklch(48% 0.024 265);
+  --color-neutral-700-oklch: oklch(38% 0.022 265);
+  --color-neutral-800-oklch: oklch(28% 0.018 265);
+  --color-neutral-900-oklch: oklch(18% 0.014 265);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COLOR PALETTE - SEMANTIC (Status Colors)
+     ───────────────────────────────────────────────────────────────────────────── */
+  /* Success */
+  --color-success-light: #E8F7EE;
+  --color-success-base: #2DA55D;
+  --color-success-dark: #1A6B3A;
+
+  /* Warning */
+  --color-warning-light: #FEF7E6;
+  --color-warning-base: #D4A017;
+  --color-warning-dark: #8B6914;
+
+  /* Error */
+  --color-error-light: #FEF0EE;
+  --color-error-base: #D93830;
+  --color-error-dark: #8E2520;
+
+  /* Info */
+  --color-info-light: #EEF2FD;
+  --color-info-base: #3B5ED9;
+  --color-info-dark: #283D8E;
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COLOR - PURE VALUES
+     ───────────────────────────────────────────────────────────────────────────── */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-transparent: transparent;
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     TYPOGRAPHY - FONT FAMILIES
+     ───────────────────────────────────────────────────────────────────────────── */
+  --font-family-primary: 'Lora', Georgia, serif;
+  --font-family-secondary: 'Century Gothic', 'Century', sans-serif;
+  --font-family-mono: 'JetBrains Mono', monospace;
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     TYPOGRAPHY - FONT SIZES (Major Third 1.25 Scale)
+     ───────────────────────────────────────────────────────────────────────────── */
+  --font-size-xs: 0.64rem;      /* 10.24px */
+  --font-size-sm: 0.8rem;       /* 12.8px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-lg: 1.25rem;      /* 20px */
+  --font-size-xl: 1.5625rem;    /* 25px */
+  --font-size-2xl: 1.953rem;    /* 31.25px */
+  --font-size-3xl: 2.441rem;    /* 39.06px */
+  --font-size-4xl: 3.052rem;    /* 48.83px */
+  --font-size-5xl: 3.815rem;    /* 61.04px */
+  --font-size-6xl: 4.768rem;    /* 76.29px */
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     TYPOGRAPHY - FONT WEIGHTS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     TYPOGRAPHY - LINE HEIGHTS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --line-height-none: 1;
+  --line-height-tight: 1.2;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 1.75;
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     TYPOGRAPHY - LETTER SPACING
+     ───────────────────────────────────────────────────────────────────────────── */
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     SPACING (8pt Grid System)
+     ───────────────────────────────────────────────────────────────────────────── */
+  --spacing-0: 0;
+  --spacing-0-5: 0.25rem;   /* 4px */
+  --spacing-1: 0.5rem;      /* 8px */
+  --spacing-1-5: 0.75rem;   /* 12px */
+  --spacing-2: 1rem;        /* 16px */
+  --spacing-3: 1.5rem;      /* 24px */
+  --spacing-4: 2rem;        /* 32px */
+  --spacing-6: 3rem;        /* 48px */
+  --spacing-8: 4rem;        /* 64px */
+  --spacing-12: 6rem;       /* 96px */
+  --spacing-16: 8rem;       /* 128px */
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     BORDER RADIUS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;     /* 4px */
+  --radius-md: 0.5rem;      /* 8px */
+  --radius-lg: 0.75rem;     /* 12px */
+  --radius-xl: 1rem;        /* 16px */
+  --radius-2xl: 1.5rem;     /* 24px */
+  --radius-full: 9999px;
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     SHADOWS (Navy undertone - rgba(50, 50, 62, x))
+     ───────────────────────────────────────────────────────────────────────────── */
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px 0 rgba(50, 50, 62, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(50, 50, 62, 0.1), 0 2px 4px -2px rgba(50, 50, 62, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(50, 50, 62, 0.1), 0 4px 6px -4px rgba(50, 50, 62, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(50, 50, 62, 0.1), 0 8px 10px -6px rgba(50, 50, 62, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(50, 50, 62, 0.25);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     TRANSITIONS - DURATIONS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --duration-instant: 0ms;
+  --duration-fast: 100ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 500ms;
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     TRANSITIONS - EASING FUNCTIONS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     Z-INDEX SCALE
+     ───────────────────────────────────────────────────────────────────────────── */
+  --z-index-base: 0;
+  --z-index-dropdown: 100;
+  --z-index-sticky: 200;
+  --z-index-fixed: 300;
+  --z-index-overlay: 400;
+  --z-index-modal: 500;
+  --z-index-popover: 600;
+  --z-index-tooltip: 700;
+  --z-index-toast: 800;
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     GRADIENTS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --gradient-transformation: linear-gradient(135deg, #191F3A 0%, #81171F 100%);
+  --gradient-freedom: linear-gradient(135deg, #E0B83D 0%, #FAEFC5 50%, #F8F8FA 100%);
+  --gradient-sunrise: linear-gradient(135deg, #191F3A 0%, #81171F 40%, #E0B83D 100%);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     FOCUS RINGS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --focus-ring-default: 0 0 0 2px #F8F8FA, 0 0 0 4px #6A74A3;
+  --focus-ring-primary: 0 0 0 2px #F8F8FA, 0 0 0 4px #191F3A;
+  --focus-ring-secondary: 0 0 0 2px #F8F8FA, 0 0 0 4px #81171F;
+  --focus-ring-error: 0 0 0 2px #F8F8FA, 0 0 0 4px #D93830;
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     BORDERS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --border-width-none: 0;
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 4px;
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     TIER 2: SEMANTIC TOKENS (Purpose-Based)
+     These tokens define the meaning/purpose and reference Tier 1 values
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     SEMANTIC - SURFACE COLORS (Backgrounds)
+     ───────────────────────────────────────────────────────────────────────────── */
+  --surface-background: var(--color-white);
+  --surface-background-subtle: var(--color-neutral-50);
+  --surface-background-muted: var(--color-neutral-100);
+  --surface-background-emphasis: var(--color-neutral-200);
+  --surface-background-inverse: var(--color-primary-800);
+  --surface-background-brand: var(--color-primary-50);
+  --surface-background-brand-subtle: var(--color-primary-100);
+  --surface-background-accent: var(--color-accent-50);
+  --surface-background-accent-subtle: var(--color-accent-100);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     SEMANTIC - TEXT COLORS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --text-primary: var(--color-primary-800);
+  --text-secondary: var(--color-neutral-600);
+  --text-tertiary: var(--color-neutral-500);
+  --text-muted: var(--color-neutral-400);
+  --text-disabled: var(--color-neutral-300);
+  --text-inverse: var(--color-white);
+  --text-brand: var(--color-primary-700);
+  --text-brand-emphasis: var(--color-primary-800);
+  --text-accent: var(--color-secondary-700);
+  --text-accent-emphasis: var(--color-secondary-800);
+  --text-link: var(--color-primary-600);
+  --text-link-hover: var(--color-primary-700);
+  --text-link-visited: var(--color-secondary-600);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     SEMANTIC - BORDER COLORS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --border-default: var(--color-neutral-200);
+  --border-subtle: var(--color-neutral-100);
+  --border-emphasis: var(--color-neutral-300);
+  --border-strong: var(--color-neutral-400);
+  --border-brand: var(--color-primary-500);
+  --border-brand-subtle: var(--color-primary-200);
+  --border-accent: var(--color-secondary-500);
+  --border-accent-subtle: var(--color-secondary-200);
+  --border-focus: var(--color-primary-500);
+  --border-disabled: var(--color-neutral-200);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     SEMANTIC - ICON COLORS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --icon-primary: var(--color-primary-800);
+  --icon-secondary: var(--color-neutral-600);
+  --icon-tertiary: var(--color-neutral-500);
+  --icon-muted: var(--color-neutral-400);
+  --icon-disabled: var(--color-neutral-300);
+  --icon-inverse: var(--color-white);
+  --icon-brand: var(--color-primary-600);
+  --icon-accent: var(--color-secondary-600);
+  --icon-success: var(--color-success-base);
+  --icon-warning: var(--color-warning-base);
+  --icon-error: var(--color-error-base);
+  --icon-info: var(--color-info-base);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     SEMANTIC - STATUS/FEEDBACK COLORS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --status-success-bg: var(--color-success-light);
+  --status-success-text: var(--color-success-dark);
+  --status-success-border: var(--color-success-base);
+  --status-success-icon: var(--color-success-base);
+
+  --status-warning-bg: var(--color-warning-light);
+  --status-warning-text: var(--color-warning-dark);
+  --status-warning-border: var(--color-warning-base);
+  --status-warning-icon: var(--color-warning-base);
+
+  --status-error-bg: var(--color-error-light);
+  --status-error-text: var(--color-error-dark);
+  --status-error-border: var(--color-error-base);
+  --status-error-icon: var(--color-error-base);
+
+  --status-info-bg: var(--color-info-light);
+  --status-info-text: var(--color-info-dark);
+  --status-info-border: var(--color-info-base);
+  --status-info-icon: var(--color-info-base);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     SEMANTIC - INTERACTIVE STATES
+     ───────────────────────────────────────────────────────────────────────────── */
+  --interactive-default: var(--color-primary-600);
+  --interactive-hover: var(--color-primary-700);
+  --interactive-active: var(--color-primary-800);
+  --interactive-disabled: var(--color-neutral-300);
+
+  --interactive-secondary-default: var(--color-secondary-600);
+  --interactive-secondary-hover: var(--color-secondary-700);
+  --interactive-secondary-active: var(--color-secondary-800);
+
+  --interactive-accent-default: var(--color-accent-500);
+  --interactive-accent-hover: var(--color-accent-600);
+  --interactive-accent-active: var(--color-accent-700);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     SEMANTIC - TYPOGRAPHY
+     ───────────────────────────────────────────────────────────────────────────── */
+  --font-body: var(--font-family-primary);
+  --font-heading: var(--font-family-secondary);
+  --font-code: var(--font-family-mono);
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     TIER 3: COMPONENT TOKENS (Component-Specific)
+     These tokens are for specific components and reference Tier 2 values
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - BUTTONS (Primary)
+     ───────────────────────────────────────────────────────────────────────────── */
+  --button-primary-bg: var(--color-primary-800);
+  --button-primary-bg-hover: var(--color-primary-700);
+  --button-primary-bg-active: var(--color-primary-900);
+  --button-primary-bg-disabled: var(--color-neutral-200);
+  --button-primary-text: var(--text-inverse);
+  --button-primary-text-disabled: var(--text-disabled);
+  --button-primary-border: transparent;
+  --button-primary-shadow: var(--shadow-sm);
+  --button-primary-shadow-hover: var(--shadow-md);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - BUTTONS (Secondary)
+     ───────────────────────────────────────────────────────────────────────────── */
+  --button-secondary-bg: var(--color-secondary-700);
+  --button-secondary-bg-hover: var(--color-secondary-600);
+  --button-secondary-bg-active: var(--color-secondary-800);
+  --button-secondary-bg-disabled: var(--color-neutral-200);
+  --button-secondary-text: var(--text-inverse);
+  --button-secondary-text-disabled: var(--text-disabled);
+  --button-secondary-border: transparent;
+  --button-secondary-shadow: var(--shadow-sm);
+  --button-secondary-shadow-hover: var(--shadow-md);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - BUTTONS (Outline)
+     ───────────────────────────────────────────────────────────────────────────── */
+  --button-outline-bg: transparent;
+  --button-outline-bg-hover: var(--color-primary-50);
+  --button-outline-bg-active: var(--color-primary-100);
+  --button-outline-bg-disabled: transparent;
+  --button-outline-text: var(--color-primary-700);
+  --button-outline-text-hover: var(--color-primary-800);
+  --button-outline-text-disabled: var(--text-disabled);
+  --button-outline-border: var(--color-primary-300);
+  --button-outline-border-hover: var(--color-primary-500);
+  --button-outline-border-disabled: var(--border-disabled);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - BUTTONS (Ghost)
+     ───────────────────────────────────────────────────────────────────────────── */
+  --button-ghost-bg: transparent;
+  --button-ghost-bg-hover: var(--color-neutral-100);
+  --button-ghost-bg-active: var(--color-neutral-200);
+  --button-ghost-text: var(--text-primary);
+  --button-ghost-text-hover: var(--color-primary-700);
+  --button-ghost-text-disabled: var(--text-disabled);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - BUTTONS (Accent/CTA)
+     ───────────────────────────────────────────────────────────────────────────── */
+  --button-accent-bg: var(--color-accent-500);
+  --button-accent-bg-hover: var(--color-accent-600);
+  --button-accent-bg-active: var(--color-accent-700);
+  --button-accent-text: var(--color-primary-900);
+  --button-accent-shadow: var(--shadow-md);
+  --button-accent-shadow-hover: var(--shadow-lg);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - BUTTONS (Ghost Inverse - for dark backgrounds)
+     ───────────────────────────────────────────────────────────────────────────── */
+  --button-ghost-inverse-bg: transparent;
+  --button-ghost-inverse-bg-hover: rgba(255, 255, 255, 0.15);
+  --button-ghost-inverse-bg-active: rgba(255, 255, 255, 0.25);
+  --button-ghost-inverse-text: var(--color-neutral-50);
+  --button-ghost-inverse-text-hover: var(--color-white);
+  --button-ghost-inverse-text-disabled: rgba(255, 255, 255, 0.4);
+  --button-ghost-inverse-border: rgba(255, 255, 255, 0.3);
+  --button-ghost-inverse-border-hover: rgba(255, 255, 255, 0.5);
+  --button-ghost-inverse-border-disabled: rgba(255, 255, 255, 0.15);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - BUTTONS (Common)
+     ───────────────────────────────────────────────────────────────────────────── */
+  /* Button Heights (all meet 44px minimum touch target) */
+  --button-height-sm: 44px;
+  --button-height-md: 44px;
+  --button-height-lg: 48px;
+  --button-height-xl: 56px;
+
+  --button-padding-x: var(--spacing-2);
+  --button-padding-y: var(--spacing-1);
+  --button-padding-x-sm: var(--spacing-1-5);
+  --button-padding-y-sm: 10px;
+  --button-padding-x-lg: var(--spacing-3);
+  --button-padding-y-lg: var(--spacing-1-5);
+  --button-radius: var(--radius-md);
+  --button-font-size: var(--font-size-base);
+  --button-font-size-sm: var(--font-size-sm);
+  --button-font-size-lg: var(--font-size-lg);
+  --button-font-weight: var(--font-weight-semibold);
+  --button-line-height: var(--line-height-tight);
+  --button-transition: var(--duration-fast) var(--ease-out);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - INPUTS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --input-bg: var(--surface-background);
+  --input-bg-disabled: var(--color-neutral-100);
+  --input-bg-readonly: var(--color-neutral-50);
+  --input-text: var(--text-primary);
+  --input-text-placeholder: var(--text-muted);
+  --input-text-disabled: var(--text-disabled);
+  --input-border: var(--border-default);
+  --input-border-hover: var(--border-emphasis);
+  --input-border-focus: var(--color-primary-500);
+  --input-border-error: var(--color-error-base);
+  --input-border-success: var(--color-success-base);
+  --input-border-disabled: var(--border-disabled);
+  --input-radius: var(--radius-md);
+  --input-padding-x: var(--spacing-1-5);
+  --input-padding-y: var(--spacing-1);
+  --input-font-size: var(--font-size-base);
+  --input-line-height: var(--line-height-normal);
+  --input-shadow-focus: var(--focus-ring-primary);
+  --input-shadow-error: var(--focus-ring-error);
+  --input-transition: var(--duration-fast) var(--ease-out);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - CARDS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --card-bg: var(--surface-background);
+  --card-bg-hover: var(--surface-background-subtle);
+  --card-bg-elevated: var(--surface-background);
+  --card-border: var(--border-subtle);
+  --card-border-hover: var(--border-default);
+  --card-radius: var(--radius-lg);
+  --card-radius-sm: var(--radius-md);
+  --card-radius-lg: var(--radius-xl);
+  --card-padding: var(--spacing-3);
+  --card-padding-sm: var(--spacing-2);
+  --card-padding-lg: var(--spacing-4);
+  --card-shadow: var(--shadow-sm);
+  --card-shadow-hover: var(--shadow-md);
+  --card-shadow-elevated: var(--shadow-lg);
+  --card-transition: var(--duration-normal) var(--ease-out);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - BADGES/TAGS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --badge-bg-default: var(--color-neutral-100);
+  --badge-text-default: var(--text-secondary);
+  --badge-bg-primary: var(--color-primary-100);
+  --badge-text-primary: var(--color-primary-700);
+  --badge-bg-secondary: var(--color-secondary-100);
+  --badge-text-secondary: var(--color-secondary-700);
+  --badge-bg-accent: var(--color-accent-100);
+  --badge-text-accent: var(--color-accent-800);
+  --badge-bg-success: var(--color-success-light);
+  --badge-text-success: var(--color-success-dark);
+  --badge-bg-warning: var(--color-warning-light);
+  --badge-text-warning: var(--color-warning-dark);
+  --badge-bg-error: var(--color-error-light);
+  --badge-text-error: var(--color-error-dark);
+  --badge-bg-info: var(--color-info-light);
+  --badge-text-info: var(--color-info-dark);
+  --badge-padding-x: var(--spacing-1);
+  --badge-padding-y: var(--spacing-0-5);
+  --badge-radius: var(--radius-full);
+  --badge-font-size: var(--font-size-xs);
+  --badge-font-weight: var(--font-weight-medium);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - ALERTS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --alert-success-bg: var(--status-success-bg);
+  --alert-success-border: var(--status-success-border);
+  --alert-success-text: var(--status-success-text);
+  --alert-success-icon: var(--status-success-icon);
+
+  --alert-warning-bg: var(--status-warning-bg);
+  --alert-warning-border: var(--status-warning-border);
+  --alert-warning-text: var(--status-warning-text);
+  --alert-warning-icon: var(--status-warning-icon);
+
+  --alert-error-bg: var(--status-error-bg);
+  --alert-error-border: var(--status-error-border);
+  --alert-error-text: var(--status-error-text);
+  --alert-error-icon: var(--status-error-icon);
+
+  --alert-info-bg: var(--status-info-bg);
+  --alert-info-border: var(--status-info-border);
+  --alert-info-text: var(--status-info-text);
+  --alert-info-icon: var(--status-info-icon);
+
+  --alert-padding: var(--spacing-2);
+  --alert-radius: var(--radius-md);
+  --alert-border-width: var(--border-width-thin);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - LINKS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --link-color: var(--text-link);
+  --link-color-hover: var(--text-link-hover);
+  --link-color-visited: var(--text-link-visited);
+  --link-color-active: var(--color-primary-800);
+  --link-decoration: underline;
+  --link-decoration-hover: none;
+  --link-transition: var(--duration-fast) var(--ease-out);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - NAVIGATION
+     ───────────────────────────────────────────────────────────────────────────── */
+  --nav-bg: var(--surface-background);
+  --nav-bg-sticky: rgba(255, 255, 255, 0.95);
+  --nav-border: var(--border-subtle);
+  --nav-shadow: var(--shadow-sm);
+  --nav-item-text: var(--text-secondary);
+  --nav-item-text-hover: var(--text-primary);
+  --nav-item-text-active: var(--color-primary-700);
+  --nav-item-bg-hover: var(--color-neutral-50);
+  --nav-item-bg-active: var(--color-primary-50);
+  --nav-item-border-active: var(--color-primary-600);
+  --nav-padding: var(--spacing-2);
+  --nav-height: 4rem;
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - MODALS/DIALOGS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --modal-bg: var(--surface-background);
+  --modal-overlay-bg: rgba(29, 29, 38, 0.6);
+  --modal-border: var(--border-subtle);
+  --modal-radius: var(--radius-xl);
+  --modal-shadow: var(--shadow-2xl);
+  --modal-padding: var(--spacing-4);
+  --modal-header-padding: var(--spacing-3);
+  --modal-footer-padding: var(--spacing-3);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - TOOLTIPS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --tooltip-bg: var(--color-neutral-800);
+  --tooltip-text: var(--text-inverse);
+  --tooltip-radius: var(--radius-sm);
+  --tooltip-padding-x: var(--spacing-1);
+  --tooltip-padding-y: var(--spacing-0-5);
+  --tooltip-font-size: var(--font-size-sm);
+  --tooltip-shadow: var(--shadow-md);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - TABLES
+     ───────────────────────────────────────────────────────────────────────────── */
+  --table-bg: var(--surface-background);
+  --table-bg-header: var(--color-neutral-50);
+  --table-bg-row-hover: var(--color-neutral-50);
+  --table-bg-row-striped: var(--color-neutral-50);
+  --table-border: var(--border-default);
+  --table-text-header: var(--text-primary);
+  --table-text-cell: var(--text-secondary);
+  --table-padding-cell: var(--spacing-1-5);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - FORMS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --form-label-text: var(--text-primary);
+  --form-label-font-size: var(--font-size-sm);
+  --form-label-font-weight: var(--font-weight-medium);
+  --form-label-margin-bottom: var(--spacing-0-5);
+  --form-helper-text: var(--text-tertiary);
+  --form-helper-font-size: var(--font-size-sm);
+  --form-error-text: var(--color-error-base);
+  --form-error-font-size: var(--font-size-sm);
+  --form-group-gap: var(--spacing-3);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - CHECKBOXES & RADIOS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --checkbox-size: 1.25rem;
+  --checkbox-bg: var(--surface-background);
+  --checkbox-bg-checked: var(--color-primary-600);
+  --checkbox-bg-disabled: var(--color-neutral-100);
+  --checkbox-border: var(--border-emphasis);
+  --checkbox-border-checked: var(--color-primary-600);
+  --checkbox-border-hover: var(--color-primary-400);
+  --checkbox-border-disabled: var(--border-disabled);
+  --checkbox-check-color: var(--color-white);
+  --checkbox-radius: var(--radius-sm);
+  --radio-radius: var(--radius-full);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - TOGGLES/SWITCHES
+     ───────────────────────────────────────────────────────────────────────────── */
+  --toggle-width: 2.75rem;
+  --toggle-height: 1.5rem;
+  --toggle-bg-off: var(--color-neutral-300);
+  --toggle-bg-on: var(--color-primary-600);
+  --toggle-bg-disabled: var(--color-neutral-200);
+  --toggle-thumb-bg: var(--color-white);
+  --toggle-thumb-shadow: var(--shadow-sm);
+  --toggle-radius: var(--radius-full);
+  --toggle-transition: var(--duration-fast) var(--ease-spring);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - PROGRESS BARS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --progress-bg: var(--color-neutral-200);
+  --progress-fill-primary: var(--color-primary-600);
+  --progress-fill-secondary: var(--color-secondary-600);
+  --progress-fill-accent: var(--color-accent-500);
+  --progress-fill-success: var(--color-success-base);
+  --progress-fill-error: var(--color-error-base);
+  --progress-height: 0.5rem;
+  --progress-radius: var(--radius-full);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - AVATARS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --avatar-bg: var(--color-primary-100);
+  --avatar-text: var(--color-primary-700);
+  --avatar-border: var(--color-white);
+  --avatar-size-xs: 1.5rem;
+  --avatar-size-sm: 2rem;
+  --avatar-size-md: 2.5rem;
+  --avatar-size-lg: 3rem;
+  --avatar-size-xl: 4rem;
+  --avatar-radius: var(--radius-full);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - DIVIDERS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --divider-color: var(--border-default);
+  --divider-color-subtle: var(--border-subtle);
+  --divider-width: var(--border-width-thin);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     COMPONENT - SKELETON LOADERS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --skeleton-bg: var(--color-neutral-200);
+  --skeleton-bg-shimmer: var(--color-neutral-100);
+  --skeleton-radius: var(--radius-md);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     LAYOUT TOKENS
+     ───────────────────────────────────────────────────────────────────────────── */
+  --container-max-width-sm: 640px;
+  --container-max-width-md: 768px;
+  --container-max-width-lg: 1024px;
+  --container-max-width-xl: 1280px;
+  --container-max-width-2xl: 1536px;
+  --container-padding: var(--spacing-2);
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     BREAKPOINTS (for reference - use in media queries)
+     ───────────────────────────────────────────────────────────────────────────── */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   DARK MODE OVERRIDES
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - SURFACE COLORS
+       ───────────────────────────────────────────────────────────────────────── */
+    --surface-background: var(--color-neutral-900);
+    --surface-background-subtle: var(--color-neutral-800);
+    --surface-background-muted: var(--color-neutral-700);
+    --surface-background-emphasis: var(--color-neutral-600);
+    --surface-background-inverse: var(--color-neutral-50);
+    --surface-background-brand: var(--color-primary-900);
+    --surface-background-brand-subtle: var(--color-primary-800);
+    --surface-background-accent: var(--color-accent-900);
+    --surface-background-accent-subtle: var(--color-accent-800);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - TEXT COLORS
+       ───────────────────────────────────────────────────────────────────────── */
+    --text-primary: var(--color-neutral-50);
+    --text-secondary: var(--color-neutral-300);
+    --text-tertiary: var(--color-neutral-400);
+    --text-muted: var(--color-neutral-500);
+    --text-disabled: var(--color-neutral-600);
+    --text-inverse: var(--color-neutral-900);
+    --text-brand: var(--color-primary-300);
+    --text-brand-emphasis: var(--color-primary-200);
+    --text-accent: var(--color-secondary-300);
+    --text-accent-emphasis: var(--color-secondary-200);
+    --text-link: var(--color-primary-400);
+    --text-link-hover: var(--color-primary-300);
+    --text-link-visited: var(--color-secondary-400);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - BORDER COLORS
+       ───────────────────────────────────────────────────────────────────────── */
+    --border-default: var(--color-neutral-700);
+    --border-subtle: var(--color-neutral-800);
+    --border-emphasis: var(--color-neutral-600);
+    --border-strong: var(--color-neutral-500);
+    --border-brand: var(--color-primary-500);
+    --border-brand-subtle: var(--color-primary-700);
+    --border-accent: var(--color-secondary-500);
+    --border-accent-subtle: var(--color-secondary-700);
+    --border-focus: var(--color-primary-400);
+    --border-disabled: var(--color-neutral-700);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - ICON COLORS
+       ───────────────────────────────────────────────────────────────────────── */
+    --icon-primary: var(--color-neutral-50);
+    --icon-secondary: var(--color-neutral-300);
+    --icon-tertiary: var(--color-neutral-400);
+    --icon-muted: var(--color-neutral-500);
+    --icon-disabled: var(--color-neutral-600);
+    --icon-inverse: var(--color-neutral-900);
+    --icon-brand: var(--color-primary-400);
+    --icon-accent: var(--color-secondary-400);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - INTERACTIVE STATES
+       ───────────────────────────────────────────────────────────────────────── */
+    --interactive-default: var(--color-primary-400);
+    --interactive-hover: var(--color-primary-300);
+    --interactive-active: var(--color-primary-200);
+    --interactive-disabled: var(--color-neutral-600);
+
+    --interactive-secondary-default: var(--color-secondary-400);
+    --interactive-secondary-hover: var(--color-secondary-300);
+    --interactive-secondary-active: var(--color-secondary-200);
+
+    --interactive-accent-default: var(--color-accent-400);
+    --interactive-accent-hover: var(--color-accent-300);
+    --interactive-accent-active: var(--color-accent-200);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - BUTTON OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --button-primary-bg: var(--color-primary-600);
+    --button-primary-bg-hover: var(--color-primary-500);
+    --button-primary-bg-active: var(--color-primary-700);
+    --button-primary-bg-disabled: var(--color-neutral-700);
+    --button-primary-text-disabled: var(--color-neutral-500);
+
+    --button-secondary-bg: var(--color-secondary-600);
+    --button-secondary-bg-hover: var(--color-secondary-500);
+    --button-secondary-bg-active: var(--color-secondary-700);
+    --button-secondary-bg-disabled: var(--color-neutral-700);
+    --button-secondary-text-disabled: var(--color-neutral-500);
+
+    --button-outline-bg-hover: var(--color-primary-900);
+    --button-outline-bg-active: var(--color-primary-800);
+    --button-outline-text: var(--color-primary-300);
+    --button-outline-text-hover: var(--color-primary-200);
+    --button-outline-text-disabled: var(--color-neutral-600);
+    --button-outline-border: var(--color-primary-600);
+    --button-outline-border-hover: var(--color-primary-400);
+    --button-outline-border-disabled: var(--color-neutral-700);
+
+    --button-ghost-bg-hover: var(--color-neutral-800);
+    --button-ghost-bg-active: var(--color-neutral-700);
+    --button-ghost-text: var(--color-neutral-100);
+    --button-ghost-text-hover: var(--color-primary-300);
+    --button-ghost-text-disabled: var(--color-neutral-600);
+
+    --button-accent-bg: var(--color-accent-600);
+    --button-accent-bg-hover: var(--color-accent-500);
+    --button-accent-bg-active: var(--color-accent-700);
+    --button-accent-text: var(--color-neutral-900);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - INPUT OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --input-bg: var(--color-neutral-800);
+    --input-bg-disabled: var(--color-neutral-700);
+    --input-bg-readonly: var(--color-neutral-800);
+    --input-text: var(--color-neutral-50);
+    --input-text-placeholder: var(--color-neutral-500);
+    --input-text-disabled: var(--color-neutral-600);
+    --input-border: var(--color-neutral-600);
+    --input-border-hover: var(--color-neutral-500);
+    --input-border-focus: var(--color-primary-400);
+    --input-border-disabled: var(--color-neutral-700);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - CARD OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --card-bg: var(--color-neutral-800);
+    --card-bg-hover: var(--color-neutral-700);
+    --card-bg-elevated: var(--color-neutral-700);
+    --card-border: var(--color-neutral-700);
+    --card-border-hover: var(--color-neutral-600);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - BADGE OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --badge-bg-default: var(--color-neutral-700);
+    --badge-text-default: var(--color-neutral-300);
+    --badge-bg-primary: var(--color-primary-800);
+    --badge-text-primary: var(--color-primary-200);
+    --badge-bg-secondary: var(--color-secondary-800);
+    --badge-text-secondary: var(--color-secondary-200);
+    --badge-bg-accent: var(--color-accent-800);
+    --badge-text-accent: var(--color-accent-200);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - NAVIGATION OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --nav-bg: var(--color-neutral-900);
+    --nav-bg-sticky: rgba(29, 29, 38, 0.95);
+    --nav-border: var(--color-neutral-800);
+    --nav-item-text: var(--color-neutral-400);
+    --nav-item-text-hover: var(--color-neutral-100);
+    --nav-item-text-active: var(--color-primary-300);
+    --nav-item-bg-hover: var(--color-neutral-800);
+    --nav-item-bg-active: var(--color-primary-900);
+    --nav-item-border-active: var(--color-primary-400);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - MODAL OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --modal-bg: var(--color-neutral-800);
+    --modal-overlay-bg: rgba(0, 0, 0, 0.75);
+    --modal-border: var(--color-neutral-700);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - TOOLTIP OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --tooltip-bg: var(--color-neutral-100);
+    --tooltip-text: var(--color-neutral-900);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - TABLE OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --table-bg: var(--color-neutral-900);
+    --table-bg-header: var(--color-neutral-800);
+    --table-bg-row-hover: var(--color-neutral-800);
+    --table-bg-row-striped: var(--color-neutral-800);
+    --table-border: var(--color-neutral-700);
+    --table-text-header: var(--color-neutral-100);
+    --table-text-cell: var(--color-neutral-300);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - FORM OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --form-label-text: var(--color-neutral-100);
+    --form-helper-text: var(--color-neutral-400);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - CHECKBOX & RADIO OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --checkbox-bg: var(--color-neutral-800);
+    --checkbox-bg-checked: var(--color-primary-500);
+    --checkbox-bg-disabled: var(--color-neutral-700);
+    --checkbox-border: var(--color-neutral-500);
+    --checkbox-border-checked: var(--color-primary-500);
+    --checkbox-border-hover: var(--color-primary-400);
+    --checkbox-border-disabled: var(--color-neutral-700);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - TOGGLE OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --toggle-bg-off: var(--color-neutral-600);
+    --toggle-bg-on: var(--color-primary-500);
+    --toggle-bg-disabled: var(--color-neutral-700);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - PROGRESS OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --progress-bg: var(--color-neutral-700);
+    --progress-fill-primary: var(--color-primary-500);
+    --progress-fill-secondary: var(--color-secondary-500);
+    --progress-fill-accent: var(--color-accent-400);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - AVATAR OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --avatar-bg: var(--color-primary-800);
+    --avatar-text: var(--color-primary-200);
+    --avatar-border: var(--color-neutral-800);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - DIVIDER OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --divider-color: var(--color-neutral-700);
+    --divider-color-subtle: var(--color-neutral-800);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - SKELETON OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --skeleton-bg: var(--color-neutral-700);
+    --skeleton-bg-shimmer: var(--color-neutral-600);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - SHADOW OVERRIDES (darker, more pronounced)
+       ───────────────────────────────────────────────────────────────────────── */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+    /* ─────────────────────────────────────────────────────────────────────────
+       DARK MODE - FOCUS RING OVERRIDES
+       ───────────────────────────────────────────────────────────────────────── */
+    --focus-ring-default: 0 0 0 2px var(--color-neutral-900), 0 0 0 4px var(--color-primary-400);
+    --focus-ring-primary: 0 0 0 2px var(--color-neutral-900), 0 0 0 4px var(--color-primary-400);
+    --focus-ring-secondary: 0 0 0 2px var(--color-neutral-900), 0 0 0 4px var(--color-secondary-400);
+    --focus-ring-error: 0 0 0 2px var(--color-neutral-900), 0 0 0 4px var(--color-error-base);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   REDUCED MOTION PREFERENCES
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-slow: 0ms;
+    --duration-slower: 0ms;
+
+    /* Override component transitions */
+    --button-transition: 0ms;
+    --input-transition: 0ms;
+    --card-transition: 0ms;
+    --link-transition: 0ms;
+    --toggle-transition: 0ms;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   HIGH CONTRAST MODE SUPPORT
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-contrast: high) {
+  :root {
+    /* Increase border visibility */
+    --border-default: var(--color-neutral-500);
+    --border-emphasis: var(--color-neutral-700);
+    --input-border: var(--color-neutral-600);
+
+    /* Ensure text has sufficient contrast */
+    --text-secondary: var(--color-neutral-700);
+    --text-tertiary: var(--color-neutral-600);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   PRINT STYLES
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+@media print {
+  :root {
+    /* Force light mode colors for printing */
+    --surface-background: #FFFFFF;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+
+    /* Remove shadows for cleaner print */
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
+    --shadow-xl: none;
+    --shadow-2xl: none;
+  }
+}

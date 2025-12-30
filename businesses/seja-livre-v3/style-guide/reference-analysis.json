@@ -1,0 +1,900 @@
+{
+  "section": "reference-analysis",
+  "agent": "reference-analyzer",
+  "generated": "2025-12-30",
+  "methodology": "Inspiration-First: Learn from the best, create something unique",
+  "brand_context": {
+    "name": "Seja Livre",
+    "tagline": "Empreenda com leveza, cresca com liberdade",
+    "archetype_formula": "Libertadora (60%) + Mentora Sabia (40%)",
+    "personality_traits": ["warm", "direct", "premium", "accessible", "anti-hustle", "pro-freedom"],
+    "visual_identity": {
+      "primary_color": "#191F3A",
+      "primary_name": "Navy Profundo",
+      "secondary_color": "#81171F",
+      "secondary_name": "Borgonha",
+      "accent_color": "#E0B83D",
+      "accent_name": "Ouro da Liberdade",
+      "symbol": "Dandelion with seeds flying free"
+    },
+    "target_audience": {
+      "demographic": "Female entrepreneurs",
+      "psychographic": "Exhausted, seeking freedom, values authenticity over hype",
+      "desire": "Results without the grind"
+    },
+    "typography_from_manual": {
+      "primary_serif": "Lora",
+      "secondary_geometric_sans": "Century Gothic"
+    }
+  },
+  "sites_analyzed": [
+    {
+      "url": "oitavo.cafe/sejalivre",
+      "name": "Seja Livre Landing Page (Client Site)",
+      "analysis_type": "direct_brand_reference",
+      "typography": {
+        "font_pairing": {
+          "heading_font": "Century Gothic",
+          "heading_type": "geometric-sans",
+          "heading_weight": "700",
+          "body_font": "Lora",
+          "body_type": "serif",
+          "body_weight": "400",
+          "pairing_style": "elegant-contrast"
+        },
+        "hierarchy": {
+          "h1_desktop": {
+            "size_estimate": "42-48px",
+            "weight": "700",
+            "font": "Century Gothic"
+          },
+          "h2_desktop": {
+            "size_estimate": "32-36px",
+            "weight": "700",
+            "font": "Century Gothic"
+          },
+          "h3_desktop": {
+            "size_estimate": "24-28px",
+            "weight": "600",
+            "font": "Century Gothic"
+          },
+          "body": {
+            "size": "18px",
+            "weight": "400",
+            "line_height": "1.6-1.7",
+            "font": "Lora"
+          },
+          "caption": {
+            "size": "14-15px",
+            "weight": "400",
+            "font": "Lora"
+          }
+        },
+        "characteristics": {
+          "serif_role": "warmth_trust_readability",
+          "sans_role": "modern_authority_headlines",
+          "contrast_level": "high",
+          "personality_expression": "modern_sophistication_with_warmth"
+        }
+      },
+      "colors": {
+        "background": {
+          "primary": "warm-cream",
+          "css_class": "bg-cream",
+          "effect": "soft_inviting_not_stark_white",
+          "hex_estimate": "#F8F6F2"
+        },
+        "usage_pattern": {
+          "navy_primary": "headlines_ctas_authority_elements",
+          "burgundy_secondary": "accent_emphasis_passion_points",
+          "cream_background": "base_canvas_breathing_space",
+          "contrast_strategy": "dark_on_light_primary_pattern"
+        },
+        "emotional_temperature": "warm-neutral"
+      },
+      "spacing": {
+        "philosophy": "generous_breathing_room",
+        "section_padding": {
+          "vertical": "80-120px",
+          "horizontal": "5-8%_viewport"
+        },
+        "content_width": {
+          "max_container": "1200-1280px",
+          "paragraph_max": "680-720px"
+        },
+        "element_spacing": {
+          "between_sections": "large",
+          "within_sections": "comfortable",
+          "density": "low_to_medium"
+        }
+      },
+      "components": {
+        "buttons": {
+          "style": "prominent_rounded",
+          "border_radius_estimate": "8-12px",
+          "padding": "generous",
+          "typography": "bold_uppercase_or_sentence_case"
+        },
+        "cards": {
+          "style": "minimal_clean",
+          "shadow": "subtle_or_none",
+          "border": "subtle_or_none"
+        },
+        "sections": {
+          "count": "13+",
+          "structure": "modular_vertically_stacked",
+          "pattern": "full_width_alternating_backgrounds"
+        },
+        "social_integration": {
+          "whatsapp": "prominent_cta",
+          "sharing": "visible_encouraged"
+        }
+      },
+      "layout": {
+        "structure": "section_based_narrative",
+        "flow": "vertical_scroll_storytelling",
+        "grid": "single_column_centered_with_variations",
+        "hero": {
+          "style": "full_width_impactful",
+          "cta_prominence": "high"
+        },
+        "content_alignment": "centered_primary"
+      },
+      "aesthetic": {
+        "overall": "warm_professional_approachable",
+        "sophistication_level": "premium_yet_accessible",
+        "visual_weight": "balanced_not_heavy",
+        "brand_expression": "mentorship_transformation_freedom"
+      },
+      "brand_alignment_score": 9,
+      "alignment_notes": "Direct brand reference - establishes baseline typography and warm aesthetic. Century Gothic + Lora pairing is already defined. Cream background creates warmth."
+    },
+    {
+      "url": "bettinarudolph.com.br",
+      "name": "Do Zero ao Digital (Bettina Rudolph)",
+      "analysis_type": "competitive_inspiration",
+      "typography": {
+        "font_pairing": {
+          "heading_font": "Montserrat",
+          "heading_type": "geometric-sans",
+          "heading_weight": "700",
+          "body_font": "Albert Sans",
+          "body_type": "sans-serif",
+          "body_weight": "400",
+          "pairing_style": "all-sans-modern"
+        },
+        "hierarchy": {
+          "h1_desktop": {
+            "size": "32px",
+            "weight": "700",
+            "letter_spacing": "normal"
+          },
+          "h1_mobile": {
+            "size": "26px",
+            "weight": "700"
+          },
+          "h2_desktop": {
+            "size": "28px",
+            "weight": "700"
+          },
+          "h3_desktop": {
+            "size": "24px",
+            "weight": "600"
+          },
+          "body": {
+            "size": "18px",
+            "weight": "400",
+            "line_height": "1.5"
+          },
+          "caption": {
+            "size": "14px",
+            "weight": "400"
+          }
+        },
+        "responsive_strategy": {
+          "desktop_to_mobile_reduction": "18-20%",
+          "maintains_hierarchy": true
+        }
+      },
+      "colors": {
+        "palette": {
+          "primary_background": {
+            "hex": "#EDE4E0",
+            "name": "warm-beige-cream",
+            "usage": "page_background_sections"
+          },
+          "accent_primary": {
+            "hex": "#AA5F35",
+            "name": "earthy-brown",
+            "usage": "highlights_links_accents"
+          },
+          "text_primary": {
+            "hex": "#000000",
+            "name": "black",
+            "usage": "headings_body_text"
+          },
+          "text_secondary": {
+            "hex": "#7A7A7A",
+            "name": "medium-gray",
+            "usage": "supporting_text"
+          },
+          "cta_primary": {
+            "hex": "#6EC1E4",
+            "name": "teal-blue",
+            "usage": "buttons_action_elements"
+          },
+          "surface": {
+            "hex": "#FFFFFF",
+            "name": "white",
+            "usage": "form_fields_cards"
+          }
+        },
+        "color_strategy": {
+          "background_warmth": "very_warm_cream_beige",
+          "contrast_approach": "high_contrast_for_readability",
+          "accent_usage": "strategic_highlights_not_dominant"
+        }
+      },
+      "spacing": {
+        "philosophy": "generous_whitespace_luxurious_feel",
+        "measurements": {
+          "section_margin_vertical": "80-100px",
+          "content_margin_horizontal": "20-40px",
+          "paragraph_spacing": "16-20px",
+          "container_max_width": "1280px",
+          "mobile_width": "90%"
+        },
+        "hero_breathing_room": "100px_plus",
+        "density": "low",
+        "whitespace_ratio": "generous"
+      },
+      "components": {
+        "buttons": {
+          "border_radius": "10px",
+          "padding": "16px_32px_estimate",
+          "font_size": "18px",
+          "font_weight": "700",
+          "text_transform": "none",
+          "style": "rounded_bold_high_contrast",
+          "hover_effect": "subtle_color_shift"
+        },
+        "form_inputs": {
+          "background": "#FFFFFF",
+          "border": "1px_subtle",
+          "border_radius": "10px",
+          "padding": "14-16px"
+        },
+        "cards": {
+          "shadow": "minimal_or_none",
+          "border_radius": "8-12px",
+          "background": "white_or_transparent",
+          "typography": "clean_minimal"
+        },
+        "testimonials": {
+          "style": "video_cards_with_overlay",
+          "gradient": "subtle_dark_overlay",
+          "text_on_media": "white"
+        },
+        "navigation": {
+          "style": "minimal_clean",
+          "position": "sticky_or_fixed"
+        }
+      },
+      "layout": {
+        "structure": "grid_based_sections_vertical_stack",
+        "container_style": "flexbox",
+        "hero": {
+          "style": "full_width_background_imagery",
+          "content": "centered_constrained"
+        },
+        "sections": {
+          "alternating_backgrounds": true,
+          "content_width": "constrained_centered"
+        },
+        "grid_pattern": "centered_content_max_width"
+      },
+      "aesthetic": {
+        "overall": "warmth_and_approachability",
+        "feel": "friendly_professionalism",
+        "elements": {
+          "earthy_tones": "approachable_natural",
+          "rounded_corners": "friendly_soft",
+          "abundant_whitespace": "luxurious_yet_accessible"
+        },
+        "balance": "aspirational_plus_actionable"
+      },
+      "brand_alignment_score": 7,
+      "alignment_notes": "Strong alignment with warm-approachable aesthetic. Excellent spacing philosophy. Teal-blue CTA doesn't fit Seja Livre palette. All-sans typography lacks the serif warmth that Seja Livre brand manual specifies.",
+      "lessons_to_adopt": [
+        "Generous whitespace philosophy",
+        "10px rounded corners on interactive elements",
+        "Warm cream/beige background approach",
+        "High contrast button styling",
+        "Clean form input design",
+        "Hero section breathing room (80-100px)"
+      ],
+      "lessons_to_avoid": [
+        "Teal-blue accent (use brand burgundy/gold instead)",
+        "All-sans typography (maintain serif for body)",
+        "Generic gray text colors (use navy-tinted neutrals)"
+      ]
+    }
+  ],
+  "synthesis": {
+    "common_patterns": [
+      {
+        "pattern": "warm_cream_background",
+        "description": "Both sites use warm cream/beige backgrounds instead of stark white",
+        "implementation": "Use neutral-50 (#F8F8FA) or slightly warmer tint as page base",
+        "brand_fit": "high",
+        "rationale": "Aligns with Seja Livre's warm-approachable personality and leveza philosophy"
+      },
+      {
+        "pattern": "generous_whitespace",
+        "description": "Abundant breathing room in all sections, 80-100px vertical padding",
+        "implementation": "Section padding: 80px desktop, 48-64px mobile; generous line-height 1.6+",
+        "brand_fit": "high",
+        "rationale": "Supports 'leveza' (lightness) brand value and premium positioning"
+      },
+      {
+        "pattern": "rounded_interactive_elements",
+        "description": "10-12px border radius on buttons and inputs",
+        "implementation": "Default border-radius: 10px for buttons, 8px for inputs, 12px for cards",
+        "brand_fit": "high",
+        "rationale": "Softness conveys approachability without losing professionalism"
+      },
+      {
+        "pattern": "bold_cta_buttons",
+        "description": "High contrast, bold typography on action buttons",
+        "implementation": "Font-weight 600-700, 18px size, generous padding (16px 32px)",
+        "brand_fit": "high",
+        "rationale": "Supports clear call-to-action for mentorship conversion"
+      },
+      {
+        "pattern": "section_based_narrative",
+        "description": "Modular vertical sections telling a story",
+        "implementation": "Full-width sections with alternating subtle backgrounds",
+        "brand_fit": "high",
+        "rationale": "Supports Seja Livre's storytelling approach and transformation journey"
+      },
+      {
+        "pattern": "centered_content_constrained",
+        "description": "Content centered within max-width containers",
+        "implementation": "Max-width 1280px container, content width 680-720px for text blocks",
+        "brand_fit": "high",
+        "rationale": "Focused reading experience supporting mentorship content"
+      }
+    ],
+    "typography_direction": {
+      "font_stack": {
+        "heading": {
+          "primary": "Century Gothic",
+          "fallback": "Montserrat, system-ui, sans-serif",
+          "type": "geometric-sans",
+          "role": "Modern authority, clear hierarchy"
+        },
+        "body": {
+          "primary": "Lora",
+          "fallback": "Georgia, serif",
+          "type": "serif",
+          "role": "Warmth, trust, comfortable reading"
+        }
+      },
+      "scale": {
+        "methodology": "Perfect Fourth (1.333) ratio for harmony",
+        "base": "18px",
+        "display_xl": {
+          "desktop": "56px",
+          "mobile": "36px",
+          "weight": "700",
+          "font": "Century Gothic",
+          "line_height": "1.1",
+          "usage": "Hero headlines"
+        },
+        "display": {
+          "desktop": "48px",
+          "mobile": "32px",
+          "weight": "700",
+          "font": "Century Gothic",
+          "line_height": "1.15"
+        },
+        "h1": {
+          "desktop": "42px",
+          "mobile": "28px",
+          "weight": "700",
+          "font": "Century Gothic",
+          "line_height": "1.2"
+        },
+        "h2": {
+          "desktop": "32px",
+          "mobile": "24px",
+          "weight": "700",
+          "font": "Century Gothic",
+          "line_height": "1.25"
+        },
+        "h3": {
+          "desktop": "24px",
+          "mobile": "20px",
+          "weight": "600",
+          "font": "Century Gothic",
+          "line_height": "1.3"
+        },
+        "h4": {
+          "desktop": "20px",
+          "mobile": "18px",
+          "weight": "600",
+          "font": "Century Gothic",
+          "line_height": "1.4"
+        },
+        "body_large": {
+          "size": "20px",
+          "weight": "400",
+          "font": "Lora",
+          "line_height": "1.6",
+          "usage": "Lead paragraphs, important statements"
+        },
+        "body": {
+          "size": "18px",
+          "weight": "400",
+          "font": "Lora",
+          "line_height": "1.7",
+          "usage": "Main body text"
+        },
+        "body_small": {
+          "size": "16px",
+          "weight": "400",
+          "font": "Lora",
+          "line_height": "1.6",
+          "usage": "Secondary content, captions"
+        },
+        "caption": {
+          "size": "14px",
+          "weight": "400",
+          "font": "Lora",
+          "line_height": "1.5",
+          "usage": "Labels, meta information"
+        },
+        "overline": {
+          "size": "12px",
+          "weight": "600",
+          "font": "Century Gothic",
+          "line_height": "1.4",
+          "letter_spacing": "0.08em",
+          "text_transform": "uppercase",
+          "usage": "Section labels, eyebrow text"
+        }
+      },
+      "recommendations": [
+        "Use Century Gothic for all headings to establish brand authority",
+        "Use Lora for body text to add warmth and improve readability",
+        "Maintain 18px base for comfortable reading on mentorship content",
+        "Apply 1.7 line-height for body text to support 'leveza' (lightness)",
+        "Use weight contrast (700 headers, 400 body) for clear hierarchy",
+        "Consider Lora italic for emphasis in emotional content sections"
+      ]
+    },
+    "spacing_philosophy": {
+      "principle": "Generous breathing room supports 'leveza' (lightness)",
+      "density": "low_to_medium",
+      "base_unit": "8px",
+      "scale": {
+        "xs": "4px",
+        "sm": "8px",
+        "md": "16px",
+        "lg": "24px",
+        "xl": "32px",
+        "2xl": "48px",
+        "3xl": "64px",
+        "4xl": "80px",
+        "5xl": "96px",
+        "6xl": "128px"
+      },
+      "sections": {
+        "padding_vertical_desktop": "80-96px",
+        "padding_vertical_mobile": "48-64px",
+        "padding_horizontal_desktop": "24-48px",
+        "padding_horizontal_mobile": "20-24px"
+      },
+      "content": {
+        "max_width_container": "1280px",
+        "max_width_content": "720px",
+        "max_width_narrow": "600px",
+        "paragraph_spacing": "1.5em",
+        "heading_margin_top": "2em",
+        "heading_margin_bottom": "0.75em"
+      },
+      "components": {
+        "card_padding": "24-32px",
+        "button_padding_x": "24-32px",
+        "button_padding_y": "14-18px",
+        "input_padding": "14-16px",
+        "gap_small": "16px",
+        "gap_medium": "24px",
+        "gap_large": "32px"
+      },
+      "recommendations": [
+        "Never crowd elements - white space is a feature, not waste",
+        "Use 80px+ section padding to create breathing room",
+        "Limit text width to 720px for optimal readability",
+        "Apply consistent 8px grid system for alignment",
+        "Hero sections need 100px+ vertical breathing room"
+      ]
+    },
+    "component_direction": {
+      "buttons": {
+        "primary": {
+          "background": "primary-800 (#191F3A)",
+          "text": "neutral-50 (#F8F8FA)",
+          "border_radius": "10px",
+          "padding": "16px 32px",
+          "font_size": "18px",
+          "font_weight": "600",
+          "font_family": "Century Gothic",
+          "hover": "primary-700 (#363D62)",
+          "shadow": "shadow-md on hover",
+          "transition": "all 200ms ease"
+        },
+        "secondary": {
+          "background": "secondary-700 (#81171F)",
+          "text": "neutral-50",
+          "border_radius": "10px",
+          "padding": "16px 32px",
+          "font_size": "18px",
+          "font_weight": "600",
+          "hover": "secondary-600 (#9E2A35)"
+        },
+        "outline": {
+          "background": "transparent",
+          "border": "2px solid primary-800",
+          "text": "primary-800",
+          "hover_background": "primary-50",
+          "hover_border": "primary-700"
+        },
+        "accent": {
+          "background": "accent-500 (#E0B83D)",
+          "text": "primary-800",
+          "hover": "accent-600 (#C99B1F)",
+          "usage": "Special moments, golden highlights"
+        },
+        "ghost": {
+          "background": "transparent",
+          "text": "primary-700",
+          "hover_background": "primary-50"
+        },
+        "sizing": {
+          "small": {
+            "padding": "10px 20px",
+            "font_size": "14px"
+          },
+          "medium": {
+            "padding": "14px 28px",
+            "font_size": "16px"
+          },
+          "large": {
+            "padding": "18px 36px",
+            "font_size": "18px"
+          }
+        }
+      },
+      "inputs": {
+        "background": "#FFFFFF",
+        "border": "1px solid neutral-300",
+        "border_radius": "8px",
+        "padding": "14px 16px",
+        "font_size": "16px",
+        "font_family": "Lora",
+        "focus": {
+          "border": "primary-500",
+          "ring": "0 0 0 3px primary-100"
+        },
+        "error": {
+          "border": "error-base",
+          "ring": "0 0 0 3px error-light"
+        },
+        "placeholder": {
+          "color": "neutral-400"
+        }
+      },
+      "cards": {
+        "background": "#FFFFFF",
+        "border_radius": "12px",
+        "padding": "24-32px",
+        "shadow": "shadow-sm",
+        "hover_shadow": "shadow-md",
+        "border": "none or 1px neutral-200 subtle",
+        "transition": "all 200ms ease"
+      },
+      "testimonials": {
+        "style": "clean_with_subtle_accent",
+        "quote_mark": "secondary-300 or accent-300",
+        "text": "Lora italic",
+        "attribution": "Century Gothic bold",
+        "background": "neutral-50 or white"
+      },
+      "navigation": {
+        "style": "minimal_clean",
+        "background": "white or neutral-50",
+        "shadow": "shadow-sm when scrolled",
+        "links": {
+          "font": "Century Gothic",
+          "size": "16px",
+          "weight": "500",
+          "color": "neutral-700",
+          "hover": "primary-800"
+        }
+      },
+      "modals": {
+        "background": "white",
+        "border_radius": "16px",
+        "padding": "32px",
+        "shadow": "shadow-xl",
+        "overlay": "neutral-900 / 50% opacity"
+      }
+    },
+    "layout_patterns": [
+      {
+        "pattern": "hero_section",
+        "description": "Full-width hero with centered content",
+        "specifications": {
+          "min_height": "80vh or auto with generous padding",
+          "padding_vertical": "100-120px",
+          "content_max_width": "800px",
+          "text_align": "center",
+          "cta_placement": "prominent_below_headline"
+        },
+        "brand_application": "Navy gradient background for transformation story, or cream for lighter feel"
+      },
+      {
+        "pattern": "alternating_sections",
+        "description": "Full-width sections with alternating backgrounds",
+        "specifications": {
+          "backgrounds": ["neutral-50", "white", "primary-50", "accent-50"],
+          "padding": "80px vertical",
+          "content_centered": true
+        },
+        "brand_application": "Use primary-50 for trust/method sections, accent-50 for freedom/success stories"
+      },
+      {
+        "pattern": "content_grid",
+        "description": "Responsive grid for features, benefits, testimonials",
+        "specifications": {
+          "columns_desktop": "3",
+          "columns_tablet": "2",
+          "columns_mobile": "1",
+          "gap": "32px",
+          "max_width": "1200px"
+        }
+      },
+      {
+        "pattern": "two_column_with_media",
+        "description": "Text and image side by side",
+        "specifications": {
+          "split": "50/50 or 45/55",
+          "gap": "48-64px",
+          "vertical_align": "center",
+          "mobile": "stack vertically, image first or second based on context"
+        }
+      },
+      {
+        "pattern": "cta_section",
+        "description": "Dedicated conversion section",
+        "specifications": {
+          "background": "gradient-transformation or secondary-700",
+          "text_color": "neutral-50",
+          "padding": "80px vertical",
+          "text_align": "center",
+          "button_style": "accent or white outline"
+        },
+        "brand_application": "Use 'VAMOS?' CTA language from voice guide"
+      },
+      {
+        "pattern": "testimonial_section",
+        "description": "Social proof with quotes",
+        "specifications": {
+          "layout": "carousel or grid",
+          "card_style": "clean minimal",
+          "background": "neutral-50 or gradient-freedom subtle"
+        }
+      }
+    ],
+    "avoid": [
+      {
+        "element": "teal_or_blue_ctas",
+        "reason": "Conflicts with brand palette; use burgundy or gold instead",
+        "alternative": "secondary-700 (#81171F) or accent-500 (#E0B83D)"
+      },
+      {
+        "element": "all_sans_serif_typography",
+        "reason": "Loses warmth and trust that Lora serif provides",
+        "alternative": "Maintain Century Gothic + Lora pairing from brand manual"
+      },
+      {
+        "element": "cold_gray_neutrals",
+        "reason": "Conflicts with warm brand personality",
+        "alternative": "Use navy-tinted neutrals from palette (hue 265)"
+      },
+      {
+        "element": "stark_white_backgrounds",
+        "reason": "Feels cold and clinical for mentorship brand",
+        "alternative": "Use neutral-50 (#F8F8FA) as base, it has subtle warmth"
+      },
+      {
+        "element": "sharp_corners_on_interactive",
+        "reason": "Feels harsh for approachable brand",
+        "alternative": "8-12px border radius for softness"
+      },
+      {
+        "element": "heavy_shadows",
+        "reason": "Creates visual weight that conflicts with 'leveza'",
+        "alternative": "Subtle shadow-sm and shadow-md only"
+      },
+      {
+        "element": "cramped_spacing",
+        "reason": "Contradicts brand lightness philosophy",
+        "alternative": "Generous 80px+ section padding"
+      },
+      {
+        "element": "generic_stock_imagery",
+        "reason": "Doesn't support authentic brand voice",
+        "alternative": "Use real photos, dandelion imagery, brand photography"
+      },
+      {
+        "element": "guru_style_urgency_elements",
+        "reason": "Conflicts with anti-hustle, authentic brand positioning",
+        "alternative": "Calm, confident CTAs without countdown timers or fake scarcity"
+      },
+      {
+        "element": "decorative_elements_excess",
+        "reason": "Can feel cluttered, against 'leveza'",
+        "alternative": "Minimal decoration, let whitespace and typography do the work"
+      }
+    ],
+    "visual_direction": {
+      "overall_aesthetic": {
+        "summary": "Warm Premium Approachability",
+        "description": "A visual language that feels premium without being cold, professional without being corporate, and warm without being casual. The design should breathe (leveza) while maintaining clear authority (Mentora Sabia).",
+        "keywords": ["warm", "breathing", "premium", "approachable", "trustworthy", "transformative"]
+      },
+      "color_application_strategy": {
+        "backgrounds": {
+          "primary": "neutral-50 (#F8F8FA) - main canvas, slight warmth",
+          "secondary": "white (#FFFFFF) - cards, elevated surfaces",
+          "accent_light": "accent-50 (#FEFCF3) - success stories, freedom sections",
+          "trust_light": "primary-50 (#F4F5FA) - methodology, process sections",
+          "passion_light": "secondary-50 (#FDF5F5) - emotional, transformation sections"
+        },
+        "text": {
+          "headings": "primary-800 (#191F3A) - maximum contrast, authority",
+          "body": "neutral-700 (#4A4A5A) - comfortable reading, warm gray",
+          "muted": "neutral-500 (#85859A) - secondary info",
+          "emphasis": "secondary-700 (#81171F) - passion points, key phrases",
+          "links": "primary-600 (#4F5785) - clear affordance"
+        },
+        "accents": {
+          "primary_cta": "primary-800 - main conversion buttons",
+          "secondary_cta": "secondary-700 - emotional CTAs",
+          "highlight": "accent-500 (#E0B83D) - golden moments, freedom achieved",
+          "borders": "neutral-200 (#DCDCE4) - subtle definition"
+        },
+        "gradients": {
+          "hero_transformation": "gradient-transformation (navy to burgundy)",
+          "success_freedom": "gradient-freedom (gold to light)",
+          "premium_professional": "gradient-professional (navy depth)"
+        }
+      },
+      "whitespace_philosophy": {
+        "principle": "Whitespace is not empty space - it's where ideas breathe",
+        "approach": "generous",
+        "section_breathing_room": "minimum 80px vertical padding",
+        "content_breathing_room": "maximum 720px text width",
+        "element_separation": "clear visual grouping through space",
+        "alignment_with_brand": "Directly supports 'leveza' (lightness) core value"
+      },
+      "component_personality": {
+        "corners": {
+          "style": "rounded",
+          "buttons": "10px",
+          "inputs": "8px",
+          "cards": "12px",
+          "modals": "16px",
+          "rationale": "Softness conveys approachability"
+        },
+        "shadows": {
+          "style": "subtle_warm",
+          "color_source": "neutral-800 with 265 hue",
+          "intensity": "light",
+          "rationale": "Supports leveza, never heavy"
+        },
+        "borders": {
+          "style": "minimal_when_needed",
+          "default": "1px neutral-200",
+          "focus": "2px primary-500",
+          "rationale": "Clean without harsh definition"
+        },
+        "icons": {
+          "style": "outlined_or_light_filled",
+          "stroke_width": "1.5-2px",
+          "color": "neutral-600 or primary-600",
+          "rationale": "Elegant, not heavy"
+        },
+        "animation": {
+          "style": "subtle_smooth",
+          "duration": "200-300ms",
+          "easing": "ease-out",
+          "hover_transforms": "subtle lift or scale 1.02",
+          "rationale": "Refined movement, never jarring"
+        }
+      },
+      "mobile_considerations": {
+        "typography": {
+          "reduction": "18-25% from desktop sizes",
+          "base_body": "16px minimum",
+          "line_height": "maintain 1.6-1.7 ratio"
+        },
+        "spacing": {
+          "section_padding": "48-64px vertical",
+          "horizontal_padding": "20-24px",
+          "touch_targets": "minimum 44px"
+        },
+        "layout": {
+          "columns": "single column primary",
+          "stacking": "natural content flow",
+          "ctas": "full width for prominence"
+        },
+        "navigation": {
+          "style": "hamburger menu",
+          "drawer": "slide from right",
+          "background": "white"
+        },
+        "specific_adaptations": [
+          "Increase button padding for touch",
+          "Stack two-column layouts",
+          "Reduce hero section height to 50-60vh",
+          "Keep testimonial carousels swipeable"
+        ]
+      },
+      "brand_integration": {
+        "dandelion_motif": {
+          "usage": "subtle background patterns, section dividers, success moments",
+          "style": "abstract seeds, not literal illustration",
+          "color": "accent-300 to accent-500"
+        },
+        "transformation_journey": {
+          "visual_metaphor": "gradient from navy (rational) through burgundy (passion) to gold (freedom)",
+          "application": "hero sections, progress indicators, timeline elements"
+        },
+        "signature_elements": {
+          "vamos_cta": "Use as primary CTA language per voice guide",
+          "heart_emojis": "💙❤️ in appropriate contexts (email, social)",
+          "color_accents": "burgundy for emphasis, gold for celebration"
+        }
+      }
+    }
+  },
+  "implementation_priorities": {
+    "critical": [
+      "Typography system with Century Gothic + Lora pairing",
+      "Color application following brand palette",
+      "Spacing scale with generous whitespace",
+      "Button component styles with brand colors"
+    ],
+    "high": [
+      "Form input styling",
+      "Card component design",
+      "Section layout patterns",
+      "Responsive typography scale"
+    ],
+    "medium": [
+      "Navigation component",
+      "Testimonial styling",
+      "Modal design",
+      "Icon system"
+    ],
+    "enhancement": [
+      "Animation and micro-interactions",
+      "Dandelion motif integration",
+      "Dark mode refinement",
+      "Advanced gradient applications"
+    ]
+  }
+}

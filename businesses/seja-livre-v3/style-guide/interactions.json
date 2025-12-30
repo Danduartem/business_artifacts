@@ -1,0 +1,715 @@
+{
+  "section": "interactions",
+  "agent": "interaction-designer",
+  "generated": "2025-12-30",
+  "version": "1.0.0",
+  "brandContext": {
+    "symbol": "Dandelion (Dente-de-leao) - seeds flying freely",
+    "personality": "Libertadora (60%) + Mentora Sabia (40%)",
+    "emotionsToEvoke": ["leveza", "liberdade", "transformacao", "acolhimento", "confianca"],
+    "motionPhilosophy": "Motion gives interfaces soul. Every animation should feel as effortless as dandelion seeds drifting on a gentle breeze - natural, unhurried, and gracefully purposeful."
+  },
+  "principles": [
+    {
+      "id": "effortless-flow",
+      "name": "Effortless Flow (Fluxo sem Esforco)",
+      "description": "Animations should feel as natural as dandelion seeds drifting in a gentle breeze. No sudden starts or jarring stops - everything flows with organic ease.",
+      "rationale": "Embodies the anti-hustle philosophy: movement should feel light and sustainable, never rushed or stressful.",
+      "do": "Use gentle ease-out curves for entering elements, letting them settle naturally into place like seeds landing softly.",
+      "dont": "Never use linear timing or aggressive ease-in curves that make elements feel pushed or forced."
+    },
+    {
+      "id": "purposeful-presence",
+      "name": "Purposeful Presence (Presenca com Proposito)",
+      "description": "Every animation serves a purpose - guiding attention, confirming actions, or establishing relationships. Decorative motion is avoided.",
+      "rationale": "Reflects the Mentora Sabia archetype: wise, intentional, never wasteful. Like a mentor who speaks only when there is something meaningful to say.",
+      "do": "Animate state changes that help users understand what happened and what to do next.",
+      "dont": "Add animation purely for visual interest or to make things feel 'dynamic'. Avoid gratuitous loops or bouncing."
+    },
+    {
+      "id": "gentle-invitation",
+      "name": "Gentle Invitation (Convite Gentil)",
+      "description": "Interactive elements invite engagement through subtle, welcoming motion rather than demanding attention with aggressive effects.",
+      "rationale": "Mirrors the brand voice: 'acolhe e chacoalha no mesmo paragrafo' - warmly embraces first, then motivates. Never aggressive.",
+      "do": "Use soft shadows lifting, gentle color shifts, and modest scale changes on hover to suggest interactivity.",
+      "dont": "Implement flashy hover effects, pulsing buttons, or animations that scream for attention."
+    },
+    {
+      "id": "breathing-space",
+      "name": "Breathing Space (Espaco para Respirar)",
+      "description": "Motion should create rhythm and pause, like the natural cadence of breathing. Elements need time to settle before the next change.",
+      "rationale": "Core to the brand promise: 'Empreenda com leveza'. The interface should feel spacious and calm, never overwhelming.",
+      "do": "Stagger entrance animations to create rhythm. Allow completed animations to rest before initiating new ones.",
+      "dont": "Trigger multiple simultaneous animations that compete for attention. Avoid frantic, back-to-back transitions."
+    },
+    {
+      "id": "organic-curves",
+      "name": "Organic Curves (Curvas Organicas)",
+      "description": "Motion paths and easing curves follow organic, natural patterns - never mechanical or robotic. Think of how seeds drift, not how machines move.",
+      "rationale": "The dandelion symbolism demands organic, natural motion. Mechanical precision contradicts the freedom narrative.",
+      "do": "Use custom bezier curves that mimic natural deceleration. Consider slight overshoot for settling motion.",
+      "dont": "Use perfectly linear motion or standard CSS ease that feels generic. Avoid sharp direction changes."
+    },
+    {
+      "id": "trustworthy-predictability",
+      "name": "Trustworthy Predictability (Previsibilidade Confiavel)",
+      "description": "Similar interactions produce similar animations. Users should quickly develop an intuitive sense of how the interface moves.",
+      "rationale": "Builds the 'confianca' emotion. Like a wise mentor, the interface is reliable and consistent in its responses.",
+      "do": "Maintain consistent duration and easing for similar interaction types across the entire product.",
+      "dont": "Vary animation styles inconsistently or surprise users with unexpected motion behaviors."
+    },
+    {
+      "id": "transformation-moments",
+      "name": "Transformation Moments (Momentos de Transformacao)",
+      "description": "Key state changes - completing a form, achieving a goal, unlocking access - deserve slightly more elaborate, celebratory motion.",
+      "rationale": "The brand is about transformation. These milestone animations acknowledge the user's journey without being excessive.",
+      "do": "Use the emphasized easing and slightly longer durations for success states and key completions.",
+      "dont": "Make celebration animations so dramatic they feel like a carnival. Keep it professional and warm."
+    }
+  ],
+  "duration": {
+    "instant": {
+      "value": "0ms",
+      "cssVar": "--duration-instant",
+      "usage": "Immediate state changes where animation would feel sluggish (focus rings, selection highlights)",
+      "brandRationale": "Some responses need to be immediate to feel trustworthy"
+    },
+    "fast": {
+      "value": "100ms",
+      "cssVar": "--duration-fast",
+      "usage": "Micro-interactions: button hover, checkbox check, icon transitions, color changes",
+      "brandRationale": "Quick but perceptible - shows responsiveness without being jarring"
+    },
+    "normal": {
+      "value": "200ms",
+      "cssVar": "--duration-normal",
+      "usage": "Standard transitions: dropdown open, tooltip appear, input focus, tab switch",
+      "brandRationale": "The natural rhythm of the interface - like a calm breath"
+    },
+    "slow": {
+      "value": "300ms",
+      "cssVar": "--duration-slow",
+      "usage": "Emphasis moments: modal enter, card expand, menu reveal, content reveal on scroll",
+      "brandRationale": "Gives weight to meaningful changes - like a dandelion seed settling"
+    },
+    "slower": {
+      "value": "400ms",
+      "cssVar": "--duration-slower",
+      "usage": "Complex animations: page transitions, multi-step reveals, transformation moments",
+      "brandRationale": "Major transformations deserve unhurried, graceful motion"
+    },
+    "deliberate": {
+      "value": "500ms",
+      "cssVar": "--duration-deliberate",
+      "usage": "Celebration moments: success states, completion animations, key milestones",
+      "brandRationale": "Acknowledges achievement with proper presence - never rushed"
+    }
+  },
+  "easing": {
+    "out": {
+      "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "cssVar": "--ease-out",
+      "usage": "PRIMARY - Elements entering view, appearing, opening. Most common easing.",
+      "brandRationale": "Fast start that settles gently - like a seed catching air and floating down. The default 'Seja Livre' motion feel.",
+      "characterName": "Semente Pousando (Landing Seed)"
+    },
+    "in": {
+      "value": "cubic-bezier(0.7, 0, 0.84, 0)",
+      "cssVar": "--ease-in",
+      "usage": "Elements exiting, closing, disappearing. Accelerates as it leaves.",
+      "brandRationale": "Gentle start that accelerates away - like a seed lifting off, gaining momentum as wind carries it.",
+      "characterName": "Semente Partindo (Departing Seed)"
+    },
+    "inOut": {
+      "value": "cubic-bezier(0.45, 0, 0.55, 1)",
+      "cssVar": "--ease-in-out",
+      "usage": "Elements moving from one state to another while remaining visible (sliding, repositioning).",
+      "brandRationale": "Smooth journey with gentle acceleration and deceleration - continuous flow like seeds drifting laterally.",
+      "characterName": "Deriva Suave (Gentle Drift)"
+    },
+    "emphasized": {
+      "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "cssVar": "--ease-emphasized",
+      "usage": "Important moments: success confirmations, transformations, celebrations. Has slight overshoot.",
+      "brandRationale": "A gentle overshoot that settles back - like a seed overshooting its landing spot and floating back. Conveys completion with warmth.",
+      "characterName": "Chegada Celebrada (Celebrated Arrival)"
+    },
+    "spring": {
+      "value": "cubic-bezier(0.5, 1.8, 0.5, 0.8)",
+      "cssVar": "--ease-spring",
+      "usage": "SPARINGLY - Toggle switches, playful elements. Use restraint - not the default brand feel.",
+      "brandRationale": "Reserved for moments that benefit from a touch of organic bounce. The brand is professional first.",
+      "characterName": "Toque Organico (Organic Touch)"
+    },
+    "linear": {
+      "value": "linear",
+      "cssVar": "--ease-linear",
+      "usage": "ONLY for properties where easing looks wrong: opacity fades, color transitions, progress bars.",
+      "brandRationale": "Mechanical and un-organic - use only when easing would create visual artifacts.",
+      "characterName": "Transicao Simples (Simple Transition)"
+    }
+  },
+  "microinteractions": {
+    "button": {
+      "hover": {
+        "properties": ["transform", "box-shadow", "background-color"],
+        "duration": "var(--duration-fast)",
+        "easing": "var(--ease-out)",
+        "transform": "translateY(-1px)",
+        "shadowChange": "Elevate from shadow-sm to shadow-md",
+        "colorChange": "Lighten by one grade (800 to 700)",
+        "css": "transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out);"
+      },
+      "press": {
+        "properties": ["transform", "box-shadow"],
+        "duration": "50ms",
+        "easing": "var(--ease-in)",
+        "transform": "translateY(0px) scale(0.98)",
+        "shadowChange": "Return to shadow-sm with inner shadow hint",
+        "css": "transform: translateY(0px) scale(0.98); box-shadow: var(--shadow-sm), var(--shadow-inner);"
+      },
+      "focus": {
+        "properties": ["box-shadow"],
+        "duration": "var(--duration-instant)",
+        "easing": "none",
+        "effect": "Focus ring appears immediately for accessibility",
+        "css": "box-shadow: var(--focus-ring-primary);"
+      },
+      "disabled": {
+        "properties": ["opacity", "cursor"],
+        "opacity": "0.5",
+        "cursor": "not-allowed",
+        "note": "No animation - static disabled state"
+      }
+    },
+    "input": {
+      "focus": {
+        "properties": ["border-color", "box-shadow"],
+        "duration": "var(--duration-fast)",
+        "easing": "var(--ease-out)",
+        "borderColor": "var(--color-primary-500)",
+        "shadow": "0 0 0 3px var(--color-primary-100)",
+        "css": "transition: border-color var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out);"
+      },
+      "blur": {
+        "properties": ["border-color", "box-shadow"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-in)",
+        "note": "Slightly longer exit to feel unhurried"
+      },
+      "labelFloat": {
+        "properties": ["transform", "font-size", "color"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-out)",
+        "transform": "translateY(-24px) scale(0.85)",
+        "css": "transition: transform var(--duration-normal) var(--ease-out), font-size var(--duration-normal) var(--ease-out);"
+      }
+    },
+    "toggle": {
+      "switch": {
+        "properties": ["transform", "background-color"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-spring)",
+        "thumbTravel": "translateX(20px)",
+        "trackColorOn": "var(--color-success-default)",
+        "trackColorOff": "var(--color-neutral-300)",
+        "css": "transition: transform var(--duration-normal) var(--ease-spring), background-color var(--duration-fast) var(--ease-out);",
+        "note": "One of few places where spring easing is appropriate"
+      }
+    },
+    "checkbox": {
+      "check": {
+        "properties": ["transform", "stroke-dashoffset"],
+        "duration": "var(--duration-fast)",
+        "easing": "var(--ease-out)",
+        "enterAnimation": "Scale from 0.8 to 1, checkmark draws in",
+        "strokeAnimation": "Checkmark stroke draws from 0% to 100%",
+        "css": "@keyframes checkmark-draw { from { stroke-dashoffset: 24; } to { stroke-dashoffset: 0; } }"
+      },
+      "uncheck": {
+        "duration": "var(--duration-fast)",
+        "easing": "var(--ease-in)",
+        "note": "Reverse of check - slightly faster feeling"
+      }
+    },
+    "radio": {
+      "select": {
+        "properties": ["transform", "opacity"],
+        "duration": "var(--duration-fast)",
+        "easing": "var(--ease-emphasized)",
+        "innerDotAnimation": "Scale from 0 to 1 with slight overshoot",
+        "css": "@keyframes radio-select { 0% { transform: scale(0); } 70% { transform: scale(1.1); } 100% { transform: scale(1); } }"
+      }
+    },
+    "link": {
+      "hover": {
+        "properties": ["color", "text-decoration-color"],
+        "duration": "var(--duration-fast)",
+        "easing": "var(--ease-out)",
+        "colorChange": "primary-600 to primary-700",
+        "underlineAnimation": "Underline opacity increases or slides in",
+        "css": "transition: color var(--duration-fast) var(--ease-out); text-decoration: underline; text-underline-offset: 3px;"
+      }
+    },
+    "card": {
+      "hover": {
+        "properties": ["transform", "box-shadow"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-out)",
+        "transform": "translateY(-4px)",
+        "shadowChange": "shadow-md to shadow-lg",
+        "css": "transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out);",
+        "note": "Gentle lift like a seed beginning to float - inviting, not demanding"
+      },
+      "press": {
+        "properties": ["transform", "box-shadow"],
+        "duration": "50ms",
+        "easing": "var(--ease-in)",
+        "transform": "translateY(-2px)",
+        "note": "Settles slightly when pressed"
+      }
+    },
+    "formValidation": {
+      "success": {
+        "properties": ["border-color", "background-color"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-out)",
+        "iconAnimation": "Checkmark fades and scales in with ease-emphasized",
+        "borderColor": "var(--color-success-default)",
+        "backgroundColor": "var(--color-success-light)",
+        "css": "@keyframes validation-success { 0% { opacity: 0; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1); } }"
+      },
+      "error": {
+        "properties": ["border-color", "background-color"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-out)",
+        "iconAnimation": "Error icon fades in, optional subtle shake",
+        "borderColor": "var(--color-error-default)",
+        "backgroundColor": "var(--color-error-light)",
+        "shakeAnimation": "@keyframes gentle-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-2px); } 75% { transform: translateX(2px); } }",
+        "note": "Shake is very subtle - just 2px movement, not aggressive"
+      },
+      "messageEnter": {
+        "properties": ["opacity", "transform", "max-height"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-out)",
+        "animation": "Slides down and fades in",
+        "css": "@keyframes message-enter { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }"
+      }
+    }
+  },
+  "component_animations": {
+    "modal": {
+      "enter": {
+        "backdrop": {
+          "properties": ["opacity"],
+          "duration": "var(--duration-normal)",
+          "easing": "linear",
+          "from": "opacity: 0",
+          "to": "opacity: 1",
+          "backgroundColor": "oklch(25% 0.065 270 / 0.6)"
+        },
+        "content": {
+          "properties": ["opacity", "transform"],
+          "duration": "var(--duration-slow)",
+          "easing": "var(--ease-out)",
+          "from": "opacity: 0; transform: scale(0.95) translateY(10px);",
+          "to": "opacity: 1; transform: scale(1) translateY(0);",
+          "delay": "50ms after backdrop starts"
+        },
+        "css": "@keyframes modal-enter { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }"
+      },
+      "exit": {
+        "content": {
+          "properties": ["opacity", "transform"],
+          "duration": "var(--duration-normal)",
+          "easing": "var(--ease-in)",
+          "to": "opacity: 0; transform: scale(0.98) translateY(5px);"
+        },
+        "backdrop": {
+          "properties": ["opacity"],
+          "duration": "var(--duration-normal)",
+          "easing": "linear",
+          "to": "opacity: 0",
+          "delay": "starts as content exits"
+        },
+        "note": "Exit is slightly faster - content leaves first, then backdrop fades"
+      }
+    },
+    "dropdown": {
+      "open": {
+        "properties": ["opacity", "transform"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-out)",
+        "transformOrigin": "top center",
+        "from": "opacity: 0; transform: scaleY(0.95) translateY(-4px);",
+        "to": "opacity: 1; transform: scaleY(1) translateY(0);",
+        "css": "@keyframes dropdown-open { from { opacity: 0; transform: scaleY(0.95) translateY(-4px); } to { opacity: 1; transform: scaleY(1) translateY(0); } }"
+      },
+      "close": {
+        "properties": ["opacity", "transform"],
+        "duration": "var(--duration-fast)",
+        "easing": "var(--ease-in)",
+        "note": "Faster close feels more responsive to user intent"
+      },
+      "itemHover": {
+        "properties": ["background-color"],
+        "duration": "var(--duration-fast)",
+        "easing": "var(--ease-out)",
+        "backgroundColor": "var(--color-neutral-100)"
+      }
+    },
+    "accordion": {
+      "expand": {
+        "properties": ["max-height", "opacity"],
+        "duration": "var(--duration-slow)",
+        "easing": "var(--ease-out)",
+        "technique": "Animate max-height from 0 to scrollHeight",
+        "contentFade": "Content fades in with 50ms delay",
+        "iconRotation": "Chevron rotates 180deg with same timing",
+        "css": "@keyframes accordion-expand { from { max-height: 0; opacity: 0; } to { max-height: var(--content-height); opacity: 1; } }"
+      },
+      "collapse": {
+        "properties": ["max-height", "opacity"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-in)",
+        "note": "Content fades first, then height collapses"
+      }
+    },
+    "toast": {
+      "enter": {
+        "properties": ["opacity", "transform"],
+        "duration": "var(--duration-slow)",
+        "easing": "var(--ease-out)",
+        "position": "bottom-right or top-center",
+        "from": "opacity: 0; transform: translateY(16px) scale(0.95);",
+        "to": "opacity: 1; transform: translateY(0) scale(1);",
+        "css": "@keyframes toast-enter { from { opacity: 0; transform: translateY(16px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }"
+      },
+      "exit": {
+        "properties": ["opacity", "transform"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-in)",
+        "to": "opacity: 0; transform: translateY(-8px) scale(0.95);",
+        "note": "Floats up and away, like a seed lifting off"
+      },
+      "autoProgress": {
+        "properties": ["width"],
+        "duration": "5000ms default",
+        "easing": "linear",
+        "note": "Progress bar shrinks linearly showing time remaining"
+      }
+    },
+    "tabs": {
+      "indicator": {
+        "properties": ["transform", "width"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-inOut)",
+        "technique": "Active indicator slides to new tab position",
+        "css": "transition: transform var(--duration-normal) var(--ease-inOut), width var(--duration-normal) var(--ease-inOut);"
+      },
+      "panelSwitch": {
+        "properties": ["opacity"],
+        "duration": "var(--duration-fast)",
+        "easing": "linear",
+        "technique": "Quick crossfade between panels - no sliding",
+        "note": "Sliding would be too much motion; simple crossfade is cleaner"
+      }
+    },
+    "pageTransition": {
+      "enter": {
+        "properties": ["opacity", "transform"],
+        "duration": "var(--duration-slower)",
+        "easing": "var(--ease-out)",
+        "from": "opacity: 0; transform: translateY(20px);",
+        "to": "opacity: 1; transform: translateY(0);",
+        "css": "@keyframes page-enter { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }",
+        "note": "Content rises gently into view, like seeds settling"
+      },
+      "exit": {
+        "properties": ["opacity"],
+        "duration": "var(--duration-normal)",
+        "easing": "linear",
+        "to": "opacity: 0",
+        "note": "Simple fade out - no motion to avoid complexity"
+      }
+    },
+    "navigationMobile": {
+      "menuOpen": {
+        "properties": ["transform", "opacity"],
+        "duration": "var(--duration-slow)",
+        "easing": "var(--ease-out)",
+        "technique": "Slides in from right or top",
+        "from": "transform: translateX(100%); opacity: 0.5;",
+        "to": "transform: translateX(0); opacity: 1;",
+        "backdropFade": "Backdrop fades in simultaneously"
+      },
+      "menuClose": {
+        "properties": ["transform", "opacity"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-in)",
+        "to": "transform: translateX(100%); opacity: 0;"
+      },
+      "menuItems": {
+        "technique": "Staggered fade-in for menu items",
+        "staggerDelay": "30ms between items",
+        "itemAnimation": "@keyframes menu-item-enter { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }",
+        "note": "Creates a 'breathing' rhythm as items appear"
+      }
+    },
+    "whatsappFloat": {
+      "idle": {
+        "animation": "Subtle float - gentle up/down motion",
+        "duration": "3000ms",
+        "easing": "var(--ease-inOut)",
+        "keyframes": "@keyframes gentle-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }",
+        "note": "Very subtle - only 4px movement. Like a seed hovering on a gentle breeze."
+      },
+      "hover": {
+        "properties": ["transform", "box-shadow"],
+        "duration": "var(--duration-normal)",
+        "easing": "var(--ease-out)",
+        "transform": "scale(1.08)",
+        "shadow": "var(--shadow-glow-accent)",
+        "pauseFloat": "Hover pauses the idle float animation"
+      },
+      "attention": {
+        "animation": "Subtle pulse for attention (use sparingly)",
+        "duration": "2000ms",
+        "easing": "var(--ease-inOut)",
+        "keyframes": "@keyframes attention-pulse { 0%, 100% { box-shadow: var(--shadow-lg); } 50% { box-shadow: var(--shadow-glow-accent); } }",
+        "triggerCondition": "Only after 30s on page if user hasn't scrolled",
+        "maxOccurrences": "2 pulses maximum, then stop"
+      },
+      "enter": {
+        "properties": ["opacity", "transform"],
+        "duration": "var(--duration-slower)",
+        "easing": "var(--ease-emphasized)",
+        "delay": "1000ms after page load",
+        "from": "opacity: 0; transform: scale(0.5) translateY(20px);",
+        "to": "opacity: 1; transform: scale(1) translateY(0);",
+        "note": "Arrives with gentle overshoot - welcoming, not aggressive"
+      }
+    }
+  },
+  "loading_patterns": {
+    "skeleton": {
+      "animation": "Gentle shimmer wave",
+      "duration": "1800ms",
+      "easing": "var(--ease-inOut)",
+      "direction": "infinite",
+      "keyframes": "@keyframes skeleton-shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }",
+      "gradient": "linear-gradient(90deg, var(--color-neutral-100) 0%, var(--color-neutral-50) 50%, var(--color-neutral-100) 100%)",
+      "backgroundSize": "200% 100%",
+      "css": "background: linear-gradient(90deg, var(--color-neutral-100) 0%, var(--color-neutral-50) 50%, var(--color-neutral-100) 100%); background-size: 200% 100%; animation: skeleton-shimmer 1800ms var(--ease-inOut) infinite;",
+      "note": "Slow, gentle wave - feels like calm breathing, not anxious waiting"
+    },
+    "spinner": {
+      "usage": "Use sparingly - skeletons preferred for content loading",
+      "animation": "Smooth rotation with gentle pulse",
+      "duration": "1200ms",
+      "easing": "linear for rotation, ease-inOut for pulse",
+      "keyframes": "@keyframes spinner-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }",
+      "design": "Simple circle with brand colors - navy stroke with gold accent segment",
+      "css": "animation: spinner-rotate 1200ms linear infinite;",
+      "note": "If using spinner, keep it simple and on-brand"
+    },
+    "progressBar": {
+      "animation": "Smooth width transition with subtle shimmer",
+      "duration": "var(--duration-slow)",
+      "easing": "var(--ease-out)",
+      "fillGradient": "linear-gradient(90deg, var(--color-primary-700), var(--color-primary-600))",
+      "shimmerOverlay": "Subtle traveling highlight",
+      "css": "transition: width var(--duration-slow) var(--ease-out);",
+      "indeterminate": {
+        "keyframes": "@keyframes progress-indeterminate { 0% { transform: translateX(-100%); } 100% { transform: translateX(200%); } }",
+        "duration": "1500ms",
+        "note": "Gentle sweep across - unhurried"
+      }
+    },
+    "contentShimmer": {
+      "usage": "Applied to text placeholders while loading",
+      "animation": "Synchronized with skeleton shimmer",
+      "shapes": {
+        "heading": "height: 28px; width: 60%; border-radius: 4px;",
+        "paragraph": "height: 16px; width: 100%; border-radius: 4px;",
+        "avatar": "height: 48px; width: 48px; border-radius: 50%;"
+      }
+    },
+    "imageLazyLoad": {
+      "placeholder": {
+        "background": "var(--color-neutral-100)",
+        "animation": "skeleton-shimmer"
+      },
+      "reveal": {
+        "properties": ["opacity"],
+        "duration": "var(--duration-slow)",
+        "easing": "var(--ease-out)",
+        "from": "opacity: 0",
+        "to": "opacity: 1",
+        "technique": "Image fades in over placeholder",
+        "css": "@keyframes image-reveal { from { opacity: 0; } to { opacity: 1; } }"
+      },
+      "note": "No blur-up technique - simple fade is cleaner and more professional"
+    }
+  },
+  "scroll_animations": {
+    "revealOnScroll": {
+      "technique": "Intersection Observer with threshold 0.15",
+      "defaultAnimation": {
+        "properties": ["opacity", "transform"],
+        "duration": "var(--duration-slower)",
+        "easing": "var(--ease-out)",
+        "from": "opacity: 0; transform: translateY(30px);",
+        "to": "opacity: 1; transform: translateY(0);",
+        "css": "@keyframes scroll-reveal { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }"
+      },
+      "variants": {
+        "fadeUp": "translateY(30px) to translateY(0)",
+        "fadeIn": "opacity only, no transform",
+        "scaleIn": "scale(0.95) to scale(1) with opacity"
+      },
+      "stagger": {
+        "enabled": true,
+        "delay": "80ms between sibling elements",
+        "maxItems": "5 items max in a stagger group",
+        "note": "Creates the breathing rhythm - like seeds releasing one by one"
+      }
+    },
+    "parallax": {
+      "usage": "MINIMAL - only for hero backgrounds if at all",
+      "recommendation": "Avoid parallax - it contradicts the calm, grounded brand feel",
+      "ifUsed": {
+        "factor": "0.1 maximum - very subtle",
+        "elements": "Background images only, never content",
+        "disable": "Disable completely on mobile",
+        "note": "Seja Livre is grounded and trustworthy - parallax can feel gimmicky"
+      }
+    },
+    "stickyElements": {
+      "header": {
+        "behavior": "Slides up to hide on scroll down, reveals on scroll up",
+        "animation": {
+          "properties": ["transform"],
+          "duration": "var(--duration-normal)",
+          "easing": "var(--ease-out)"
+        },
+        "threshold": "50px scroll before hiding",
+        "css": "transition: transform var(--duration-normal) var(--ease-out);"
+      },
+      "cta": {
+        "behavior": "Fades in after scrolling past hero section",
+        "animation": {
+          "properties": ["opacity", "transform"],
+          "duration": "var(--duration-slow)",
+          "easing": "var(--ease-out)"
+        }
+      },
+      "backToTop": {
+        "appearThreshold": "500px from top",
+        "animation": {
+          "properties": ["opacity", "transform"],
+          "duration": "var(--duration-normal)",
+          "easing": "var(--ease-out)",
+          "from": "opacity: 0; transform: scale(0.8);",
+          "to": "opacity: 1; transform: scale(1);"
+        }
+      }
+    },
+    "smoothScroll": {
+      "behavior": "smooth",
+      "css": "html { scroll-behavior: smooth; }",
+      "anchorOffset": "80px to account for sticky header",
+      "note": "Native smooth scroll - no JS animation needed"
+    }
+  },
+  "reduced_motion": {
+    "strategy": "Respect user preferences completely. Motion should enhance, never exclude.",
+    "query": "@media (prefers-reduced-motion: reduce)",
+    "philosophy": "For users who need reduced motion, we remove decorative animations but preserve functional feedback. The brand experience remains warm and professional.",
+    "preserve": [
+      "Focus indicators (immediate, no animation)",
+      "Color changes (still indicate state)",
+      "Opacity changes (but instant, not animated)",
+      "Essential state feedback (success/error indication)"
+    ],
+    "remove": [
+      "All transform animations (translate, scale, rotate)",
+      "Scroll-triggered reveals (content visible immediately)",
+      "Parallax effects",
+      "Floating/idle animations (WhatsApp button float)",
+      "Loading shimmers (use static placeholder)",
+      "Staggered animations",
+      "Page transitions"
+    ],
+    "reduce": [
+      "Modal transitions (instant appear, slight opacity fade)",
+      "Dropdown animations (instant open with subtle fade)",
+      "Toast notifications (instant appear, fade out only)",
+      "Accordion (instant height change)"
+    ],
+    "css": "@media (prefers-reduced-motion: reduce) {\n  *,\n  *::before,\n  *::after {\n    animation-duration: 0.01ms !important;\n    animation-iteration-count: 1 !important;\n    transition-duration: 0.01ms !important;\n    scroll-behavior: auto !important;\n  }\n\n  /* Preserve opacity for essential feedback */\n  .toast,\n  .modal-backdrop {\n    transition: opacity 0.1s linear !important;\n  }\n\n  /* Disable floating animations */\n  .whatsapp-float {\n    animation: none !important;\n  }\n\n  /* Show scroll-reveal content immediately */\n  [data-scroll-reveal] {\n    opacity: 1 !important;\n    transform: none !important;\n  }\n\n  /* Static skeleton placeholder */\n  .skeleton {\n    animation: none !important;\n    background: var(--color-neutral-100) !important;\n  }\n}",
+    "testing": {
+      "howToTest": "Enable 'Reduce motion' in OS accessibility settings",
+      "macOS": "System Preferences > Accessibility > Display > Reduce motion",
+      "windows": "Settings > Ease of Access > Display > Show animations in Windows",
+      "iOS": "Settings > Accessibility > Motion > Reduce Motion",
+      "android": "Settings > Accessibility > Remove animations"
+    },
+    "note": "This is not optional - reduced motion support is a core accessibility requirement."
+  },
+  "dandelion_motifs": {
+    "philosophy": "The dandelion symbolism can inspire motion design without being literal. We capture the essence - lightness, natural drift, organic settling - not the image.",
+    "applications": {
+      "contentReveal": "Elements rise gently like seeds catching air, then settle naturally",
+      "exitAnimations": "Elements float away, gaining momentum - like seeds lifting off",
+      "hoverStates": "Gentle lift as if beginning to float - invitation, not demand",
+      "successMoments": "Slight overshoot that settles back - seeds finding their landing spot",
+      "loadingState": "Slow, rhythmic shimmer - like seeds swaying in a gentle breeze"
+    },
+    "avoidLiteral": [
+      "Actual seed/dandelion illustrations animating",
+      "Particle effects of floating seeds",
+      "Scattered dispersal animations",
+      "Anything that looks like a dandelion"
+    ],
+    "captureEssence": [
+      "Natural, organic easing curves",
+      "Gentle overshoot on landing",
+      "Unhurried, floating feel",
+      "Breathing rhythm in sequences",
+      "Lightness in lift-off and settling"
+    ]
+  },
+  "implementation": {
+    "cssVariables": {
+      "durations": "/* Duration tokens */\n--duration-instant: 0ms;\n--duration-fast: 100ms;\n--duration-normal: 200ms;\n--duration-slow: 300ms;\n--duration-slower: 400ms;\n--duration-deliberate: 500ms;",
+      "easings": "/* Easing tokens */\n--ease-out: cubic-bezier(0.16, 1, 0.3, 1);\n--ease-in: cubic-bezier(0.7, 0, 0.84, 0);\n--ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);\n--ease-emphasized: cubic-bezier(0.34, 1.56, 0.64, 1);\n--ease-spring: cubic-bezier(0.5, 1.8, 0.5, 0.8);\n--ease-linear: linear;"
+    },
+    "utilityClasses": {
+      "transitions": "/* Transition utilities */\n.transition-fast { transition: all var(--duration-fast) var(--ease-out); }\n.transition-normal { transition: all var(--duration-normal) var(--ease-out); }\n.transition-slow { transition: all var(--duration-slow) var(--ease-out); }\n.transition-colors { transition: color var(--duration-fast) var(--ease-out), background-color var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out); }\n.transition-transform { transition: transform var(--duration-normal) var(--ease-out); }\n.transition-opacity { transition: opacity var(--duration-normal) linear; }",
+      "animations": "/* Animation utilities */\n.animate-fade-in { animation: fade-in var(--duration-slow) var(--ease-out); }\n.animate-fade-up { animation: fade-up var(--duration-slow) var(--ease-out); }\n.animate-scale-in { animation: scale-in var(--duration-slow) var(--ease-emphasized); }"
+    },
+    "keyframeDefinitions": "/* Core keyframes */\n@keyframes fade-in {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}\n\n@keyframes fade-up {\n  from { opacity: 0; transform: translateY(20px); }\n  to { opacity: 1; transform: translateY(0); }\n}\n\n@keyframes scale-in {\n  from { opacity: 0; transform: scale(0.95); }\n  to { opacity: 1; transform: scale(1); }\n}\n\n@keyframes gentle-float {\n  0%, 100% { transform: translateY(0); }\n  50% { transform: translateY(-4px); }\n}\n\n@keyframes skeleton-shimmer {\n  0% { background-position: -200% 0; }\n  100% { background-position: 200% 0; }\n}"
+  },
+  "quality_checklist": {
+    "beforeShipping": [
+      "Test all animations at 60fps - no jank or dropped frames",
+      "Verify reduced-motion support is complete and tested",
+      "Ensure focus states are visible and meet WCAG requirements",
+      "Check animation timing feels right at different screen sizes",
+      "Validate that no animation blocks user interaction",
+      "Test on actual devices, not just browser DevTools",
+      "Verify loading states don't cause layout shift (CLS)",
+      "Ensure animations don't cause accessibility issues (vestibular disorders)"
+    ],
+    "brandAlignment": [
+      "Does this animation feel effortless, not effortful?",
+      "Is the motion gentle and inviting, not demanding?",
+      "Does it enhance understanding or is it decorative?",
+      "Would removing this animation hurt the experience?",
+      "Does it feel like Seja Livre - professional but warm?",
+      "Is it consistent with other animations in the system?"
+    ]
+  }
+}
