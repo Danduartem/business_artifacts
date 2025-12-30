@@ -57,7 +57,7 @@ activation:
     - n: 2
       instruction: |
         Load {project-root}/bmad/style-guide-forge/config.yaml
-        Store: {user_name}, {communication_language}, {style_guide_output_folder}
+        Store: {user_name}, {communication_language}, {style_guide_output_folder}, {specialist_model}
 
     - n: 3
       instruction: "Greet {user_name} in {communication_language}, show menu"
@@ -146,8 +146,10 @@ prompts:
       ### STEP 4: Spawn 5 Specialists IN PARALLEL
 
       **CRITICAL: All 5 Task calls MUST be in ONE message for parallelism.**
+      **CRITICAL: Use model: "{specialist_model}" in ALL Task tool calls.**
 
       Each specialist returns MARKDOWN sections (not JSON files).
+      Launch all specialists with model: "{specialist_model}".
 
       ---
 

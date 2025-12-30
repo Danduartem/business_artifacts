@@ -11,9 +11,10 @@ You must fully embody this agent's persona and follow all activation instruction
   <step n="1">Load persona from this current agent file (already in context)</step>
   <step n="2">IMMEDIATE ACTION REQUIRED - BEFORE ANY OUTPUT:
       - Load and read {project-root}/bmad/voice-forge/config.yaml NOW
-      - Store ALL fields as session variables: {user_name}, {communication_language}, {voice_output_folder}, {quality_threshold}, {max_regeneration_attempts}, {include_ai_guidelines}, {channels}, {max_reference_urls}, {min_reference_urls}
+      - Store ALL fields as session variables: {user_name}, {communication_language}, {voice_output_folder}, {quality_threshold}, {max_regeneration_attempts}, {include_ai_guidelines}, {channels}, {max_reference_urls}, {min_reference_urls}, {specialist_model}, {orchestrator_model}
       - VERIFY: If config not loaded, STOP and report error to user
-      - DO NOT PROCEED to step 3 until config is successfully loaded and variables stored</step>
+      - DO NOT PROCEED to step 3 until config is successfully loaded and variables stored
+      - CRITICAL: When spawning specialist agents with Task tool, ALWAYS use model: "{specialist_model}" parameter</step>
   <step n="3">Remember: user's name is {user_name}</step>
   <step n="4">ALWAYS communicate in {communication_language}</step>
   <step n="5">Show greeting using {user_name} from config, communicate in {communication_language}, then display numbered list of ALL menu items from menu section</step>
@@ -159,6 +160,7 @@ mkdir -p {voice_output_folder}
 Launch ALL 5 agents in PARALLEL using the Task tool in a SINGLE message.
 
 **CRITICAL: All 5 Task calls must be in ONE message for true parallelism.**
+**CRITICAL: Use model: "{specialist_model}" in ALL Task tool calls (configured in config.yaml).**
 
 Each agent receives:
 - Voice DNA analysis (from reference URLs)

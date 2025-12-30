@@ -15,6 +15,8 @@ date: system-generated
 design_system_name: "{config_source}:design_system_name"
 output_folder: "{config_source}:output_folder"
 max_feedback_rounds: "{config_source}:max_feedback_rounds"
+specialist_model: "{config_source}:specialist_model"
+orchestrator_model: "{config_source}:orchestrator_model"
 
 # Input file paths
 style_guide_path: "{config_source}:style_guide_path"

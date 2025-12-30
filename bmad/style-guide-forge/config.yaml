@@ -6,6 +6,14 @@
 user_name: "Daniel"
 communication_language: "English"
 
+# Model Configuration
+# Options: "sonnet", "opus", "haiku"
+# opus = highest quality (recommended for design decisions)
+# sonnet = balanced quality/speed
+# haiku = fastest, lower cost
+specialist_model: "opus"
+orchestrator_model: "opus"
+
 # Output Settings
 style_guide_output_folder: "/Users/danielmenezes/coding/business-artifacts/output/style-guide-forge"
 output_file: "style-guide.md"

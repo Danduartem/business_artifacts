@@ -60,7 +60,7 @@ activation:
     - n: 2
       instruction: |
         Load {project-root}/bmad/voice-forge/config.yaml
-        Store: {user_name}, {communication_language}, {voice_output_folder}
+        Store: {user_name}, {communication_language}, {voice_output_folder}, {specialist_model}
 
     - n: 3
       instruction: "Greet {user_name} in {communication_language}, show menu"
@@ -155,8 +155,9 @@ prompts:
       ### STEP 4: Spawn 5 Specialists IN PARALLEL
 
       **CRITICAL: All 5 Task calls MUST be in ONE message for parallelism.**
+      **CRITICAL: Use model: "{specialist_model}" in ALL Task tool calls.**
 
-      Launch these specialists simultaneously:
+      Launch these specialists simultaneously (all with model: "{specialist_model}"):
 
       #### 1. Voice Identity Architect
       ```

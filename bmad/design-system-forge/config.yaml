@@ -5,21 +5,28 @@
 user_name: "Daniel"
 communication_language: "English"
 
+# Model Configuration
+# Options: "sonnet", "opus", "haiku"
+# opus = highest quality (recommended for design systems)
+# sonnet = balanced quality/speed
+# haiku = fastest, lower cost
+specialist_model: "opus"
+orchestrator_model: "opus"
+
 # Design System Settings
-design_system_name: "My Design System"
+design_system_name: "Seja Livre Design System"
 
 # Output Settings
-output_folder: "/Users/danielmenezes/coding/business-artifacts/docs"
+output_folder: "/Users/danielmenezes/coding/business-artifacts/businesses/seja-livre-v3/design-system"
 
 # Feedback Loop Settings
 max_feedback_rounds: 3
 
-# Input File Paths (update with your actual paths)
-style_guide_path: ""
-# From style-guide-forge or manual style guide
-
-color_palette_path: ""
-# From color-forge JSON output
+# Input File Paths
+style_guide_path: "/Users/danielmenezes/coding/business-artifacts/businesses/seja-livre-v3/style-guide/style-guide.md"
+color_palette_path: "/Users/danielmenezes/coding/business-artifacts/businesses/seja-livre-v3/color-palette/seja-livre-color-palette.md"
+voice_guide_path: "/Users/danielmenezes/coding/business-artifacts/businesses/seja-livre-v3/voice-guide.md"
+methodology_path: "/Users/danielmenezes/coding/business-artifacts/businesses/seja-livre-v3/seja_livre_methodology.md"
 
 # Specialist Agents (3)
 specialists:

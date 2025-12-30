@@ -6,6 +6,14 @@
 user_name: "Daniel"
 communication_language: "Portuguese BR"
 
+# Model Configuration
+# Options: "sonnet", "opus", "haiku"
+# opus = highest quality (recommended for voice creation)
+# sonnet = balanced quality/speed
+# haiku = fastest, lower cost
+specialist_model: "opus"
+orchestrator_model: "opus"
+
 # Language Settings
 content_language: "pt-BR"
 locale: "Brazil"

@@ -56,7 +56,7 @@ activation:
     - n: 2
       instruction: |
         Load {project-root}/bmad/design-system-forge/config.yaml
-        Store: {user_name}, {communication_language}, {output_folder}, {design_system_name}
+        Store: {user_name}, {communication_language}, {output_folder}, {design_system_name}, {specialist_model}
 
     - n: 3
       instruction: "Greet {user_name} in {communication_language}, show menu"
@@ -84,6 +84,7 @@ menu:
 
 rules:
   - "Communicate in {communication_language}"
+  - "Use model: {specialist_model} for ALL specialist Task calls"
   - "Spawn ALL 3 specialists in ONE message for true parallelism"
   - "Review EACH specialist's output before compiling"
   - "Give SPECIFIC feedback when requesting improvements"
@@ -127,6 +128,7 @@ prompts:
       ### STEP 3: Spawn 3 Specialists IN PARALLEL
 
       **CRITICAL: All 3 Task calls MUST be in ONE message for parallelism.**
+      **CRITICAL: Use model: "{specialist_model}" in ALL Task tool calls.**
 
       ---
 
