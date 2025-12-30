@@ -1,0 +1,436 @@
+{
+  "meta": {
+    "brand": "Seja Livre",
+    "tagline": "Empreenda com leveza, cresça com liberdade",
+    "generated": "2025-12-29T19:44:11.277Z",
+    "colorSpace": "OKLCH",
+    "version": "1.0.0",
+    "methodology": "OKLCH perceptually uniform color space with consistent lightness values per grade"
+  },
+  "brandColors": {
+    "navyProfundo": {
+      "hex": "#191F3A",
+      "pantone": "5255 C",
+      "oklch": "oklch(24.86% 0.0475 269.9)",
+      "naturalGrade": "800",
+      "description": "Deep navy with violet undertones - depth, trust, professionalism"
+    },
+    "borgonha": {
+      "hex": "#81171F",
+      "pantone": "1955 C",
+      "oklch": "oklch(39.48% 0.1404 36.6)",
+      "naturalGrade": "700",
+      "description": "Rich burgundy - passion, transformation, authenticity"
+    },
+    "cinzaClaro": {
+      "hex": "#ECECEC",
+      "oklch": "oklch(94.32% 0.0275 119.2)",
+      "naturalGrade": "100",
+      "description": "Light neutral gray - base for neutral scale"
+    }
+  },
+  "scales": {
+    "primary": {
+      "50": {
+        "hex": "#F2F5FD",
+        "oklch": "oklch(97.0% 0.0119 269.9)",
+        "rgb": "rgb(242, 245, 253)",
+        "hsl": "hsl(224, 73%, 97%)"
+      },
+      "100": {
+        "hex": "#E3E8F3",
+        "oklch": "oklch(93.0% 0.0166 269.9)",
+        "rgb": "rgb(227, 232, 243)",
+        "hsl": "hsl(221, 40%, 92%)"
+      },
+      "200": {
+        "hex": "#C7CDDE",
+        "oklch": "oklch(85.0% 0.0238 269.9)",
+        "rgb": "rgb(199, 205, 222)",
+        "hsl": "hsl(224, 26%, 83%)"
+      },
+      "300": {
+        "hex": "#A0A7BC",
+        "oklch": "oklch(73.0% 0.0309 269.9)",
+        "rgb": "rgb(160, 167, 188)",
+        "hsl": "hsl(225, 17%, 68%)"
+      },
+      "400": {
+        "hex": "#838CA4",
+        "oklch": "oklch(64.0% 0.0380 269.9)",
+        "rgb": "rgb(131, 140, 164)",
+        "hsl": "hsl(224, 15%, 58%)"
+      },
+      "500": {
+        "hex": "#68718B",
+        "oklch": "oklch(55.0% 0.0428 269.9)",
+        "rgb": "rgb(104, 113, 139)",
+        "hsl": "hsl(225, 14%, 48%)"
+      },
+      "600": {
+        "hex": "#535D78",
+        "oklch": "oklch(48.0% 0.0452 269.9)",
+        "rgb": "rgb(83, 93, 120)",
+        "hsl": "hsl(224, 18%, 40%)"
+      },
+      "700": {
+        "hex": "#38415C",
+        "oklch": "oklch(38.0% 0.0475 269.9)",
+        "rgb": "rgb(56, 65, 92)",
+        "hsl": "hsl(225, 24%, 29%)"
+      },
+      "800": {
+        "hex": "#1D253E",
+        "oklch": "oklch(27.0% 0.0475 269.9)",
+        "rgb": "rgb(29, 37, 62)",
+        "hsl": "hsl(225, 36%, 18%)"
+      },
+      "900": {
+        "hex": "#0A1025",
+        "oklch": "oklch(18.0% 0.0452 269.9)",
+        "rgb": "rgb(10, 16, 37)",
+        "hsl": "hsl(227, 57%, 9%)"
+      },
+      "name": "Navy Profundo",
+      "description": "Deep blue-violet scale. Brand color (#191F3A) at grade 800.",
+      "brandGrade": "800",
+      "hue": "269.9",
+      "baseChroma": "0.0475"
+    },
+    "secondary": {
+      "50": {
+        "hex": "#FFF2EE",
+        "oklch": "oklch(97.0% 0.0211 36.6)",
+        "rgb": "rgb(255, 242, 238)",
+        "hsl": "hsl(14, 100%, 97%)"
+      },
+      "100": {
+        "hex": "#FEE0D8",
+        "oklch": "oklch(93.0% 0.0351 36.6)",
+        "rgb": "rgb(254, 224, 216)",
+        "hsl": "hsl(13, 95%, 92%)"
+      },
+      "200": {
+        "hex": "#F1C1B3",
+        "oklch": "oklch(85.0% 0.0590 36.6)",
+        "rgb": "rgb(241, 193, 179)",
+        "hsl": "hsl(14, 69%, 82%)"
+      },
+      "300": {
+        "hex": "#D79582",
+        "oklch": "oklch(73.0% 0.0842 36.6)",
+        "rgb": "rgb(215, 149, 130)",
+        "hsl": "hsl(13, 52%, 68%)"
+      },
+      "400": {
+        "hex": "#C5735C",
+        "oklch": "oklch(64.0% 0.1095 36.6)",
+        "rgb": "rgb(197, 115, 92)",
+        "hsl": "hsl(13, 48%, 57%)"
+      },
+      "500": {
+        "hex": "#AE5339",
+        "oklch": "oklch(55.0% 0.1264 36.6)",
+        "rgb": "rgb(174, 83, 57)",
+        "hsl": "hsl(13, 51%, 45%)"
+      },
+      "600": {
+        "hex": "#9A3B20",
+        "oklch": "oklch(48.0% 0.1334 36.6)",
+        "rgb": "rgb(154, 59, 32)",
+        "hsl": "hsl(13, 66%, 36%)"
+      },
+      "700": {
+        "hex": "#781E00",
+        "oklch": "oklch(38.0% 0.1404 36.6)",
+        "rgb": "rgb(120, 30, 0)",
+        "hsl": "hsl(15, 100%, 24%)"
+      },
+      "800": {
+        "hex": "#490E00",
+        "oklch": "oklch(27.0% 0.1292 36.6)",
+        "rgb": "rgb(73, 14, 0)",
+        "hsl": "hsl(12, 100%, 14%)"
+      },
+      "900": {
+        "hex": "#270400",
+        "oklch": "oklch(18.0% 0.1095 36.6)",
+        "rgb": "rgb(39, 4, 0)",
+        "hsl": "hsl(6, 100%, 8%)"
+      },
+      "name": "Borgonha",
+      "description": "Rich burgundy/wine scale. Brand color (#81171F) at grade 700.",
+      "brandGrade": "700",
+      "hue": "36.6",
+      "baseChroma": "0.1404"
+    },
+    "accent": {
+      "50": {
+        "hex": "#FCF5E0",
+        "oklch": "oklch(97.0% 0.0279 90.0)",
+        "rgb": "rgb(252, 245, 224)",
+        "hsl": "hsl(45, 82%, 93%)"
+      },
+      "100": {
+        "hex": "#F4E7C5",
+        "oklch": "oklch(93.0% 0.0465 90.0)",
+        "rgb": "rgb(244, 231, 197)",
+        "hsl": "hsl(43, 68%, 86%)"
+      },
+      "200": {
+        "hex": "#E2CC91",
+        "oklch": "oklch(85.0% 0.0806 90.0)",
+        "rgb": "rgb(226, 204, 145)",
+        "hsl": "hsl(44, 58%, 73%)"
+      },
+      "300": {
+        "hex": "#C3A44E",
+        "oklch": "oklch(73.0% 0.1116 90.0)",
+        "rgb": "rgb(195, 164, 78)",
+        "hsl": "hsl(44, 49%, 54%)"
+      },
+      "400": {
+        "hex": "#AB8700",
+        "oklch": "oklch(64.0% 0.1364 90.0)",
+        "rgb": "rgb(171, 135, 0)",
+        "hsl": "hsl(47, 100%, 34%)"
+      },
+      "500": {
+        "hex": "#8B6E00",
+        "oklch": "oklch(55.0% 0.1550 90.0)",
+        "rgb": "rgb(139, 110, 0)",
+        "hsl": "hsl(47, 100%, 27%)"
+      },
+      "600": {
+        "hex": "#735A00",
+        "oklch": "oklch(48.0% 0.1457 90.0)",
+        "rgb": "rgb(115, 90, 0)",
+        "hsl": "hsl(47, 100%, 23%)"
+      },
+      "700": {
+        "hex": "#524000",
+        "oklch": "oklch(38.0% 0.1271 90.0)",
+        "rgb": "rgb(82, 64, 0)",
+        "hsl": "hsl(47, 100%, 16%)"
+      },
+      "800": {
+        "hex": "#312500",
+        "oklch": "oklch(27.0% 0.1008 90.0)",
+        "rgb": "rgb(49, 37, 0)",
+        "hsl": "hsl(45, 100%, 10%)"
+      },
+      "900": {
+        "hex": "#181000",
+        "oklch": "oklch(18.0% 0.0698 90.0)",
+        "rgb": "rgb(24, 16, 0)",
+        "hsl": "hsl(40, 100%, 5%)"
+      },
+      "name": "Ouro da Liberdade",
+      "description": "Warm gold/amber - lightness, freedom, dandelion symbolism.",
+      "hue": "90",
+      "baseChroma": "0.1550"
+    },
+    "neutral": {
+      "50": {
+        "hex": "#F4F5F6",
+        "oklch": "oklch(97.0% 0.0021 265.0)",
+        "rgb": "rgb(244, 245, 246)",
+        "hsl": "hsl(210, 10%, 96%)"
+      },
+      "100": {
+        "hex": "#E7E8EA",
+        "oklch": "oklch(93.0% 0.0027 265.0)",
+        "rgb": "rgb(231, 232, 234)",
+        "hsl": "hsl(220, 7%, 91%)"
+      },
+      "200": {
+        "hex": "#CDCED0",
+        "oklch": "oklch(85.0% 0.0033 265.0)",
+        "rgb": "rgb(205, 206, 208)",
+        "hsl": "hsl(220, 3%, 81%)"
+      },
+      "300": {
+        "hex": "#A6A8AA",
+        "oklch": "oklch(73.0% 0.0041 265.0)",
+        "rgb": "rgb(166, 168, 170)",
+        "hsl": "hsl(210, 2%, 66%)"
+      },
+      "400": {
+        "hex": "#8B8C8F",
+        "oklch": "oklch(64.0% 0.0048 265.0)",
+        "rgb": "rgb(139, 140, 143)",
+        "hsl": "hsl(225, 2%, 55%)"
+      },
+      "500": {
+        "hex": "#707175",
+        "oklch": "oklch(55.0% 0.0054 265.0)",
+        "rgb": "rgb(112, 113, 117)",
+        "hsl": "hsl(228, 2%, 45%)"
+      },
+      "600": {
+        "hex": "#5C5E61",
+        "oklch": "oklch(48.0% 0.0060 265.0)",
+        "rgb": "rgb(92, 94, 97)",
+        "hsl": "hsl(216, 3%, 37%)"
+      },
+      "700": {
+        "hex": "#414246",
+        "oklch": "oklch(38.0% 0.0060 265.0)",
+        "rgb": "rgb(65, 66, 70)",
+        "hsl": "hsl(228, 4%, 26%)"
+      },
+      "800": {
+        "hex": "#252629",
+        "oklch": "oklch(27.0% 0.0057 265.0)",
+        "rgb": "rgb(37, 38, 41)",
+        "hsl": "hsl(225, 5%, 15%)"
+      },
+      "900": {
+        "hex": "#101214",
+        "oklch": "oklch(18.0% 0.0051 265.0)",
+        "rgb": "rgb(16, 18, 20)",
+        "hsl": "hsl(210, 11%, 7%)"
+      },
+      "name": "Cinza Profundo",
+      "description": "Neutral gray with subtle navy undertone for brand cohesion.",
+      "hue": "265",
+      "baseChroma": "0.0060"
+    }
+  },
+  "semantic": {
+    "success": {
+      "name": "Verde Crescimento",
+      "description": "Fresh green - growth, achievement, positive outcomes",
+      "hue": "148",
+      "light": {
+        "hex": "#D3EDD5",
+        "oklch": "oklch(92.0% 0.0420 148.0)",
+        "rgb": "rgb(211, 237, 213)",
+        "hsl": "hsl(125, 42%, 88%)"
+      },
+      "base": {
+        "hex": "#26873E",
+        "oklch": "oklch(55.0% 0.1400 148.0)",
+        "rgb": "rgb(38, 135, 62)",
+        "hsl": "hsl(135, 56%, 34%)"
+      },
+      "dark": {
+        "hex": "#003F14",
+        "oklch": "oklch(32.0% 0.1148 148.0)",
+        "rgb": "rgb(0, 63, 20)",
+        "hsl": "hsl(139, 100%, 12%)"
+      }
+    },
+    "warning": {
+      "name": "Âmbar Alerta",
+      "description": "Warm amber - caution, attention, harmonizes with accent",
+      "hue": "82",
+      "light": {
+        "hex": "#F3E2C5",
+        "oklch": "oklch(92.0% 0.0435 82.0)",
+        "rgb": "rgb(243, 226, 197)",
+        "hsl": "hsl(38, 66%, 86%)"
+      },
+      "base": {
+        "hex": "#926A00",
+        "oklch": "oklch(55.0% 0.1450 82.0)",
+        "rgb": "rgb(146, 106, 0)",
+        "hsl": "hsl(44, 100%, 29%)"
+      },
+      "dark": {
+        "hex": "#432F00",
+        "oklch": "oklch(32.0% 0.1189 82.0)",
+        "rgb": "rgb(67, 47, 0)",
+        "hsl": "hsl(42, 100%, 13%)"
+      }
+    },
+    "error": {
+      "name": "Vermelho Atenção",
+      "description": "Clear red - errors, critical states, relates to burgundy",
+      "hue": "30",
+      "light": {
+        "hex": "#FFDBD4",
+        "oklch": "oklch(92.0% 0.0465 30.0)",
+        "rgb": "rgb(255, 219, 212)",
+        "hsl": "hsl(10, 100%, 92%)"
+      },
+      "base": {
+        "hex": "#BB4536",
+        "oklch": "oklch(55.0% 0.1550 30.0)",
+        "rgb": "rgb(187, 69, 54)",
+        "hsl": "hsl(7, 55%, 47%)"
+      },
+      "dark": {
+        "hex": "#640401",
+        "oklch": "oklch(32.0% 0.1271 30.0)",
+        "rgb": "rgb(100, 4, 1)",
+        "hsl": "hsl(2, 98%, 20%)"
+      }
+    },
+    "info": {
+      "name": "Azul Informação",
+      "description": "Calm blue - information, hints, connects to navy",
+      "hue": "248",
+      "light": {
+        "hex": "#D6E7F7",
+        "oklch": "oklch(92.0% 0.0285 248.0)",
+        "rgb": "rgb(214, 231, 247)",
+        "hsl": "hsl(209, 67%, 90%)"
+      },
+      "base": {
+        "hex": "#4176A6",
+        "oklch": "oklch(55.0% 0.0950 248.0)",
+        "rgb": "rgb(65, 118, 166)",
+        "hsl": "hsl(209, 44%, 45%)"
+      },
+      "dark": {
+        "hex": "#093558",
+        "oklch": "oklch(32.0% 0.0779 248.0)",
+        "rgb": "rgb(9, 53, 88)",
+        "hsl": "hsl(207, 81%, 19%)"
+      }
+    }
+  },
+  "gradients": {
+    "transformation": {
+      "from": "#535D78",
+      "to": "#AE5339",
+      "angle": 135,
+      "css": "linear-gradient(135deg, #535D78 0%, #AE5339 100%)",
+      "description": "Navy to Burgundy gradient symbolizing transformation journey"
+    },
+    "hero": {
+      "from": "#1D253E",
+      "via": "#535D78",
+      "to": "#9A3B20",
+      "css": "linear-gradient(135deg, #1D253E 0%, #535D78 50%, #9A3B20 100%)",
+      "description": "Full transformation spectrum for hero sections"
+    }
+  },
+  "usage": {
+    "backgrounds": {
+      "light": "neutral.50, neutral.100, or primary.50",
+      "dark": "primary.900 or neutral.900",
+      "accent": "accent.50 or accent.100 for highlights"
+    },
+    "text": {
+      "primary": "neutral.900 or primary.800 on light backgrounds",
+      "inverse": "neutral.50 or neutral.100 on dark backgrounds",
+      "muted": "neutral.500 or neutral.600",
+      "link": "primary.600 or secondary.600"
+    },
+    "interactive": {
+      "primaryAction": "primary.600 (default), primary.700 (hover), primary.800 (active)",
+      "secondaryAction": "secondary.600 (default), secondary.700 (hover)",
+      "accentHighlight": "accent.500 for CTAs and special highlights",
+      "disabled": "neutral.300"
+    },
+    "borders": {
+      "subtle": "neutral.200",
+      "default": "neutral.300",
+      "strong": "neutral.400",
+      "focus": "primary.500"
+    }
+  },
+  "rationale": "This OKLCH-based palette ensures perceptually uniform lightness across all color grades. The Navy Profundo (#191F3A) naturally sits at grade 800 (L~25%), and Borgonha (#81171F) at grade 700 (L~40%) - preserving brand color accuracy rather than forcing them to grade 500. The \"Ouro da Liberdade\" accent (hue 90) was chosen as a warm gold that complements both cool navy and warm burgundy, evoking the brand themes of lightness and freedom - like golden dandelion seeds. The neutral scale carries a subtle navy undertone (hue 265) for cohesion. Semantic colors harmonize with the brand: success-green for growth, warning-amber echoes the accent, error-red relates to burgundy, and info-blue connects to the navy. The transformation gradient from navy to burgundy symbolizes the entrepreneurial journey from professional foundations to passionate freedom."
+}

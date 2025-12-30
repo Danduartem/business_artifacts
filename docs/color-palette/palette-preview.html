@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seja Livre - Color Palette Preview v2.3</title>
+  <link rel="stylesheet" href="seja-livre-colors.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg-page);
+      color: var(--text-body);
+      line-height: 1.6;
+      padding: 2rem;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    header {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--gradient-transformation);
+      color: var(--color-neutral-50);  /* Always light - gradient is always dark */
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+    }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { opacity: 0.9; font-size: 1.1rem; font-style: italic; }
+
+    .brand-badge {
+      display: inline-block;
+      background: var(--color-accent-500);
+      color: var(--color-neutral-900);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      font-family: sans-serif;
+    }
+
+    section { margin-bottom: 3rem; }
+    h2 {
+      color: var(--text-heading);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border-subtle);
+    }
+    h3 {
+      color: var(--color-secondary-500);
+      font-size: 1.1rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+    @media (prefers-color-scheme: dark) {
+      h3 { color: var(--color-secondary-400); }
+    }
+
+    .duality-box {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 2rem;
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+    .duality-side {
+      text-align: center;
+    }
+    .duality-side h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .duality-side ul {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+    .duality-navy { color: var(--color-primary-600); }
+    .duality-burgundy { color: var(--color-secondary-500); }
+    @media (prefers-color-scheme: dark) {
+      .duality-navy { color: var(--color-primary-300); }
+      .duality-burgundy { color: var(--color-secondary-400); }
+    }
+    .duality-arrow {
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      color: var(--color-neutral-400);
+    }
+
+    .locked-colors {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .locked-card {
+      background: var(--bg-card);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .locked-swatch {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+    .locked-info {
+      padding: 1rem;
+    }
+    .locked-info h4 { font-size: 1rem; color: var(--text-heading); margin-bottom: 0.25rem; }
+    .locked-info code {
+      display: block;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+    .locked-badge {
+      display: inline-block;
+      background: var(--color-success-light);
+      color: var(--color-success-dark);
+      font-size: 0.7rem;
+      padding: 0.125rem 0.5rem;
+      border-radius: 1rem;
+      margin-top: 0.5rem;
+      font-family: sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      .locked-badge {
+        background: var(--color-success-dark);
+        color: var(--color-success-light);
+      }
+    }
+    .locked-badge.generated {
+      background: var(--color-accent-100);
+      color: var(--color-accent-800);
+    }
+    @media (prefers-color-scheme: dark) {
+      .locked-badge.generated {
+        background: var(--color-accent-800);
+        color: var(--color-accent-200);
+      }
+    }
+
+    .scale-section { margin-bottom: 2rem; }
+    .scale-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .scale-row {
+      display: flex;
+      gap: 0;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    .scale-swatch {
+      flex: 1;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-family: sans-serif;
+      transition: transform 0.2s;
+    }
+    .scale-swatch:hover {
+      transform: scale(1.1);
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .scale-swatch.locked {
+      border: 3px solid var(--color-accent-500);
+      position: relative;
+    }
+    .scale-swatch.locked::after {
+      content: "LOCKED";
+      position: absolute;
+      bottom: 2px;
+      font-size: 0.5rem;
+      font-weight: bold;
+      color: var(--color-accent-800);
+      background: var(--color-accent-200);
+      padding: 0 4px;
+      border-radius: 2px;
+    }
+    .scale-grade { font-weight: 600; }
+
+    .gradients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    .gradient-card {
+      height: 120px;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+      color: white;
+      font-weight: 600;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    .gradient-card.light-text { color: var(--color-neutral-900); text-shadow: none; }
+
+    .semantic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+    .semantic-card {
+      padding: 1rem;
+      border-radius: 0.5rem;
+      text-align: center;
+      font-family: sans-serif;
+    }
+    .semantic-card .icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .semantic-card .label { font-weight: 600; font-size: 0.875rem; }
+    .semantic-card code { font-size: 0.75rem; opacity: 0.8; }
+    .semantic-success { background: var(--color-success-light); color: var(--color-success-dark); }
+    .semantic-warning { background: var(--color-warning-light); color: var(--color-warning-dark); }
+    .semantic-error { background: var(--color-error-light); color: var(--color-error-dark); }
+    .semantic-info { background: var(--color-info-light); color: var(--color-info-dark); }
+    @media (prefers-color-scheme: dark) {
+      .semantic-success { background: var(--color-success-dark); color: var(--color-success-light); }
+      .semantic-warning { background: var(--color-warning-dark); color: var(--color-warning-light); }
+      .semantic-error { background: var(--color-error-dark); color: var(--color-error-light); }
+      .semantic-info { background: var(--color-info-dark); color: var(--color-info-light); }
+    }
+
+    .button-demo {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: sans-serif;
+    }
+    .btn-primary {
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+    }
+    .btn-primary:hover { background: var(--btn-primary-hover); }
+    .btn-secondary {
+      background: var(--btn-secondary-bg);
+      color: var(--btn-secondary-text);
+    }
+    .btn-secondary:hover { background: var(--btn-secondary-hover); }
+    .btn-accent {
+      background: var(--btn-accent-bg);
+      color: var(--btn-accent-text);
+    }
+    .btn-accent:hover { background: var(--btn-accent-hover); }
+
+    .text-demo { margin-top: 1.5rem; }
+    .text-demo p { margin-bottom: 0.5rem; }
+
+    .quality-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-success-light);
+      color: var(--color-success-dark);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-family: sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      .quality-badge {
+        background: var(--color-success-dark);
+        color: var(--color-success-light);
+      }
+    }
+
+    .psychology-quote {
+      background: var(--bg-card);
+      border-left: 4px solid var(--color-secondary-500);
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      font-style: italic;
+      color: var(--text-body);
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+    @media (prefers-color-scheme: dark) {
+      .psychology-quote {
+        border-left-color: var(--color-secondary-400);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 2rem;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Seja Livre</h1>
+      <p>"Empreenda com leveza, cresça com liberdade"</p>
+      <span class="brand-badge">Color System v2.3</span>
+    </header>
+
+    <section>
+      <div class="quality-badge">
+        <span>A</span> Grade: 90+ | Harmony: 87 | Psychology: 89 | Accessibility: 94
+      </div>
+
+      <h2>Brand Duality</h2>
+      <div class="duality-box">
+        <div class="duality-side duality-navy">
+          <h4>RATIONAL (Navy)</h4>
+          <ul>
+            <li>Confiança</li>
+            <li>Profissionalismo</li>
+            <li>Base estratégica</li>
+            <li>Clareza de método</li>
+          </ul>
+        </div>
+        <div class="duality-arrow">↔</div>
+        <div class="duality-side duality-burgundy">
+          <h4>EMOTIONAL (Burgundy)</h4>
+          <ul>
+            <li>Força</li>
+            <li>Paixão</li>
+            <li>Transformação</li>
+            <li>Alma e coragem</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Locked Brand Colors (Source of Truth)</h2>
+      <div class="locked-colors">
+        <div class="locked-card">
+          <div class="locked-swatch" style="background: #191F3A;">
+            Navy Profundo
+          </div>
+          <div class="locked-info">
+            <h4>Primary @ Grade 800</h4>
+            <code>#191F3A | Pantone 5255 C</code>
+            <span class="locked-badge">LOCKED</span>
+          </div>
+        </div>
+        <div class="locked-card">
+          <div class="locked-swatch" style="background: #81171F;">
+            Borgonha
+          </div>
+          <div class="locked-info">
+            <h4>Secondary @ Grade 700</h4>
+            <code>#81171F | Pantone 1955 C</code>
+            <span class="locked-badge">LOCKED</span>
+          </div>
+        </div>
+        <div class="locked-card">
+          <div class="locked-swatch" style="background: #ECECEC; color: #191F3A;">
+            Cinza Claro
+          </div>
+          <div class="locked-info">
+            <h4>Neutral Reference</h4>
+            <code>#ECECEC</code>
+            <span class="locked-badge">REFERENCE</span>
+          </div>
+        </div>
+        <div class="locked-card">
+          <div class="locked-swatch" style="background: #E0B83D; color: #54400B;">
+            Ouro da Liberdade
+          </div>
+          <div class="locked-info">
+            <h4>Accent @ Grade 500</h4>
+            <code>#E0B83D</code>
+            <span class="locked-badge generated">GENERATED</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Color Scales</h2>
+
+      <div class="scale-section">
+        <p class="scale-label">Primary - Navy Profundo (RATIONAL foundation)</p>
+        <div class="scale-row">
+          <div class="scale-swatch" style="background: #F4F5FA; color: #191F3A;"><span class="scale-grade">50</span></div>
+          <div class="scale-swatch" style="background: #E8EAF4; color: #191F3A;"><span class="scale-grade">100</span></div>
+          <div class="scale-swatch" style="background: #D0D4E8; color: #191F3A;"><span class="scale-grade">200</span></div>
+          <div class="scale-swatch" style="background: #B3B9D6; color: #191F3A;"><span class="scale-grade">300</span></div>
+          <div class="scale-swatch" style="background: #8E96BE; color: #191F3A;"><span class="scale-grade">400</span></div>
+          <div class="scale-swatch" style="background: #6A74A3; color: white;"><span class="scale-grade">500</span></div>
+          <div class="scale-swatch" style="background: #4F5785; color: white;"><span class="scale-grade">600</span></div>
+          <div class="scale-swatch" style="background: #363D62; color: white;"><span class="scale-grade">700</span></div>
+          <div class="scale-swatch locked" style="background: #191F3A; color: white;"><span class="scale-grade">800</span></div>
+          <div class="scale-swatch" style="background: #0D1022; color: white;"><span class="scale-grade">900</span></div>
+        </div>
+      </div>
+
+      <div class="scale-section">
+        <p class="scale-label">Secondary - Borgonha (EMOTIONAL heart)</p>
+        <div class="scale-row">
+          <div class="scale-swatch" style="background: #FDF5F5; color: #81171F;"><span class="scale-grade">50</span></div>
+          <div class="scale-swatch" style="background: #FAEAEA; color: #81171F;"><span class="scale-grade">100</span></div>
+          <div class="scale-swatch" style="background: #F4D2D4; color: #81171F;"><span class="scale-grade">200</span></div>
+          <div class="scale-swatch" style="background: #E8A9AE; color: #81171F;"><span class="scale-grade">300</span></div>
+          <div class="scale-swatch" style="background: #D67680; color: white;"><span class="scale-grade">400</span></div>
+          <div class="scale-swatch" style="background: #BE4652; color: white;"><span class="scale-grade">500</span></div>
+          <div class="scale-swatch" style="background: #9E2A35; color: white;"><span class="scale-grade">600</span></div>
+          <div class="scale-swatch locked" style="background: #81171F; color: white;"><span class="scale-grade">700</span></div>
+          <div class="scale-swatch" style="background: #5E1118; color: white;"><span class="scale-grade">800</span></div>
+          <div class="scale-swatch" style="background: #3D0B10; color: white;"><span class="scale-grade">900</span></div>
+        </div>
+      </div>
+
+      <div class="scale-section">
+        <p class="scale-label">Accent - Ouro da Liberdade (Freedom, dandelion seeds)</p>
+        <div class="scale-row">
+          <div class="scale-swatch" style="background: #FEFCF3; color: #54400B;"><span class="scale-grade">50</span></div>
+          <div class="scale-swatch" style="background: #FDF8E4; color: #54400B;"><span class="scale-grade">100</span></div>
+          <div class="scale-swatch" style="background: #FAEFC5; color: #54400B;"><span class="scale-grade">200</span></div>
+          <div class="scale-swatch" style="background: #F5E29E; color: #54400B;"><span class="scale-grade">300</span></div>
+          <div class="scale-swatch" style="background: #EDD06F; color: #54400B;"><span class="scale-grade">400</span></div>
+          <div class="scale-swatch" style="background: #E0B83D; color: #54400B;"><span class="scale-grade">500</span></div>
+          <div class="scale-swatch" style="background: #C99B1F; color: white;"><span class="scale-grade">600</span></div>
+          <div class="scale-swatch" style="background: #A67E15; color: white;"><span class="scale-grade">700</span></div>
+          <div class="scale-swatch" style="background: #7D5F10; color: white;"><span class="scale-grade">800</span></div>
+          <div class="scale-swatch" style="background: #54400B; color: white;"><span class="scale-grade">900</span></div>
+        </div>
+      </div>
+
+      <div class="scale-section">
+        <p class="scale-label">Neutral - Cinza Azulado (Breathing space, navy undertone)</p>
+        <div class="scale-row">
+          <div class="scale-swatch" style="background: #F8F8FA; color: #1D1D26;"><span class="scale-grade">50</span></div>
+          <div class="scale-swatch" style="background: #ECECF0; color: #1D1D26;"><span class="scale-grade">100</span></div>
+          <div class="scale-swatch" style="background: #DCDCE4; color: #1D1D26;"><span class="scale-grade">200</span></div>
+          <div class="scale-swatch" style="background: #C4C4D0; color: #1D1D26;"><span class="scale-grade">300</span></div>
+          <div class="scale-swatch" style="background: #A5A5B5; color: #1D1D26;"><span class="scale-grade">400</span></div>
+          <div class="scale-swatch" style="background: #85859A; color: white;"><span class="scale-grade">500</span></div>
+          <div class="scale-swatch" style="background: #656578; color: white;"><span class="scale-grade">600</span></div>
+          <div class="scale-swatch" style="background: #4A4A5A; color: white;"><span class="scale-grade">700</span></div>
+          <div class="scale-swatch" style="background: #32323E; color: white;"><span class="scale-grade">800</span></div>
+          <div class="scale-swatch" style="background: #1D1D26; color: white;"><span class="scale-grade">900</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Brand Gradients</h2>
+      <div class="gradients-grid">
+        <div class="gradient-card" style="background: linear-gradient(135deg, #191F3A 0%, #81171F 100%);">
+          Transformation (Navy → Burgundy)
+        </div>
+        <div class="gradient-card light-text" style="background: linear-gradient(135deg, #E0B83D 0%, #FAEFC5 50%, #F8F8FA 100%);">
+          Freedom (Gold → Light)
+        </div>
+        <div class="gradient-card" style="background: linear-gradient(135deg, #191F3A 0%, #81171F 40%, #E0B83D 100%);">
+          Sunrise (Full Brand Arc)
+        </div>
+        <div class="gradient-card" style="background: linear-gradient(135deg, #81171F 0%, #BE4652 50%, #E8A9AE 100%);">
+          Warmth (Passion)
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Semantic Colors</h2>
+      <div class="semantic-grid">
+        <div class="semantic-card semantic-success">
+          <div class="icon">✓</div>
+          <div class="label">Success</div>
+          <code>#2DA55D</code>
+        </div>
+        <div class="semantic-card semantic-warning">
+          <div class="icon">⚠</div>
+          <div class="label">Warning</div>
+          <code>#D4A017</code>
+        </div>
+        <div class="semantic-card semantic-error">
+          <div class="icon">✕</div>
+          <div class="label">Error</div>
+          <code>#D93830</code>
+        </div>
+        <div class="semantic-card semantic-info">
+          <div class="icon">ℹ</div>
+          <div class="label">Info</div>
+          <code>#3B5ED9</code>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>UI Components</h2>
+      <div class="button-demo">
+        <button class="btn btn-primary">Primary Action</button>
+        <button class="btn btn-secondary">Transformation</button>
+        <button class="btn btn-accent">Claim Freedom</button>
+      </div>
+      <div class="text-demo">
+        <p style="color: var(--text-heading); font-size: 1.25rem; font-weight: 600;">Heading Text (--text-heading)</p>
+        <p style="color: var(--text-body);">Body text for main content (--text-body)</p>
+        <p style="color: var(--text-muted);">Muted text for secondary info (--text-muted)</p>
+        <p style="color: var(--text-emphasis); font-weight: bold;">Bold/Emphasis text (--text-emphasis)</p>
+        <p><a href="#" style="color: var(--text-link);">Link color (--text-link)</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Brand Psychology (from manual)</h2>
+      <div class="psychology-quote">
+        <strong>Navy Profundo:</strong> "Evoca confiança, profissionalismo e profundidade. Representa a segurança emocional e a base estratégica. Conecta-se com o lado RACIONAL e clareza de método."
+      </div>
+      <div class="psychology-quote">
+        <strong>Borgonha:</strong> "Transmite força, paixão e autenticidade. Representa a energia de transformação interior que guia o empreendedorismo com alma e coragem. Conecta-se com o lado EMOCIONAL e inspirador."
+      </div>
+      <div class="psychology-quote">
+        <strong>Gradient:</strong> "Simboliza a transformação fluida entre coragem (vermelho) e estabilidade (azul). Representa visualmente as sementes do dente-de-leão voando com leveza."
+      </div>
+    </section>
+
+    <footer>
+      <p>Seja Livre Color System v2.3 | Generated by Color Forge (Opus)</p>
+      <p>Locked Colors Verified: #191F3A, #81171F</p>
+      <p>Brand Manual Reference: jucana6.jpg, jucana7.jpg</p>
+    </footer>
+  </div>
+</body>
+</html>

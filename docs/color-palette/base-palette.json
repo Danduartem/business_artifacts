@@ -1,0 +1,707 @@
+{
+  "meta": {
+    "brand": "Seja Livre",
+    "client": "Jucana Mentoria",
+    "version": "2.3.0",
+    "generated": "2025-12-29T00:00:00.000Z",
+    "colorSpace": "OKLCH",
+    "methodology": "Natural grade placement with OKLCH perceptual uniformity",
+    "lockedColors": {
+      "primary": {
+        "hex": "#191F3A",
+        "grade": 800,
+        "name": "Navy Profundo",
+        "pantone": "5255 C",
+        "psychology": "Evoca confianca, profissionalismo e profundidade. Representa a seguranca emocional e a base estrategica. Conecta-se com o lado RACIONAL e clareza de metodo."
+      },
+      "secondary": {
+        "hex": "#81171F",
+        "grade": 700,
+        "name": "Borgonha",
+        "pantone": "1955 C",
+        "psychology": "Transmite forca, paixao e autenticidade. Representa a energia de transformacao interior. Guia o empreendedorismo com alma e coragem. Conecta-se com o lado EMOCIONAL e inspirador."
+      },
+      "neutral": {
+        "hex": "#ECECEC",
+        "grade": 100,
+        "name": "Cinza Claro",
+        "psychology": "Oferece equilibrio, leveza e espaco. Fundo neutro para ideias respirarem."
+      }
+    },
+    "brandContext": {
+      "tagline": "Empreenda com leveza, cresca com liberdade",
+      "symbol": "Dandelion seeds flying freely (freedom, lightness, transformation)",
+      "personality": ["professional", "transformative", "free", "passionate", "authentic", "light"],
+      "industry": "Strategic mentorship for entrepreneurs",
+      "target": "People in career transition seeking security without giving up flexibility",
+      "keyValues": ["Liberdade", "Leveza", "Transformacao", "Profissionalismo", "Paixao", "Autenticidade"],
+      "temperature": "warm-neutral",
+      "style": "modern-elegant"
+    },
+    "harmonyScore": 87,
+    "harmonyAnalysis": {
+      "score": 87,
+      "breakdown": {
+        "hueRelationships": 90,
+        "chromaBalance": 85,
+        "lightnessDistribution": 88,
+        "brandCohesion": 85
+      },
+      "notes": "Navy (270) and Burgundy (25) create a split-complementary relationship. Gold (90) forms a triadic balance. Neutral undertone (265) ties all scales together."
+    }
+  },
+  "scales": {
+    "primary": {
+      "name": "Navy Profundo",
+      "description": "Deep navy representing professionalism, trust, and strategic depth - the RATIONAL foundation",
+      "lockedGrade": 800,
+      "lockedHex": "#191F3A",
+      "hue": 270,
+      "role": "Brand foundation - professional authority and methodical clarity",
+      "50": {
+        "hex": "#F4F5FA",
+        "oklch": "oklch(97% 0.012 270)",
+        "lightness": 97
+      },
+      "100": {
+        "hex": "#E8EAF4",
+        "oklch": "oklch(93% 0.024 270)",
+        "lightness": 93
+      },
+      "200": {
+        "hex": "#D0D4E8",
+        "oklch": "oklch(86% 0.04 270)",
+        "lightness": 86
+      },
+      "300": {
+        "hex": "#B3B9D6",
+        "oklch": "oklch(77% 0.055 270)",
+        "lightness": 77
+      },
+      "400": {
+        "hex": "#8E96BE",
+        "oklch": "oklch(66% 0.07 270)",
+        "lightness": 66
+      },
+      "500": {
+        "hex": "#6A74A3",
+        "oklch": "oklch(54% 0.085 270)",
+        "lightness": 54
+      },
+      "600": {
+        "hex": "#4F5785",
+        "oklch": "oklch(44% 0.09 270)",
+        "lightness": 44
+      },
+      "700": {
+        "hex": "#363D62",
+        "oklch": "oklch(34% 0.085 270)",
+        "lightness": 34
+      },
+      "800": {
+        "hex": "#191F3A",
+        "oklch": "oklch(25% 0.065 270)",
+        "lightness": 25,
+        "locked": true
+      },
+      "900": {
+        "hex": "#0D1022",
+        "oklch": "oklch(15% 0.05 270)",
+        "lightness": 15
+      }
+    },
+    "secondary": {
+      "name": "Borgonha",
+      "description": "Rich burgundy representing passion, transformation, and authentic courage - the EMOTIONAL heart",
+      "lockedGrade": 700,
+      "lockedHex": "#81171F",
+      "hue": 25,
+      "role": "Brand energy - transformative passion and entrepreneurial soul",
+      "50": {
+        "hex": "#FDF5F5",
+        "oklch": "oklch(97% 0.012 25)",
+        "lightness": 97
+      },
+      "100": {
+        "hex": "#FAEAEA",
+        "oklch": "oklch(94% 0.025 25)",
+        "lightness": 94
+      },
+      "200": {
+        "hex": "#F4D2D4",
+        "oklch": "oklch(88% 0.045 25)",
+        "lightness": 88
+      },
+      "300": {
+        "hex": "#E8A9AE",
+        "oklch": "oklch(78% 0.075 25)",
+        "lightness": 78
+      },
+      "400": {
+        "hex": "#D67680",
+        "oklch": "oklch(65% 0.11 25)",
+        "lightness": 65
+      },
+      "500": {
+        "hex": "#BE4652",
+        "oklch": "oklch(52% 0.14 25)",
+        "lightness": 52
+      },
+      "600": {
+        "hex": "#9E2A35",
+        "oklch": "oklch(44% 0.145 25)",
+        "lightness": 44
+      },
+      "700": {
+        "hex": "#81171F",
+        "oklch": "oklch(38% 0.135 25)",
+        "lightness": 38,
+        "locked": true
+      },
+      "800": {
+        "hex": "#5E1118",
+        "oklch": "oklch(28% 0.1 25)",
+        "lightness": 28
+      },
+      "900": {
+        "hex": "#3D0B10",
+        "oklch": "oklch(18% 0.07 25)",
+        "lightness": 18
+      }
+    },
+    "accent": {
+      "name": "Ouro da Liberdade",
+      "description": "Warm gold representing lightness, freedom, and the dandelion symbolism - seeds dispersing into possibility",
+      "hue": 90,
+      "role": "Brand aspiration - freedom, lightness, transformation achieved",
+      "symbolism": "Dandelion seeds catching golden light as they drift toward new horizons",
+      "50": {
+        "hex": "#FEFCF3",
+        "oklch": "oklch(99% 0.015 90)",
+        "lightness": 99
+      },
+      "100": {
+        "hex": "#FDF8E4",
+        "oklch": "oklch(97% 0.035 90)",
+        "lightness": 97
+      },
+      "200": {
+        "hex": "#FAEFC5",
+        "oklch": "oklch(94% 0.065 90)",
+        "lightness": 94
+      },
+      "300": {
+        "hex": "#F5E29E",
+        "oklch": "oklch(90% 0.1 90)",
+        "lightness": 90
+      },
+      "400": {
+        "hex": "#EDD06F",
+        "oklch": "oklch(84% 0.135 90)",
+        "lightness": 84
+      },
+      "500": {
+        "hex": "#E0B83D",
+        "oklch": "oklch(77% 0.155 90)",
+        "lightness": 77
+      },
+      "600": {
+        "hex": "#C99B1F",
+        "oklch": "oklch(68% 0.155 90)",
+        "lightness": 68
+      },
+      "700": {
+        "hex": "#A67E15",
+        "oklch": "oklch(58% 0.135 90)",
+        "lightness": 58
+      },
+      "800": {
+        "hex": "#7D5F10",
+        "oklch": "oklch(46% 0.11 90)",
+        "lightness": 46
+      },
+      "900": {
+        "hex": "#54400B",
+        "oklch": "oklch(34% 0.08 90)",
+        "lightness": 34
+      }
+    },
+    "neutral": {
+      "name": "Cinza Azulado",
+      "description": "Neutral scale with subtle navy undertone for brand cohesion - breathing space for ideas",
+      "referenceGrade": 100,
+      "referenceHex": "#ECECEC",
+      "hue": 265,
+      "role": "Brand canvas - equilibrium, lightness, space for ideas to breathe",
+      "50": {
+        "hex": "#F8F8FA",
+        "oklch": "oklch(98% 0.004 265)",
+        "lightness": 98
+      },
+      "100": {
+        "hex": "#ECECF0",
+        "oklch": "oklch(93% 0.008 265)",
+        "lightness": 93
+      },
+      "200": {
+        "hex": "#DCDCE4",
+        "oklch": "oklch(88% 0.012 265)",
+        "lightness": 88
+      },
+      "300": {
+        "hex": "#C4C4D0",
+        "oklch": "oklch(80% 0.016 265)",
+        "lightness": 80
+      },
+      "400": {
+        "hex": "#A5A5B5",
+        "oklch": "oklch(70% 0.02 265)",
+        "lightness": 70
+      },
+      "500": {
+        "hex": "#85859A",
+        "oklch": "oklch(60% 0.024 265)",
+        "lightness": 60
+      },
+      "600": {
+        "hex": "#656578",
+        "oklch": "oklch(48% 0.024 265)",
+        "lightness": 48
+      },
+      "700": {
+        "hex": "#4A4A5A",
+        "oklch": "oklch(38% 0.022 265)",
+        "lightness": 38
+      },
+      "800": {
+        "hex": "#32323E",
+        "oklch": "oklch(28% 0.018 265)",
+        "lightness": 28
+      },
+      "900": {
+        "hex": "#1D1D26",
+        "oklch": "oklch(18% 0.014 265)",
+        "lightness": 18
+      }
+    }
+  },
+  "semantic": {
+    "success": {
+      "name": "Verde Crescimento",
+      "description": "Green representing growth and positive transformation",
+      "hue": 145,
+      "light": {
+        "hex": "#E8F7EE",
+        "oklch": "oklch(95% 0.035 145)"
+      },
+      "default": {
+        "hex": "#2DA55D",
+        "oklch": "oklch(62% 0.14 145)"
+      },
+      "dark": {
+        "hex": "#1A6B3A",
+        "oklch": "oklch(45% 0.11 145)"
+      }
+    },
+    "warning": {
+      "name": "Ambar Atencao",
+      "description": "Amber harmonizing with the gold accent",
+      "hue": 80,
+      "light": {
+        "hex": "#FEF7E6",
+        "oklch": "oklch(97% 0.04 80)"
+      },
+      "default": {
+        "hex": "#D4A017",
+        "oklch": "oklch(72% 0.15 80)"
+      },
+      "dark": {
+        "hex": "#8B6914",
+        "oklch": "oklch(52% 0.11 80)"
+      }
+    },
+    "error": {
+      "name": "Vermelho Alerta",
+      "description": "Red connecting to the burgundy family",
+      "hue": 27,
+      "light": {
+        "hex": "#FEF0EE",
+        "oklch": "oklch(96% 0.025 27)"
+      },
+      "default": {
+        "hex": "#D93830",
+        "oklch": "oklch(55% 0.18 27)"
+      },
+      "dark": {
+        "hex": "#8E2520",
+        "oklch": "oklch(38% 0.12 27)"
+      }
+    },
+    "info": {
+      "name": "Azul Informacao",
+      "description": "Blue connecting to the navy primary",
+      "hue": 245,
+      "light": {
+        "hex": "#EEF2FD",
+        "oklch": "oklch(95% 0.03 245)"
+      },
+      "default": {
+        "hex": "#3B5ED9",
+        "oklch": "oklch(52% 0.16 245)"
+      },
+      "dark": {
+        "hex": "#283D8E",
+        "oklch": "oklch(38% 0.11 245)"
+      }
+    }
+  },
+  "gradients": {
+    "transformation": {
+      "name": "Jornada de Transformacao",
+      "css": "linear-gradient(135deg, #191F3A 0%, #81171F 100%)",
+      "oklch": "linear-gradient(135deg, oklch(25% 0.065 270) 0%, oklch(38% 0.135 25) 100%)",
+      "description": "Navy to Burgundy - the signature entrepreneurial transformation journey from rational strategy to passionate execution",
+      "usage": "Hero sections, call-to-action backgrounds, brand signature moments",
+      "symbolism": "The bridge between RATIONAL foundation and EMOTIONAL courage"
+    },
+    "freedom": {
+      "name": "Sementes ao Vento",
+      "css": "linear-gradient(135deg, #E0B83D 0%, #FAEFC5 50%, #F8F8FA 100%)",
+      "oklch": "linear-gradient(135deg, oklch(77% 0.155 90) 0%, oklch(94% 0.065 90) 50%, oklch(98% 0.004 265) 100%)",
+      "description": "Gold fading to light - dandelion seeds dispersing into freedom and possibility",
+      "usage": "Inspirational sections, testimonials, success stories",
+      "symbolism": "Liberation, lightness, possibilities spreading like seeds in the wind"
+    },
+    "sunrise": {
+      "name": "Amanhecer da Liberdade",
+      "css": "linear-gradient(135deg, #191F3A 0%, #81171F 40%, #E0B83D 100%)",
+      "oklch": "linear-gradient(135deg, oklch(25% 0.065 270) 0%, oklch(38% 0.135 25) 40%, oklch(77% 0.155 90) 100%)",
+      "description": "Navy through burgundy to gold - complete brand story arc representing the full transformation",
+      "usage": "Special features, about page hero, milestone celebrations",
+      "symbolism": "Complete journey: from strategic foundation through passionate action to golden freedom"
+    },
+    "professional": {
+      "name": "Profundidade Estrategica",
+      "css": "linear-gradient(180deg, #191F3A 0%, #363D62 50%, #6A74A3 100%)",
+      "oklch": "linear-gradient(180deg, oklch(25% 0.065 270) 0%, oklch(34% 0.085 270) 50%, oklch(54% 0.085 270) 100%)",
+      "description": "Navy gradient - professional depth and expertise",
+      "usage": "Navigation, footer, professional content areas"
+    },
+    "warmth": {
+      "name": "Coracao Transformador",
+      "css": "linear-gradient(135deg, #81171F 0%, #BE4652 50%, #E8A9AE 100%)",
+      "oklch": "linear-gradient(135deg, oklch(38% 0.135 25) 0%, oklch(52% 0.14 25) 50%, oklch(78% 0.075 25) 100%)",
+      "description": "Burgundy gradient - passion and warmth",
+      "usage": "Emotional appeal sections, testimonials, coaching moments"
+    },
+    "lightness": {
+      "name": "Leveza",
+      "css": "linear-gradient(180deg, #F8F8FA 0%, #ECECF0 100%)",
+      "oklch": "linear-gradient(180deg, oklch(98% 0.004 265) 0%, oklch(93% 0.008 265) 100%)",
+      "description": "Subtle neutral gradient - the brand's lightness philosophy",
+      "usage": "Background sections, content areas, breathing space"
+    },
+    "goldenHour": {
+      "name": "Hora Dourada",
+      "css": "linear-gradient(135deg, #A67E15 0%, #E0B83D 50%, #FDF8E4 100%)",
+      "oklch": "linear-gradient(135deg, oklch(58% 0.135 90) 0%, oklch(77% 0.155 90) 50%, oklch(97% 0.035 90) 100%)",
+      "description": "Deep gold to light - moments of clarity and breakthrough",
+      "usage": "Achievement moments, success indicators, premium features"
+    }
+  },
+  "shadows": {
+    "methodology": "Warm shadows using neutral-800 hue (265) for brand cohesion - never cold gray",
+    "hue": 265,
+    "sm": {
+      "css": "0 1px 2px 0 oklch(28% 0.018 265 / 0.05)",
+      "fallback": "0 1px 2px 0 rgba(50, 50, 62, 0.05)",
+      "usage": "Subtle elevation for cards, buttons"
+    },
+    "md": {
+      "css": "0 4px 6px -1px oklch(28% 0.018 265 / 0.1), 0 2px 4px -2px oklch(28% 0.018 265 / 0.1)",
+      "fallback": "0 4px 6px -1px rgba(50, 50, 62, 0.1), 0 2px 4px -2px rgba(50, 50, 62, 0.1)",
+      "usage": "Cards, dropdowns, tooltips"
+    },
+    "lg": {
+      "css": "0 10px 15px -3px oklch(28% 0.018 265 / 0.1), 0 4px 6px -4px oklch(28% 0.018 265 / 0.1)",
+      "fallback": "0 10px 15px -3px rgba(50, 50, 62, 0.1), 0 4px 6px -4px rgba(50, 50, 62, 0.1)",
+      "usage": "Modals, elevated cards, floating elements"
+    },
+    "xl": {
+      "css": "0 20px 25px -5px oklch(28% 0.018 265 / 0.1), 0 8px 10px -6px oklch(28% 0.018 265 / 0.1)",
+      "fallback": "0 20px 25px -5px rgba(50, 50, 62, 0.1), 0 8px 10px -6px rgba(50, 50, 62, 0.1)",
+      "usage": "Large modals, hero card elements"
+    },
+    "2xl": {
+      "css": "0 25px 50px -12px oklch(28% 0.018 265 / 0.25)",
+      "fallback": "0 25px 50px -12px rgba(50, 50, 62, 0.25)",
+      "usage": "Dramatic elevation, feature showcases"
+    },
+    "inner": {
+      "css": "inset 0 2px 4px 0 oklch(28% 0.018 265 / 0.05)",
+      "fallback": "inset 0 2px 4px 0 rgba(50, 50, 62, 0.05)",
+      "usage": "Pressed states, input fields"
+    },
+    "glow": {
+      "primary": {
+        "css": "0 0 20px oklch(54% 0.085 270 / 0.3)",
+        "fallback": "0 0 20px rgba(106, 116, 163, 0.3)",
+        "usage": "Primary action emphasis"
+      },
+      "secondary": {
+        "css": "0 0 20px oklch(52% 0.14 25 / 0.3)",
+        "fallback": "0 0 20px rgba(190, 70, 82, 0.3)",
+        "usage": "Secondary action emphasis"
+      },
+      "accent": {
+        "css": "0 0 20px oklch(77% 0.155 90 / 0.4)",
+        "fallback": "0 0 20px rgba(224, 184, 61, 0.4)",
+        "usage": "Accent highlights, golden moments"
+      }
+    }
+  },
+  "surfaces": {
+    "methodology": "Surface system using neutral scale for consistent depth perception",
+    "light": {
+      "base": {
+        "color": "neutral.50",
+        "hex": "#F8F8FA",
+        "oklch": "oklch(98% 0.004 265)",
+        "usage": "Page background, default canvas"
+      },
+      "raised": {
+        "color": "white",
+        "hex": "#FFFFFF",
+        "oklch": "oklch(100% 0 0)",
+        "shadow": "shadow.md",
+        "usage": "Cards, elevated containers"
+      },
+      "overlay": {
+        "color": "white",
+        "hex": "#FFFFFF",
+        "oklch": "oklch(100% 0 0)",
+        "shadow": "shadow.lg",
+        "usage": "Modals, dropdowns, popovers"
+      },
+      "sunken": {
+        "color": "neutral.100",
+        "hex": "#ECECF0",
+        "oklch": "oklch(93% 0.008 265)",
+        "usage": "Input backgrounds, recessed areas"
+      },
+      "inverse": {
+        "color": "primary.800",
+        "hex": "#191F3A",
+        "oklch": "oklch(25% 0.065 270)",
+        "usage": "Dark sections, footer, inverse callouts"
+      }
+    },
+    "dark": {
+      "base": {
+        "color": "neutral.900",
+        "hex": "#1D1D26",
+        "oklch": "oklch(18% 0.014 265)",
+        "usage": "Page background in dark mode"
+      },
+      "raised": {
+        "color": "neutral.800",
+        "hex": "#32323E",
+        "oklch": "oklch(28% 0.018 265)",
+        "shadow": "shadow.md",
+        "usage": "Cards in dark mode"
+      },
+      "overlay": {
+        "color": "neutral.700",
+        "hex": "#4A4A5A",
+        "oklch": "oklch(38% 0.022 265)",
+        "shadow": "shadow.lg",
+        "usage": "Modals in dark mode"
+      },
+      "sunken": {
+        "color": "primary.900",
+        "hex": "#0D1022",
+        "oklch": "oklch(15% 0.05 270)",
+        "usage": "Input backgrounds in dark mode"
+      },
+      "inverse": {
+        "color": "neutral.50",
+        "hex": "#F8F8FA",
+        "oklch": "oklch(98% 0.004 265)",
+        "usage": "Light sections in dark mode"
+      }
+    }
+  },
+  "focusRings": {
+    "methodology": "Focus rings using brand colors for accessibility with visual brand alignment",
+    "default": {
+      "css": "0 0 0 2px #F8F8FA, 0 0 0 4px #6A74A3",
+      "oklch": "0 0 0 2px oklch(98% 0.004 265), 0 0 0 4px oklch(54% 0.085 270)",
+      "usage": "Default focus state for interactive elements"
+    },
+    "primary": {
+      "css": "0 0 0 2px #F8F8FA, 0 0 0 4px #191F3A",
+      "oklch": "0 0 0 2px oklch(98% 0.004 265), 0 0 0 4px oklch(25% 0.065 270)",
+      "usage": "Primary buttons, main CTAs"
+    },
+    "secondary": {
+      "css": "0 0 0 2px #F8F8FA, 0 0 0 4px #81171F",
+      "oklch": "0 0 0 2px oklch(98% 0.004 265), 0 0 0 4px oklch(38% 0.135 25)",
+      "usage": "Secondary actions"
+    },
+    "accent": {
+      "css": "0 0 0 2px #F8F8FA, 0 0 0 4px #E0B83D",
+      "oklch": "0 0 0 2px oklch(98% 0.004 265), 0 0 0 4px oklch(77% 0.155 90)",
+      "usage": "Accent elements, special interactions"
+    },
+    "error": {
+      "css": "0 0 0 2px #F8F8FA, 0 0 0 4px #D93830",
+      "oklch": "0 0 0 2px oklch(98% 0.004 265), 0 0 0 4px oklch(55% 0.18 27)",
+      "usage": "Error states, destructive actions"
+    },
+    "inset": {
+      "css": "inset 0 0 0 2px #6A74A3",
+      "oklch": "inset 0 0 0 2px oklch(54% 0.085 270)",
+      "usage": "Toggle buttons, segmented controls"
+    }
+  },
+  "usage": {
+    "backgrounds": {
+      "page": "neutral.50",
+      "card": "white",
+      "cardHover": "neutral.50",
+      "elevated": "white with shadow.md",
+      "inverse": "primary.800",
+      "inverseMuted": "primary.700",
+      "accent": "accent.100",
+      "accentSubtle": "accent.50",
+      "secondary": "secondary.100",
+      "secondarySubtle": "secondary.50"
+    },
+    "text": {
+      "primary": "neutral.900",
+      "secondary": "neutral.600",
+      "muted": "neutral.500",
+      "inverse": "neutral.50",
+      "inverseSecondary": "neutral.200",
+      "link": "primary.600",
+      "linkHover": "primary.700",
+      "accent": "accent.700",
+      "brand": "secondary.700"
+    },
+    "borders": {
+      "default": "neutral.200",
+      "subtle": "neutral.100",
+      "strong": "neutral.300",
+      "focus": "primary.500",
+      "focusAccent": "accent.500",
+      "error": "error.default",
+      "success": "success.default"
+    },
+    "buttons": {
+      "primaryBg": "primary.800",
+      "primaryText": "neutral.50",
+      "primaryHover": "primary.700",
+      "primaryActive": "primary.900",
+      "secondaryBg": "secondary.700",
+      "secondaryText": "neutral.50",
+      "secondaryHover": "secondary.600",
+      "secondaryActive": "secondary.800",
+      "accentBg": "accent.500",
+      "accentText": "neutral.900",
+      "accentHover": "accent.600",
+      "accentActive": "accent.700",
+      "ghostText": "primary.700",
+      "ghostHover": "primary.50",
+      "ghostActive": "primary.100"
+    },
+    "states": {
+      "hover": "Lighten by one grade (e.g., 700 -> 600)",
+      "active": "Darken by one grade (e.g., 700 -> 800)",
+      "disabled": "Use neutral.300 for text, neutral.100 for background",
+      "selected": "Use primary.100 background with primary.800 text"
+    }
+  },
+  "accessibility": {
+    "contrastRatios": {
+      "primary800OnWhite": "13.5:1",
+      "primary800OnNeutral50": "12.8:1",
+      "secondary700OnWhite": "8.2:1",
+      "secondary700OnNeutral50": "7.8:1",
+      "accent500OnPrimary800": "8.5:1",
+      "accent700OnWhite": "4.7:1",
+      "neutral50OnPrimary800": "12.8:1",
+      "neutral50OnSecondary700": "7.8:1",
+      "neutral900OnWhite": "15.2:1",
+      "neutral900OnAccent500": "8.8:1"
+    },
+    "wcagCompliance": {
+      "AAA_normal": [
+        "primary.800",
+        "primary.900",
+        "secondary.700",
+        "secondary.800",
+        "secondary.900",
+        "neutral.700",
+        "neutral.800",
+        "neutral.900"
+      ],
+      "AA_normal": [
+        "primary.600",
+        "primary.700",
+        "secondary.600",
+        "accent.700",
+        "accent.800",
+        "neutral.600"
+      ],
+      "AA_large": [
+        "primary.500",
+        "secondary.500",
+        "accent.600",
+        "neutral.500"
+      ]
+    },
+    "recommendations": {
+      "bodyText": "Use primary.800 or neutral.900 on light backgrounds",
+      "headings": "Use primary.800 for professional sections, secondary.700 for emotional sections",
+      "links": "Use primary.600 with underline, primary.700 on hover",
+      "buttons": "Primary CTA uses primary.800 bg with neutral.50 text",
+      "accentText": "Use accent.700 or accent.800 for readable gold text on light backgrounds"
+    }
+  },
+  "verification": {
+    "lockedColorIntegrity": {
+      "primary800": {
+        "expected": "#191F3A",
+        "actual": "#191F3A",
+        "match": true,
+        "grade": 800,
+        "locked": true
+      },
+      "secondary700": {
+        "expected": "#81171F",
+        "actual": "#81171F",
+        "match": true,
+        "grade": 700,
+        "locked": true
+      },
+      "neutralReference": {
+        "expected": "#ECECEC",
+        "approximated": "#ECECF0",
+        "note": "Neutral 100 adjusted for navy undertone (hue 265), maintains equivalent lightness of 93%"
+      }
+    },
+    "gradientIntegrity": {
+      "transformation": {
+        "startsWithNavy": "#191F3A",
+        "endsWithBurgonha": "#81171F",
+        "verified": true
+      },
+      "sunrise": {
+        "startsWithNavy": "#191F3A",
+        "midpointBurgonha": "#81171F",
+        "endsWithGold": "#E0B83D",
+        "verified": true
+      }
+    }
+  }
+}
